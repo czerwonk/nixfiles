@@ -29,8 +29,22 @@ check_repo() {
   [ -z "$(git remote -v 2>/dev/null | grep '^origin')" ] && fail_check "$(basename $(pwd)): WARNING: there's no remote called origin"
 }
 
+print_usage() {
+  echo "This script converts a classic git checkout to a git worktree checkout."
+  echo "Even if the script is performing sanity checks to prevent deleting unpushed work please make sure the repo to convert is clean and everything is pushed to origin."
+  echo "Furthermore this script assumes the upstream remove to be named 'upstream'. So please rename the remote if neccessary."
+  echo ""
+  echo "Usage:"
+  echo "./git-worktree-it.sh /my/path/to/repo"
+}
+
 echo "Git Worktree it"
 dir=$1
+if [[ "$dir" == "" ]]; then
+  print_usage
+  exit 1
+fi
+
 if [[ ! -d "$dir/.git" ]]; then
   echo "Could not find git checkout in $dir"
   exit 1
