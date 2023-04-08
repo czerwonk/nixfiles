@@ -27,7 +27,6 @@
       la = "exa -la --icons --group-directories-first --time-style long-iso";
       cat  = "bat -pp";
       fzfp = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
-      switch-env = "bash ~/.switch-env.sh";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
     };

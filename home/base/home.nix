@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./scripts/home.nix
     ./git.nix
     ./tmux.nix
     ./ssh.nix
@@ -55,12 +56,6 @@
       ipcalc
       tcpdump
     ];
-    file.".switch-env.sh".text = ''
-      #!/bin/bash
-      set -e
-
-      home-manager switch --flake "$HOME/.nixfiles#$1"
-    '';
   };
 
 }
