@@ -20,11 +20,13 @@
       python3
       typescript
       deno
-      nodePackages.typescript-language-server
       sumneko-lua-language-server
       rnix-lsp
       clippy
       reuse
-    ];
+    ] ++ (with pkgs.nodePackages; [
+        typescript-language-server
+        bash-language-server
+    ]);
   };
 }
