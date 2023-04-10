@@ -384,10 +384,10 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gD', vim.lsp.buf.declaration, 'Find Declatation (LSP)')
   map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
   map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder (LSP)')
-  map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, 'List Workspace Folders (LSP)')
+  map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
 
   -- lspsaga
   require("lspsaga").setup()
@@ -408,6 +408,8 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>fi', telescopeBuiltin.lsp_implementations, 'Implementations (LSP)')
   map('n', '<leader>fd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
   map('n', '<leader>fr', telescopeBuiltin.lsp_references, 'References (LSP)')
+  map('n', '<leader>p', telescopeBuiltin.lsp_document_symbols, 'Symbols in document (LSP)')
+  map('n', '<leader>P', telescopeBuiltin.lsp_workspace_symbols, 'Symbols in workspace (LSP)')
 end
 
 local lspconfig = require('lspconfig')
