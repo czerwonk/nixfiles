@@ -636,7 +636,8 @@ require('nvim-tree').setup {
     }
   }
 }
-vim.keymap.set('n', '<C-n>', [[:NvimTreeToggle<CR>]], { desc = 'Tree' })
+vim.keymap.set('n', '<C-n>', [[:NvimTreeToggle<CR>]], { desc = 'Toggle Tree' })
+vim.keymap.set('n', '<C-N>', [[:NvimTreeFocus<CR>]], { desc = 'Focus Tree' })
 
 local function open_nvim_tree(data)
   local directory = vim.fn.isdirectory(data.file) == 1
