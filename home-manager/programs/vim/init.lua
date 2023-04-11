@@ -414,14 +414,6 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require('lspconfig')
-local util = require('lspconfig/util')
-
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = {'rust'},
-  root_dir = util.root_pattern('Cargo.toml', '.git'),
-}
 lspconfig.pyright.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -520,6 +512,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   group = go_sync_grp,
 })
+
+-- rust
+local rt = require("rust-tools")
+rt.setup {
+  server = {
+    capabilities = capabilities,
+    on_attach = on_attach_with_debug,
+  }
+}
 
 -- vsnip
 vim.cmd([[

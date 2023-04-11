@@ -94,6 +94,7 @@ in {
       nvim-dap-ui
       trouble-nvim
       go-nvim
+      rust-tools-nvim
 
       # theme
       lualine-nvim
