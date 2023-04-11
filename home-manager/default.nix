@@ -3,6 +3,7 @@
 {
   imports = [
     ./scripts
+    ./presets/network
     ./programs/git
     ./programs/tmux
     ./programs/ssh
@@ -43,18 +44,6 @@
       podman-compose
       docker-compose
       yubikey-manager
-
-      # network
-      dig
-      host
-      mtr
-      bgpq4
-      tcptraceroute
-      iperf
-      iperf3
-      nmap
-      ipcalc
-      tcpdump
     ];
   };
 
