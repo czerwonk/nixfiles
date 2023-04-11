@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../home/base/home.nix
+    ../home-manager
   ];
   
   home = {

@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ./scripts/home.nix
-    ./git.nix
-    ./tmux.nix
-    ./ssh.nix
-    ./gpg.nix
-    ./zsh
-    ./vim
-    ./fzf.nix
-    ./bat.nix
+    ./scripts
+    ./programs/git
+    ./programs/tmux
+    ./programs/ssh
+    ./programs/gpg
+    ./programs/zsh
+    ./programs/vim
+    ./programs/fzf
+    ./programs/bat
   ];
   
   programs.home-manager.enable = true;

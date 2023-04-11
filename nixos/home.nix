@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../linux/home.nix
-    ../home/devops
+    ../linux
+    ../home-manager/presets/devops
     ../home/profiles/default
   ] ++ extraHomeModules;
 }

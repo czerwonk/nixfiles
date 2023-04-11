@@ -37,40 +37,40 @@
         "${username}-osx" = userUtil.mkOSXHMUser {
           inherit username signingkey workspace;
           extraModules = [ 
-            ./home/devops
-            ./home/profiles/default
+            ./home-manager/presets/devops
+            ./home-manager/profiles/default
           ];
         };
 
         "${username}-linux" = userUtil.mkLinuxHMUser {
           inherit username signingkey workspace;
           extraModules = [ 
-            ./home/devops
-            ./home/profiles/default
+            ./home-manager/presets/devops
+            ./home-manager/profiles/default
           ];
         };
 
         "${username}-osx-mauve" = mauveUserUtil.mkOSXHMUserProfile {
           extraModules = [ 
-            ./osx/home.nix
-            ./home/devops
-            ./home/profiles/default/ssh.nix
+            ./osx
+            ./home-manager/presets/devops
+            ./home-manager/profiles/default/ssh.nix
           ];
         };
 
         "mauve-osx" = mauveUserUtil.mkOSXHMUser {
           extraModules = [ 
-            ./osx/home.nix
-            ./home/devops
-            ./home/profiles/default/ssh.nix
+            ./osx
+            ./home-manager/presets/devops
+            ./home-manager/profiles/default/ssh.nix
           ];
         };
 
         "mauve-linux" = mauveUserUtil.mkLinuxHMUser {
           extraModules = [ 
-            ./linux/home.nix
-            ./home/devops/dev.nix
-            ./home/profiles/default/ssh.nix
+            ./linux
+            ./home-manager/presets/devops/dev.nix
+            ./home-manager/profiles/default/ssh.nix
           ];
         };
       };
@@ -93,7 +93,7 @@
             ./nixos/pentest.nix
           ];
           extraHomeModules = [
-            ./home/pentest/home.nix
+            ./home-manager/presets/pentest
           ];
         };
       };
