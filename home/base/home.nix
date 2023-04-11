@@ -7,8 +7,8 @@
     ./tmux.nix
     ./ssh.nix
     ./gpg.nix
-    ./zsh.nix
-    ./vim.nix
+    ./zsh
+    ./vim
     ./fzf.nix
     ./bat.nix
   ];

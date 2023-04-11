@@ -101,6 +101,6 @@ in {
       vim-code-dark
       nvim-web-devicons
     ];
-    extraLuaConfig = builtins.readFile ./config/vim/init.lua;
+    extraLuaConfig = builtins.readFile ./init.lua;
   };
 }

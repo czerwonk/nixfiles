@@ -41,6 +41,6 @@
       }
     ];
   };
-  home.file.".zshrc.local".source = ./config/zsh/zshrc.local;
-  home.file.".p10k.zsh".source = ./config/zsh/p10k.zsh;
+  home.file.".zshrc.local".source = ./zshrc.local;
+  home.file.".p10k.zsh".source = ./p10k.zsh;
 }
