@@ -34,13 +34,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 -- icons
 require('nvim-web-devicons').get_icons()
 
--- convinence key mappings
+-- convinience key mappings
 vim.keymap.set('n', 'Y', 'Y', { desc = 'Yank line' }) -- restore yank behavior of VIM
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' }) -- reposition after scrolling down
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' }) -- reposition after scrolling up
 vim.keymap.set("n", "n", "nzzzv") -- reposition after junp to match
 vim.keymap.set("n", "N", "Nzzzv") -- reposition after junp to match
 vim.keymap.set("n", "<leader>b", "<cmd>bnext<CR>", { desc = 'Switch to next buffer' })
+vim.keymap.set("n", "<leader>w", "<cmd>bdelete<CR>", { desc = 'Close current buffer' })
 vim.keymap.set("n", "Q", "<nop>") -- disable Q
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = 'Yank to Clipbaord' })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = 'Yank to Clipbaord' })
