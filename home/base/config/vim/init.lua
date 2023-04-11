@@ -460,30 +460,35 @@ lspconfig.lua_ls.setup {
 
 -- dap
 local dap = require('dap')
-vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Continue (Debug)' })
-vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Step over (Debug)' })
-vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Step into (Debug)' })
-vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Step out (Debug)' })
-vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint (Debug)' })
-vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = 'Breakpoint with message (Debug)' })
-vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end, { desc = 'Open REPL (Debug)' })
-vim.keymap.set('n', '<leader>dl', function() dap.run_last() end, { desc = 'Run Last (Debug)' })
-vim.keymap.set({'n', 'v'}, '<leader>dh', function()
-  require('dap.ui.widgets').hover()
-end, { desc = 'Widgets (hover)' })
-vim.keymap.set({'n', 'v'}, '<leader>dp', function()
-  require('dap.ui.widgets').preview()
-end, { desc = 'Widgets (preview)' })
-vim.keymap.set('n', '<leader>df', function()
-  local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.frames)
-end, { desc = 'Frames' })
-vim.keymap.set('n', '<leader>ds', function()
-  local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.scopes)
-end, { desc = 'Scopes' })
-vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
-vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+
+local function on_attach_with_debug(client, bufnr)
+  on_attach(client, bufnr)
+
+  vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Continue (Debug)' })
+  vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Step over (Debug)' })
+  vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Step into (Debug)' })
+  vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Step out (Debug)' })
+  vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint (Debug)' })
+  vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = 'Breakpoint with message (Debug)' })
+  vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end, { desc = 'Open REPL (Debug)' })
+  vim.keymap.set('n', '<leader>dl', function() dap.run_last() end, { desc = 'Run Last (Debug)' })
+  vim.keymap.set({'n', 'v'}, '<leader>dh', function()
+    require('dap.ui.widgets').hover()
+  end, { desc = 'Widgets (hover)' })
+  vim.keymap.set({'n', 'v'}, '<leader>dp', function()
+    require('dap.ui.widgets').preview()
+  end, { desc = 'Widgets (preview)' })
+  vim.keymap.set('n', '<leader>df', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.frames)
+  end, { desc = 'Frames' })
+  vim.keymap.set('n', '<leader>ds', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.centered_float(widgets.scopes)
+  end, { desc = 'Scopes' })
+  vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+  vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+end
 
 local dapui = require('dapui')
 dapui.setup() dap.listeners.after.event_initialized["dapui_config"]=function()
@@ -501,7 +506,7 @@ require('go').setup({
   max_line_len = 180,
   lsp_cfg = {
     capabilities = capabilities,
-    on_attach = on_attach,
+    on_attach = on_attach_with_debug,
   },
   lsp_gofumpt = true,
   dap_debug = true,
