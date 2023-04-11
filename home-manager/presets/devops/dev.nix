@@ -24,6 +24,7 @@
       rnix-lsp
       clippy
       reuse
+      graphviz
     ] ++ (with pkgs.nodePackages; [
         typescript-language-server
         bash-language-server
