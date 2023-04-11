@@ -4,6 +4,6 @@
   imports = [
     ../linux
     ../home-manager/presets/devops
-    ../home/profiles/default
+    ../home-manager/profiles/default
   ] ++ extraHomeModules;
 }
