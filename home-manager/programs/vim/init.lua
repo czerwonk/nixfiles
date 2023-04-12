@@ -557,7 +557,12 @@ require('go').setup({
   max_line_len = 180,
   lsp_cfg = {
     capabilities = capabilities,
-    on_attach = on_attach_with_debug,
+    on_attach = function (client, bufnr)
+      on_attach_with_debug(client, bufnr)
+      vim.keymap.set('n', '<leader>;', "<cmd>GoCodeLenAct<CR>",
+        { desc = 'Code Lens Action (Go)', noremap = true, silent = true, buffer = bufnr }
+      )
+    end,
   },
   lsp_gofumpt = true,
   dap_debug = true,
