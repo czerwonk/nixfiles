@@ -3,6 +3,9 @@
 {
   home = {
     packages = with pkgs; [
+      podman
+      podman-compose
+      docker-compose
       gnumake
       go_1_20
       goreleaser
