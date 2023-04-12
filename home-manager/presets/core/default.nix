@@ -32,6 +32,7 @@
       watch
       openssl
       p7zip
+      dejavu_fonts
       meslo-lgs-nf
       asciinema
       openvpn
