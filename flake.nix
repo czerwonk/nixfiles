@@ -21,7 +21,7 @@
       mauve = builtins.fetchGit {
         url = "git@github.com:czerwonk/mauve.nixfiles.git";
         ref = "main";
-        rev = "8766bfad1d88347d22e547abb1f7274467345d2a";
+        rev = "181f26e83099ee9398aac5e2ed68905679b7266c";
       };
       mauveUtil = import mauve {
         inherit home-manager nixpkgs;
