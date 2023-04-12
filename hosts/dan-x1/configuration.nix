@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports =
@@ -18,6 +18,7 @@
   };
 
   networking.hostName = "dan-x1";
+  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

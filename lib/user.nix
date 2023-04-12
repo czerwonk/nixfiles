@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, ... }:
 
 {
-  mkOSXHMUser = {username, signingkey, workspace, extraModules}:
+  mkOSXHMUser = {username, extraModules}:
     home-manager.lib.homeManagerConfiguration {
       modules = [
         ../osx
@@ -11,11 +11,11 @@
         config = { allowUnfreePredicate = pkg: true;};
       };
       extraSpecialArgs = {
-        inherit username signingkey workspace;
+        inherit username;
       };
     };
 
-  mkLinuxHMUser = {username, signingkey, workspace, extraModules}:
+  mkLinuxHMUser = {username, extraModules}:
     home-manager.lib.homeManagerConfiguration {
       modules = [
         ../linux
@@ -25,7 +25,7 @@
         config = { allowUnfreePredicate = pkg: true;};
       };
       extraSpecialArgs = {
-        inherit username signingkey workspace;
+        inherit username;
       };
     };
 }

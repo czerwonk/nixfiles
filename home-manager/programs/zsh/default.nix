@@ -1,4 +1,4 @@
-{ config, lib, pkgs, workspace, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.zsh = {
@@ -16,9 +16,6 @@
     initExtra = ''
       source ~/.zshrc.local
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
-    '';
-    envExtra = ''
-      export WORKSPACE=${workspace}
     '';
     shellAliases = {
       l = "exa -l --icons --group-directories-first --time-style long-iso";

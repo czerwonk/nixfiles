@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, ... }:
 
 {
-  mkNixOSSystem = {hostname, username, signingkey, workspace, extraModules, extraHomeModules}:
+  mkNixOSSystem = {hostname, username, extraModules, extraHomeModules}:
     nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -9,9 +9,9 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../nixos/home.nix;
+          home-manager.users.${username} = import ../hosts/${hostname}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit username signingkey workspace extraHomeModules;
+            inherit username extraHomeModules;
           };
         }
       ] ++ extraModules;
