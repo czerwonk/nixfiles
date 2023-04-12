@@ -494,7 +494,11 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-lspconfig.tflint.setup{
+lspconfig.tflint.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+require'lspconfig'.ansiblels.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
