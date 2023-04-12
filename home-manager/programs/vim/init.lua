@@ -73,6 +73,45 @@ vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'UndoTree' })
 -- todo
 require('todo-comments').setup()
 
+-- whichkey
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+local wk = require('which-key')
+wk.setup {
+  window = {
+    border = "single",
+    position = "bottom",
+  },
+}
+local wkOpts = {
+  mode = "n",
+  prefix = "<leader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = false,
+}
+wk.register({
+  f = {
+    name = "Telescope",
+  },
+  m = {
+    name = "Harpoon",
+  },
+  q = {
+    name = "Session",
+  },
+  r = {
+    name = "Refactoring",
+  },
+  s = {
+    name = "Git"
+  },
+  x = {
+    name = "Trouble",
+  }
+}, wkOpts)
+
 -- trouble
 local trouble = require("trouble")
 trouble.setup()
@@ -411,6 +450,12 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>fr', telescopeBuiltin.lsp_references, 'References (LSP)')
   map('n', '<leader>p', telescopeBuiltin.lsp_document_symbols, 'Symbols in document (LSP)')
   map('n', '<leader>P', telescopeBuiltin.lsp_workspace_symbols, 'Symbols in workspace (LSP)')
+
+  wk.register({
+    g = {
+      name = "LSP (goto)",
+    }
+  }, wkOpts);
 end
 
 local lspconfig = require('lspconfig')
@@ -480,6 +525,12 @@ local function on_attach_with_debug(client, bufnr)
   end, { desc = 'Scopes' })
   vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
   vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+
+  wk.register({
+    d = {
+      name = "Debug",
+    }
+  }, wkOpts);
 end
 
 local dapui = require('dapui')
@@ -573,59 +624,10 @@ vim.api.nvim_create_autocmd({
   end,
 })
 
--- whichkey
-vim.o.timeout = true
-vim.o.timeoutlen = 500
-local wk = require('which-key')
-wk.setup {
-  window = {
-    border = "single",
-    position = "bottom",
-  },
-}
-local wkOpts = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
-wk.register({
-  d = {
-    name = "Debug",
-  },
-  f = {
-    name = "Telescope",
-  },
-  g = {
-    name = "LSP (goto)",
-  },
-  m = {
-    name = "Harpoon",
-  },
-  q = {
-    name = "Session",
-  },
-  r = {
-    name = "Refactoring",
-  },
-  s = {
-    name = "Git"
-  },
-  x = {
-    name = "Trouble",
-  }
-}, wkOpts)
-
 -- nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 require('nvim-tree').setup {
-  disable_netrw = true,
-  hijack_netrw = true,
-  hijack_cursor = true,
-  hijack_unnamed_buffer_when_opening = false,
   sync_root_with_cwd = true,
   sort_by = "case_sensitive",
   renderer = {
