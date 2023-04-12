@@ -494,6 +494,10 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+lspconfig.tflint.setup{
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- dap
 local dap = require('dap')
