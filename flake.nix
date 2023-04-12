@@ -21,7 +21,7 @@
       mauve = builtins.fetchGit {
         url = "git@github.com:czerwonk/mauve.nixfiles.git";
         ref = "main";
-        rev = "66cc09da3cfc92194ffb34ce08077916ce1d4530";
+        rev = "8766bfad1d88347d22e547abb1f7274467345d2a";
       };
       mauveUtil = import mauve {
         inherit home-manager nixpkgs;
@@ -38,7 +38,6 @@
           inherit username signingkey workspace;
           extraModules = [ 
             ./home-manager/presets/devops
-            ./home-manager/profiles/default
           ];
         };
 
@@ -46,7 +45,6 @@
           inherit username signingkey workspace;
           extraModules = [ 
             ./home-manager/presets/devops
-            ./home-manager/profiles/default
           ];
         };
 
@@ -54,7 +52,6 @@
           extraModules = [ 
             ./osx
             ./home-manager/presets/devops
-            ./home-manager/profiles/default/ssh.nix
           ];
         };
 
@@ -62,7 +59,6 @@
           extraModules = [ 
             ./osx
             ./home-manager/presets/devops
-            ./home-manager/profiles/default/ssh.nix
           ];
         };
 
@@ -70,7 +66,6 @@
           extraModules = [ 
             ./linux
             ./home-manager/presets/devops/dev.nix
-            ./home-manager/profiles/default/ssh.nix
           ];
         };
       };
