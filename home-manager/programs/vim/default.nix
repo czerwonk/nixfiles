@@ -43,13 +43,13 @@ in {
       vim-vsnip
       nvim-cmp
       cmp-nvim-lsp
-      cmp-nvim-lsp-signature-help
       cmp-vsnip
       cmp-path
       cmp-buffer
       nvim-lspconfig
       nvim-lsputils
       lspsaga_nvim
+      lsp_signature-nvim
       nvim-navic
       refactoring-nvim
       nvim-autopairs

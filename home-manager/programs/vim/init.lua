@@ -377,7 +377,6 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help'},
     { name = 'nvim_lua', keyword_length = 2},
     { name = 'buffer', keyword_length = 2 },
     { name = 'vsnip', keyword_length = 2 },
@@ -456,6 +455,13 @@ local on_attach = function(client, bufnr)
       name = "LSP (goto)",
     }
   }, wkOpts);
+
+  require ('lsp_signature').on_attach({
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
 end
 
 local lspconfig = require('lspconfig')
