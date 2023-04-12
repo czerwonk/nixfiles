@@ -27,6 +27,9 @@
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
     };
+    envExtra = ''
+      export WORKSPACE=
+    '';
     history = {
       expireDuplicatesFirst = true;
     };
