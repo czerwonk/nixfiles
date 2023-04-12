@@ -33,6 +33,7 @@ in {
       which-key-nvim
       comment-nvim
       undotree
+      vim-tmux-navigator
       telescope-nvim
       telescope-fzf-native-nvim
       harpoon

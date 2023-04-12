@@ -17,6 +17,7 @@
       yank
       logging
       resurrect
+      vim-tmux-navigator
       {
         plugin = continuum;
         extraConfig = ''
