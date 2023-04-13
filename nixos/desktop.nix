@@ -53,25 +53,6 @@
   programs.wireshark.enable = true;
   programs._1password-gui.enable = true;
 
-  home-manager.users.${username} = {
-    programs.vscode = {
-      enable = true;
-      package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]);
-    };
-    programs.kitty = {
-      enable = true;
-      font = {
-        package = pkgs.meslo-lgs-nf;
-        name = "Meslo LG L";
-        size = 14;
-      };
-      settings = {
-        enable_audio_bell = false;
-        hide_window_decorations = true;
-      };
-    };
-  };
-
   networking.firewall.extraCommands = ''
     iptables -A INPUT -i podman+ -p udp --dport 53 -j ACCEPT
   '';

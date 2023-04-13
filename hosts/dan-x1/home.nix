@@ -2,7 +2,9 @@
 
 {
   imports = [
-    ../../linux
+    ../../home-manager/linux.nix
+    ../../home-manager/presets/desktop
+    ../../home-manager/programs/vscode
   ] ++ extraHomeModules;
 
   programs.git = {
