@@ -28,33 +28,94 @@ in {
     viAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
-      persistence_nvim
-      nvim-tree-lua
-      which-key-nvim
-      comment-nvim
-      undotree
-      vim-tmux-navigator
-      telescope-nvim
+      {
+        plugin = persistence_nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/persistence.lua;
+      }
+      {
+        plugin = nvim-tree-lua;
+        type = "lua";
+        config = builtins.readFile ./plugins/nvim-tree.lua;
+      }
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/which-key.lua;
+      }
+      {
+        plugin = comment-nvim;
+        type = "lua";
+        config = "require('todo-comments').setup()";
+      }
+      {
+        plugin = undotree;
+        type = "lua";
+        config = builtins.readFile ./plugins/undotree.lua;
+      }
+      {
+        plugin = vim-tmux-navigator;
+        type = "lua";
+        config = builtins.readFile ./plugins/vim-tmux-navigator.lua;
+      }
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/telescope.lua;
+      }
       telescope-fzf-native-nvim
-      harpoon
-      toggleterm-nvim
+      {
+        plugin = harpoon;
+        type = "lua";
+        config = builtins.readFile ./plugins/harpoon.lua;
+      }
+      {
+        plugin = toggleterm-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/toggleterm.lua;
+      }
       vim-fugitive
-      gitsigns-nvim
-      git-worktree-nvim
-      vim-vsnip
-      nvim-cmp
+      {
+        plugin = gitsigns-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/gitsigns.lua;
+      }
+      {
+        plugin = git-worktree-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/git-worktree.lua;
+      }
+      {
+        plugin = vim-vsnip;
+        type = "lua";
+        config = builtins.readFile ./plugins/vsnip.lua;
+      }
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./plugins/cmp.lua;
+      }
       cmp-nvim-lsp
       cmp-vsnip
       cmp-path
       cmp-buffer
-      nvim-lspconfig
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile ./plugins/lsp.lua;
+      }
       nvim-lsputils
       lspsaga_nvim
       lsp_signature-nvim
       nvim-navic
-      refactoring-nvim
+      {
+        plugin = refactoring-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/refactoring.lua; 
+      }
       nvim-autopairs
-      (nvim-treesitter.withPlugins (
+      {
+        plugin = (nvim-treesitter.withPlugins (
           plugins: with plugins; [
             tree-sitter-bash
             tree-sitter-cmake
@@ -86,22 +147,53 @@ in {
             tree-sitter-toml
             tree-sitter-yaml
           ]
-        ))
+        ));
+        type = "lua";
+        config = builtins.readFile ./plugins/tree-sitter.lua;
+      }
       nvim-treesitter-refactor
       nvim-ts-rainbow2
-      indent-blankline-nvim
-      todo-comments-nvim
+      {
+        plugin = indent-blankline-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/indent-blankline.lua;
+      }
+      {
+        plugin = todo-comments-nvim;
+        type = "lua";
+        config = "require('todo-comments').setup()";
+      }
       nvim-dap
       nvim-dap-ui
-      trouble-nvim
+      {
+        plugin = trouble-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/trouble.lua;
+      }
       go-nvim
       rust-tools-nvim
 
       # theme
-      lualine-nvim
-      barbecue-nvim
-      vim-code-dark
-      nvim-web-devicons
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/lualine.lua;
+      }
+      { 
+        plugin = barbecue-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/barbecue.lua;
+      }
+      {
+        plugin = vim-code-dark;
+        type = "lua";
+        config = "vim.cmd('colorscheme codedark')";
+      }
+      {
+        plugin = nvim-web-devicons;
+        type = "lua";
+        config = "require('nvim-web-devicons').get_icons()";
+      }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
   };

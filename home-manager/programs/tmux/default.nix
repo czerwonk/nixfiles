@@ -35,7 +35,7 @@
       set -g renumber-windows on
       set-option -g allow-rename off
 
-      bind-key l send-keys -R
+      bind-key l send-keys -R \; clear-history
 
       set-option -g status-position top 
     '';
