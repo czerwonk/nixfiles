@@ -41,7 +41,6 @@
       docker-compose
       wireshark
       sublime4
-      mysql-workbench
       teams
       calibre
       yubioath-flutter
