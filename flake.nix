@@ -73,7 +73,7 @@
           inherit username;
           hostname = "dan-x1";
           extraModules = [
-            ./nixos/pentest
+            ./nixos/suits/pentest
           ];
           extraHomeModules = [
             ./home/presets/devops

@@ -5,11 +5,11 @@
     nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ../hosts/${hostname}/configuration.nix
+        ../nixos/hosts/${hostname}/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../hosts/${hostname}/home.nix;
+          home-manager.users.${username} = import ../nixos/hosts/${hostname}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
           };

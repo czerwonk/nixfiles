@@ -4,7 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ../../nixos/desktop.nix
+      ../../suits/desktop
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +18,6 @@
   };
 
   networking.hostName = "dan-x1";
-  
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
