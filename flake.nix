@@ -35,35 +35,35 @@
         "${username}-osx" = userUtil.mkOSXHMUser {
           inherit username;
           extraModules = [ 
-            ./home-manager/presets/devops
+            ./home/presets/devops
           ];
         };
 
         "${username}-linux" = userUtil.mkLinuxHMUser {
           inherit username;
           extraModules = [ 
-            ./home-manager/presets/devops
+            ./home/presets/devops
           ];
         };
 
         "${username}-osx-mauve" = mauveUserUtil.mkOSXHMUserProfile {
           extraModules = [ 
-            ./home-manager/osx.nix
-            ./home-manager/presets/devops
+            ./home/osx.nix
+            ./home/presets/devops
           ];
         };
 
         "mauve-osx" = mauveUserUtil.mkOSXHMUser {
           extraModules = [ 
-            ./home-manager/osx.nix
-            ./home-manager/presets/devops
+            ./home/osx.nix
+            ./home/presets/devops
           ];
         };
 
         "mauve-linux" = mauveUserUtil.mkLinuxHMUser {
           extraModules = [ 
-            ./home-manager/linux.nix
-            ./home-manager/presets/devops/dev.nix
+            ./home/linux.nix
+            ./home/presets/devops/dev.nix
           ];
         };
       };
@@ -76,8 +76,8 @@
             ./nixos/pentest
           ];
           extraHomeModules = [
-            ./home-manager/presets/devops
-            ./home-manager/presets/pentest
+            ./home/presets/devops
+            ./home/presets/pentest
           ];
         };
       };
