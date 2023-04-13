@@ -35,10 +35,7 @@
       set -g renumber-windows on
       set-option -g allow-rename off
 
-      bind-key h select-pane -L
-      bind-key j select-pane -D
-      bind-key k select-pane -U
-      bind-key l select-pane -R
+      bind-key l send-keys -R
 
       set-option -g status-position top 
     '';
