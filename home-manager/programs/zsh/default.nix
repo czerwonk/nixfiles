@@ -26,6 +26,7 @@
       fzfp = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
+      ycode = "ykman oath accounts code | fzf";
     };
     envExtra = ''
       export WORKSPACE=
