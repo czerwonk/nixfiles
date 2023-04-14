@@ -5,7 +5,7 @@
     enable = true;
     font = {
       package = pkgs.meslo-lgs-nf;
-      name = "Meslo LG L";
+      name = "MesloLGS NF";
       size = 14;
     };
     settings = {
