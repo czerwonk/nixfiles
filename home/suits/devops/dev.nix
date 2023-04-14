@@ -25,6 +25,7 @@
       deno
       sumneko-lua-language-server
       rnix-lsp
+      ansible-language-server
       clippy
       reuse
       graphviz
