@@ -25,6 +25,7 @@
       deno
       sumneko-lua-language-server
       rnix-lsp
+      ansible-lint
       ansible-language-server
       clippy
       reuse
