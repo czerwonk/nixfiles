@@ -4,7 +4,6 @@
   home = {
     packages = with pkgs; [
       ansible
-      ansible-language-server
       ansible-lint
       kubectl
       vault
