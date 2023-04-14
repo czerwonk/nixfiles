@@ -3,7 +3,7 @@
 {
   imports = [
     ../../../home/linux.nix
-    ../../../home/presets/desktop
+    ../../../home/suits/desktop
     ../../../home/programs/vscode
   ] ++ extraHomeModules;
 

@@ -3,11 +3,14 @@
 {
   imports = [
     ./default.nix
-    ./presets/desktop
+    ./suits/desktop
   ];
   
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
+    packages = with pkgs; [
+      qemu
+    ];
   };
 }

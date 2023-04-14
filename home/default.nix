@@ -3,8 +3,8 @@
 {
   imports = [
     ./scripts
-    ./presets/core
-    ./presets/network
+    ./suits/core
+    ./suits/network
   ];
   
   home = {

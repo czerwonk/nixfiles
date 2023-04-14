@@ -6,7 +6,6 @@
       podman
       podman-compose
       docker-compose
-      qemu
       gnumake
       go_1_20
       goreleaser
