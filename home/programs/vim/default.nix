@@ -46,7 +46,7 @@ in {
       {
         plugin = comment-nvim;
         type = "lua";
-        config = "require('todo-comments').setup()";
+        config = "require('Comment').setup()";
       }
       {
         plugin = undotree;
