@@ -19,6 +19,15 @@ let
       sha256 = "sha256-IjFJcXyfax72AsypO4HVRmG/kIBDB74PdSVcIrxRLqY=";
     };
   };
+  vscode_nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "vscode.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Mofiqul";
+      repo = "vscode.nvim";
+      rev = "d89fa59a78eda50158d94bde059953bda2f56142";
+      sha256 = "sha256-CI30wv2XfucOGgmplTnQGkml4ykyaGGVjRdYAa1kWTk=";
+    };
+  };
 
 in {
   programs.neovim = {
@@ -175,6 +184,11 @@ in {
 
       # theme
       {
+        plugin = vscode_nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/theme.lua;
+      }
+      {
         plugin = lualine-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/lualine.lua;
@@ -183,11 +197,6 @@ in {
         plugin = barbecue-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/barbecue.lua;
-      }
-      {
-        plugin = vim-code-dark;
-        type = "lua";
-        config = "vim.cmd('colorscheme codedark')";
       }
       {
         plugin = nvim-web-devicons;

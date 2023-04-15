@@ -1,4 +1,3 @@
-vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
