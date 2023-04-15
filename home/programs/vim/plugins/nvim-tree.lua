@@ -5,6 +5,16 @@ require('nvim-tree').setup {
   sort_by = "case_sensitive",
   renderer = {
     group_empty = true,
+    symlink_destination = true,
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        item = "│ ",
+        none = "  ",
+      },
+    }
   },
   filesystem_watchers = {
     enable = true,
@@ -16,7 +26,7 @@ require('nvim-tree').setup {
     change_dir = {
       restrict_above_cwd = true,
     }
-  }
+  },
 }
 vim.keymap.set('n', '<C-n>', [[:NvimTreeToggle<CR>]], { desc = 'Toggle Tree' })
 vim.keymap.set('n', '<leader>n', [[:NvimTreeFocus<CR>]], { desc = 'Focus Tree' })

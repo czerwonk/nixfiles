@@ -1,3 +1,13 @@
+local signs = {
+  Error = " ", Warn = " ", Hint = " ", Info = " "
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, {
+    text = icon, texthl = hl, numhl = hl
+  })
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -31,8 +41,14 @@ local on_attach = function(client, bufnr)
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
 
-  -- lspsaga
-  require("lspsaga").setup()
+  require("lspsaga").setup {
+    ui = {
+      code_action = ''
+    },
+    code_action = {
+      sign = false
+    }
+  }
   map('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', 'Find (LSP)')
   map('n', '<leader>re', '<cmd>Lspsaga rename ++project<CR>', 'Rename (LSP)')
   map({'n','v'}, '<leader>,', '<cmd>Lspsaga code_action<CR>', 'Code Action (LSP)')
@@ -43,10 +59,8 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>o', '<cmd>Lspsaga outline<CR>', 'Outline (LSP)')
   map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', 'Hover Doc (LSP)')
 
-  -- trouble
   map('n', "<leader>xR", "<cmd>TroubleToggle lsp_references<CR>", 'Toggle (LSP References)')
 
-  -- telescope
   local telescopeBuiltin = require('telescope.builtin')
   map('n', '<leader>fi', telescopeBuiltin.lsp_implementations, 'Implementations (LSP)')
   map('n', '<leader>fd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
