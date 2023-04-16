@@ -44,9 +44,6 @@ local on_attach = function(client, bufnr)
   require("lspsaga").setup {
     ui = {
       code_action = ''
-    },
-    code_action = {
-      sign = false
     }
   }
   map('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', 'Find (LSP)')
