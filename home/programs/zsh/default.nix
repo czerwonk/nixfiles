@@ -27,6 +27,10 @@
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
       ycode = "ykman oath accounts code | fzf";
+      g = "git";
+      gs = "git status";
+      ga = "git add";
+      k = "kubectl";
     };
     envExtra = ''
       export WORKSPACE=
