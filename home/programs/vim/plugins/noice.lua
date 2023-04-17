@@ -1,4 +1,4 @@
-require("noice").setup({
+require('noice').setup({
   lsp = {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -11,3 +11,4 @@ require("noice").setup({
     long_message_to_split = true,
   },
 })
+require('telescope').load_extension('noice')
