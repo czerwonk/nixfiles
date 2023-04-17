@@ -34,6 +34,7 @@
     ] ++ (with pkgs.nodePackages; [
         typescript-language-server
         bash-language-server
+        vscode-json-languageserver
     ]);
   };
 }
