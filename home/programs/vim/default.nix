@@ -38,6 +38,11 @@ in {
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       {
+        plugin = nvim-notify;
+        type = "lua";
+        config = builtins.readFile ./plugins/notify.lua;
+      }
+      {
         plugin = persistence_nvim;
         type = "lua";
         config = builtins.readFile ./plugins/persistence.lua;
