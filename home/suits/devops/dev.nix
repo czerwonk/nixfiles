@@ -7,6 +7,7 @@
       podman-compose
       docker-compose
       gnumake
+      tree-sitter
       go_1_20
       goreleaser
       gopls

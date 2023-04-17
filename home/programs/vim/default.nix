@@ -152,6 +152,7 @@ in {
             tree-sitter-lua
             tree-sitter-make
             tree-sitter-markdown
+            tree-sitter-markdown-inline
             tree-sitter-nix
             tree-sitter-perl
             tree-sitter-php
@@ -164,6 +165,7 @@ in {
             tree-sitter-terraform
             tree-sitter-typescript
             tree-sitter-toml
+            tree-sitter-vim
             tree-sitter-yaml
           ]
         ));
