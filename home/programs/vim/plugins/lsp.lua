@@ -70,13 +70,6 @@ local on_attach = function(client, bufnr)
       name = "LSP (goto)",
     }
   }, wkOpts);
-
-  require ('lsp_signature').on_attach({
-    bind = true,
-    handler_opts = {
-      border = "rounded"
-    }
-  }, bufnr)
 end
 
 local lspconfig = require('lspconfig')

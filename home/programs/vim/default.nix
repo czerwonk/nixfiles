@@ -126,7 +126,6 @@ in {
       }
       nvim-lsputils
       lspsaga_nvim
-      lsp_signature-nvim
       nvim-navic
       {
         plugin = refactoring-nvim;
@@ -184,6 +183,11 @@ in {
         config = "require('todo-comments').setup()";
       }
       nvim-dap
+      {
+        plugin = nvim-dap-virtual-text;
+        type = "lua";
+        config = "require('nvim-dap-virtual-text').setup()";
+      }
       nvim-dap-ui
       {
         plugin = trouble-nvim;
