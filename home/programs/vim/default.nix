@@ -37,6 +37,15 @@ let
       sha256 = "sha256-do/L2UpxyuKlTBBicMJHp0du71MzbuVM+P1dOAURAuY=";
     };
   };
+  guihua_lua = pkgs.vimUtils.buildVimPlugin {
+    name = "guihua.lua";
+    src = pkgs.fetchFromGitHub {
+      owner = "czerwonk";
+      repo = "guihua.lua";
+      rev = "2f24660f19f428b9154e77a7b1823a53475742cf";
+      sha256 = "sha256-1+S5+MkADsnBENpgH0waVOZPku9kBWdP394Ad+to+Mw=";
+    };
+  };
 
 in {
   programs.neovim = {
@@ -206,6 +215,7 @@ in {
         config = builtins.readFile ./plugins/trouble.lua;
       }
       go-nvim
+      guihua_lua
       rust-tools-nvim
 
       # theme
