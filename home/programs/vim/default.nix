@@ -37,6 +37,12 @@ in {
     viAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
+      nui-nvim
+      {
+        plugin = noice-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/noice.lua;
+      }
       {
         plugin = nvim-notify;
         type = "lua";

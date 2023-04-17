@@ -30,6 +30,7 @@
       g = "git";
       gs = "git status";
       ga = "git add";
+      gd = "git diff HEAD";
       k = "kubectl";
     };
     envExtra = ''
