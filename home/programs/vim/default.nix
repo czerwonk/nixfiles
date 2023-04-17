@@ -28,6 +28,15 @@ let
       sha256 = "sha256-CI30wv2XfucOGgmplTnQGkml4ykyaGGVjRdYAa1kWTk=";
     };
   };
+  noice_nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "noice.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "folke";
+      repo = "noice.nvim";
+      rev = "5c63a32fde4e87631ddd768f5d7674ec5988c1a2";
+      sha256 = "sha256-do/L2UpxyuKlTBBicMJHp0du71MzbuVM+P1dOAURAuY=";
+    };
+  };
 
 in {
   programs.neovim = {
@@ -39,7 +48,7 @@ in {
     plugins = with pkgs.vimPlugins; [
       nui-nvim
       {
-        plugin = noice-nvim;
+        plugin = noice_nvim;
         type = "lua";
         config = builtins.readFile ./plugins/noice.lua;
       }

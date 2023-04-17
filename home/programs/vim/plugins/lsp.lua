@@ -112,7 +112,15 @@ lspconfig.tflint.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
-require'lspconfig'.ansiblels.setup {
+lspconfig.ansiblels.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+lspconfig.ansiblels.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+lspconfig.jsonls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
