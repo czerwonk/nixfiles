@@ -39,11 +39,12 @@ let
   };
   guihua_lua = pkgs.vimUtils.buildVimPlugin {
     name = "guihua.lua";
+    buildPhase = "rm Makefile";
     src = pkgs.fetchFromGitHub {
-      owner = "czerwonk";
+      owner = "ray-x";
       repo = "guihua.lua";
-      rev = "2f24660f19f428b9154e77a7b1823a53475742cf";
-      sha256 = "sha256-1+S5+MkADsnBENpgH0waVOZPku9kBWdP394Ad+to+Mw=";
+      rev = "d331b1526a87edbe13679298c3547d49f8a14ffc";
+      sha256 = "sha256-8VbynF1b9HXyJFAoW1/ReNX57tzUSiqqtktwqFjavp8=";
     };
   };
 
