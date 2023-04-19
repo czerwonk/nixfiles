@@ -125,17 +125,18 @@ in {
         config = builtins.readFile ./plugins/git-worktree.lua;
       }
       {
-        plugin = vim-vsnip;
+        plugin = luasnip;
         type = "lua";
-        config = builtins.readFile ./plugins/vsnip.lua;
+        config = builtins.readFile ./plugins/luasnip.lua;
       }
+      friendly-snippets
       {
         plugin = nvim-cmp;
         type = "lua";
         config = builtins.readFile ./plugins/cmp.lua;
       }
+      cmp_luasnip
       cmp-nvim-lsp
-      cmp-vsnip
       cmp-path
       cmp-buffer
       {
