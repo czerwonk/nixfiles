@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
 
-  require("lspsaga").setup {
+  require('lspsaga').setup {
     ui = {
       code_action = ''
     }

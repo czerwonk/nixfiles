@@ -1,6 +1,15 @@
 { config, lib, pkgs, ... }:
 
 let
+  lspsaga_nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "lspsaga.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "glepnir";
+      repo = "lspsaga.nvim";
+      rev = "fb476086012e18e0001c3dcc5b18fd34a847e5fe";
+      sha256 = "sha256-396xNjMoMvfpHGqu27JuTTafKepWGkHG29TjV8taHZY=";
+    };
+  };
   persistence_nvim = pkgs.vimUtils.buildVimPlugin {
     name = "persistence.nvim";
     src = pkgs.fetchFromGitHub {
@@ -132,7 +141,7 @@ in {
         config = builtins.readFile ./plugins/lsp.lua;
       }
       nvim-lsputils
-      lspsaga-nvim
+      lspsaga_nvim
       nvim-navic
       {
         plugin = refactoring-nvim;
