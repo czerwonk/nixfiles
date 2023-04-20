@@ -30,7 +30,7 @@ let
   };
   guihua_lua = pkgs.vimUtils.buildVimPlugin {
     name = "guihua.lua";
-    buildPhase = "rm Makefile; cd lua/fzy; make";
+    buildPhase = "rm Makefile";
     src = pkgs.fetchFromGitHub {
       owner = "ray-x";
       repo = "guihua.lua";
