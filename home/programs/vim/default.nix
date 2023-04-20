@@ -88,6 +88,11 @@ in {
         config = "require('Comment').setup()";
       }
       {
+        plugin = nvim-surround;
+        type = "lua";
+        config = "require('nvim-surround').setup()";
+      }
+      {
         plugin = undotree;
         type = "lua";
         config = builtins.readFile ./plugins/undotree.lua;
