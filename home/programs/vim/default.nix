@@ -1,15 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  lspsaga_nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "lspsaga.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "glepnir";
-      repo = "lspsaga.nvim";
-      rev = "fb476086012e18e0001c3dcc5b18fd34a847e5fe";
-      sha256 = "sha256-396xNjMoMvfpHGqu27JuTTafKepWGkHG29TjV8taHZY=";
-    };
-  }; 
   persistence_nvim = pkgs.vimUtils.buildVimPlugin {
     name = "persistence.nvim";
     src = pkgs.fetchFromGitHub {
@@ -26,15 +17,6 @@ let
       repo = "vscode.nvim";
       rev = "d89fa59a78eda50158d94bde059953bda2f56142";
       sha256 = "sha256-CI30wv2XfucOGgmplTnQGkml4ykyaGGVjRdYAa1kWTk=";
-    };
-  };
-  noice_nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "noice.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "folke";
-      repo = "noice.nvim";
-      rev = "5c63a32fde4e87631ddd768f5d7674ec5988c1a2";
-      sha256 = "sha256-do/L2UpxyuKlTBBicMJHp0du71MzbuVM+P1dOAURAuY=";
     };
   };
   guihua_lua = pkgs.vimUtils.buildVimPlugin {
@@ -58,7 +40,7 @@ in {
     plugins = with pkgs.vimPlugins; [
       nui-nvim
       {
-        plugin = noice_nvim;
+        plugin = noice-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/noice.lua;
       }
@@ -150,7 +132,7 @@ in {
         config = builtins.readFile ./plugins/lsp.lua;
       }
       nvim-lsputils
-      lspsaga_nvim
+      lspsaga-nvim
       nvim-navic
       {
         plugin = refactoring-nvim;
