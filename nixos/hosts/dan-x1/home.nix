@@ -4,7 +4,6 @@
   imports = [
     ../../../home/linux.nix
     ../../../home/suits/desktop
-    ../../../home/programs/vscode
   ] ++ extraHomeModules;
 
   programs.git = {
