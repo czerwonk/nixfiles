@@ -30,7 +30,6 @@
       ansible-language-server
       clippy
       reuse
-      cht-sh
       graphviz
     ] ++ (with pkgs.nodePackages; [
         typescript-language-server
