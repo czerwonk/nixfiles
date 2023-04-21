@@ -4,8 +4,5 @@ require('lualine').setup {
     theme = 'codedark',
     global = true,
   },
-  tabline = {
-    lualine_a = {'buffers'},
-  },
   extensions = { 'fugitive', 'nvim-tree', 'toggleterm' },
 }

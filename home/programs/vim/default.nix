@@ -227,6 +227,11 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/lualine.lua;
       }
+      {
+        plugin = bufferline-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/bufferline.lua;
+      }
       { 
         plugin = barbecue-nvim;
         type = "lua";
