@@ -86,11 +86,11 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp', priority = 1000 },
-    { name = "luasnip", keyword_length = 2, priority = 750 },
-    { name = 'buffer', keyword_length = 2, priority = 500 },
+    { name = 'nvim_lsp' },
+    { name = "luasnip", keyword_length = 2 },
+    { name = 'buffer', keyword_length = 2 },
     { name = 'path', priority = 250 },
-    { name = "copilot", keyword_length = 2, priority = 100 },
+    { name = "copilot", keyword_length = 2 },
   },
   formatting = {
     format = function(_, item)
