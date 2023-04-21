@@ -1,9 +1,17 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 require('nvim-tree').setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  hijack_cursor = true,
+  hijack_unnamed_buffer_when_opening = false,
   sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   sort_by = "case_sensitive",
+  update_focused_file = {
+    enable = true,
+    update_root = false,
+  },
   renderer = {
+    root_folder_label = false,
     group_empty = true,
     symlink_destination = true,
     indent_markers = {
@@ -30,6 +38,9 @@ require('nvim-tree').setup {
     },
   },
   actions = {
+    open_file = {
+      resize_window = true,
+    },
     change_dir = {
       restrict_above_cwd = true,
     }
