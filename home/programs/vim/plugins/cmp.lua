@@ -40,6 +40,10 @@ local cmp_icons = {
 }
 
 local luasnip = require('luasnip')
+local function has_words_before()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+end
 
 cmp.setup {
   snippet = {
@@ -48,11 +52,14 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert {
+    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
-    ["<C-e>"] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-e>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
+    ["<CR>"] = cmp.mapping.confirm { select = false },
+    ["<S-CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
@@ -61,6 +68,8 @@ cmp.setup {
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
@@ -76,11 +85,10 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = "luasnip", keyword_length = 2 },
-    { name = 'nvim_lua', keyword_length = 2},
-    { name = 'buffer', keyword_length = 2 },
-    { name = 'path' },
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = "luasnip", keyword_length = 2, priority = 750 },
+    { name = 'buffer', keyword_length = 2, priority = 500 },
+    { name = 'path', priority = 250 },
   },
   formatting = {
     format = function(_, item)
