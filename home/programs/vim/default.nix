@@ -215,6 +215,7 @@ in {
       go-nvim
       guihua_lua
       rust-tools-nvim
+      copilot-vim
 
       # theme
       {
