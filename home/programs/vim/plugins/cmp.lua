@@ -9,6 +9,7 @@ local cmp_icons = {
   Color = " ",
   Constant = " ",
   Constructor = " ",
+  Copilot = " ",
   Enum = " ",
   EnumMember = " ",
   Event = " ",
@@ -89,6 +90,7 @@ cmp.setup {
     { name = "luasnip", keyword_length = 2, priority = 750 },
     { name = 'buffer', keyword_length = 2, priority = 500 },
     { name = 'path', priority = 250 },
+    { name = "copilot", keyword_length = 2, priority = 100 },
   },
   formatting = {
     format = function(_, item)
