@@ -8,7 +8,6 @@ telescope.setup {
     },
   },
 }
-telescope.load_extension('fzf')
 
 local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { desc = 'Find Files' })
