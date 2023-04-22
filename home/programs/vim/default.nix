@@ -10,15 +10,6 @@ let
       sha256 = "sha256-396xNjMoMvfpHGqu27JuTTafKepWGkHG29TjV8taHZY=";
     };
   };
-  persistence_nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "persistence.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "folke";
-      repo = "persistence.nvim";
-      rev = "c814fae5c37aa0aba9cd9da05df6e52b88d612c3";
-      sha256 = "sha256-IjFJcXyfax72AsypO4HVRmG/kIBDB74PdSVcIrxRLqY=";
-    };
-  };
   vscode_nvim = pkgs.vimUtils.buildVimPlugin {
     name = "vscode.nvim";
     src = pkgs.fetchFromGitHub {
@@ -75,11 +66,6 @@ in {
         plugin = nvim-notify;
         type = "lua";
         config = builtins.readFile ./plugins/notify.lua;
-      }
-      {
-        plugin = persistence_nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/persistence.lua;
       }
       {
         plugin = nvim-tree-lua;

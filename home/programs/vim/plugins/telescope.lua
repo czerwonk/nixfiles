@@ -12,6 +12,7 @@ telescope.load_extension('fzf')
 
 local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>fF', telescopeBuiltin.git_files, { desc = 'Find Git Files' })
 vim.keymap.set('n', '<leader>fg', telescopeBuiltin.live_grep, { desc = 'Live Grep' })
 vim.keymap.set('n', '<leader>fb', telescopeBuiltin.buffers, { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>fc', telescopeBuiltin.commands, { desc = 'Commands' })
