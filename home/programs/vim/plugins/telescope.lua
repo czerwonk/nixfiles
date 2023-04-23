@@ -15,8 +15,8 @@ telescope.setup {
       sorting_strategy = 'ascending',
       on_project_selected = function(prompt_bufnr)
         projectTelescope.change_working_directory(prompt_bufnr, false)
-        require('harpoon.ui').nav_file(1)
         require('nvim-tree.api').tree.open()
+        require('harpoon.ui').nav_file(1)
       end
     }
   }
