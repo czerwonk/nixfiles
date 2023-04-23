@@ -13,6 +13,10 @@ mini_indentscope.setup {
   draw = {
     animation = mini_indentscope.gen_animation.none()
   },
+  mappings = {
+    goto_top = 'gh',
+    goto_bottom = 'gl',
+  },
   symbol = "│",
   options = {
     try_as_border = true,
