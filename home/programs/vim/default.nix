@@ -197,6 +197,7 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/tree-sitter.lua;
       }
+      nvim-treesitter-textobjects
       nvim-treesitter-refactor
       nvim-ts-rainbow2
       {

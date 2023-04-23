@@ -6,6 +6,18 @@ require('nvim-treesitter.configs').setup {
   indent = {
     enable = true,
   },
+  textobjects = {
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        ["gj"] = "@function.outer",
+      },
+      goto_previous_start = {
+        ["gk"] = "@function.outer",
+      }
+    },
+  },
   rainbow = {
     enable = true,
     query = 'rainbow-parens',
@@ -17,7 +29,7 @@ require('nvim-treesitter.configs').setup {
     keymaps = {
       init_selection = '<c-space>',
       node_incremental = '<c-space>',
-      scope_incremental = "<nop>",
+      scope_incremental = false,
       node_decremental = "<bs>",
     },
   },

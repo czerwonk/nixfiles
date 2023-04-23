@@ -14,8 +14,8 @@ mini_indentscope.setup {
     animation = mini_indentscope.gen_animation.none()
   },
   mappings = {
-    goto_top = 'gk',
-    goto_bottom = 'gj',
+    goto_top = 'gh',
+    goto_bottom = 'gl',
   },
   symbol = "│",
   options = {
