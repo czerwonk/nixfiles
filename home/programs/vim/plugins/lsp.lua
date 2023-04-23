@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
-  map({'n','v'}, '<leader>,', vim.lsp.buf.code_action, 'Code Action (LSP)')
+  map({'n', 'v'}, '<leader>,', vim.lsp.buf.code_action, 'Code Action (LSP)')
   map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
   map('n', 'gd', vim.lsp.buf.definition, 'Find Definition (LSP)')
   map('n', 'gD', vim.lsp.buf.declaration, 'Find Declaration (LSP)')
@@ -40,6 +40,7 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
+  map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
 
   map('n', '<leader>xR', '<cmd>TroubleToggle lsp_references<CR>', 'Toggle (LSP References)')
 

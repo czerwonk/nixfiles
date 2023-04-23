@@ -38,15 +38,6 @@ let
       sha256 = "sha256-5tKT2F+E7/keYr7HwNDFtEvw3IW47AyXu5ePwk4u4mM=";
     };
   };
-  inc_rename = pkgs.vimUtils.buildVimPlugin {
-    name = "inc-rename.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "smjonas";
-      repo = "inc-rename.nvim";
-      rev = "fb1b7468f27d874feb209eac46be5205e20b7fd3";
-      sha256 = "sha256-2D2jlDSeB2fy5/PK3M7aHk/X4Zv7esKPya3QOiH8GdI=";
-    };
-  };
 
 in {
   programs.neovim = {
@@ -156,11 +147,6 @@ in {
       }
       nvim-lsputils
       nvim-navic
-      {
-        plugin = inc_rename;
-        type = "lua";
-        config = "require('inc_rename').setup()";
-      }
       {
         plugin = refactoring-nvim;
         type = "lua";
