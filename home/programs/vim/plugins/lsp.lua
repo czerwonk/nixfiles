@@ -52,6 +52,8 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>p', telescopeBuiltin.lsp_document_symbols, 'Symbols in document (LSP)')
   map('n', '<leader>P', telescopeBuiltin.lsp_workspace_symbols, 'Symbols in workspace (LSP)')
 
+  map('n', '<leader>o', '<cmd>SymbolsOutline<CR>', 'Outline (LSP)')
+
   wk.register({
     g = {
       name = "LSP",
