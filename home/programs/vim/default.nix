@@ -112,11 +112,7 @@ in {
         type = "lua";
         config = "require('telescope').load_extension('fzf')";
       }
-      {
-        plugin = telescope-project-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/project.lua;
-      }
+      telescope-project-nvim
       {
         plugin = harpoon;
         type = "lua";

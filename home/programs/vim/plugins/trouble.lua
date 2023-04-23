@@ -30,13 +30,3 @@ vim.keymap.set("n", "<leader>x0", function () trouble.first({skip_groups = true,
 vim.keymap.set("n", "<leader>x$", function () trouble.last({skip_groups = true, jump = true}) end,
   {silent = true, noremap = true, desc = 'Last'}
 )
-
-local troubleTelescope = require("trouble.providers.telescope")
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-      n = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-    },
-  },
-}
