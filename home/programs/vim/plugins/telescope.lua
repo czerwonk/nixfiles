@@ -1,13 +1,4 @@
 local telescope = require('telescope')
-local troubleTelescope = require("trouble.providers.telescope")
-telescope.setup {
-  defaults = {
-    mappings = {
-      i = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-      n = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-    },
-  },
-}
 
 local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { desc = 'Find Files' })
