@@ -1,5 +1,5 @@
 local projectTelescope = require('telescope._extensions.project.actions')
-local troubleTelescope = require("trouble.providers.telescope")
+local troubleTelescope = require('trouble.providers.telescope')
 
 local telescope = require('telescope')
 telescope.setup {
@@ -13,10 +13,10 @@ telescope.setup {
     project = {
       hidden_files = true,
       sorting_strategy = 'ascending',
-      -- sync_with_nvim_tree = true,
       on_project_selected = function(prompt_bufnr)
         projectTelescope.change_working_directory(prompt_bufnr, false)
-        require("harpoon.ui").nav_file(1)
+        require('harpoon.ui').nav_file(1)
+        require('nvim-tree.api').tree.open()
       end
     }
   }
