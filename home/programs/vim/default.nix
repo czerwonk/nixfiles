@@ -146,6 +146,7 @@ in {
         config = builtins.readFile ./plugins/lsp.lua;
       }
       nvim-lsputils
+      SchemaStore-nvim
       nvim-navic
       {
         plugin = symbols-outline-nvim;

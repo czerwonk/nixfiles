@@ -108,6 +108,24 @@ lspconfig.ansiblels.setup {
 lspconfig.jsonls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+}
+lspconfig.yamlls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      hover = true,
+      completion = true,
+      validate = true,
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
 }
 
 -- dap
