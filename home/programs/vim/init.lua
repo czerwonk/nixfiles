@@ -45,6 +45,17 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = 'Yank to Clipbaord' })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move up'})
 
+-- icons & signs
+local signs = {
+  Error = " ", Warn = " ", Hint = " ", Info = " "
+}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, {
+    text = icon, texthl = hl, numhl = hl
+  })
+end
+
 -- editorfile
 require('editorconfig').properties.file_type = function(bufnr, val, _)
   vim.bo[bufnr].ft = val

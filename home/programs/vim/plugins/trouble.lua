@@ -1,5 +1,9 @@
 local trouble = require("trouble")
-trouble.setup()
+
+trouble.setup {
+  use_diagnostic_signs = true
+}
+
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<CR>",
   {silent = true, noremap = true, desc = 'Toggle'}
 )

@@ -1,12 +1,3 @@
-local signs = {
-  Error = " ", Warn = " ", Hint = " ", Info = " "
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, {
-    text = icon, texthl = hl, numhl = hl
-  })
-end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -42,6 +33,12 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
 
+  map('n', 'gn', function ()
+    vim.diagnostic.goto_next()
+  end, 'Next diagnostic')
+  map('n', 'gp', function ()
+    vim.diagnostic.goto_prev()
+  end, 'Previous diagnostic')
   map('n', '<leader>xR', '<cmd>TroubleToggle lsp_references<CR>', 'Toggle (LSP References)')
 
   local telescopeBuiltin = require('telescope.builtin')
