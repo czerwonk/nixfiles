@@ -19,7 +19,20 @@ mini_indentscope.setup {
   },
 }
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "NvimTree", "Trouble" },
+  pattern = {
+    'NvimTree',
+    'Trouble',
+    'lspinfo',
+    'checkhealth',
+    'help',
+    'man',
+    'git',
+    'markdown',
+    'text',
+    'terminal',
+    'TelescopePrompt',
+    'TelescopeResults',
+  },
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
