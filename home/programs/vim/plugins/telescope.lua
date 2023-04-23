@@ -1,5 +1,3 @@
-local telescope = require('telescope')
-
 local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fF', telescopeBuiltin.git_files, { desc = 'Find Git Files' })
