@@ -49,6 +49,11 @@ in {
     plugins = with pkgs.vimPlugins; [
       nui-nvim
       {
+        plugin = mini-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/mini.lua;
+      }
+      {
         plugin = noice-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/noice.lua;
@@ -72,11 +77,6 @@ in {
         plugin = comment-nvim;
         type = "lua";
         config = "require('Comment').setup()";
-      }
-      {
-        plugin = nvim-surround;
-        type = "lua";
-        config = "require('nvim-surround').setup()";
       }
       {
         plugin = undotree;
@@ -152,7 +152,6 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/refactoring.lua; 
       }
-      nvim-autopairs
       {
         plugin = (nvim-treesitter.withPlugins (
           plugins: with plugins; [
