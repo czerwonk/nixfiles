@@ -30,10 +30,10 @@ local on_attach = function(client, bufnr)
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
-  map('n', 'gi', vim.lsp.buf.implementation, 'Find Implementation (LSP)')
-  map('n', 'gh', vim.lsp.buf.signature_help, 'Show Signature Help (LSP)')
-  map('n', 'gr', vim.lsp.buf.references, 'Find References (LSP)')
-  map('n', '<leader>gD', vim.lsp.buf.declaration, 'Find Declatation (LSP)')
+  map({'n','v'}, '<leader>,', vim.lsp.buf.code_action, 'Code Action (LSP)')
+  map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
+  map('n', 'gd', vim.lsp.buf.definition, 'Find Definition (LSP)')
+  map('n', 'gD', vim.lsp.buf.declaration, 'Find Declaration (LSP)')
   map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
   map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder (LSP)')
   map('n', '<leader>wl', function()
@@ -41,33 +41,19 @@ local on_attach = function(client, bufnr)
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
 
-  require('lspsaga').setup {
-    ui = {
-      code_action = ''
-    }
-  }
-  map('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', 'Find (LSP)')
-  map('n', '<leader>re', '<cmd>Lspsaga rename ++project<CR>', 'Rename (LSP)')
-  map({'n','v'}, '<leader>,', '<cmd>Lspsaga code_action<CR>', 'Code Action (LSP)')
-  map('n', '<leader>gd', '<cmd>Lspsaga peek_definition<CR>', 'Peek Definition (LSP)')
-  map('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', 'Find Definition (LSP)')
-  map('n', '<leader>gt', '<cmd>Lspsaga peek_type_definition<CR>', 'Peek Type Definition (LSP)')
-  map('n', 'gt', '<cmd>Lspsaga goto_type_definition<CR>', 'Find Type Definition (LSP)')
-  map('n', '<leader>o', '<cmd>Lspsaga outline<CR>', 'Outline (LSP)')
-  map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', 'Hover Doc (LSP)')
-
-  map('n', "<leader>xR", "<cmd>TroubleToggle lsp_references<CR>", 'Toggle (LSP References)')
+  map('n', '<leader>xR', '<cmd>TroubleToggle lsp_references<CR>', 'Toggle (LSP References)')
 
   local telescopeBuiltin = require('telescope.builtin')
-  map('n', '<leader>fi', telescopeBuiltin.lsp_implementations, 'Implementations (LSP)')
-  map('n', '<leader>fd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
-  map('n', '<leader>fr', telescopeBuiltin.lsp_references, 'References (LSP)')
+  map('n', '<leader>gi', telescopeBuiltin.lsp_implementations, 'Implementations (LSP)')
+  map('n', '<leader>gd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
+  map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
+  map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
   map('n', '<leader>p', telescopeBuiltin.lsp_document_symbols, 'Symbols in document (LSP)')
   map('n', '<leader>P', telescopeBuiltin.lsp_workspace_symbols, 'Symbols in workspace (LSP)')
 
   wk.register({
     g = {
-      name = "LSP (goto)",
+      name = "LSP",
     }
   }, wkOpts);
 end

@@ -22,6 +22,9 @@ require('nvim-tree').setup {
         item = "│ ",
         none = "  ",
       },
+    },
+    icons = {
+      git_placement = "after",
     }
   },
   filesystem_watchers = {

@@ -1,15 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  lspsaga_nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "lspsaga.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "glepnir";
-      repo = "lspsaga.nvim";
-      rev = "fb476086012e18e0001c3dcc5b18fd34a847e5fe";
-      sha256 = "sha256-396xNjMoMvfpHGqu27JuTTafKepWGkHG29TjV8taHZY=";
-    };
-  };
   vscode_nvim = pkgs.vimUtils.buildVimPlugin {
     name = "vscode.nvim";
     src = pkgs.fetchFromGitHub {
@@ -45,6 +36,15 @@ let
       repo = "copilot-cmp";
       rev = "99467081478aabe4f1183a19a8ba585e511adc20";
       sha256 = "sha256-5tKT2F+E7/keYr7HwNDFtEvw3IW47AyXu5ePwk4u4mM=";
+    };
+  };
+  inc_rename = pkgs.vimUtils.buildVimPlugin {
+    name = "inc-rename.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "smjonas";
+      repo = "inc-rename.nvim";
+      rev = "fb1b7468f27d874feb209eac46be5205e20b7fd3";
+      sha256 = "sha256-2D2jlDSeB2fy5/PK3M7aHk/X4Zv7esKPya3QOiH8GdI=";
     };
   };
 
@@ -155,8 +155,12 @@ in {
         config = builtins.readFile ./plugins/lsp.lua;
       }
       nvim-lsputils
-      lspsaga_nvim
       nvim-navic
+      {
+        plugin = inc_rename;
+        type = "lua";
+        config = "require('inc_rename').setup()";
+      }
       {
         plugin = refactoring-nvim;
         type = "lua";

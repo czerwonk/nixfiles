@@ -89,7 +89,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = "luasnip", keyword_length = 2 },
     { name = 'buffer', keyword_length = 2 },
-    { name = 'path', priority = 250 },
+    { name = 'path' },
     { name = "copilot", keyword_length = 2 },
   },
   formatting = {
