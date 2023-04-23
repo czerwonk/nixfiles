@@ -6,7 +6,7 @@ telescope.setup {
   extensions = {
     project = {
       hidden_files = true,
-      sorting_strategy = 'ascending',
+      sorting_strategy = 'asc',
       sync_with_nvim_tree = true,
       on_project_selected = function(prompt_bufnr)
         project_actions.change_working_directory(prompt_bufnr, false)
