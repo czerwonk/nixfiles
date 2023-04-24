@@ -47,7 +47,9 @@ in {
     viAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
-      nui-nvim
+      {
+        plugin = nui-nvim;
+      }
       {
         plugin = mini-nvim;
         type = "lua";
@@ -103,7 +105,9 @@ in {
         type = "lua";
         config = "require('telescope').load_extension('fzf')";
       }
-      telescope-project-nvim
+      {
+        plugin = telescope-project-nvim;
+      }
       {
         plugin = harpoon;
         type = "lua";
@@ -114,7 +118,9 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/toggleterm.lua;
       }
-      vim-fugitive
+      {
+        plugin = vim-fugitive;
+      }
       {
         plugin = gitsigns-nvim;
         type = "lua";
@@ -130,24 +136,40 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/luasnip.lua;
       }
-      friendly-snippets
+      {
+        plugin = friendly-snippets;
+      }
       {
         plugin = nvim-cmp;
         type = "lua";
         config = builtins.readFile ./plugins/cmp.lua;
       }
-      cmp_luasnip
-      cmp-nvim-lsp
-      cmp-path
-      cmp-buffer
+      {
+        plugin = cmp_luasnip;
+      }
+      {
+        plugin = cmp-nvim-lsp;
+      }
+      {
+        plugin = cmp-path;
+      }
+      {
+        plugin = cmp-buffer;
+      }
       {
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile ./plugins/lsp.lua;
       }
-      nvim-lsputils
-      SchemaStore-nvim
-      nvim-navic
+      {
+        plugin = nvim-lsputils;
+      }
+      {
+        plugin = SchemaStore-nvim;
+      }
+      {
+        plugin = nvim-navic;
+      }
       {
         plugin = symbols-outline-nvim;
         type = "lua";
@@ -197,9 +219,15 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/tree-sitter.lua;
       }
-      nvim-treesitter-textobjects
-      nvim-treesitter-refactor
-      nvim-ts-rainbow2
+      {
+        plugin = nvim-treesitter-textobjects;
+      }
+      {
+        plugin = nvim-treesitter-refactor;
+      }
+      {
+        plugin = nvim-ts-rainbow2;
+      }
       {
         plugin = indent-blankline-nvim;
         type = "lua";
@@ -210,27 +238,39 @@ in {
         type = "lua";
         config = "require('todo-comments').setup()";
       }
-      nvim-dap
+      {
+        plugin = nvim-dap;
+      }
       {
         plugin = nvim-dap-virtual-text;
         type = "lua";
         config = "require('nvim-dap-virtual-text').setup()";
       }
-      nvim-dap-ui
+      {
+        plugin = nvim-dap-ui;
+      }
       {
         plugin = trouble-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/trouble.lua;
       }
-      go-nvim
-      guihua_lua
-      rust-tools-nvim
+      {
+        plugin = go-nvim;
+      }
+      {
+        plugin = guihua_lua;
+      }
+      {
+        plugin = rust-tools-nvim;
+      }
       {
         plugin = copilot_lua;
         type = "lua";
         config = builtins.readFile ./plugins/copilot.lua;
       }
-      copilot_cmp
+      {
+        plugin = copilot_cmp;
+      }
 
       # theme
       {
