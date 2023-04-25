@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ -z $TMUX ]]; then
+  nvim $@
+  exit 0
+fi
+
+tmux rename-window nvim
+tmux split-window
+tmux resize-pane -D 10
+tmux select-pane -U
+tmux resize-pane -Z
+nvim $@
+tmux kill-pane -a -t 2

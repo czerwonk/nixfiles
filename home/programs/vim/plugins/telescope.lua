@@ -1,6 +1,13 @@
 local projectTelescope = require('telescope._extensions.project.actions')
 local troubleTelescope = require('trouble.providers.telescope')
 
+local on_project_selected = function(buf)
+  projectTelescope.change_working_directory(buf, false)
+  require('nvim-tree.api').tree.open()
+  require('harpoon.ui').nav_file(1)
+  require('harpoon.tmux').sendCommand("2", "cd '" .. vim.fn.getcwd() .. '\'\n')
+end
+
 local telescope = require('telescope')
 telescope.setup {
   defaults = {
@@ -13,11 +20,7 @@ telescope.setup {
     project = {
       hidden_files = true,
       sorting_strategy = 'ascending',
-      on_project_selected = function(prompt_bufnr)
-        projectTelescope.change_working_directory(prompt_bufnr, false)
-        require('nvim-tree.api').tree.open()
-        require('harpoon.ui').nav_file(1)
-      end
+      on_project_selected = on_project_selected
     }
   }
 }

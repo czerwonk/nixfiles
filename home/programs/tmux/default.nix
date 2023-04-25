@@ -40,6 +40,8 @@
       bind-key -n C-S-Right swap-window -d -t +1
 
       set-option -g status-position top 
+      set-option -g window-style 'fg=colour247,bg=colour236'
+      set-option -g window-active-style 'fg=default,bg=colour234'
     '';
   };
 }
