@@ -21,9 +21,6 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.termguicolors = true
 
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
-
 vim.g.mapleader = ' '
 
 vim.opt.autoread = true
