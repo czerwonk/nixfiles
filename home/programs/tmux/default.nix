@@ -42,6 +42,8 @@
       set-option -g status-position top 
       set-option -g window-style 'fg=default,bg=colour234'
       set-option -g window-active-style 'fg=default,bg=colour234'
+      set-option -g pane-border-style 'fg=colour242,bg=colour234'
+      set-option -g pane-active-border-style 'fg=colour250,bg=colour234'
     '';
   };
 }
