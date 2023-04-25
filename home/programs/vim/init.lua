@@ -1,7 +1,3 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.scrolloff = 8
 vim.opt.colorcolumn = '120'
 
 vim.opt.smarttab = true
@@ -42,6 +38,9 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = 'Yank to Clipbaord' })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = 'Yank to Clipbaord' })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move up'})
+vim.keymap.set("n", "<leader>cc", "<cmd>copen<CR>", { desc = 'Open quickfix list' })
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = 'Next quickfix list item' })
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<CR>", { desc = 'Previous quickfix list item' })
 
 -- icons & signs
 local signs = {

@@ -16,6 +16,9 @@ local wkOpts = {
   nowait = false,
 }
 wk.register({
+  c = {
+    name = "Quickfix",
+  },
   f = {
     name = "Telescope",
   },
