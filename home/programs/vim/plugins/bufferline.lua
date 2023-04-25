@@ -1,22 +1,23 @@
 require("bufferline").setup{
   options = {
     diagnostics = "nvim_lsp",
-    buffer_close_icon = "",
-    close_command = "bdelete %d",
-    close_icon = "",
+    separator_style = "padded_slant",
     indicator = {
       style = "icon",
       icon = " ",
     },
-    left_trunc_marker = "",
     modified_icon = "●",
-    offsets = {
-      { filetype = "NvimTree", text = "EXPLORER", text_align = "center" }
-    },
-    right_mouse_command = "bdelete! %d",
+    left_trunc_marker = "",
     right_trunc_marker = "",
     show_close_icon = false,
     show_tab_indicators = true,
+    tab_size = 20,
+    truncate_names = true,
+    max_name_length = 18,
+    max_prefix_length = 15,
+    offsets = {
+      { filetype = "NvimTree", text = "EXPLORER", text_align = "center" }
+    },
   },
   highlights = {
     fill = {
@@ -36,11 +37,11 @@ require("bufferline").setup{
         bg = { attribute = "bg", highlight = "Normal" },
     },
     separator = {
-        fg = { attribute = "bg", highlight = "Normal" },
+        fg = { attribute = "bg", highlight = "StatusLineNC" },
         bg = { attribute = "bg", highlight = "StatusLine" },
     },
     separator_selected = {
-        fg = { attribute = "fg", highlight = "Special" },
+        fg = { attribute = "bg", highlight = "StatusLineNC" },
         bg = { attribute = "bg", highlight = "Normal" },
     },
     separator_visible = {

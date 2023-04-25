@@ -1,3 +1,5 @@
 vim.o.background = 'dark'
-require('vscode').setup()
+require('vscode').setup {
+  transparent = false,
+}
 require('vscode').load()
