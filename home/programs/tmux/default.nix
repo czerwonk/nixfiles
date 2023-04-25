@@ -36,8 +36,8 @@
       set-option -g allow-rename off
 
       bind C-l send-keys 'C-l'
-      bind-key -n C-S-Left swap-window -t -1
-      bind-key -n C-S-Right swap-window -t +1
+      bind-key -n C-S-Left swap-window -d -t -1
+      bind-key -n C-S-Right swap-window -d -t +1
 
       set-option -g status-position top 
     '';
