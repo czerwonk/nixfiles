@@ -6,8 +6,8 @@ fi
 
 tmux rename-window nvim
 tmux split-window
-tmux resize-pane -D 10
-tmux select-pane -U
+tmux resize-pane -t 2 -y 10
+tmux select-pane -t 1
 tmux resize-pane -Z
 nvim $@
 tmux kill-pane -a -t 2
