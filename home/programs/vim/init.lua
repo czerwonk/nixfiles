@@ -2,6 +2,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
+vim.opt.colorcolumn = '120'
 
 vim.opt.smarttab = true
 vim.opt.expandtab = true
