@@ -41,6 +41,7 @@
       calibre
       yubioath-flutter
       remmina
+      mattermost
     ];
     extraGroups = [ "wireshark" ];
   };
