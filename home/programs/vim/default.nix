@@ -37,6 +37,11 @@ in {
         config = builtins.readFile ./plugins/notify.lua;
       }
       {
+        plugin = nvim-colorizer-lua;
+        type = "lua";
+        config = "require('colorizer').setup()";
+      }
+      {
         plugin = nvim-tree-lua;
         type = "lua";
         config = builtins.readFile ./plugins/nvim-tree.lua;
