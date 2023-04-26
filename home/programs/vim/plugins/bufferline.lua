@@ -1,7 +1,5 @@
 require("bufferline").setup{
   options = {
-    diagnostics = "nvim_lsp",
-    separator_style = "slant",
     modified_icon = "●",
     left_trunc_marker = "",
     right_trunc_marker = "",
@@ -11,6 +9,15 @@ require("bufferline").setup{
     truncate_names = true,
     max_name_length = 18,
     max_prefix_length = 15,
+    indicator = {
+      style = "icon",
+      icon = " ",
+    },
+    diagnostics = "nvim_lsp",
+    diagnostics_indicator = function(count, level, _, _)
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
+    end,
     offsets = {
       { filetype = "NvimTree", text = "EXPLORER", text_align = "center" }
     },
@@ -31,18 +38,6 @@ require("bufferline").setup{
     buffer_selected = {
         fg = { attribute = "fg", highlight = "Normal" },
         bg = { attribute = "bg", highlight = "Normal" },
-    },
-    separator = {
-        fg = { attribute = "bg", highlight = "StatusLineNC" },
-        bg = { attribute = "bg", highlight = "StatusLine" },
-    },
-    separator_selected = {
-        fg = { attribute = "bg", highlight = "StatusLineNC" },
-        bg = { attribute = "bg", highlight = "Normal" },
-    },
-    separator_visible = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "StatusLineNC" },
     },
     close_button = {
         fg = { attribute = "fg", highlight = "Normal" },
