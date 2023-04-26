@@ -20,24 +20,6 @@ let
       sha256 = "sha256-8VbynF1b9HXyJFAoW1/ReNX57tzUSiqqtktwqFjavp8=";
     };
   };
-  copilot_lua = pkgs.vimUtils.buildVimPlugin {
-    name = "copilot.lua";
-    src = pkgs.fetchFromGitHub {
-      owner = "zbirenbaum";
-      repo = "copilot.lua";
-      rev = "decc8d43bcd73a288fa689690c20faf0485da217";
-      sha256 = "sha256-3u8qcfdFOk29XptTfm3UrPPM/lyDlicqj0jWQaySmqM=";
-    };
-  };
-  copilot_cmp = pkgs.vimUtils.buildVimPlugin {
-    name = "copilot-cmp";
-    src = pkgs.fetchFromGitHub {
-      owner = "zbirenbaum";
-      repo = "copilot-cmp";
-      rev = "99467081478aabe4f1183a19a8ba585e511adc20";
-      sha256 = "sha256-5tKT2F+E7/keYr7HwNDFtEvw3IW47AyXu5ePwk4u4mM=";
-    };
-  };
 
 in {
   programs.neovim = {
@@ -262,12 +244,12 @@ in {
         plugin = rust-tools-nvim;
       }
       {
-        plugin = copilot_lua;
+        plugin = copilot-lua;
         type = "lua";
         config = builtins.readFile ./plugins/copilot.lua;
       }
       {
-        plugin = copilot_cmp;
+        plugin = copilot-cmp;
       }
 
       # theme
