@@ -1,5 +1,1 @@
-vim.o.background = 'dark'
-require('vscode').setup {
-  transparent = false,
-}
-require('vscode').load()
+vim.cmd("colorscheme kanagawa-wave")

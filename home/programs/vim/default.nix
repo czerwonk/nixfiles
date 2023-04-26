@@ -1,15 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  vscode_nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "vscode.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "Mofiqul";
-      repo = "vscode.nvim";
-      rev = "d89fa59a78eda50158d94bde059953bda2f56142";
-      sha256 = "sha256-CI30wv2XfucOGgmplTnQGkml4ykyaGGVjRdYAa1kWTk=";
-    };
-  };
   guihua_lua = pkgs.vimUtils.buildVimPlugin {
     name = "guihua.lua";
     buildPhase = "rm Makefile";
@@ -254,7 +245,7 @@ in {
 
       # theme
       {
-        plugin = vscode_nvim;
+        plugin = kanagawa-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/theme.lua;
       }

@@ -22,34 +22,4 @@ require("bufferline").setup{
       { filetype = "NvimTree", text = "EXPLORER", text_align = "center" }
     },
   },
-  highlights = {
-    fill = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "StatusLineNC" },
-    },
-    background = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "StatusLine" },
-    },
-    buffer_visible = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "Normal" },
-    },
-    buffer_selected = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "Normal" },
-    },
-    close_button = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "StatusLine" },
-    },
-    close_button_selected = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "Normal" },
-    },
-    close_button_visible = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "Normal" },
-    },
-  },
 }
