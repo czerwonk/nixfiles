@@ -36,6 +36,7 @@
       dejavu_fonts
       meslo-lgs-nf
       asciinema
+      slides
       openvpn
       wireguard-tools
       yubikey-manager
