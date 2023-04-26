@@ -1,11 +1,7 @@
 require("bufferline").setup{
   options = {
     diagnostics = "nvim_lsp",
-    separator_style = "padded_slant",
-    indicator = {
-      style = "icon",
-      icon = " ",
-    },
+    separator_style = "slant",
     modified_icon = "●",
     left_trunc_marker = "",
     right_trunc_marker = "",
