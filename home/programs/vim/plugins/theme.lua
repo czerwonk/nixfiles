@@ -7,7 +7,7 @@ require('kanagawa').setup {
       sumiInk4 = "#222222",
       springViolet1 = "#658594",
       oniViolet = "#FF9E3B",
-      crystalBlue = "#569CD6",
+      crystalBlue = "#7FB4CA",
     },
   },
 }
