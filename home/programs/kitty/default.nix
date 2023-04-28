@@ -3,7 +3,6 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "kanagawabones";
     font = {
       package = pkgs.meslo-lgs-nf;
       name = "MesloLGS NF";
