@@ -3,6 +3,7 @@
 {
   programs.kitty = {
     enable = true;
+    theme = "kanagawabones";
     font = {
       package = pkgs.meslo-lgs-nf;
       name = "MesloLGS NF";
@@ -10,7 +11,6 @@
     };
     settings = {
       enable_audio_bell = false;
-      hide_window_decorations = true;
     };
   };
 }
