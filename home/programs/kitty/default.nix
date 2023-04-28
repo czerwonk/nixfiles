@@ -9,6 +9,7 @@
       size = 14;
     };
     settings = {
+      text_composition_strategy = "1.0 0";
       enable_audio_bell = false;
       hide_window_decorations = true;
       foreground = "#E1D9D1";
