@@ -11,6 +11,7 @@
     };
     settings = {
       enable_audio_bell = false;
+      hide_window_decorations = true;
     };
   };
 }
