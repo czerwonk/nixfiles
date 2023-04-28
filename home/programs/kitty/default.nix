@@ -11,9 +11,9 @@
     settings = {
       enable_audio_bell = false;
       hide_window_decorations = true;
+      foreground = "#DCD7BA";
       color2 = "#98BB6C";
       color7 = "#E6C384";
-      color15 = "#DCD7BA";
       color31 = "#7FB4CA";
     };
   };
