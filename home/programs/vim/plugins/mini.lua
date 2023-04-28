@@ -8,6 +8,8 @@ require('mini.surround').setup {
 
 require("mini.pairs").setup()
 
+require('mini.bufremove').setup()
+
 local mini_indentscope = require("mini.indentscope")
 mini_indentscope.setup {
   draw = {
