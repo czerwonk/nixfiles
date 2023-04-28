@@ -16,8 +16,8 @@
       color2 = "#76946A";
       color3 = "#E6C384";
       color4 = "#658594";
+      color11 = "#FF9E3B";
       color31 = "#7FB4CA";
-      color75 = "#FF9E3B";
       color76 = "#98BB6C";
     };
   };
