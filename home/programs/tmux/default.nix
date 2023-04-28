@@ -27,7 +27,7 @@
       {
         plugin = power-theme;
         extraConfig = ''
-          set -g @tmux_power_theme 'default'
+          set -g @tmux_power_theme '#C0A36E'
         '';
       }
     ];
