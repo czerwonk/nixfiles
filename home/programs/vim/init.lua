@@ -35,8 +35,6 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' }) -- reposition 
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' }) -- reposition after scrolling up
 vim.keymap.set("n", "n", "nzzzv") -- reposition after junp to match
 vim.keymap.set("n", "N", "Nzzzv") -- reposition after junp to match
-vim.keymap.set("n", "<leader>b", "<cmd>bnext<CR>", { desc = 'Switch to next buffer' })
-vim.keymap.set("n", "<leader>w", "<cmd>bdelete<CR>", { desc = 'Close current buffer' })
 vim.keymap.set("n", "Q", "<nop>") -- disable Q
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = 'Yank to Clipbaord' })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = 'Yank to Clipbaord' })
@@ -45,6 +43,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move up'})
 vim.keymap.set("n", "<leader>cc", "<cmd>copen<CR>", { desc = 'Open quickfix list' })
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = 'Next quickfix list item' })
 vim.keymap.set("n", "<leader>cp", "<cmd>cprev<CR>", { desc = 'Previous quickfix list item' })
+vim.keymap.set("n", "<leader>b", "<cmd>bnext<CR>", { desc = 'Switch to next buffer' })
+vim.keymap.set("n", "<leader>w", function() require("mini.bufremove").delete(0, false) end, { desc = 'Close current buffer' })
 
 -- icons & signs
 local signs = {
