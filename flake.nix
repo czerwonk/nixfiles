@@ -48,14 +48,14 @@
 
         "${username}-osx-mauve" = mauveUserUtil.mkOSXHMUserProfile {
           extraModules = [ 
-            ./home/osx.nix
+            ./home/osx
             ./home/suits/devops
           ];
         };
 
         "mauve-osx" = mauveUserUtil.mkOSXHMUser {
           extraModules = [ 
-            ./home/osx.nix
+            ./home/osx
             ./home/suits/devops
           ];
         };

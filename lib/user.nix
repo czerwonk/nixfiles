@@ -4,7 +4,7 @@
   mkOSXHMUser = {username, extraModules}:
     home-manager.lib.homeManagerConfiguration {
       modules = [
-        ../home/osx.nix
+        ../home/osx
       ] ++ extraModules;
       pkgs = import nixpkgs {
         system = "x86_64-darwin";

@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./default.nix
-    ./suits/desktop
+    ./../default.nix
+    ./../suits/desktop
   ];
   
   home = {
@@ -12,5 +12,6 @@
     packages = with pkgs; [
       qemu
     ];
+    file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
   };
 }
