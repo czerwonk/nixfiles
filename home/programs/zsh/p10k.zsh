@@ -61,12 +61,11 @@
   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 
   ##################################[ dir: current directory ]##################################
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=blue
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=31
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=blue
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   local anchor_files=(
     .bzr
     .citc
