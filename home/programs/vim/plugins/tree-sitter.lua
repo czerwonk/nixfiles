@@ -10,12 +10,6 @@ require('nvim-treesitter.configs').setup {
     move = {
       enable = true,
       set_jumps = true,
-      goto_next_start = {
-        ["gj"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["gk"] = "@function.outer",
-      }
     },
   },
   rainbow = {
