@@ -9,6 +9,7 @@
       size = 14;
     };
     settings = {
+      copy_on_select = true;
       font_size_delta = 1;
       text_composition_strategy = "1.0 0";
       enable_audio_bell = false;
