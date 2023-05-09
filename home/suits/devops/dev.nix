@@ -32,6 +32,7 @@
       reuse
       graphviz
       gh
+      marksman
       nodejs
     ] ++ (with pkgs.nodePackages; [
         yaml-language-server
