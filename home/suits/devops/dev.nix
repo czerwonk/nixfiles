@@ -31,6 +31,7 @@
       clippy
       reuse
       graphviz
+      gh
       nodejs
     ] ++ (with pkgs.nodePackages; [
         yaml-language-server
