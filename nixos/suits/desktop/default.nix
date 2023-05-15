@@ -39,7 +39,6 @@
       sublime4
       teams
       calibre
-      yubioath-flutter
       remmina
       mattermost-desktop
     ];
