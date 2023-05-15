@@ -71,7 +71,7 @@ lspconfig.solargraph.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
-lspconfig.rnix.setup{
+lspconfig.nil_ls.setup{
   capabilities = capabilities,
   on_attach = on_attach,
 }
