@@ -32,6 +32,9 @@
       gpg.format = "ssh";
       commit.gpgsign = true;
       tag.gpgsign = true;
+      merge.tool = "nvim";
+      mergetool.prompt = false;
+      mergetool.nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
     };
   };
 }
