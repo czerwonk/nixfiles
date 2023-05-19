@@ -1,12 +1,11 @@
 { config, pkgs, home-manager, ... }:
 
 {
-  imports =
-    [ 
+  imports = [ 
       ./hardware-configuration.nix
       ../../configuration.nix
       ../../suits/desktop
-    ];
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -30,4 +29,4 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
- }
+}
