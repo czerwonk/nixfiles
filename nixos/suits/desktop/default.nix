@@ -1,9 +1,14 @@
 { config, pkgs, home-manager, username, ... }:
 
 {
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    xkbVariant = "altgr-intl";
+  };
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
@@ -21,10 +26,6 @@
     hitori # sudoku game
     atomix # puzzle game
   ]);
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
-  };
 
   users.users.${username} = {
     packages = with pkgs; [
