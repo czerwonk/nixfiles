@@ -4,6 +4,8 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../suits/server
+    ../../suits/container
   ];
 
   boot.loader.grub = {

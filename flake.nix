@@ -72,9 +72,6 @@
         dan-x1 = systemUtil.mkNixOSSystem {
           inherit username;
           hostname = "dan-x1";
-          extraModules = [
-            ./nixos/suits/pentest
-          ];
           extraHomeModules = [
             ./home/suits/devops
             ./home/suits/pentest
@@ -83,10 +80,6 @@
         nixos-lab1 = systemUtil.mkNixOSSystem {
           inherit username;
           hostname = "nixos-lab1";
-          extraModules = [
-            ./nixos/suits/server
-            ./nixos/suits/routing
-          ];
           extraHomeModules = [
             ./home/suits/devops
           ];

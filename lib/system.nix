@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, ... }:
 
 {
-  mkNixOSSystem = {hostname, username, extraModules, extraHomeModules}:
+  mkNixOSSystem = {hostname, username, extraHomeModules}:
     nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -14,7 +14,7 @@
             inherit username extraHomeModules;
           };
         }
-      ] ++ extraModules;
+      ];
       specialArgs = {
         inherit username hostname;
       };
