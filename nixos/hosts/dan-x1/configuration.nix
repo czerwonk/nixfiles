@@ -6,6 +6,7 @@
       ../../configuration.nix
       ../../suits/desktop
       ../../suits/pentest
+      ../../suits/container
   ];
 
   boot.loader.systemd-boot.enable = true;
