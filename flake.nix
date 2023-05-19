@@ -84,6 +84,7 @@
           inherit username;
           hostname = "nixos-lab1";
           extraModules = [
+            ./nixos/suits/server
             ./nixos/suits/routing
           ];
           extraHomeModules = [
