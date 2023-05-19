@@ -16,7 +16,7 @@
         }
       ] ++ extraModules;
       specialArgs = {
-        inherit username;
+        inherit username hostname;
       };
     };
 }

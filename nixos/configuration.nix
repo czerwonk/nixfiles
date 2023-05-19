@@ -1,8 +1,9 @@
-{ pkgs, username, ... }:
+{ pkgs, username, hostname, ... }:
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  networking.hostName = hostname;
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
   networking.firewall.checkReversePath = "loose";
@@ -29,6 +30,7 @@
   };
   console.useXkbConfig = true;
 
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   users.users.${username} = {
     isNormalUser = true;

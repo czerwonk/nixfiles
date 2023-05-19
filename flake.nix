@@ -80,6 +80,14 @@
             ./home/suits/pentest
           ];
         };
+        nixos-lab1 = systemUtil.mkNixOSSystem {
+          inherit username;
+          hostname = "nixos-lab1";
+          extraModules = [];
+          extraHomeModules = [
+            ./home/suits/devops
+          ];
+        };
       };
     };
 }

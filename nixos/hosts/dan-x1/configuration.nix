@@ -18,8 +18,6 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  networking.hostName = "dan-x1";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

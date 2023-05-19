@@ -43,7 +43,6 @@
     ];
     extraGroups = [ "wireshark" ];
   };
-  programs.zsh.enable = true;
   programs.wireshark.enable = true;
   programs._1password-gui.enable = true;
 
