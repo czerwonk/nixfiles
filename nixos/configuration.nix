@@ -22,7 +22,12 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-  console.keyMap = "us";
+
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "altgr-intl";
+  };
+  console.useXkbConfig = true;
 
   users.defaultUserShell = pkgs.zsh;
   users.users.${username} = {
