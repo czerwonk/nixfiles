@@ -7,7 +7,7 @@
 
   services.bird2 = {
     enable = true;
-    config = "include /etc/bird.conf";
+    config = "include /etc/bird/routing-rocks.conf;";
     checkConfig = false;
   };
 }
