@@ -14,11 +14,4 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.domain = "routing.rocks";
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-    };
-  };
 }
