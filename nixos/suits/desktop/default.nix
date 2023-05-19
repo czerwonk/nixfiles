@@ -45,6 +45,11 @@
   };
   programs.wireshark.enable = true;
   programs._1password-gui.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+  services.pcscd.enable = true;
 
   networking.firewall.extraCommands = ''
     iptables -A INPUT -i podman+ -p udp --dport 53 -j ACCEPT

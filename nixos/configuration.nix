@@ -54,11 +54,5 @@
   ];
   environment.shells = [ pkgs.zsh ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-  services.pcscd.enable = true;
-
   system.stateVersion = "22.11";
  }
