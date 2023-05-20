@@ -90,6 +90,8 @@
     updater.enable = true;
   };
 
+  services.sysstat.enable = true;
+
   security.audit = {
     enable = true;
     rules = [
@@ -102,5 +104,6 @@
   environment.systemPackages = with pkgs; [
     chkrootkit
     aide
+    libpwquality
   ];
 }
