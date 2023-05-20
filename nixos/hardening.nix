@@ -9,7 +9,6 @@
   security.forcePageTableIsolation = true;
   security.lockKernelModules = false;
   security.allowUserNamespaces = true;
-  security.hideProcessInformation = true;
   boot.blacklistedKernelModules = [
     "ax25"
     "netrom"
