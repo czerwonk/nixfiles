@@ -36,7 +36,6 @@
       docker-compose
       wireshark
       sublime4
-      teams
       calibre
       remmina
       mattermost-desktop
