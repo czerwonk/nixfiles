@@ -3,7 +3,7 @@
 {
   imports = [
     ./sysctl.nix
-		./hardening.nix
+    ./hardening.nix
   ];
 
   services.fail2ban.enable = true;
