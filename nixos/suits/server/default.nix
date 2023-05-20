@@ -20,7 +20,7 @@
       # Authentication
       AllowUsers = "daniel";
       LoginGraceTime = "1m";
-      PermitRootLogin = false;
+      PermitRootLogin = "no";
       StrictModes = true;
       MaxAuthTries = 3;
       MaxSessions = 2;

@@ -90,8 +90,15 @@
     updater.enable = true;
   };
 
+  security.audit = {
+    enable = true;
+    rules = [
+      "-a exit,always -F arch=b64 -F euid=0 -S execve"
+      "-a exit,always -F arch=b32 -F euid=0 -S execve"
+    ];
+  };
+
   security.rtkit.enable = true;
-  security.auditd.enable = true;
   environment.systemPackages = with pkgs; [
     chkrootkit
     aide
