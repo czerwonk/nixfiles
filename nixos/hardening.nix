@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   nix.settings.allowed-users = [ "@users" ];
@@ -9,6 +9,8 @@
   security.forcePageTableIsolation = true;
   security.lockKernelModules = false;
   security.allowUserNamespaces = true;
+  systemd.coredump.enable = lib.mkDefault false;
+
   boot.blacklistedKernelModules = [
     "ax25"
     "netrom"
