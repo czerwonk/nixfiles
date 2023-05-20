@@ -14,7 +14,6 @@
     device = "/dev/sda";
     useOSProber = true;
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.domain = "routing.rocks";
 }

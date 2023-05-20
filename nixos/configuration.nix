@@ -1,12 +1,14 @@
 { pkgs, username, hostname, ... }:
 
 {
+  imports = [
+    ./hardening.nix
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.checkReversePath = "loose";
 
   security.rtkit.enable = true;
 

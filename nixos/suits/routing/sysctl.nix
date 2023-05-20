@@ -4,7 +4,6 @@
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = true;
     "net.ipv4.ip_nonlocal_bind" = true;
-    "net.ipv4.conf.all.log_martians" = true;
     "net.ipv4.conf.all.forwarding" = true;
     "net.ipv4.conf.default.forwarding" = true;
     "net.ipv4.tcp_low_latency" = true;
