@@ -88,6 +88,8 @@
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
 
+  services.fail2ban.enable = true;
+
   services.clamav = {
     updater.enable = true;
   };
@@ -101,11 +103,13 @@
       "-a exit,always -F arch=b32 -F euid=0 -S execve"
     ];
   };
+  security.auditd.enable = true;
 
   security.rtkit.enable = true;
   environment.systemPackages = with pkgs; [
     chkrootkit
     aide
     libpwquality
+    acct
   ];
 }

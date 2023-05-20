@@ -8,8 +8,12 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = hostname;
-  networking.networkmanager.enable = true;
-  services.chrony.enable = true;
+  networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+  services.ntp.enable = true;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";

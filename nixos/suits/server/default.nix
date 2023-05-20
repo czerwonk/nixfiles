@@ -6,7 +6,7 @@
     ./hardening.nix
   ];
 
-  services.fail2ban.enable = true;
+  services.logrotate.enable = true;
   services.openssh = {
     enable = true;
     settings = {
