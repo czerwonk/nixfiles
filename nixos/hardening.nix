@@ -7,12 +7,17 @@
 
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;
-  security.lockKernelModules = true;
+  security.lockKernelModules = false;
+  security.allowUserNamespaces = true;
+  security.hideProcessInformation = true;
   boot.blacklistedKernelModules = [
-    # Obscure network protocols
     "ax25"
     "netrom"
     "rose"
+    "dccp"
+    "sctp"
+    "rds"
+    "tipc"
 
     # Old or rare or insufficiently audited filesystems
     "adfs"
@@ -36,9 +41,6 @@
     "qnx6"
     "sysv"
     "ufs"
-
-    "usb-storage"
-    "firewire-core"
   ];
 
   boot.kernel.sysctl = {
@@ -84,4 +86,15 @@
 
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
+
+  services.clamav = {
+    updater.enable = true;
+  };
+
+  security.rtkit.enable = true;
+  security.auditd.enable = true;
+  environment.systemPackages = with pkgs; [
+    chkrootkit
+    aide
+  ];
 }

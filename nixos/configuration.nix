@@ -9,8 +9,7 @@
 
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
-
-  security.rtkit.enable = true;
+  services.chrony.enable = true;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
