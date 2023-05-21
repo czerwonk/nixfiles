@@ -5,7 +5,17 @@
     ./hardening.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
 
   networking.hostName = hostname;
   networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
