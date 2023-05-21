@@ -3,7 +3,6 @@
 {
   imports = [ 
     (import routingRocks)
-    ./hardware-configuration.nix
     ../../configuration.nix
     ../../suits/server
     ../../suits/container
