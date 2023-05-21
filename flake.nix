@@ -28,6 +28,12 @@
       };
       inherit (mauveUtil) mauveUserUtil;
 
+      routing_rocks = builtins.fetchGit {
+        url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
+        ref = "main";
+        rev = "9f50e51feb719258fbf67ce4221e93ccb1be2151";
+      };
+
       username = "daniel";
 
     in {
