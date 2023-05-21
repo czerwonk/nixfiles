@@ -1,6 +1,11 @@
 { pkgs, username, ... }:
 
 {
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
