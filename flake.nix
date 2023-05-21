@@ -28,10 +28,10 @@
       };
       inherit (mauveUtil) mauveUserUtil;
 
-      routing_rocks = builtins.fetchGit {
+      routingRocks = builtins.fetchGit {
         url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
         ref = "main";
-        rev = "9f50e51feb719258fbf67ce4221e93ccb1be2151";
+        rev = "c7619524e8d9fdcaacb0f5bd6e8fe7df7b1dba2a";
       };
 
       username = "daniel";
@@ -76,7 +76,7 @@
 
       nixosConfigurations = {
         dan-x1 = systemUtil.mkNixOSSystem {
-          inherit username;
+          inherit username routingRocks;
           hostname = "dan-x1";
           extraHomeModules = [
             ./home/suits/devops
@@ -84,7 +84,7 @@
           ];
         };
         nixos-lab1 = systemUtil.mkNixOSSystem {
-          inherit username;
+          inherit username routingRocks;
           hostname = "nixos-lab1";
           extraHomeModules = [
             ./home/suits/devops

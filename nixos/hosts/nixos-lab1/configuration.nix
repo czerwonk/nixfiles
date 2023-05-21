@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, routingRocks, ... }:
 
 {
   imports = [ 
+    (import routingRocks)
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../suits/server
