@@ -31,7 +31,7 @@
       routingRocks = builtins.fetchGit {
         url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
         ref = "main";
-        rev = "4cf6a58f9f5ab3bd917a661757a39548c7c40c00";
+        rev = "1aebeb6c8737f3a25fdbd34e02a1542d91b16ada";
       };
 
       username = "daniel";
