@@ -31,7 +31,7 @@
       routingRocks = builtins.fetchGit {
         url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
         ref = "main";
-        rev = "c7619524e8d9fdcaacb0f5bd6e8fe7df7b1dba2a";
+        rev = "4cf6a58f9f5ab3bd917a661757a39548c7c40c00";
       };
 
       username = "daniel";
@@ -83,9 +83,9 @@
             ./home/suits/pentest
           ];
         };
-        nixos-lab1 = systemUtil.mkNixOSSystem {
+        bb1 = systemUtil.mkNixOSSystem {
           inherit username routingRocks;
-          hostname = "nixos-lab1";
+          hostname = "bb1";
           extraHomeModules = [
             ./home/suits/devops
           ];

@@ -17,7 +17,7 @@
   };
 
   networking = {
-    domain = "routing.rocks";
+    domain = "dus.routing.rocks";
     dhcpcd.enable = false;
     interfaces = {
       enp0s5.ipv4.addresses = [{
