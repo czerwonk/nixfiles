@@ -1,8 +1,10 @@
-{ lib, username, ... }:
+{ lib, config, username, ... }:
 
 {
   services.openssh = {
     enable = true;
+    ports = [ 2222 ];
+    openFirewall = true;
     settings = {
       Port = 2222;
       TCPKeepAlive = false;
@@ -27,13 +29,15 @@
       UsePAM = true;
       GSSAPIAuthentication = false;
       GSSAPICleanupCredentials = false;
+      ChrootDirectory = "%h";
 
-      AllowAgentForwarding = true;
-      AllowTcpForwarding = true;
-      PrintMotd = true;
+      AllowAgentForwarding = false;
+      AllowTcpForwarding = false;
+      PrintMotd = false;
       UseDNS = false;
     };
     extraConfig = lib.mkForce ''
+      AuthorizedKeysFile ${toString config.services.openssh.authorizedKeysFiles}
       Subsystem sftp internal-sftp
 
       Match User ${username}
