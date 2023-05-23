@@ -190,6 +190,7 @@ in {
             tree-sitter-toml
             tree-sitter-vim
             tree-sitter-yaml
+            tree-sitter-zig
           ]
         ));
         type = "lua";

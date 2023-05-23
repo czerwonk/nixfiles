@@ -28,6 +28,7 @@
       graphviz
       gh
       nodejs
+      zig
     ];
   };
 }
