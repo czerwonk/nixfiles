@@ -62,12 +62,14 @@
     "net.ipv4.conf.all.accept_source_route" = false;
     "net.ipv4.conf.all.bootp_relay" = false;
     "net.ipv4.conf.all.log_martians" = true;
+    "net.ipv4.conf.all.rp_filter" = 2;
     "net.ipv4.conf.all.mc_forwarding" = false;
     "net.ipv4.conf.all.proxy_arp" = false;
     "net.ipv4.conf.default.accept_redirects" = false;
     "net.ipv4.conf.default.send_redirects" = false;
     "net.ipv4.conf.default.accept_source_route" = false;
     "net.ipv4.conf.default.log_martians" = true;
+    "net.ipv4.conf.default.rp_filter" = 2;
     "net.ipv4.icmp_echo_ignore_broadcasts" = true;
     "net.ipv4.icmp_ignore_bogus_error_responses" = false;
     "net.ipv4.tcp_syncookies" = true;
