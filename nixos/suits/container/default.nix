@@ -1,9 +1,7 @@
 { ... }:
 
 {
-  networking.firewall.extraCommands = ''
-    iptables -A INPUT -i podman+ -p udp --dport 53 -j ACCEPT
-  '';
+  networking.firewall.trustedInterfaces = [ "podman+" ];
   virtualisation = {
     podman = {
       enable = true;
