@@ -2,7 +2,7 @@
   description = "Daniel Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
