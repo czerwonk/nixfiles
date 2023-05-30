@@ -1,5 +1,5 @@
 require('kanagawa').setup {
-  transparent = true,
+  transparent = false,
   theme = 'wave',
   colors = {
     palette = {
