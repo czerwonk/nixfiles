@@ -4,8 +4,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      package = pkgs.meslo-lgs-nf;
-      name = "MesloLGS NF";
+      package = pkgs.jetbrains-mono;
+      name = "JetBrains Mono";
       size = 14;
     };
     settings = {
