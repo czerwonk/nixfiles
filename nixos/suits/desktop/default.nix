@@ -40,9 +40,9 @@
       vlc
       docker-compose
       wireshark
-      sublime4
       calibre
       remmina
+      teamviewer
       mattermost-desktop
     ];
     extraGroups = [ "wireshark" ];
