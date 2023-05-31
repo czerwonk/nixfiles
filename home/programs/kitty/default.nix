@@ -22,6 +22,7 @@
       color11 = "#FF9E3B";
       color31 = "#A3D4D5";
       color76 = "#98BB6C";
+      color234 = "#1F1F28";
     };
   };
 }
