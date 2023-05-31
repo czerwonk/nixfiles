@@ -15,6 +15,7 @@
       enable_audio_bell = false;
       hide_window_decorations = true;
       foreground = "#E1D9D1";
+      background = "#1F1F28";
       color1 = "#C34043";
       color2 = "#76946A";
       color3 = "#E6C384";
