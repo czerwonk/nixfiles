@@ -21,9 +21,9 @@ local on_attach = function(client, bufnr)
   map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
   map('n', 'gd', vim.lsp.buf.definition, 'Find Definition (LSP)')
   map('n', 'gD', vim.lsp.buf.declaration, 'Find Declaration (LSP)')
-  map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
-  map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder (LSP)')
-  map('n', '<leader>wl', function()
+  map('n', '<leader>Wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
+  map('n', '<leader>Wr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder (LSP)')
+  map('n', '<leader>Wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
@@ -53,6 +53,9 @@ local on_attach = function(client, bufnr)
   wk.register({
     g = {
       name = "LSP",
+    },
+    W = {
+      name = "Workspace",
     }
   }, wkOpts);
 end
