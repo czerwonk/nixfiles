@@ -1,10 +1,10 @@
-{ pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
-  guihua_lua = pkgs-unstable.vimUtils.buildVimPlugin {
+  guihua_lua = pkgs.vimUtils.buildVimPlugin {
     name = "guihua.lua";
     buildPhase = "rm Makefile";
-    src = pkgs-unstable.fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "ray-x";
       repo = "guihua.lua";
       rev = "d331b1526a87edbe13679298c3547d49f8a14ffc";
