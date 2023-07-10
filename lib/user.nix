@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs, ... }:
+{ home-manager, nixpkgs, nixpkgs-unstable, ... }:
 
 {
   mkOSXHMUser = {username, extraModules}:
@@ -12,6 +12,10 @@
       };
       extraSpecialArgs = {
         inherit username;
+        pkgs-unstable = import nixpkgs-unstable {
+          system = "x86_64-darwin";
+          config = { allowUnfree = true; };
+        };
       };
     };
 
@@ -26,6 +30,10 @@
       };
       extraSpecialArgs = {
         inherit username;
+        pkgs-unstable = import nixpkgs-unstable {
+          system = "x86_64-linux";
+          config = { allowUnfree = true; };
+        };
       };
     };
 }

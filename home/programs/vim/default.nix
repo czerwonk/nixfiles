@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 let
   guihua_lua = pkgs.vimUtils.buildVimPlugin {
@@ -145,6 +145,9 @@ in {
       }
       {
         plugin = nvim-navic;
+      }
+      {
+        plugin = pkgs-unstable.vimPlugins.nvim-navbuddy;
       }
       {
         plugin = symbols-outline-nvim;

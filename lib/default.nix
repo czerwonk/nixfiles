@@ -1,6 +1,6 @@
-{ home-manager, nixpkgs, ... }:
+{ home-manager, nixpkgs, nixpkgs-unstable, ... }:
 
 rec {
-  userUtil = import ./user.nix { inherit home-manager nixpkgs; };
-  systemUtil = import ./system.nix { inherit home-manager nixpkgs; };
+  userUtil = import ./user.nix { inherit home-manager nixpkgs nixpkgs-unstable; };
+  systemUtil = import ./system.nix { inherit home-manager nixpkgs nixpkgs-unstable; };
 }

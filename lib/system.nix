@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs, ... }:
+{ home-manager, nixpkgs, nixpkgs-unstable, ... }:
 
 {
   mkNixOSSystem = {hostname, username, extraHomeModules, routingRocks}:
@@ -12,6 +12,10 @@
           home-manager.users.${username} = import ../nixos/hosts/${hostname}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
+            pkgs-unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config = { allowUnfree = true; };
+            };
           };
         }
       ];
