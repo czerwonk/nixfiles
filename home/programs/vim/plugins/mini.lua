@@ -1,3 +1,7 @@
+require('mini.bracketed').setup {
+  undo = { suffix = '', options = {} },
+}
+
 require('mini.surround').setup {
   mappings = {
     add = "sa",
