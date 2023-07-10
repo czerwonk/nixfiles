@@ -147,7 +147,7 @@ in {
         plugin = nvim-navic;
       }
       {
-        plugin = pkgs-unstable.vimPlugins.nvim-navbuddy;
+        plugin = nvim-navbuddy;
       }
       {
         plugin = refactoring-nvim;
