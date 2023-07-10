@@ -150,11 +150,6 @@ in {
         plugin = pkgs-unstable.vimPlugins.nvim-navbuddy;
       }
       {
-        plugin = symbols-outline-nvim;
-        type = "lua";
-        config = "require('symbols-outline').setup()";
-      }
-      {
         plugin = refactoring-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/refactoring.lua; 

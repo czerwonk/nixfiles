@@ -14,11 +14,6 @@ local wk = require('which-key')
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  if client.server_capabilities["documentSymbolProvider"] then
-    require("nvim-navic").attach(client, bufnr)
-    require("nvim-navbuddy").attach(client, bufnr)
-  end
-
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
@@ -47,10 +42,13 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
   map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
   map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
-  map('n', '<leader>p', telescopeBuiltin.lsp_document_symbols, 'Symbols in document (LSP)')
-  map('n', '<leader>P', telescopeBuiltin.lsp_workspace_symbols, 'Symbols in workspace (LSP)')
 
-  map('n', '<leader>o', '<cmd>SymbolsOutline<CR>', 'Outline (LSP)')
+  if client.server_capabilities["documentSymbolProvider"] then
+    require("nvim-navic").attach(client, bufnr)
+    require("nvim-navbuddy").attach(client, bufnr)
+
+    map('n', '<leader>p', '<cmd>Navbuddy<CR>', 'Navbuddy (LSP)')
+  end
 
   wk.register({
     g = {
