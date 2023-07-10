@@ -1,10 +1,10 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 
 let
-  guihua_lua = pkgs.vimUtils.buildVimPlugin {
+  guihua_lua = pkgs-unstable.vimUtils.buildVimPlugin {
     name = "guihua.lua";
     buildPhase = "rm Makefile";
-    src = pkgs.fetchFromGitHub {
+    src = pkgs-unstable.fetchFromGitHub {
       owner = "ray-x";
       repo = "guihua.lua";
       rev = "d331b1526a87edbe13679298c3547d49f8a14ffc";
@@ -17,7 +17,7 @@ in {
     enable = true;
     defaultEditor = true;
     vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs-unstable.vimPlugins; [
       {
         plugin = nui-nvim;
       }
