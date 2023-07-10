@@ -4,11 +4,14 @@ require('mini.surround').setup {
     delete = "sd",
     replace = "sr",
   },
+  silent = true
 }
 
 require("mini.pairs").setup()
 
-require('mini.bufremove').setup()
+require('mini.bufremove').setup {
+  silent = true
+}
 
 local mini_indentscope = require("mini.indentscope")
 mini_indentscope.setup {
