@@ -42,9 +42,9 @@ in {
         config = "require('colorizer').setup()";
       }
       {
-        plugin = nvim-tree-lua;
+        plugin = neo-tree-nvim;
         type = "lua";
-        config = builtins.readFile ./plugins/nvim-tree.lua;
+        config = builtins.readFile ./plugins/neo-tree.lua;
       }
       {
         plugin = which-key-nvim;

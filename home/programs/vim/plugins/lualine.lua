@@ -4,5 +4,5 @@ require('lualine').setup {
     theme = 'codedark',
     global = true,
   },
-  extensions = { 'fugitive', 'nvim-tree', 'toggleterm' },
+  extensions = { 'fugitive', 'neo-tree', 'toggleterm' },
 }

@@ -19,7 +19,12 @@ require("bufferline").setup{
       return " " .. icon .. count
     end,
     offsets = {
-      { filetype = "NvimTree", text = "EXPLORER", text_align = "center" }
+      {
+        filetype = "neo-tree",
+        text = "EXPLORER",
+        highlight = "Directory",
+        text_align = "center",
+      },
     },
   },
 }
