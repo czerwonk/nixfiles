@@ -1,5 +1,6 @@
 require("neo-tree").setup({
-  close_if_last_window = false,
+  close_if_last_window = true,
+  sources = { "filesystem", "buffers", "git_status" },
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
@@ -10,13 +11,21 @@ require("neo-tree").setup({
     follow_current_file = true,
     use_libuv_file_watcher = true,
   },
-  indent = {
-    with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-    expander_collapsed = "",
-    expander_expanded = "",
-    expander_highlight = "NeoTreeExpander",
+  window = {
+    mappings = {
+      ["<space>"] = "none",
+    },
   },
   default_component_configs = {
+    container = {
+      enable_character_fade = true
+    },
+    indent = {
+      with_expanders = true,
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
     icon = {
       folder_empty = "󰜌",
       folder_empty_open = "󰜌",
@@ -54,6 +63,8 @@ require("neo-tree").setup({
     }
   },
   source_selector = {
+    winbar = true,
+    content_layout = "center",
     sources = {
       { source = "filesystem", display_name = " 󰉓 Files " },
       { source = "git_status", display_name = " 󰊢 Git " },
