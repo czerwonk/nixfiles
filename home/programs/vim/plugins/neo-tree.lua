@@ -18,7 +18,7 @@ require("neo-tree").setup({
       },
     },
     always_show = {
-      ".gitignored",
+      ".gitignore",
       ".goreleaser.yml"
     },
   },
