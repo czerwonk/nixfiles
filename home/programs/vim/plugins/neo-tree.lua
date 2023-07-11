@@ -11,10 +11,15 @@ require("neo-tree").setup({
     follow_current_file = true,
     use_libuv_file_watcher = true,
     filtered_items = {
+      hide_gitignored = false,
       never_show = {
         ".DS_Store",
         "thumbs.db"
       },
+    },
+    always_show = {
+      ".gitignored",
+      ".goreleaser.yml"
     },
   },
   window = {
