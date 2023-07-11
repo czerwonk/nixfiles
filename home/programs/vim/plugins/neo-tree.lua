@@ -16,10 +16,10 @@ require("neo-tree").setup({
         ".DS_Store",
         "thumbs.db"
       },
-    },
-    always_show = {
-      ".gitignore",
-      ".goreleaser.yml"
+      always_show = {
+        ".gitignore",
+        ".goreleaser.yml"
+      },
     },
   },
   window = {
