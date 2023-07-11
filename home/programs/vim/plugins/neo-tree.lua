@@ -10,6 +10,12 @@ require("neo-tree").setup({
     bind_to_cwd = false,
     follow_current_file = true,
     use_libuv_file_watcher = true,
+    filtered_items = {
+      never_show = {
+        ".DS_Store",
+        "thumbs.db"
+      },
+    },
   },
   window = {
     mappings = {
