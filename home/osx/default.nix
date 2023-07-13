@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -11,6 +11,7 @@
     homeDirectory = "/Users/${username}";
     packages = with pkgs; [
       qemu
+      virt-viewer
     ];
     file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
   };
