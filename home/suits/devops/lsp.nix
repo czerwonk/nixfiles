@@ -12,12 +12,14 @@
       sumneko-lua-language-server
       marksman
       rust-analyzer
+      docker-compose-language-service
       zls
     ] ++ (with pkgs.nodePackages; [
         yaml-language-server
         typescript-language-server
         bash-language-server
         vscode-json-languageserver
+        dockerfile-language-server-nodejs
     ]);
   };
 }
