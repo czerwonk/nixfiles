@@ -120,6 +120,10 @@ lspconfig.docker_compose_language_service.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+lspconfig.omnisharp.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 lspconfig.jsonls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -205,8 +209,10 @@ require('go').setup({
     end,
   },
   lsp_gofumpt = true,
+  lsp_codelens = false,
   dap_debug = true,
   dap_debug_gui = true,
+  trouble = true,
 })
 local go_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {

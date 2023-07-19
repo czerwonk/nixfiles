@@ -14,6 +14,7 @@
       rust-analyzer
       docker-compose-language-service
       terraform-ls
+      omnisharp-roslyn
       zls
     ] ++ (with pkgs.nodePackages; [
         yaml-language-server
