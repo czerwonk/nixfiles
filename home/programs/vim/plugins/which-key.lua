@@ -31,6 +31,9 @@ wk.register({
   s = {
     name = "Git"
   },
+  t = {
+    name = "Test"
+  },
   x = {
     name = "Trouble",
   }

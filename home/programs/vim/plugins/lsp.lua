@@ -177,11 +177,6 @@ lspconfig.gopls.setup {
         parameterNames = true,
         rangeVariableTypes = true,
       },
-      codelenses = {
-        generate = false,
-        gc_details = true,
-        test = true,
-      }
     },
   },
 }

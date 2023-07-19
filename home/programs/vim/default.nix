@@ -214,6 +214,14 @@
         plugin = nvim-dap-ui;
       }
       {
+        plugin = neotest;
+        type = "lua";
+        config = builtins.readFile ./plugins/test.lua;
+      }
+      {
+        plugin = neotest-go;
+      }
+      {
         plugin = trouble-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/trouble.lua;
