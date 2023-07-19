@@ -13,6 +13,7 @@ local wkOpts = {
 local wk = require('which-key')
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
 
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
@@ -28,6 +29,7 @@ local on_attach = function(client, bufnr)
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
+  map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
 
   map('n', 'gn', function ()
     vim.diagnostic.goto_next()
@@ -203,9 +205,6 @@ require('go').setup({
     capabilities = capabilities,
     on_attach = function (client, bufnr)
       on_attach_with_debug(client, bufnr)
-      vim.keymap.set('n', '<leader>;', "<cmd>GoCodeLenAct<CR>",
-        { desc = 'Code Lens Action (Go)', noremap = true, silent = true, buffer = bufnr }
-      )
     end,
   },
   lsp_gofumpt = true,
