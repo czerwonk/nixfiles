@@ -164,6 +164,10 @@ lspconfig.gopls.setup {
   root_dir = lsputil.root_pattern("go.mod"),
   settings = {
     gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
@@ -173,6 +177,11 @@ lspconfig.gopls.setup {
         parameterNames = true,
         rangeVariableTypes = true,
       },
+      codelenses = {
+        generate = false,
+        gc_details = true,
+        test = true,
+      }
     },
   },
 }
