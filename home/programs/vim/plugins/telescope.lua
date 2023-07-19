@@ -3,7 +3,7 @@ local troubleTelescope = require('trouble.providers.telescope')
 
 local on_project_selected = function(buf)
   projectTelescope.change_working_directory(buf, false)
-  vim.cmd([[Neotree show]])
+  vim.cmd([[Neotree show dir=./]])
   require('harpoon.ui').nav_file(1)
   require('harpoon.tmux').sendCommand("2", " cd " .. vim.fn.getcwd())
 end
