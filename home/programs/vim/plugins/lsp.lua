@@ -20,10 +20,6 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  if client.server_capabilities["codeLensProvider"] then
-    vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
-  end
-
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
@@ -38,7 +34,6 @@ local on_attach = function(client, bufnr)
   end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
-  map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
 
   map('n', 'gn', function ()
     vim.diagnostic.goto_next()
@@ -59,6 +54,11 @@ local on_attach = function(client, bufnr)
     require("nvim-navbuddy").attach(client, bufnr)
 
     map('n', '<leader>p', '<cmd>Navbuddy<CR>', 'Navbuddy (LSP)')
+  end
+
+  if client.server_capabilities["codeLensProvider"] then
+    vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
+    map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
   end
 
   wk.register({
