@@ -7,7 +7,6 @@
       kubectl
       vault
       terraform
-      tflint
       k9s
       kubernetes-helm
       krew

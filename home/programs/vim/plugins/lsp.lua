@@ -104,7 +104,7 @@ lspconfig.zls.setup{
   capabilities = capabilities,
   on_attach = on_attach,
 }
-lspconfig.tflint.setup {
+lspconfig.terraformls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }

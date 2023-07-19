@@ -165,6 +165,7 @@ in {
             tree-sitter-dockerfile
             tree-sitter-go
             tree-sitter-gomod
+            tree-sitter-hcl
             tree-sitter-html
             tree-sitter-java
             tree-sitter-json

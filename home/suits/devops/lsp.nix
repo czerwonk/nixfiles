@@ -13,6 +13,7 @@
       marksman
       rust-analyzer
       docker-compose-language-service
+      terraform-ls
       zls
     ] ++ (with pkgs.nodePackages; [
         yaml-language-server
