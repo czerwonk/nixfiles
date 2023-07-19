@@ -10,5 +10,11 @@ require('kanagawa').setup {
       crystalBlue = "#7FB4CA",
     },
   },
+  overrides = function(colors)
+      local theme = colors.theme
+      return {
+        LspInlayHint = { bg = theme.ui.bg_p1, fg = theme.syn.comment },
+      }
+  end,
 }
 vim.cmd("colorscheme kanagawa")

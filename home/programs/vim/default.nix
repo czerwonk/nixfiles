@@ -1,18 +1,6 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 
-let
-  guihua_lua = pkgs.vimUtils.buildVimPlugin {
-    name = "guihua.lua";
-    buildPhase = "rm Makefile";
-    src = pkgs.fetchFromGitHub {
-      owner = "ray-x";
-      repo = "guihua.lua";
-      rev = "d331b1526a87edbe13679298c3547d49f8a14ffc";
-      sha256 = "sha256-8VbynF1b9HXyJFAoW1/ReNX57tzUSiqqtktwqFjavp8=";
-    };
-  };
-
-in {
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -138,7 +126,7 @@ in {
         config = builtins.readFile ./plugins/lsp.lua;
       }
       {
-        plugin = nvim-lsputils;
+        plugin = lsp-inlayhints-nvim;
       }
       {
         plugin = SchemaStore-nvim;
@@ -229,15 +217,6 @@ in {
         plugin = trouble-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/trouble.lua;
-      }
-      {
-        plugin = go-nvim;
-      }
-      {
-        plugin = guihua_lua;
-      }
-      {
-        plugin = rust-tools-nvim;
       }
       {
         plugin = copilot-lua;
