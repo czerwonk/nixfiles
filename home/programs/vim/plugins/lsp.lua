@@ -1,4 +1,3 @@
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -71,53 +70,6 @@ local on_attach = function(client, bufnr)
   }, wkOpts);
 end
 
-local dap = require('dap')
-local function on_attach_with_debug(client, bufnr)
-  on_attach(client, bufnr)
-
-  vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Continue (Debug)' })
-  vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Step over (Debug)' })
-  vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Step into (Debug)' })
-  vim.keymap.set('n', '<F12>', function() dap.step_out() end, { desc = 'Step out (Debug)' })
-  vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = 'Toggle Breakpoint (Debug)' })
-  vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = 'Breakpoint with message (Debug)' })
-  vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end, { desc = 'Open REPL (Debug)' })
-  vim.keymap.set('n', '<leader>dl', function() dap.run_last() end, { desc = 'Run Last (Debug)' })
-  vim.keymap.set({'n', 'v'}, '<leader>dh', function()
-    require('dap.ui.widgets').hover()
-  end, { desc = 'Widgets (hover)' })
-  vim.keymap.set({'n', 'v'}, '<leader>dp', function()
-    require('dap.ui.widgets').preview()
-  end, { desc = 'Widgets (preview)' })
-  vim.keymap.set('n', '<leader>df', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.frames)
-  end, { desc = 'Frames' })
-  vim.keymap.set('n', '<leader>ds', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.scopes)
-  end, { desc = 'Scopes' })
-  vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
-  vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
-
-  wk.register({
-    d = {
-      name = "Debug",
-    }
-  }, wkOpts);
-end
-
-local dapui = require('dapui')
-dapui.setup() dap.listeners.after.event_initialized["dapui_config"]=function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"]=function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"]=function()
-  dapui.close()
-end
-
 local lspconfig = require('lspconfig')
 local lsputil = require('lspconfig/util')
 lspconfig.pyright.setup {
@@ -161,7 +113,7 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.gopls.setup {
   capabilities = capabilities,
-  on_attach = on_attach_with_debug,
+  on_attach = on_attach,
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
   root_dir = lsputil.root_pattern("go.mod"),
@@ -184,10 +136,6 @@ lspconfig.gopls.setup {
   },
 }
 lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach_with_debug,
-}
-lspconfig.zls.setup{
   capabilities = capabilities,
   on_attach = on_attach,
 }

@@ -204,6 +204,8 @@
       }
       {
         plugin = nvim-dap;
+        type = "lua";
+        config = builtins.readFile ./plugins/dap.lua;
       }
       {
         plugin = nvim-dap-virtual-text;
@@ -212,6 +214,9 @@
       }
       {
         plugin = nvim-dap-ui;
+      }
+      {
+        plugin = nvim-dap-go;
       }
       {
         plugin = neotest;

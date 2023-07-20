@@ -19,6 +19,9 @@ wk.register({
   c = {
     name = "Quickfix",
   },
+  d = {
+    name = "Debug"
+  },
   f = {
     name = "Telescope",
   },
