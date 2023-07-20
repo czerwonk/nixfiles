@@ -74,15 +74,46 @@ local lspconfig = require('lspconfig')
 local lsputil = require('lspconfig/util')
 lspconfig.pyright.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.tsserver.setup {
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true
+      }
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true
+      }
+    }
+  }
 }
 lspconfig.solargraph.setup {
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    solargraph = {
+      diagnostics = true
+    }
+  }
 }
 lspconfig.nil_ls.setup{
   capabilities = capabilities,
@@ -100,16 +131,19 @@ lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = 'LuaJIT'
       },
       diagnostics = {
-        globals = {'vim'},
+        globals = {'vim'}
       },
       telemetry = {
-        enable = false,
+        enable = false
       },
-    },
-  },
+      codeLens = {
+        enable = true
+      }
+    }
+  }
 }
 lspconfig.gopls.setup {
   capabilities = capabilities,
@@ -120,7 +154,7 @@ lspconfig.gopls.setup {
   settings = {
     gopls = {
       analyses = {
-        unusedparams = true,
+        unusedparams = true
       },
       staticcheck = true,
       hints = {
@@ -130,34 +164,34 @@ lspconfig.gopls.setup {
         constantValues = true,
         functionTypeParameters = true,
         parameterNames = true,
-        rangeVariableTypes = true,
-      },
-    },
-  },
+        rangeVariableTypes = true
+      }
+    }
+  }
 }
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.terraformls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.ansiblels.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.dockerls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.docker_compose_language_service.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.omnisharp.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = on_attach
 }
 lspconfig.jsonls.setup {
   capabilities = capabilities,
@@ -165,9 +199,9 @@ lspconfig.jsonls.setup {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
-      validate = { enable = true },
-    },
-  },
+      validate = { enable = true }
+    }
+  }
 }
 lspconfig.yamlls.setup {
   capabilities = capabilities,
@@ -177,9 +211,9 @@ lspconfig.yamlls.setup {
       hover = true,
       completion = true,
       validate = true,
-      schemas = require('schemastore').yaml.schemas(),
-    },
-  },
+      schemas = require('schemastore').yaml.schemas()
+    }
+  }
 }
 
 vim.api.nvim_create_autocmd('BufWritePre', {
