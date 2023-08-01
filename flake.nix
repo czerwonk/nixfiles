@@ -55,7 +55,6 @@
         "mauve-osx" = userUtil.mkOSXHMUser {
           username = mauve.username {};
           extraModules = [
-            ./home/osx
             ./home/suits/devops
             mauve.home
             {
@@ -67,7 +66,6 @@
         "mauve-linux" = userUtil.mkLinuxHMUser {
           username = mauve.username {};
           extraModules = [ 
-            ./home/linux.nix
             ./home/suits/devops/dev.nix
             mauve.home
             {

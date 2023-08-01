@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   networking.firewall.trustedInterfaces = [ "podman+" ];
   virtualisation = {

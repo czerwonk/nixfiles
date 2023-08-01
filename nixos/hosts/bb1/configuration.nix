@@ -1,4 +1,4 @@
-{ pkgs, routingRocks, ... }:
+{ routingRocks, ... }:
 
 {
   imports = [ 
