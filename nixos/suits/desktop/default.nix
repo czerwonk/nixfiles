@@ -44,6 +44,7 @@
       remmina
       teamviewer
       mattermost-desktop
+      virt-viewer
     ];
     extraGroups = [ "wireshark" ];
   };
