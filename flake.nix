@@ -20,15 +20,12 @@
       inherit (util) userUtil;
       inherit (util) systemUtil;
 
-      mauve = builtins.fetchGit {
+      mauveModule = builtins.fetchGit {
         url = "git@github.com:czerwonk/mauve.nixfiles.git";
         ref = "main";
-        rev = "393ed4c6f836fca6a8ab52f5093d22908eb0c4a8";
+        rev = "595260087b58e9c9ec21075fc2978acb13773f68";
       };
-      mauveUtil = import mauve {
-        inherit home-manager nixpkgs nixpkgs-unstable;
-      };
-      inherit (mauveUtil) mauveUserUtil;
+      mauve = import mauveModule;
 
       routingRocks = builtins.fetchGit {
         url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
@@ -40,38 +37,42 @@
 
     in {
       homeConfigurations = {
-        "${username}-osx" = userUtil.mkOSXHMUser {
+        "osx" = userUtil.mkOSXHMUser {
+          inherit username;
+          extraModules = [
+            ./home/suits/devops
+            mauve.home
+          ];
+        };
+
+        "linux" = userUtil.mkLinuxHMUser {
           inherit username;
           extraModules = [
             ./home/suits/devops
           ];
         };
 
-        "${username}-linux" = userUtil.mkLinuxHMUser {
-          inherit username;
-          extraModules = [
-            ./home/suits/devops
-          ];
-        };
-
-        "${username}-osx-mauve" = mauveUserUtil.mkOSXHMUserProfile {
+        "mauve-osx" = userUtil.mkOSXHMUser {
+          username = mauve.username {};
           extraModules = [
             ./home/osx
             ./home/suits/devops
+            mauve.home
+            {
+              mauve.overrides.git = true;
+            }
           ];
         };
 
-        "mauve-osx" = mauveUserUtil.mkOSXHMUser {
-          extraModules = [
-            ./home/osx
-            ./home/suits/devops
-          ];
-        };
-
-        "mauve-linux" = mauveUserUtil.mkLinuxHMUser {
+        "mauve-linux" = userUtil.mkLinuxHMUser {
+          username = mauve.username {};
           extraModules = [ 
             ./home/linux.nix
             ./home/suits/devops/dev.nix
+            mauve.home
+            {
+              mauve.overrides.git = true;
+            }
           ];
         };
       };
