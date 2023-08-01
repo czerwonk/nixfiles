@@ -84,6 +84,7 @@
           extraHomeModules = [
             ./home/suits/devops
             ./home/suits/pentest
+            mauve.home
           ];
         };
         bb1 = systemUtil.mkNixOSSystem {
