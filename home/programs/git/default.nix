@@ -20,7 +20,7 @@
       extensions.worktreeConfig = true;
       github.user = "czerwonk";
       core = {
-        editor = "vim";
+        editor = "nvim";
         commitGraph = true;
       };
       color.ui = true;
