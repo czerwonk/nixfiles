@@ -47,6 +47,7 @@
       virt-viewer
       yubioath-flutter
       teams
+      insync
     ];
     extraGroups = [ "wireshark" ];
   };
