@@ -45,6 +45,8 @@
       teamviewer
       mattermost-desktop
       virt-viewer
+      yubioath-flutter
+      teams
     ];
     extraGroups = [ "wireshark" ];
   };
