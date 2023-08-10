@@ -50,7 +50,7 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 
 # tmux
 ssh() {
-    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm= | cut -c 1-4)" = "tmux" ]; then
         tmux rename-window "$(echo $* | cut -d . -f 1)"
         command ssh "$@"
         tmux set-window-option automatic-rename "on" 1>/dev/null
