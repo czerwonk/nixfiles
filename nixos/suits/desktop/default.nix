@@ -48,6 +48,7 @@
       yubioath-flutter
       teams
       insync
+      mysql-workbench
     ];
     extraGroups = [ "wireshark" ];
   };
