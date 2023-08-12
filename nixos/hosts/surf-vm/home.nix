@@ -2,6 +2,10 @@
 
 {
   imports = [
+    ../../../home/programs/zsh
+    ../../../home/programs/bat
+    ../../../home/programs/fzf
+    ../../../home/suits/core/packages.nix
   ] ++ extraHomeModules;
 
   home = {
