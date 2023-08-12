@@ -1,4 +1,4 @@
-{ username, pkgs, ... }:
+{ username, pkgs, lib, ... }:
 
 {
   imports = [ 
@@ -21,6 +21,7 @@
   };
 
   users.users.${username} = {
+    description = lib.mkForce "";
     packages = with pkgs; [
       gnome.gnome-tweaks
       brave
