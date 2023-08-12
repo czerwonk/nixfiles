@@ -81,7 +81,7 @@
 
       nixosConfigurations = {
         dan-x1 = systemUtil.mkNixOSSystem {
-          inherit username routingRocks;
+          inherit username;
           hostname = "dan-x1";
           extraModules = [
             thinkpad-fprint-sensor.nixosModules.open-fprintd
@@ -94,9 +94,11 @@
           ];
         };
         bb1 = systemUtil.mkNixOSSystem {
-          inherit username routingRocks;
+          inherit username;
           hostname = "bb1";
-          extraModules = [];
+          extraModules = [
+            (import routingRocks)
+          ];
           extraHomeModules = [
             ./home/suits/devops
           ];

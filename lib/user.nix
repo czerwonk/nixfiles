@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, nixpkgs-unstable, ... }:
 
 {
-  mkOSXHMUser = {username, extraModules}:
+  mkOSXHMUser = { username, extraModules }:
     home-manager.lib.homeManagerConfiguration {
       modules = [
         ../home/osx
