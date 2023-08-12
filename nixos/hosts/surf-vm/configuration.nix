@@ -24,7 +24,7 @@
     packages = with pkgs; [
       gnome.gnome-tweaks
       brave
-      nordvpn
+      wgnord
     ];
   };
 }
