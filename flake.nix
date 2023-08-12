@@ -103,6 +103,22 @@
             ./home/suits/devops
           ];
         };
+        bb2 = systemUtil.mkNixOSSystem {
+          inherit username;
+          hostname = "bb2";
+          extraModules = [
+            (import routingRocks)
+          ];
+          extraHomeModules = [
+            ./home/suits/devops
+          ];
+        };
+        surf-vm = systemUtil.mkNixOSSystem {
+          username = "user";
+          hostname = "surf-vm";
+          extraModules = [];
+          extraHomeModules = [];
+        };
       };
     };
 }

@@ -1,10 +1,10 @@
 {
   imports = [ 
-      ./hardware-configuration.nix
-      ../../configuration.nix
-      ../../suits/desktop
-      ../../suits/pentest
-      ../../suits/container
+    ./hardware-configuration.nix
+    ../../configuration.nix
+    ../../suits/desktop
+    ../../suits/pentest
+    ../../suits/container
   ];
 
   boot.loader.systemd-boot.enable = true;
