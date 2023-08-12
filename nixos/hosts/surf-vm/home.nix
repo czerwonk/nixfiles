@@ -5,7 +5,7 @@
     ../../../home/programs/zsh
     ../../../home/programs/bat
     ../../../home/programs/fzf
-    ../../../home/suits/core/packages.nix
+    ../../../home/suits/core/minimal-packages.nix
   ] ++ extraHomeModules;
 
   home = {

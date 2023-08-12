@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   home = {
     packages = with pkgs; [
@@ -22,11 +24,6 @@
       p7zip
       dejavu_fonts
       meslo-lgs-nf
-      asciinema
-      slides
-      openvpn
-      wireguard-tools
-      yubikey-manager
     ];
   };
 }

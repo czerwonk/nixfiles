@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./packages.nix
+    ./minimal-packages.nix
     ../../programs/git
     ../../programs/tmux
     ../../programs/ssh
@@ -12,4 +12,14 @@
     ../../programs/fzf
     ../../programs/bat
   ];
+
+  home = {
+    packages = with pkgs; [
+      asciinema
+      slides
+      openvpn
+      wireguard-tools
+      yubikey-manager
+    ];
+  };
 }
