@@ -10,9 +10,13 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    thinkpad-fprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-unstable, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-unstable, thinkpad-fprint-sensor, ... }:
     let
       util = import ./lib {
         inherit home-manager nixpkgs nixpkgs-unstable;
@@ -79,6 +83,10 @@
         dan-x1 = systemUtil.mkNixOSSystem {
           inherit username routingRocks;
           hostname = "dan-x1";
+          extraModules = [
+            thinkpad-fprint-sensor.nixosModules.open-fprintd
+            thinkpad-fprint-sensor.nixosModules.python-validity
+          ];
           extraHomeModules = [
             ./home/suits/devops
             ./home/suits/pentest
@@ -88,6 +96,7 @@
         bb1 = systemUtil.mkNixOSSystem {
           inherit username routingRocks;
           hostname = "bb1";
+          extraModules = [];
           extraHomeModules = [
             ./home/suits/devops
           ];

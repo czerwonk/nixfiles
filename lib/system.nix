@@ -1,7 +1,7 @@
 { home-manager, nixpkgs, nixpkgs-unstable, ... }:
 
 {
-  mkNixOSSystem = {hostname, username, extraHomeModules, routingRocks}:
+  mkNixOSSystem = {hostname, username, extraModules, extraHomeModules, routingRocks}:
     nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -18,7 +18,7 @@
             };
           };
         }
-      ];
+      ] ++ extraModules;
       specialArgs = {
         inherit username hostname routingRocks;
       };

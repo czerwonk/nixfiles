@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [ 
       ./hardware-configuration.nix
@@ -29,6 +31,6 @@
     pulse.enable = true;
   };
 
-  services.fprintd.enable = true;
-  services.fwupd.enable = true;
+  services.open-fprintd.enable = true;
+  services.python-validity.enable = true;
 }
