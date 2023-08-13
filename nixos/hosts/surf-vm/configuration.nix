@@ -20,6 +20,10 @@
     pulse.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_hardened.prl-tools
+  ];
+
   users.users.${username} = {
     description = lib.mkForce "";
     packages = with pkgs; [
@@ -27,5 +31,9 @@
       brave
       wgnord
     ];
+  };
+
+  boot.kernel.sysctl = {
+    "sysctl kernel.unprivileged_userns_clone" = 1;
   };
 }
