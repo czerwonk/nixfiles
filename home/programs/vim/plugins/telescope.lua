@@ -15,12 +15,36 @@ telescope.setup {
       i = { ["<C-t>"] = troubleTelescope.open_with_trouble },
       n = { ["<C-t>"] = troubleTelescope.open_with_trouble },
     },
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    color_devicons = true,
+    set_env = { ["COLORTERM"] = "truecolor" },
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.55,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.80,
+      preview_cutoff = 120,
+    },
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
   },
   extensions = {
     project = {
       hidden_files = true,
       sorting_strategy = 'ascending',
-      on_project_selected = on_project_selected
+      on_project_selected = on_project_selected,
+      theme = "dropdown",
     }
   }
 }
