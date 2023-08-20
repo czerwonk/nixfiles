@@ -27,7 +27,7 @@
       mauveModule = builtins.fetchGit {
         url = "git@github.com:czerwonk/mauve.nixfiles.git";
         ref = "main";
-        rev = "d285285f300212f911b5c850722536c3a306d898";
+        rev = "faa077fa194bf4bfa41e3338dda594a78c375636";
       };
       mauve = import mauveModule;
 
