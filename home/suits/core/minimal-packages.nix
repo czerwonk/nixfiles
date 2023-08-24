@@ -12,6 +12,7 @@
       wget
       jq
       yq
+      yamlfmt
       tree
       exa
       ripgrep
