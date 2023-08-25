@@ -14,6 +14,7 @@
       redis
       siege
       lynis
+      mysql-shell
     ];
   };
 }

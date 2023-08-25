@@ -28,7 +28,7 @@
       graphviz
       gh
       nodejs
-      zig
+      mysql-shell
     ];
   };
 }
