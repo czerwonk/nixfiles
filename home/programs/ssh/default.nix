@@ -5,6 +5,7 @@
     serverAliveInterval = 10;
     extraConfig = ''
       HostKeyAlgorithms=+ssh-rsa
+      PubkeyAcceptedAlgorithms=+ssh-rsa
     '';
     matchBlocks = {
       routing-rocks = {
