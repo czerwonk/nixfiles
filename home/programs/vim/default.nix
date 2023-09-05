@@ -97,11 +97,6 @@
       }
       {
         plugin = luasnip;
-        type = "lua";
-        config = builtins.readFile ./plugins/luasnip.lua;
-      }
-      {
-        plugin = friendly-snippets;
       }
       {
         plugin = nvim-cmp;
