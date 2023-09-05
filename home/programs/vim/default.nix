@@ -104,9 +104,6 @@
         config = builtins.readFile ./plugins/cmp.lua;
       }
       {
-        plugin = cmp_luasnip;
-      }
-      {
         plugin = cmp-nvim-lsp;
       }
       {
