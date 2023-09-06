@@ -110,6 +110,9 @@
         plugin = cmp-path;
       }
       {
+        plugin = cmp-calc;
+      }
+      {
         plugin = cmp-buffer;
       }
       {
