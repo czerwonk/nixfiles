@@ -1,4 +1,7 @@
 #!/bin/bash
 set -e
 
-home-manager switch --flake "$HOME/.nixfiles#$1"
+pushd "$HOME/.nixfiles"
+git pull
+home-manager switch --flake "#$1"
+popd
