@@ -31,7 +31,11 @@
       gs = "git status";
       ga = "git add";
       gd = "git diff HEAD";
+      gp = "git push";
+      commit = "git commit -a -m";
       k = "kubectl";
+      kexec = "kubectl exec -it";
+      klog = "kubectl logs";
     };
     envExtra = ''
       export WORKSPACE=
