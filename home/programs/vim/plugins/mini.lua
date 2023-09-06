@@ -4,9 +4,9 @@ require('mini.bracketed').setup {
 
 require('mini.surround').setup {
   mappings = {
-    add = "gsa",
-    delete = "gsd",
-    replace = "gsr",
+    add = "sa",
+    delete = "sd",
+    replace = "sr",
   },
   silent = true
 }
