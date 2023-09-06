@@ -167,7 +167,8 @@ lspconfig.gopls.setup {
         functionTypeParameters = true,
         parameterNames = true,
         rangeVariableTypes = true
-      }
+      },
+      usePlaceholders = true
     }
   }
 }
