@@ -5,7 +5,8 @@
     ./gnome-core.nix
   ];
 
-  security.chromiumSuidSandbox.enable = true;
+  security.allowUserNamespaces = true;
+  nix.settings.sandbox = true;
 
   users.users.${username} = {
     packages = with pkgs; [

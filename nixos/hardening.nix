@@ -1,10 +1,12 @@
 { pkgs, config, lib, ... }:
 
 {
+  users.mutableUsers = false;
+
   environment.defaultPackages = [];
 
   nix.settings.allowed-users = [ "@users" ];
-  nix.settings.sandbox = false;
+  nix.settings.sandbox = lib.mkDefault false;
 
   boot.kernelPackages = pkgs.linuxPackages_hardened;
 
@@ -12,7 +14,7 @@
   security.forcePageTableIsolation = true;
   security.lockKernelModules = false;
   security.sudo.execWheelOnly = true;
-  security.allowUserNamespaces = false;
+  security.allowUserNamespaces = lib.mkDefault false;
 
   systemd.coredump.enable = lib.mkDefault false;
 

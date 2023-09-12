@@ -35,7 +35,7 @@
       routingRocks = builtins.fetchGit {
         url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
         ref = "main";
-        rev = "5096692cee128b4433d2eaedaa0e4ddb55f58ae1";
+        rev = "7e2d0fce20b56db98bc8e5e355061a924fdcf375";
       };
 
       username = "daniel";
@@ -84,9 +84,11 @@
         dan-x1 = systemUtil.mkNixOSSystem {
           inherit username;
           hostname = "dan-x1";
+          domain = "routing.rocks";
           extraModules = [
             thinkpad-fprint-sensor.nixosModules.open-fprintd
             thinkpad-fprint-sensor.nixosModules.python-validity
+            (import routingRocks)
           ];
           extraHomeModules = [
             ./home/suits/devops
@@ -97,6 +99,7 @@
         bb1 = systemUtil.mkNixOSSystem {
           inherit username;
           hostname = "bb1";
+          domain = "dus.routing.rocks";
           extraModules = [
             (import routingRocks)
           ];
@@ -107,6 +110,7 @@
         bb2 = systemUtil.mkNixOSSystem {
           inherit username;
           hostname = "bb2";
+          domain = "dus.routing.rocks";
           extraModules = [
             (import routingRocks)
           ];
@@ -116,6 +120,7 @@
         };
         surf-vm = systemUtil.mkNixOSSystem {
           username = "user";
+          domain = "";
           hostname = "surf-vm";
           extraModules = [];
           extraHomeModules = [];
