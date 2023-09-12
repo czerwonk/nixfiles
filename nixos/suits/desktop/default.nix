@@ -5,6 +5,8 @@
     ./gnome-core.nix
   ];
 
+  security.chromiumSuidSandbox.enable = true;
+
   users.users.${username} = {
     packages = with pkgs; [
       gnome.gnome-tweaks

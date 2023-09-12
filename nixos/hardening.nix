@@ -1,14 +1,19 @@
 { pkgs, config, lib, ... }:
 
 {
+  environment.defaultPackages = [];
+
   nix.settings.allowed-users = [ "@users" ];
+  nix.settings.sandbox = false;
 
   boot.kernelPackages = pkgs.linuxPackages_hardened;
 
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;
   security.lockKernelModules = false;
-  security.allowUserNamespaces = true;
+  security.sudo.execWheelOnly = true;
+  security.allowUserNamespaces = false;
+
   systemd.coredump.enable = lib.mkDefault false;
 
   boot.blacklistedKernelModules = [
@@ -102,7 +107,6 @@
     enable = true;
     rules = [
       "-a exit,always -F arch=b64 -F euid=0 -S execve"
-      "-a exit,always -F arch=b32 -F euid=0 -S execve"
     ];
   };
   security.auditd.enable = true;
