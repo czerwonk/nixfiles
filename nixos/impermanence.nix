@@ -1,4 +1,10 @@
 {
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=2G" "mode=755" ];
+  };
+
   environment.persistence."/nix/persist" = {
     directories = [
       "/srv"
@@ -6,17 +12,13 @@
       "/var/log"
       "/var/lib"
     ];
+    files = [
+      "/etc/ssh/ssh_host_rsa_key"
+      "/etc/ssh/ssh_host_rsa_key.pub"
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key.pub"
+      "/etc/machine-id"
+    ];
+    enableDebugging = true;
   };
-
-  environment.etc."ssh/ssh_host_rsa_key".source
-    = "/nix/persist/etc/ssh/ssh_host_rsa_key";
-  environment.etc."ssh/ssh_host_rsa_key.pub".source
-    = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
-  environment.etc."ssh/ssh_host_ed25519_key".source
-    = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
-  environment.etc."ssh/ssh_host_ed25519_key.pub".source
-    = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
-
-  environment.etc."machine-id".source
-  = "/nix/persist/etc/machine-id";
 }
