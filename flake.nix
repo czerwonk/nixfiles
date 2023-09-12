@@ -15,9 +15,13 @@
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-unstable, thinkpad-fprint-sensor, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-unstable, thinkpad-fprint-sensor, impermanence, ... }:
     let
       util = import ./lib {
         inherit home-manager nixpkgs nixpkgs-unstable;
@@ -88,6 +92,7 @@
           extraModules = [
             thinkpad-fprint-sensor.nixosModules.open-fprintd
             thinkpad-fprint-sensor.nixosModules.python-validity
+            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [

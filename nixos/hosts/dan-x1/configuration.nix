@@ -5,6 +5,7 @@
     ../../suits/desktop
     ../../suits/pentest
     ../../suits/container
+    ../../impermanence.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
