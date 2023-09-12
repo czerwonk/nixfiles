@@ -6,11 +6,13 @@
   };
 
   environment.persistence."/nix/persist" = {
+    hideMounts = true;
     directories = [
       "/srv"
       "/home"
       "/var/log"
       "/var/lib"
+      "/etc/NetworkManager/"
     ];
     files = [
       "/etc/ssh/ssh_host_rsa_key"
@@ -19,6 +21,5 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
       "/etc/machine-id"
     ];
-    enableDebugging = true;
   };
 }
