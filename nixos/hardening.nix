@@ -3,8 +3,6 @@
 {
   users.mutableUsers = false;
 
-  environment.defaultPackages = [];
-
   nix.settings.allowed-users = [ "@users" ];
   nix.settings.sandbox = lib.mkDefault false;
 

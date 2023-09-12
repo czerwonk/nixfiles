@@ -5,6 +5,10 @@
     ./hardening.nix
   ];
 
+  environment.defaultPackages = with pkgs; [
+    file
+  ];
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
