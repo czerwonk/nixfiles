@@ -11,6 +11,8 @@
 
   environment.defaultPackages = with pkgs; [
     file
+    rsync
+    strace
   ];
 
   nix = {
