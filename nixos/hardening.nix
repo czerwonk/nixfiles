@@ -10,7 +10,7 @@
 
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;
-  security.lockKernelModules = false;
+  security.lockKernelModules = true;
   security.sudo.execWheelOnly = true;
   security.allowUserNamespaces = lib.mkDefault false;
 
