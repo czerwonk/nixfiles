@@ -14,7 +14,7 @@
 
   # Setup keyfile
   boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
+    "/nix/persist/crypto_keyfile.bin" = null;
   };
 
   # Enable CUPS to print documents.
