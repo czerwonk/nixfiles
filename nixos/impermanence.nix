@@ -2,7 +2,13 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "size=2G" "mode=755" ];
+    options = [ 
+      "relatime"
+      "size=2G"
+      "mode=755"
+      "nosuid"
+      "nodev"
+    ];
   };
 
   environment.persistence."/nix/persist" = {
