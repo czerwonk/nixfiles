@@ -4,6 +4,8 @@
   imports = [
     ../../../home/linux.nix
     ../../../home/suits/desktop
+    ../../../home/suits/devops
+    ../../../home/suits/pentest
   ] ++ extraHomeModules;
 
   programs.git = {

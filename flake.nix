@@ -96,8 +96,6 @@
             (import routingRocks)
           ];
           extraHomeModules = [
-            ./home/suits/devops
-            ./home/suits/pentest
             mauve.home
           ];
         };
@@ -109,9 +107,7 @@
             impermanence.nixosModule
             (import routingRocks)
           ];
-          extraHomeModules = [
-            ./home/suits/devops
-          ];
+          extraHomeModules = [];
         };
         bb2 = systemUtil.mkNixOSSystem {
           inherit username;
@@ -121,9 +117,7 @@
             impermanence.nixosModule
             (import routingRocks)
           ];
-          extraHomeModules = [
-            ./home/suits/devops
-          ];
+          extraHomeModules = [];
         };
         surf-vm = systemUtil.mkNixOSSystem {
           username = "user";
