@@ -106,6 +106,7 @@
           hostname = "bb1";
           domain = "dus.routing.rocks";
           extraModules = [
+            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [
@@ -117,6 +118,7 @@
           hostname = "bb2";
           domain = "dus.routing.rocks";
           extraModules = [
+            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [

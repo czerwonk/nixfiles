@@ -4,5 +4,6 @@
     ../../suits/server
     ../../suits/container
     ../../suits/routing
+    ../../impermanence.nix
   ];
 }
