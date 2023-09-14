@@ -7,6 +7,11 @@
   ];
 
   boot.kernelModules = [
+    "xt_nat"
+    "xt_connmark"
+    "xt_mark"
+    "xt_comment"
+    "xt_limit"
     "wireguard"
   ];
 
