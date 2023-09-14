@@ -12,9 +12,15 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/2b34635d-e822-47b9-b038-5e68e0ffd0a8";
-      fsType = "ext4";
-    };
+  { 
+    device = "/dev/disk/by-uuid/2b34635d-e822-47b9-b038-5e68e0ffd0a8";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/49777cfe-5322-4bf3-af0c-6b2e22c2456d";
+    fsType = "ext4";
+  };
 
   swapDevices = [ ];
 
