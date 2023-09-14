@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../suits/desktop/gnome-core.nix
+    ../../impermanence.nix
   ];
 
   boot.loader.grub.enable = true;
