@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  security.allowUserNamespaces = true;
+  nix.settings.sandbox = true;
+
   networking.networkmanager = {
     enable = true;
     dns = "none";

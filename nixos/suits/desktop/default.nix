@@ -5,9 +5,6 @@
     ./gnome-core.nix
   ];
 
-  security.allowUserNamespaces = true;
-  nix.settings.sandbox = true;
-
   users.users.${username} = {
     packages = with pkgs; [
       gnome.gnome-tweaks
