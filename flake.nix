@@ -123,7 +123,9 @@
           username = "user";
           domain = "";
           hostname = "surf-vm";
-          extraModules = [];
+          extraModules = [
+            impermanence.nixosModule
+          ];
           extraHomeModules = [];
         };
       };
