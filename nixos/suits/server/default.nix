@@ -5,6 +5,7 @@
     ./sysctl.nix
     ./sshd.nix
     ./hardening.nix
+    ./impermanence.nix
   ];
 
   users.groups.ssh = {};
