@@ -11,7 +11,7 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
+  fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/2b34635d-e822-47b9-b038-5e68e0ffd0a8";
       fsType = "ext4";
     };
