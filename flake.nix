@@ -24,7 +24,7 @@
   outputs = { nixpkgs, home-manager, nixpkgs-unstable, thinkpad-fprint-sensor, impermanence, ... }:
     let
       util = import ./lib {
-        inherit home-manager nixpkgs nixpkgs-unstable;
+        inherit home-manager nixpkgs nixpkgs-unstable impermanence;
       };
       inherit (util) userUtil;
       inherit (util) systemUtil;
@@ -92,7 +92,6 @@
           extraModules = [
             thinkpad-fprint-sensor.nixosModules.open-fprintd
             thinkpad-fprint-sensor.nixosModules.python-validity
-            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [
@@ -104,7 +103,6 @@
           hostname = "bb1";
           domain = "dus.routing.rocks";
           extraModules = [
-            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [];
@@ -114,7 +112,6 @@
           hostname = "bb2";
           domain = "dus.routing.rocks";
           extraModules = [
-            impermanence.nixosModule
             (import routingRocks)
           ];
           extraHomeModules = [];
@@ -123,9 +120,7 @@
           username = "user";
           domain = "";
           hostname = "surf-vm";
-          extraModules = [
-            impermanence.nixosModule
-          ];
+          extraModules = [];
           extraHomeModules = [];
         };
       };

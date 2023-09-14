@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs, nixpkgs-unstable, ... }:
+{ home-manager, nixpkgs, nixpkgs-unstable, impermanence, ... }:
 
 {
   mkNixOSSystem = { hostname, domain, username, extraModules, extraHomeModules }:
@@ -18,6 +18,7 @@
             };
           };
         }
+        impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
         inherit username hostname domain;
