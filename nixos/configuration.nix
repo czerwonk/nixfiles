@@ -12,6 +12,7 @@
     "xt_mark"
     "xt_comment"
     "xt_limit"
+    "xt_addrtype"
     "wireguard"
   ];
 
