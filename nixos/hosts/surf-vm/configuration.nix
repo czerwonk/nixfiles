@@ -25,6 +25,7 @@
   ];
 
   users.users.${username} = {
+    initialHashedPassword = "$6$rounds=50000$5PoVHv3SBKY6MDq9$GgeWlrTm6iEBXu2mAbgC0JZDGVVEbGbtQjCjisNlj9EXb9nFfUHDLbFMabRDn4JUHK7TiEj.BMqhlYFRrZoW21";
     description = lib.mkForce "";
     packages = with pkgs; [
       gnome.gnome-tweaks
