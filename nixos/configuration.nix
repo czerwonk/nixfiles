@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardening.nix
+    ./impermanence.nix
   ];
 
   boot.kernelModules = [
