@@ -5,7 +5,7 @@
     enable = true;
     defaultEditor = true;
     vimdiffAlias = true;
-    #package = pkgs-unstable.neovim;
+    package = pkgs-unstable.neovim-unwrapped;
     plugins = with pkgs-unstable.vimPlugins; [
       {
         plugin = nui-nvim;
