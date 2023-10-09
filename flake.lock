@@ -68,12 +68,28 @@
         "type": "github"
       }
     },
+    "private": {
+      "locked": {
+        "lastModified": 1696871854,
+        "narHash": "sha256-Mjnk7bZa1xsVQHQangNHwx9mEvvyyV3diodHSBOktWI=",
+        "ref": "refs/heads/main",
+        "rev": "de4113983f89ca2bb7d51f4f4826f20376b21db0",
+        "revCount": 7,
+        "type": "git",
+        "url": "ssh://git@github.com/czerwonk/nixfiles.private"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/czerwonk/nixfiles.private"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "private": "private",
         "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
       }
     },

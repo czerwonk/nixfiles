@@ -19,22 +19,19 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
+
+    private = {
+      url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-unstable, thinkpad-fprint-sensor, impermanence, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-unstable, private, thinkpad-fprint-sensor, impermanence, ... }:
     let
       util = import ./lib {
         inherit home-manager nixpkgs nixpkgs-unstable impermanence;
       };
       inherit (util) userUtil;
       inherit (util) systemUtil;
-
-      privateModule = builtins.fetchGit {
-        url = "git@github.com:czerwonk/nixfiles.private.git";
-        ref = "main";
-        rev = "5aa17eb43b624ed4348aa449a686acfef5d2cfa9";
-      };
-      private = (import privateModule);
 
       username = "daniel";
 
