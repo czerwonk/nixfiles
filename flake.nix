@@ -29,18 +29,12 @@
       inherit (util) userUtil;
       inherit (util) systemUtil;
 
-      mauveModule = builtins.fetchGit {
-        url = "git@github.com:czerwonk/mauve.nixfiles.git";
+      privateModule = builtins.fetchGit {
+        url = "git@github.com:czerwonk/nixfiles.private.git";
         ref = "main";
-        rev = "060f2847642eef9e1a53bc1e4143a6cb967a94d1";
+        rev = "ca7f2e999f74da4e4d0e4bfaec3c8d84354619b8";
       };
-      mauve = import mauveModule;
-
-      routingRocks = builtins.fetchGit {
-        url = "git@github.com:czerwonk/routing-rocks.nixfiles.git";
-        ref = "main";
-        rev = "7e2d0fce20b56db98bc8e5e355061a924fdcf375";
-      };
+      private = (import privateModule);
 
       username = "daniel";
 
@@ -50,7 +44,7 @@
           inherit username;
           extraModules = [
             ./home/suits/devops
-            mauve.home
+            private.mauve.home
           ];
         };
 
@@ -62,23 +56,23 @@
         };
 
         "mauve-osx" = userUtil.mkOSXHMUser {
-          username = mauve.username {};
+          username = private.mauve.username {};
           extraModules = [
             ./home/suits/devops
-            mauve.home
+            private.mauve.home
             {
-              mauve.overrides.git = true;
+              private.mauve.overrides.git = true;
             }
           ];
         };
 
         "mauve-linux" = userUtil.mkLinuxHMUser {
-          username = mauve.username {};
+          username = private.mauve.username {};
           extraModules = [ 
             ./home/suits/devops/dev.nix
-            mauve.home
+            private.mauve.home
             {
-              mauve.overrides.git = true;
+              private.mauve.overrides.git = true;
             }
           ];
         };
@@ -92,10 +86,10 @@
           extraModules = [
             thinkpad-fprint-sensor.nixosModules.open-fprintd
             thinkpad-fprint-sensor.nixosModules.python-validity
-            (import routingRocks)
+            private.nixosModule
           ];
           extraHomeModules = [
-            mauve.home
+            private.mauve.home
           ];
         };
         bb1 = systemUtil.mkNixOSSystem {
@@ -103,7 +97,7 @@
           hostname = "bb1";
           domain = "dus.routing.rocks";
           extraModules = [
-            (import routingRocks)
+            private.nixosModule
           ];
           extraHomeModules = [];
         };
@@ -112,7 +106,7 @@
           hostname = "bb2";
           domain = "dus.routing.rocks";
           extraModules = [
-            (import routingRocks)
+            private.nixosModule
           ];
           extraHomeModules = [];
         };
