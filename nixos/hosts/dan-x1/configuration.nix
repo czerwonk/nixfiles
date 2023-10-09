@@ -10,6 +10,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.extraModprobeConfig = ''
+    options usbserial vendor=0403 product=6001
+  '';
 
   # Setup keyfile
   boot.initrd.secrets = {

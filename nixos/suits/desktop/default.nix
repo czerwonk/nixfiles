@@ -5,6 +5,8 @@
     ./gnome-core.nix
   ];
 
+  boot.kernelModules = [ "usbserial" ];
+
   users.users.${username} = {
     packages = with pkgs; [
       gnome.gnome-tweaks
