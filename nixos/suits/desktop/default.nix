@@ -10,8 +10,8 @@
   users.users.${username} = {
     packages = with pkgs; [
       gnome.gnome-tweaks
-      google-chrome
       brave
+      thunderbird
       libreoffice
       termius
       vlc
