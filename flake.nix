@@ -32,7 +32,7 @@
       privateModule = builtins.fetchGit {
         url = "git@github.com:czerwonk/nixfiles.private.git";
         ref = "main";
-        rev = "526ad2977b9a133761bced8f091ad3deaad6a3de";
+        rev = "4946d8098b3817de7d1308640f315f8fdeffbfd9";
       };
       private = (import privateModule);
 
