@@ -16,13 +16,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
+    impermanence.url = "github:nix-community/impermanence";
 
-    private = {
-      url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
-    };
+    private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
   };
 
   outputs = { nixpkgs, home-manager, nixpkgs-unstable, private, thinkpad-fprint-sensor, impermanence, ... }:
