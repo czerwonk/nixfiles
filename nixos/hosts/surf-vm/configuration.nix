@@ -11,11 +11,6 @@
   boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;
 
-  networking.enableIPv6 = false;
-  boot.kernelParams = [ 
-    "ipv6.disable=1"
-  ];
-
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
