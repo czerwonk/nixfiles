@@ -23,7 +23,6 @@
       mattermost-desktop
       virt-viewer
       yubioath-flutter
-      teams
       mysql-workbench
     ];
     extraGroups = [ "wireshark" ];
