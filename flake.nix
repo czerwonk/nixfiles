@@ -23,17 +23,18 @@
 
   outputs = { nixpkgs, home-manager, nixpkgs-unstable, private, thinkpad-fprint-sensor, impermanence, ... }:
     let
-      util = import ./lib {
+      userLib = import ./lib/user.nix {
+        inherit home-manager nixpkgs nixpkgs-unstable;
+      };
+      systemLib = import ./lib/system.nix {
         inherit home-manager nixpkgs nixpkgs-unstable impermanence;
       };
-      inherit (util) userUtil;
-      inherit (util) systemUtil;
 
       username = "daniel";
 
     in {
       homeConfigurations = {
-        "osx" = userUtil.mkOSXHMUser {
+        "osx" = userLib.mkOSXHMUser {
           inherit username;
           extraModules = [
             ./home/suits/devops
@@ -41,14 +42,14 @@
           ];
         };
 
-        "linux" = userUtil.mkLinuxHMUser {
+        "linux" = userLib.mkLinuxHMUser {
           inherit username;
           extraModules = [
             ./home/suits/devops
           ];
         };
 
-        "mauve-osx" = userUtil.mkOSXHMUser {
+        "mauve-osx" = userLib.mkOSXHMUser {
           username = private.mauve.username {};
           extraModules = [
             ./home/suits/devops
@@ -59,7 +60,7 @@
           ];
         };
 
-        "mauve-linux" = userUtil.mkLinuxHMUser {
+        "mauve-linux" = userLib.mkLinuxHMUser {
           username = private.mauve.username {};
           extraModules = [ 
             ./home/suits/devops/dev.nix
@@ -72,7 +73,7 @@
       };
 
       nixosConfigurations = {
-        dan-x1 = systemUtil.mkNixOSSystem {
+        dan-x1 = systemLib.mkNixOSSystem {
           inherit username;
           hostname = "dan-x1";
           domain = "routing.rocks";
@@ -85,7 +86,7 @@
             private.mauve.home
           ];
         };
-        bb1 = systemUtil.mkNixOSSystem {
+        bb1 = systemLib.mkNixOSSystem {
           inherit username;
           hostname = "bb1";
           domain = "dus.routing.rocks";
@@ -94,7 +95,7 @@
           ];
           extraHomeModules = [];
         };
-        bb2 = systemUtil.mkNixOSSystem {
+        bb2 = systemLib.mkNixOSSystem {
           inherit username;
           hostname = "bb2";
           domain = "dus.routing.rocks";
@@ -103,7 +104,7 @@
           ];
           extraHomeModules = [];
         };
-        surf-vm = systemUtil.mkNixOSSystem {
+        surf-vm = systemLib.mkNixOSSystem {
           username = "user";
           domain = "";
           hostname = "surf-vm";
