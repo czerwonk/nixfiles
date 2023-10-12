@@ -30,12 +30,10 @@
         inherit home-manager nixpkgs nixpkgs-unstable impermanence;
       };
 
-      username = "daniel";
-
     in {
       homeConfigurations = {
         "osx" = userLib.mkOSXHMUser {
-          inherit username;
+          username = private.username {};
           extraModules = [
             ./home/suits/devops
             private.mauve.home
@@ -43,7 +41,7 @@
         };
 
         "linux" = userLib.mkLinuxHMUser {
-          inherit username;
+          username = private.username {};
           extraModules = [
             ./home/suits/devops
           ];
@@ -74,7 +72,7 @@
 
       nixosConfigurations = {
         dan-x1 = systemLib.mkNixOSSystem {
-          inherit username;
+          username = private.username {};
           hostname = "dan-x1";
           domain = "routing.rocks";
           extraModules = [
@@ -87,7 +85,7 @@
           ];
         };
         bb1 = systemLib.mkNixOSSystem {
-          inherit username;
+          username = private.username {};
           hostname = "bb1";
           domain = "dus.routing.rocks";
           extraModules = [
@@ -96,7 +94,7 @@
           extraHomeModules = [];
         };
         bb2 = systemLib.mkNixOSSystem {
-          inherit username;
+          username = private.username {};
           hostname = "bb2";
           domain = "dus.routing.rocks";
           extraModules = [
