@@ -8,10 +8,15 @@ local highlight = {
     "Whitespace",
 }
 require('ibl').setup {
-  indent = { highlight = highlight, char = "" },
-  whitespace = {
-      remove_blankline_trail = false,
+  indent = {
+    highlight = highlight,
+    char = ""
   },
-  scope = { enabled = false },
+  whitespace = {
+    remove_blankline_trail = false,
+  },
+  scope = {
+    enabled = false
+  }
 }
 
