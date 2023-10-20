@@ -28,6 +28,9 @@ wk.register({
   m = {
     name = "Harpoon",
   },
+  n = {
+    name = "Notes",
+  },
   r = {
     name = "Refactoring",
   },

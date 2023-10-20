@@ -173,6 +173,7 @@ in {
             tree-sitter-make
             tree-sitter-markdown
             tree-sitter-markdown-inline
+            tree-sitter-norg
             tree-sitter-nix
             tree-sitter-perl
             tree-sitter-php
@@ -275,6 +276,11 @@ in {
         plugin = nvim-web-devicons;
         type = "lua";
         config = "require('nvim-web-devicons').get_icons()";
+      }
+      {
+        plugin = neorg;
+        type = "lua";
+        config = builtins.readFile ./plugins/neorg.lua;
       }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
