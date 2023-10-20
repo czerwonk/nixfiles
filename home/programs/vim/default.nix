@@ -282,6 +282,9 @@ in {
         type = "lua";
         config = builtins.readFile ./plugins/neorg.lua;
       }
+      {
+        plugin = neorg-telescope;
+      }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
   };
