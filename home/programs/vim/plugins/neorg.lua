@@ -16,6 +16,7 @@ require('neorg').setup {
         engine = "nvim-cmp"
       }
     },
+    ["core.summary"] = {},
     ["core.integrations.telescope"] = {}
   }
 }
