@@ -7,14 +7,6 @@ wk.setup {
     position = "bottom",
   },
 }
-local wkOpts = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
 wk.register({
   c = {
     name = "Quickfix",
@@ -43,4 +35,4 @@ wk.register({
   x = {
     name = "Trouble",
   }
-}, wkOpts)
+}, { prefix = "<leader>" })

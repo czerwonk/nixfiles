@@ -1,14 +1,6 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local wkOpts = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = false,
-}
 local wk = require('which-key')
 
 local inlayhints = require('lsp-inlayhints')
@@ -67,7 +59,7 @@ local on_attach = function(client, bufnr)
     W = {
       name = "Workspace",
     }
-  }, wkOpts);
+  }, { prefix = "leader" });
 end
 
 local lspconfig = require('lspconfig')

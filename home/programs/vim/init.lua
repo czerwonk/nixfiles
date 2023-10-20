@@ -22,6 +22,7 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.termguicolors = true
 
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 
 vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
