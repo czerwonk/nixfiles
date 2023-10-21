@@ -122,9 +122,6 @@
         config = builtins.readFile ./plugins/lsp.lua;
       }
       {
-        plugin = lsp-inlayhints-nvim;
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {

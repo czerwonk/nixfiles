@@ -1,14 +1,8 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local wk = require('which-key')
-
-local inlayhints = require('lsp-inlayhints')
-inlayhints.setup()
 
 local on_attach = function(client, bufnr)
-  inlayhints.on_attach(client, bufnr)
-
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local map = function (mode, key, binding, desc)
@@ -40,6 +34,11 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
   map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
 
+  vim.lsp.inlay_hint(bufnr, true)
+  map('n', '<leader>gh', function ()
+    vim.lsp.inlay_hint(0, nil)
+  end, 'Toggle inlay hints')
+
   if client.server_capabilities["documentSymbolProvider"] then
     require("nvim-navic").attach(client, bufnr)
     require("nvim-navbuddy").attach(client, bufnr)
@@ -52,7 +51,7 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
   end
 
-  wk.register({
+  require('which-key').register({
     g = {
       name = "LSP",
     },
@@ -134,6 +133,9 @@ lspconfig.lua_ls.setup {
         enable = false
       },
       codeLens = {
+        enable = true
+      },
+      hint = {
         enable = true
       }
     }
