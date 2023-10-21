@@ -1,20 +1,6 @@
 { pkgs-unstable, ... }:
 
-let
-  harpoon_fixed = pkgs-unstable.vimUtils.buildVimPlugin {
-    pname = "harpoon";
-    version = "2023-10-10";
-    src = pkgs-unstable.fetchFromGitHub {
-      owner = "ThePrimeagen";
-      repo = "harpoon";
-      rev = "c1aebbad9e3d13f20bedb8f2ce8b3a94e39e424a";
-      hash = "sha256-pSnFx5fg1llNlpTCV4hoo3Pf1KWnAJDRVSe+88N4HXM=";
-    };
-    meta.homepage = "https://github.com/ThePrimeagen/harpoon/";
-  };
-
-
-in {
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -88,7 +74,7 @@ in {
         plugin = telescope-project-nvim;
       }
       {
-        plugin = harpoon_fixed;
+        plugin = harpoon;
         type = "lua";
         config = builtins.readFile ./plugins/harpoon.lua;
       }
