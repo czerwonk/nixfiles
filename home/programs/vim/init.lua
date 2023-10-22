@@ -62,3 +62,14 @@ end
 require('editorconfig').properties.file_type = function(bufnr, val, _)
   vim.bo[bufnr].ft = val
 end
+
+-- neovide
+if vim.g.neovide then
+  vim.o.guifont = "JetBrains Mono:h14"
+  vim.g.neovide_theme = 'dark'
+  vim.g.neovide_scale_factor = 1.8
+  vim.g.neovide_confirm_quit = true
+  vim.g.neovide_remember_window_size = true
+  vim.g.neovide_cursor_animate_in_insert_mode = false
+  vim.g.neovide_cursor_vfx_mode = ""
+end
