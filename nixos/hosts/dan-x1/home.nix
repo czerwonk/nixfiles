@@ -6,6 +6,7 @@
     ../../../home/suits/desktop
     ../../../home/suits/devops
     ../../../home/suits/pentest
+    ../../../home/programs/grive2
   ] ++ extraHomeModules;
 
   programs.git = {
