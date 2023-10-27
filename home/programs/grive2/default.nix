@@ -40,7 +40,7 @@
       Description=Google drive sync (changed files)
 
       [Service]
-      ExecStart=${config.home.homeDirectory}/.scripts/grive2/grive-sync.sh listen "%i"
+      ExecStart=/run/current-system/sw/bin/bash ${config.home.homeDirectory}/.scripts/grive2/grive-sync.sh listen "%i"
       Type=simple
       Restart=always
       RestartSec=30
@@ -54,7 +54,7 @@
       After=network-online.target
 
       [Service]
-      ExecStart=${config.home.homeDirectory}/.scripts/grive2/grive-sync.sh sync "%i"
+      ExecStart=/run/current-system/sw/bin/bash ${config.home.homeDirectory}/.scripts/grive2/grive-sync.sh sync "%i"
     '';
   };
 }
