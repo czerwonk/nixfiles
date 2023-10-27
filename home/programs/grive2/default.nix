@@ -4,7 +4,6 @@
   home = {
     packages = with pkgs; [
       grive2
-      inotify-tools
     ];
     file.".scripts/grive2/grive-sync.sh".source = ./grive-sync.sh;
     file.".config/systemd/user/grive@.service".text = ''
