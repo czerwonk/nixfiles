@@ -18,23 +18,23 @@ SCRIPT="${0}"
 DIRECTORY="$2"
 
 if [[ -z "$DIRECTORY" ]] || [[ ! -d "$DIRECTORY" ]] ; then
-	echo "Need a directory name in the current users home directory as second argument. Aborting."
-	exit 1
+  echo "Need a directory name in the current users home directory as second argument. Aborting."
+  exit 1
 fi
 
 
 if [[ -z "${1}" ]] ; then
-	echo "Need a command as first argument. Aborting."
-	exit 1
+  echo "Need a command as first argument. Aborting."
+  exit 1
 else
-	if [[ "sync" == "${1}" ]] ; then
-		COMMAND=sync
-	elif [[ "listen" == "${1}" ]] ; then
-		COMMAND=listen
-	else
-		echo "Unknown command. Aborting."
-		exit 1
-	fi
+  if [[ "sync" == "${1}" ]] ; then
+    COMMAND=sync
+  elif [[ "listen" == "${1}" ]] ; then
+    COMMAND=listen
+  else
+    echo "Unknown command. Aborting."
+    exit 1
+  fi
 fi
 
 
@@ -61,61 +61,62 @@ unlock()            { _lock u; }   # drop a lock
 # make sure we sync a second time, too
 
 sync_directory() {
-	_directory="${1}"
+  _directory="${1}"
 
-	reset_timer_and_exit() { echo "Retriggered google drive sync ('${_directory}')" && touch -m $LOCKFILE && exit; }
+  reset_timer_and_exit() { echo "Retriggered google drive sync ('${_directory}')" && touch -m $LOCKFILE && exit; }
 
-	exlock_now || reset_timer_and_exit
+  exlock_now || reset_timer_and_exit
 
-	if ping -c1 -W1 -q accounts.google.com >/dev/null 2>&1; then
-	    true
-	    # pass
-	else
-	    echo "Google drive server not reachable, NOT syncing..."
-		unlock
-	    exit 0
-	fi
+  if ping -c1 -W1 -q accounts.google.com >/dev/null 2>&1; then
+      true
+      # pass
+  else
+      echo "Google drive server not reachable, NOT syncing..."
+    unlock
+      exit 0
+  fi
 
-	TIME_AT_START=0
-	TIME_AT_END=1
-	while [[ "${TIME_AT_START}" -lt "${TIME_AT_END}" ]]; do
-	    echo "Syncing '${_directory}'..." 
-	    TIME_AT_START="$(stat -c %Y "$LOCKFILE")"
-	    grive -p "${_directory}" 2>&1 | grep -v -E "^Reading local directories$|^Reading remote server file list$|^Synchronizing files$|^Finished!$"
-	    TIME_AT_END="$(stat -c %Y "$LOCKFILE")"
-	    echo "Sync of '${_directory}' done." 
-	done
+  TIME_AT_START=0
+  TIME_AT_END=1
+  while [[ "${TIME_AT_START}" -lt "${TIME_AT_END}" ]]; do
+      echo "Syncing '${_directory}'..." 
+      TIME_AT_START="$(stat -c %Y "$LOCKFILE")"
+      grive -p "${_directory}" 2>&1 | grep -v -E "^Reading local directories$|^Reading remote server file list$|^Synchronizing files$|^Finished!$"
+      TIME_AT_END="$(stat -c %Y "$LOCKFILE")"
+      echo "Sync of '${_directory}' done." 
+  done
 
-	# always exit ok, so that we never go into a wrong systemd state
-	unlock
-	exit 0
+  # always exit ok, so that we never go into a wrong systemd state
+  unlock
+  exit 0
 }
 
 ### LISTEN TO CHANGES IN DIRECTORY ###
 
 
 listen_directory() {
-	_directory="${1}"
+  _directory="${1}"
 
-	type inotifywait >/dev/null 2>&1 || { echo >&2 "I require inotifywait but it's not installed. Aborting."; exit 1; }
+  type inotifywait >/dev/null 2>&1 || { echo >&2 "I require inotifywait but it's not installed. Aborting."; exit 1; }
 
-	echo "Listening for changes in '${_directory}'"
+  echo "Listening for changes in '${_directory}'"
 
-	while true #run indefinitely
-	do 
-		# Use a different call to not need to change exit into return
-		inotifywait -q -r -e modify,attrib,close_write,move,create,delete --exclude ".grive_state|.grive" "${_directory}" > /dev/null 2>&1 && ${SCRIPT} sync "${_directory}"
-		#echo ${SCRIPT} "${_directory}"
-	done
+  while true #run indefinitely
+  do 
+    # Use a different call to not need to change exit into return
+    SYNC_COMMAND="bash ${SCRIPT} sync '${_directory}'"
+    inotifywait -q -r -e modify,attrib,close_write,move,create,delete --exclude ".grive_state|.grive" "${_directory}" > /dev/null 2>&1 && $SYNC_COMMAND
+    #echo ${SCRIPT} "${_directory}"
+  done
 
-	# always exit ok, so that we never go into a wrong systemd state
-	exit 0
+  # always exit ok, so that we never go into a wrong systemd state
+  exit 0
 }
 
 if [[ "${COMMAND}" == listen ]] ; then
-	listen_directory "${DIRECTORY}"
+  listen_directory "${DIRECTORY}"
 else
-	sync_directory "${DIRECTORY}"
+  sync_directory "${DIRECTORY}"
 fi
 
 # always exit ok, so that we never go into a wrong systemd state
