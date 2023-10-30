@@ -58,6 +58,8 @@ in {
           ExecStart = "/run/current-system/sw/bin/true";
           RemainAfterExit = true;
         };
+
+        Install = { WantedBy = [ "default.target" ]; };
       };
 
       systemd.user.services.grive-timer = {
@@ -82,6 +84,8 @@ in {
           Restart = "always";
           RestartSec = 30;
         };
+
+        Install = { WantedBy = [ "default.target" ]; };
       };
 
       systemd.user.timers.grive-timer = {
