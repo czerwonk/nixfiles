@@ -79,6 +79,8 @@ in {
           OnUnitActiveSec = "5min";
           Unit = "grive-timer.service";
         };
+
+        Install = { WantedBy = [ "timers.target" ]; };
       };
     }
   ]);
