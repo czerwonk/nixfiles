@@ -59,7 +59,7 @@ local on_attach = function(client, bufnr)
     W = {
       name = "Workspace",
     }
-  }, { prefix = "leader" });
+  }, { prefix = "<leader>" });
 end
 
 local lspconfig = require('lspconfig')
