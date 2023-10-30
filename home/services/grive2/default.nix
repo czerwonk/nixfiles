@@ -15,6 +15,21 @@ in {
         default = "google-drive";
         description = "Directory name (has to be located in home directory)";
       };
+
+      timerOnCalendar = mkOption {
+        type = types.str;
+        default = "*:0/5";
+      };
+
+      timerOnBootSec = mkOption {
+        type = types.str;
+        default = "3min";
+      };
+
+      timerOnUnitActiveSec = mkOption {
+        type = types.str;
+        default = "5min";
+      };
     };
   };
 
@@ -24,6 +39,7 @@ in {
         grive2
         inotify-tools
       ];
+
       home.file.".scripts/grive2/grive-sync.sh".source = ./grive-sync.sh;
     }
     {
@@ -74,9 +90,9 @@ in {
         };
 
         Timer = {
-          OnCalendar = "*:0/5";
-          OnBootSec = "3min";
-          OnUnitActiveSec = "5min";
+          OnCalendar = cfg.timerOnCalendar;
+          OnBootSec = cfg.timerOnBootSec;
+          OnUnitActiveSec = cfg.timerOnUnitActiveSec;
           Unit = "grive-timer.service";
         };
 
