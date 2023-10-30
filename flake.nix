@@ -53,7 +53,7 @@
             ./home/suits/devops
             private.mauve.home
             {
-              private.mauve.overrides.git = true;
+              mauve.overrides.git = true;
             }
           ];
         };
@@ -64,7 +64,7 @@
             ./home/suits/devops/dev.nix
             private.mauve.home
             {
-              private.mauve.overrides.git = true;
+              mauve.overrides.git = true;
             }
           ];
         };
