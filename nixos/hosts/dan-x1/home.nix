@@ -15,8 +15,5 @@
     };
   };
 
-  services.grive2 = {
-    enable = true;
-    driveDirectory = "drive";
-  };
+  services.grive2.enable = true;
 }
