@@ -39,7 +39,7 @@ in {
 
         Service = {
           Type = "oneshot";
-          ExecStart = "${pkgs.coreutils}/bin/true";
+          ExecStart = "/run/current-system/sw/bin/true";
           RemainAfterExit = true;
         };
       };
