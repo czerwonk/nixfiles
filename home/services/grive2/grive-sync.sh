@@ -15,7 +15,7 @@ cd ~
 
 ### ARGUMENT PARSING ###
 SCRIPT="${0}"
-DIRECTORY=$(systemd-escape --unescape -- "$2")
+DIRECTORY="$2"
 
 if [[ -z "$DIRECTORY" ]] || [[ ! -d "$DIRECTORY" ]] ; then
 	echo "Need a directory name in the current users home directory as second argument. Aborting."
@@ -104,7 +104,7 @@ listen_directory() {
 	while true #run indefinitely
 	do 
 		# Use a different call to not need to change exit into return
-		inotifywait -q -r -e modify,attrib,close_write,move,create,delete --exclude ".grive_state|.grive" "${_directory}" > /dev/null 2>&1 && ${SCRIPT} sync $(systemd-escape "${_directory}")
+		inotifywait -q -r -e modify,attrib,close_write,move,create,delete --exclude ".grive_state|.grive" "${_directory}" > /dev/null 2>&1 && ${SCRIPT} sync "${_directory}"
 		#echo ${SCRIPT} "${_directory}"
 	done
 
