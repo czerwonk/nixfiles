@@ -41,23 +41,22 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
     silent = true,
     noremap = true,
   })
-end)
 
-local wk = require('which-key')
-wk.register({
-  i = {
-    name = "Insert"
-  },
-  l = {
-    name = "List"
-  },
-  m = {
-    name = "Mode"
-  },
-  n = {
-    name = "Note"
-  },
-  t = {
-    name = "Todo"
-  }
-}, { prefix = "<localleader>" })
+  require('which-key').register({
+    i = {
+      name = "Insert"
+    },
+    l = {
+      name = "List"
+    },
+    m = {
+      name = "Mode"
+    },
+    n = {
+      name = "Note"
+    },
+    t = {
+      name = "Todo"
+    }
+  }, { prefix = "<localleader>" })
+end)

@@ -84,6 +84,7 @@ cmp.setup {
     { name = 'path', keyword_length = 1 },
     { name = "copilot", keyword_length = 2 },
     { name = 'calc', keyword_length = 3 },
+    { name = "neorg", keyword_length = 2 },
   },
   formatting = {
     format = function(_, item)
