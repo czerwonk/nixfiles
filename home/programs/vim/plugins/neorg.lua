@@ -43,22 +43,20 @@ neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, key
   })
 
   require('which-key').register({
-    ["<localleader>"] = {
-      i = {
-        name = "Insert"
-      },
-      l = {
-        name = "List"
-      },
-      m = {
-        name = "Mode"
-      },
-      n = {
-        name = "Note"
-      },
-      t = {
-        name = "Todo"
-      }
+    i = {
+      name = "Insert"
+    },
+    l = {
+      name = "List"
+    },
+    m = {
+      name = "Mode"
+    },
+    n = {
+      name = "Note"
+    },
+    t = {
+      name = "Todo"
     }
-  })
+  }, { prefix = "<localleader>", buffer = 0 })
 end)

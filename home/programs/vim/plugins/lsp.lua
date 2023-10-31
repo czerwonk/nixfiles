@@ -1,8 +1,6 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local wk = require('which-key')
-
 local inlayhints = require('lsp-inlayhints')
 inlayhints.setup()
 
@@ -52,14 +50,14 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
   end
 
-  wk.register({
+  require('which-key').register({
     g = {
       name = "LSP",
     },
     W = {
       name = "Workspace",
     }
-  }, { prefix = "<leader>" });
+  }, { prefix = "<leader>", buffer = bufnr });
 end
 
 local lspconfig = require('lspconfig')
