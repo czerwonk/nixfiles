@@ -151,6 +151,7 @@
             tree-sitter-gomod
             tree-sitter-hcl
             tree-sitter-html
+            tree-sitter-http
             tree-sitter-java
             tree-sitter-json
             tree-sitter-jsonnet
@@ -236,6 +237,19 @@
       {
         plugin = copilot-cmp;
       }
+      {
+        plugin = neorg;
+        type = "lua";
+        config = builtins.readFile ./plugins/neorg.lua;
+      }
+      {
+        plugin = neorg-telescope;
+      }
+      {
+        plugin = rest-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/rest.lua;
+      }
 
       # theme
       {
@@ -262,14 +276,6 @@
         plugin = nvim-web-devicons;
         type = "lua";
         config = "require('nvim-web-devicons').get_icons()";
-      }
-      {
-        plugin = neorg;
-        type = "lua";
-        config = builtins.readFile ./plugins/neorg.lua;
-      }
-      {
-        plugin = neorg-telescope;
       }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;

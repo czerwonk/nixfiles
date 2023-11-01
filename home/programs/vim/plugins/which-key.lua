@@ -26,6 +26,9 @@ wk.register({
   r = {
     name = "Refactoring",
   },
+  h = {
+    name = "HTTP",
+  },
   s = {
     name = "Git"
   },
