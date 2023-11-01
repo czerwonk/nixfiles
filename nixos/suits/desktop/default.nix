@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, pkgs-unstable, username, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
       virt-viewer
       yubioath-flutter
       mysql-workbench
+      pkgs-unstable.bruno
     ];
     extraGroups = [ "wireshark" ];
   };
