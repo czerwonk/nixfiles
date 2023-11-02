@@ -77,6 +77,11 @@
         config = builtins.readFile ./plugins/harpoon.lua;
       }
       {
+        plugin = nvim-neoclip-lua;
+        type = "lua";
+        config = builtins.readFile ./plugins/neoclip.lua;
+      }
+      {
         plugin = toggleterm-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/toggleterm.lua;

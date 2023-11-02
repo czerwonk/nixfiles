@@ -66,4 +66,4 @@ vim.keymap.set('n', '<leader>fp', function()
     display_type = 'full',
   }
 end, { desc = 'Projects' })
-vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
+vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Undo' })
