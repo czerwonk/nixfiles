@@ -46,11 +46,6 @@
         config = "require('Comment').setup()";
       }
       {
-        plugin = undotree;
-        type = "lua";
-        config = builtins.readFile ./plugins/undotree.lua;
-      }
-      {
         plugin = vim-tmux-navigator;
         type = "lua";
         config = builtins.readFile ./plugins/vim-tmux-navigator.lua;
@@ -72,6 +67,9 @@
       }
       {
         plugin = telescope-project-nvim;
+      }
+      {
+        plugin = telescope-undo-nvim;
       }
       {
         plugin = harpoon;
