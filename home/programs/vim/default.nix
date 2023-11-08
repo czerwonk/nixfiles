@@ -280,6 +280,11 @@
         type = "lua";
         config = "require('nvim-web-devicons').get_icons()";
       }
+
+      # misc
+      {
+        plugin = vim-be-good;
+      }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;
   };
