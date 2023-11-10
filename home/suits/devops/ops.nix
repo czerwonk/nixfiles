@@ -7,6 +7,7 @@
       kubectl
       vault
       terraform
+      terrascan
       k9s
       kubernetes-helm
       krew
