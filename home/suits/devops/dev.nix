@@ -7,7 +7,7 @@
 
   home = {
     packages = with pkgs; [
-      httpie
+      curlie
       podman
       podman-compose
       docker-compose
