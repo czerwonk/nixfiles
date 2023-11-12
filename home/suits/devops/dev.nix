@@ -7,6 +7,7 @@
 
   home = {
     packages = with pkgs; [
+      httpie
       podman
       podman-compose
       docker-compose
