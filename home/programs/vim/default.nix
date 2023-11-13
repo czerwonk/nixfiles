@@ -248,11 +248,6 @@
       {
         plugin = neorg-telescope;
       }
-      {
-        plugin = rest-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/rest.lua;
-      }
 
       # theme
       {
