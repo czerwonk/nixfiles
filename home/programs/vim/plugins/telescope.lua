@@ -13,7 +13,7 @@ telescope.setup {
   defaults = {
     mappings = {
       i = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-      n = { ["<C-t>"] = troubleTelescope.open_with_trouble },
+      n = { ["<C-t>"] = troubleTelescope.open_with_trouble }
     },
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -23,14 +23,14 @@ telescope.setup {
       horizontal = {
         prompt_position = "top",
         preview_width = 0.55,
-        results_width = 0.8,
+        results_width = 0.8
       },
       vertical = {
-        mirror = false,
+        mirror = false
       },
       width = 0.87,
       height = 0.80,
-      preview_cutoff = 120,
+      preview_cutoff = 120
     }
   },
   extensions = {
@@ -38,11 +38,15 @@ telescope.setup {
       hidden_files = true,
       sorting_strategy = 'ascending',
       on_project_selected = on_project_selected,
-      theme = "dropdown",
+      theme = "dropdown"
+    },
+    undo = {
+      side_by_side = true
     }
   }
 }
 telescope.load_extension('project')
+telescope.load_extension('undo')
 
 local telescopeBuiltin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescopeBuiltin.find_files, { desc = 'Find Files' })
@@ -57,8 +61,9 @@ vim.keymap.set('n', '<leader>fk', telescopeBuiltin.keymaps, { desc = 'Keymaps' }
 vim.keymap.set('n', '<leader>fv', telescopeBuiltin.vim_options, { desc = 'Options' })
 vim.keymap.set('n', '<leader>fs', telescopeBuiltin.git_commits, { desc = 'Git Commits' })
 vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<CR>", { desc = 'TODOs' })
-vim.keymap.set('n', '<leader>fp', function ()
+vim.keymap.set('n', '<leader>fp', function()
   telescope.extensions.project.project {
     display_type = 'full',
   }
 end, { desc = 'Projects' })
+vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Undo' })

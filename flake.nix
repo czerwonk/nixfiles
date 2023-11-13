@@ -36,6 +36,7 @@
           username = private.username {};
           extraModules = [
             ./home/suits/devops
+            private.home
             private.mauve.home
           ];
         };
@@ -44,6 +45,7 @@
           username = private.username {};
           extraModules = [
             ./home/suits/devops
+            private.home
           ];
         };
 
@@ -51,9 +53,10 @@
           username = private.mauve.username {};
           extraModules = [
             ./home/suits/devops
+            private.home
             private.mauve.home
             {
-              private.mauve.overrides.git = true;
+              mauve.overrides.git = true;
             }
           ];
         };
@@ -62,9 +65,10 @@
           username = private.mauve.username {};
           extraModules = [ 
             ./home/suits/devops/dev.nix
+            private.home
             private.mauve.home
             {
-              private.mauve.overrides.git = true;
+              mauve.overrides.git = true;
             }
           ];
         };
@@ -81,6 +85,7 @@
             private.nixosModule
           ];
           extraHomeModules = [
+            private.home
             private.mauve.home
           ];
         };
@@ -91,7 +96,9 @@
           extraModules = [
             private.nixosModule
           ];
-          extraHomeModules = [];
+          extraHomeModules = [
+            private.home
+          ];
         };
         bb2 = systemLib.mkNixOSSystem {
           username = private.username {};
@@ -100,7 +107,9 @@
           extraModules = [
             private.nixosModule
           ];
-          extraHomeModules = [];
+          extraHomeModules = [
+            private.home
+          ];
         };
         surf-vm = systemLib.mkNixOSSystem {
           username = "user";

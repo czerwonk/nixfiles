@@ -7,6 +7,7 @@
       kubectl
       vault
       terraform
+      terrascan
       k9s
       kubernetes-helm
       krew
@@ -15,6 +16,7 @@
       siege
       lynis
       mysql-shell
+      perlPackages.JSONPP
     ];
   };
 }

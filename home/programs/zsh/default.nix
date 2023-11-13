@@ -26,6 +26,7 @@
       fzfp = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
+      curl = "${pkgs.curlie}/bin/curlie";
       ycode = "ykman oath accounts code | fzf";
       g = "git";
       gs = "git status";

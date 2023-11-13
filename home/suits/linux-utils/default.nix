@@ -12,6 +12,7 @@
       samba
       pciutils
       usbutils
+      inotify-tools
     ];
   };
 }

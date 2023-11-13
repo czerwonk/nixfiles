@@ -1,7 +1,6 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -9,7 +8,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
   map({'n', 'v'}, '<leader>,', vim.lsp.buf.code_action, 'Code Action (LSP)')
-  map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
+  map('n', '<leader>K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
   map('n', 'gd', vim.lsp.buf.definition, 'Find Definition (LSP)')
   map('n', 'gD', vim.lsp.buf.declaration, 'Find Declaration (LSP)')
   map('n', '<leader>Wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
@@ -58,7 +57,7 @@ local on_attach = function(client, bufnr)
     W = {
       name = "Workspace",
     }
-  }, { prefix = "leader" });
+  }, { prefix = "<leader>", buffer = bufnr });
 end
 
 local lspconfig = require('lspconfig')

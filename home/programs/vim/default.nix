@@ -46,11 +46,6 @@
         config = "require('Comment').setup()";
       }
       {
-        plugin = undotree;
-        type = "lua";
-        config = builtins.readFile ./plugins/undotree.lua;
-      }
-      {
         plugin = vim-tmux-navigator;
         type = "lua";
         config = builtins.readFile ./plugins/vim-tmux-navigator.lua;
@@ -74,9 +69,17 @@
         plugin = telescope-project-nvim;
       }
       {
+        plugin = telescope-undo-nvim;
+      }
+      {
         plugin = harpoon;
         type = "lua";
         config = builtins.readFile ./plugins/harpoon.lua;
+      }
+      {
+        plugin = nvim-neoclip-lua;
+        type = "lua";
+        config = builtins.readFile ./plugins/neoclip.lua;
       }
       {
         plugin = toggleterm-nvim;
@@ -148,6 +151,7 @@
             tree-sitter-gomod
             tree-sitter-hcl
             tree-sitter-html
+            tree-sitter-http
             tree-sitter-java
             tree-sitter-json
             tree-sitter-jsonnet
@@ -233,6 +237,14 @@
       {
         plugin = copilot-cmp;
       }
+      {
+        plugin = neorg;
+        type = "lua";
+        config = builtins.readFile ./plugins/neorg.lua;
+      }
+      {
+        plugin = neorg-telescope;
+      }
 
       # theme
       {
@@ -260,13 +272,10 @@
         type = "lua";
         config = "require('nvim-web-devicons').get_icons()";
       }
+
+      # misc
       {
-        plugin = neorg;
-        type = "lua";
-        config = builtins.readFile ./plugins/neorg.lua;
-      }
-      {
-        plugin = neorg-telescope;
+        plugin = vim-be-good;
       }
     ];
     extraLuaConfig = builtins.readFile ./init.lua;

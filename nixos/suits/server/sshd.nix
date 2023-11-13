@@ -34,7 +34,7 @@
       AllowAgentForwarding = false;
       AllowTcpForwarding = false;
       PrintMotd = false;
-      UseDNS = false;
+      UseDns = false;
     };
     extraConfig = lib.mkForce ''
       AuthorizedKeysFile ${toString config.services.openssh.authorizedKeysFiles}
