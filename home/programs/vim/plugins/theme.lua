@@ -13,7 +13,7 @@ require('kanagawa').setup {
   overrides = function(colors)
       local theme = colors.theme
       return {
-        LspInlayHint = { bg = theme.ui.bg_p1, fg = theme.syn.comment },
+        LspInlayHint = { bg = theme.ui.bg, fg = theme.syn.comment },
       }
   end,
 }
