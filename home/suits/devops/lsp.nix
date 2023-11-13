@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   home = {
     packages = with pkgs; [
-      gopls
+      pkgs-unstable.gopls
       pyright
       nil
       ansible-lint
