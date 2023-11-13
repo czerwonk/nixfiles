@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
       docker-compose
       gnumake
       tree-sitter
-      go_1_20
+      pkgs-unstable.go_1_21
       goreleaser
       sqlite
       protobuf
