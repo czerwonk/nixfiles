@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
