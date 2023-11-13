@@ -37,20 +37,25 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
   map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
   map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
-  map('n', '<leader>gh', function ()
-    require('lsp-inlayhints').toggle()
-  end, 'Toggle inlay hints')
 
-  if client.server_capabilities["documentSymbolProvider"] then
+  if client.server_capabilities.inlayHintProvider then
+    map('n', '<leader>gh', function ()
+      require('lsp-inlayhints').toggle()
+    end, 'Toggle inlay hints')
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
     require("nvim-navbuddy").attach(client, bufnr)
 
     map('n', '<leader>p', '<cmd>Navbuddy<CR>', 'Navbuddy (LSP)')
   end
 
-  if client.server_capabilities["codeLensProvider"] then
+  if client.server_capabilities.codeLensProvider then
     vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
-    map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
+    map('n', '<leader>;', function()
+      vim.lsp.codelens.run()
+    end, 'Code Lens Action (LSP)')
   end
 
   require('which-key').register({
