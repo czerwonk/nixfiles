@@ -37,6 +37,9 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
   map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
   map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
+  map('n', '<leader>gh', function ()
+    require('lsp-inlayhints').toggle()
+  end, 'Toggle inlay hints')
 
   if client.server_capabilities["documentSymbolProvider"] then
     require("nvim-navic").attach(client, bufnr)
@@ -132,6 +135,9 @@ lspconfig.lua_ls.setup {
         enable = false
       },
       codeLens = {
+        enable = true
+      },
+      hint = {
         enable = true
       }
     }
