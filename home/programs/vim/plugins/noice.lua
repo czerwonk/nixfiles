@@ -20,6 +20,13 @@ require('noice').setup({
       },
       view = "mini",
     },
+    {
+      filter = {
+        event = "msg_showmode",
+        find = "record",
+      },
+      view = "mini",
+    },
   },
 })
 require('telescope').load_extension('noice')
