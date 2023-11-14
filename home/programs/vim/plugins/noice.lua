@@ -11,5 +11,15 @@ require('noice').setup({
     command_palette = true,
     long_message_to_split = true,
   },
+  routes = {
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "written",
+      },
+      view = "mini",
+    },
+  },
 })
 require('telescope').load_extension('noice')
