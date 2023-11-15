@@ -207,6 +207,10 @@ lspconfig.jsonls.setup {
     }
   }
 }
+lspconfig.helm_ls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 lspconfig.yamlls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -225,5 +229,12 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
     vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
     vim.lsp.buf.format({ async = false })
+  end
+})
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'} , {
+  pattern = '*/templates/*.yaml,*/templates/*.tpl,*.gotmpl,helmfile*.yaml',
+  callback = function()
+    vim.opt_local.filetype = 'helm'
   end
 })

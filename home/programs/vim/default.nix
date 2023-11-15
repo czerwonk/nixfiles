@@ -142,6 +142,9 @@
         config = builtins.readFile ./plugins/refactoring.lua; 
       }
       {
+        plugin = vim-helm;
+      }
+      {
         plugin = (nvim-treesitter.withPlugins (
           plugins: with plugins; [
             tree-sitter-bash
