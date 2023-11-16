@@ -1,9 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 
 {
   home = {
-    packages = with pkgs; [
-      pkgs-unstable.gopls
+    packages = with pkgs-unstable; [
+      gopls
       pyright
       nil
       ansible-lint
@@ -16,7 +16,7 @@
       terraform-ls
       helm-ls
       omnisharp-roslyn
-    ] ++ (with pkgs.nodePackages; [
+    ] ++ (with pkgs-unstable.nodePackages; [
         yaml-language-server
         typescript-language-server
         bash-language-server

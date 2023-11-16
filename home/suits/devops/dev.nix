@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 
 {
   imports = [
@@ -6,13 +6,13 @@
   ];
 
   home = {
-    packages = with pkgs; [
+    packages = with pkgs-unstable; [
       podman
       podman-compose
       docker-compose
       gnumake
       tree-sitter
-      pkgs-unstable.go_1_21
+      go_1_21
       goreleaser
       sqlite
       protobuf
