@@ -25,6 +25,7 @@
     device = "/nix/persist";
     fsType = "none";
     options = [ "bind" ];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
