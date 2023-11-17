@@ -13,6 +13,7 @@
       pciutils
       usbutils
       inotify-tools
+      btrfs-progs
     ];
   };
 }
