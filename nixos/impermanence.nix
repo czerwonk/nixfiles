@@ -1,16 +1,4 @@
 {
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ 
-      "relatime"
-      "size=2G"
-      "mode=755"
-      "nosuid"
-      "nodev"
-    ];
-  };
-
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [

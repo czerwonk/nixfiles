@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -14,10 +16,24 @@
     options usbserial vendor=0403 product=6001
   '';
 
-  # Setup keyfile
   boot.initrd.secrets = {
     "/persist/crypto_keyfile.bin" = null;
   };
+  boot.initrd.postDeviceCommands = lib.mkBefore ''
+    mkdir -p /btrfs_mnt
+    mount -o subvol=/ /dev/mapper/enc /btrfs_mnt
+    echo "Delete old root subvolume..."
+    btrfs subvolume list -o /btrfs_mnt/root |
+      cut -f 9 -d ' ' |
+      while read subvolume; do
+        echo "Delete subvolume $subvolume..."
+        btrfs subvolume delete "/btrfs_mnt/$subvolume"
+      done
+    btrfs subvolume delete /btrfs_mnt/root
+    echo "Create new root subvolume..."
+    btrfs subvolume create /btrfs_mnt/root
+    umount /btrfs_mnt
+  '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -11,6 +11,18 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ 
+      "relatime"
+      "size=2G"
+      "mode=755"
+      "nosuid"
+      "nodev"
+    ];
+  };
+
   fileSystems."/nix" =
   { 
     device = "/dev/disk/by-uuid/2b34635d-e822-47b9-b038-5e68e0ffd0a8";
