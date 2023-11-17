@@ -6,6 +6,7 @@
     ./impermanence.nix
   ];
 
+  boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
     "xt_nat"
     "xt_connmark"
@@ -14,6 +15,7 @@
     "xt_limit"
     "xt_addrtype"
     "wireguard"
+    "btrfs"
   ];
 
   environment.defaultPackages = with pkgs; [

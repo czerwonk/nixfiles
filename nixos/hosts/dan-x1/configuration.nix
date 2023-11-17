@@ -13,13 +13,10 @@
   boot.extraModprobeConfig = ''
     options usbserial vendor=0403 product=6001
   '';
-  boot.kernelModules = [
-    "btrfs"
-  ];
 
   # Setup keyfile
   boot.initrd.secrets = {
-    "/nix/persist/crypto_keyfile.bin" = null;
+    "/persist/crypto_keyfile.bin" = null;
   };
 
   # Enable CUPS to print documents.

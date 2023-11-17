@@ -11,7 +11,7 @@
     ];
   };
 
-  environment.persistence."/nix/persist" = {
+  environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/srv"
