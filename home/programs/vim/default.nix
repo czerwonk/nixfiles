@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   programs.neovim = {
@@ -223,7 +223,7 @@
         plugin = nvim-dap-go;
       }
       {
-        plugin = neotest;
+        plugin = pkgs.vimPlugins.neotest;
         type = "lua";
         config = builtins.readFile ./plugins/test.lua;
       }
