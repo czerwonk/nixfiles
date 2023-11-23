@@ -9,7 +9,6 @@
       pkgs = import nixpkgs {
         system = "x86_64-darwin";
         config = { allowUnfreePredicate = pkg: true;};
-        overlays = overlays;
       };
       extraSpecialArgs = {
         inherit username;
