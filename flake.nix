@@ -2,12 +2,12 @@
   description = "Daniel Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,7 +15,7 @@
 
     thinkpad-fprint-sensor = {
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     impermanence.url = "github:nix-community/impermanence";
@@ -89,9 +89,13 @@
           domain = "routing.rocks";
           extraModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-            thinkpad-fprint-sensor.nixosModules.open-fprintd
-            thinkpad-fprint-sensor.nixosModules.python-validity
             private.nixosModule
+            {
+              services.fprintd.tod.enable = true;
+              services.fprintd.tod.driver = thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
+                calib-data-file = ./nixos/hosts/dan-x1/calib-data.bin;
+              };
+            }
           ];
           extraHomeModules = [
             private.home

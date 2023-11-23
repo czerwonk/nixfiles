@@ -4,7 +4,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
     completionInit = ""; # is called by GRML
     initExtraFirst = ''
@@ -18,10 +18,10 @@
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
     '';
     shellAliases = {
-      l = "exa -l --icons --group-directories-first --time-style long-iso";
+      l = "eza -l --icons --group-directories-first --time-style long-iso";
       ls = "ls --color=auto";
-      ll = "exa -l --icons --group-directories-first --time-style long-iso";
-      la = "exa -la --icons --group-directories-first --time-style long-iso";
+      ll = "eza -l --icons --group-directories-first --time-style long-iso";
+      la = "eza -la --icons --group-directories-first --time-style long-iso";
       cat  = "bat -pp";
       fzfp = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
