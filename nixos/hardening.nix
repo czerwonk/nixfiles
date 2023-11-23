@@ -95,6 +95,15 @@
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
 
+  # security.loginDefs = {
+  #   settings = {
+  #     UMASK = "027";
+  #     ENCRYPT_METHOD = "SHA512";
+  #     SHA_CRYPT_MIN_ROUNDS = "50000";
+  #     SHA_CRYPT_MAX_ROUNDS = "50000";
+  #   };
+  # };
+
   services.fail2ban.enable = true;
 
   services.clamav = {

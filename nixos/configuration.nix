@@ -38,7 +38,6 @@
 
   networking.hostName = hostname;
   networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
-  services.ntp.enable = true;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -70,6 +69,7 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    ntp
     gnupg
     gitFull
     vim 
