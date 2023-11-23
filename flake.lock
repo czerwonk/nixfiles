@@ -84,6 +84,21 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1688392541,
+        "narHash": "sha256-lHrKvEkCPTUO+7tPfjIcb7Trk6k31rz18vkyqmkeJfY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-22.11",
+        "type": "indirect"
+      }
+    },
     "private": {
       "locked": {
         "lastModified": 1700056132,
@@ -106,7 +121,26 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "private": "private"
+        "private": "private",
+        "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
+      }
+    },
+    "thinkpad-fprint-sensor": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1692726208,
+        "narHash": "sha256-trr6m0XqbCRMxLLsmzVp/7QMT4sTG1PSoWN81V2lKC8=",
+        "owner": "ahbnr",
+        "repo": "nixos-06cb-009a-fingerprint-sensor",
+        "rev": "851c089ba4db0502e5d0f95ab2c24ae36b845a32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ahbnr",
+        "repo": "nixos-06cb-009a-fingerprint-sensor",
+        "type": "github"
       }
     }
   },

@@ -13,6 +13,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    thinkpad-fprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     impermanence.url = "github:nix-community/impermanence";
 
     private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
@@ -23,6 +28,7 @@
               nixpkgs-unstable, 
               private, 
               nixos-hardware, 
+              thinkpad-fprint-sensor, 
               impermanence, ... }:
     let
       userLib = import ./lib/user.nix {
@@ -84,6 +90,12 @@
           extraModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
             private.nixosModule
+            {
+              services.fprintd.tod.enable = true;
+              services.fprintd.tod.driver = thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
+                calib-data-file = ./nixos/hosts/dan-x1/calib-data.bin;
+              };
+            }
           ];
           extraHomeModules = [
             private.home

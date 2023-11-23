@@ -47,4 +47,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  services.fprintd.enable = true;
 }
