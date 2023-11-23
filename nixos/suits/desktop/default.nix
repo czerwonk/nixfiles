@@ -36,6 +36,7 @@
   services.pcscd.enable = true;
 
   security.pam.services.login.fprintAuth = false;
+  security.pam.services.su.fprintAuth = false;
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
     text = ''
       auth       required                    pam_shells.so
