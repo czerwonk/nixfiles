@@ -13,10 +13,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    thinkpad-fprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    thinkpad-fprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -29,13 +26,15 @@
               private, 
               nixos-hardware, 
               thinkpad-fprint-sensor, 
-              impermanence, ... }:
+              impermanence,
+              ... }:
     let
+      overlays = [];
       userLib = import ./lib/user.nix {
-        inherit home-manager nixpkgs nixpkgs-unstable;
+        inherit home-manager nixpkgs nixpkgs-unstable overlays;
       };
       systemLib = import ./lib/system.nix {
-        inherit home-manager nixpkgs nixpkgs-unstable impermanence;
+        inherit home-manager nixpkgs nixpkgs-unstable impermanence overlays;
       };
 
     in {

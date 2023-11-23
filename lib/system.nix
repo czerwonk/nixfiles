@@ -1,4 +1,4 @@
-{ home-manager, nixpkgs, nixpkgs-unstable, impermanence, ... }:
+{ home-manager, nixpkgs, nixpkgs-unstable, impermanence, overlays, ... }:
 
 {
   mkNixOSSystem = { hostname, domain, username, extraModules, extraHomeModules }:
@@ -15,6 +15,7 @@
             pkgs-unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config = { allowUnfree = true; };
+              overlays = overlays;
             };
           };
         }
