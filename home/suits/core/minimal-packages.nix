@@ -14,7 +14,7 @@
       yq
       yamlfmt
       tree
-      exa
+      eza
       ripgrep
       fd
       sd
