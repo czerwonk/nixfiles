@@ -101,10 +101,17 @@
       ENCRYPT_METHOD = "SHA512";
       SHA_CRYPT_MIN_ROUNDS = "50000";
       SHA_CRYPT_MAX_ROUNDS = "50000";
+      PASS_MAX_DAYS = "365";
+      PASS_MIN_DAYS = "1";
+      PASS_WARN_AGE = "30";
+      LOGIN_RETRIES = "3";
+      LOGIN_TIMEOUT = "60";
     };
   };
 
-  services.fail2ban.enable = true;
+  services.fail2ban = {
+    enable = true;
+  };
 
   services.clamav = {
     updater.enable = true;
