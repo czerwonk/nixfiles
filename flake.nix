@@ -2,7 +2,7 @@
   description = "Daniel Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -13,10 +13,10 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    thinkpad-fprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # thinkpad-fprint-sensor = {
+    #   url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -28,7 +28,7 @@
               nixpkgs-unstable, 
               private, 
               nixos-hardware, 
-              thinkpad-fprint-sensor, 
+              #thinkpad-fprint-sensor, 
               impermanence, ... }:
     let
       userLib = import ./lib/user.nix {
@@ -89,8 +89,8 @@
           domain = "routing.rocks";
           extraModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-            thinkpad-fprint-sensor.nixosModules.open-fprintd
-            thinkpad-fprint-sensor.nixosModules.python-validity
+            #thinkpad-fprint-sensor.nixosModules.open-fprintd
+            #thinkpad-fprint-sensor.nixosModules.python-validity
             private.nixosModule
           ];
           extraHomeModules = [

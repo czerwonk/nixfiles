@@ -48,9 +48,8 @@
     pulse.enable = true;
   };
 
-  services.open-fprintd.enable = true;
-  services.python-validity.enable = true;
-
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.xscreensaver.fprintAuth = true;
+  # services.open-fprintd.enable = true;
+  # services.python-validity.enable = true;
+  # security.pam.services.login.fprintAuth = true;
+  # security.pam.services.xscreensaver.fprintAuth = true;
 }
