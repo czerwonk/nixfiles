@@ -222,14 +222,14 @@
       {
         plugin = nvim-dap-go;
       }
-      # {
-      #   plugin = neotest;
-      #   type = "lua";
-      #   config = builtins.readFile ./plugins/test.lua;
-      # }
-      # {
-      #   plugin = neotest-go;
-      # }
+      {
+        plugin = neotest;
+        type = "lua";
+        config = builtins.readFile ./plugins/test.lua;
+      }
+      {
+        plugin = neotest-go;
+      }
       {
         plugin = trouble-nvim;
         type = "lua";
