@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardening.nix
+    ./hardening
     ./impermanence.nix
   ];
 
