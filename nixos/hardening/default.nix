@@ -5,6 +5,7 @@
     ./sysctl.nix
     ./services.nix
     ./aide.nix
+    ./accounting.nix
   ];
 
   users.mutableUsers = false;
