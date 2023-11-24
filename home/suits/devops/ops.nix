@@ -13,7 +13,7 @@
       krew
       google-cloud-sdk
       redis
-      siege
+      hey
       lynis
       mysql-shell
       perlPackages.JSONPP
