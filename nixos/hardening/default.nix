@@ -72,4 +72,8 @@
       LOGIN_TIMEOUT = "60";
     };
   };
+
+  environment.systemPackages = [
+    pkgs.vulnix
+  ];
 }
