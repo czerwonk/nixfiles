@@ -1,6 +1,10 @@
 { pkgs, config, lib, ... }:
 
 {
+  imports = [
+    ./programs/aide
+  ];
+
   users.mutableUsers = false;
 
   nix.settings.allowed-users = [ "@users" ];
@@ -128,10 +132,4 @@
   security.auditd.enable = true;
 
   security.rtkit.enable = true;
-  environment.systemPackages = with pkgs; [
-    chkrootkit
-    aide
-    libpwquality
-    acct
-  ];
 }
