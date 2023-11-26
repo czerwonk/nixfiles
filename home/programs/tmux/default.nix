@@ -28,6 +28,7 @@
         plugin = power-theme;
         extraConfig = ''
           set -g @tmux_power_theme '#C0A36E'
+          set -g @tmux_power_time_format '%H:%M'
         '';
       }
     ];
