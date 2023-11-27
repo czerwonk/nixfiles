@@ -5,7 +5,10 @@
     ./gnome-core.nix
   ];
 
-  boot.kernelModules = [ "usbserial" ];
+  boot.kernelModules = [
+    "usbserial"
+    "ccm"
+  ];
 
   users.users.${username} = {
     packages = with pkgs; [
