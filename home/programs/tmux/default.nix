@@ -28,7 +28,6 @@ in {
     newSession = true;
     plugins = with pkgs.tmuxPlugins;[
       tmux-fzf
-      yank
       logging
       vim-tmux-navigator
     ];
