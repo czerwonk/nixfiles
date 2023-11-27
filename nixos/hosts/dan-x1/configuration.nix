@@ -4,6 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../suits/notebook
     ../../suits/desktop
     ../../suits/pentest
     ../../suits/container
