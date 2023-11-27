@@ -25,6 +25,7 @@ in {
     clock24 = true;
     historyLimit = 10000;
     mouse = true;
+    newSession = true;
     plugins = with pkgs.tmuxPlugins;[
       tmux-fzf
       yank
@@ -46,6 +47,7 @@ in {
       set-option -g pane-active-border-style 'fg=colour242,bg=colour234'
 
       set -g @tmux_power_time_format '%H:%M'
+      set -g @tmux_power_theme '#C0A36E'
       run-shell ${power-theme}/share/tmux-plugins/power/tmux-power.tmux
     '';
   };
