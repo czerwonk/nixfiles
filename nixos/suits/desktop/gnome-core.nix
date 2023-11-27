@@ -1,13 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   security.allowUserNamespaces = true;
   nix.settings.sandbox = true;
 
-  networking.networkmanager = {
-    enable = true;
-    dns = "none";
-  };
+  networking.useDHCP = lib.mkDefault true;
+  networking.networkmanager.enable = true;
 
   services.xserver = {
     enable = true;
