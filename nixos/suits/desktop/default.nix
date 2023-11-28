@@ -12,7 +12,7 @@
 
   users.users.${username} = {
     packages = with pkgs; [
-      gnome.gnome-tweaks
+      xsel
       brave
       thunderbird
       libreoffice

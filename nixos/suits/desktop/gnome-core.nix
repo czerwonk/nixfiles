@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   security.allowUserNamespaces = true;
@@ -25,6 +25,12 @@
   services.gnome = {
     games.enable = false;
     core-developer-tools.enable = false;
+  };
+
+  users.users.${username} = {
+    packages = with pkgs; [
+      gnome.gnome-tweaks
+    ];
   };
 
   environment.gnome.excludePackages = (with pkgs; [
