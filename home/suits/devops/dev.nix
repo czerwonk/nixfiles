@@ -14,6 +14,7 @@
       tree-sitter
       go_1_21
       goreleaser
+      protoc-gen-go
       sqlite
       protobuf
       jsonnet
