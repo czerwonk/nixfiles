@@ -15,6 +15,7 @@
       go_1_21
       goreleaser
       protoc-gen-go
+      protoc-gen-go-grpc
       sqlite
       protobuf
       jsonnet
