@@ -9,7 +9,6 @@
     packages = with pkgs-unstable; [
       podman
       podman-compose
-      docker-compose
       gnumake
       tree-sitter
       go_1_21
