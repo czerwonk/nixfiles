@@ -49,4 +49,6 @@
   };
 
   services.fprintd.enable = true;
+
+  security.lockKernelModules = false;
 }
