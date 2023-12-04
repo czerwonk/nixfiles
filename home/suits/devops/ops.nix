@@ -4,13 +4,14 @@
   home = {
     packages = with pkgs-unstable; [
       ansible
-      kubectl
       vault
       terraform
       terrascan
+      kubectl
       k9s
       kubernetes-helm
       krew
+      kubetail
       google-cloud-sdk
       redis
       hey
