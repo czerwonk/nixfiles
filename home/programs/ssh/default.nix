@@ -1,6 +1,8 @@
+{ lib, ... }:
+
 {
   programs.ssh = {
-    enable = true;
+    enable = lib.mkDefault true;
     forwardAgent = true;
     serverAliveInterval = 10;
     extraConfig = ''

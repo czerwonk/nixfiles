@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   power-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
@@ -15,7 +15,7 @@ let
 
 in {
   programs.tmux = {
-    enable = true;
+    enable = lib.mkDefault true;
     shortcut = "a";
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";

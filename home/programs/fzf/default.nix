@@ -1,6 +1,8 @@
+{ lib, ... }:
+
 {
   programs.fzf = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableZshIntegration = true;
     fileWidgetOptions = [
       "--preview 'bat --color=always --style=numbers --line-range=:500 {}'"

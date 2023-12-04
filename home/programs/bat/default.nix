@@ -1,6 +1,8 @@
+{ lib, ... }:
+
 {
   programs.bat = {
-    enable = true;
+    enable = lib.mkDefault true;
     config = {
       pager = "less -FR";
       theme = "TwoDark";

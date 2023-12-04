@@ -1,6 +1,8 @@
+{ lib, ... }:
+
 {
   programs.gpg = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       auto-key-retrieve = true;
       no-emit-version = true;

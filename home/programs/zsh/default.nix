@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.zsh = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
