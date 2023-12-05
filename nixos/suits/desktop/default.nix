@@ -7,7 +7,8 @@
 
   boot.kernelModules = [
     "usbserial"
-    "ccm"
+    "ccm" # required for personal hotspot
+    "qrtr"
   ];
 
   users.users.${username} = {
