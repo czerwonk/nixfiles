@@ -11,7 +11,7 @@
       k9s
       kubernetes-helm
       krew
-      kubetail
+      stern
       google-cloud-sdk
       redis
       hey
