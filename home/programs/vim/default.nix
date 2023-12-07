@@ -1,12 +1,12 @@
-{ pkgs-unstable, lib, ... }:
+{ pkgs, pkgs-unstable, lib, ... }:
 
 {
   programs.neovim = {
     enable = lib.mkDefault true;
     defaultEditor = true;
     vimdiffAlias = true;
-    package = pkgs-unstable.neovim-unwrapped;
-    plugins = with pkgs-unstable.vimPlugins; [
+    package = pkgs.neovim-unwrapped;
+    plugins = with pkgs.vimPlugins; [
       {
         plugin = nui-nvim;
       }
@@ -223,7 +223,7 @@
         plugin = nvim-dap-go;
       }
       {
-        plugin = neotest;
+        plugin = pkgs-unstable.vimPlugins.neotest;
         type = "lua";
         config = builtins.readFile ./plugins/test.lua;
       }
