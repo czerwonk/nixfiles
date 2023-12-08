@@ -231,6 +231,9 @@
         plugin = neotest-go;
       }
       {
+        plugin = neotest-python;
+      }
+      {
         plugin = trouble-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/trouble.lua;
