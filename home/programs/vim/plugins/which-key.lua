@@ -35,6 +35,9 @@ wk.register({
   t = {
     name = "Test"
   },
+  tc = {
+    name = "Coverage"
+  },
   x = {
     name = "Trouble",
   }

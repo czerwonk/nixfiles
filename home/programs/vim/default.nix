@@ -234,6 +234,11 @@
         plugin = neotest-python;
       }
       {
+        plugin = nvim-coverage;
+        type = "lua";
+        config = "require('coverage').setup()";
+      }
+      {
         plugin = trouble-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/trouble.lua;
