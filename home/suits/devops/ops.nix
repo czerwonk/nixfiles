@@ -6,6 +6,7 @@
       ansible
       vault
       terraform
+      opentofu
       terrascan
       kubectl
       k9s
