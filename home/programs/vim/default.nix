@@ -236,7 +236,7 @@
       {
         plugin = nvim-coverage;
         type = "lua";
-        config = "require('coverage').setup()";
+        config = builtins.readFile ./plugins/coverage.lua;
       }
       {
         plugin = trouble-nvim;

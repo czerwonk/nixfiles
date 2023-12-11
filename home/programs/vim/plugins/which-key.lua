@@ -9,7 +9,7 @@ wk.setup {
 }
 wk.register({
   c = {
-    name = "Quickfix",
+    name = "Coverage"
   },
   d = {
     name = "Debug"
@@ -37,6 +37,9 @@ wk.register({
   },
   tc = {
     name = "Coverage"
+  },
+  q = {
+    name = "Quickfix",
   },
   x = {
     name = "Trouble",
