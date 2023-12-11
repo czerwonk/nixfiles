@@ -19,6 +19,7 @@
       lynis
       mysql-shell
       perlPackages.JSONPP
+      termshark
     ];
   };
 }
