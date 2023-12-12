@@ -76,6 +76,7 @@
     unzip
     wireguard-tools
     lsof
+    mdadm
   ];
   environment.shells = [ pkgs.zsh ];
 
