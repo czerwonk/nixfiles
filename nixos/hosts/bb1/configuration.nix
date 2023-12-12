@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [ 
@@ -26,4 +26,42 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
+
+  services.caddy = {
+    enable = true;
+    adapter = "caddyfile";
+    configFile = pkgs.writeText "Caddyfile" ''
+      routing.rocks {
+        redir /.well-known/host-meta https://social.routing.rocks{uri}
+        redir /.well-known/webfinger https://social.routing.rocks{uri}
+        root * /var/www
+
+        encode gzip
+        log {
+          output file /var/log/caddy/access.log {
+            roll_keep 4
+            roll_keep_for 7d
+          }
+        }
+        tls {
+          protocols tls1.2 tls1.3
+        }
+      }
+
+      social.routing.rocks {
+        reverse_proxy * 127.0.0.1:3000
+
+        encode gzip
+        log {
+          output file /var/log/caddy/access.log {
+            roll_keep 4
+            roll_keep_for 7d
+          }
+        }
+        tls {
+          protocols tls1.2 tls1.3
+        }
+      }
+    '';
+  };
 }
