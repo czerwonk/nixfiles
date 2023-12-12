@@ -16,6 +16,12 @@
       f = "fetch";
       ignores = "ls-files -o -i --exclude-standard";
     };
+    signing = {
+      signByDefault = true;
+    };
+    ignores = [
+      "coverage.out"
+    ];
     extraConfig = {
       extensions.worktreeConfig = true;
       core = {
@@ -26,11 +32,11 @@
       pull.rebase = true;
       push.autoSetupRemote = true;
       gpg.format = "ssh";
-      commit.gpgsign = true;
-      tag.gpgsign = true;
       merge.tool = "nvim";
-      mergetool.prompt = false;
-      mergetool.nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
+      mergetool = {
+        prompt = false;
+        nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
+      };
     };
   };
 }
