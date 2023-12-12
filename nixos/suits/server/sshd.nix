@@ -15,7 +15,7 @@
       LogLevel = "VERBOSE";
 
       # Authentication
-      AllowGroups = "ssh";
+      AllowGroups = [ "ssh" ];
       LoginGraceTime = "1m";
       PermitRootLogin = "no";
       StrictModes = true;

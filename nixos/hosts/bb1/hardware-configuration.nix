@@ -26,7 +26,7 @@
       neededForBoot = true;
     };
 
-  fileSystems."/boot/efi" =
+  fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1C56-C5EF";
       fsType = "vfat";
     };
