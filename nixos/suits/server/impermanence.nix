@@ -2,6 +2,7 @@
   environment.persistence."/persist" = {
     directories = [
       "/etc/wireguard"
+      "/root/scripts"
     ];
     files = [
       "/etc/ssh/ssh_host_rsa_key"
