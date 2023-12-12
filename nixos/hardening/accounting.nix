@@ -23,7 +23,8 @@
       Type = "simple";
       ExecStartPre = "/run/current-system/sw/bin/bash /etc/psacct-pre.sh";
       ExecStart = "${pkgs.acct}/sbin/accton /var/log/account/pacct";
-      ExecStop = "${pkgs.acct}/sbin/accton";
+      ExecStop = "${pkgs.acct}/sbin/accton off";
+      RemainAfterExit = true;
       Restart = "always";
       RestartSec = 5;
     };
