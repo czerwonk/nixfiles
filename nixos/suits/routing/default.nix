@@ -16,12 +16,4 @@
       ports = [ "127.0.0.1:3323:3323" ];
     };
   };
-
-  systemd.network.config.networkConfig = {
-    LLDP = true;
-    EmitLLDP = true;
-    IPv6AcceptRA = false;
-    IPv6SendRA = false;
-    IPForward = true;
-  };
 }
