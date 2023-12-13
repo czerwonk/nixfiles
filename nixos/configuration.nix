@@ -17,16 +17,9 @@
     "wireguard"
     "btrfs"
     "xfs"
-    "md"
-    "linear"
-    "multipath"
-    "raid0"
-    "raid1"
-    "raid5"
-    "raid6"
-    "raid10"
     "ext4"
   ];
+  boot.swraid.enable = true;
 
   environment.defaultPackages = with pkgs; [
     file
