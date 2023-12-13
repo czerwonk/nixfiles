@@ -8,6 +8,8 @@
     ./impermanence.nix
   ];
 
+  boot.swraid.enable = true;
+
   users.groups.ssh = {};
   users.users.${username} = {
     extraGroups = [ "ssh" ];
