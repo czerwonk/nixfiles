@@ -13,7 +13,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.postDeviceCommands = lib.mkBefore ''
     mkdir -p /btrfs_mnt
-    mount -o subvol=/ /dev/disk/by-uuid/96ea7ea2-62e9-47bd-a935-4b1bcdfc2229 /btrfs_mnt
+    mount -o subvol=/ /dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60 /btrfs_mnt
     echo "Delete old root subvolume..."
     btrfs subvolume list -o /btrfs_mnt/root |
       cut -f 9 -d ' ' |

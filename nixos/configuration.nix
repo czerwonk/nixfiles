@@ -19,8 +19,19 @@
     "btrfs"
     "xfs"
     "ext4"
+    "md"
+    "linear"
+    "multipath"
+    "raid0"
+    "raid1"
+    "raid5"
+    "raid6"
+    "raid10"
   ];
-  boot.swraid.enable = true;
+  boot.swraid = {
+    enable = true;
+    mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
+  };
 
   environment.defaultPackages = with pkgs; [
     file
