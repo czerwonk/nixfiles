@@ -14,6 +14,7 @@
     "xt_comment"
     "xt_limit"
     "xt_addrtype"
+    "xt_multiport"
     "wireguard"
     "btrfs"
     "xfs"
