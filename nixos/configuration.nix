@@ -25,6 +25,7 @@
     "raid5"
     "raid6"
     "raid10"
+    "ext4"
   ];
 
   environment.defaultPackages = with pkgs; [
