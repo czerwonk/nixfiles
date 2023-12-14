@@ -34,9 +34,10 @@
       bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, ${pkgs.rofi}/bin/rofi -show drun
+      bind = $mainMod, R, exec, ${pkgs.rofi}/bin/rofi -theme solarized -show drun
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
 
       # Move focus with mainMod + arrow keys
