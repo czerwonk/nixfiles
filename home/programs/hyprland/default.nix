@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -25,6 +25,7 @@
       exec-once=${pkgs.waybar}/bin/waybar
       exec-once=${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
       exec-once=${pkgs.dunst}/bin/dunst
+      exec-once=${pkgs.hyprpaper}/bin/hyprpaper
       exec-once=
 
       $mainMod = SUPER
@@ -80,4 +81,11 @@
     '';
     systemd.enable = false;
   };
+
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    ipc = off
+    preload = /home/${username}/.config/bg.jpg
+    wallpaper = eDP-1,/home/${username}/.config/bg.jpg
+    wallpaper = HDMI-A-1,/home/${username}/.config/bg.jpg
+  '';
 }
