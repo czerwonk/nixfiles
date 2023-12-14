@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./gnome-core.nix
+    ./core.nix
     ./pam.nix
+    ./gnome.nix
   ];
 
   boot.kernelModules = [
@@ -37,7 +38,6 @@
   };
 
   programs = {
-    hyprland.enable = true;
     wireshark.enable = true;
     _1password-gui.enable = true;
     gnupg.agent = {

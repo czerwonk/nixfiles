@@ -4,7 +4,8 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../suits/desktop/gnome-core.nix
+    ../../suits/desktop/core.nix
+    ../../suits/desktop/gnome.nix
   ];
 
   boot.loader.grub.enable = true;
