@@ -6,7 +6,7 @@
     font = {
       package = pkgs.jetbrains-mono;
       name = "JetBrains Mono";
-      size = 14;
+      size = 12;
     };
     settings = {
       copy_on_select = true;
