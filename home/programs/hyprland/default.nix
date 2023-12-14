@@ -30,24 +30,33 @@
 
       $mainMod = SUPER
 
-      bind = $mainMod, Q, exec, ${pkgs.kitty}/bin/kitty
-      bind = $mainMod, C, killactive,
-      bind = $mainMod, M, exit,
+      bind = $mainMod, T, exec, ${pkgs.kitty}/bin/kitty
+      bind = $mainMod, W, killactive,
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, ${pkgs.rofi}/bin/rofi -theme solarized -show drun
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, S, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
+      bind = $mainMod SHIFT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock --screenshots --indicator --effect-blur 7x5
+      bind = $mainMod SHIFT, P, pin,
+      bind = $mainMod SHIFT, F, togglefloating,
+      bind = $mainMod SHIFT, Q, exit,
 
-      # Move focus with mainMod + arrow keys
+      # Move focus
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r
       bind = $mainMod, up, movefocus, u
       bind = $mainMod, down, movefocus, d
 
-      # Switch workspaces with mainMod + [0-9]
+      # Move window
+      bind = $mainMod SHIFT, H, movewindow, l
+      bind = $mainMod SHIFT, L, movewindow, r
+      bind = $mainMod SHIFT, K, movewindow, u
+      bind = $mainMod SHIFT, J, movewindow, d
+
+      # Switch workspace
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
       bind = $mainMod, 3, workspace, 3
@@ -59,7 +68,7 @@
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      # Move active window to a workspace
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3

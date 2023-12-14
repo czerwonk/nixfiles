@@ -4,6 +4,7 @@
   security.pam.services.login.fprintAuth = false;
   security.pam.services.su.fprintAuth = false;
   security.pam.services.sudo.fprintAuth = false;
+  security.pam.services.swaylock = {};
   security.pam.u2f = {
     enable = true;
     control = "required";
