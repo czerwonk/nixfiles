@@ -1,4 +1,4 @@
-{ pkgs, lib, username, ... }:
+{ pkgs, username, ... }:
 
 {
 

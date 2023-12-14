@@ -44,6 +44,7 @@
       enable = true;
       enableSSHSupport = true;
     };
+    hyprland.enable = true;
   };
 
   services.pcscd.enable = true;
