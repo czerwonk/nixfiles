@@ -4,6 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      monitor = ",preferred,auto,auto";
       input = {
         kb_layout = "us";
         kb_variant = "altgr-intl";
@@ -12,8 +13,11 @@
         gaps_in = 3;
         gaps_out = 3;
         border_size = 1;
+        "col.active_border" = "rgba(c8c093ff)";
+        layout = "dwindle";
       };
       decoration = {
+        rounding = 10;
         blur.enabled = false;
       };
     };
