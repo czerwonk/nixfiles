@@ -3,6 +3,7 @@
     directories = [
       "/etc/wireguard"
       "/root/scripts"
+      "/opt"
     ];
     files = [
       "/etc/ssh/ssh_host_rsa_key"
