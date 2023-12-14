@@ -9,6 +9,9 @@
     "usbserial"
     "ccm" # required for personal hotspot
     "qrtr"
+    "sha3_generic"
+    "rfcomm"
+    "uhid"
   ];
 
   users.users.${username} = {
