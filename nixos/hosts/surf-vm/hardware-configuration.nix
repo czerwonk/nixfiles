@@ -10,6 +10,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.loader.grub.device = "/dev/sda";
 
   fileSystems."/" = {
     device = "none";
@@ -23,31 +24,26 @@
     ];
   };
 
-  fileSystems."/nix" =
-  { 
-    device = "/dev/disk/by-uuid/2b34635d-e822-47b9-b038-5e68e0ffd0a8";
+  fileSystems."/boot" = {
+    device = "/dev/sda1";
     fsType = "ext4";
   };
 
-  fileSystems."/persist" =
-  {
-    depends = [
-      "/nix"
-    ];
-    device = "/nix/persist";
-    fsType = "none";
-    options = [ "bind" ];
+  fileSystems."/persist" = { 
+    device = "/dev/sda2";
+    fsType = "btrfs";
+    options = [ "subvol=persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/49777cfe-5322-4bf3-af0c-6b2e22c2456d";
-    fsType = "ext4";
+  fileSystems."/nix" = { 
+    device = "/dev/sda2";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    neededForBoot = true;
   };
 
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.parallels.enable = true;
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
 }

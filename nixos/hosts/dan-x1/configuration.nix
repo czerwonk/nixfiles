@@ -35,6 +35,8 @@
     umount /btrfs_mnt
   '';
 
+  security.lockKernelModules = false;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

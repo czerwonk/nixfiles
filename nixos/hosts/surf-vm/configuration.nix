@@ -9,7 +9,6 @@
   ];
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;
 
   sound.enable = true;
@@ -21,11 +20,7 @@
     pulse.enable = true;
   };
 
-  environment.systemPackages = [
-    pkgs.linuxKernel.packages.linux_6_5_hardened.prl-tools
-  ];
-
-  environment.persistence."/nix/persist" = {
+  environment.persistence."/persist" = {
     directories = [
       "/etc/wireguard"
     ];
@@ -35,7 +30,7 @@
     initialHashedPassword = "$6$rounds=50000$lAvjJYJgE8kUR6We$QKS9zjKcYrFQlz1jFnqkHs9amUeZbjFxZVQVuMbVrpsXMDNnWa1yUq2sU1Hf7yLNsesjeUSojUx0R9MN99nEL0";
     description = lib.mkForce "";
     packages = with pkgs; [
-      pkgs.gnome.gnome-tweaks
+      gnome.gnome-tweaks
       brave
       wgnord
     ];
@@ -43,5 +38,10 @@
 
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
+  };
+
+  virtualisation.virtualbox.guest = {
+    enable = true;
+    x11 = true;
   };
 }
