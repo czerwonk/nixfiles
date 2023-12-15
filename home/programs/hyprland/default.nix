@@ -39,7 +39,7 @@
       bind = $mainMod, W, killactive,
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
+      bind = $mainMod, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
