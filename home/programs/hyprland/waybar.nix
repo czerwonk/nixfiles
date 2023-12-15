@@ -115,11 +115,11 @@
       }
 
       #battery.warning:not(.charging) {
-        color: #FCCE7B;
+        color: #FF9E3B;
       }
 
       #pulseaudio {
-        color: #FF9E3B;
+        color: #DCA561;
       }
 
       #network {

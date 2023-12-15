@@ -4,6 +4,7 @@
   imports = [
     ./hardening
     ./impermanence.nix
+    ./dns.nix
   ];
 
   boot.supportedFilesystems = [ "btrfs" ];
