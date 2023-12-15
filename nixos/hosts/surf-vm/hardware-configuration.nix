@@ -25,19 +25,19 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/by-partlabel/boot";
+    device = "/dev/by-label/boot";
     fsType = "ext4";
   };
 
   fileSystems."/persist" = { 
-    device = "/dev/by-partlabel/data";
+    device = "/dev/by-label/data";
     fsType = "btrfs";
     options = [ "subvol=persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
   fileSystems."/nix" = { 
-    device = "/dev/by-partlabel/data";
+    device = "/dev/by-label/data";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
     neededForBoot = true;
