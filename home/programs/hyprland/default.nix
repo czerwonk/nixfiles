@@ -1,6 +1,10 @@
 { pkgs, username, ... }:
 
 {
+  imports = [
+    ./waybar.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -97,5 +101,4 @@
     wallpaper = eDP-1,/home/${username}/.config/bg.jpg
     wallpaper = HDMI-A-1,/home/${username}/.config/bg.jpg
   '';
-  home.file.".config/waybar/config".source = ./waybar/config;
 }
