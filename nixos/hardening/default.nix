@@ -22,6 +22,9 @@
   security.allowUserNamespaces = lib.mkDefault false;
 
   systemd.coredump.enable = lib.mkDefault false;
+  security.pam.loginLimits = [
+    { domain = "*"; item = "core"; type = "hard"; value = "0"; }
+  ];
 
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
