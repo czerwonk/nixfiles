@@ -33,6 +33,7 @@
       virt-viewer
       yubioath-flutter
       mysql-workbench
+      element-desktop
     ];
     extraGroups = [ "wireshark" ];
   };
