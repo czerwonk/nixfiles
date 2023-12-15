@@ -46,6 +46,7 @@
         format-linked = "{ifname} (No IP) ";
         format-wifi = "{essid} ({signalStrength}%) ";
         tooltip-format = "{ifname} via {gwaddr} ";
+        family = "ipv6";
       };
       pulseaudio = {
         format = "{volume}% {icon} {format_source}";
