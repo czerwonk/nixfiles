@@ -76,10 +76,6 @@
         transition-duration: .5s;
       }
 
-      #workspaces {
-        margin-left: 0;
-      }
-
       #workspaces button {
         padding: 0 5px;
         background-color: transparent;
@@ -125,10 +121,6 @@
 
       #network {
         color: #658594;
-      }
-
-      #clock {
-        margin-right: 0;
       }
     '';
   };
