@@ -47,6 +47,9 @@
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
+      bind=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+
+      binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-
 
       # Move focus
       bind = $mainMod, left, movefocus, l
