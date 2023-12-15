@@ -33,6 +33,7 @@
       gnome.gnome-tweaks
       brave
       wgnord
+      linuxKernel.packages.linux_6_5_hardened.virtualboxGuestAdditions
     ];
   };
 
