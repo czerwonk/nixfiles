@@ -9,10 +9,11 @@
     enable = true;
     settings = {
       global = {
-        width = 300;
+        width = 500;
         height = 300;
-        offset = "30x50";
+        offset = "10x50";
         origin = "top-right";
+        scale = 0;
         transparency = 10;
         frame_color = "#c8c093";
         font = "JetBrains Mono";
@@ -27,6 +28,12 @@
         text_icon_padding = 0;
         separator_color = "frame";
         corner_radius = 6;
+        idle_threshold = 120;
+        progress_bar = true;
+        progress_bar_height = 10;
+        progress_bar_frame_width = 1;
+        progress_bar_min_width = 150;
+        progress_bar_max_width = 300;
       };
 
       urgency_low = {
