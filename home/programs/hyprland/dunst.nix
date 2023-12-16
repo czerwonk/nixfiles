@@ -20,7 +20,7 @@
         sort = true;
         stack_duplicates = true;
         hide_duplicate_count = false;
-        format = "%s %p\n%b";
+        format = "%s %p\\n%b";
         line_height = 0;
         separator_height = 1;
         padding = 8;
