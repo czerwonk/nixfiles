@@ -52,6 +52,7 @@
       bind=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+
       binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-
+      bind =, XF86PowerOff, exec, ${pkgs.systemd}/bin/systemctl suspend
 
       # Move focus
       bind = $mainMod, left, movefocus, l
