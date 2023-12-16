@@ -9,8 +9,10 @@
     enable = true;
     settings = {
       global = {
-        width = 500;
-        height = 300;
+        word_wrap = true;
+        alignment = "center";
+        width = "(300, 500)";
+        height = 500;
         offset = "10x50";
         origin = "top-right";
         scale = 0;
@@ -20,7 +22,7 @@
         sort = true;
         stack_duplicates = true;
         hide_duplicate_count = false;
-        format = "%s %p\\n%b";
+        format = "<span font_weight='bold' font_size='small' fgcolor='#7FB4CA'>%a\\n%s %p</span>\\n\\n%b";
         line_height = 0;
         separator_height = 1;
         padding = 8;
