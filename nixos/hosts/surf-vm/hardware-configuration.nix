@@ -30,14 +30,14 @@
   };
 
   fileSystems."/persist" = { 
-    device = "/dev/by-label/data";
+    device = "/dev/by-label/nixos";
     fsType = "btrfs";
     options = [ "subvol=persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
   fileSystems."/nix" = { 
-    device = "/dev/by-label/data";
+    device = "/dev/by-label/nixos";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
     neededForBoot = true;
@@ -46,4 +46,6 @@
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  virtualisation.virtualbox.guest.enable = true;
 }

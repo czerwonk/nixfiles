@@ -40,9 +40,4 @@
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };
-
-  virtualisation.virtualbox.guest = {
-    enable = true;
-    x11 = true;
-  };
 }
