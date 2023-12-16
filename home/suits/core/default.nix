@@ -20,6 +20,7 @@
       openvpn
       wireguard-tools
       yubikey-manager
+      bitwarden-cli
     ];
   };
 }

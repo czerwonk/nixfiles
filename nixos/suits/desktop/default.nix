@@ -41,7 +41,6 @@
 
   programs = {
     wireshark.enable = true;
-    _1password-gui.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
