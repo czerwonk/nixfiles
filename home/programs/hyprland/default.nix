@@ -1,12 +1,22 @@
 { pkgs, username, ... }:
 
-{
+let
+  screenshot = pkgs.writeScriptBin "screenshot" ''
+    #!${pkgs.stdenv.shell}
+    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" | ${pkgs.swappy}/bin/swappy -f -
+  '';
+
+in {
   imports = [
     ./waybar.nix
     ./dunst.nix
     ./rofi
     ./swaylock.nix
     ./swayidle.nix
+  ];
+
+  home.packages = with pkgs; [
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {
@@ -49,6 +59,7 @@
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
+      bind = $mainMod SHIFT, S, exec, ${screenshot}/bin/screenshot
       bind=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+
       binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-

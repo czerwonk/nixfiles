@@ -24,17 +24,16 @@
       libreoffice
       termius
       vlc
-      docker-compose
       wireshark
       calibre
       remmina
       teamviewer
       mattermost-desktop
       virt-viewer
-      yubioath-flutter
       mysql-workbench
       element-desktop
       bitwarden
+      gimp
     ];
     extraGroups = [ "wireshark" ];
   };
