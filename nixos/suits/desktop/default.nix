@@ -34,6 +34,7 @@
       yubioath-flutter
       mysql-workbench
       element-desktop
+      bitwarden
     ];
     extraGroups = [ "wireshark" ];
   };
