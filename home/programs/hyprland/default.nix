@@ -5,6 +5,7 @@
     ./waybar.nix
     ./dunst.nix
     ./rofi
+    ./swaylock.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -44,7 +45,7 @@
       bind = $mainMod, S, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
-      bind = $mainMod SHIFT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock --screenshots --indicator --effect-blur 7x5
+      bind = $mainMod SHIFT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
