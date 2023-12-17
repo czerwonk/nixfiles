@@ -1,8 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   home = {
-    packages = with pkgs-unstable; [
+    packages = with pkgs; [
       gopls
       pyright
       nil
