@@ -56,18 +56,6 @@
           ];
         };
 
-        "mauve-osx" = userLib.mkOSXHMUser {
-          username = private.mauve.username {};
-          extraModules = [
-            ./home/suits/devops
-            private.home
-            private.mauve.home
-            {
-              mauve.overrides.git = true;
-            }
-          ];
-        };
-
         "mauve-linux" = userLib.mkLinuxHMUser {
           username = private.mauve.username {};
           extraModules = [ 
