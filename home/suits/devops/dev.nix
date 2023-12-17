@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   home = {
-    packages = with pkgs-unstable; [
+    packages = with pkgs; [
       podman
       podman-compose
       gnumake

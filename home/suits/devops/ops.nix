@@ -1,8 +1,8 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   home = {
-    packages = with pkgs-unstable; [
+    packages = with pkgs; [
       ansible
       vault
       terraform
@@ -17,9 +17,9 @@
       redis
       hey
       lynis
-      mysql-shell
       perlPackages.JSONPP
       termshark
+      mysql-shell
     ];
   };
 }
