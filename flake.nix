@@ -89,6 +89,19 @@
             private.mauve.home
           ];
         };
+        framy = systemLib.mkNixOSSystem {
+          username = private.username {};
+          hostname = "framy";
+          domain = "routing.rocks";
+          extraModules = [
+            nixos-hardware.nixosModule.framework-13-7040-amd
+            private.nixosModule
+          ];
+          extraHomeModules = [
+            private.home
+            private.mauve.home
+          ];
+        };
         bb1 = systemLib.mkNixOSSystem {
           username = private.username {};
           hostname = "bb1";
