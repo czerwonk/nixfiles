@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   home = {
@@ -16,7 +16,7 @@
       terraform-ls
       helm-ls
       omnisharp-roslyn
-    ] ++ (with pkgs-unstable.nodePackages; [
+    ] ++ (with pkgs.nodePackages; [
         yaml-language-server
         typescript-language-server
         bash-language-server
