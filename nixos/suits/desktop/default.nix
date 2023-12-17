@@ -49,5 +49,8 @@
 
   services.pcscd.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host = {
+    enable = true;
+    #enableExtensionPack = true; # TODO: uncomment when build errors are resolved
+  };
 }
