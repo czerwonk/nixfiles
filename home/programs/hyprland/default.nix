@@ -38,12 +38,21 @@ in {
         rounding = 10;
         blur.enabled = false;
       };
+      misc = {
+        force_default_wallpaper = 0;
+      };
     };
     extraConfig = ''
-      exec-once=${pkgs.waybar}/bin/waybar
-      exec-once=${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
-      exec-once=${pkgs.hyprpaper}/bin/hyprpaper
-      exec-once=${pkgs.systemd}/bin/systemctl --user start swayidle
+      exec-once = ${pkgs.waybar}/bin/waybar
+      exec-once = ${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
+      exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
+      exec-once = ${pkgs.brave}/bin/brave
+      exec-once = ${pkgs.thunderbird}/bin/thunderbird
+      exec-once = ${pkgs.kitty}/bin/kitty
+
+      windowrulev2 = workspace 2,class:(kitty)
+      windowrulev2 = workspace 3,class:(Brave-browser)
+      windowrulev2 = workspace 4,class:(thunderbird)
 
       $mainMod = SUPER
 
