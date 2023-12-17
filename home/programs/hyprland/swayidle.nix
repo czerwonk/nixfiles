@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   services.swayidle = {
@@ -12,5 +12,4 @@
       { timeout = 900; command = "${pkgs.systemd}/bin/systemctl suspend"; }
     ];
   };
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 }
