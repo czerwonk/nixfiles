@@ -13,7 +13,7 @@
         alignment = "center";
         width = "(300, 500)";
         height = 500;
-        offset = "10x50";
+        offset = "25x25";
         origin = "top-right";
         scale = 0;
         transparency = 10;
