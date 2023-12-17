@@ -3,7 +3,7 @@
 let
   screenshot = pkgs.writeScriptBin "screenshot" ''
     #!${pkgs.stdenv.shell}
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" | ${pkgs.swappy}/bin/swappy -f -
+    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
   '';
 
 in {
