@@ -18,7 +18,7 @@
         scale = 0;
         transparency = 10;
         frame_color = "#c8c093";
-        font = "JetBrains Mono";
+        font = "JetBrains Mono 10";
         sort = true;
         stack_duplicates = true;
         hide_duplicate_count = false;
