@@ -6,12 +6,18 @@
       modules-center = [ "hyprland/window" ];
       modules-left = [ "hyprland/workspaces" ];
       modules-right = [
+        "backlight"
         "pulseaudio"
         "network"
         "keyboard-state"
         "battery"
         "clock"
       ];
+      backlight = {
+        device = "intel_backlight";
+        format = "{percent}% {icon}";
+        format-icons = ["" ""];
+      };
       battery = {
         format = "{capacity}% {icon}";
         format-alt = "{time} {icon}";
@@ -31,6 +37,9 @@
          "focused" = "";
          "urgent" = "";
         };
+      };
+      "hyprland/window" = {
+        max-length = 200;
       };
       keyboard-state = {
         format = "{name} {icon}";
@@ -98,9 +107,13 @@
         border-radius: 0;
       }
 
-      #battery, #network, #pulseaudio #keyboard-state {
+      #battery, #backlight, #network, #pulseaudio #keyboard-state {
           margin:     0px 6px 0px 10px;
           min-width:  25px;
+      }
+
+      #backlight {
+        color: #A3D4D5;
       }
 
       #battery {
