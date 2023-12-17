@@ -43,6 +43,7 @@ in {
       exec-once=${pkgs.waybar}/bin/waybar
       exec-once=${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
       exec-once=${pkgs.hyprpaper}/bin/hyprpaper
+      exec-once=${pkgs.systemd}/bin/systemctl --user start swayidle
 
       $mainMod = SUPER
 
