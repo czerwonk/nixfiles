@@ -1,6 +1,9 @@
 { pkgs, username, ... }:
 
 {
+  imports = [
+    ./sound.nix
+  ];
 
   services.xserver = {
     enable = true;
