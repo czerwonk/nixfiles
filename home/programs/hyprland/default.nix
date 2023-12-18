@@ -22,8 +22,8 @@ in {
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.capitaine-cursors;
-    name = "Capitaine Cursors";
-    size = 16;
+    name = "capitaine-cursors";
+    size = 24;
   };
 
   wayland.windowManager.hyprland = {
