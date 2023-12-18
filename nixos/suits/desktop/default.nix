@@ -16,6 +16,7 @@
     "rfcomm"
     "uhid"
   ];
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
 
   users.users.${username} = {
     packages = with pkgs; [

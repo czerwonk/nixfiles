@@ -40,4 +40,6 @@
   services.printing.enable = true;
 
   services.fprintd.enable = true;
+
+  suits.desktop.enablePowerManagement = true;
 }

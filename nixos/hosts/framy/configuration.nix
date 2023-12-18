@@ -39,4 +39,6 @@
   services.fwupd.enable = true;
 
   services.printing.enable = true;
+
+  suits.desktop.enablePowerManagement = true;
 }
