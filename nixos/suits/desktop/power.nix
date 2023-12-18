@@ -15,7 +15,7 @@
 
       RUNTIME_PM_ON_BAT = "auto";
 
-      CPU_SCALING_GOVERNOR_ON_BATTERY = "powersave";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };
 
