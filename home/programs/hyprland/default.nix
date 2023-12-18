@@ -37,9 +37,11 @@ in {
       decoration = {
         rounding = 10;
         blur.enabled = false;
+        drop_shadow = false;
       };
       misc = {
         force_default_wallpaper = 0;
+        vfr = true;
       };
     };
     extraConfig = ''
