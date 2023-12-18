@@ -41,5 +41,6 @@
 
   services.fprintd.enable = true;
 
+  powerManagement.cpuFreqGovernor = "performance";
   suits.desktop.enablePowerManagement = true;
 }
