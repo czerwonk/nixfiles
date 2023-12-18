@@ -5,6 +5,7 @@
     ./core.nix
     ./pam.nix
     ./gnome.nix
+    ./power.nix
   ];
 
   boot.kernelModules = [
