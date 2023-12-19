@@ -17,6 +17,7 @@ in {
 
   home.packages = with pkgs; [
     wl-clipboard
+    networkmanagerapplet
   ];
 
   home.pointerCursor = {
