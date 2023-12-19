@@ -7,7 +7,7 @@
     ../../../home/suits/devops
     ../../../home/suits/pentest
     ../../../home/services/grive2
-    ../../../home/programs/hyprland
+    ../../../home/suits/hyprland
   ] ++ extraHomeModules;
 
   services.grive2.enable = true;
