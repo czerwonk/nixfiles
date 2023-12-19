@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.waybar = {
@@ -62,6 +62,7 @@
         format-wifi = "{essid} ({signalStrength}%) ";
         tooltip-format = "{ifname} via {gwaddr} ";
         family = "ipv6";
+        on-click-right = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
       };
       pulseaudio = {
         format = "{volume}% {icon} {format_source}";
@@ -75,6 +76,7 @@
         format-source = "{volume}% ";
         format-source-muted = "";
         on-click = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink";
+        on-click-right = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select source";
       };
     };
     style = ''
@@ -148,4 +150,9 @@
       }
     '';
   };
+
+  home.file.".config/networkmanager-dmenu/config.ini".text = ''
+    [dmenu]
+    dmenu_command = ${config.programs.rofi.package}/bin/rofi -dmenu
+  '';
 }

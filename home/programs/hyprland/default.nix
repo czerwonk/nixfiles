@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, config, username, ... }:
 
 let
   screenshot = pkgs.writeScriptBin "screenshot" ''
@@ -17,7 +17,6 @@ in {
 
   home.packages = with pkgs; [
     wl-clipboard
-    networkmanagerapplet
   ];
 
   home.pointerCursor = {
@@ -72,7 +71,7 @@ in {
       bind = $mainMod, S, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
-      bind = $mainMod SHIFT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock
+      bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
