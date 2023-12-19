@@ -1,7 +1,6 @@
 {
   environment.persistence."/persist" = {
     directories = [
-      "/etc/wireguard"
       "/root/scripts"
       "/opt"
     ];
