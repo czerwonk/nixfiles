@@ -78,6 +78,7 @@ in {
       bind = $mainMod SHIFT, S, exec, ${screenshot}/bin/screenshot
       bind = ,XF86PowerOff, exec, ${pkgs.systemd}/bin/systemctl suspend
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
       binde = ,XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +1%
       binde = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+
