@@ -39,6 +39,7 @@
         };
       };
       "hyprland/window" = {
+        separate-outputs = true;
         max-length = 200;
       };
       keyboard-state = {
