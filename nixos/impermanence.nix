@@ -2,7 +2,6 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
-      "/srv"
       "/home"
       "/var/log"
       "/var/lib"
