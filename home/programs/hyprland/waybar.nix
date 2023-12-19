@@ -1,22 +1,25 @@
+{ pkgs, ... }:
+
 {
   programs.waybar = {
     enable = true;
     settings.mainBar = {
       height = 25;
-      modules-center = [ "hyprland/window" ];
+      spacing = 5;
       modules-left = [ "hyprland/workspaces" ];
       modules-right = [
+        "battery"
         "backlight"
         "pulseaudio"
+        "bluetooth"
         "network"
         "keyboard-state"
-        "battery"
         "clock"
       ];
       backlight = {
         device = "intel_backlight";
         format = "{percent}% {icon}";
-        format-icons = ["" ""];
+        format-icons = [ "" "" ];
       };
       battery = {
         format = "{capacity}% {icon}";
@@ -24,6 +27,12 @@
         format-charging = "{capacity}% ";
         format-icons = [ "" "" "" "" "" ];
         format-plugged = "{capacity}% ";
+      };
+      bluetooth = {
+          format = " {status}";
+          format-disabled = "";
+          interval = 30;
+          on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
       };
       clock = {
         timezone = "Europe/Berlin";
@@ -37,10 +46,6 @@
          "focused" = "";
          "urgent" = "";
         };
-      };
-      "hyprland/window" = {
-        separate-outputs = true;
-        max-length = 200;
       };
       keyboard-state = {
         format = "{name} {icon}";
@@ -60,8 +65,8 @@
       };
       pulseaudio = {
         format = "{volume}% {icon} {format_source}";
-        format-bluetooth = "{volume}% {icon} {format_source}";
-        format-bluetooth-muted = " {icon} {format_source}";
+        format-bluetooth = "{volume}% {icon} {format_source}";
+        format-bluetooth-muted = " {icon} {format_source}";
         format-icons = {
           "default" = [ "" "" "" ];
           "headphone" = "";
@@ -69,6 +74,7 @@
         format-muted = " {format_source}";
         format-source = "{volume}% ";
         format-source-muted = "";
+        on-click = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink";
       };
     };
     style = ''
@@ -108,13 +114,13 @@
         border-radius: 0;
       }
 
-      #battery, #backlight, #network, #pulseaudio #keyboard-state {
+      #battery, #bluetooth, #backlight, #network, #pulseaudio #keyboard-state {
           margin:     0px 6px 0px 10px;
           min-width:  25px;
       }
 
       #backlight {
-        color: #A3D4D5;
+        color: #DCD7BA;
       }
 
       #battery {
@@ -135,6 +141,10 @@
 
       #network {
         color: #658594;
+      }
+
+      #bluetooth {
+        color: #A3D4D5;
       }
     '';
   };
