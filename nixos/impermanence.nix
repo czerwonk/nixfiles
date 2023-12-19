@@ -15,7 +15,7 @@
       "/root/.ssh/known_hosts"
     ];
   };
-  
+
   systemd.services.nix-daemon = {
     environment = {
       TMPDIR = "/var/cache/nix";
