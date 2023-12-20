@@ -21,14 +21,14 @@
         "type": "github"
       }
     },
-     "impermanence": {
-       "locked": {
-         "lastModified": 1702948936,
-         "narHash": "sha256-pWG4bn5idGphFspC9RBIMHPXvRf0aQb5JG0pAKpUedE=",
-         "owner": "nix-community",
-         "repo": "impermanence",
-         "rev": "0c893cf08a6c9559e482466340e82ac1f569937d",
-         "type": "github"
+    "impermanence": {
+      "locked": {
+        "lastModified": 1702984171,
+        "narHash": "sha256-reIUBrUXibohXmvXRsgpvtlCE0QQSvWSA+qQCKohgR0=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "123e94200f63952639492796b8878e588a4a2851",
+        "type": "github"
       },
       "original": {
         "owner": "nix-community",
@@ -67,7 +67,7 @@
         "repo": "nixpkgs",
         "type": "github"
       }
-     },
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1703013332,
@@ -86,11 +86,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1703075307,
-        "narHash": "sha256-Cl0ooFY+hhfBGuXacwQS27kz5r/sRrIfmcJrwHZCdtM=",
+        "lastModified": 1703097737,
+        "narHash": "sha256-wfQBem4ESIiY+cjdLpwvec9Ia2lEXdCP4gpJzp9BM0M=",
         "ref": "refs/heads/main",
-        "rev": "eacebff1a386b891ddc939d8fdf6a0a4fca03088",
-        "revCount": 58,
+        "rev": "5f601c9150fff4d8d395a8d1dd75dfb359d97121",
+        "revCount": 59,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },

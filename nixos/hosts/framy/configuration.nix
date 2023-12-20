@@ -49,6 +49,4 @@
   };
 
   suits.desktop.enablePowerManagement = true;
-
-  security.pam.u2f.enable = false;
 }
