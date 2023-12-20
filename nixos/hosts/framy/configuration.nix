@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
   imports = [ 
@@ -40,13 +40,7 @@
 
   services.printing.enable = true;
 
-  services.fprintd = {
-    enable = true;
-    tod = {
-      enable = true;
-      driver = pkgs.libfprint-2-tod1-goodix;
-    };
-  };
+  services.fprintd.enable = true;
 
   suits.desktop.enablePowerManagement = true;
 }
