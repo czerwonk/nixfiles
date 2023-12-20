@@ -97,7 +97,7 @@
           hostname = "framy";
           domain = "routing.rocks";
           extraModules = [
-            nixos-hardware.nixosModule.framework-13-7040-amd
+            nixos-hardware.nixosModules.framework-13-7040-amd
             private.nixosModule
           ];
           extraHomeModules = [

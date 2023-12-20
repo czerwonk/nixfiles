@@ -11,4 +11,6 @@
   ] ++ extraHomeModules;
 
   services.grive2.enable = true;
+
+  suits.hyprland.backlight_device = "amdgpu_bl0";
 }

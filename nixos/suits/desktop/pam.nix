@@ -7,7 +7,7 @@
   security.pam.services.swaylock.u2fAuth = false;
   security.pam.services.swaylock.fprintAuth = false;
   security.pam.u2f = {
-    enable = true;
+    enable = lib.mkDefault true;
     control = "required";
   };
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
