@@ -9,7 +9,6 @@
   ];
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.useOSProber = true;
   boot.initrd.postDeviceCommands = lib.mkBefore ''
     mkdir -p /btrfs_mnt
     mount -o subvol=/ /dev/disk/by-uuid/5a5f3d1d-6bc3-43df-8c4c-7ed19e9d8b6c /btrfs_mnt
@@ -40,4 +39,6 @@
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };
+
+  virtualisation.virtualbox.guest.enable = true;
 }
