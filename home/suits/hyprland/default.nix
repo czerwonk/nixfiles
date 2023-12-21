@@ -3,6 +3,7 @@
 {
   imports = [
     ./options.nix
+    ./theme.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./waybar.nix
@@ -16,11 +17,4 @@
     wl-clipboard
     networkmanagerapplet
   ];
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.capitaine-cursors;
-    name = "capitaine-cursors";
-    size = 24;
-  };
 }

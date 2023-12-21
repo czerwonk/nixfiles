@@ -41,19 +41,21 @@
     extraGroups = [ "wireshark" ];
   };
 
-  programs = {
-    wireshark.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    hyprland.enable = true;
+  programs.wireshark.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
   };
 
   services.pcscd.enable = true;
 
   virtualisation.virtualbox.host = {
     enable = true;
-    #enableExtensionPack = true; # TODO: uncomment when build errors are resolved
   };
 }
