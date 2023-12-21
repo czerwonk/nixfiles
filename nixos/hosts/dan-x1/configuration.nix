@@ -15,6 +15,7 @@
   boot.extraModprobeConfig = ''
     options usbserial vendor=0403 product=6001
   '';
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
 
   boot.initrd.secrets = {
     "/persist/crypto_keyfile.bin" = null;
