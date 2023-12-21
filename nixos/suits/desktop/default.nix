@@ -1,6 +1,9 @@
-{ pkgs, username, ... }:
+{ pkgs, username, inputs, ... }:
 
-{
+let
+  pkgs-legacy = import inputs.nixpkgs-legacy { system = "x86_64-linux"; };
+
+in {
   imports = [
     ./core.nix
     ./pam.nix
@@ -35,7 +38,7 @@
       virt-viewer
       mysql-workbench
       element-desktop
-      bitwarden
+      pkgs-legacy.bitwarden
       gimp
     ];
     extraGroups = [ "wireshark" ];
