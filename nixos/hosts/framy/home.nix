@@ -1,4 +1,4 @@
-{ extraHomeModules, lib, ... }:
+{ extraHomeModules, ... }:
 
 {
   imports = [
@@ -12,5 +12,8 @@
 
   services.grive2.enable = true;
 
-  suits.hyprland.backlight_device = "amdgpu_bl0";
+  suits.hyprland = {
+    backlightDevice = "amdgpu_bl0";
+    externalMonitor = "DP-2";
+  };
 }

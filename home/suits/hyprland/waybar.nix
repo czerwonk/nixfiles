@@ -17,7 +17,7 @@
         "clock"
       ];
       backlight = {
-        device = "${config.suits.hyprland.backlight_device}";
+        device = "${config.suits.hyprland.backlightDevice}";
         format = "{percent}% {icon}";
         format-icons = [ "" "" ];
       };

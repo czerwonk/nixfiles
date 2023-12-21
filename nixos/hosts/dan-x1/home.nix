@@ -12,5 +12,8 @@
 
   services.grive2.enable = true;
 
-  suits.hyprland.backlight_device = "intel_backlight";
+  suits.hyprland = {
+    backlightDevice = "intel_backlight";
+    externalMonitor = "HDMI-A-1";
+  };
 }
