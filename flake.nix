@@ -30,14 +30,14 @@
               nixos-hardware, 
               thinkpad-fprint-sensor, 
               private, 
-              ... }:
+              ... }@inputs:
     let
       overlays = [];
       userLib = import ./lib/user.nix {
-        inherit home-manager nixpkgs nixpkgs-unstable overlays;
+        inherit inputs overlays;
       };
       systemLib = import ./lib/system.nix {
-        inherit home-manager nixpkgs nixpkgs-unstable impermanence overlays;
+        inherit inputs overlays;
       };
 
     in {

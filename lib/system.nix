@@ -1,29 +1,29 @@
-{ home-manager, nixpkgs, nixpkgs-unstable, impermanence, overlays, ... }:
+{ inputs, overlays, ... }:
 
 {
   mkNixOSSystem = { hostname, domain, username, extraModules, extraHomeModules }:
-    nixpkgs.lib.nixosSystem {
+    inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ../nixos/hosts/${hostname}/configuration.nix
-        home-manager.nixosModules.home-manager {
+        inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ../nixos/hosts/${hostname}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit username extraHomeModules;
-            pkgs-unstable = import nixpkgs-unstable {
+            inherit username extraHomeModules inputs;
+            pkgs-unstable = import inputs.nixpkgs-unstable {
               system = "x86_64-linux";
               config = { allowUnfree = true; };
               overlays = overlays;
             };
           };
         }
-        impermanence.nixosModule
+        inputs.impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
-        inherit username hostname domain;
-        pkgs-unstable = import nixpkgs-unstable {
+        inherit username hostname domain inputs;
+        pkgs-unstable = import inputs.nixpkgs-unstable {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
         };
