@@ -8,7 +8,6 @@ in {
     ./core.nix
     ./pam.nix
     ./gnome.nix
-    ./power.nix
     ./impermanence.nix
   ];
 

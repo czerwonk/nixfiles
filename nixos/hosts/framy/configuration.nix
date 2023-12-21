@@ -43,5 +43,6 @@
 
   services.fprintd.enable = true;
 
-  suits.desktop.enablePowerManagement = true;
+  powerManagement.cpuFreqGovernor = "ondemand";
+  services.power-profiles-daemon.enable = true;
 }
