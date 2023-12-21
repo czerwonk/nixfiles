@@ -25,49 +25,40 @@
     private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
   };
 
-  outputs = { nixpkgs, 
-              nixpkgs-unstable, 
-              nixpkgs-legacy,
-              home-manager, 
-              impermanence,
-              nixos-hardware, 
-              thinkpad-fprint-sensor, 
-              private, 
-              ... }@inputs:
+  outputs = inputs:
     let
-      overlays = [];
       userLib = import ./lib/user.nix {
-        inherit inputs overlays;
+        inherit inputs;
       };
       systemLib = import ./lib/system.nix {
-        inherit inputs overlays;
+        inherit inputs;
       };
 
     in {
       homeConfigurations = {
         "osx" = userLib.mkOSXHMUser {
-          username = private.username {};
+          username = inputs.private.username {};
           extraModules = [
             ./home/suits/devops
-            private.home
-            private.mauve.home
+            inputs.private.home
+            inputs.private.mauve.home
           ];
         };
 
         "linux" = userLib.mkLinuxHMUser {
-          username = private.username {};
+          username = inputs.private.username {};
           extraModules = [
             ./home/suits/devops
-            private.home
+            inputs.private.home
           ];
         };
 
         "mauve-linux" = userLib.mkLinuxHMUser {
-          username = private.mauve.username {};
+          username = inputs.private.mauve.username {};
           extraModules = [ 
             ./home/suits/devops/dev.nix
-            private.home
-            private.mauve.home
+            inputs.private.home
+            inputs.private.mauve.home
             {
               mauve.overrides.git = true;
             }
@@ -77,57 +68,57 @@
 
       nixosConfigurations = {
         dan-x1 = systemLib.mkNixOSSystem {
-          username = private.username {};
+          username = inputs.private.username {};
           hostname = "dan-x1";
           domain = "routing.rocks";
           extraModules = [
-            private.nixosModule
-            nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+            inputs.private.nixosModule
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
             {
               services.fprintd.tod.enable = true;
-              services.fprintd.tod.driver = thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
+              services.fprintd.tod.driver = inputs.thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
                 calib-data-file = ./nixos/hosts/dan-x1/calib-data.bin;
               };
             }
           ];
           extraHomeModules = [
-            private.home
-            private.mauve.home
+            inputs.private.home
+            inputs.private.mauve.home
           ];
         };
         framy = systemLib.mkNixOSSystem {
-          username = private.username {};
+          username = inputs.private.username {};
           hostname = "framy";
           domain = "routing.rocks";
           extraModules = [
-            private.nixosModule
-            nixos-hardware.nixosModules.framework-13-7040-amd
+            inputs.private.nixosModule
+            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ];
           extraHomeModules = [
-            private.home
-            private.mauve.home
+            inputs.private.home
+            inputs.private.mauve.home
           ];
         };
         bb1 = systemLib.mkNixOSSystem {
-          username = private.username {};
+          username = inputs.private.username {};
           hostname = "bb1";
           domain = "dus.routing.rocks";
           extraModules = [
-            private.nixosModule
+            inputs.private.nixosModule
           ];
           extraHomeModules = [
-            private.home
+            inputs.private.home
           ];
         };
         bb2 = systemLib.mkNixOSSystem {
-          username = private.username {};
+          username = inputs.private.username {};
           hostname = "bb2";
           domain = "dus.routing.rocks";
           extraModules = [
-            private.nixosModule
+            inputs.private.nixosModule
           ];
           extraHomeModules = [
-            private.home
+            inputs.private.home
           ];
         };
         surf-vm = systemLib.mkNixOSSystem {

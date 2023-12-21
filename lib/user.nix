@@ -1,4 +1,4 @@
-{ inputs, overlays, ... }:
+{ inputs, ... }:
 
 {
   mkOSXHMUser = { username, extraModules }:
@@ -15,7 +15,6 @@
         pkgs-unstable = import inputs.nixpkgs-unstable {
           system = "x86_64-darwin";
           config = { allowUnfree = true; };
-          overlays = overlays;
         };
       };
     };

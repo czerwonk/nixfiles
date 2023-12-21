@@ -1,4 +1,4 @@
-{ inputs, overlays, ... }:
+{ inputs, ... }:
 
 {
   mkNixOSSystem = { hostname, domain, username, extraModules, extraHomeModules }:
@@ -15,7 +15,6 @@
             pkgs-unstable = import inputs.nixpkgs-unstable {
               system = "x86_64-linux";
               config = { allowUnfree = true; };
-              overlays = overlays;
             };
           };
         }
