@@ -12,8 +12,10 @@
   boot.extraModulePackages = [ ];
   boot.loader.grub.devices = [ "/dev/sda" ];
 
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0d0b9a60-0772-4aed-a579-0f090fc2f71b";
+
   fileSystems."/" = { 
-    device = "/dev/disk/by-uuid/5a5f3d1d-6bc3-43df-8c4c-7ed19e9d8b6c";
+    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
     fsType = "btrfs";
     options = [
       "subvol=root"
@@ -25,20 +27,20 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/5a5f3d1d-6bc3-43df-8c4c-7ed19e9d8b6c";
+    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
     fsType = "btrfs";
     options = [ "subvol=nix" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/5a5f3d1d-6bc3-43df-8c4c-7ed19e9d8b6c";
+    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
     fsType = "btrfs";
     options = [ "subvol=persist" ];
     neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/ae7dc3c6-8a01-4501-9c26-03794a5abe82";
+    device = "/dev/disk/by-uuid/90551259-5980-4956-b04e-5d0a501fe0f2";
     fsType = "ext4";
   };
 
