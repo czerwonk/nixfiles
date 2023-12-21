@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
+    nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-23.05";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -24,12 +26,13 @@
   };
 
   outputs = { nixpkgs, 
-              home-manager, 
               nixpkgs-unstable, 
-              private, 
+              nixpkgs-deprecated, 
+              home-manager, 
+              impermanence,
               nixos-hardware, 
               thinkpad-fprint-sensor, 
-              impermanence,
+              private, 
               ... }:
     let
       overlays = [];
@@ -99,6 +102,9 @@
           extraModules = [
             nixos-hardware.nixosModules.framework-13-7040-amd
             private.nixosModule
+            {
+              services.fwupd.package = (import nixpkgs-deprecated { system = "x86_64-linux"; }).fwupd;
+            }
           ];
           extraHomeModules = [
             private.home

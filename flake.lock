@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-deprecated": {
+      "locked": {
+        "lastModified": 1703034876,
+        "narHash": "sha256-4bMPFv/bs5g1nEsXQwXlrAGJgjv1Ilr0ejdaTkBwQLs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "312ab59e8ade69e6083017bd9b98a2919f1fb86a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1703013332,
@@ -105,6 +121,7 @@
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-deprecated": "nixpkgs-deprecated",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
