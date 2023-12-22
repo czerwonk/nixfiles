@@ -49,15 +49,14 @@ in {
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, S, togglesplit, # dwindle
+      bind = $mainMod, S, exec, ${screenshot}/bin/screenshot
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
-      bind = $mainMod SHIFT, S, exec, ${screenshot}/bin/screenshot
-      bind = ,XF86PowerOff, exec, ${pkgs.systemd}/bin/systemctl suspend
+      bind = $mainMod SHIFT, S, ${pkgs.systemd}/bin/systemctl suspend -i
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
