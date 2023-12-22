@@ -56,7 +56,7 @@ in {
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, Q, exit,
-      bind = $mainMod SHIFT, S, ${pkgs.systemd}/bin/systemctl suspend -i
+      bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
