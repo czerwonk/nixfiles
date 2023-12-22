@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
   imports = [ 
@@ -44,4 +44,15 @@
 
   powerManagement.cpuFreqGovernor = "performance";
   services.power-profiles-daemon.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_BOOST_ON_BAT = 0;
+
+      RUNTIME_PM_ON_BAT = "auto";
+
+      CPU_SCALING_GOVERNOR_ON_AC = "${config.powerManagement.cpuFreqGovernor}";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
 }

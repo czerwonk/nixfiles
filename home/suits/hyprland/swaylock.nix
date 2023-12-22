@@ -14,7 +14,6 @@
       screenshots = true;
       indicator = true;
       effect-blur = "7x5";
-      grace = 5;
     };
   };
 }
