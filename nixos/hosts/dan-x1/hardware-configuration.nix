@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.resumeDevice = "/dev/disk/by-uuid/e9b4a3f0-5d9e-4e58-bed0-46bb05db181f";
+  boot.kernelParams = [ "resume_offset=60264358" ];
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/69941b1c-f90e-4adb-9391-9ebadffd11fb";
 
@@ -36,7 +38,6 @@
     device = "/dev/disk/by-uuid/e9b4a3f0-5d9e-4e58-bed0-46bb05db181f";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
-    neededForBoot = true;
   };
 
   fileSystems."/persist" = { 
@@ -46,7 +47,13 @@
     neededForBoot = true;
   };
 
-  swapDevices = [ ];
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/e9b4a3f0-5d9e-4e58-bed0-46bb05db181f";
+    fsType = "btrfs";
+    options = [ "subvol=swap" "noatime" ];
+  };
+
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
