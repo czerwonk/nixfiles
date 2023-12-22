@@ -9,6 +9,7 @@
   security.pam.u2f = {
     enable = lib.mkDefault true;
     control = "required";
+    authFile = "/persist/u2f_keys";
   };
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
     text = ''
