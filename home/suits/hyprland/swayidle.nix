@@ -9,7 +9,7 @@
     ];
     timeouts = [
       { timeout = 300; command = "${config.programs.swaylock.package}/bin/swaylock -fF"; }
-      #{ timeout = 1800; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+      { timeout = 1800; command = "${pkgs.systemd}/bin/systemctl suspend -i"; }
     ];
   };
 }
