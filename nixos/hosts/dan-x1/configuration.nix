@@ -43,7 +43,7 @@
   services.fprintd.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
-  services.power-profiles-daemon.enable = true;
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {
