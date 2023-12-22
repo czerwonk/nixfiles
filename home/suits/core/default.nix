@@ -17,6 +17,7 @@
     packages = with pkgs; [
       asciinema
       slides
+      octave
       openvpn
       wireguard-tools
       yubikey-manager

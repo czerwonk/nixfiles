@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.resumeDevice = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
+  boot.kernelParams = [ "resume_offset=57025792" ];
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/94d76b04-4757-4418-b3f7-18274c471435";
 
@@ -45,11 +47,15 @@
     neededForBoot = true;
   };
 
-  swapDevices = [
-    { device = "/var/lib/swapfile"; size = 64*1024; }
-  ];
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
+    fsType = "btrfs";
+    options = [ "subvol=swap" "noatime" ];
+  };
+
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  
+ 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
