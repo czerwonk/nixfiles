@@ -11,7 +11,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.postDeviceCommands = lib.mkBefore ''
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir -p /btrfs_mnt
     mount -o subvol=/ /dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60 /btrfs_mnt
     echo "Delete old root subvolume..."
