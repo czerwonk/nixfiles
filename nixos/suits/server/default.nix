@@ -26,6 +26,7 @@
 
   services.rsyslogd.enable = true;
   services.logrotate.enable = true;
+  services.cron.enable = true;
 
   services.prometheus.exporters.node = {
     enable = true;
