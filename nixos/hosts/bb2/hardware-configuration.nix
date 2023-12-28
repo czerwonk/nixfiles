@@ -4,14 +4,19 @@
 { config, lib, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/8F8E-2F3A";
+    fsType = "vfat";
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
@@ -29,12 +34,6 @@
     device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
-    neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/8F8E-2F3A";
-    fsType = "vfat";
   };
 
   fileSystems."/persist" = {

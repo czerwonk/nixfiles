@@ -121,6 +121,17 @@
             inputs.private.home
           ];
         };
+        homey = systemLib.mkNixOSSystem {
+          username = inputs.private.username {};
+          hostname = "homey";
+          domain = "ess.routing.rocks";
+          extraModules = [
+            inputs.private.nixosModule
+          ];
+          extraHomeModules = [
+            inputs.private.home
+          ];
+        };
         surf-vm = systemLib.mkNixOSSystem {
           username = "user";
           domain = "";
