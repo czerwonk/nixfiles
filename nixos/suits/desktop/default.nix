@@ -39,6 +39,7 @@ in {
       pkgs-legacy.bitwarden
       gimp
       veracrypt
+      nextcloud-client
     ];
     extraGroups = [ "wireshark" ];
   };
