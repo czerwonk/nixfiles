@@ -26,4 +26,13 @@
 
   services.rsyslogd.enable = true;
   services.logrotate.enable = true;
+
+  services.prometheus.exporters.node = {
+    enable = true;
+    enabledCollectors = [
+      "ethtool"
+      "systemd"
+      "processes"
+    ];
+  };
 }

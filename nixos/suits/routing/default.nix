@@ -8,6 +8,11 @@
     checkConfig = false;
   };
 
+  services.prometheus.exporters.bird = {
+    enable = true;
+    user = "bird2";
+  };
+
   virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers = {
     routinator = {
