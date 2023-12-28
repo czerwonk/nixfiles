@@ -6,7 +6,6 @@
       "/var/log"
       "/var/lib"
       "/var/cache"
-      "/etc/NetworkManager/"
       "/etc/wireguard"
       "/data"
     ];

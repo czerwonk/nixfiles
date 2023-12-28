@@ -1,7 +1,6 @@
 {
   environment.persistence."/persist" = {
     directories = [
-      "/root/scripts"
       "/opt"
     ];
     files = [
