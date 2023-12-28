@@ -38,6 +38,7 @@ in {
       element-desktop
       pkgs-legacy.bitwarden
       gimp
+      veracrypt
     ];
     extraGroups = [ "wireshark" ];
   };
