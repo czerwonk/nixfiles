@@ -12,18 +12,18 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.postDeviceCommands = lib.mkAfter ''
-    mkdir -p /btrfs_mnt
-    mount -o subvol=/ /dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60 /btrfs_mnt
+    mkdir -p /mnt
+    mount -o subvol=/ /dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60 /mnt
     echo "Delete old root subvolume..."
-    btrfs subvolume list -o /btrfs_mnt/root |
+    btrfs subvolume list -o /mnt/root |
       cut -f 9 -d ' ' |
       while read subvolume; do
         echo "Delete subvolume $subvolume..."
-        btrfs subvolume delete "/btrfs_mnt/$subvolume"
+        btrfs subvolume delete "/mnt/$subvolume"
       done
-    btrfs subvolume delete /btrfs_mnt/root
+    btrfs subvolume delete /mnt/root
     echo "Create new root subvolume..."
-    btrfs subvolume create /btrfs_mnt/root
-    umount /btrfs_mnt
+    btrfs subvolume create /mnt/root
+    umount /mnt
   '';
 }
