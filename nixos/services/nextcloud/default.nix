@@ -29,6 +29,7 @@ in {
           APACHE_PORT = "11000";
           APACHE_IP_BINDING = "0.0.0.0";
         };
+        extraOptions = [ "--network=bridge" ];
       };
     };
   };
