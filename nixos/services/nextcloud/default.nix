@@ -19,7 +19,7 @@ in {
         autoStart = true;
         ports = [ "127.0.0.1:11000:11000" ];
         volumes = [
-          "nextcloud_config:/mnt/docker-aio-config"
+          "nextcloud_aio_mastercontainer:/mnt/docker-aio-config"
           "nextcloud_data:/mnt/ncdata"
           "/var/run/docker.sock:/var/run/docker.sock:ro"
         ];
