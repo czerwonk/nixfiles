@@ -15,4 +15,6 @@
     docker-client
     arion
   ];
+
+  virtualisation.oci-containers.backend = "podman";
 }

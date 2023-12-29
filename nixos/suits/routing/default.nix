@@ -13,7 +13,6 @@
     user = "bird2";
   };
 
-  virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers = {
     routinator = {
       image = "nlnetlabs/routinator";

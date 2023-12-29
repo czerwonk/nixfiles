@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardening
+    ./services
     ./impermanence.nix
     ./dns.nix
   ];
