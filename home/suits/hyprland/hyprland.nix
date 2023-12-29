@@ -47,7 +47,8 @@ in {
       bind = $mainMod, W, killactive,
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, SPACE, exec, ${pkgs.rofi-wayland}/bin/rofi -show drun
+      bind = $mainMod, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun
+      bind = $mainMod, TAB, exec, ${config.programs.rofi.package}/bin/rofi -show window
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, ${screenshot}/bin/screenshot
       bind = $mainMod, F, fullscreen,
@@ -107,6 +108,10 @@ in {
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+
+      # Scratchpad
+      bind= $mainMod + SHIFT, H, movetoworkspace, special
+      bind= $mainMod, H, togglespecialworkspace
     '';
     systemd.enable = false;
   };
