@@ -17,7 +17,10 @@ in {
       nextcloud-aio-mastercontainer = {
         image = "nextcloud/all-in-one";
         autoStart = true;
-        ports = [ "127.0.0.1:11000:11000" ];
+        ports = [
+          "127.0.0.1:11000:11000"
+          "127.0.0.1:8080:8080"
+        ];
         volumes = [
           "nextcloud_aio_mastercontainer:/mnt/docker-aio-config"
           "nextcloud_data:/mnt/ncdata"
