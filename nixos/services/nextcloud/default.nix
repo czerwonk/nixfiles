@@ -21,6 +21,7 @@ in {
         volumes = [
           "nextcloud_config:/mnt/docker-aio-config"
           "nextcloud_data:/mnt/ncdata"
+          "/var/run/docker.sock:/var/run/docker.sock:ro"
         ];
         environment = {
           APACHE_PORT = "11000";
