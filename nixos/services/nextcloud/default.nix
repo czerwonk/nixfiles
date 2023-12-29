@@ -23,7 +23,7 @@ in {
           "nextcloud_data:/mnt/ncdata"
         ];
         environment = {
-          APACHE_PORT = 11000;
+          APACHE_PORT = "11000";
           APACHE_IP_BINDING = "0.0.0.0";
         };
       };
