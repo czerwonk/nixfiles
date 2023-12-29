@@ -1,7 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   networking.firewall.trustedInterfaces = [ "podman+" ];
+
+  nixpkgs.overlays = [
+    (self: super: {
+      podman = pkgs-unstable.podman;
+      podman-unwrapped = pkgs-unstable.podman-unwrapped;
+    })
+  ];
 
   virtualisation = {
     podman = {
