@@ -29,7 +29,6 @@ in {
       libreoffice
       mysql-workbench
       nextcloud-client
-      obsidian
       pkgs-legacy.bitwarden
       remmina
       teamviewer
