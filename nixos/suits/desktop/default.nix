@@ -23,6 +23,7 @@ in {
   users.users.${username} = {
     packages = with pkgs; [
       xsel
+      libheif
       brave
       thunderbird
       libreoffice
