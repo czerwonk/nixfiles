@@ -22,25 +22,24 @@ in {
 
   users.users.${username} = {
     packages = with pkgs; [
-      xsel
-      libheif
       brave
-      thunderbird
-      libreoffice
-      termius
-      vlc
-      wireshark
       calibre
+      element-desktop
+      gimp
+      libreoffice
+      mysql-workbench
+      nextcloud-client
+      obsidian
+      pkgs-legacy.bitwarden
       remmina
       teamviewer
-      mattermost-desktop
-      virt-viewer
-      mysql-workbench
-      element-desktop
-      pkgs-legacy.bitwarden
-      gimp
+      termius
+      thunderbird
       veracrypt
-      nextcloud-client
+      virt-viewer
+      vlc
+      wireshark
+      xsel
     ];
     extraGroups = [ "wireshark" ];
   };
