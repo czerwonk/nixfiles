@@ -1,7 +1,10 @@
 { pkgs, username, inputs, ... }:
 
 let
-  pkgs-legacy = import inputs.nixpkgs-legacy { system = "x86_64-linux"; };
+  pkgs-legacy = import inputs.nixpkgs-legacy {
+    system = "x86_64-linux";
+    config = { allowUnfree = true; };
+  };
 
 in {
   imports = [
@@ -22,6 +25,7 @@ in {
 
   users.users.${username} = {
     packages = with pkgs; [
+      pkgs-legacy.bitwarden
       brave
       calibre
       element-desktop
@@ -29,7 +33,6 @@ in {
       libreoffice
       mysql-workbench
       nextcloud-client
-      pkgs-legacy.bitwarden
       remmina
       teamviewer
       termius
