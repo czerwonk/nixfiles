@@ -23,6 +23,10 @@ in {
     "uhid"
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
@@ -34,6 +38,7 @@ in {
       libreoffice
       mysql-workbench
       nextcloud-client
+      obsidian
       remmina
       teamviewer
       termius
@@ -60,8 +65,6 @@ in {
   };
 
   services.pcscd.enable = true;
-
-  services.flatpak.enable = true;
 
   virtualisation.virtualbox.host = {
     enable = true;
