@@ -4,16 +4,18 @@
   programs.waybar = {
     enable = true;
     settings.mainBar = {
-      height = 25;
+      height = 26;
       spacing = 5;
-      modules-left = [ "hyprland/workspaces" ];
+      modules-left = [ 
+        "hyprland/workspaces"
+      ];
       modules-right = [
+        "idle_inhibitor"
         "battery"
         "backlight"
         "pulseaudio"
         "bluetooth"
         "network"
-        "keyboard-state"
         "clock"
       ];
       backlight = {
@@ -42,16 +44,16 @@
       "hyprland/workspaces" = {
         format = "{name}: {icon}";
         format-icons = {
-         "default" = "";
-         "focused" = "";
-         "urgent" = "";
+          "default" = "";
+          "focused" = "";
+          "urgent" = "";
         };
       };
-      keyboard-state = {
-        format = "{name} {icon}";
+      idle_inhibitor = {
+        format = "{icon}";
         format-icons = {
-          locked = "";
-          unlocked = "";
+          "activated" = "";
+          "deactivated" = "";
         };
       };
       network = {
@@ -86,27 +88,35 @@
       }
 
       window#waybar {
-        background-color: #2A2A37;
+        background-color: #16161D;
         opacity: 0.9;
-        border-bottom: 3px solid rgba(100, 114, 125, 0.5);
         color: #C0A36E;
         transition-property: background-color;
         transition-duration: .5s;
       }
 
+      #workspaces {
+        padding-left: 5px;
+        border-radius: 15;
+        background-color: #1F1F28;
+      }
+
       #workspaces button {
+        margin: 1px 5px 1px 0;
         padding: 0 5px;
-        background-color: transparent;
+        background-color: #2A2A37;
+        border-radius: 10;
         color: #C0A36E;
+        min-width: 25px;
       }
 
       #workspaces button.focused {
-        background-color: #658594;
+        color: #658594;
         box-shadow: inset 0 -3px #ffffff;
       }
 
       #workspaces button.urgent {
-        background-color: #C34043;
+        color: #C34043;
       }
 
       button {
@@ -116,9 +126,21 @@
         border-radius: 0;
       }
 
-      #battery, #bluetooth, #backlight, #network, #pulseaudio #keyboard-state {
-          margin:     0px 6px 0px 10px;
-          min-width:  25px;
+      #idle_inhibitor {
+        margin: 1px 5px 1px 0;
+      }
+
+      #battery,
+      #bluetooth,
+      #backlight,
+      #network,
+      #pulseaudio {
+        margin: 1px 5px 1px 0;
+        min-width:  25px;
+        border-radius: 10;
+        background-color: #1F1F28;
+        padding-left: 3px;
+        padding-right: 3px;
       }
 
       #backlight {
@@ -130,7 +152,7 @@
       }
 
       #battery.charging {
-        color: #76946A;
+        color: #98BB6C;
       }
 
       #battery.warning:not(.charging) {
