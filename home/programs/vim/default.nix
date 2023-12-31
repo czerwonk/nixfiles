@@ -251,14 +251,6 @@
       {
         plugin = copilot-cmp;
       }
-      {
-        plugin = neorg;
-        type = "lua";
-        config = builtins.readFile ./plugins/neorg.lua;
-      }
-      {
-        plugin = neorg-telescope;
-      }
 
       # theme
       {
