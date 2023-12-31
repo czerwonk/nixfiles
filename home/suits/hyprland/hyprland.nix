@@ -40,7 +40,8 @@ in {
       exec-once = [workspace 2] ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux a
       exec-once = [workspace 3 silent] ${pkgs.brave}/bin/brave
       exec-once = [workspace 4 silent] ${pkgs.thunderbird}/bin/thunderbird
-      exec-once = [silent special] ${pkgs.nextcloud-client}/bin/nextcloud --background
+      exec-once = [workspace 5 silent] ${pkgs.element-desktop}/bin/element-desktop
+      exec-once = [silent special] ${pkgs.nextcloud-client}/bin/nextcloud
 
       $mainMod = SUPER
 
