@@ -6,6 +6,7 @@
     settings.mainBar = {
       height = 26;
       spacing = 5;
+      show-special = true;
       modules-left = [ 
         "hyprland/workspaces"
       ];
@@ -20,15 +21,15 @@
       ];
       backlight = {
         device = "${config.suits.hyprland.backlightDevice}";
-        format = "{percent}% {icon}";
+        format = "{icon} {percent}%";
         format-icons = [ "" "" ];
       };
       battery = {
-        format = "{capacity}% {icon}";
-        format-alt = "{time} {icon}";
-        format-charging = "{capacity}% ";
+        format = "{icon} {capacity}%";
+        format-alt = "{icon} {time}";
+        format-charging = " {capacity}%";
         format-icons = [ "" "" "" "" "" ];
-        format-plugged = "{capacity}% ";
+        format-plugged = " {capacity}%";
       };
       bluetooth = {
         format = " {status}";
@@ -58,11 +59,11 @@
       };
       network = {
         format-alt = "{ifname}: {ipaddr}/{cidr}";
-        format-disconnected = "Disconnected ⚠";
-        format-ethernet = "{ipaddr}/{cidr} ";
-        format-linked = "{ifname} (No IP) ";
-        format-wifi = "{essid} ({signalStrength}%) ";
-        tooltip-format = "{ifname} via {gwaddr} ";
+        format-disconnected = "⚠ Disconnected";
+        format-ethernet = " {ipaddr}/{cidr}";
+        format-linked = " {ifname} (No IP)";
+        format-wifi = " {essid} ({signalStrength}%)";
+        tooltip-format = " {ifname} via {gwaddr}";
         family = "ipv6";
         on-click-right = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
       };
@@ -135,8 +136,8 @@
       #backlight,
       #network,
       #pulseaudio {
-        margin: 1px 5px 1px 0;
-        min-width:  25px;
+        margin: 3px 5px 3px 0;
+        min-width:  30px;
         border-radius: 10;
         background-color: #1F1F28;
         padding-left: 3px;
