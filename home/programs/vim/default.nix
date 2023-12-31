@@ -1,6 +1,19 @@
 { pkgs, pkgs-unstable, lib, ... }:
 
-{
+let
+  obsidian = pkgs.vimUtils.buildVimPlugin {
+    pname = "obsidian.nvim";
+    version = "v2.5";
+    src = pkgs-unstable.fetchFromGitHub {
+      owner = "epwalsh";
+      repo = "obsidian.nvim";
+      rev = "88bf9150d9639a2cae3319e76abd7ab6b30d27f0";
+      hash = "sha256-irPk9iprbI4ijNUjMxXjw+DljudZ8aB3f/FJxXhFSoA=";
+    };
+    meta.homepage = "https://github.com/epwalsh/obsidian.nvim/";
+  };
+
+in {
   programs.neovim = {
     enable = lib.mkDefault true;
     defaultEditor = true;
@@ -250,6 +263,11 @@
       }
       {
         plugin = copilot-cmp;
+      }
+      {
+        plugin = obsidian;
+        type = "lua";
+        config = builtins.readFile ./plugins/obsidian.lua;
       }
 
       # theme
