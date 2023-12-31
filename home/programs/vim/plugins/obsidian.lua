@@ -1,16 +1,16 @@
 require("obsidian").setup({
   workspaces = {
     {
-      name = "personal",
-      path = "~/notes/personal",
+      name = 'work',
+      path = '~/notes/work',
     },
     {
-      name = "work",
-      path = "~/notes/work",
+      name = 'personal',
+      path = '~/notes/personal',
     },
   },
   mappings = {
-    ["<leader>nc"] = {
+    ['<leader>nc'] = {
       action = function()
         return require('obsidian').util.toggle_checkbox()
       end,
