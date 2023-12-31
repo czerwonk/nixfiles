@@ -31,10 +31,10 @@
         format-plugged = "{capacity}% ";
       };
       bluetooth = {
-          format = " {status}";
-          format-disabled = "";
-          interval = 30;
-          on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
+        format = " {status}";
+        format-disabled = "";
+        interval = 30;
+        on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
       };
       clock = {
         timezone = "Europe/Berlin";
@@ -45,7 +45,7 @@
         format = "{name}: {icon}";
         format-icons = {
           "default" = "";
-          "focused" = "";
+          "active" = "";
           "urgent" = "";
         };
       };
