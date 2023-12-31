@@ -25,6 +25,7 @@ in {
 
   users.users.${username} = {
     packages = with pkgs; [
+      appimage-run
       pkgs-legacy.bitwarden
       brave
       calibre
@@ -59,6 +60,8 @@ in {
   };
 
   services.pcscd.enable = true;
+
+  services.flatpak.enable = true;
 
   virtualisation.virtualbox.host = {
     enable = true;
