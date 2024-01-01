@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
-{
+let
+  kanagawa_gtk_theme = (pkgs.callPackage ./../../pkgs/kanagawa-gtk-theme {});
+
+in {
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.capitaine-cursors;
@@ -10,6 +13,10 @@
 
   gtk = {
     enable = true;
+    theme = {
+      name = "Kanagawa-Dark-B";
+      package = kanagawa_gtk_theme;
+    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
@@ -17,6 +24,4 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
-  home.sessionVariables.GTK_THEME = "Adwaita:dark";
 }
