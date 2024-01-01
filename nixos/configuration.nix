@@ -94,6 +94,7 @@
     wireguard-tools
     lsof
     mdadm
+    smartmontools
   ];
   environment.shells = [ pkgs.zsh ];
 
