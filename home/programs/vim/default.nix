@@ -4,7 +4,7 @@ let
   obsidian = pkgs.vimUtils.buildVimPlugin {
     pname = "obsidian.nvim";
     version = "v2.5";
-    src = pkgs-unstable.fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "epwalsh";
       repo = "obsidian.nvim";
       rev = "88bf9150d9639a2cae3319e76abd7ab6b30d27f0";
