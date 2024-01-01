@@ -14,7 +14,7 @@ in {
   gtk = {
     enable = true;
     theme = {
-      name = "Kanagawa-Dark-B";
+      name = "Kanagawa-B";
       package = kanagawa-gtk-theme;
     };
     gtk3.extraConfig = {
@@ -25,5 +25,5 @@ in {
     };
   };
 
-  home.sessionVariables.GTK_THEME = "Kanagawa-Dark-B";
+  home.sessionVariables.GTK_THEME = "Kanagawa-B";
 }
