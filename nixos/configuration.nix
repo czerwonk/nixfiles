@@ -85,16 +85,16 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    ntp
-    gnupg
     gitFull
-    vim 
-    wget
-    unzip
-    wireguard-tools
+    gnupg
     lsof
     mdadm
+    ntp
     smartmontools
+    unzip
+    vim
+    wget
+    wireguard-tools
   ];
   environment.shells = [ pkgs.zsh ];
 
