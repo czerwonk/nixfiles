@@ -1,4 +1,4 @@
-{ system, inputs, ... }:
+{ system, inputs, pkgs, ... }:
 
 let
   config = { allowunfree = true; };
@@ -25,6 +25,7 @@ in {
       vimPlugins = pkgs-unstable.vimPlugins;
       bitwarden = pkgs-legacy.bitwarden;
       nix-alien = nix-alien-packages.nix-alien;
+      kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
     })
   ];
 }

@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
-let
-  kanagawa-gtk-theme = pkgs.callPackage ./../../pkgs/kanagawa-gtk-theme {};
-
-in {
+{
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.capitaine-cursors;
@@ -15,7 +12,7 @@ in {
     enable = true;
     theme = {
       name = "Kanagawa-B";
-      package = kanagawa-gtk-theme;
+      package = pkgs.kanagawa-gtk-theme;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;

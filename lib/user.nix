@@ -4,7 +4,7 @@
   mkOSXHMUser = { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        ./overlays.nix
+        ../overlays.nix
         ../home/osx
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {
@@ -20,7 +20,7 @@
   mkLinuxHMUser = {username, extraModules}:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        ./overlays.nix
+        ../overlays.nix
         ../home/linux.nix
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {
