@@ -3,10 +3,6 @@
 let
   config = { allowunfree = true; };
 
-  pkgs-legacy = import inputs.nixpkgs-legacy {
-    inherit system config;
-  };
-
   pkgs-unstable = import inputs.nixpkgs-unstable {
     inherit system config;
   };
@@ -23,7 +19,6 @@ in {
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
       vimPlugins = pkgs-unstable.vimPlugins;
-      bitwarden = pkgs-legacy.bitwarden;
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
     })
