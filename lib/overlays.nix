@@ -1,14 +1,14 @@
 { system, inputs, ... }:
 
 let
+  config = { allowunfree = true; };
+
   pkgs-legacy = import inputs.nixpkgs-legacy {
-    system = system;
-    config = { allowunfree = true; };
+    inherit system config;
   };
 
   pkgs-unstable = import inputs.nixpkgs-unstable {
-    system = system;
-    config = { allowunfree = true; };
+    inherit system config;
   };
 
   nix-alien-packages = inputs.nix-alien.packages.${system};
