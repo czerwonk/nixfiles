@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   obsidian = pkgs.vimUtils.buildVimPlugin {
@@ -207,7 +207,7 @@ in {
         plugin = nvim-treesitter-refactor;
       }
       {
-        plugin = nvim-ts-rainbow2;
+        plugin = rainbow-delimiters-nvim;
       }
       {
         plugin = indent-blankline-nvim;
@@ -236,7 +236,7 @@ in {
         plugin = nvim-dap-go;
       }
       {
-        plugin = pkgs-unstable.vimPlugins.neotest;
+        plugin = pkgs.vimPlugins.neotest;
         type = "lua";
         config = builtins.readFile ./plugins/test.lua;
       }

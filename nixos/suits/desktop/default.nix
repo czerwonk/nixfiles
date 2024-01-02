@@ -1,14 +1,6 @@
-{ pkgs, username, system, inputs, ... }:
+{ pkgs, username, ... }:
 
-let
-  pkgs-legacy = import inputs.nixpkgs-legacy {
-    system = system;
-    config = { allowUnfree = true; };
-  };
-
-  nix-alien-packages = inputs.nix-alien.packages.${system};
-
-in {
+{
   imports = [
     ./core.nix
     ./pam.nix
@@ -25,14 +17,10 @@ in {
     "uhid"
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
-      pkgs-legacy.bitwarden
+      bitwarden
       brave
       calibre
       element-desktop
@@ -40,7 +28,7 @@ in {
       libreoffice
       mysql-workbench
       nextcloud-client
-      nix-alien-packages.nix-alien
+      nix-alien
       obsidian
       remmina
       teamviewer

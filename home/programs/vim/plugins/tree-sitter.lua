@@ -18,8 +18,8 @@ require('nvim-treesitter.configs').setup {
   },
   rainbow = {
     enable = true,
-    query = 'rainbow-parens',
-    strategy = require('ts-rainbow.strategy.global'),
+    query = 'rainbow-delimiters',
+    strategy = require('rainbow-delimiters.strategy.global'),
     max_file_lines = 5000,
   },
   incremental_selection = {

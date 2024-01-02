@@ -12,10 +12,7 @@
       };
       extraSpecialArgs = {
         inherit username inputs;
-        pkgs-unstable = import inputs.nixpkgs-unstable {
-          system = "x86_64-darwin";
-          config = { allowUnfree = true; };
-        };
+        system = "x86_64-darwin";
       };
     };
 
@@ -30,10 +27,7 @@
       };
       extraSpecialArgs = {
         inherit username inputs;
-        pkgs-unstable = import inputs.nixpkgs-unstable {
-          system = "x86_64-linux";
-          config = { allowUnfree = true; };
-        };
+        system = "x86_64-linux";
       };
     };
 }

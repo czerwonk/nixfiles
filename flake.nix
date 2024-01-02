@@ -73,6 +73,7 @@
           username = inputs.private.username {};
           hostname = "dan-x1";
           domain = "routing.rocks";
+          system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
@@ -92,6 +93,7 @@
           username = inputs.private.username {};
           hostname = "framy";
           domain = "routing.rocks";
+          system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
@@ -105,6 +107,7 @@
           username = inputs.private.username {};
           hostname = "bb1";
           domain = "dus.routing.rocks";
+          system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -116,6 +119,7 @@
           username = inputs.private.username {};
           hostname = "bb2";
           domain = "dus.routing.rocks";
+          system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -127,6 +131,7 @@
           username = inputs.private.username {};
           hostname = "homey";
           domain = "ess.routing.rocks";
+          system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -136,8 +141,9 @@
         };
         surf-vm = systemLib.mkNixOSSystem {
           username = "user";
-          domain = "";
           hostname = "surf-vm";
+          domain = "";
+          system = "x86_64-linux";
           extraModules = [];
           extraHomeModules = [];
         };
