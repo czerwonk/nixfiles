@@ -1,5 +1,38 @@
 {
   "nodes": {
+    "flake-compat": {
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -36,6 +69,65 @@
         "type": "github"
       }
     },
+    "nix-alien": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils",
+        "nix-filter": "nix-filter",
+        "nix-index-database": "nix-index-database",
+        "nixpkgs": [
+          "nix-alien",
+          "nix-index-database",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1702639936,
+        "narHash": "sha256-Fz5KsFVXB1xu2J4Hmr514vK3eir16/z1Mrv60HjzFtA=",
+        "owner": "thiagokokada",
+        "repo": "nix-alien",
+        "rev": "7d36757ddef3c2fb1805126e0da9abc9d88060f8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thiagokokada",
+        "repo": "nix-alien",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1701697642,
+        "narHash": "sha256-L217WytWZHSY8GW9Gx1A64OnNctbuDbfslaTEofXXRw=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "c843418ecfd0344ecb85844b082ff5675e02c443",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "type": "github"
+      }
+    },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1702291765,
+        "narHash": "sha256-kfxavgLKPIZdYVPUPcoDZyr5lleymrqbr5G9PVfQ2NY=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "45d82e0a8b9dd6c5dd9da835ac0c072239af7785",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1704124233,
@@ -54,16 +146,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1703992652,
-        "narHash": "sha256-C0o8AUyu8xYgJ36kOxJfXIroy9if/G6aJbNOpA5W0+M=",
+        "lastModified": 1701718080,
+        "narHash": "sha256-6ovz0pG76dE0P170pmmZex1wWcQoeiomUZGggfH9XPs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "32f63574c85fbc80e4ba1fbb932cde9619bad25e",
+        "rev": "2c7f3c0fb7c08a0814627611d9d7d45ab6d75335",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-23.11",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -100,13 +192,29 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1703992652,
+        "narHash": "sha256-C0o8AUyu8xYgJ36kOxJfXIroy9if/G6aJbNOpA5W0+M=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "32f63574c85fbc80e4ba1fbb932cde9619bad25e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "private": {
       "locked": {
-        "lastModified": 1704027880,
-        "narHash": "sha256-O+3mcpCc89HcPPXFnNyTg9zGSCDXA+f1FdwsAk6G1NM=",
+        "lastModified": 1704186660,
+        "narHash": "sha256-9eSd19GI4B215iaqp+Fe/Pjo4WhMMLqW0dXQndh65I8=",
         "ref": "refs/heads/main",
-        "rev": "323e351b7f6d376f199dd4fa1a9428057511ef25",
-        "revCount": 119,
+        "rev": "6bb13ec71d36f57aabdc6116d5fe6eba7ed26d73",
+        "revCount": 122,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },
@@ -119,12 +227,28 @@
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "nix-alien": "nix-alien",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-legacy": "nixpkgs-legacy",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     },
     "thinkpad-fprint-sensor": {

@@ -22,6 +22,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
     private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
   };
 

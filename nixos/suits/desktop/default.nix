@@ -1,10 +1,12 @@
-{ pkgs, username, inputs, ... }:
+{ pkgs, username, system, inputs, ... }:
 
 let
   pkgs-legacy = import inputs.nixpkgs-legacy {
-    system = "x86_64-linux";
+    system = system;
     config = { allowUnfree = true; };
   };
+
+  nix-alien-packages = inputs.nix-alien.packages.${system};
 
 in {
   imports = [
@@ -38,6 +40,7 @@ in {
       libreoffice
       mysql-workbench
       nextcloud-client
+      nix-alien-packages.nix-alien
       obsidian
       remmina
       teamviewer
@@ -53,6 +56,11 @@ in {
   };
 
   programs.wireshark.enable = true;
+
+  programs.nix-index.enable = true;
+  programs.command-not-found.enable = false;
+
+  programs.nix-ld.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
