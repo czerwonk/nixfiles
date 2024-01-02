@@ -1,10 +1,11 @@
 { system, inputs, pkgs, ... }:
 
 let
-  config = { allowunfree = true; };
-
   pkgs-unstable = import inputs.nixpkgs-unstable {
-    inherit system config;
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
   };
 
   nix-alien-packages = inputs.nix-alien.packages.${system};
