@@ -22,6 +22,7 @@ in {
       vimPlugins = pkgs-unstable.vimPlugins;
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
+      ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
     })
   ];
 }

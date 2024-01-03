@@ -4,6 +4,7 @@
   home = {
     packages = with pkgs; [
       ansible
+      ansible-role
       vault
       terraform
       opentofu
