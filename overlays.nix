@@ -23,6 +23,7 @@ in {
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
       ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
+      dns-drain = pkgs.callPackage ./pkgs/dns-drain {};
     })
   ];
 }

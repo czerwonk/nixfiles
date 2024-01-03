@@ -5,6 +5,7 @@
     packages = with pkgs; [
       ansible
       ansible-role
+      dns-drain
       vault
       terraform
       opentofu
