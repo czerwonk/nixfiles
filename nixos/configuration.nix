@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, ... }:
+{ pkgs, lib, username, hostname, ... }:
 
 {
   imports = [
@@ -7,6 +7,13 @@
     ./impermanence.nix
     ./dns.nix
   ];
+
+  system.activationScripts.diff = ''
+    PATH=$PATH:${lib.makeBinPath [ pkgs.nix ]}
+    if [[ -e /run/current-system ]]; then
+      nix store diff-closures /run/current-system "$systemConfig" || true
+    fi
+  '';
 
   boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
