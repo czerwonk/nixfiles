@@ -16,7 +16,7 @@ let
 in {
   programs.tmux = {
     enable = lib.mkDefault true;
-    shortcut = "a";
+    shortcut = lib.mkDefault "a";
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
     keyMode = "vi";

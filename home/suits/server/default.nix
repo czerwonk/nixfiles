@@ -1,0 +1,3 @@
+{
+  programs.tmux.shortcut = "b";
+}

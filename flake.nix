@@ -45,17 +45,10 @@
           ];
         };
 
-        "linux" = userLib.mkLinuxHMUser {
-          username = inputs.private.username {};
-          extraModules = [
-            ./home/suits/devops
-            inputs.private.home
-          ];
-        };
-
         "mauve-linux" = userLib.mkLinuxHMUser {
           username = inputs.private.mauve.username {};
           extraModules = [ 
+            ./home/suits/server
             ./home/suits/devops/dev.nix
             inputs.private.home
             inputs.private.mauve.home
