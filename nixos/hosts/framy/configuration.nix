@@ -7,6 +7,7 @@
     ../../suits/desktop
     ../../suits/pentest
     ../../suits/container
+    ../../suits/virtualisation
     ../../tpm.nix
   ];
 
