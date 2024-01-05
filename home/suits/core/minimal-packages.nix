@@ -19,7 +19,7 @@
       ripgrep
       fd
       sd
-      dust
+      du-dust
       screen
       watch
       openssl
