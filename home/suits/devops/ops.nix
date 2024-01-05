@@ -22,6 +22,7 @@
       perlPackages.JSONPP
       termshark
       mysql-shell
+      python311Packages.pywinrm
     ];
   };
 }
