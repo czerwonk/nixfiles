@@ -17,6 +17,7 @@ in {
 
   nixpkgs.overlays = [
     (self: super: {
+      ansible = super.ansible.override { windowsSupport = true; };
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
       vimPlugins = pkgs-unstable.vimPlugins;
@@ -25,7 +26,6 @@ in {
       ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
       dns-drain = pkgs.callPackage ./pkgs/dns-drain {};
       provisionize = pkgs.callPackage ./pkgs/provisionize {};
-      ansible = super.ansible.override { windowsSupport = true; };
     })
   ];
 }
