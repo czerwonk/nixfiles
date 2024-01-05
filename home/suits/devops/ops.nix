@@ -6,6 +6,7 @@
       ansible
       ansible-role
       dns-drain
+      provisionize
       vault
       terraform
       opentofu
