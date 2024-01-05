@@ -25,6 +25,7 @@ in {
       ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
       dns-drain = pkgs.callPackage ./pkgs/dns-drain {};
       provisionize = pkgs.callPackage ./pkgs/provisionize {};
+      ansible = super.ansible.override { windowsSupport = true; };
     })
   ];
 }
