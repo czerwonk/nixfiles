@@ -1,4 +1,3 @@
-#!/bin/bash
 if [[ -z $TMUX ]]; then
   nvim $@
   exit 0
