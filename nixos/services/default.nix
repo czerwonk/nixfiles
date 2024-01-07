@@ -4,6 +4,6 @@
     ./monitoring
     ./ripe-atlas
     ./matrix
-    ./nextcloud
+    ./mastodon
   ];
 }
