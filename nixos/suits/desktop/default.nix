@@ -8,15 +8,6 @@
     ./impermanence.nix
   ];
 
-  boot.kernelModules = [
-    "usbserial"
-    "ccm" # required for personal hotspot
-    "qrtr"
-    "sha3_generic"
-    "rfcomm"
-    "uhid"
-  ];
-
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
