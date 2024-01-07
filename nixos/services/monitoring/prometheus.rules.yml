@@ -1,0 +1,116 @@
+groups:
+- name: alerts
+  rules:
+  - alert: BGPSessionDown
+    expr: bird_protocol_up{proto="BGP",import_filter!="drain",export_filter!="drain"} == 0
+    for: 15m
+    labels:
+      severity: error
+    annotations:
+      description: Session {{ $labels.name }} down for more than 15 minutes
+  - alert: HostConntrackLimit
+    expr: (node_nf_conntrack_entries / node_nf_conntrack_entries_limit > 0.8) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: "The number of conntrack is approaching limit"
+  - alert: HostDown
+    expr: up{job="node"} == 0
+    for: 15m
+    labels:
+      severity: critical
+    annotations:
+      description: '{{ $labels.instance }} is down for more than 15 minutes'
+  - alert: HostDiskFullIn3Hours
+    expr: (predict_linear(node_btrfs_device_unused_bytes[2h], 3 * 3600) < 0)
+    labels:
+      severity: critical
+    annotations:
+      description: "The host is critical on available disk space"
+  - alert: HostFilesystemDeviceError
+    expr: node_btrfs_device_errors_total > 0
+    labels:
+      severity: critical
+    annotations:
+      description: "Device error with the {{ $labels.mountpoint }} filesystem"
+  - alert: HostCpuHighIowait
+    expr: (avg by (instance) (rate(node_cpu_seconds_total{mode="iowait"}[5m])) * 100 > 10) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    labels:
+      severity: warning
+    annotations:
+      description: "CPU iowait > 10%. A high iowait means that you are disk or network bound."
+  - alert: HostSystemdServiceCrashed
+    expr: (node_systemd_unit_state{state="failed",name!="systemd-networkd-wait-online.service"} == 1) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    labels:
+      severity: warning
+    annotations:
+      description: "Service {{ $labels.name }} crashed"
+  - alert: HostRaidArrayGotInactive
+    expr: (node_md_state{state="inactive"} > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    labels:
+      severity: critical
+    annotations:
+      description: "RAID array {{ $labels.device }} is in a degraded state due to one or more disk failures. The number of spare drives is insufficient to fix the issue automatically."
+  - alert: HostRaidDiskFailure
+    expr: (node_md_disks{state="failed"} > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 2m
+    labels:
+      severity: error
+    annotations:
+      description: "At least one device in RAID array on {{ $labels.instance }} failed. Array {{ $labels.md_device }} needs attention and possibly a disk swap."
+  - alert: HostOomKillDetected
+    expr: (increase(node_vmstat_oom_kill[1m]) > 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    labels:
+      severity: warning
+    annotations:
+      description: "OOM kill detected"
+  - alert: HostNetworkPacketDropEgress
+    expr: rate(node_network_transmit_drop_total[2m]) > 0
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.instance }} drops packages for more than 5 minutes'
+  - alert: HostNetworkPacketDropIngress
+    expr: rate(node_network_receive_drop_total[2m]) > 0
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.instance }} drops packages for more than 5 minutes'
+  - alert: HostNetworkBondDegraded
+    expr: ((node_bonding_active - node_bonding_slaves) != 0) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      description: "Bond {{ $labels.device }} degraded on {{ $labels.instance }}."
+  - alert: HostNetworkInterfaceSaturated
+    expr: ((rate(node_network_receive_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m]) + rate(node_network_transmit_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m])) / node_network_speed_bytes{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"} > 0.8 < 10000) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      description: "The network interface {{ $labels.device }} on {{ $labels.instance }} is getting overloaded."
+  - alert: HostNetworkReceiveErrors
+    expr: (rate(node_network_receive_errs_total[2m]) / rate(node_network_receive_packets_total[2m]) > 0.01) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      description: "Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} receive errors in the last two minutes."
+  - alert: HostNetworkTransmitErrors
+    expr: (rate(node_network_transmit_errs_total[2m]) / rate(node_network_transmit_packets_total[2m]) > 0.01) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      description: "Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} transmit errors in the last two minutes."
+  - alert: BlackboxProbeFailed
+    for: 5m
+    expr: probe_success == 0
+    labels:
+      severity: critical
+    annotations:
+      description: "Probe failed"
