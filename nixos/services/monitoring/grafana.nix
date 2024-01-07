@@ -7,8 +7,8 @@ let
 
 in {
   config = mkIf cfg.enable {
-    enable = true;
     services.grafana = {
+      enable = true;
       settings.server = {
         domain = "grafana.routing.rocks";
         http_addr = "127.0.0.1";
