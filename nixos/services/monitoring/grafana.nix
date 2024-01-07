@@ -7,6 +7,7 @@ let
 
 in {
   config = mkIf cfg.enable {
+    enable = true;
     services.grafana = {
       settings.server = {
         domain = "grafana.routing.rocks";

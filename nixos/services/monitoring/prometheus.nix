@@ -8,6 +8,7 @@ let
 in {
   config = mkIf cfg.enable {
     services.prometheus = {
+      enable = true;
       listenAddress = "127.0.0.1";
       alertmanagers = [
         {
