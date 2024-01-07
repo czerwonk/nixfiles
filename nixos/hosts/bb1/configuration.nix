@@ -27,4 +27,9 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
+
+  services.custom.nextcloud.enable = true;
+  services.custom.matrix.enable = true;
+  services.custom.mastodon.enable = true;
+  services.custom.ripe-atlas.enable = true;
 }
