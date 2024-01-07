@@ -31,5 +31,14 @@ in {
         };
       };
     };
+
+    services.caddy.virtualHosts."nextcloud.routing.rocks".extraConfig = ''
+      @blocked not remote_ip 2001:678:1e0::/48
+      abort @blocked
+
+      reverse_proxy * 127.0.0.1:11000
+
+      encode gzip
+    '';
   };
 }
