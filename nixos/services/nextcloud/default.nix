@@ -13,22 +13,19 @@ in {
   };
 
   config = mkIf cfg.enable {
-    virtualisation.oci-containers.containers = {
-      nextcloud-aio-mastercontainer = {
-        image = "nextcloud/all-in-one";
-        autoStart = true;
-        ports = [
-          "127.0.0.1:8080:8080"
-        ];
-        volumes = [
-          "nextcloud_aio_mastercontainer:/mnt/docker-aio-config"
-          "nextcloud_data:/mnt/ncdata"
-          "/var/run/docker.sock:/var/run/docker.sock:ro"
-        ];
-        environment = {
-          APACHE_PORT = "11000";
-          APACHE_IP_BINDING = "0.0.0.0";
-        };
+    systemd.services.nextcloud = {
+      description = "Nextcloud";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      path = [ pkgs.podman ];
+      serviceConfig = {
+        WorkingDirectory = "/opt/nextcloud-aio";
+        Type = "simple";
+        ExecStart = "${pkgs.podman-compose}/bin/podman-compose up -d";
+        ExecStop = "${pkgs.podman-compose}/bin/podman-compose down";
+        RemainAfterExit = true;
+        Restart = "always";
+        RestartSec = 60;
       };
     };
 
