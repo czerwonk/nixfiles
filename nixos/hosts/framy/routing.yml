@@ -1,4 +1,5 @@
 asn: 202739
+router_id: 192.168.1.1
 
 # RPKI validation is enabled and invalids will be rejected
 rpki_validation: yes
@@ -81,3 +82,9 @@ peers:
       ipv4: AS_EXAMPLE_IPv4
       ipv6: AS_EXAMPLE_IPv6
     type: metro_peer
+
+peerings:
+  - asn: 54321
+    sessions:
+      - name: foo
+        ip: 192.168.2.1

@@ -3,7 +3,8 @@
 , fetchFromGitHub
 , python3
 , pkgs
-, routing-rocks-vars
+, vars
+, as-sets
 }:
 
 stdenvNoCC.mkDerivation {
@@ -13,8 +14,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "czerwonk";
     repo = "routing-rocks-policy-role";
-    rev = "2.1.17";
-    hash = "sha256-8CqGyapPkxfx9QKSgCUYfd7JMU1bT4CR0mSIYXYriKw=";
+    rev = "988660101c65adf70ffc0f16a2ac537f24fc56fd";
+    hash = "sha256-6TLUYd2OPKWQDnQuJxbUCV4mXg5aNrl3gsJaUGZJVEg=";
   };
 
   buildInputs = [
@@ -24,15 +25,18 @@ stdenvNoCC.mkDerivation {
 
   dontBuild = true;
 
-  varfile = pkgs.writeText "vars.yml" routing-rocks-vars;
+  as_set_file = pkgs.writeText "as-sets.conf" as-sets;
 
-  playbookfile = pkgs.writeText "playbook.yml" (builtins.readFile ./playbook.yml);
+  var_file = pkgs.writeText "vars.yml" vars;
+
+  playbook_file = pkgs.writeText "playbook.yml" (builtins.readFile ./playbook.yml);
 
   installPhase = ''
     runHook preInstall
     export HOME=$(pwd)
     mkdir -p $out
-    ${pkgs.ansible}/bin/ansible-playbook -i . -e @$varfile -e bird_config_dir=$out $playbookfile
+    ${pkgs.ansible}/bin/ansible-playbook -i . -e @$var_file -e bird_config_dir=$out -e skip_handler=true -e owner=$(whoami) $playbook_file
+    cp $as_set_file $out/bird.d/as-sets/as-sets.conf
     runHook postInstall
   '';
 

@@ -52,7 +52,7 @@ in {
 
   users.users.${username} = {
     packages = [
-      (pkgs.callPackage ../../../pkgs/routing-rocks-policy { routing-rocks-vars = routing-config; })
+      (pkgs.callPackage ../../../pkgs/routing-rocks-policy { vars = routing-config; as-sets = ./as-sets.conf; })
     ];
   };
 }
