@@ -21,7 +21,7 @@
       nextcloud-client
       nix-alien
       remmina
-      sublime
+      sublime4
       teamviewer
       termius
       thunderbird
