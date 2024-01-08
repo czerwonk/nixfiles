@@ -1,0 +1,83 @@
+asn: 202739
+
+# RPKI validation is enabled and invalids will be rejected
+rpki_validation: yes
+rpki_validator:
+  host: 127.0.0.1
+  port: 3323
+
+# local pref used for transit routes learned from 
+last_resort_local_pref: 1
+
+# communities used to tag routes
+communities:
+  origin: (202739, 0, 1000)
+  peer_import: (202739, 0, 2000)
+  upstream_import: (202739, 0, 3000)
+  downstream_import: (202739, 0, 4000)
+  filtered_bogon: (202739, 666, 1)
+  filtered_own_prefix: (202739, 666, 2)
+  filtered_own_communities: (202739, 666, 3)
+  filtered_rpki_invalid: (202739, 666, 4)
+  filtered_aspath_invalid: (202739, 666, 5)
+  filtered_tier1: (202739, 666, 6)
+  filtered_aspath_length: (202739, 666, 7)
+
+# our prefixes announce
+prefixes:
+  ipv6:
+    - 2001:678:1e0::/48
+
+# global filters which can be used as alternative to the auto generated ones
+filters:
+  ibgp_in:
+    prefixes:
+      - 2001:678:1e0::/48{56,64}
+  default_only:
+    accept_default: yes
+      
+# peer types are like templates defining common attributes for a group of peers
+peer_types:
+  internal:
+  upstream:
+    local_pref: 100
+    as_prepend: 2
+  metro_peer:
+    local_pref: 10000
+  remote_peer:
+    local_pref: 1000
+
+peers:
+  202739: # routing-rocks
+    type: internal
+
+  54321: # upstream
+    upstream: yes
+    filters:
+      import: upstream_as54321_in
+      export: ebgp_as54321_out
+    type: upstream
+    rtbh_community: (54321,666)
+    rules: # our upstream uses the community (54321,200) to tag his customer routes, we use this to set the local pref
+      - when:
+          community: (54321,200)
+        then:
+          set_local_pref: 50000
+
+  206356: # ff-essen
+    filters:
+      import: peer_as206356_in
+      export: ebgp_as206356_out
+    type: metro_peer
+    max_prefix:
+      ipv6: 5
+
+  12345: # downstream
+    downstream: yes
+    filters:
+      import: peer_as12345_in
+      export: default_only
+    as_set:
+      ipv4: AS_EXAMPLE_IPv4
+      ipv6: AS_EXAMPLE_IPv6
+    type: metro_peer
