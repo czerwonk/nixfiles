@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   imports = [
@@ -54,4 +54,9 @@
   virtualisation.virtualbox.host = {
     enable = true;
   };
+
+  services.custom.openssh-server.enable = true;
+  networking.firewall.extraInputRules = lib.mkAfter ''
+    ip6 saddr 2001:678:1e0::/48 tcp dport 2222 accept
+  '';
 }

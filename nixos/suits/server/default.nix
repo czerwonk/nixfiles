@@ -1,17 +1,11 @@
-{ pkgs, lib, username, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
     ./sysctl.nix
-    ./sshd.nix
     ./hardening.nix
     ./impermanence.nix
   ];
-
-  users.groups.ssh = {};
-  users.users.${username} = {
-    extraGroups = [ "ssh" ];
-  };
 
   networking.useNetworkd = true;
   networking.nameservers = lib.mkDefault [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
@@ -35,5 +29,10 @@
       "systemd"
       "processes"
     ];
+  };
+
+  services.custom.openssh-server = {
+    enable = true;
+    openFirewall = true;
   };
 }

@@ -5,5 +5,6 @@
     ./ripe-atlas
     ./matrix
     ./mastodon
+    ./openssh-server
   ];
 }
