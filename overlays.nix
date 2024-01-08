@@ -11,10 +11,6 @@ let
   nix-alien-packages = inputs.nix-alien.packages.${system};
 
 in {
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
   nixpkgs.overlays = [
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };

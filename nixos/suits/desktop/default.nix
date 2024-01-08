@@ -20,8 +20,8 @@
       mysql-workbench
       nextcloud-client
       nix-alien
-      obsidian
       remmina
+      sublime
       teamviewer
       termius
       thunderbird

@@ -35,6 +35,7 @@
     gnome-photos
     gnome-tour
     gnome-connections
+    gnome-text-editor
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
