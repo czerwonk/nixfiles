@@ -6,7 +6,7 @@ let
   cfg = config.services.custom.bird2;
   birdConfig = (pkgs.callPackage ../../../pkgs/routing-rocks-policy {
     vars = cfg.configYML;
-    as-sets = cfg.asSets; 
+    as-sets = cfg.asSets;
   });
 
 in {

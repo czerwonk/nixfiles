@@ -41,6 +41,8 @@
 
   programs.nix-ld.enable = true;
 
+  services.flatpak.enable = true;
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
