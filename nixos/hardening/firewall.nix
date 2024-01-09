@@ -2,7 +2,7 @@
 
 {
   networking.firewall.enable = true;
-  networking.firewall.checkReversePath = "loose";
+  networking.firewall.checkReversePath = false;
   networking.firewall.filterForward = lib.mkDefault true;
 
   networking.nftables.enable = lib.mkDefault true;
