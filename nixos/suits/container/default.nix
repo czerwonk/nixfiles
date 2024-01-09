@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  networking.firewall.trustedInterfaces = [ "podman*" ];
+  imports = [
+    ./iptables.nix
+    ./nftables.nix
+  ];
 
   virtualisation = {
     podman = {
