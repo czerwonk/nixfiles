@@ -14,7 +14,6 @@
   nix.settings.allowed-users = [ "@users" ];
   nix.settings.sandbox = lib.mkDefault false;
 
-
   boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_6_6_hardened;
 
   security.protectKernelImage = true;

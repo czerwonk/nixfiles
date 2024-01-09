@@ -25,6 +25,4 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
-
-  networking.nftables.enable = true;
 }

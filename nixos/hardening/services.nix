@@ -1,9 +1,4 @@
 {
-  networking.firewall.enable = true;
-  networking.firewall.checkReversePath = "loose";
-  networking.nftables.enable = true;
-  networking.firewall.filterForward = true;
-
   security.apparmor.enable = true;
   security.apparmor.killUnconfinedConfinables = true;
   services.fail2ban = {
