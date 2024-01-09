@@ -15,7 +15,7 @@
   };
 
   virtualisation.containers.containersConf.settings = {
-    network.default_firewall = "none";
+    network.firewall_driver = "none";
   };
 
   environment.systemPackages = with pkgs; [
