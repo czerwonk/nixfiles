@@ -3,10 +3,7 @@
     ./sysctl.nix
   ];
 
-  services.bird2 = {
-    enable = true;
-    checkConfig = false;
-  };
+  services.custom.bird2.enable = true;
 
   services.prometheus.exporters.bird = {
     enable = true;

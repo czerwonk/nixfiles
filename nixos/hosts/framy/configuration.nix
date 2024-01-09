@@ -1,9 +1,6 @@
-{ pkgs, lib, username, ... }:
+{ lib, ... }:
 
-let
-  routing-config = builtins.readFile ./routing.yml;
-
-in {
+{
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
@@ -49,10 +46,4 @@ in {
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
-
-  users.users.${username} = {
-    packages = [
-      (pkgs.callPackage ../../../pkgs/routing-rocks-policy { vars = routing-config; as-sets = ./as-sets.conf; })
-    ];
-  };
 }
