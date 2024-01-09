@@ -14,7 +14,7 @@ in {
     services.custom.bird2 = {
       enable = mkEnableOption "Bird Routing Daemon";
       asSets = mkOption {
-        type = types.str;
+        type = types.lines;
         default = "";
         description = "AS sets in bird config format";
         example = ''
@@ -24,7 +24,7 @@ in {
         '';
       };
       configYML = mkOption {
-        type = types.str;
+        type = types.lines;
         description = ''
           Configuration for routing-rocks policy
           (see https://github.com/czerwonk/routing-rocks-policy-role)
