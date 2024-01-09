@@ -14,6 +14,10 @@
     };
   };
 
+  virtualisation.containers.containersConf.settings = {
+    network.default_firewall = "none";
+  };
+
   environment.systemPackages = with pkgs; [
     arion
   ];
