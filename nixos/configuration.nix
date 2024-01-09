@@ -61,6 +61,8 @@
   };
 
   networking.hostName = hostname;
+  networking.nftables.enable = true;
+  networking.firewall.filterForward = true;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";

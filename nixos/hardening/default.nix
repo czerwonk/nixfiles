@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./firewall.nix
     ./sysctl.nix
     ./services.nix
     ./aide.nix
@@ -12,6 +13,7 @@
 
   nix.settings.allowed-users = [ "@users" ];
   nix.settings.sandbox = lib.mkDefault false;
+
 
   boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_6_6_hardened;
 

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  networking.firewall.trustedInterfaces = [ "podman+" ];
+  networking.firewall.trustedInterfaces = [ "podman*" ];
 
   virtualisation = {
     podman = {
