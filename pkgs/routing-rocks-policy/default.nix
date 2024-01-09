@@ -29,13 +29,13 @@ stdenvNoCC.mkDerivation {
 
   var_file = pkgs.writeText "vars.yml" vars;
 
-  playbook_file = pkgs.writeText "playbook.yml" (builtins.readFile ./playbook.yml);
-
   installPhase = ''
     runHook preInstall
     export HOME=$(pwd)
+    export ANSIBLE_REMOTE_TEMP="/tmp/.ansible"
     mkdir -p $out
-    ${pkgs.ansible}/bin/ansible-playbook -i . -e @$var_file -e bird_config_dir=$out -e skip_handler=true -e owner=$(whoami) $playbook_file
+    ${pkgs.ansible}/bin/ansible -c local -m include_role -a "name=$(pwd)" -e @$var_file \
+      -e bird_config_dir=$out -e skip_handler=true -e owner=$(whoami) localhost
     cp $as_set_file $out/bird.d/as-sets/as-sets.conf
     runHook postInstall
   '';
