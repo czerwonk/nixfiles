@@ -15,6 +15,7 @@ in {
       enable = mkEnableOption "Bird Routing Daemon";
       asSets = mkOption {
         type = types.str;
+        default = "";
         description = "AS sets in bird config format";
         example = ''
           define AS_FFE = [
