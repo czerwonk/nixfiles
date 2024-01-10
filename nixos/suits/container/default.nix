@@ -1,11 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
-  imports = [
-    ./iptables.nix
-    ./nftables.nix
-  ];
-
   virtualisation = {
     podman = {
       enable = true;
@@ -23,4 +18,8 @@
   ];
 
   virtualisation.oci-containers.backend = "podman";
+  
+  networking.firewall.trustedInterfaces = [
+    (if config.networking.nftables.enable then "podman*" else "podman+")
+  ];
 }
