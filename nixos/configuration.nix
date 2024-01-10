@@ -111,6 +111,12 @@
     capabilities = "cap_net_raw+p";
     source = "${pkgs.mtr}/bin/mtr-packet";
   };
+  security.wrappers.ping6 = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_raw+p";
+    source = "${pkgs.inetutils}/bin/ping6";
+  };
 
   system.stateVersion = "23.11";
 }
