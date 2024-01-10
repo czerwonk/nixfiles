@@ -105,5 +105,12 @@
   ];
   environment.shells = [ pkgs.zsh ];
 
+  security.wrappers.mtr-packet = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_raw+p";
+    source = "${pkgs.mtr}/bin/mtr-packet";
+  };
+
   system.stateVersion = "23.11";
 }
