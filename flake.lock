@@ -178,11 +178,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1704732714,
-        "narHash": "sha256-ABqK/HggMYA/jMUXgYyqVAcQ8QjeMyr1jcXfTpSHmps=",
+        "lastModified": 1704874635,
+        "narHash": "sha256-YWuCrtsty5vVZvu+7BchAxmcYzTMfolSPP5io8+WYCg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6723fa4e4f1a30d42a633bef5eb01caeb281adc3",
+        "rev": "3dc440faeee9e889fe2d1b4d25ad0f430d449356",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1704917198,
-        "narHash": "sha256-8VV3MCRk6fC3Se+AmyKU8i5Wur4oILoftsZkGAalpy0=",
+        "lastModified": 1704951709,
+        "narHash": "sha256-XI0dXvu3NNRlQpscpETDegENq0nb5IgRwc/bsOvw7xQ=",
         "ref": "refs/heads/main",
-        "rev": "26f740f97a3b016aaa4d24f200e0fcf8a70de969",
-        "revCount": 167,
+        "rev": "fe40861ed6f74ddac404b633bd954213c5db630a",
+        "revCount": 169,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },
