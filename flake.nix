@@ -23,6 +23,8 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
+
+    routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
   };
 
   outputs = inputs:
@@ -101,6 +103,7 @@
           system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
+            inputs.routing-rocks-policy.nixosModule
           ];
           extraHomeModules = [
             inputs.private.home
@@ -113,6 +116,7 @@
           system = "x86_64-linux";
           extraModules = [
             inputs.private.nixosModule
+            inputs.routing-rocks-policy.nixosModule
           ];
           extraHomeModules = [
             inputs.private.home

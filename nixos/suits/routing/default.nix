@@ -3,7 +3,7 @@
     ./sysctl.nix
   ];
 
-  services.custom.bird2.enable = true;
+  routing-rocks.bird2.enable = true;
 
   systemd.network.wait-online.anyInterface = true;
 

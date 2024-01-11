@@ -6,6 +6,5 @@
     ./matrix
     ./mastodon
     ./openssh-server
-    ./bird2
   ];
 }

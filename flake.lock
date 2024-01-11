@@ -40,11 +40,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704099619,
-        "narHash": "sha256-QRVMkdxLmv+aKGjcgeEg31xtJEIsYq4i1Kbyw5EPS6g=",
+        "lastModified": 1704980875,
+        "narHash": "sha256-IPZmMjk5f4TBbEpzUFBc3OC1W6OwDNEXk2w/0uVXX1o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7e398b3d76bc1503171b1364c9d4a07ac06f3851",
+        "rev": "5f0ab0eedc6ede69beb8f45561ffefa54edc6e65",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1704951709,
-        "narHash": "sha256-XI0dXvu3NNRlQpscpETDegENq0nb5IgRwc/bsOvw7xQ=",
+        "lastModified": 1704988212,
+        "narHash": "sha256-6MOoTkk2ubqYlYo18O4GnrzLQBw9K3OH2qG2kHV/Sws=",
         "ref": "refs/heads/main",
-        "rev": "fe40861ed6f74ddac404b633bd954213c5db630a",
-        "revCount": 169,
+        "rev": "9ab64ab3a432b452d090fd83cba7cbdc1a059f45",
+        "revCount": 173,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },
@@ -216,7 +216,23 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
+        "routing-rocks-policy": "routing-rocks-policy",
         "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
+      }
+    },
+    "routing-rocks-policy": {
+      "locked": {
+        "lastModified": 1704984751,
+        "narHash": "sha256-pyZGuZbLlLLrsuDD+ezzj00f86fG3aMb0Wi7BZz1C8o=",
+        "owner": "czerwonk",
+        "repo": "routing-rocks-policy-role",
+        "rev": "2429a37e7f6fe6752bfb1c874233e3d950821c17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "czerwonk",
+        "repo": "routing-rocks-policy-role",
+        "type": "github"
       }
     },
     "systems": {
