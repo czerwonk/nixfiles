@@ -8,6 +8,9 @@
     domains = [ "~." ];
     extraConfig = ''
       DNSOverTLS=yes
+      MulticastDNS=no
+      ReadEtcHosts=no
+      Cache=no-negative
     '';
     fallbackDns = [ "8.8.8.8" "2001:4860:4860::8844" ];
   };
