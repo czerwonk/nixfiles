@@ -144,6 +144,10 @@
         padding-right: 3px;
       }
 
+      #clock {
+        padding-right: 5px;
+      }
+
       #backlight {
         color: #DCD7BA;
       }
