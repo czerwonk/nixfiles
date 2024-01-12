@@ -5,6 +5,7 @@
     packages = with pkgs; [
       ansible
       ansible-role
+      sshpass
       dns-drain
       provisionize
       vault
