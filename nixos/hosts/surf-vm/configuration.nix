@@ -44,4 +44,7 @@
     enable = true;
     x11 = true;
   };
+
+  services.dnsmasq.enable = false;
+  services.stubby.enable = false;
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking.networkmanager.dns = "none";
@@ -6,7 +6,7 @@
   services.resolved.enable = false;
 
   services.dnsmasq = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       listen-address = "127.0.0.1";
       interface = "lo";
@@ -25,7 +25,7 @@
   };
 
   services.stubby = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       listen_addresses = [ "127.0.0.53" ];
       resolution_type = "GETDNS_RESOLUTION_STUB";
