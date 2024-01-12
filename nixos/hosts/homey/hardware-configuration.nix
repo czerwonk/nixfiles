@@ -31,13 +31,13 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
+    device = "/dev/disk/by-uuid/fb7af7e4-ca26-4d7b-b09d-d03f852ad008";
     fsType = "btrfs";
     options = [ "subvol=nix" "compress=zstd" "noatime" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
+    device = "/dev/disk/by-uuid/fb7af7e4-ca26-4d7b-b09d-d03f852ad008";
     fsType = "btrfs";
     options = [ "subvol=persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
