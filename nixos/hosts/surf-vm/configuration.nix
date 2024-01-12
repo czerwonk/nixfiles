@@ -6,6 +6,7 @@
     ../../configuration.nix
     ../../suits/desktop/core.nix
     ../../suits/desktop/gnome.nix
+    ./vbox-fix.nix
   ];
 
   boot.loader.grub.enable = true;
