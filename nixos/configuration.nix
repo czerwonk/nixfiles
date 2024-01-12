@@ -108,7 +108,7 @@
     owner = "root";
     group = "root";
     capabilities = "cap_net_raw+p";
-    source = "${pkgs.inetutils}/bin/ping6";
+    source = "${pkgs.busybox}/bin/ping6";
   };
 
   system.stateVersion = "23.11";
