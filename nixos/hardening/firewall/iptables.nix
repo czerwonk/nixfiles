@@ -2,7 +2,7 @@
 
 {
   config = lib.mkIf (!config.networking.nftables.enable) {
-    boot.kernelmodules = [
+    boot.kernelModules = [
       "xt_nat"
       "xt_connmark"
       "xt_mark"

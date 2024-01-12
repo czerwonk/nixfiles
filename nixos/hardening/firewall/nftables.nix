@@ -9,7 +9,7 @@
           }
     '';
 
-    boot.kernelmodules = [
+    boot.kernelModules = [
       "nft_fib"
       "nft_fib_inet"
       "nft_fib_ipv4"
