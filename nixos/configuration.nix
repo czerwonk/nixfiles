@@ -4,8 +4,9 @@
   imports = [
     ./hardening
     ./services
-    ./impermanence.nix
     ./dns.nix
+    ./impermanence.nix
+    ./wrappers.nix
   ];
 
   system.activationScripts.diff = ''
@@ -97,19 +98,6 @@
     wireguard-tools
   ];
   environment.shells = [ pkgs.zsh ];
-
-  security.wrappers.mtr-packet = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_net_raw+p";
-    source = "${pkgs.mtr}/bin/mtr-packet";
-  };
-  security.wrappers.ping6 = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_net_raw+p";
-    source = "${pkgs.busybox}/bin/ping6";
-  };
 
   system.stateVersion = "23.11";
 }
