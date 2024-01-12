@@ -1,11 +1,34 @@
 { pkgs, config, ... }:
+
 let
   screenshot = pkgs.writeScriptBin "screenshot" ''
-    #!${pkgs.stdenv.shell}
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
+  '';
+  close-all = pkgs.writeScriptBin "close-all" ''
+    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+    hyprctl --batch "$HYPRCMDS"
+  '';
+  halt = pkgs.writeScriptBin "halt" ''
+    ${close-all}/bin/close-all
+    shutdown +5
+  '';
+  reboot = pkgs.writeScriptBin "reboot" ''
+    ${close-all}/bin/close-all
+    shutdown -r +5
+  '';
+  logout = pkgs.writeScriptBin "logout-now" ''
+    ${close-all}/bin/close-all
+    sleep 5
+    hyprctl dispatch exit
   '';
 
 in {
+  home.packages = [
+    reboot
+    halt
+    logout
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -58,8 +81,9 @@ in {
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
-      bind = $mainMod SHIFT, Q, exit,
+      bind = $mainMod SHIFT, Q, exec, ${logout}/bin/logout
       bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
+      bind = ,XF86PowerOff, exec, ${halt}/bin/halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
