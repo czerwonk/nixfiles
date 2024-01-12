@@ -59,8 +59,8 @@
       };
       network = {
         format-alt = "{ifname}: {ipaddr}/{cidr}";
-        format-disconnected = "⚠ Disconnected";
-        format-ethernet = " {ipaddr}/{cidr}";
+        format-disconnected = "⚠ disconnected";
+        format-ethernet = " {ifname}";
         format-linked = " {ifname} (No IP)";
         format-wifi = " {essid} ({signalStrength}%)";
         tooltip-format = " {ifname} via {gwaddr}";
