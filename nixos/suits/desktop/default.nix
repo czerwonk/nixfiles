@@ -25,6 +25,7 @@
       teamviewer
       termius
       thunderbird
+      teams-for-linux
       veracrypt
       virt-viewer
       vlc
