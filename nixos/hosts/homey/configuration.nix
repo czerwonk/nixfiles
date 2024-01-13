@@ -29,4 +29,6 @@
   networking.useNetworkd = false;
   networking.useDHCP = false;
   systemd.network.enable = false;
+
+  services.custom.openssh-server.openFirewall = false;
 }
