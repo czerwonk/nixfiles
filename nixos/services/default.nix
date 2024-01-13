@@ -6,5 +6,6 @@
     ./matrix
     ./mastodon
     ./openssh-server
+    ./jellyfin
   ];
 }

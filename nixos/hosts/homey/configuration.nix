@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../suits/server
+    ../../suits/webserver
     ../../suits/container
   ];
 
@@ -31,4 +32,7 @@
   systemd.network.enable = false;
 
   services.custom.openssh-server.openFirewall = false;
+
+  services.custom.monitoring.enable = true;
+  services.custom.jellyfin.enable = true;
 }

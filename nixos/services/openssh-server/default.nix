@@ -9,7 +9,12 @@ in {
   options = {
     services.custom.openssh-server = {
       enable = mkEnableOption "OpenSSH Server";
-      openFirewall = mkEnableOption "Wether to open firewall ports";
+
+      openFirewall = mkOption {
+        description = "Wether to open firewall ports";
+        type = types.bool;
+        default = true;
+      };
     };
   };
 
