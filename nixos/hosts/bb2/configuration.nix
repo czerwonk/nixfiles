@@ -7,7 +7,6 @@
     ../../suits/server
     ../../suits/container
     ../../suits/routing
-    ../../suits/webserver
   ];
 
   boot.loader.systemd-boot.enable = true;
