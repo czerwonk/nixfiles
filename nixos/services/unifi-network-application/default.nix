@@ -33,9 +33,6 @@ in {
           "10001:10001/udp"
           "8080:8080"
         ];
-        labels = {
-          "io.containers.autoupdate" = "registry";
-        };
         volumes = [
           "unifi-config:/config"
         ];
