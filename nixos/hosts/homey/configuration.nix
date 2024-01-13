@@ -36,4 +36,5 @@
   services.custom.monitoring.enable = true;
   services.custom.jellyfin.enable = true;
   services.custom.nextcloud.enable = true;
+  services.custom.unifi.enable = true;
 }

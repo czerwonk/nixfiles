@@ -7,5 +7,6 @@
     ./mastodon
     ./openssh-server
     ./jellyfin
+    ./unifi-network-application
   ];
 }
