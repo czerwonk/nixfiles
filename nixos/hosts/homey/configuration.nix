@@ -25,4 +25,8 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
+
+  networking.useNetworkd = false;
+  networking.useDHCP = false;
+  systemd.network.enable = false;
 }

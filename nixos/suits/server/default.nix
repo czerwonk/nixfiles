@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,11 +7,10 @@
     ./impermanence.nix
   ];
 
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
-  systemd.network = {
-    enable = true;
-  };
+  networking.useNetworkd = lib.mkDefault true;
+  networking.useDHCP = lib.mkDefault false;
+
+  systemd.network.enable = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
     wireguard-tools
