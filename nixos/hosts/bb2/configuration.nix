@@ -27,6 +27,4 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
-
-  services.custom.monitoring.enable = true;
 }
