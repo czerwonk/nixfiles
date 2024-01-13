@@ -13,7 +13,7 @@ in {
       mediaDir = mkOption {
         description = "Local path to data directory containing media files";
         type = types.str;
-        default = "/media";
+        default = "/data/media";
       };
     };
   };
