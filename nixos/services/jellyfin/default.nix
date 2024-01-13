@@ -1,4 +1,4 @@
-{ lib, config, username, ... }:
+{ lib, config, ... }:
 
 with lib;
 
@@ -15,16 +15,27 @@ in {
         type = types.str;
         default = "/data/media";
       };
+
+      publishServerUrl = mkOption {
+        description = "Published URL";
+        type = types.str;
+        default = "media.routing.rocks";
+      };
     };
   };
 
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       jellyfin = {
-        image = "docker.io/jellyfin/jellyfin:latest";
+        image = "lscr.io/linuxserver/jellyfin:latest";
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "Europe/Berlin";
+          JELLYFIN_PublishedServerUrl = cfg.publishServerUrl;
+        };
         autoStart = true;
         ports = [ "8096:8096" ];
-        user = username;
         labels = {
           "io.containers.autoupdate" = "registry";
         };
