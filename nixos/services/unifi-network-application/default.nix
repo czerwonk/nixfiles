@@ -21,7 +21,7 @@ in {
           PGID = "65534";
           TZ = "Europe/Berlin";
           MONGO_USER = "unifi";
-          MONGO_PASS = "";
+          MONGO_PASS = "dvYPdgVH94ktiT";
           MONGO_HOST = "unifi-db";
           MONGO_PORT = "27017";
           MONGO_DBNAME = "unifi";
@@ -35,6 +35,22 @@ in {
         ];
         volumes = [
           "unifi-config:/config"
+        ];
+        dependsOn = [
+          "unifi-db"
+        ];
+      };
+      unifi-db = {
+        image = "docker.io/mongo:4.4";
+        environment = {
+          TZ = "Europe/Berlin";
+          MONGO_INITDB_ROOT_USERNAME = "unifi";
+          MONGO_INITDB_ROOT_PASSWORD = "dvYPdgVH94ktiT";
+          MONGO_INITDB_DATABASE = "unifi-db";
+        };
+        autoStart = true;
+        volumes = [
+          "unifi-db:/data/db"
         ];
       };
     };
