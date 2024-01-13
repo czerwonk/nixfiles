@@ -30,7 +30,7 @@
   };
 
   services.custom.openssh-server = {
-    enable = true;
-    openFirewall = true;
+    enable = lib.mkDefault true;
+    openFirewall = lib.mkDefault true;
   };
 }
