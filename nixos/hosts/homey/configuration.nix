@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
   imports = [ 
@@ -7,6 +7,7 @@
     ../../suits/server
     ../../suits/webserver
     ../../suits/container
+    ./unifi.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -38,10 +39,4 @@
   services.custom.monitoring.enable = true;
   services.custom.jellyfin.enable = true;
   services.custom.nextcloud.enable = true;
-
-  services.unifi = {
-    enable = true;
-    unifiPackage = pkgs.unifi;
-    openFirewall = false;
-  };
 }
