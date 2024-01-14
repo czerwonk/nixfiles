@@ -39,7 +39,7 @@ in {
         LogLevel = "VERBOSE";
 
         # Authentication
-        AllowGroups = [ "ssh" ];
+        AllowGroups = [ "ssh" "sftp" ];
         LoginGraceTime = "1m";
         PermitRootLogin = "no";
         StrictModes = true;
