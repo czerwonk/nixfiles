@@ -22,7 +22,7 @@ in {
     users.groups.ssh = {};
 
     users.users.${username} = {
-      extraGroups = [ "ssh" ];
+      extraGroups = [ "ssh" "sftp" ];
     };
 
     services.openssh = {
@@ -60,7 +60,7 @@ in {
         PrintMotd = false;
         UseDns = false;
       };
-      extraConfig = lib.mkForce ''
+      extraConfig = lib.mkAfter ''
         AuthorizedKeysFile ${toString config.services.openssh.authorizedKeysFiles}
         Subsystem sftp internal-sftp
 
@@ -68,6 +68,9 @@ in {
           AllowAgentForwarding yes
           AllowTcpForwarding yes
           ChrootDirectory none
+
+        Match Group sftp
+          ForceCommand internal-sftp -d /%u
       '';
     };
   };
