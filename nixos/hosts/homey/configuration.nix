@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [ 
@@ -36,4 +36,10 @@
   services.custom.monitoring.enable = true;
   services.custom.jellyfin.enable = true;
   services.custom.nextcloud.enable = true;
+
+  services.unifi = {
+    enable = true;
+    unifiPackage = pkgs.unifi;
+    openFirewall = false;
+  };
 }
