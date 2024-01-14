@@ -23,7 +23,7 @@ in {
     users.groups.sftp = {};
 
     users.users.${username} = {
-      extraGroups = [ "ssh" "sftp" ];
+      extraGroups = [ "ssh" ];
     };
 
     services.openssh = {
