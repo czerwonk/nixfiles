@@ -20,6 +20,7 @@ in {
 
   config = mkIf cfg.enable {
     users.groups.ssh = {};
+    users.groups.sftp = {};
 
     users.users.${username} = {
       extraGroups = [ "ssh" "sftp" ];
