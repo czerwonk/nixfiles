@@ -18,7 +18,7 @@
       bogus-priv = true;
       no-resolv = true;
       cache-size = 1000;
-      no-hosts = true;
+      no-hosts = lib.mkDefault true;
       conf-file = "${pkgs.dnsmasq}/share/dnsmasq/trust-anchors.conf";
       dnssec = true;
       dnssec-check-unsigned = true;

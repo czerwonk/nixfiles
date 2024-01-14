@@ -130,11 +130,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1704786394,
-        "narHash": "sha256-aJM0ln9fMGWw1+tjyl5JZWZ3ahxAA2gw2ZpZY/hkEMs=",
+        "lastModified": 1705187059,
+        "narHash": "sha256-dSj+iIYqLA+7/5rLXWfUxw9IXRm0w8Mrm39af8klUH0=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "b34a6075e9e298c4124e35c3ccaf2210c1f3a43b",
+        "rev": "ef811636cc847355688804593282078bac7758d4",
         "type": "github"
       },
       "original": {
@@ -162,11 +162,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1704722960,
-        "narHash": "sha256-mKGJ3sPsT6//s+Knglai5YflJUF2DGj7Ai6Ynopz0kI=",
+        "lastModified": 1705133751,
+        "narHash": "sha256-rCIsyE80jgiOU78gCWN3A0wE0tR2GI5nH6MlS+HaaSQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "317484b1ead87b9c1b8ac5261a8d2dd748a0492d",
+        "rev": "9b19f5e77dd906cb52dade0b7bd280339d2a1f3d",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1705161208,
-        "narHash": "sha256-8QIgs8kyhvENywncNoAU6HUNp/u5BFTgq1FfuR2TMjk=",
+        "lastModified": 1705235381,
+        "narHash": "sha256-RuGBIqVURpEi0i+rIeex3Ytd1FS+uLRy10sEJasZsv0=",
         "ref": "refs/heads/main",
-        "rev": "d052980e477cb160e604437519c4bbc03dab3d05",
-        "revCount": 181,
+        "rev": "716bdb3f848a647b99d76dc430c970c10827bf5b",
+        "revCount": 184,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },

@@ -31,6 +31,8 @@
   networking.useDHCP = false;
   systemd.network.enable = false;
 
+  services.dnsmasq.settings.no-hosts = false;
+
   services.custom.openssh-server.openFirewall = false;
 
   services.custom.monitoring.enable = true;
