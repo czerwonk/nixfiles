@@ -26,6 +26,7 @@ in {
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
       sublime4 = pkgs-unstable.sublime4;
       brave = pkgs-unstable.brave;
+      unifi = pkgs-unstable.unifi8;
       vimPlugins = pkgs-unstable.vimPlugins;
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
