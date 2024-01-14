@@ -61,7 +61,7 @@ in {
         UseDns = false;
       };
       extraConfig = lib.mkAfter ''
-        AuthorizedKeysFile ${toString config.services.openssh.authorizedKeysFiles}
+        AuthorizedKeysFile /etc/ssh/authorized_keys.d/%u
         Subsystem sftp internal-sftp
 
         Match User ${username}
