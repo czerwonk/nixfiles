@@ -54,7 +54,6 @@ in {
         UsePAM = true;
         GSSAPIAuthentication = false;
         GSSAPICleanupCredentials = false;
-        ChrootDirectory = "%h";
 
         AllowAgentForwarding = false;
         AllowTcpForwarding = false;
@@ -68,7 +67,6 @@ in {
         Match User ${username}
           AllowAgentForwarding yes
           AllowTcpForwarding yes
-          ChrootDirectory none
 
         Match Group sftp
           ForceCommand internal-sftp -d /%u
