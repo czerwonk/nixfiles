@@ -14,7 +14,7 @@
 
   environment.systemPackages = with pkgs; [
     wireguard-tools
-    borgbackup
+    restic
   ];
 
   services.rsyslogd.enable = true;
