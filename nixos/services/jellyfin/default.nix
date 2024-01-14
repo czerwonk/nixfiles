@@ -35,7 +35,7 @@ in {
           JELLYFIN_PublishedServerUrl = cfg.publishServerUrl;
         };
         autoStart = true;
-        ports = [ "8096:8096" ];
+        ports = [ "127.0.0.1:8096:8096" ];
         labels = {
           "io.containers.autoupdate" = "registry";
         };
