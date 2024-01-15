@@ -1,6 +1,8 @@
 set -e
 
-BACKUP_DIR="/data/backup/mastodon/$(date +%Y-%m-%d)"
+BACKUP_DIR_BASE="/data/backup/matrix"
+BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d)"
+
 mkdir -p $BACKUP_DIR
 
 pushd /opt/mastodon
@@ -18,3 +20,6 @@ tar cfz $BACKUP_DIR/redis.tgz /var/lib/containers/storage/volumes/mastodon_redis
 
 echo "Backup files"
 tar cfz $BACKUP_DIR/files.tgz /var/lib/containers/storage/volumes/mastodon_system-data/_data/
+
+echo "Purge old backups"
+find $BACKUP_DIR_BASE -maxdepth 1 -type d -mtime +2 -exec rm -R {} \;
