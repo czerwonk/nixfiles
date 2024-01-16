@@ -62,9 +62,9 @@
       };
 
       nixosConfigurations = {
-        dan-x1 = systemLib.mkNixOSSystem {
+        scrapy = systemLib.mkNixOSSystem {
           username = inputs.private.username {};
-          hostname = "dan-x1";
+          hostname = "scrapy";
           domain = "routing.rocks";
           system = "x86_64-linux";
           extraModules = [
@@ -73,7 +73,7 @@
             {
               services.fprintd.tod.enable = true;
               services.fprintd.tod.driver = inputs.thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
-                calib-data-file = ./nixos/hosts/dan-x1/calib-data.bin;
+                calib-data-file = ./nixos/hosts/scrapy/calib-data.bin;
               };
             }
           ];

@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [ 
@@ -17,6 +17,7 @@
     options usbserial vendor=0403 product=6001
   '';
   boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7;
 
   boot.initrd.secrets = {
     "/persist/crypto_keyfile.bin" = null;
