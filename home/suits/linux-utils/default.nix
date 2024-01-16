@@ -14,6 +14,7 @@
       usbutils
       inotify-tools
       btrfs-progs
+      bcachefs-tools
       parted
     ];
   };
