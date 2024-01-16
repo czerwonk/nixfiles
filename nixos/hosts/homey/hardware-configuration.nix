@@ -43,7 +43,13 @@
     neededForBoot = true;
   };
 
-  swapDevices = [ ];
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/fb7af7e4-ca26-4d7b-b09d-d03f852ad008";
+    fsType = "btrfs";
+    options = [ "subvol=swap" "noatime" ];
+  };
+
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
