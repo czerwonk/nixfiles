@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   programs.zsh = {
@@ -18,22 +18,22 @@
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
     '';
     shellAliases = {
-      l = "eza -l --icons --group-directories-first --time-style long-iso";
+      l = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
       ls = "ls --color=auto";
-      ll = "eza -l --icons --group-directories-first --time-style long-iso";
-      la = "eza -la --icons --group-directories-first --time-style long-iso";
-      cat  = "bat -pp";
-      fzfp = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+      ll = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
+      la = "${pkgs.eza}/bin/eza -la --icons --group-directories-first --time-style long-iso";
+      cat  = "${pkgs.bat}/bin/bat -pp";
+      fzfp = "${config.programs.fzf.package}/bin/fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
       curl = "${pkgs.curlie}/bin/curlie";
       ycode = "ykman oath accounts code | fzf";
-      g = "git";
-      gs = "git status";
-      ga = "git add";
-      gd = "git diff HEAD";
-      gp = "git push";
-      commit = "git commit -a -m";
+      g = "${config.programs.git.package}/bin/git";
+      gs = "${config.programs.git.package}/bin/git status";
+      ga = "${config.programs.git.package}/bin/git add";
+      gd = "${config.programs.git.package}/bin/git diff HEAD";
+      gp = "${config.programs.git.package}/bin/git push";
+      commit = "${config.programs.git.package}/bin/git commit -a -m";
       k = "kubectl";
       kexec = "kubectl exec -it";
       klog = "kubectl logs";
