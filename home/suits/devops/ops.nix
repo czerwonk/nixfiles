@@ -13,7 +13,6 @@
       dns-drain
       provisionize
       vault
-      terraform
       opentofu
       terrascan
       google-cloud-sdk
