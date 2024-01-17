@@ -46,8 +46,7 @@
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60";
     fsType = "btrfs";
-    options = [ "subvol=persist" "noatime" ];
-    neededForBoot = true;
+    options = [ "subvol=swap" "noatime" ];
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
