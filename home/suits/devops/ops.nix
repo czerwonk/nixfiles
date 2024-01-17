@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./kubernetes.nix
+  ];
+
   home = {
     packages = with pkgs; [
       ansible
@@ -12,11 +16,6 @@
       terraform
       opentofu
       terrascan
-      kubectl
-      k9s
-      kubernetes-helm
-      krew
-      stern
       google-cloud-sdk
       redis
       hey

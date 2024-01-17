@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
   programs.git = {
@@ -38,5 +38,14 @@
         nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
       };
     };
+  };
+
+  programs.zsh.shellAliases = {
+    g = "${config.programs.git.package}/bin/git";
+    gs = "${config.programs.git.package}/bin/git status";
+    ga = "${config.programs.git.package}/bin/git add";
+    gd = "${config.programs.git.package}/bin/git diff HEAD";
+    gp = "${config.programs.git.package}/bin/git push";
+    commit = "${config.programs.git.package}/bin/git commit -a -m";
   };
 }

@@ -7,9 +7,5 @@
     fileWidgetOptions = [
       "--preview '${pkgs.bat}/bin/bat --color=always --style=numbers --line-range=:500 {}'"
     ];
-    tmux = {
-      enableShellIntegration = true;
-      shellIntegrationOptions = [ "-p" ];
-    };
   };
 }

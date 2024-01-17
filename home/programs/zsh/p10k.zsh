@@ -40,7 +40,6 @@
     gcloud
     nix_shell
     vi_mode
-    workspace
     time
   )
 
@@ -260,12 +259,6 @@
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
-
-  function prompt_workspace() {
-    if [[ "${WORKSPACE}" != "" ]]; then
-      p10k segment -f 100 -t "$WORKSPACE"
-    fi
-  }
 
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose

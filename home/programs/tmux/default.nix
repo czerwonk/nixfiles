@@ -51,4 +51,11 @@ in {
       run-shell ${power-theme}/share/tmux-plugins/power/tmux-power.tmux
     '';
   };
+
+  programs.fzf = {
+    tmux = {
+      enableShellIntegration = true;
+      shellIntegrationOptions = [ "-p" ];
+    };
+  };
 }
