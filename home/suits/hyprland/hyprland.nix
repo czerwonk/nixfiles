@@ -58,6 +58,7 @@ in {
       };
     };
     extraConfig = ''
+      ${config.suits.hyprland.extraConfig}
       exec-once = ${pkgs.waybar}/bin/waybar
       exec-once = ${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
       exec-once = ${pkgs.hyprpaper}/bin/hyprpaper

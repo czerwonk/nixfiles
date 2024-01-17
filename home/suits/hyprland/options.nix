@@ -12,5 +12,11 @@ with lib;
       type = types.str;
       description = mdDoc "Name of the external monitor";
     };
+
+    suits.hyprland.extraConfig = mkOption {
+      type = types.lines;
+      description = mdDoc "Device spcific configuration";
+      default = "";
+    };
   };
 }

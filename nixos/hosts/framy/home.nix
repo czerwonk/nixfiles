@@ -12,5 +12,8 @@
   suits.hyprland = {
     backlightDevice = "amdgpu_bl0";
     externalMonitor = "DP-2";
+    extraConfig = ''
+      monitor=eDP-1,preferred,auto,1.5
+    '';
   };
 }
