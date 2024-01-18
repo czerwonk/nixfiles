@@ -11,6 +11,7 @@
         "hyprland/workspaces"
       ];
       modules-right = [
+        "tray"
         "idle_inhibitor"
         "battery"
         "backlight"
@@ -66,6 +67,9 @@
         tooltip-format = " {ifname} via {gwaddr}";
         family = "ipv6";
         on-click-right = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
+      };
+      tray = {
+        spacing = 10;
       };
       pulseaudio = {
         format = "{icon} {volume}% {format_source}";
@@ -131,6 +135,7 @@
         margin: 1px 5px 1px 0;
       }
 
+      #tray,
       #battery,
       #bluetooth,
       #backlight,

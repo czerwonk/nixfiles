@@ -142,6 +142,6 @@ in {
       bind= $mainMod + SHIFT, H, movetoworkspace, special
       bind= $mainMod, H, togglespecialworkspace
     '';
-    systemd.enable = false;
+    systemd.enable = true;
   };
 }
