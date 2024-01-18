@@ -49,6 +49,12 @@
     options = [ "subvol=swap" "noatime" ];
   };
 
+  fileSystems."/mnt/extern" = {
+    device = "/dev/disk/by-uuid/62a4ef69-be5c-40d0-9bfb-0ec2ff2b2ddd";
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
+
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
