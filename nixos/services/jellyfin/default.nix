@@ -27,7 +27,7 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       jellyfin = {
-        image = "lscr.io/linuxserver/jellyfin:latest";
+        image = "lscr.io/linuxserver/jellyfin";
         environment = {
           PUID = "1000";
           PGID = "1000";
