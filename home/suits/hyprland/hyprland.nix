@@ -67,7 +67,7 @@ in {
       exec-once = [workspace 3 silent] ${pkgs.brave}/bin/brave
       exec-once = [workspace 4 silent] ${pkgs.thunderbird}/bin/thunderbird
       exec-once = [workspace 5 silent] ${pkgs.element-desktop}/bin/element-desktop
-      exec-once = ${pkgs.nextcloud-client}/bin/nextcloud --background
+      exec-once = sleep 1; ${pkgs.nextcloud-client}/bin/nextcloud --background
 
       $mainMod = SUPER
 
