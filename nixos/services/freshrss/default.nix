@@ -1,8 +1,11 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 with lib;
 
-{
+let
+  cfg = config.services.custom.freshrss;
+
+in {
   options = {
     services.custom.freshrss = {
       enable = mkEnableOption "FreshRSS";
@@ -19,7 +22,7 @@ with lib;
           TZ = "Europe/Berlin";
         };
         autoStart = true;
-        ports = [ "127.0.0.1:8080:8080" ];
+        ports = [ "127.0.0.1:1080:80" ];
         volumes = [
           "freshrss_data:/config"
         ];
@@ -30,7 +33,7 @@ with lib;
       @blocked not remote_ip 2001:678:1e0::/48
       abort @blocked
 
-      reverse_proxy * 127.0.0.1:8080
+      reverse_proxy * 127.0.0.1:1080
     '';
   };
 }
