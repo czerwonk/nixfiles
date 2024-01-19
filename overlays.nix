@@ -27,7 +27,9 @@ in {
       sublime4 = pkgs-unstable.sublime4;
       brave = pkgs-unstable.brave;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = pkgs-unstable.vimPlugins;
+      vimPlugins = super.vimPlugins // {
+        neotest = pkgs-unstable.vimPlugins.neotest;
+      };
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
       ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
