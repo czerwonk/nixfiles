@@ -72,6 +72,7 @@ in {
               "matrix.routing.rocks/_matrix/client/versions"
               "media.routing.rocks/web/index.html"
               "rss.routing.rocks"
+              "unifi.routing.rocks/manage/account/login"
             ];
           }];
           relabel_configs = [
