@@ -70,6 +70,8 @@ in {
               "social.routing.rocks"
               "nextcloud.routing.rocks/login"
               "matrix.routing.rocks/_matrix/client/versions"
+              "media.routing.rocks/web/index.html"
+              "rss.routing.rocks"
             ];
           }];
           relabel_configs = [

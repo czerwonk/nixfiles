@@ -108,7 +108,7 @@ groups:
     annotations:
       description: "Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} transmit errors in the last two minutes."
   - alert: BlackboxProbeFailed
-    for: 5m
+    for: 15m
     expr: probe_success == 0
     labels:
       severity: critical
