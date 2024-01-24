@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.services.custom.immich;
+  backup = pkgs.writeShellScriptBin "immich-backup" (builtins.readFile ./backup.sh);
   databaseName = "immich";
   databaseUsername = "postgres";
   databasePassword = "nbAR2GV292G5QvvW";
@@ -123,6 +124,32 @@ in {
         volumes = [
           "pgdata:/var/lib/postgresql/data" 
         ];
+      };
+    };
+
+    systemd.timers = {
+      immich-backup = {
+        timerConfig = {
+          Unit = "immich-backup.service";
+          OnCalendar = "*-*-* 03:00:00";
+        };
+        wantedBy = [ "timers.target" ];
+        partOf = [ "immich-backup.service" ];
+      };
+    };
+
+    systemd.services = {
+      immich-backup = {
+        description = "Immich Backup";
+        path = with pkgs; [
+          podman
+          gzip
+          gnutar
+        ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${backup}/bin/immich-backup";
+        };
       };
     };
 

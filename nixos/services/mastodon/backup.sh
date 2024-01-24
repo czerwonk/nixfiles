@@ -1,6 +1,6 @@
 set -e
 
-BACKUP_DIR_BASE="/data/backup/matrix"
+BACKUP_DIR_BASE="/data/backup/mastodon"
 BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d)"
 
 mkdir -p $BACKUP_DIR
