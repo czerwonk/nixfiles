@@ -21,19 +21,67 @@ in {
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ 8448 ];
 
-    systemd.services.matrix = {
-      description = "Matrix Home Server";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
+    systemd.services.podman-create-matrix-pod = {
+      serviceConfig.Type = "oneshot";
+      wantedBy = [ "podman-matrix-synapse.service" ];
       path = [ pkgs.podman ];
-      serviceConfig = {
-        WorkingDirectory = "/opt/matrix";
-        Type = "simple";
-        ExecStart = "${pkgs.podman-compose}/bin/podman-compose up -d";
-        ExecStop = "${pkgs.podman-compose}/bin/podman-compose down";
-        RemainAfterExit = true;
-        Restart = "always";
-        RestartSec = 60;
+      script = ''
+        podman pod exists matrix || podman pod create -n matrix -p '127.0.0.1:8008:8008'
+      '';
+    };
+
+    virtualisation.oci-containers.containers = {
+      matrix-synapse = {
+        autoStart = true;
+        extraOptions = [ "--pod=matrix" ];
+
+        image = "matrixdotorg/synapse";
+
+        environment = {
+          SYNAPSE_SERVER_NAME = "matrix.routing.rocks";
+          SYNAPSE_REPORT_STATS = "no";
+        };
+
+        volumes = [
+          "matrix_homeserver_data:/data"
+        ];
+
+        dependsOn = [
+          "matrix-db"
+        ];
+      };
+
+      matrix-db = {
+        autoStart = true;
+        extraOptions = [ "--pod=matrix" ];
+
+        image = "postgres";
+
+        environment = {
+          POSTGRES_PASSWORD = cfg.databasePassword;
+          POSTGRES_USER = "synapse";
+          POSTGRES_DB = "synapse";
+          POSTGRES_INITDB_ARGS = "--encoding='UTF8' --lc-collate='C' --lc-ctype='C'";
+        };
+
+        volumes = [
+          "matrix_db_data:/var/lib/postgresql/data" 
+        ];
+      };
+
+      matrix-whatsapp = {
+        autoStart = true;
+        extraOptions = [ "--pod=matrix" ];
+
+        image = "dock.mau.dev/mautrix/whatsapp";
+
+        volumes = [
+          "matrix_whatsapp_data:/data"
+        ];
+
+        dependsOn = [
+          "matrix-synapse"
+        ];
       };
     };
 
