@@ -29,7 +29,11 @@
       curl = "${pkgs.curlie}/bin/curlie";
     };
     history = {
+      extended = true;
       expireDuplicatesFirst = true;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
     };
     plugins = [
       {
