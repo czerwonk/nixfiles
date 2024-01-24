@@ -98,7 +98,7 @@ in {
         environment = environment;
 
         volumes = [
-          "model-cache:/cache" 
+          "immich_model_cache:/cache"
         ];
       };
 
@@ -126,7 +126,7 @@ in {
         };
 
         volumes = [
-          "pgdata:/var/lib/postgresql/data" 
+          "immich_pgdata:/var/lib/postgresql/data"
         ];
       };
     };
