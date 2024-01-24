@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 {
   virtualisation = {
@@ -12,10 +12,6 @@
   virtualisation.containers.containersConf.settings = {
     network.firewall_driver = "none";
   };
-
-  environment.systemPackages = with pkgs; [
-    arion
-  ];
 
   virtualisation.oci-containers.backend = "podman";
   

@@ -40,4 +40,5 @@
   services.custom.jellyfin.enable = true;
   services.custom.nextcloud.enable = true;
   services.custom.freshrss.enable = true;
+  services.custom.immich.enable = true;
 }

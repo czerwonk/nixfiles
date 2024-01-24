@@ -8,5 +8,6 @@
     ./openssh-server
     ./jellyfin
     ./freshrss
+    ./immich
   ];
 }
