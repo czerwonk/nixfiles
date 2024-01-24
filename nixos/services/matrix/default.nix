@@ -10,6 +10,11 @@ in {
   options = {
     services.custom.matrix = {
       enable = mkEnableOption "Matrix";
+
+      databasePassword = mkOption {
+        type = types.str;
+        description = "Password for the PostgreSQL database";
+      };
     };
   };
 

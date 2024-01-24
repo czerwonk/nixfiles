@@ -7,13 +7,12 @@ let
   backup = pkgs.writeShellScriptBin "immich-backup" (builtins.readFile ./backup.sh);
   databaseName = "immich";
   databaseUsername = "postgres";
-  databasePassword = "nbAR2GV292G5QvvW";
   environment = {
     IMMICH_VERSION = "release";
     DB_HOSTNAME = "immich_postgres";
     DB_USERNAME = databaseUsername;
     DB_DATABASE_NAME = databaseName;
-    DB_PASSWORD = databasePassword;
+    DB_PASSWORD = cfg.databasePassword;
     REDIS_HOSTNAME = "immich_redis";
     TZ = "Europe/Berlin";
   };
@@ -27,6 +26,11 @@ in {
         type = types.str;
         description = "Directory to store the uploaded photos";
         default = "/data/photos";
+      };
+
+      databasePassword = mkOption {
+        type = types.str;
+        description = "Password for the PostgreSQL database";
       };
     };
   };
@@ -116,7 +120,7 @@ in {
         image = "tensorchord/pgvecto-rs:pg14-v0.1.11@sha256:0335a1a22f8c5dd1b697f14f079934f5152eaaa216c09b61e293be285491f8ee";
 
         environment = {
-          POSTGRES_PASSWORD = databasePassword;
+          POSTGRES_PASSWORD = cfg.databasePassword;
           POSTGRES_USER = databaseUsername;
           POSTGRES_DB = databaseName;
         };
