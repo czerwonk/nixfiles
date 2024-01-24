@@ -81,11 +81,12 @@ in {
       bind = $mainMod, S, exec, ${screenshot}/bin/screenshot
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
-      bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
+      bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, Q, exec, ${logout}/bin/hypr-logout
       bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
+      bind = $mainMod SHIFT, R, exec, ${reboot}/bin/hypr-reboot
       bind = ,XF86PowerOff, exec, ${halt}/bin/hypr-halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle

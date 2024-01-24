@@ -19,9 +19,6 @@
   boot.kernelParams = [ "mem_sleep_default=deep" ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7;
 
-  boot.initrd.secrets = {
-    "/persist/crypto_keyfile.bin" = null;
-  };
   boot.initrd.postDeviceCommands = lib.mkBefore ''
     mkdir -p /btrfs_mnt
     mount -o subvol=/ /dev/mapper/enc /btrfs_mnt
