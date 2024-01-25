@@ -1,4 +1,4 @@
 modules:
   http_2xx:
     prober: http
-    timeout: 10s
+    timeout: 20s

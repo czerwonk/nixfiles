@@ -73,6 +73,7 @@ in {
               "media.routing.rocks/web/index.html"
               "rss.routing.rocks"
               "unifi.routing.rocks/manage/account/login"
+              "photos.routing.rocks"
             ];
           }];
           relabel_configs = [
