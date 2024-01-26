@@ -6,7 +6,7 @@ BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d)"
 mkdir -p $BACKUP_DIR
 
 echo "Backup DB"
-podman exec mastodon-db -u postgres pg_dumpall | gzip > $BACKUP_DIR/db.sql.gz
+podman exec mastodon-db pg_dumpall -U postgres | gzip > $BACKUP_DIR/db.sql.gz
 
 echo "Backup REDIS data"
 tar cfz $BACKUP_DIR/redis.tgz /var/lib/containers/storage/volumes/mastodon_redis-data/_data/dump.rdb
