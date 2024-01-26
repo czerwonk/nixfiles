@@ -167,6 +167,8 @@ in {
         autoStart = true;
         extraOptions = [
           "--pod=mastodon"
+          "--ulimit=memlock=-1:-1"
+          "--ulimit=nofile=65536:65536"
         ];
 
         image = "docker.elastic.co/elasticsearch/elasticsearch:7.17.4";
