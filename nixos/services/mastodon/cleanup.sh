@@ -1,9 +1,8 @@
 run_in_container() {
   echo $@;
-  podman-compose exec web $@
+  podman exec mastodon-web $@
 }
 
-cd /opt/mastodon
 run_in_container tootctl media remove --days=7
 run_in_container tootctl media remove --days=7 --remove-headers
 run_in_container tootctl media remove --days=7 --prune-profiles

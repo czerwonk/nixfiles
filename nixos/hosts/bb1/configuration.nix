@@ -29,6 +29,6 @@
   '';
 
   services.custom.matrix.enable = true;
-  services.custom.mastodon.enable = true;
+  #services.custom.mastodon.enable = true;
   services.custom.ripe-atlas.enable = true;
 }
