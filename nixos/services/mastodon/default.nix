@@ -66,7 +66,7 @@ in {
       ];
       path = [ pkgs.podman ];
       script = ''
-        podman pod exists mastodon || podman pod create -n mastodon -p '127.0.0.1:3000:3000'
+        podman network exists mastodon || podman network create mastodon
       '';
     };
 
@@ -74,7 +74,7 @@ in {
       mastodon-db = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
           "--shm-size=268435456"
         ];
 
@@ -92,7 +92,7 @@ in {
       mastodon-redis = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
         ];
 
         image = "redis:7-alpine";
@@ -105,7 +105,7 @@ in {
       mastodon-web = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
@@ -122,12 +122,16 @@ in {
           "mastodon-redis"
           "mastodon-es"
         ];
+
+        ports = [
+          "127.0.0.1:3000:3000"
+        ];
       };
 
       mastodon-streaming = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
@@ -144,7 +148,7 @@ in {
       mastodon-sidekiq = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
           "--cap-add=NET_BIND_SERVICE"
         ];
 
@@ -166,7 +170,7 @@ in {
       mastodon-es = {
         autoStart = true;
         extraOptions = [
-          "--pod=mastodon"
+          "--network=mastodon"
           "--ulimit=memlock=-1:-1"
           "--ulimit=nofile=65536:65536"
         ];
