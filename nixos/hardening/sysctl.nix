@@ -11,6 +11,9 @@
     "kernel.randomize_va_space" = 2;
     "kernel.sysrq" = false;
     "kernel.yama.ptrace_scope" = true;
+    "kernel.unprivileged_bpf_disabled" = true;
+
+    "net.core.bpf_jit_harden" = 2;
 
     "net.ipv4.conf.all.accept_redirects" = false;
     "net.ipv4.conf.all.send_redirects" = false;
@@ -29,6 +32,7 @@
     "net.ipv4.icmp_ignore_bogus_error_responses" = false;
     "net.ipv4.tcp_syncookies" = true;
     "net.ipv4.tcp_timestamps" = true;
+    "net.ipv4.tcp_rfc1337" = true;
 
     "net.ipv6.conf.all.accept_redirects" = false;
     "net.ipv6.conf.all.accept_source_route" = false;

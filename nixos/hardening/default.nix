@@ -30,26 +30,37 @@
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
 
+  boot.kernelParams = [
+    # Slab/slub sanity checks, redzoning, and poisoning
+    "slub_debug=FZP"
+
+    # Overwrite free'd memory
+    "page_poison=1"
+
+    # Enable page allocator randomization
+    "page_alloc.shuffle=1"
+  ];
+
   boot.blacklistedKernelModules = [
     "ax25"
-    "netrom"
-    "rose"
     "dccp"
-    "sctp"
+    "netrom"
     "rds"
+    "rose"
+    "sctp"
     "tipc"
 
     # Old or rare or insufficiently audited filesystems
     "adfs"
     "affs"
-    "bfs"
     "befs"
+    "bfs"
     "cramfs"
     "efs"
     "erofs"
     "exofs"
-    "freevxfs"
     "f2fs"
+    "freevxfs"
     "hfs"
     "hpfs"
     "jfs"
