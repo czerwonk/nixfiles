@@ -109,7 +109,7 @@ in {
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = "bash -c 'rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000'";
+        cmd = [ "bundle" "exec" "rails" "s" "-p" "3000" ];
 
         environment = env;
 
@@ -131,7 +131,7 @@ in {
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = "node ./streaming";
+        cmd = [ "node" "./streaming" ];
 
         environment = env;
 
@@ -149,7 +149,7 @@ in {
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = "bundle exec sidekiq";
+        cmd = [ "bundle" "exec" "sidekiq" ];
 
         environment = env;
 
@@ -170,7 +170,6 @@ in {
         ];
 
         image = "docker.elastic.co/elasticsearch/elasticsearch:7.17.4";
-        cmd = "bundle exec sidekiq";
 
         environment = {
           ES_JAVA_OPTS = "-Xms512m -Xmx512m -Des.enforce.bootstrap.checks=true";
