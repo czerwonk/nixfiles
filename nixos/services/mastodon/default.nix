@@ -109,7 +109,7 @@ in {
         ];
 
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "bundle" "exec" "rails" "s" "-p" "3000" ];
+        cmd = [ "bundle" "exec" "puma" "-C" "config/puma.rb" ];
 
         environment = env;
 
