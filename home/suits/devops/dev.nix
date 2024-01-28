@@ -11,7 +11,7 @@
       podman-compose
       gnumake
       tree-sitter
-      go_1_21
+      go
       goreleaser
       protoc-gen-go
       protoc-gen-go-grpc

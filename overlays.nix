@@ -24,6 +24,7 @@ in {
       ansible = super.ansible.override { windowsSupport = true; };
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
+      go = pkgs-unstable.go;
       sublime4 = pkgs-unstable.sublime4;
       brave = pkgs-unstable.brave;
       unifi = pkgs-unstable.unifi8;
