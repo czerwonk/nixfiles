@@ -18,4 +18,8 @@
   networking.firewall.trustedInterfaces = [
     (if config.networking.nftables.enable then "podman*" else "podman+")
   ];
+
+  networking.proxy.envVars = {
+    NETAVARK_FW = "none";
+  };
 }

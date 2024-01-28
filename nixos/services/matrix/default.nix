@@ -21,19 +21,19 @@ in {
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ 8448 ];
 
-    systemd.services.podman-create-matrix-pod = {
+    systemd.services.podman-create-matrix-net = {
       serviceConfig.Type = "oneshot";
       wantedBy = [ "podman-matrix-synapse.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman pod exists matrix || podman pod create -n matrix -p '127.0.0.1:8008:8008'
+        podman network exists matrix || podman network create matrix
       '';
     };
 
     virtualisation.oci-containers.containers = {
       matrix-synapse = {
         autoStart = true;
-        extraOptions = [ "--pod=matrix" ];
+        extraOptions = [ "--network=matrix" ];
 
         image = "matrixdotorg/synapse";
 
@@ -49,11 +49,15 @@ in {
         dependsOn = [
           "matrix-db"
         ];
+
+        ports = [
+          "127.0.0.1:8008:8008"
+        ];
       };
 
       matrix-db = {
         autoStart = true;
-        extraOptions = [ "--pod=matrix" ];
+        extraOptions = [ "--network=matrix" ];
 
         image = "postgres";
 
@@ -71,7 +75,7 @@ in {
 
       matrix-whatsapp = {
         autoStart = true;
-        extraOptions = [ "--pod=matrix" ];
+        extraOptions = [ "--network=matrix" ];
 
         image = "dock.mau.dev/mautrix/whatsapp";
 
