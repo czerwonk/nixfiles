@@ -19,7 +19,7 @@
   boot.kernelParams = [ "mem_sleep_default=deep" ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7;
 
-  boot.initrd.postDeviceCommands = lib.mkBefore ''
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir -p /btrfs_mnt
     mount -o subvol=/ /dev/mapper/enc /btrfs_mnt
     echo "Delete old root subvolume..."
