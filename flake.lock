@@ -194,11 +194,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1706453081,
-        "narHash": "sha256-qds+7y2BJpvnbWjNeGkeai5OCfA8T8ocyoDjNWfSGLo=",
+        "lastModified": 1706455248,
+        "narHash": "sha256-JESsmeSVNVdm/imw3+OHgQxSbcEN9ejjnevmbGD34is=",
         "ref": "refs/heads/main",
-        "rev": "f9b385f9bdb832c7b9b73030491536d8ce77b4a9",
-        "revCount": 207,
+        "rev": "6bd048f94980e88a14fa2b6cf56066a54de4ff81",
+        "revCount": 208,
         "type": "git",
         "url": "ssh://git@github.com/czerwonk/nixfiles.private"
       },
