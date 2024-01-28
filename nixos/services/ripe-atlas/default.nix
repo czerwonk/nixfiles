@@ -48,9 +48,5 @@ in {
         ];
       };
     };
-
-    networking.firewall.extraCommands = lib.mkAfter ''
-      ip6tables -t nat -I POSTROUTING -s 2001:678:1e0:f200::/64 -j RETURN
-    '';
   };
 }
