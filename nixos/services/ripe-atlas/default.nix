@@ -22,7 +22,7 @@ in {
       wantedBy = [ "podman-ripe-atlas.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman network exists ripe-atlas || podman network create -n ripe-atlas --ipv6 --subnet=2001:678:1e0:f200::/64 --gateway=2001:678:1e0:f200::1
+        podman network exists ripe-atlas || podman network create ripe-atlas --ipv6 --subnet=2001:678:1e0:f200::/64 --gateway=2001:678:1e0:f200::1
       '';
     };
 
