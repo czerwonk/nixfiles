@@ -9,17 +9,17 @@
     };
   };
 
-  virtualisation.containers.containersConf.settings = {
-    network.firewall_driver = "none";
-  };
-
   virtualisation.oci-containers.backend = "podman";
   
   networking.firewall.trustedInterfaces = [
     (if config.networking.nftables.enable then "podman*" else "podman+")
   ];
 
-  networking.proxy.envVars = {
-    NETAVARK_FW = "none";
-  };
+  # virtualisation.containers.containersConf.settings = {
+  #   network.firewall_driver = "none";
+  # };
+  #
+  # networking.proxy.envVars = {
+  #   NETAVARK_FW = "none";
+  # };
 }
