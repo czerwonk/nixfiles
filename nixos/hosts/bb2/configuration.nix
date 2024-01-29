@@ -27,5 +27,5 @@
     umount /btrfs_mnt
   '';
 
-  networking.nftables.enable = false;
+  #networking.nftables.enable = false;
 }
