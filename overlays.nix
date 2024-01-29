@@ -9,11 +9,6 @@ let
         "openssl-1.1.1w"
       ];
     };
-    overlays = [
-      (self: super: {
-        netavark = pkgs.callPackage ./pkgs/netavark {};
-      })
-    ];
   };
 
   nix-alien-packages = inputs.nix-alien.packages.${system};
