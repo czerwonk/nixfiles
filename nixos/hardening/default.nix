@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./firewall
+    ./firewall.nix
     ./sysctl.nix
     ./services.nix
     ./aide.nix

@@ -1,10 +1,6 @@
 { lib, ... }:
 
 {
-  imports = [
-    ./nftables.nix
-  ];
-
   boot.kernelModules = [
     "nft_fib"
     "nft_fib_inet"
