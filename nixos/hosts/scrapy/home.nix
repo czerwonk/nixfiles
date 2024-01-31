@@ -12,6 +12,9 @@
   suits.hyprland = {
     backlightDevice = "intel_backlight";
     externalMonitor = "HDMI-A-1";
+    extraConfig = ''
+      monitor=eDP-1,preferred,auto,1.5
+    '';
   };
 
   programs.git = {

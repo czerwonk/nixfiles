@@ -54,4 +54,7 @@
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };
+
+  services.custom.openssh-server.enable = true;
+  security.pam.u2f.enable = false;
 }
