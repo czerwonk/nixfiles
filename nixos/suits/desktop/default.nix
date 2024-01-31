@@ -22,7 +22,6 @@
       nix-alien
       remmina
       sublime4
-      teamviewer
       termius
       thunderbird
       veracrypt
@@ -33,6 +32,8 @@
     ];
     extraGroups = [ "wireshark" ];
   };
+
+  services.teamviewer.enable = true;
 
   programs.wireshark.enable = true;
 
