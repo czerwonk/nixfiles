@@ -6,7 +6,7 @@ let
   cfg = config.services.custom.mastodon;
   backup = pkgs.writeShellScriptBin "mastodon-backup" (builtins.readFile ./backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
-  version = "4.2.4";
+  version = "4.2.5";
   env = {
     RAILS_ENV = "production";
     LOCAL_DOMAIN = "routing.rocks";
