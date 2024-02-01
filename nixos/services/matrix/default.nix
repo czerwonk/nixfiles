@@ -34,6 +34,7 @@ in {
       matrix-synapse = {
         autoStart = true;
         extraOptions = [ "--network=matrix" ];
+        user = "991:991";
 
         image = "matrixdotorg/synapse";
 
