@@ -77,8 +77,11 @@ in {
       matrix-whatsapp = {
         autoStart = true;
         extraOptions = [ "--network=matrix" ];
+        user = "1337:1337";
 
         image = "dock.mau.dev/mautrix/whatsapp";
+        cmd = [ "/usr/bin/mautrix-whatsapp" ];
+        workdir = "/data";
 
         volumes = [
           "matrix_whatsapp_data:/data"
