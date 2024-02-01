@@ -23,12 +23,11 @@
   };
 
   fileSystems."/" = { 
-    device = "/dev/disk/by-uuid/e9b4a3f0-5d9e-4e58-bed0-46bb05db181f";
-    fsType = "btrfs";
+    device = "none";
+    fsType = "tmpfs";
     options = [ 
-      "subvol=root"
-      "compress=zstd"
-      "noatime" 
+      "size=4G"
+      "mode=755"
       "nosuid"
       "nodev"
     ];
