@@ -17,7 +17,6 @@
       terrascan
       google-cloud-sdk
       redis
-      hey
       lynis
       perlPackages.JSONPP
       termshark
