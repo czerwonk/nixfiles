@@ -15,6 +15,7 @@
       brave
       calibre
       element-desktop
+      fluent-reader
       gimp
       libreoffice
       mysql-workbench
