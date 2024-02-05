@@ -15,6 +15,11 @@ in {
         type = types.str;
         description = "Password for the PostgreSQL database";
       };
+
+      syncv3Secret = mkOption {
+        type = types.str;
+        description = "Secret for the sliding sync proxy";
+      };
     };
   };
 
@@ -71,6 +76,28 @@ in {
 
         volumes = [
           "matrix_db_data:/var/lib/postgresql/data" 
+        ];
+      };
+
+      matrix-sliding-sync = {
+        autoStart = true;
+        extraOptions = [ "--network=matrix" ];
+        user = "991:991";
+
+        image = "matrixdotorg/sliding-sync";
+
+        environment = {
+          SYNCV3_SERVER = "https://matrix.routing.rocks";
+          SYNCV3_DB = "user=synapse dbname=syncv3 sslmode=disable host=matrix-db password=${cfg.databasePassword}";
+          SYNCV3_SECRET = cfg.syncv3Secret;
+        };
+
+        dependsOn = [
+          "matrix-synapse"
+        ];
+
+        ports = [
+          "127.0.0.1:8009:8008"
         ];
       };
 
@@ -137,7 +164,11 @@ in {
 
       handle /.well-known/matrix/client {
         import matrix-well-known-header
-        respond `{"m.homeserver":{"base_url":"https://matrix.routing.rocks"},"m.identity_server":{"base_url":"https://vector.im"}}`
+        respond `{
+          "m.homeserver": {"base_url": "https://matrix.routing.rocks"},
+          "m.identity_server": {"base_url": "https://vector.im"},
+          "org.matrix.msc3575.proxy": {"url": "https://syncv3.matrix.routing.rocks"}
+        }`
       }
     '';
 
@@ -155,6 +186,10 @@ in {
         X-Robots-Tag none
         -server
       }
+    '';
+
+    services.caddy.virtualHosts."syncv3.matrix.routing.rocks".extraConfig = ''
+      reverse_proxy http://127.0.0.1:8009
     '';
 
     services.caddy.virtualHosts."routing.rocks:8448".extraConfig = ''
