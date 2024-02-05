@@ -6,6 +6,9 @@
       fio
       hey
       sysbench
+      perf
+      bcc
+      bpftrace
     ];
   };
 }
