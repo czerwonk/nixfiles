@@ -37,6 +37,7 @@
         prompt = false;
         nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
       };
+      rerere.enabled = true;
     };
   };
 
