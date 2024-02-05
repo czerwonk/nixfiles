@@ -84,11 +84,11 @@ in {
         extraOptions = [ "--network=matrix" ];
         user = "991:991";
 
-        image = "matrixdotorg/sliding-sync";
+        image = "ghcr.io/matrix-org/sliding-sync";
 
         environment = {
           SYNCV3_SERVER = "https://matrix.routing.rocks";
-          SYNCV3_DB = "user=synapse dbname=syncv3 sslmode=disable host=matrix-db password=${cfg.databasePassword}";
+          SYNCV3_DB = "user=synapse dbname=syncv3 sslmode=disable host=matrix-db password='${cfg.databasePassword}'";
           SYNCV3_SECRET = cfg.syncv3Secret;
         };
 
