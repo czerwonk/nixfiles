@@ -1,3 +1,6 @@
 {
-  programs.tmux.shortcut = "b";
+  programs.tmux = {
+    shortcut = "b";
+    position = "bottom";
+  };
 }
