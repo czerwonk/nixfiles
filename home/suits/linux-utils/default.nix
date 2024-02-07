@@ -3,19 +3,19 @@
 {
   home = {
     packages = with pkgs; [
-      strace
-      iftop
-      iotop
       atop
-      cifs-utils
-      zmap
-      samba
-      pciutils
-      usbutils
-      inotify-tools
-      btrfs-progs
       bcachefs-tools
+      btrfs-progs
+      cifs-utils
+      iftop
+      inotify-tools
+      iotop
       parted
+      pciutils
+      samba
+      strace
+      usbutils
+      zmap
     ];
   };
 }

@@ -7,29 +7,29 @@
 
   home = {
     packages = with pkgs; [
-      podman
-      podman-compose
+      cargo
+      clippy
+      gh
       gnumake
-      tree-sitter
       go
       goreleaser
+      graphviz
+      jsonnet
+      mysql-shell
+      nodejs
+      podman
+      podman-compose
+      protobuf
       protoc-gen-go
       protoc-gen-go-grpc
-      sqlite
-      protobuf
-      jsonnet
-      rustc
-      cargo
-      rustfmt
-      ruby
       python3
-      typescript
-      clippy
       reuse
-      graphviz
-      gh
-      nodejs
-      mysql-shell
+      ruby
+      rustc
+      rustfmt
+      sqlite
+      tree-sitter
+      typescript
     ];
   };
 }

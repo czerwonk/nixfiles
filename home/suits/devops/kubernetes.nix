@@ -3,10 +3,10 @@
 {
   home = {
     packages = with pkgs; [
-      kubectl
       k9s
-      kubernetes-helm
       krew
+      kubectl
+      kubernetes-helm
       stern
     ];
   };

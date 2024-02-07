@@ -3,28 +3,28 @@
 {
   home = {
     packages = with pkgs; [
-      curl
-      vulnix
-      inetutils
       coreutils
+      curl
+      dejavu_fonts
+      du-dust
+      eza
+      fd
       hexyl
       htop
-      wget
+      inetutils
       jq
-      yq
-      yamlfmt
-      tree
-      eza
-      ripgrep
-      fd
-      sd
-      du-dust
-      screen
-      watch
+      meslo-lgs-nf
       openssl
       p7zip
-      dejavu_fonts
-      meslo-lgs-nf
+      ripgrep
+      screen
+      sd
+      tree
+      vulnix
+      watch
+      wget
+      yamlfmt
+      yq
     ];
   };
 }

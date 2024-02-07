@@ -3,16 +3,16 @@
 {
   home = {
     packages = with pkgs; [
+      bgpq4
       dig
       host
-      mtr
-      bgpq4
-      tcptraceroute
+      ipcalc
       iperf
       iperf3
+      mtr
       nmap
-      ipcalc
       tcpdump
+      tcptraceroute
     ];
   };
 }

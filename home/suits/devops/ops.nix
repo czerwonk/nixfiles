@@ -9,18 +9,18 @@
     packages = with pkgs; [
       ansible
       ansible-role
-      sshpass
       dns-drain
-      provisionize
-      vault
-      opentofu
-      terrascan
       google-cloud-sdk
-      redis
       lynis
-      perlPackages.JSONPP
-      termshark
       mysql-shell
+      opentofu
+      perlPackages.JSONPP
+      provisionize
+      redis
+      sshpass
+      termshark
+      terrascan
+      vault
     ];
   };
 }
