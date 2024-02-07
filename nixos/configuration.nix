@@ -18,18 +18,18 @@
 
   boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
-    "wireguard"
     "btrfs"
-    "xfs"
     "ext4"
-    "md"
     "linear"
+    "md"
     "multipath"
     "raid0"
     "raid1"
+    "raid10"
     "raid5"
     "raid6"
-    "raid10"
+    "wireguard"
+    "xfs"
   ];
   boot.swraid = {
     enable = true;
@@ -39,7 +39,7 @@
   environment.defaultPackages = with pkgs; [
     file
     rsync
-    strace
+    neovim
   ];
 
   nix = {
@@ -90,10 +90,10 @@
     gnupg
     lsof
     mdadm
+    neovim
     ntp
     smartmontools
     unzip
-    vim
     wget
     wireguard-tools
   ];
