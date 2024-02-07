@@ -37,6 +37,7 @@
         format-disabled = "";
         interval = 30;
         on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
+        on-click-right = "${pkgs.blueberry}/bin/blueberry";
       };
       clock = {
         timezone = "Europe/Berlin";

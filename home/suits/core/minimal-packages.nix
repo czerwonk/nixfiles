@@ -8,7 +8,6 @@
       inetutils
       coreutils
       hexyl
-      btop
       htop
       wget
       jq
