@@ -12,6 +12,7 @@
     packages = with pkgs; [
       appimage-run
       bitwarden
+      bluetuith
       brave
       calibre
       element-desktop
