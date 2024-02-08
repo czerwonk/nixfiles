@@ -16,6 +16,7 @@
       brave
       calibre
       element-desktop
+      foliate
       gimp
       libreoffice
       mysql-workbench
