@@ -18,6 +18,7 @@
       element-desktop
       foliate
       gimp
+      libation
       libreoffice
       mysql-workbench
       nextcloud-client
