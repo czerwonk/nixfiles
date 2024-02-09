@@ -1,13 +1,15 @@
 {
   imports = [
-    ./nextcloud
-    ./monitoring
-    ./ripe-atlas
-    ./matrix
-    ./mastodon
-    ./openssh-server
-    ./jellyfin
+    ./audiobookshelf
+    ./calibre-web
     ./freshrss
     ./immich
+    ./jellyfin
+    ./mastodon
+    ./matrix
+    ./monitoring
+    ./nextcloud
+    ./openssh-server
+    ./ripe-atlas
   ];
 }
