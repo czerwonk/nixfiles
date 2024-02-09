@@ -41,4 +41,6 @@
   services.custom.nextcloud.enable = true;
   services.custom.freshrss.enable = true;
   services.custom.immich.enable = true;
+  services.custom.calibre-web.enable = true;
+  services.custom.audiobookshelf.enable = true;
 }
