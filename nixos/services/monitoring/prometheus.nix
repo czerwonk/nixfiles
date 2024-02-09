@@ -74,6 +74,8 @@ in {
               "rss.routing.rocks"
               "unifi.routing.rocks/manage/account/login"
               "photos.routing.rocks"
+              "audiobooks.routing.rocks"
+              "books.routing.rocks/login"
             ];
           }];
           relabel_configs = [
