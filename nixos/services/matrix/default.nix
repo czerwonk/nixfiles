@@ -124,7 +124,7 @@ in {
       matrix-db-backup = {
         timerConfig = {
           Unit = "matrix-db-backup.service";
-          OnCalendar = "*-*-* 03:00:00";
+          OnCalendar = "*-*-* 00:00:00";
         };
         wantedBy = [ "timers.target" ];
         partOf = [ "matrix-db-backup.service" ];
