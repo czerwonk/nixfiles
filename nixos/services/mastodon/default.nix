@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.services.custom.mastodon;
-  backup = pkgs.writeShellScriptBin "mastodon-backup" (builtins.readFile ./backup.sh);
+  backup = pkgs.writeShellScriptBin "mastodon-db-backup" (builtins.readFile ./db-backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
   version = "4.2.5";
   env = {
@@ -197,13 +197,13 @@ in {
     };
 
     systemd.timers = {
-      mastodon-backup = {
+      mastodon-db-backup = {
         timerConfig = {
-          Unit = "mastodon-backup.service";
+          Unit = "mastodon-db-backup.service";
           OnCalendar = "*-*-* 00:00:00";
         };
         wantedBy = [ "timers.target" ];
-        partOf = [ "mastodon-backup.service" ];
+        partOf = [ "mastodon-db-backup.service" ];
       };
       mastodon-cleanup = {
         timerConfig = {
@@ -216,8 +216,8 @@ in {
     };
 
     systemd.services = {
-      mastodon-backup = {
-        description = "Mastodon Backup";
+      mastodon-db-backup = {
+        description = "Mastodon Database Backup";
         path = with pkgs; [
           podman
           gzip
@@ -225,7 +225,7 @@ in {
         ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${backup}/bin/mastodon-backup";
+          ExecStart = "${backup}/bin/mastodon-db-backup";
         };
       };
       mastodon-cleanup = {

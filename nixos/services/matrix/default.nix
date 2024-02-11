@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.services.custom.matrix;
-  backup = pkgs.writeShellScriptBin "matrix-backup" (builtins.readFile ./backup.sh);
+  backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in {
   options = {
@@ -121,19 +121,19 @@ in {
     };
 
     systemd.timers = {
-      matrix-backup = {
+      matrix-db-backup = {
         timerConfig = {
-          Unit = "matrix-backup.service";
+          Unit = "matrix-db-backup.service";
           OnCalendar = "*-*-* 03:00:00";
         };
         wantedBy = [ "timers.target" ];
-        partOf = [ "matrix-backup.service" ];
+        partOf = [ "matrix-db-backup.service" ];
       };
     };
 
     systemd.services = {
-      matrix-backup = {
-        description = "Matrix Backup";
+      matrix-db-backup = {
+        description = "Matrix Database Backup";
         path = with pkgs; [
           podman
           podman-compose
@@ -142,7 +142,7 @@ in {
         ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${backup}/bin/matrix-backup";
+          ExecStart = "${backup}/bin/matrix-db-backup";
         };
       };
     };
