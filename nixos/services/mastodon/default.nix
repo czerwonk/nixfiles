@@ -221,7 +221,6 @@ in {
         path = with pkgs; [
           podman
           gzip
-          gnutar
         ];
         serviceConfig = {
           Type = "oneshot";

@@ -138,7 +138,6 @@ in {
           podman
           podman-compose
           gzip
-          gnutar
         ];
         serviceConfig = {
           Type = "oneshot";
