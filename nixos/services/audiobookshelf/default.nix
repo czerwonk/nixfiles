@@ -45,5 +45,16 @@ in {
 
       reverse_proxy * 127.0.0.1:13378
     '';
+
+    services.restic.backups.audiobookshelf = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/audiobookshelf_config"
+        "/var/lib/containers/storage/volumes/audiobookshelf_metadata"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

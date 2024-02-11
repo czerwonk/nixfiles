@@ -284,5 +284,15 @@ in {
 
       encode gzip
     '';
+
+    services.restic.backups.nextcloud = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/nextcloud_aio_nextcloud_data/_data"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

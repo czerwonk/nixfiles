@@ -35,5 +35,15 @@ in {
 
       reverse_proxy * 127.0.0.1:1080
     '';
+
+    services.restic.backups.freshrss = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/freshrss_data/_data/"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

@@ -249,5 +249,17 @@ in {
 
       encode gzip
     '';
+
+    services.restic.backups.mastodon = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/mastodon_system-data/_data/"
+        "/var/lib/containers/storage/volumes/mastodon_redis-data/_data/dump.rdb"
+        "/data/backup/mastodon"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

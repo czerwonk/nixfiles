@@ -53,5 +53,15 @@ in {
 
       reverse_proxy * 127.0.0.1:8096
     '';
+
+    services.restic.backups.jellyfin = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/jellyfin-config/_data/"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

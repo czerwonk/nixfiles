@@ -194,5 +194,17 @@ in {
     services.caddy.virtualHosts."routing.rocks:8448".extraConfig = ''
       reverse_proxy http://127.0.0.1:8008
     '';
+
+    services.restic.backups.matrix = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/matrix_homeserver_data/_data"
+        "/var/lib/containers/storage/volumes/matrix_whatsapp_data/_data"
+        "/data/backup/matrix"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }

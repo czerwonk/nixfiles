@@ -42,5 +42,15 @@ in {
 
       reverse_proxy * 127.0.0.1:8083
     '';
+
+    services.restic.backups.calibre-web = {
+      initialize = true;
+      paths = [
+        "/var/lib/containers/storage/volumes/calibre_config"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+      ];
+    };
   };
 }
