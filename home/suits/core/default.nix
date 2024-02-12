@@ -16,11 +16,11 @@
   home = {
     packages = with pkgs; [
       asciinema
-      slides
+      bitwarden-cli
       octave
       openvpn
+      slides
       wireguard-tools
-      bitwarden-cli
     ];
   };
 }

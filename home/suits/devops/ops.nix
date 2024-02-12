@@ -20,6 +20,7 @@
       sshpass
       termshark
       terrascan
+      trurl
       vault
     ];
   };
