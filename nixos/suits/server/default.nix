@@ -12,6 +12,8 @@
 
   systemd.network.enable = lib.mkDefault true;
 
+  services.dnsmasq.settings.dnssec = false;
+
   environment.systemPackages = with pkgs; [
     wireguard-tools
     restic

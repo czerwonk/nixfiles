@@ -20,7 +20,7 @@
       cache-size = 1000;
       no-hosts = lib.mkDefault true;
       conf-file = "${pkgs.dnsmasq}/share/dnsmasq/trust-anchors.conf";
-      dnssec = true;
+      dnssec = lib.mkDefault true;
       dnssec-check-unsigned = true;
     };
   };
