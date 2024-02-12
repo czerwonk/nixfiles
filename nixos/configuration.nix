@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./hardening
-    ./services
     ./dns.nix
+    ./hardening
     ./impermanence.nix
+    ./services
     ./wrappers.nix
   ];
 
@@ -39,7 +39,7 @@
   environment.defaultPackages = with pkgs; [
     file
     rsync
-    neovim
+    vim
   ];
 
   nix = {
@@ -69,6 +69,11 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+
+  services.journald.extraConfig = ''
+    SystemMaxUse=10000M
+    MaxFileSec=30day
+  '';
 
   services.xserver = {
     layout = "us";
