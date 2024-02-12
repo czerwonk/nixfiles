@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.immich;
+  cfg = config.my.services.immich;
   backup = pkgs.writeShellScriptBin "immich-backup" (builtins.readFile ./backup.sh);
   databaseName = "immich";
   databaseUsername = "postgres";
@@ -19,7 +19,7 @@ let
 
 in {
   options = {
-    services.custom.immich = {
+    my.services.immich = {
       enable = mkEnableOption "Immich - High performance self-hosted photo and video backup solution";
 
       dataDir = mkOption {

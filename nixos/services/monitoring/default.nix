@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.monitoring;
+  cfg = config.my.services.monitoring;
 
 in {
   imports = [
@@ -14,7 +14,7 @@ in {
   ];
 
   options = {
-    services.custom.monitoring = {
+    my.services.monitoring = {
       enable = mkEnableOption "Prometheus Monitoring Stack";
 
       pagerdutyToken = mkOption {

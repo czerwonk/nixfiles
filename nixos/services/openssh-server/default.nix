@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.services.custom.openssh-server;
+  cfg = config.my.services.openssh-server;
 
 in {
   options = {
-    services.custom.openssh-server = {
+    my.services.openssh-server = {
       enable = mkEnableOption "OpenSSH Server";
 
       openFirewall = mkOption {

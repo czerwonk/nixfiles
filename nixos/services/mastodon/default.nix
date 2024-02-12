@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.mastodon;
+  cfg = config.my.services.mastodon;
   backup = pkgs.writeShellScriptBin "mastodon-db-backup" (builtins.readFile ./db-backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
   version = "4.2.5";
@@ -36,7 +36,7 @@ let
 
 in {
   options = {
-    services.custom.mastodon = {
+    my.services.mastodon = {
       enable = mkEnableOption "Mastodon";
 
       vapipPrivateKey = mkOption {

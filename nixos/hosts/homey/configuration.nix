@@ -34,13 +34,13 @@
 
   services.dnsmasq.settings.no-hosts = false;
 
-  services.custom.openssh-server.openFirewall = false;
+  my.services.openssh-server.openFirewall = false;
 
-  services.custom.monitoring.enable = true;
-  services.custom.jellyfin.enable = true;
-  services.custom.nextcloud.enable = true;
-  services.custom.freshrss.enable = true;
-  services.custom.immich.enable = true;
-  services.custom.calibre-web.enable = true;
-  services.custom.audiobookshelf.enable = true;
+  my.services.monitoring.enable = true;
+  my.services.jellyfin.enable = true;
+  my.services.nextcloud.enable = true;
+  my.services.freshrss.enable = true;
+  my.services.immich.enable = true;
+  my.services.calibre-web.enable = true;
+  my.services.audiobookshelf.enable = true;
 }

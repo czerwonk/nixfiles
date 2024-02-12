@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.services.custom.audiobookshelf;
+  cfg = config.my.services.audiobookshelf;
 
 in {
   options = {
-    services.custom.audiobookshelf = {
+    my.services.audiobookshelf = {
       enable = mkEnableOption "Audio Book Shelf";
 
       audiobookDir = mkOption {

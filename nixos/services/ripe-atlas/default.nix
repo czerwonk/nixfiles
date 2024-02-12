@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.ripe-atlas;
+  cfg = config.my.services.ripe-atlas;
   regservers = pkgs.writeScriptBin "reg_servers.sh" ''
     REG_1_HOST=2001:67c:2e8:11::c100:13f6
     REG_2_HOST=2001:67c:2e8:11::c100:13f7
@@ -11,7 +11,7 @@ let
 
 in {
   options = {
-    services.custom.ripe-atlas = {
+    my.services.ripe-atlas = {
       enable = mkEnableOption "RIPE Atlas Probe";
     };
   };

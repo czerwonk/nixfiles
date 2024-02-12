@@ -28,7 +28,7 @@
     umount /btrfs_mnt
   '';
 
-  services.custom.matrix.enable = true;
-  services.custom.mastodon.enable = true;
-  services.custom.ripe-atlas.enable = true;
+  my.services.matrix.enable = true;
+  my.services.mastodon.enable = true;
+  my.services.ripe-atlas.enable = true;
 }

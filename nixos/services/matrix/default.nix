@@ -3,12 +3,12 @@
 with lib;
 
 let
-  cfg = config.services.custom.matrix;
+  cfg = config.my.services.matrix;
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in {
   options = {
-    services.custom.matrix = {
+    my.services.matrix = {
       enable = mkEnableOption "Matrix";
 
       databasePassword = mkOption {

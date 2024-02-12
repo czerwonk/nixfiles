@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.services.custom.calibre-web;
+  cfg = config.my.services.calibre-web;
 
 in {
   options = {
-    services.custom.calibre-web = {
+    my.services.calibre-web = {
       enable = mkEnableOption "Calibre Web";
 
       libraryDir = mkOption {

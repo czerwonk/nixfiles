@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.monitoring;
+  cfg = config.my.services.monitoring;
 
 in {
   config = mkIf cfg.enable {

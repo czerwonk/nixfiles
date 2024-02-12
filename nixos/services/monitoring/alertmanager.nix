@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.custom.monitoring;
+  cfg = config.my.services.monitoring;
 
 in {
   config = mkIf cfg.enable {
@@ -22,7 +22,7 @@ in {
             name = "pagerduty";
             pagerduty_configs = [
               {
-                routing_key = config.services.custom.monitoring.pagerdutyToken;
+                routing_key = config.my.services.monitoring.pagerdutyToken;
                 send_resolved = true;
                 severity = "{{ .GroupLabels.severity }}";
               }

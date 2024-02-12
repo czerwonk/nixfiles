@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.services.custom.jellyfin;
+  cfg = config.my.services.jellyfin;
 
 in {
   options = {
-    services.custom.jellyfin = {
+    my.services.jellyfin = {
       enable = mkEnableOption "Jellyfin Media System";
 
       mediaDir = mkOption {

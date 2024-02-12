@@ -5,11 +5,11 @@ with lib;
 let
   nextcloudDomain = "nextcloud.routing.rocks";
   timezone = "Europe/Berlin";
-  cfg = config.services.custom.nextcloud;
+  cfg = config.my.services.nextcloud;
 
 in {
   options = {
-    services.custom.nextcloud = {
+    my.services.nextcloud = {
       enable = mkEnableOption "Nextcloud (All In One)";
 
       databasePassword = mkOption {

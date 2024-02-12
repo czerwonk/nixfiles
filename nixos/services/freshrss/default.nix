@@ -3,11 +3,11 @@
 with lib;
 
 let
-  cfg = config.services.custom.freshrss;
+  cfg = config.my.services.freshrss;
 
 in {
   options = {
-    services.custom.freshrss = {
+    my.services.freshrss = {
       enable = mkEnableOption "FreshRSS";
     };
   };
