@@ -29,7 +29,6 @@
       rustfmt
       sqlite
       tree-sitter
-      trurl
       typescript
     ];
   };
