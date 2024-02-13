@@ -32,12 +32,14 @@ in {
         [stream]
           enabled = ${if cfg.receiver then "no" else "yes"}
           enable compression = yes
-          destination = tcp:netdata.routing.rocks:443:SSL
+          destination = netdata.routing.rocks
+          default port = 19999
           api key = b0c88ae5-53e1-4ef7-9083-42ec8ef77a18
         ${optionalString (cfg.receiver) ''
 
           [b0c88ae5-53e1-4ef7-9083-42ec8ef77a18]
             enabled = yes
+            allow from = 2001:678:1e0::/48
             default history = 3600
             default memory mode = dbengine
             health enabled by default = auto
