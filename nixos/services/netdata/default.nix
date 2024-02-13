@@ -41,7 +41,6 @@ in {
             default history = 3600
             default memory mode = dbengine
             health enabled by default = auto
-            allow from = 2001:678:1e0::/48
         ''}
       '';
     };
