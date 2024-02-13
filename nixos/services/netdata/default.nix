@@ -30,7 +30,7 @@ in {
       };
       configDir."stream.conf" = pkgs.writeText "stream.conf" ''
         [stream]
-          enabled = yes
+          enabled = ${if cfg.receiver then "no" else "yes"}
           enable compression = yes
           destination = tcp:netdata.routing.rocks:443:SSL
           api key = b0c88ae5-53e1-4ef7-9083-42ec8ef77a18
