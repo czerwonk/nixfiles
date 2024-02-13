@@ -29,6 +29,7 @@ in {
         };
       };
       configDir."stream.conf" = pkgs.writeText "stream.conf" ''
+        [stream]
         enabled = yes
         enable compression = yes
         destination = netdata.routing.rocks:19999
