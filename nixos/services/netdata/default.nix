@@ -38,7 +38,7 @@ in {
 
           [b0c88ae5-53e1-4ef7-9083-42ec8ef77a18]
             enabled = yes
-            allow from = 2001:678:1e0::/48
+            allow from = 2001:678:1e0:*
             default history = 3600
             default memory mode = dbengine
             health enabled by default = auto
