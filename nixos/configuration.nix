@@ -18,6 +18,7 @@
 
   boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
+    "af_packet"
     "btrfs"
     "ext4"
     "linear"
