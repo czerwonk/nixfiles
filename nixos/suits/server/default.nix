@@ -4,7 +4,6 @@
   imports = [
     ./hardening.nix
     ./impermanence.nix
-    ./netdata.nix
     ./sysctl.nix
   ];
 
