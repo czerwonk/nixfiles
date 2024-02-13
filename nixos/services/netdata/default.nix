@@ -31,7 +31,6 @@ in {
       configDir."stream.conf" = pkgs.writeText "stream.conf" ''
         [stream]
           enabled = ${if cfg.receiver then "no" else "yes"}
-          enable compression = yes
           destination = netdata.routing.rocks
           default port = 19999
           api key = b0c88ae5-53e1-4ef7-9083-42ec8ef77a18
