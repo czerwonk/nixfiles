@@ -41,7 +41,7 @@ in {
         extraOptions = [ "--network=matrix" ];
         user = "991:991";
 
-        image = "matrixdotorg/synapse";
+        image = "matrixdotorg/synapse:v1.101.0";
 
         environment = {
           SYNAPSE_SERVER_NAME = "matrix.routing.rocks";
