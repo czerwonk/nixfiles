@@ -30,18 +30,18 @@ in {
       };
       configDir."stream.conf" = pkgs.writeText "stream.conf" ''
         [stream]
-        enabled = yes
-        enable compression = yes
-        destination = netdata.routing.rocks:19999
-        api key = b0c88ae5-53e1-4ef7-9083-42ec8ef77a18
+          enabled = yes
+          enable compression = yes
+          destination = tcp:netdata.routing.rocks:443:SSL
+          api key = b0c88ae5-53e1-4ef7-9083-42ec8ef77a18
         ${optionalString (cfg.receiver) ''
 
           [b0c88ae5-53e1-4ef7-9083-42ec8ef77a18]
-          enabled = yes
-          default history = 3600
-          default memory mode = dbengine
-          health enabled by default = auto
-          allow from = 2001:678:1e0::/48
+            enabled = yes
+            default history = 3600
+            default memory mode = dbengine
+            health enabled by default = auto
+            allow from = 2001:678:1e0::/48
         ''}
       '';
     };
