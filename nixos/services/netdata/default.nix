@@ -7,9 +7,9 @@ let
 
 in {
   options = {
-    enable = mkEnableOption "Netdata Monitoring";
+    my.services.netdata.enable = mkEnableOption "Netdata Monitoring";
 
-    receiver = mkOption {
+    my.services.netdata.receiver = mkOption {
       type = types.bool;
       default = false;
       description = "Wether the node should receive metrics from other senders";
