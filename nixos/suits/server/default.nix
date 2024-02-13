@@ -2,9 +2,10 @@
 
 {
   imports = [
-    ./sysctl.nix
     ./hardening.nix
     ./impermanence.nix
+    ./netdata.nix
+    ./sysctl.nix
   ];
 
   networking.useNetworkd = lib.mkDefault true;
@@ -47,4 +48,6 @@
     enable = lib.mkDefault true;
     openFirewall = lib.mkDefault true;
   };
+
+  my.services.netdata.enable = true;
 }

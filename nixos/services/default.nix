@@ -8,6 +8,7 @@
     ./mastodon
     ./matrix
     ./monitoring
+    ./netdata
     ./nextcloud
     ./openssh-server
     ./ripe-atlas

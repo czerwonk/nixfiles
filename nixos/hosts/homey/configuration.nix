@@ -43,4 +43,6 @@
   my.services.immich.enable = true;
   my.services.calibre-web.enable = true;
   my.services.audiobookshelf.enable = true;
+
+  my.services.netdata.receiver = true;
 }
