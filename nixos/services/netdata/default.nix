@@ -12,7 +12,7 @@ in {
     my.services.netdata.receiver = mkOption {
       type = types.bool;
       default = false;
-      description = "Wether the node should receive metrics from other senders";
+      description = "Wether the node should receive metrics from other nodes";
     };
   };
 
@@ -28,7 +28,7 @@ in {
           "accept a streaming request every seconds" = 0;
         };
       };
-      configDir."stream.conf" = ''
+      configDir."stream.conf" = pkgs.writeText "stream.conf" ''
         enabled = yes
         enable compression = yes
         destination = netdata.routing.rocks:19999
