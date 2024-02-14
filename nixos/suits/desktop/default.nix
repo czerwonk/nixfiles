@@ -13,6 +13,7 @@
   programs.firejail.wrappedBinaries = {
     brave = {
       executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
+      desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
       profile = pkgs.writeText "brave.local" ''
         noblacklist ''${DOWNLOADS}
         whitelist ''${DOWNLOADS}

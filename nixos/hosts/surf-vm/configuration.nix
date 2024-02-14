@@ -33,10 +33,19 @@
     description = lib.mkForce "";
     packages = with pkgs; [
       gnome.gnome-tweaks
-      brave
       wgnord
       linuxKernel.packages.linux_hardened.virtualboxGuestAdditions
     ];
+  };
+
+  security.chromiumSuidSandbox.enable = true;
+
+  programs.firejail.wrappedBinaries = {
+    brave = {
+      executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
+      desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/brave.profile";
+    };
   };
 
   boot.kernel.sysctl = {
