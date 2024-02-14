@@ -118,6 +118,24 @@ in {
           "matrix-synapse"
         ];
       };
+
+      matrix-slack = {
+        autoStart = true;
+        extraOptions = [ "--network=matrix" ];
+        user = "1337:1337";
+
+        image = "dock.mau.dev/mautrix/slack";
+        cmd = [ "/usr/bin/mautrix-slack" ];
+        workdir = "/data";
+
+        volumes = [
+          "matrix_slack_data:/data"
+        ];
+
+        dependsOn = [
+          "matrix-synapse"
+        ];
+      };
     };
 
     systemd.timers = {
@@ -200,6 +218,7 @@ in {
       paths = [
         "/var/lib/containers/storage/volumes/matrix_homeserver_data/_data"
         "/var/lib/containers/storage/volumes/matrix_whatsapp_data/_data"
+        "/var/lib/containers/storage/volumes/matrix_slack_data/_data"
         "/data/backup/matrix"
       ];
       pruneOpts = [
