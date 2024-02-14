@@ -35,7 +35,7 @@ in {
       baseIndex = 1;
       clock24 = true;
       historyLimit = 10000;
-      mouse = false;
+      mouse = mkDefault false;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [
         tmux-fzf
