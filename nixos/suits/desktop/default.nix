@@ -25,6 +25,7 @@
       nix-alien
       remmina
       sublime4
+      teams-for-linux
       termius
       thunderbird
       veracrypt
