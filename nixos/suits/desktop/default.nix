@@ -20,6 +20,11 @@
         include brave.profile
       '';
     };
+    thunderbird = {
+      executable = "${pkgs.lib.getBin pkgs.thunderbird}/bin/thunderbird";
+      desktop = "${pkgs.thunderbird}/share/applications/thunderbird.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/thunderbird.profile";
+    };
   };
 
   users.users.${username} = {
@@ -40,7 +45,6 @@
       sublime4
       teams-for-linux
       termius
-      thunderbird
       veracrypt
       virt-viewer
       vlc
