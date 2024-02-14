@@ -64,7 +64,7 @@ in {
       exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
       exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
       exec-once = [workspace 2] ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux a
-      exec-once = [workspace 3 silent] ${pkgs.brave}/bin/brave
+      exec-once = [workspace 3 silent] /run/current-system/sw/bin/brave
       exec-once = [workspace 4 silent] ${pkgs.thunderbird}/bin/thunderbird
       exec-once = [workspace 5 silent] ${pkgs.element-desktop}/bin/element-desktop
       exec-once = sleep 1; ${pkgs.nextcloud-client}/bin/nextcloud --background
@@ -80,7 +80,7 @@ in {
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, ${screenshot}/bin/screenshot
       bind = $mainMod, F, fullscreen,
-      bind = $mainMod, B, exec, ${pkgs.brave}/bin/brave
+      bind = $mainMod, B, exec, /run/current-system/sw/bin/brave
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock

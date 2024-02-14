@@ -8,12 +8,24 @@
     ./impermanence.nix
   ];
 
+  security.chromiumSuidSandbox.enable = true;
+
+  programs.firejail.wrappedBinaries = {
+    brave = {
+      executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
+      profile = pkgs.writeText "brave.local" ''
+        noblacklist ''${DOWNLOADS}
+        whitelist ''${DOWNLOADS}
+        include brave.profile
+      '';
+    };
+  };
+
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
       bitwarden
       blueberry
-      brave
       calibre
       element-desktop
       foliate

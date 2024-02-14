@@ -30,6 +30,8 @@
   security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
 
+  programs.firejail.enable = true;
+
   boot.kernelParams = [
     # Slab/slub sanity checks, redzoning, and poisoning
     "slub_debug=FZP"
