@@ -25,6 +25,11 @@
       desktop = "${pkgs.thunderbird}/share/applications/thunderbird.desktop";
       profile = "${pkgs.firejail}/etc/firejail/thunderbird.profile";
     };
+    element-desktop = {
+      executable = "${pkgs.lib.getBin pkgs.element-desktop}/bin/element-desktop";
+      desktop = "${pkgs.element-desktop}/share/applications/element-desktop.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
+    };
   };
 
   users.users.${username} = {
@@ -33,7 +38,6 @@
       bitwarden
       blueberry
       calibre
-      element-desktop
       foliate
       gimp
       libation

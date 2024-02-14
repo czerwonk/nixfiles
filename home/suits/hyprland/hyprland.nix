@@ -66,7 +66,7 @@ in {
       exec-once = [workspace 2] ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux a
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/brave
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
-      exec-once = [workspace 5 silent] ${pkgs.element-desktop}/bin/element-desktop
+      exec-once = [workspace 5 silent] /run/current-system/sw/bin/element-desktop
       exec-once = sleep 1; ${pkgs.nextcloud-client}/bin/nextcloud --background
 
       $mainMod = SUPER
