@@ -67,6 +67,8 @@ in {
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/brave
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
       exec-once = [workspace 5 silent] /run/current-system/sw/bin/element-desktop
+      exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
+      exec-once = [workspace 10 silent] ${pkgs.bitwarden}/bin/bitwarden
       exec-once = sleep 1; ${pkgs.nextcloud-client}/bin/nextcloud --background
 
       $mainMod = SUPER

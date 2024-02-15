@@ -30,6 +30,11 @@
       desktop = "${pkgs.element-desktop}/share/applications/element-desktop.desktop";
       profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
     };
+    teams-for-linux = {
+      executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
+      desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/teams-for-linux.profile";
+    };
   };
 
   users.users.${username} = {
@@ -47,7 +52,6 @@
       nix-alien
       remmina
       sublime4
-      teams-for-linux
       termius
       veracrypt
       virt-viewer
