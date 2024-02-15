@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  security.allowUserNamespaces = true;
+
   virtualisation = {
     podman = {
       enable = true;

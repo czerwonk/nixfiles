@@ -38,7 +38,10 @@ in {
     virtualisation.oci-containers.containers = {
       matrix-synapse = {
         autoStart = true;
-        extraOptions = [ "--network=matrix" ];
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=matrix"
+        ];
         user = "991:991";
 
         image = "matrixdotorg/synapse:v1.101.0";
@@ -63,7 +66,10 @@ in {
 
       matrix-db = {
         autoStart = true;
-        extraOptions = [ "--network=matrix" ];
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=matrix"
+        ];
 
         image = "postgres";
 
@@ -81,7 +87,10 @@ in {
 
       matrix-sliding-sync = {
         autoStart = true;
-        extraOptions = [ "--network=matrix" ];
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=matrix"
+        ];
         user = "991:991";
 
         image = "ghcr.io/matrix-org/sliding-sync";
@@ -103,7 +112,10 @@ in {
 
       matrix-whatsapp = {
         autoStart = true;
-        extraOptions = [ "--network=matrix" ];
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=matrix"
+        ];
         user = "1337:1337";
 
         image = "dock.mau.dev/mautrix/whatsapp";
@@ -121,7 +133,10 @@ in {
 
       matrix-slack = {
         autoStart = true;
-        extraOptions = [ "--network=matrix" ];
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=matrix"
+        ];
         user = "1337:1337";
 
         image = "dock.mau.dev/mautrix/slack";
