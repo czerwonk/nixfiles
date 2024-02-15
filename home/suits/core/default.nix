@@ -3,14 +3,15 @@
 {
   imports = [
     ./minimal-packages.nix
-    ../../programs/git
-    ../../programs/tmux
-    ../../programs/ssh
-    ../../programs/gpg
-    ../../programs/zsh
-    ../../programs/vim
-    ../../programs/fzf
     ../../programs/bat
+    ../../programs/fzf
+    ../../programs/git
+    ../../programs/gpg
+    ../../programs/ssh
+    ../../programs/tmux
+    ../../programs/vim
+    ../../programs/zsh
+    ../../programs/zoxide
   ];
 
   home = {
