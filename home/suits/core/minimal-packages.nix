@@ -20,7 +20,6 @@
       screen
       sd
       tree
-      vulnix
       watch
       wget
       yamlfmt
