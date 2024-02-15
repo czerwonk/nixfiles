@@ -1,9 +1,10 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib;
 
 let
   cfg = config.my.services.calibre-web;
+  version = "0.6.21";
 
 in {
   options = {
@@ -21,14 +22,21 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       calibre-web = {
-        image = "lscr.io/linuxserver/calibre-web";
+        image = "lscr.io/linuxserver/calibre-web:${version}";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+        ];
+
         environment = {
           PUID = "1000";
           PGID = "1000";
           TZ = "Europe/Berlin";
         };
-        autoStart = true;
+
         ports = [ "127.0.0.1:8083:8083" ];
+
         volumes = [
           "${cfg.libraryDir}:/books:ro"
           "calibre_config:/config"

@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.matrix;
+  version = "v1.101.0";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in {
@@ -44,7 +45,7 @@ in {
         ];
         user = "991:991";
 
-        image = "matrixdotorg/synapse:v1.101.0";
+        image = "matrixdotorg/synapse:${version}";
 
         environment = {
           SYNAPSE_SERVER_NAME = "matrix.routing.rocks";

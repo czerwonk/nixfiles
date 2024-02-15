@@ -1,9 +1,10 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib;
 
 let
   cfg = config.my.services.audiobookshelf;
+  version = "2.7.2";
 
 in {
   options = {
@@ -21,16 +22,23 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       audiobookshelf = {
-        image = "ghcr.io/advplyr/audiobookshelf";
+        image = "ghcr.io/advplyr/audiobookshelf:${version}";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+        ];
         user = "1000";
+
         environment = {
           TZ = "Europe/Berlin";
           PORT = "13378";
           AUDIOBOOKSHELF_UID = "1000";
           AUDIOBOOKSHELF_GID = "1000";
         };
-        autoStart = true;
+
         ports = [ "127.0.0.1:13378:13378" ];
+
         volumes = [
           "${cfg.audiobookDir}:/audiobooks:ro"
           "audiobookshelf_config:/config"

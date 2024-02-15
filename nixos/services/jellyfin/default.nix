@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.jellyfin;
+  version = "10.8.13";
 
 in {
   options = {
@@ -27,18 +28,22 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       jellyfin = {
-        image = "lscr.io/linuxserver/jellyfin";
+        image = "lscr.io/linuxserver/jellyfin:${version}";
+
+        autoStart = true;
+
         environment = {
           PUID = "1000";
           PGID = "1000";
           TZ = "Europe/Berlin";
           JELLYFIN_PublishedServerUrl = cfg.publishServerUrl;
         };
-        autoStart = true;
-        ports = [ "127.0.0.1:8096:8096" ];
         labels = {
           "io.containers.autoupdate" = "registry";
         };
+
+        ports = [ "127.0.0.1:8096:8096" ];
+
         volumes = [
           "${cfg.mediaDir}:/media:ro"
           "jellyfin-config:/config:Z"

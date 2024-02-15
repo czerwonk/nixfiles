@@ -55,8 +55,11 @@ in {
 
     virtualisation.oci-containers.containers = {
       nextcloud-aio-apache = {
+        image = "nextcloud/aio-apache";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
@@ -65,8 +68,6 @@ in {
           "--mount=type=tmpfs,destination=/usr/local/apache2/logs,rw=true"
           "--mount=type=tmpfs,destination=/home/www-data,rw=true"
         ];
-
-        image = "nextcloud/aio-apache";
 
         environment = {
           NC_DOMAIN = "${nextcloudDomain}";
@@ -89,15 +90,16 @@ in {
       };
 
       nextcloud-aio-database = {
+        image = "nextcloud/aio-postgresql";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--shm-size=268435456"
           "--mount=type=tmpfs,destination=/var/run/postgresql,rw=true"
         ];
-
-        image = "nextcloud/aio-postgresql";
 
         environment = {
           POSTGRES_USER = "nextcloud";
@@ -114,12 +116,13 @@ in {
       };
 
       nextcloud-aio-nextcloud = {
+        image = "nextcloud/aio-nextcloud";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
         ];
-
-        image = "nextcloud/aio-nextcloud";
 
         environment = {
           TZ = "${timezone}";
@@ -168,13 +171,14 @@ in {
       };
 
       nextcloud-aio-redis = {
+        image = "nextcloud/aio-redis";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
         ];
-
-        image = "nextcloud/aio-redis";
 
         environment = {
           TZ = "${timezone}";
@@ -187,16 +191,17 @@ in {
       };
 
       nextcloud-aio-clamav = {
+        image = "nextcloud/aio-clamav";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
           "--mount=type=tmpfs,destination=/var/lock,rw=true"
           "--mount=type=tmpfs,destination=/var/log/clamav,rw=true"
         ];
-
-        image = "nextcloud/aio-clamav";
 
         environment = {
           TZ = "${timezone}";
@@ -209,13 +214,14 @@ in {
       };
 
       nextcloud-aio-notify-push = {
+        image = "nextcloud/aio-notify-push";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
         ];
-
-        image = "nextcloud/aio-notify-push";
 
         environment = {
           NC_DOMAIN = "${nextcloudDomain}";
@@ -234,15 +240,16 @@ in {
       };
 
       nextcloud-aio-imaginary = {
+        image = "nextcloud/aio-imaginary";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
           "--cap-add=SYS_NICE"
         ];
-
-        image = "nextcloud/aio-imaginary";
 
         environment = {
           TZ = "${timezone}";
@@ -250,12 +257,13 @@ in {
       };
 
       nextcloud-aio-fulltextsearch = {
+        image = "nextcloud/aio-fulltextsearch";
+
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
         ];
-
-        image = "nextcloud/aio-fulltextsearch";
 
         environment = {
           TZ = "${timezone}";

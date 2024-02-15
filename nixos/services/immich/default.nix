@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.immich;
+  version = "v1.94.1";
   backup = pkgs.writeShellScriptBin "immich-backup" (builtins.readFile ./backup.sh);
   databaseName = "immich";
   databaseUsername = "postgres";
@@ -36,30 +37,35 @@ in {
   };
 
   config = mkIf cfg.enable {
-    systemd.services.podman-create-immmich-pod = {
+    systemd.services.podman-create-immmich-net = {
       serviceConfig.Type = "oneshot";
-      wantedBy = [ "podman-immich-server.service" ];
+      wantedBy = [ "podman-immich_server.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman pod exists immich || podman pod create -n immich -p '127.0.0.1:3001:3001'
+        podman network exists immich || podman network create immich
       '';
     };
 
     virtualisation.oci-containers.containers = {
       immich_server = {
-        autoStart = true;
-        extraOptions = [ "--pod=immich" ];
-        user = "1000";
-
-        image = "ghcr.io/immich-app/immich-server:release";
+        image = "ghcr.io/immich-app/immich-server:${version}";
         entrypoint = "/usr/src/app/start.sh";
         cmd = [ "immich" ];
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
+        user = "1000";
 
         environment = environment;
 
         volumes = [
           "${cfg.dataDir}:/usr/src/app/upload" 
         ];
+
+        ports = [ "127.0.0.1:3001:3001" ];
 
         dependsOn = [
           "immich_postgres"
@@ -68,13 +74,16 @@ in {
       };
 
       immich_microservices = {
-        autoStart = true;
-        extraOptions = [ "--pod=immich" ];
-        user = "1000";
-
-        image = "ghcr.io/immich-app/immich-server:release";
+        image = "ghcr.io/immich-app/immich-server:${version}";
         entrypoint = "/usr/src/app/start.sh";
         cmd = [ "microservices" ];
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
+        user = "1000";
 
         environment = environment;
 
@@ -89,11 +98,14 @@ in {
       };
 
       immich_machine_learning = {
-        autoStart = true;
-        extraOptions = [ "--pod=immich" ];
-        user = "1000";
+        image = "ghcr.io/immich-app/immich-machine-learning:${version}";
 
-        image = "ghcr.io/immich-app/immich-machine-learning:release";
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
+        user = "1000";
 
         environment = environment;
 
@@ -103,10 +115,13 @@ in {
       };
 
       immich_redis = {
-        autoStart = true;
-        extraOptions = [ "--pod=immich" ];
-
         image = "redis:6.2-alpine@sha256:c5a607fb6e1bb15d32bbcf14db22787d19e428d59e31a5da67511b49bb0f1ccc";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
 
         environment = {
           TZ = "Europe/Berlin";
@@ -114,10 +129,13 @@ in {
       };
 
       immich_postgres = {
-        autoStart = true;
-        extraOptions = [ "--pod=immich" ];
-
         image = "tensorchord/pgvecto-rs:pg14-v0.1.11@sha256:0335a1a22f8c5dd1b697f14f079934f5152eaaa216c09b61e293be285491f8ee";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
 
         environment = {
           POSTGRES_PASSWORD = cfg.databasePassword;

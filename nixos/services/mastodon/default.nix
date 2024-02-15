@@ -4,9 +4,9 @@ with lib;
 
 let
   cfg = config.my.services.mastodon;
+  version = "4.2.6";
   backup = pkgs.writeShellScriptBin "mastodon-db-backup" (builtins.readFile ./db-backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
-  version = "4.2.6";
   env = {
     RAILS_ENV = "production";
     LOCAL_DOMAIN = "routing.rocks";

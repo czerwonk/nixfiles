@@ -28,6 +28,8 @@ in {
 
     virtualisation.oci-containers.containers = {
       ripe-atlas = {
+        image = "jamesits/ripe-atlas";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
@@ -35,8 +37,6 @@ in {
           "--cap-drop=all"
           "--cap-add=CHOWN,SETUID,SETGID,DAC_OVERRIDE,NET_RAW"
         ];
-
-        image = "jamesits/ripe-atlas";
 
         environment = {
           RXTXRPT = "yes";
