@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./sysctl.nix
@@ -14,8 +16,11 @@
 
   virtualisation.oci-containers.containers = {
     routinator = {
-      image = "nlnetlabs/routinator";
       autoStart = true;
+      image = "nlnetlabs/routinator";
+      extraOptions = [
+        "--runtime=${pkgs.gvisor}/bin/runsc"
+      ];
       ports = [ "127.0.0.1:3323:3323" ];
     };
   };

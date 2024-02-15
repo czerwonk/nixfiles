@@ -74,6 +74,7 @@ in {
       mastodon-db = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--shm-size=268435456"
         ];
@@ -92,6 +93,7 @@ in {
       mastodon-redis = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
 
@@ -105,6 +107,7 @@ in {
       mastodon-web = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
 
@@ -131,6 +134,7 @@ in {
       mastodon-streaming = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
 
@@ -148,6 +152,7 @@ in {
       mastodon-sidekiq = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--cap-add=NET_BIND_SERVICE"
         ];
@@ -170,6 +175,7 @@ in {
       mastodon-es = {
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--ulimit=memlock=-1:-1"
           "--ulimit=nofile=65536:65536"
