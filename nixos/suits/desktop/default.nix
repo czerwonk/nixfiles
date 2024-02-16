@@ -33,7 +33,10 @@
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
       desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/teams-for-linux.profile";
+      profile = pkgs.writeText "teams-for-linux.local" ''
+        ignore novideo
+        include teams-for-linux.profile
+      '';
     };
   };
 
