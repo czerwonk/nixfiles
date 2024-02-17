@@ -2,6 +2,7 @@
   imports = [
     ./audiobookshelf
     ./calibre-web
+    ./forgejo
     ./freshrss
     ./immich
     ./jellyfin
