@@ -29,7 +29,7 @@ in {
         };
 
         ports = [
-          "127.0.0.1:3000:3000"
+          "127.0.0.1:3003:3000"
           "2222:22"
         ];
 
@@ -43,7 +43,7 @@ in {
       @blocked not remote_ip 2001:678:1e0::/48
       abort @blocked
 
-      reverse_proxy * 127.0.0.1:3000
+      reverse_proxy * 127.0.0.1:3003
     '';
 
     services.restic.backups.forgejo = {
