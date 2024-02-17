@@ -72,14 +72,14 @@ in {
 
     virtualisation.oci-containers.containers = {
       mastodon-db = {
+        image = "postgres:14-alpine";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--shm-size=268435456"
         ];
-
-        image = "postgres:14-alpine";
 
         environment = {
           POSTGRES_HOST_AUTH_METHOD = "trust";
@@ -91,13 +91,13 @@ in {
       };
 
       mastodon-redis = {
+        image = "redis:7-alpine";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
-
-        image = "redis:7-alpine";
 
         volumes = [
           "mastodon_redis-data:/data"
@@ -105,14 +105,14 @@ in {
       };
 
       mastodon-web = {
+        image = "ghcr.io/mastodon/mastodon:v${version}";
+        cmd = [ "bundle" "exec" "puma" "-C" "config/puma.rb" ];
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
-
-        image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "bundle" "exec" "puma" "-C" "config/puma.rb" ];
 
         environment = env;
 
@@ -132,14 +132,14 @@ in {
       };
 
       mastodon-streaming = {
+        image = "ghcr.io/mastodon/mastodon:v${version}";
+        cmd = [ "node" "./streaming" ];
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
-
-        image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "node" "./streaming" ];
 
         environment = env;
 
@@ -150,15 +150,15 @@ in {
       };
 
       mastodon-sidekiq = {
+        image = "ghcr.io/mastodon/mastodon:v${version}";
+        cmd = [ "bundle" "exec" "sidekiq" ];
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--cap-add=NET_BIND_SERVICE"
         ];
-
-        image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "bundle" "exec" "sidekiq" ];
 
         environment = env;
 
@@ -173,6 +173,8 @@ in {
       };
 
       mastodon-es = {
+        image = "docker.elastic.co/elasticsearch/elasticsearch:7.17.4";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
@@ -180,8 +182,6 @@ in {
           "--ulimit=memlock=-1:-1"
           "--ulimit=nofile=65536:65536"
         ];
-
-        image = "docker.elastic.co/elasticsearch/elasticsearch:7.17.4";
 
         environment = {
           ES_JAVA_OPTS = "-Xms512m -Xmx512m -Des.enforce.bootstrap.checks=true";

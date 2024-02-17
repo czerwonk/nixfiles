@@ -38,14 +38,14 @@ in {
 
     virtualisation.oci-containers.containers = {
       matrix-synapse = {
+        image = "matrixdotorg/synapse:${version}";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";
-
-        image = "matrixdotorg/synapse:${version}";
 
         environment = {
           SYNAPSE_SERVER_NAME = "matrix.routing.rocks";
@@ -66,13 +66,13 @@ in {
       };
 
       matrix-db = {
+        image = "postgres";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
-
-        image = "postgres";
 
         environment = {
           POSTGRES_PASSWORD = cfg.databasePassword;
@@ -87,14 +87,14 @@ in {
       };
 
       matrix-sliding-sync = {
+        image = "ghcr.io/matrix-org/sliding-sync";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";
-
-        image = "ghcr.io/matrix-org/sliding-sync";
 
         environment = {
           SYNCV3_SERVER = "https://matrix.routing.rocks";
@@ -112,16 +112,16 @@ in {
       };
 
       matrix-whatsapp = {
+        image = "dock.mau.dev/mautrix/whatsapp";
+        cmd = [ "/usr/bin/mautrix-whatsapp" ];
+        workdir = "/data";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "1337:1337";
-
-        image = "dock.mau.dev/mautrix/whatsapp";
-        cmd = [ "/usr/bin/mautrix-whatsapp" ];
-        workdir = "/data";
 
         volumes = [
           "matrix_whatsapp_data:/data"
@@ -133,16 +133,16 @@ in {
       };
 
       matrix-slack = {
+        image = "dock.mau.dev/mautrix/slack";
+        cmd = [ "/usr/bin/mautrix-slack" ];
+        workdir = "/data";
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "1337:1337";
-
-        image = "dock.mau.dev/mautrix/slack";
-        cmd = [ "/usr/bin/mautrix-slack" ];
-        workdir = "/data";
 
         volumes = [
           "matrix_slack_data:/data"
