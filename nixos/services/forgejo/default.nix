@@ -34,7 +34,7 @@ in {
         ];
 
         volumes = [
-          "forgejo-data:/data:ro"
+          "forgejo-data:/data"
         ];
       };
     };
