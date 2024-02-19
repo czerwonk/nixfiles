@@ -33,7 +33,7 @@ in {
         };
 
         ports = [
-          "127.0.0.1:8080:80"
+          "127.0.0.1:8082:80"
           "${cfg.dnsBindAddress}:53:53/tcp"
           "${cfg.dnsBindAddress}:53:53/udp"
         ];
@@ -48,7 +48,7 @@ in {
       @blocked not remote_ip 2001:678:1e0::/48
       abort @blocked
 
-      reverse_proxy * 127.0.0.1:8080
+      reverse_proxy * 127.0.0.1:8082
     '';
 
     services.restic.backups.pihole = {
