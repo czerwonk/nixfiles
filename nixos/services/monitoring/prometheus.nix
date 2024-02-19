@@ -76,6 +76,7 @@ in {
               "photos.routing.rocks"
               "audiobooks.routing.rocks"
               "books.routing.rocks/login"
+              "code.routing.rocks"
             ];
           }];
           relabel_configs = [
@@ -86,7 +87,7 @@ in {
             }
             {
               source_labels = [ "__address__" ];
-              regex = "^(.*)(/.*)?";
+              regex = "^([^/]+)(/.*)?";
               target_label = "instance";
             }
             {
