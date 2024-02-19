@@ -14,11 +14,16 @@
     brave = {
       executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
-      profile = pkgs.writeText "brave.local" ''
+      profile = pkgs.writeText "brave-browser.local" ''
         noblacklist ''${DOWNLOADS}
         whitelist ''${DOWNLOADS}
-        include brave.profile
+        ignore nou2f
+        include brave-browser.profile
       '';
+      extraArgs = [
+        # Enable system notifications
+        "--dbus-user.talk=org.freedesktop.Notifications"
+      ];
     };
     thunderbird = {
       executable = "${pkgs.lib.getBin pkgs.thunderbird}/bin/thunderbird";
