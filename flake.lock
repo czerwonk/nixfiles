@@ -194,17 +194,17 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1708180104,
-        "narHash": "sha256-7jaH6sW9rsNe0k+t7YhMZo5Scqt/L28qftGAh1/jYvc=",
+        "lastModified": 1708331045,
+        "narHash": "sha256-Usksgyk95Xq0XJB1CMkbypk/1w3OOyO75FXrVU+WWgg=",
         "ref": "refs/heads/main",
-        "rev": "d4fa526d4d8a6ea98e6050eef64b55b8cbc3da3d",
-        "revCount": 251,
+        "rev": "f3a1982da0069d6b49566f5ae1f658ecebff5692",
+        "revCount": 252,
         "type": "git",
-        "url": "ssh://git@github.com/czerwonk/nixfiles.private"
+        "url": "ssh://git@code.routing.rocks:22/daniel/nixfiles.private"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@github.com/czerwonk/nixfiles.private"
+        "url": "ssh://git@code.routing.rocks:22/daniel/nixfiles.private"
       }
     },
     "root": {
