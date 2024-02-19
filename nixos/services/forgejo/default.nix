@@ -14,6 +14,15 @@ in {
   };
 
   config = mkIf cfg.enable {
+    systemd.services.podman-create-forgejo-net = {
+      serviceConfig.Type = "oneshot";
+      wantedBy = [ "podman-forgejo.service" ];
+      path = [ pkgs.podman ];
+      script = ''
+        podman network exists forgejo || podman network create forgejo --ipv6
+      '';
+    };
+
     virtualisation.oci-containers.containers = {
       forgejo = {
         image = "codeberg.org/forgejo/forgejo:${version}";
@@ -21,6 +30,7 @@ in {
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=forgejo"
         ];
         user = "1000:1000";
 
@@ -29,8 +39,8 @@ in {
         };
 
         ports = [
-          "127.0.0.1:3003:3000"
-          "[::]:22:2222"
+          "3003:3000"
+          "22:2222"
         ];
 
         volumes = [
