@@ -39,7 +39,8 @@ in {
         ];
 
         volumes = [
-          "pihole_data:/config"
+          "pihole_config:/etc/pihole"
+          "pihole_dnsmasq:/etc/dnsmasq.d"
         ];
       };
     };
@@ -55,6 +56,7 @@ in {
       initialize = true;
       paths = [
         "/var/lib/containers/storage/volumes/pihole_config/_data/"
+        "/var/lib/containers/storage/volumes/pihole_dnsmasq/_data/"
       ];
       pruneOpts = [
         "--keep-daily 7"
