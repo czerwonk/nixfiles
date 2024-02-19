@@ -30,6 +30,7 @@ in {
 
         environment = {
           TZ = "Europe/Berlin";
+          DNSMASQ_USER = "root";
         };
 
         ports = [
