@@ -200,11 +200,11 @@
         "rev": "e4cc70ec7991f03983996ab8c9b9bb118d0c66c5",
         "revCount": 253,
         "type": "git",
-        "url": "ssh://git@code.routing.rocks:22/daniel/nixfiles.private"
+        "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@code.routing.rocks:22/daniel/nixfiles.private"
+        "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       }
     },
     "root": {
