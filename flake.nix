@@ -22,7 +22,7 @@
 
     nix-alien.url = "github:thiagokokada/nix-alien";
 
-    private.url = "git+ssh://git@github.com/czerwonk/nixfiles.private";
+    private.url = "git+ssh://git@code.routing.rocks:22/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
   };
