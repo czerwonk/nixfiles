@@ -3,9 +3,10 @@
 {
   imports = [
     ./core.nix
-    ./pam.nix
+    ./firejail-icons.nix
     ./gnome.nix
     ./impermanence.nix
+    ./pam.nix
   ];
 
   security.chromiumSuidSandbox.enable = true;
