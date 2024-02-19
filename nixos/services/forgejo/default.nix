@@ -34,7 +34,8 @@ in {
         ];
 
         volumes = [
-          "forgejo-data:/data"
+          "forgejo-data:/var/lib/gitea"
+          "forgejo-config:/etc/gitea"
         ];
       };
     };
@@ -50,6 +51,7 @@ in {
       initialize = true;
       paths = [
         "/var/lib/containers/storage/volumes/forgejo-data/_data/"
+        "/var/lib/containers/storage/volumes/forgejo-config/_data/"
       ];
       pruneOpts = [
         "--keep-daily 7"
