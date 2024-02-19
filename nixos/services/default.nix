@@ -12,6 +12,7 @@
     ./netdata
     ./nextcloud
     ./openssh-server
+    ./pihole
     ./ripe-atlas
   ];
 }
