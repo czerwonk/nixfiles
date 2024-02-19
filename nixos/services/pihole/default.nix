@@ -24,9 +24,6 @@ in {
         image = "pihole/pihole:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
 
         environment = {
           TZ = "Europe/Berlin";
