@@ -37,7 +37,13 @@
 
       color.ui = true;
 
-      gpg.format = "ssh";
+      gpg = {
+        format = "ssh";
+        ssh = {
+          defaultKeyCommand = "sh -c 'echo key::$(ssh-add -L | head -n1)'";
+          allowedSignersFile = "~/.config/git/allowed_signers";
+        };
+      };
 
       init = {
         defaultBranch = "main";
