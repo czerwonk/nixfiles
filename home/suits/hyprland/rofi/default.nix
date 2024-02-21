@@ -12,7 +12,7 @@
     font = "JetBrains Mono";
     theme = ./theme.rasi;
     extraConfig = {
-      modi = "drun,emoji,calc";
+      modi = "window,drun,calc,emoji";
       show-icons = true;
       drun-display-format = "{icon} {name}";
       disable-history = false;
