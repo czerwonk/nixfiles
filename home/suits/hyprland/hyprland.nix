@@ -87,7 +87,6 @@ in {
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
       bind = $mainMod SHIFT, Q, exec, ${logout}/bin/hypr-logout
-      bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
       bind = $mainMod SHIFT, R, exec, ${reboot}/bin/hypr-reboot
       bind = ,XF86PowerOff, exec, ${halt}/bin/hypr-halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
