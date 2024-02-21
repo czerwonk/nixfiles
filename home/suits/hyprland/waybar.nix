@@ -51,7 +51,6 @@
         format = "{name}: {icon}";
         format-icons = {
           "default" = "";
-          "urgent" = "";
           "1" = "";
           "2" = "";
           "3" = "";
