@@ -17,9 +17,6 @@
       st = "status";
       sw = "switch";
     };
-    signing = {
-      signByDefault = true;
-    };
     ignores = [
       "coverage.out"
     ];
@@ -43,6 +40,12 @@
           defaultKeyCommand = "sh -c 'echo key::$(ssh-add -L | head -n1)'";
           allowedSignersFile = "~/.config/git/allowed_signers";
         };
+      };
+      commit = {
+        gpgSign = true;
+      };
+      tag = {
+        gpgSign = true;
       };
 
       init = {
