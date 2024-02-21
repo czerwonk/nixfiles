@@ -51,7 +51,6 @@
         format = "{name}: {icon}";
         format-icons = {
           "default" = "";
-          "active" = "";
           "urgent" = "";
           "1" = "";
           "2" = "";
@@ -161,9 +160,8 @@
         min-width: 25px;
       }
 
-      #workspaces button.focused {
+      #workspaces button.visible {
         color: #658594;
-        box-shadow: inset 0 -3px #ffffff;
       }
 
       #workspaces button.urgent {
