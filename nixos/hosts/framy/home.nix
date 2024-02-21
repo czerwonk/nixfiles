@@ -7,7 +7,7 @@
     ../../../home/suits/devops
     ../../../home/suits/pentest
     ../../../home/suits/hyprland
-    ../../../home/suits/preformance
+    ../../../home/suits/performance
   ] ++ extraHomeModules;
 
   suits.hyprland = {
