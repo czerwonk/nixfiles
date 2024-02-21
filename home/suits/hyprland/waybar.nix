@@ -10,16 +10,18 @@
       modules-left = [ 
         "hyprland/workspaces"
       ];
-      modules-right = [
-        "group/group-power"
-        "tray"
+      modules-center = [
+        "clock"
         "idle_inhibitor"
+      ];
+      modules-right = [
+        "tray"
         "battery"
         "backlight"
         "pulseaudio"
         "bluetooth"
         "network"
-        "clock"
+        "group/group-power"
       ];
       backlight = {
         device = "${config.suits.hyprland.backlightDevice}";
@@ -175,7 +177,11 @@
         border-radius: 0;
       }
 
-      #idle_inhibitor,
+      #idle_inhibitor {
+        margin: 1px 5px 1px 0;
+        padding-left: 5px;
+      }
+
       #custom-lock,
       #custom-power,
       #custom-quit,
@@ -183,6 +189,9 @@
       #group-group-power {
         margin: 1px 5px 1px 0;
         min-width: 15px;
+        padding-right: 5px;
+        border-radius: 10;
+        background-color: #1F1F28;
       }
 
       #tray,
@@ -197,10 +206,6 @@
         background-color: #1F1F28;
         padding-left: 3px;
         padding-right: 3px;
-      }
-
-      #clock {
-        padding-right: 5px;
       }
 
       #backlight {
