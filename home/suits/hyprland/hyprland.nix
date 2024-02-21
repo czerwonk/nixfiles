@@ -43,22 +43,23 @@
 
       $mainMod = SUPER
 
-      bind = $mainMod, T, exec, ${pkgs.kitty}/bin/kitty
-      bind = $mainMod, W, killactive,
+      bind = $mainMod, B, exec, /run/current-system/sw/bin/brave
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, SPACE, exec, rofi -show drun
-      bind = $mainMod, TAB, exec, rofi -show window
+      bind = $mainMod, F, fullscreen,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, hypr-screenshot
-      bind = $mainMod, F, fullscreen,
-      bind = $mainMod, B, exec, /run/current-system/sw/bin/brave
-      bind = $mainMod SHIFT, P, pin,
+      bind = $mainMod, T, exec, ${pkgs.kitty}/bin/kitty
+      bind = $mainMod, V, togglefloating,
+      bind = $mainMod, W, killactive,
+      bind = $mainMod, SPACE, exec, rofi -show drun
+      bind = $mainMod, TAB, exec, rofi -show window
+      bind = $mainMod SHIFT, E, exec, rofi -show emoji
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
+      bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, Q, exec, hypr-logout
-      bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
       bind = $mainMod SHIFT, R, exec, hypr-reboot
+      bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
       bind = ,XF86PowerOff, exec, hypr-halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
