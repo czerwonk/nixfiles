@@ -1,36 +1,6 @@
 { pkgs, config, ... }:
 
-let
-  screenshot = pkgs.writeScriptBin "screenshot" ''
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.swappy}/bin/swappy -f -
-  '';
-  close-all = pkgs.writeScriptBin "hypr-close-all" ''
-    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
-    hyprctl --batch "$HYPRCMDS"
-  '';
-  halt = pkgs.writeScriptBin "hypr-halt" ''
-    ${close-all}/bin/hypr-close-all
-    sleep 3
-    shutdown now
-  '';
-  reboot = pkgs.writeScriptBin "hypr-reboot" ''
-    ${close-all}/bin/hypr-close-all
-    sleep 3
-    shutdown -r now
-  '';
-  logout = pkgs.writeScriptBin "hypr-logout" ''
-    ${close-all}/bin/hypr-close-all
-    sleep 3
-    hyprctl dispatch exit
-  '';
-
-in {
-  home.packages = [
-    reboot
-    halt
-    logout
-  ];
-
+{
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -80,16 +50,16 @@ in {
       bind = $mainMod, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun
       bind = $mainMod, TAB, exec, ${config.programs.rofi.package}/bin/rofi -show window
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, S, exec, ${screenshot}/bin/screenshot
+      bind = $mainMod, S, exec, hypr-screenshot
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, B, exec, /run/current-system/sw/bin/brave
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, F, togglefloating,
       bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
-      bind = $mainMod SHIFT, Q, exec, ${logout}/bin/hypr-logout
+      bind = $mainMod SHIFT, Q, exec, hypr-logout
       bind = $mainMod SHIFT, S, exec, ${pkgs.systemd}/bin/systemctl suspend -i
-      bind = $mainMod SHIFT, R, exec, ${reboot}/bin/hypr-reboot
-      bind = ,XF86PowerOff, exec, ${halt}/bin/hypr-halt
+      bind = $mainMod SHIFT, R, exec, hypr-reboot
+      bind = ,XF86PowerOff, exec, hypr-halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
