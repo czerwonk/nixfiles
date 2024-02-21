@@ -47,8 +47,8 @@
       bind = $mainMod, W, killactive,
       bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, SPACE, exec, ${config.programs.rofi.package}/bin/rofi -show drun
-      bind = $mainMod, TAB, exec, ${config.programs.rofi.package}/bin/rofi -show window
+      bind = $mainMod, SPACE, exec, rofi -show drun
+      bind = $mainMod, TAB, exec, rofi -show window
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, hypr-screenshot
       bind = $mainMod, F, fullscreen,
