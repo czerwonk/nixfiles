@@ -19,7 +19,7 @@
     '';
     shellAliases = {
       l = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
-      ls = "${pkgs.eza}/bin/eza -gl --git --color=automatic";
+      ls = "${pkgs.eza}/bin/eza";
       ll = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
       la = "${pkgs.eza}/bin/eza -la --icons --group-directories-first --time-style long-iso";
       tree = "${pkgs.eza}/bin/eza --tree";
