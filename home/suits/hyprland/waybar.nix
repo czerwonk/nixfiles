@@ -11,6 +11,7 @@
         "hyprland/workspaces"
       ];
       modules-right = [
+        "group/group-power"
         "tray"
         "idle_inhibitor"
         "battery"
@@ -91,6 +92,43 @@
         on-click = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink";
         on-click-right = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select source";
       };
+      "group/group-power" = {
+        orientation = "inherit";
+        drawer = {
+          transition-duration = 500;
+          transition-left-to-right = false;
+        };
+        modules = [
+          "custom/power"
+          "custom/quit"
+          "custom/lock"
+          "custom/reboot"
+        ];
+      };
+
+      "custom/quit" = {
+        format = "󰗼";
+        on-click = "hypr-logout";
+        tooltip = false;
+      };
+
+      "custom/lock" = {
+        format = "󰍁";
+        on-click = "${config.programs.swaylock.package}/bin/swaylock -f";
+        tooltip = false;
+      };
+
+      "custom/reboot" = {
+        format = "󰜉";
+        on-click = "hypr-reboot";
+        tooltip = false;
+      };
+
+      "custom/power" = {
+        format = "";
+        on-click = "hypr-halt";
+        tooltip = false;
+      };
     };
     style = ''
       * {
@@ -137,8 +175,14 @@
         border-radius: 0;
       }
 
-      #idle_inhibitor {
+      #idle_inhibitor,
+      #custom-lock,
+      #custom-power,
+      #custom-quit,
+      #custom-reboot,
+      #group-group-power {
         margin: 1px 5px 1px 0;
+        min-width: 15px;
       }
 
       #tray,
