@@ -10,7 +10,6 @@
       eza
       fd
       hexyl
-      htop
       inetutils
       jq
       meslo-lgs-nf
@@ -19,7 +18,6 @@
       ripgrep
       screen
       sd
-      tree
       watch
       wget
       yamlfmt

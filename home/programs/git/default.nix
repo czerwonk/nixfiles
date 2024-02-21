@@ -4,17 +4,18 @@
   programs.git = {
     enable = lib.mkDefault true;
     aliases = {
-      graph = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative";
-      co = "checkout";
       br = "branch";
       c = "commit";
-      st = "status";
-      rb = "rebase";
-      ls = "ls-files";
-      pu = "push";
-      p = "pull";
+      co = "checkout";
       f = "fetch";
       ignores = "ls-files -o -i --exclude-standard";
+      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      ls = "ls-files";
+      p = "pull";
+      pu = "push";
+      rb = "rebase";
+      st = "status";
+      sw = "switch";
     };
     signing = {
       signByDefault = true;
@@ -24,19 +25,37 @@
     ];
     extraConfig = {
       extensions.worktreeConfig = true;
+
+      branch = {
+        sort = "-committerdate";
+      };
+
       core = {
         editor = "nvim";
         commitGraph = true;
       };
+
       color.ui = true;
-      pull.rebase = true;
-      push.autoSetupRemote = true;
+
       gpg.format = "ssh";
+
+      init = {
+        defaultBranch = "main";
+      };
+
+      pull.rebase = true;
+
+      push = {
+        default = "matching";
+        autoSetupRemote = true;
+      };
+
       merge.tool = "nvim";
       mergetool = {
         prompt = false;
         nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
       };
+
       rerere.enabled = true;
     };
   };
