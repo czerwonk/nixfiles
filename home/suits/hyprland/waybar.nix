@@ -216,10 +216,6 @@
         color: #76946A;
       }
 
-      #battery.charging {
-        color: #98BB6C;
-      }
-
       #battery.warning:not(.charging) {
         color: #FF9E3B;
       }
@@ -229,7 +225,7 @@
       }
 
       #network {
-        color: #658594;
+        color: #98BB6C;
       }
 
       #bluetooth {
