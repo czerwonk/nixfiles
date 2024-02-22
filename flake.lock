@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1708598725,
-        "narHash": "sha256-s3Mf6H14X/9Tmqq8MzZcxlQbOjqDSoyGgJQxxup84Go=",
+        "lastModified": 1708599918,
+        "narHash": "sha256-X2edbH97fMCDRVqV/2Mgmjd1F6ZaH4TGARSfZ6poXxc=",
         "owner": "czerwonk",
         "repo": "ansible-role",
-        "rev": "b2866eb893139662e8f979ba0311add201852331",
+        "rev": "3cc326ada7b079493c100eaed060870fe4996fe0",
         "type": "github"
       },
       "original": {
