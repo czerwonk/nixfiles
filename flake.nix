@@ -29,6 +29,8 @@
     dns-drain.url = "github:czerwonk/dns-drain";
 
     nix-alien.url = "github:thiagokokada/nix-alien";
+
+    provisionize.url = "github:MauveSoftware/provisionize";
   };
 
   outputs = inputs:

@@ -14,6 +14,7 @@ let
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
   nix-alien-packages = inputs.nix-alien.packages.${system};
+  provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
   nixpkgs.overlays = [
@@ -27,7 +28,7 @@ in {
       nix-alien = nix-alien-packages.nix-alien;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
-      provisionize = pkgs.callPackage ./pkgs/provisionize {};
+      provisionize = provisionize-packages.provisionize;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
       vimPlugins = super.vimPlugins // {
