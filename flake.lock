@@ -5,16 +5,34 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1708601427,
-        "narHash": "sha256-KhkiHgOkyvUXa/80gGsRUwh/KQeOBN/57SHSCv+1TQU=",
+        "lastModified": 1708603778,
+        "narHash": "sha256-N8LRIjc3h4v8XEmMkCcqxXCUcUabU8EeuB9IpMCph1I=",
         "owner": "czerwonk",
         "repo": "ansible-role",
-        "rev": "4f34ed7da7e29f24607d200cca7e2426a7517912",
+        "rev": "4b56939a97ed3955b511ebb659077d00870ad3e6",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
         "repo": "ansible-role",
+        "type": "github"
+      }
+    },
+    "dns-drain": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1708605083,
+        "narHash": "sha256-PwNmS8BSt4Nc19CaE/ZHnfTyxkaAa+cVpkjHsXTl4oU=",
+        "owner": "czerwonk",
+        "repo": "dns-drain",
+        "rev": "cc62c55ce568bae69694d763d1ea5a9abce0e8ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "czerwonk",
+        "repo": "dns-drain",
         "type": "github"
       }
     },
@@ -130,7 +148,7 @@
     },
     "nix-index-database": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1707620986,
@@ -194,6 +212,20 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1708564076,
+        "narHash": "sha256-KKkqoxlgx9n3nwST7O2kM8tliDOijiSSNaWuSkiozdQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "98b00b6947a9214381112bdb6f89c25498db4959",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1707268954,
         "narHash": "sha256-2en1kvde3cJVc3ZnTy8QeD2oKcseLFjYPLKhIGDanQ0=",
         "owner": "nixos",
@@ -208,7 +240,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1708440434,
         "narHash": "sha256-XY+B9mbhL/i+Q6fP6gBQ6P76rv9rWtpjQiUJ+DGtaUg=",
@@ -242,11 +274,12 @@
     "root": {
       "inputs": {
         "ansible-role": "ansible-role",
+        "dns-drain": "dns-drain",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nix-alien": "nix-alien",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "routing-rocks-policy": "routing-rocks-policy",
