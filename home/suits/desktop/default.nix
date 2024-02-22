@@ -10,4 +10,5 @@
   };
   
   programs.tmux.mouse = true;
+  services.gpg-agent.enable = true;
 }

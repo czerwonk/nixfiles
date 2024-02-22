@@ -9,9 +9,12 @@
     };
   };
 
-  home.file.".gnupg/gpg-agent.conf".text = ''
-    default-cache-ttl 7200
-    max-cache-ttl 86400
-    enable-ssh-support
-  '';
+  services.gpg-agent = {
+    enable = lib.mkDefault false;
+    enableScDaemon = true;
+    enableSshSupport = true;
+    defaultCacheTtl = 7200;
+    maxCacheTtl = 86400;
+    pinentryFlavor = lib.mkDefault "gnome3";
+  };
 }
