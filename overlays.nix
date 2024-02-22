@@ -12,6 +12,7 @@ let
   };
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
+  dns-drain-packages = inputs.dns-drain.packages.${system};
   nix-alien-packages = inputs.nix-alien.packages.${system};
 
 in {
@@ -19,19 +20,19 @@ in {
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       ansible-role = ansible-role-packages.ansible-role;
+      brave = pkgs-unstable.brave;
+      dns-drain = dns-drain-packages.dns-drainctl;
+      go = pkgs-unstable.go_1_22;
+      kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
+      nix-alien = nix-alien-packages.nix-alien;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
-      go = pkgs-unstable.go_1_22;
+      provisionize = pkgs.callPackage ./pkgs/provisionize {};
       sublime4 = pkgs-unstable.sublime4;
-      brave = pkgs-unstable.brave;
       unifi = pkgs-unstable.unifi8;
       vimPlugins = super.vimPlugins // {
         neotest = pkgs-unstable.vimPlugins.neotest;
       };
-      nix-alien = nix-alien-packages.nix-alien;
-      kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
-      dns-drain = pkgs.callPackage ./pkgs/dns-drain {};
-      provisionize = pkgs.callPackage ./pkgs/provisionize {};
     })
   ];
 }

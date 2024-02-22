@@ -20,13 +20,15 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    nix-alien.url = "github:thiagokokada/nix-alien";
-
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
 
     ansible-role.url = "github:czerwonk/ansible-role";
+
+    dns-drain.url = "github:czerwonk/dns-drain";
+
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
   outputs = inputs:
