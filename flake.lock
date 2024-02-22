@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1708603778,
-        "narHash": "sha256-N8LRIjc3h4v8XEmMkCcqxXCUcUabU8EeuB9IpMCph1I=",
+        "lastModified": 1708606072,
+        "narHash": "sha256-S0CKd4sjJAw10ELxhRga+E+BZWj6nR3lBNaVXjFKXoE=",
         "owner": "czerwonk",
         "repo": "ansible-role",
-        "rev": "4b56939a97ed3955b511ebb659077d00870ad3e6",
+        "rev": "cf667a4cca49cd08440428be7503d80d6fb8281a",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1708605470,
-        "narHash": "sha256-qCbjOjQLvJONR3/FpyR7VLztJssJh3OwpNpARYEQtck=",
+        "lastModified": 1708605975,
+        "narHash": "sha256-zYZQBdf8pBhxPFTDQ7Mymtq3W+R+U83BmzaU+OAwnn4=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "63ede33a60bbaa4fda3cc991d740ce2c3703080b",
+        "rev": "1d33c9af3dd30bda11cb450dbb5c423f62e9d3bc",
         "type": "github"
       },
       "original": {
@@ -256,6 +256,20 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1708564076,
+        "narHash": "sha256-KKkqoxlgx9n3nwST7O2kM8tliDOijiSSNaWuSkiozdQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "98b00b6947a9214381112bdb6f89c25498db4959",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
     "private": {
       "locked": {
         "lastModified": 1708529440,
@@ -271,6 +285,24 @@
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       }
     },
+    "provisionize": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1708606967,
+        "narHash": "sha256-lcg3YCrQEDOX4y77TufPbmT99dz0m9Fy+MnnU+mBOxM=",
+        "owner": "MauveSoftware",
+        "repo": "provisionize",
+        "rev": "14d486b617664e8bc5f0362ffb73b769293d3a11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MauveSoftware",
+        "repo": "provisionize",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ansible-role": "ansible-role",
@@ -282,6 +314,7 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
+        "provisionize": "provisionize",
         "routing-rocks-policy": "routing-rocks-policy",
         "thinkpad-fprint-sensor": "thinkpad-fprint-sensor"
       }
