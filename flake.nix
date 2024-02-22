@@ -25,6 +25,8 @@
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
+
+    ansible-role.url = "github:czerwonk/ansible-role";
   };
 
   outputs = inputs:

@@ -11,12 +11,14 @@ let
     };
   };
 
+  ansible-role-packages = inputs.ansible-role.packages.${system};
   nix-alien-packages = inputs.nix-alien.packages.${system};
 
 in {
   nixpkgs.overlays = [
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
+      ansible-role = ansible-role-packages.ansible-role;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
       go = pkgs-unstable.go_1_22;
@@ -28,7 +30,6 @@ in {
       };
       nix-alien = nix-alien-packages.nix-alien;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
-      ansible-role = pkgs.callPackage ./pkgs/ansible-role {};
       dns-drain = pkgs.callPackage ./pkgs/dns-drain {};
       provisionize = pkgs.callPackage ./pkgs/provisionize {};
     })
