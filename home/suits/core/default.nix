@@ -20,7 +20,6 @@
       bitwarden-cli
       octave
       openvpn
-      slides
       wireguard-tools
     ];
   };

@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   imports = [
@@ -19,6 +19,7 @@
     file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
   };
 
+  services.gpg-agent.enable = lib.mkForce false;
   home.file.".gnupg/gpg-agent.conf".text = ''
     default-cache-ttl 7200
     max-cache-ttl 86400
