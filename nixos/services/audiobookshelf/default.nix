@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.audiobookshelf;
-  version = "2.7.2";
+  version = "2.8.0";
 
 in {
   options = {
