@@ -24,7 +24,6 @@
       la = "${pkgs.eza}/bin/eza -la --icons --group-directories-first --time-style long-iso";
       tree = "${pkgs.eza}/bin/eza --tree";
       cat  = "${pkgs.bat}/bin/bat -pp";
-      htop = "${pkgs.bottom}/bin/btm -b";
       fzfp = "${config.programs.fzf.package}/bin/fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";

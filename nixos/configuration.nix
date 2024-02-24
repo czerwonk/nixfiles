@@ -40,7 +40,7 @@
   environment.defaultPackages = with pkgs; [
     file
     rsync
-    vim
+    neovim
   ];
 
   nix = {
@@ -94,6 +94,7 @@
   environment.systemPackages = with pkgs; [
     gitFull
     gnupg
+    htop
     lsof
     mdadm
     neovim
