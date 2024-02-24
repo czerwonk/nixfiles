@@ -43,7 +43,6 @@
     gedit # text editor
     epiphany # web browser
     geary # email reader
-    evince # document viewer
     seahorse # keyring UI
   ]);
 }
