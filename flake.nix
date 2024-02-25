@@ -164,6 +164,7 @@
                 inherit inputs;
                 extraHomeModules = [
                   inputs.private.home
+                  ./home/suits/desktop
                   ./home/suits/linux-utils
                 ];
               };
