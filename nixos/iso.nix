@@ -12,4 +12,10 @@
       meta.platforms = [];
     });
   })];
+
+  boot.supportedFilesystems = [ "bcachefs" ];
+
+  environment.systemPackages = with pkgs; [
+    keyutils
+  ];
 }
