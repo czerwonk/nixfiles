@@ -155,17 +155,15 @@
           modules = [
             ./overlays.nix
             "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
-            ./nixos/iso.nix
+            ./nixos/iso
             inputs.home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.nixos = import ./home;
+              home-manager.users.nixos = import ./nixos/iso/home.nix;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 extraHomeModules = [
                   inputs.private.home
-                  ./home/suits/desktop
-                  ./home/suits/linux-utils
                 ];
               };
             }
