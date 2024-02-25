@@ -162,10 +162,10 @@
               home-manager.users.nixos = import ./home;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
+                extraHomeModules = [
+                  inputs.private.home
+                ];
               };
-              home-manager.extraModules = [
-                inputs.private.home
-              ];
             }
           ];
           specialArgs = {
