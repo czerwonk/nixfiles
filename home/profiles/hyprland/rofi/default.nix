@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.rofi = {
@@ -8,7 +8,7 @@
       rofi-calc
       rofi-emoji
     ];
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = lib.getExe pkgs.kitty;
     font = "JetBrains Mono";
     theme = ./theme.rasi;
     extraConfig = {

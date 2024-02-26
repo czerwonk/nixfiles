@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   programs.waybar = {
@@ -39,7 +39,7 @@
         format = " {status}";
         format-disabled = "";
         interval = 30;
-        on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
+        on-click = lib.getExe pkgs.rofi-bluetooth;
         on-click-right = "${pkgs.blueberry}/bin/blueberry";
       };
       clock = {
@@ -115,7 +115,7 @@
 
       "custom/lock" = {
         format = "󰍁";
-        on-click = "${config.programs.swaylock.package}/bin/swaylock -f";
+        on-click = "${lib.getExe config.programs.swaylock.package} -f";
         tooltip = false;
       };
 
@@ -234,6 +234,6 @@
 
   home.file.".config/networkmanager-dmenu/config.ini".text = ''
     [dmenu]
-    dmenu_command = ${config.programs.rofi.package}/bin/rofi -dmenu
+    dmenu_command = ${lib.getExe config.programs.rofi.package} -dmenu
   '';
 }

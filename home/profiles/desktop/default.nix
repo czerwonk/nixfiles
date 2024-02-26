@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   programs.zsh.shellAliases = {
-    ycode = "${pkgs.yubikey-manager}/bin/ykman oath accounts code | ${config.programs.fzf.package}/bin/fzf";
+    ycode = "${lib.getExe pkgs.yubikey-manager} oath accounts code | ${lib.getExe config.programs.fzf.package}";
   };
   
   programs.tmux.mouse = true;

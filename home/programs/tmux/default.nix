@@ -33,7 +33,7 @@ in {
     programs.tmux = {
       enable = lib.mkDefault true;
       shortcut = lib.mkDefault "a";
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = lib.getExe pkgs.zsh;
       terminal = "screen-256color";
       keyMode = "vi";
       escapeTime = 1;

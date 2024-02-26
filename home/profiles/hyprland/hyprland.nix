@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -29,17 +29,17 @@
     };
     extraConfig = ''
       ${config.profiles.hyprland.extraConfig}
-      exec-once = ${pkgs.waybar}/bin/waybar
-      exec-once = ${pkgs.wlsunset}/bin/wlsunset -l -23 -L -46
-      exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
+      exec-once = ${lib.getExe pkgs.waybar}
+      exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
+      exec-once = ${lib.getExe pkgs.hyprpaper}
       exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
-      exec-once = [workspace 2] ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux a
+      exec-once = [workspace 2] ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.tmux} a
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/brave
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
       exec-once = [workspace 5 silent] /run/current-system/sw/bin/element-desktop
       exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
-      exec-once = [workspace 10 silent] ${pkgs.bitwarden}/bin/bitwarden
-      exec-once = sleep 1; ${pkgs.nextcloud-client}/bin/nextcloud --background
+      exec-once = [workspace 10 silent] ${lib.getExe pkgs.bitwarden}
+      exec-once = sleep 1; ${lib.getExe pkgs.nextcloud-client} --background
 
       $mainMod = SUPER
 
@@ -48,14 +48,14 @@
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, hypr-screenshot
-      bind = $mainMod, T, exec, ${pkgs.kitty}/bin/kitty
+      bind = $mainMod, T, exec, ${lib.getExe pkgs.kitty}
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, killactive,
       bind = $mainMod, SPACE, exec, rofi -show drun
       bind = $mainMod, TAB, exec, rofi -show window
       bind = $mainMod SHIFT, E, exec, rofi -show emoji
       bind = $mainMod SHIFT, F, togglefloating,
-      bind = $mainMod SHIFT, L, exec, ${config.programs.swaylock.package}/bin/swaylock
+      bind = $mainMod SHIFT, L, exec, ${lib.getExe config.programs.swaylock.package}
       bind = $mainMod SHIFT, P, pin,
       bind = $mainMod SHIFT, Q, exec, hypr-logout
       bind = $mainMod SHIFT, R, exec, hypr-reboot
@@ -63,8 +63,8 @@
       bind = ,XF86PowerOff, exec, hypr-halt
       bind = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      binde = ,XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 1%-
-      binde = ,XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +1%
+      binde = ,XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} set 1%-
+      binde = ,XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} set +1%
       binde = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+
       binde = ,XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-
 
