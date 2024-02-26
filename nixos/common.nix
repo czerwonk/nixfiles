@@ -67,5 +67,4 @@
     xkbVariant = "altgr-intl";
   };
   console.useXkbConfig = true;
-
 }
