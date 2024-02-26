@@ -44,7 +44,7 @@
     brave = {
       executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
-      profiles.= "${pkgs.firejail}/etc/firejail/brave.profile";
+      profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
   };
 
