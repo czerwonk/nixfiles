@@ -3,6 +3,7 @@
 with lib;
 
 let
+  cfg = config.programs.tmux;
   power-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "power";
     rtpFilePath = "tmux-power.tmux";
@@ -14,13 +15,17 @@ let
       hash = "sha256-HOUnLm2GSvJkCxK9ofM5p2I9xpF6Se44/8a/bkwrnmw=";
     };
   };
-  cfg = config.programs.tmux;
 
 in {
   options = {
     programs.tmux.position = mkOption {
       type = types.str;
       default = "top";
+    };
+
+    programs.tmux.theme.enable = mkOption {
+      type = types.bool;
+      default = true;
     };
   };
 
@@ -57,9 +62,11 @@ in {
         set-option -g pane-border-style 'fg=colour242,bg=colour234'
         set-option -g pane-active-border-style 'fg=colour242,bg=colour234'
 
-        set -g @tmux_power_time_format '%H:%M'
-        set -g @tmux_power_theme '#C0A36E'
-        run-shell ${power-theme}/share/tmux-plugins/power/tmux-power.tmux
+        ${optionalString (cfg.theme.enable) ''
+          set -g @tmux_power_time_format '%H:%M'
+          set -g @tmux_power_theme '#C0A36E'
+          run-shell ${power-theme}/share/tmux-plugins/power/tmux-power.tmux
+        ''}
       '';
     };
 

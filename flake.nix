@@ -154,7 +154,7 @@
           inherit system;
           modules = [
             ./overlays.nix
-            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
             ./nixos/iso
             inputs.home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;

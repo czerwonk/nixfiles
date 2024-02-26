@@ -1,6 +1,10 @@
 { pkgs, lib, config, ... }:
 
 {
+  imports = [
+    ./theme.nix
+  ];
+
   programs.zsh = {
     enable = lib.mkDefault true;
     enableCompletion = true;
@@ -8,9 +12,6 @@
     defaultKeymap = "viins";
     completionInit = ""; # is called by GRML
     initExtraFirst = ''
-      export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-      export ZSH_THEME="powerlevel10k/powerlevel10k"
-      source ~/.p10k.zsh
       source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
     '';
     initExtra = ''
@@ -35,14 +36,7 @@
       ignoreAllDups = true;
       ignoreSpace = true;
     };
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
   };
+
   home.file.".zshrc.local".source = ./zshrc.local;
-  home.file.".p10k.zsh".source = ./p10k.zsh;
 }

@@ -66,5 +66,13 @@
     layout = "us";
     xkbVariant = "altgr-intl";
   };
-  console.useXkbConfig = true;
+
+  console = {
+    earlySetup = true;
+    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v22n.psf.gz";
+    packages = [
+      pkgs.powerline-fonts
+    ];
+    useXkbConfig = true;
+  };
 }
