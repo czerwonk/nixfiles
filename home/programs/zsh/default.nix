@@ -19,9 +19,10 @@
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
     '';
     shellAliases = {
-      l = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
-      ll = "${pkgs.eza}/bin/eza -l --icons --group-directories-first --time-style long-iso";
-      la = "${pkgs.eza}/bin/eza -la --icons --group-directories-first --time-style long-iso";
+      l = "${pkgs.eza}/bin/eza -l --group --icons --group-directories-first --time-style long-iso";
+      ls = "${pkgs.eza}/bin/eza --group";
+      ll = "${pkgs.eza}/bin/eza -l --group --icons --group-directories-first --time-style long-iso";
+      la = "${pkgs.eza}/bin/eza -la --group --icons --group-directories-first --time-style long-iso";
       tree = "${pkgs.eza}/bin/eza --tree";
       cat  = "${pkgs.bat}/bin/bat -pp";
       fzfp = "${config.programs.fzf.package}/bin/fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
