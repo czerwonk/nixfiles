@@ -38,7 +38,6 @@
     cheese # webcam tool
     gnome-music
     gnome-maps
-    gedit # text editor
     epiphany # web browser
     geary # email reader
     seahorse # keyring UI

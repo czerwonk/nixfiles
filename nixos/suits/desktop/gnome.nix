@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -25,12 +25,6 @@
     core-developer-tools.enable = false;
   };
 
-  users.users.${username} = {
-    packages = with pkgs; [
-      gnome.gnome-tweaks
-    ];
-  };
-
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
@@ -40,7 +34,6 @@
     cheese # webcam tool
     gnome-music
     gnome-maps
-    gedit # text editor
     epiphany # web browser
     geary # email reader
     seahorse # keyring UI
