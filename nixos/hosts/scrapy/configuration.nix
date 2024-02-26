@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [ 
@@ -10,10 +10,10 @@
     ../../suits/virtualisation
   ];
 
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "bcachefs" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.extraModprobeConfig = ''
     options usbserial vendor=0403 product=6001
   '';
