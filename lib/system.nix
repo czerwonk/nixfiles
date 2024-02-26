@@ -22,12 +22,13 @@
       };
     };
 
-  mkISO = { edition, baseModule, extraHomeModules }:
+  mkISO = { edition, baseModule, extraModules, extraHomeModules }:
     inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         baseModule
         ../overlays.nix
+        ../nixos/iso/${edition}
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -36,11 +37,13 @@
             inherit inputs extraHomeModules;
           };
         }
-      ];
+      ] ++ extraModules;
       specialArgs = {
         inherit inputs;
         system = "x86_64-linux";
         username = "nixos";
+        hostname = "nixos";
+        domain = "";
       };
     };
 }
