@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1708605975,
-        "narHash": "sha256-zYZQBdf8pBhxPFTDQ7Mymtq3W+R+U83BmzaU+OAwnn4=",
+        "lastModified": 1708965271,
+        "narHash": "sha256-qBltG/pPfRwXTioDNeDzLglONzPrF3vbpmJyWBBiT44=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "1d33c9af3dd30bda11cb450dbb5c423f62e9d3bc",
+        "rev": "9bf5d2f6a9d21daacf17c140fc3123c32a1843a1",
         "type": "github"
       },
       "original": {
@@ -92,11 +92,11 @@
     },
     "impermanence": {
       "locked": {
-        "lastModified": 1706639736,
-        "narHash": "sha256-CaG4j9+UwBDfinxxvJMo6yOonSmSo0ZgnbD7aj2Put0=",
+        "lastModified": 1708968331,
+        "narHash": "sha256-VUXLaPusCBvwM3zhGbRIJVeYluh2uWuqtj4WirQ1L9Y=",
         "owner": "nix-community",
         "repo": "impermanence",
-        "rev": "cd13c2917eaa68e4c49fea0ff9cada45440d7045",
+        "rev": "a33ef102a02ce77d3e39c25197664b7a636f9c30",
         "type": "github"
       },
       "original": {
@@ -272,11 +272,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1708951934,
-        "narHash": "sha256-01wes0OH/PpCHtS+ep+ObsStjhVnoH40DcJDXFW1zaA=",
+        "lastModified": 1708968425,
+        "narHash": "sha256-G+JK6XRSSImlE09c7Y3TFIbn39pSGX8z0v5nSMUTklU=",
         "ref": "refs/heads/main",
-        "rev": "12ed785a207384785b4faddc9024ebc8b21801fd",
-        "revCount": 263,
+        "rev": "bde99d729196b2c75feef010b9be40dfe8275f7f",
+        "revCount": 265,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -290,11 +290,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1708606967,
-        "narHash": "sha256-lcg3YCrQEDOX4y77TufPbmT99dz0m9Fy+MnnU+mBOxM=",
+        "lastModified": 1708968643,
+        "narHash": "sha256-mgoVQHnGgY561aqt+thzAJz7IEjm22yu3wiTCOpGvdQ=",
         "owner": "MauveSoftware",
         "repo": "provisionize",
-        "rev": "14d486b617664e8bc5f0362ffb73b769293d3a11",
+        "rev": "fc785ea770ec1508a3f60774c6a41e8a7dfe1c96",
         "type": "github"
       },
       "original": {
