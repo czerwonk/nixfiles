@@ -1,6 +1,10 @@
 { pkgs, lib, ... }:
 
 {
+  imports = [
+    ./services
+  ];
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];

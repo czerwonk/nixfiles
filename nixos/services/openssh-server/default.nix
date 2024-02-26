@@ -42,7 +42,7 @@ in {
         # Authentication
         AllowGroups = [ "ssh" "sftp" ];
         LoginGraceTime = "1m";
-        PermitRootLogin = "no";
+        PermitRootLogin = lib.mkForce "no";
         StrictModes = true;
         MaxAuthTries = 3;
         MaxSessions = 2;

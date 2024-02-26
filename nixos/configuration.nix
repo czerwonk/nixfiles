@@ -6,7 +6,6 @@
     ./dns.nix
     ./hardening
     ./impermanence.nix
-    ./services
     ./wrappers.nix
   ];
 
