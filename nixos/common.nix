@@ -69,7 +69,7 @@
 
   console = {
     earlySetup = true;
-    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v22n.psf.gz";
+    font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v24n.psf.gz";
     packages = [
       pkgs.powerline-fonts
     ];
