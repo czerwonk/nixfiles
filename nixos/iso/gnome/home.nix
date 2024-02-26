@@ -1,6 +1,6 @@
 {
   imports = [
     ../home.nix
-    ../../../home/suits/desktop
+    ../../../home/profiles/desktop
   ];
 }

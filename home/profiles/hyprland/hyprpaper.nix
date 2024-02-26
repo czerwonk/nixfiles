@@ -5,6 +5,6 @@
     ipc = off
     preload = /home/${username}/.config/bg.jpg
     wallpaper = eDP-1,/home/${username}/.config/bg.jpg
-    wallpaper = ${config.suits.hyprland.externalMonitor},/home/${username}/.config/bg.jpg
+    wallpaper = ${config.profiles.hyprland.externalMonitor},/home/${username}/.config/bg.jpg
   '';
 }

@@ -3,7 +3,7 @@
 {
   imports = [
     ./../default.nix
-    ./../suits/desktop
+    ./../profiles/desktop
   ];
   
   home = {

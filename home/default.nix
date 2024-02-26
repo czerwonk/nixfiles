@@ -1,8 +1,8 @@
 {
   imports = [
     ./scripts
-    ./suits/core
-    ./suits/network
+    ./profiles/core
+    ./profiles/network
   ];
   
   home = {

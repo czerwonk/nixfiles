@@ -24,7 +24,7 @@
         "group/group-power"
       ];
       backlight = {
-        device = "${config.suits.hyprland.backlightDevice}";
+        device = "${config.profiles.hyprland.backlightDevice}";
         format = "{icon} {percent}%";
         format-icons = [ "" "" ];
       };

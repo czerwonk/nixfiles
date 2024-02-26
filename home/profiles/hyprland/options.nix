@@ -3,17 +3,17 @@ with lib;
 
 {
   options = {
-    suits.hyprland.backlightDevice = mkOption {
+    profiles.hyprland.backlightDevice = mkOption {
       type = types.str;
       description = mdDoc "Set the device driver name for backlight information/control";
     };
 
-    suits.hyprland.externalMonitor = mkOption {
+    profiles.hyprland.externalMonitor = mkOption {
       type = types.str;
       description = mdDoc "Name of the external monitor";
     };
 
-    suits.hyprland.extraConfig = mkOption {
+    profiles.hyprland.extraConfig = mkOption {
       type = types.lines;
       description = mdDoc "Device spcific configuration";
       default = "";

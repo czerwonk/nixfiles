@@ -3,12 +3,12 @@
 {
   imports = [
     ../../../home/linux.nix
-    ../../../home/suits/desktop
-    ../../../home/suits/devops
-    ../../../home/suits/hyprland
+    ../../../home/profiles/desktop
+    ../../../home/profiles/devops
+    ../../../home/profiles/hyprland
   ] ++ extraHomeModules;
 
-  suits.hyprland = {
+  profiles.hyprland = {
     backlightDevice = "intel_backlight";
     externalMonitor = "HDMI-A-1";
     extraConfig = ''

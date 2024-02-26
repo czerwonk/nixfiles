@@ -4,9 +4,9 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../suits/server
-    ../../suits/webserver
-    ../../suits/container
+    ../../profiles/server
+    ../../profiles/webserver
+    ../../profiles/container
     ./unifi.nix
   ];
 

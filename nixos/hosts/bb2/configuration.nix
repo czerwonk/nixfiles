@@ -4,9 +4,9 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../suits/server
-    ../../suits/container
-    ../../suits/routing
+    ../../profiles/server
+    ../../profiles/container
+    ../../profiles/routing
   ];
 
   boot.loader.systemd-boot.enable = true;

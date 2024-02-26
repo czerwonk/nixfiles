@@ -2,10 +2,10 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../suits/desktop
-    ../../suits/pentest
-    ../../suits/container
-    ../../suits/virtualisation
+    ../../profiles/desktop
+    ../../profiles/pentest
+    ../../profiles/container
+    ../../profiles/virtualisation
     ../../tpm.nix
   ];
 

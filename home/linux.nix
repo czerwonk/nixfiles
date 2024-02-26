@@ -3,7 +3,7 @@
 {
   imports = [
     ./default.nix
-    ./suits/linux-utils
+    ./profiles/linux-utils
   ];
   
   home = {

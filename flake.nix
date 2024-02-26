@@ -49,7 +49,7 @@
         "osx" = userLib.mkOSXHMUser {
           username = inputs.private.username {};
           extraModules = [
-            ./home/suits/devops
+            ./home/profiles/devops
             inputs.private.home
             inputs.private.mauve.home
           ];
@@ -58,8 +58,8 @@
         "mauve-linux" = userLib.mkLinuxHMUser {
           username = inputs.private.mauve.username {};
           extraModules = [ 
-            ./home/suits/server
-            ./home/suits/devops/dev.nix
+            ./home/profiles/server
+            ./home/profiles/devops/dev.nix
             inputs.private.home
             inputs.private.mauve.home
             {

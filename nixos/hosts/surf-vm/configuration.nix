@@ -4,8 +4,8 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../suits/desktop/core.nix
-    ../../suits/desktop/gnome.nix
+    ../../profiles/desktop/core.nix
+    ../../profiles/desktop/gnome.nix
     ./vbox-fix.nix
   ];
 
@@ -44,7 +44,7 @@
     brave = {
       executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/brave.profile";
+      profiles.= "${pkgs.firejail}/etc/firejail/brave.profile";
     };
   };
 

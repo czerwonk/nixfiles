@@ -3,14 +3,14 @@
 {
   imports = [
     ../../../home/linux.nix
-    ../../../home/suits/desktop
-    ../../../home/suits/devops
-    ../../../home/suits/pentest
-    ../../../home/suits/hyprland
-    ../../../home/suits/performance
+    ../../../home/profiles/desktop
+    ../../../home/profiles/devops
+    ../../../home/profiles/pentest
+    ../../../home/profiles/hyprland
+    ../../../home/profiles/performance
   ] ++ extraHomeModules;
 
-  suits.hyprland = {
+  profiles.hyprland = {
     backlightDevice = "amdgpu_bl0";
     externalMonitor = "DP-2";
     extraConfig = ''

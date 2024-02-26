@@ -3,7 +3,7 @@
 {
   imports = [
     ../../home
-    ../../home/suits/linux-utils
-    ../../home/suits/devops/lsp.nix
+    ../../home/profiles/linux-utils
+    ../../home/profiles/devops/lsp.nix
   ] ++ extraHomeModules;
 }
