@@ -26,6 +26,10 @@
     fi
   '';
 
+  security.sudo.extraConfig = ''
+    Defaults:root,%wheel env_keep+=SSH_AUTH_SOCK
+  '';
+
   environment.defaultPackages = with pkgs; [
     file
     rsync
