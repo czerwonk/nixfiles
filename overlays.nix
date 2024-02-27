@@ -24,6 +24,7 @@ in {
       brave = pkgs-unstable.brave;
       dns-drain = dns-drain-packages.dns-drainctl;
       go = pkgs-unstable.go_1_22;
+      gopls = pkgs.callPackage ./pkgs/gopls {};
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};
       nix-alien = nix-alien-packages.nix-alien;
       podman = pkgs-unstable.podman;
