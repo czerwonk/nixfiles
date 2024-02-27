@@ -19,10 +19,10 @@
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
     '';
     shellAliases = {
-      l = "${lib.getExe pkgs.eza} -l --group --icons --group-directories-first --time-style long-iso";
-      ls = "${lib.getExe pkgs.eza} --group";
-      ll = "${lib.getExe pkgs.eza} -l --group --icons --group-directories-first --time-style long-iso";
-      la = "${lib.getExe pkgs.eza} -la --group --icons --group-directories-first --time-style long-iso";
+      l = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
+      ls = "${lib.getExe pkgs.eza} --group -H";
+      ll = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
+      la = "${lib.getExe pkgs.eza} -laH --group --icons --group-directories-first --time-style long-iso";
       tree = "${lib.getExe pkgs.eza} --tree";
       cat  = "${lib.getExe pkgs.bat} -pp";
       fzfp = "${lib.getExe config.programs.fzf.package} --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
