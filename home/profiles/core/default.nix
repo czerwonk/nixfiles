@@ -16,8 +16,6 @@
 
   home = {
     packages = with pkgs; [
-      asciinema
-      bitwarden-cli
       octave
       openvpn
       wireguard-tools

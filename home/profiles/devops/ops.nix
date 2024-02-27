@@ -14,10 +14,8 @@
       lynis
       mysql-shell
       opentofu
-      perlPackages.JSONPP
       provisionize
       redis
-      sshpass
       termshark
       terrascan
       trurl
