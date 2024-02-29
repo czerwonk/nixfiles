@@ -28,7 +28,6 @@
     umount /btrfs_mnt
   '';
 
-  networking.hostId = "76affc21";
   networking.useNetworkd = false;
   networking.useDHCP = false;
   systemd.network.enable = false;

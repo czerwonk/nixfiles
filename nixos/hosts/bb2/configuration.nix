@@ -26,6 +26,4 @@
     btrfs subvolume create /btrfs_mnt/root
     umount /btrfs_mnt
   '';
-
-  networking.hostId = "292ea3ce";
 }

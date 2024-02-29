@@ -19,8 +19,6 @@
   boot.tmp.tmpfsSize = "16G";
   boot.tmp.cleanOnBoot = false;
 
-  networking.hostId = "7181c80f";
-
   security.lockKernelModules = false;
 
   services.fwupd.enable = true;

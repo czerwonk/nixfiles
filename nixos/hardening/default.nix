@@ -14,10 +14,7 @@
   nix.settings.allowed-users = [ "@users" ];
   nix.settings.sandbox = lib.mkDefault false;
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7_hardened;
-  # environment.systemPackages = [
-  #   pkgs.linuxKernel.packages.linux_6_7_hardened.zfs
-  # ];
+  boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_6_7_hardened;
 
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;

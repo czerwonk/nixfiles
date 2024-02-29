@@ -26,7 +26,7 @@
     umount /btrfs_mnt
   '';
 
-  networking.hostId = "f0659bbf";
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_hardened;
 
   users.users.${username} = {
     initialHashedPassword = "$6$rounds=50000$lAvjJYJgE8kUR6We$QKS9zjKcYrFQlz1jFnqkHs9amUeZbjFxZVQVuMbVrpsXMDNnWa1yUq2sU1Hf7yLNsesjeUSojUx0R9MN99nEL0";

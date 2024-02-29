@@ -28,8 +28,6 @@
     umount /btrfs_mnt
   '';
 
-  networking.hostId = "2d1165a8";
-
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
   my.services.ripe-atlas.enable = true;

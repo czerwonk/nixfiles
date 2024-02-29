@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [ 
@@ -10,6 +10,8 @@
     ../../profiles/virtualisation
   ];
 
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  boot.supportedFilesystems = [ "bcachefs" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModprobeConfig = ''
@@ -19,8 +21,6 @@
 
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "8G";
-
-  networking.hostId = "0ac77f35";
 
   security.lockKernelModules = false;
 
