@@ -8,6 +8,7 @@
     ../../profiles/container
     ../../profiles/routing
     ../../profiles/webserver
+    ../../zfs.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

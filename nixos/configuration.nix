@@ -9,10 +9,7 @@
     ./wrappers.nix
   ];
 
-  boot.supportedFilesystems = [
-    "btrfs"
-    "zfs"
-  ];
+  boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
     "af_packet"
     "btrfs"
@@ -28,7 +25,6 @@
     "wireguard"
     "xfs"
   ];
-  boot.zfs.forceImportRoot = false;
   boot.swraid = {
     enable = true;
     mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";

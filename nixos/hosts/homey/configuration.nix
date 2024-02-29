@@ -8,6 +8,7 @@
     ../../profiles/webserver
     ../../profiles/container
     ./unifi.nix
+    ../../zfs.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

@@ -3,8 +3,6 @@
     ../common.nix
   ];
 
-  boot.supportedFilesystems = [ "bcachefs" ];
-
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 

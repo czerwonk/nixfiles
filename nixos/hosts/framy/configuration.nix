@@ -7,6 +7,7 @@
     ../../profiles/container
     ../../profiles/virtualisation
     ../../tpm.nix
+    ../../zfs.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
