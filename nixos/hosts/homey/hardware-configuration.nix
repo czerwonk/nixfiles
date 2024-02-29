@@ -49,10 +49,14 @@
     options = [ "subvol=swap" "noatime" ];
   };
 
-  fileSystems."/mnt/extern" = {
-    device = "/dev/disk/by-uuid/62a4ef69-be5c-40d0-9bfb-0ec2ff2b2ddd";
-    fsType = "btrfs";
-    options = [ "compress=zstd" "noatime" ];
+  fileSystems."/mnt/backup" = {
+    device = "zpool/backup";
+    fsType = "zfs";
+  };
+
+  fileSystems."/mnt/data" = {
+    device = "zpool/data";
+    fsType = "zfs";
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
