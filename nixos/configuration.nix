@@ -10,8 +10,9 @@
   ];
 
   boot.supportedFilesystems = [
-    "bcachefs"
     "btrfs"
+    "bcachefs"
+    "zfs"
   ];
   boot.kernelModules = [
     "af_packet"
@@ -28,6 +29,7 @@
     "wireguard"
     "xfs"
   ];
+  boot.zfs.forceImportRoot = false;
   boot.swraid = {
     enable = true;
     mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
