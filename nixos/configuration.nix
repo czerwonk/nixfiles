@@ -11,7 +11,6 @@
 
   boot.supportedFilesystems = [
     "btrfs"
-    "bcachefs"
     "zfs"
   ];
   boot.kernelModules = [
