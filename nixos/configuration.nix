@@ -9,7 +9,10 @@
     ./wrappers.nix
   ];
 
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems = [
+    "bcachefs"
+    "btrfs"
+  ];
   boot.kernelModules = [
     "af_packet"
     "btrfs"
