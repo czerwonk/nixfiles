@@ -13,7 +13,7 @@ in {
       openFirewall = mkOption {
         description = "Wether to open firewall ports";
         type = types.bool;
-        default = true;
+        default = false;
       };
     };
   };
