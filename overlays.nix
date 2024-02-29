@@ -21,7 +21,6 @@ in {
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       ansible-role = ansible-role-packages.ansible-role;
-      brave = pkgs-unstable.brave;
       dns-drain = dns-drain-packages.dns-drainctl;
       go = pkgs-unstable.go_1_22;
       kanagawa-gtk-theme = pkgs.callPackage ./pkgs/kanagawa-gtk-theme {};

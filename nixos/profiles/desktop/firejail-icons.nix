@@ -4,8 +4,8 @@
   environment.systemPackages = [
     (
       let packages = with pkgs; [
-        brave
         element-desktop
+        firefox
         teams-for-linux
         thunderbird
       ];

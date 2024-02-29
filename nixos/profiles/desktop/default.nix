@@ -21,14 +21,14 @@
   security.chromiumSuidSandbox.enable = true;
 
   programs.firejail.wrappedBinaries = {
-    brave = {
-      executable = "${pkgs.lib.getBin pkgs.brave}/bin/brave";
-      desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
-      profile = pkgs.writeText "brave-browser.local" ''
+    firefox = {
+      executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
+      desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
+      profile = pkgs.writeText "firefox.local" ''
         noblacklist ''${DOWNLOADS}
         whitelist ''${DOWNLOADS}
         ignore nou2f
-        include brave-browser.profile
+        include firefox.profile
       '';
       extraArgs = [
         # Enable system notifications
