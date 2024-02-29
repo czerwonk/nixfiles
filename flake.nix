@@ -152,7 +152,7 @@
         };
         iso-minimal = systemLib.mkISO {
           edition = "minimal";
-          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix";
+          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix";
           extraModules = [
             inputs.private.nixosModule
           ];
