@@ -9,4 +9,6 @@
   environment.systemPackages = [
     pkgs.linuxKernel.packages.linux_6_6_hardened.zfs
   ];
+
+  services.zfs.trim.enable = true;
 }
