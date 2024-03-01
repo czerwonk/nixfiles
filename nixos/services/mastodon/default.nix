@@ -76,7 +76,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--shm-size=268435456"
         ];
@@ -95,7 +94,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
         ];
 
@@ -155,7 +153,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--cap-add=NET_BIND_SERVICE"
         ];
@@ -177,7 +174,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=mastodon"
           "--ulimit=memlock=-1:-1"
           "--ulimit=nofile=65536:65536"

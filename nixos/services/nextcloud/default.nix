@@ -59,7 +59,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
@@ -94,7 +93,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--shm-size=268435456"
@@ -120,7 +118,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
         ];
 
@@ -175,7 +172,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
         ];
@@ -195,7 +191,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
@@ -218,7 +213,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
         ];
@@ -244,7 +238,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
           "--read-only"
           "--read-only-tmpfs"
@@ -261,7 +254,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
         ];
 
