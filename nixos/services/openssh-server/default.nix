@@ -56,13 +56,14 @@ in {
         GSSAPICleanupCredentials = false;
         ChrootDirectory = "%h";
 
+        AuthorizedKeysFile = "/etc/ssh/authorized_keys.d/%u";
+
         AllowAgentForwarding = false;
         AllowTcpForwarding = false;
         PrintMotd = false;
         UseDns = false;
       };
       extraConfig = lib.mkAfter ''
-        AuthorizedKeysFile /etc/ssh/authorized_keys.d/%u
         Subsystem sftp internal-sftp
 
         Match User ${username}
