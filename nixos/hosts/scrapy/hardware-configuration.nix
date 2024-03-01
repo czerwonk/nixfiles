@@ -9,19 +9,35 @@
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/6440-8D79";
+    device = "/dev/disk/by-uuid/01F9-908C";
     fsType = "vfat";
   };
 
-  fileSystems."/" = { 
-    device = "UUID=a133516e-65c3-442f-a5ca-e389e7ce5cb9";
-    fsType = "bcachefs";
-    options = [ "compress=zstd" "noatime" ];
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "size=4G"
+      "mode=755"
+      "nosuid"
+      "nodev"
+    ];
+  };
+
+  fileSystems."/nix" = {
+    device = "zpool/nix";
+    fsType = "zfs";
+  };
+
+  fileSystems."/persist" = {
+    device = "zpool/persist";
+    fsType = "zfs";
+    neededForBoot = true;
   };
 
   swapDevices = [
