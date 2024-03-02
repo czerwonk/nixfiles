@@ -12,6 +12,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.zfs.forceImportRoot = true;
+
   boot.extraModprobeConfig = ''
     options usbserial vendor=0403 product=6001
   '';

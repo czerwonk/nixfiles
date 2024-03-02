@@ -9,13 +9,9 @@
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "uas" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.resumeDevice = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
-  boot.kernelParams = [ "resume_offset=57025792" ];
-
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/94d76b04-4757-4418-b3f7-18274c471435";
 
   fileSystems."/boot" = { 
     device = "/dev/disk/by-uuid/3278-6A86";
@@ -34,25 +30,22 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
-    fsType = "btrfs";
-    options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    device = "zroot/nix";
+    fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
-    fsType = "btrfs";
-    options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    device = "zroot/persist";
+    fsType = "zfs";
     neededForBoot = true;
   };
 
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/33d74fce-569c-4fdb-ae1c-a2933f93ef54";
-    fsType = "btrfs";
-    options = [ "subvol=swap" "noatime" ];
-  };
-
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [
+    {
+      device = "/dev/nvme0n1p2";
+      randomEncryption.enable = true;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
  
