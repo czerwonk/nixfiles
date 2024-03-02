@@ -49,15 +49,15 @@
     options = [ "subvol=swap" "noatime" ];
   };
 
-  # fileSystems."/mnt/backup" = {
-  #   device = "zpool/backup";
-  #   fsType = "zfs";
-  # };
-  #
-  # fileSystems."/mnt/data" = {
-  #   device = "zpool/data";
-  #   fsType = "zfs";
-  # };
+  fileSystems."/mnt/backup" = {
+    device = "zpool/backup";
+    fsType = "zfs";
+  };
+
+  fileSystems."/mnt/data" = {
+    device = "zpool/data";
+    fsType = "zfs";
+  };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
