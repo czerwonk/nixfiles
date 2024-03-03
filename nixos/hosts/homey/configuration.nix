@@ -7,7 +7,7 @@
     ../../profiles/server
     ../../profiles/webserver
     ../../profiles/container
-    ./unifi.nix
+    #./unifi.nix
     ../../zfs.nix
   ];
 
