@@ -9,7 +9,7 @@
   ];
 
   boot.initrd.availableKernelModules = [ ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
