@@ -16,6 +16,7 @@ let
 in {
   imports = [
     ./ui.nix
+    ./telescope.nix
     ./treesitter.nix
     ./cmp.nix
     ./dev.nix
@@ -42,27 +43,6 @@ in {
         plugin = vim-tmux-navigator;
         type = "lua";
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
-      }
-      {
-        plugin = telescope-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/telescope.lua;
-      }
-      {
-        plugin = telescope-file-browser-nvim;
-        type = "lua";
-        config = "require('telescope').load_extension('file_browser')";
-      }
-      {
-        plugin = telescope-fzf-native-nvim;
-        type = "lua";
-        config = "require('telescope').load_extension('fzf')";
-      }
-      {
-        plugin = telescope-project-nvim;
-      }
-      {
-        plugin = telescope-undo-nvim;
       }
       {
         plugin = harpoon;
