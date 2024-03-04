@@ -52,7 +52,9 @@
   swapDevices = [
     {
       device = "/dev/nvme1n1p2";
-      randomEncryption.enable = true;
+    }
+    {
+      device = "/dev/nvme0n1p2";
     }
   ];
 

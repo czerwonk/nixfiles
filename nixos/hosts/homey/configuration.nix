@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -12,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.zfs.forceImportRoot = true;
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    zfs rollback -r zroot/root@blank
+  '';
 
   networking.hostId = "76affc21";
   networking.useNetworkd = false;
