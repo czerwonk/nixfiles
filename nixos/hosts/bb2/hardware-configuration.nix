@@ -19,11 +19,9 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
-    fsType = "btrfs";
+    device = "zroot/root";
+    fsType = "zfs";
     options = [
-      "subvol=root"
-      "compress=zstd"
       "noatime"
       "nosuid"
       "nodev"
@@ -31,25 +29,21 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
-    fsType = "btrfs";
-    options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    device = "zroot/nix";
+    fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
-    fsType = "btrfs";
-    options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    device = "zroot/persist";
+    fsType = "zfs";
     neededForBoot = true;
   };
 
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/2cb2ec75-f31f-4677-a5ab-7bbd5c2a1439";
-    fsType = "btrfs";
-    options = [ "subvol=swap" "noatime" ];
-  };
-
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/4a9998ad-fc9c-45e7-8cba-38dafdb9906b";
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
