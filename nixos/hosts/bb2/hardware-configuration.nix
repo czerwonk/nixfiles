@@ -43,6 +43,9 @@
     {
       device = "/dev/disk/by-uuid/4a9998ad-fc9c-45e7-8cba-38dafdb9906b";
     }
+    {
+      device = "/dev/disk/by-uuid/950be16f-f023-461f-a8c4-d167763d51ce";
+    }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
