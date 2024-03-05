@@ -40,12 +40,12 @@
   };
 
   fileSystems."/mnt/backup" = {
-    device = "zpool/backup";
+    device = "zdata/backup";
     fsType = "zfs";
   };
 
   fileSystems."/mnt/data" = {
-    device = "zpool/data";
+    device = "zdata/data";
     fsType = "zfs";
   };
 
