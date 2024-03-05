@@ -34,6 +34,14 @@ groups:
       severity: critical
     annotations:
       description: "Device error with the {{ $labels.mountpoint }} filesystem"
+  - alert: HostZfsOfflinePool
+    expr: node_zfs_zpool_state{state!="online"} > 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: ZFS offline pool (instance {{ $labels.instance }})
+      description: "A ZFS zpool is in a unexpected state: {{ $labels.state }}.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
   - alert: HostCpuHighIowait
     expr: (avg by (instance) (rate(node_cpu_seconds_total{mode="iowait"}[5m])) * 100 > 10) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
     labels:
