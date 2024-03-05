@@ -32,7 +32,26 @@
   };
 
   services.rsyslogd.enable = true;
-  services.logrotate.enable = true;
+
+  services.logrotate = {
+    enable = true;
+    settings = {
+      header = {
+        dateext = true;
+        compress = true;
+        missingok = true;
+        notifempty = true;
+      };
+      "/var/log/messages" = {
+        frequency = "daily";
+        rotate = 7;
+      };
+      "/var/log/warn" = {
+        frequency = "daily";
+        rotate = 7;
+      };
+    };
+  };
 
   services.prometheus.exporters.node = {
     enable = true;
