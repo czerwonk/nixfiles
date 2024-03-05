@@ -44,6 +44,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/mnt/unifi" = {
+    device = "zdata/unifi";
+    fsType = "zfs";
+  };
+
   fileSystems."/mnt/data" = {
     device = "zdata/data";
     fsType = "zfs";
