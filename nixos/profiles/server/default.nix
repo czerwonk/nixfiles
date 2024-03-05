@@ -59,6 +59,7 @@
       "ethtool"
       "systemd"
       "processes"
+      "zfs"
     ];
   };
 
