@@ -130,3 +130,11 @@ groups:
     annotations:
       summary: ZFS pool out of space (instance {{ $labels.instance }})
       description: "Disk is almost full (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+  - alert: ZfsCollectorFailed
+    expr: zfs_scrape_collector_success != 1
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: ZFS collector failed (instance {{ $labels.instance }})
+      description: "ZFS collector for {{ $labels.instance }} has failed to collect information\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
