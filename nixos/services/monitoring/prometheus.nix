@@ -29,6 +29,7 @@ in {
             targets = [ 
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+              "homey.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
             ];
           }];
           relabel_configs = [
@@ -44,9 +45,28 @@ in {
         {
           job_name = "bird";
           static_configs = [{
-            targets = [ 
+            targets = [
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+            ];
+          }];
+          relabel_configs = [
+            {
+              source_labels = [ "__address__" ];
+              regex = "^(.*)\\.routing\\.rocks:\\d+$";
+              target_label = "instance";
+              replacement = "$1";
+              action = "replace";
+            }
+          ];
+        }
+        {
+          job_name = "zfs";
+          static_configs = [{
+            targets = [
+              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              "homey.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
             ];
           }];
           relabel_configs = [

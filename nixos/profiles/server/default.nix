@@ -62,6 +62,7 @@
       "zfs"
     ];
   };
+  services.prometheus.exporters.zfs.enable = true;
 
   my.services.openssh-server = {
     enable = lib.mkDefault true;
