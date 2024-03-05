@@ -51,10 +51,10 @@
 
   swapDevices = [
     {
-      device = "/dev/nvme1n1p2";
+      device = "/dev/disk/by-uuid/8129591d-ae96-4803-b6cb-608b68cee75b";
     }
     {
-      device = "/dev/nvme0n1p2";
+      device = "/dev/disk/by-uuid/f8c001e1-067b-4c8c-8396-acbd8e31f3e1";
     }
   ];
 
