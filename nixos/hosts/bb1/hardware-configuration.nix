@@ -9,7 +9,7 @@
   ];
 
   boot.initrd.availableKernelModules = [ ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -19,11 +19,9 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60";
-    fsType = "btrfs";
+    device = "zroot/root";
+    fsType = "zfs";
     options = [
-      "subvol=root"
-      "compress=zstd"
       "noatime"
       "nosuid"
       "nodev"
@@ -31,25 +29,21 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60";
-    fsType = "btrfs";
-    options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    device = "zroot/nix";
+    fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60";
-    fsType = "btrfs";
-    options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    device = "zroot/persist";
+    fsType = "zfs";
     neededForBoot = true;
   };
 
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/36b9d213-1c1d-4398-98be-b27eb53dae60";
-    fsType = "btrfs";
-    options = [ "subvol=swap" "noatime" ];
-  };
-
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-uuid/ee9a1514-9b79-46db-a69d-5538ce8fbbde";
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
