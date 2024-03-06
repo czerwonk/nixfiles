@@ -2,12 +2,12 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../zfs.nix
     ../../profiles/desktop
     ../../profiles/pentest
     ../../profiles/container
     ../../profiles/virtualisation
     ../../tpm.nix
-    ../../zfs.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
