@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1708965271,
-        "narHash": "sha256-qBltG/pPfRwXTioDNeDzLglONzPrF3vbpmJyWBBiT44=",
+        "lastModified": 1709638485,
+        "narHash": "sha256-GQ0qYxZPTALExJc8uPjo3WKNvTcc93ySQuh3sSlXgUs=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "9bf5d2f6a9d21daacf17c140fc3123c32a1843a1",
+        "rev": "3f0144cbb2f646c4a87f4516f63b2dd60a0717eb",
         "type": "github"
       },
       "original": {
@@ -272,11 +272,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1709634183,
-        "narHash": "sha256-55uxEdtOhvIU5SpGnRK4XrV532lNcZKdaECT1IjSf4M=",
+        "lastModified": 1709703974,
+        "narHash": "sha256-iEuhSnFAhw/cxkrH69lDLdKJxmAWk5jJZ78JT7DIUPk=",
         "ref": "refs/heads/main",
-        "rev": "89d6897cdc5b5e08b7f63b8c6a2f84afee4bcc97",
-        "revCount": 274,
+        "rev": "37f195d76977354821d2c24c30b09a5186e6c2e1",
+        "revCount": 275,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -290,11 +290,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1708969299,
-        "narHash": "sha256-XuhQ5ROYyItB449nZABQGYzWW2reRLphnGxfID6qb7k=",
+        "lastModified": 1709701144,
+        "narHash": "sha256-YsxtkKH5Zt5rPsikOM9JQuwLjBYTgg5EWaeRWh7A+74=",
         "owner": "MauveSoftware",
         "repo": "provisionize",
-        "rev": "260131cb798782f0fb6d11cd7814f46c7d5de2da",
+        "rev": "d3f1ce21c437f747c407bc80c9da618fe1ce9423",
         "type": "github"
       },
       "original": {
