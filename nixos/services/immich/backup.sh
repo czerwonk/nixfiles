@@ -1,6 +1,6 @@
 set -e
 
-BACKUP_DIR_BASE="/data/backup/immich"
+BACKUP_DIR_BASE="/mnt/backup/immich"
 BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d)"
 
 mkdir -p $BACKUP_DIR
