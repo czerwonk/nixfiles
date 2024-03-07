@@ -49,11 +49,6 @@
     fsType = "zfs";
   };
 
-  fileSystems."/mnt/data" = {
-    device = "zdata/data";
-    fsType = "zfs";
-  };
-
   swapDevices = [
     {
       device = "/dev/disk/by-uuid/8129591d-ae96-4803-b6cb-608b68cee75b";
