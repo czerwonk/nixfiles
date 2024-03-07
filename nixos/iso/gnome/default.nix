@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -32,4 +32,6 @@
     geary # email reader
     seahorse # keyring UI
   ]);
+
+  powerManagement.enable = lib.mkForce false;
 }
