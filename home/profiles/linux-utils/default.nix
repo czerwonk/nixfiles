@@ -3,8 +3,8 @@
 {
   home = {
     packages = with pkgs; [
-      atop
       bcachefs-tools
+      btop
       btrfs-progs
       cifs-utils
       iftop
