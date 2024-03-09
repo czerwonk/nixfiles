@@ -30,12 +30,12 @@
   };
 
   fileSystems."/nix" = {
-    device = "zpool/nix";
+    device = "zroot/nix";
     fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "zpool/persist";
+    device = "zroot/persist";
     fsType = "zfs";
     neededForBoot = true;
   };
