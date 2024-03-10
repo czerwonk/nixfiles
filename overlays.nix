@@ -1,4 +1,4 @@
-{ system, inputs, pkgs, ... }:
+{ system, inputs, ... }:
 
 let
   pkgs-unstable = import inputs.nixpkgs-unstable {
