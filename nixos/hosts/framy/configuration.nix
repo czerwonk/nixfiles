@@ -12,6 +12,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
   boot.zfs.forceImportRoot = true;
   boot.zfs.requestEncryptionCredentials = [ "zroot" ];
 
