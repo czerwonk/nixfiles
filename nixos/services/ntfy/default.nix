@@ -17,6 +17,7 @@ in {
     virtualisation.oci-containers.containers = {
       ntfy = {
         image = "binwiederhier/ntfy:${version}";
+        cmd = [ "serve" ];
 
         autoStart = true;
         extraOptions = [
