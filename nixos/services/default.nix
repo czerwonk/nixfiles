@@ -11,6 +11,7 @@
     ./monitoring
     ./netdata
     ./nextcloud
+    ./ntfy
     ./openssh-server
     ./pihole
     ./ripe-atlas

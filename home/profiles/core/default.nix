@@ -19,6 +19,7 @@
       octave
       openvpn
       wireguard-tools
+      ntfy-sh
     ];
   };
 }
