@@ -97,6 +97,7 @@ in {
               "audiobooks.routing.rocks"
               "books.routing.rocks/login"
               "code.routing.rocks"
+              "ntfy.routing.rocks"
             ];
           }];
           relabel_configs = [
