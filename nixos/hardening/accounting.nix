@@ -16,6 +16,10 @@ let
   '';
 
 in {
+  environment.systemPackages = [
+    pkgs.acct
+  ];
+
   systemd.services.psacct = {
     description = "System accounting daemon";
     wantedBy = [ "multi-user.target" ];
