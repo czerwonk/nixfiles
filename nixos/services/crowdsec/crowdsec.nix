@@ -4,7 +4,6 @@ with lib;
 
 let
   cfg = config.my.services.crowdsec;
-  loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
 
 in {
   options = {
@@ -20,6 +19,12 @@ in {
         type = types.listOf types.str;
         default = [ "crowdsecurity/linux" ];
         description = "Collections to install";
+      };
+
+      metricsListenAddr = mkOption {
+        type = types.str;
+        default = "127.0.0.1";
+        description = "Address to listen for metrics calls";
       };
     };
   };
@@ -51,7 +56,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "[${loopback.address}]";
+          listen_addr = cfg.metricsListenAddr;
           listen_port = 6060;
         };
       };

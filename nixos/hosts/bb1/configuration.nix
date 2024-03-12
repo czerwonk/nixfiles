@@ -1,6 +1,9 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
-{
+let
+  loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
+
+in {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
@@ -23,4 +26,6 @@
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
   my.services.ripe-atlas.enable = true;
+
+  my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 }

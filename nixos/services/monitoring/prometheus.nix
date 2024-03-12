@@ -85,7 +85,7 @@ in {
             targets = [ 
               "bb1.dus.routing.rocks:6060"
               "bb2.dus.routing.rocks:6060"
-              "homey.ess.routing.rocks:6060"
+              "127.0.0.1:6060"
             ];
           }];
           relabel_configs = [

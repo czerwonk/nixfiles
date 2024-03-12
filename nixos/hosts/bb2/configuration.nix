@@ -1,6 +1,9 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
-{
+let
+  loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
+
+in {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
@@ -18,4 +21,6 @@
   '';
 
   networking.hostId = "292ea3ce";
+
+  my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 }
