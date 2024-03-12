@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    crowdsec = {
+      url = "github:kampka/nix-flake-crowdsec";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     impermanence.url = "github:nix-community/impermanence";
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";

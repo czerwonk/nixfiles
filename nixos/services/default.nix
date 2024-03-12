@@ -2,6 +2,7 @@
   imports = [
     ./audiobookshelf
     ./calibre-web
+    ./crowdsec
     ./forgejo
     ./freshrss
     ./immich

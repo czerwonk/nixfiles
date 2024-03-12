@@ -1,9 +1,6 @@
 {
   security.apparmor.enable = true;
   security.apparmor.killUnconfinedConfinables = true;
-  services.fail2ban = {
-    enable = true;
-  };
 
   services.clamav = {
     daemon.enable = true;
