@@ -184,6 +184,21 @@ in {
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${backup}/bin/immich-backup";
+
+          ProtectSystem = "strict";
+          ProtectHostname = true;
+          ProtectClock = true;
+          ProtectControlGroups = true;
+          ProtectKernelTunables = true;
+          ProtectKernelModules = true;
+          PrivateDevices = true;
+
+          ReadWritePaths = [
+            "/mnt/backup"
+          ];
+
+          ExecPaths = ["/nix/store"];
+          NoExecPaths = ["/"];
         };
       };
     };

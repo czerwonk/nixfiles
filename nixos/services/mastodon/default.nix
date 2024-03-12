@@ -254,6 +254,21 @@ in {
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${cleanup}/bin/mastodon-cleanup";
+
+          ProtectSystem = "strict";
+          ProtectHostname = true;
+          ProtectClock = true;
+          ProtectControlGroups = true;
+          ProtectKernelTunables = true;
+          ProtectKernelModules = true;
+          PrivateDevices = true;
+
+          ReadWritePaths = [
+            "/data/backup"
+          ];
+
+          ExecPaths = ["/nix/store"];
+          NoExecPaths = ["/"];
         };
       };
     };

@@ -192,6 +192,21 @@ in {
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${backup}/bin/matrix-db-backup";
+
+          ProtectSystem = "strict";
+          ProtectHostname = true;
+          ProtectClock = true;
+          ProtectControlGroups = true;
+          ProtectKernelTunables = true;
+          ProtectKernelModules = true;
+          PrivateDevices = true;
+
+          ReadWritePaths = [
+            "/data/backup"
+          ];
+
+          ExecPaths = ["/nix/store"];
+          NoExecPaths = ["/"];
         };
       };
     };
