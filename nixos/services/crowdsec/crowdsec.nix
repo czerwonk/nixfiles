@@ -59,7 +59,7 @@ in {
         set -eu
         set -o pipefail
 
-        cscli collections install crowdsecurity/sshd
+        cscli collections install crowdsecurity/linux
 
         if ! cscli bouncers list | grep -q "firewall-bouncer"; then
           cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
