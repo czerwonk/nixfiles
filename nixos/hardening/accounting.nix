@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
-{
-  environment.etc."psacct-pre.sh".text = ''
-    #!/usr/bin/env bash
+let
+  psacct-pre = pkgs.writeShellScriptBin "run.sh" ''
     # This script is run before the psacct service is started.
     # It is used to create the /var/log/account directory if it does not exist.
     # This is necessary because the psacct service does not create the directory
@@ -15,18 +14,31 @@
     touch /var/log/account/pacct
     chmod 600 /var/log/account/pacct
   '';
+
+in {
   systemd.services.psacct = {
     description = "System accounting daemon";
     wantedBy = [ "multi-user.target" ];
     after = [ "local-fs.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStartPre = "/run/current-system/sw/bin/bash /etc/psacct-pre.sh";
+      ExecStartPre = "${psacct-pre}/bin/run.sh";
       ExecStart = "${pkgs.acct}/sbin/accton /var/log/account/pacct";
       ExecStop = "${pkgs.acct}/sbin/accton off";
       RemainAfterExit = true;
       Restart = "always";
       RestartSec = 5;
+
+      ProtectSystem = "strict";
+      PrivateDevices = true;
+      ProtectHostname = true;
+      ProtectKernelTunables = true;
+      ProtectKernelModules = true;
+
+      ReadWritePaths = [ "/var/log" ];
+
+      ExecPaths = ["/nix/store"];
+      NoExecPaths = ["/"];
     };
   };
 }
