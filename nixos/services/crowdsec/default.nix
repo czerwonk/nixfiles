@@ -7,5 +7,6 @@
     inputs.crowdsec.nixosModules.crowdsec
     inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer
     ./crowdsec.nix
+    ./caddy.nix
   ];
 }
