@@ -50,7 +50,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "${interfaces.lo.ipv6.addresses[0].address}";
+          listen_addr = config.interfaces.lo.ipv6.addresses[0].address;
           listen_port = 6060;
         };
       };
