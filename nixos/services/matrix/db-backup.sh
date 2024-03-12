@@ -1,4 +1,4 @@
-set -e
+set -eo pipefail
 
 BACKUP_DIR="/data/backup/matrix"
 

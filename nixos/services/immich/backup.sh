@@ -1,4 +1,4 @@
-set -e
+set -eo pipefail
 
 BACKUP_DIR_BASE="/mnt/backup/immich"
 BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d)"
