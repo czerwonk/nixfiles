@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.crowdsec;
+  loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
 
 in {
   options = {
@@ -50,7 +51,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "[${config.networking.interfaces.lo.ipv6.addresses[0].address}]";
+          listen_addr = "[${loopback.address}]";
           listen_port = 6060;
         };
       };
