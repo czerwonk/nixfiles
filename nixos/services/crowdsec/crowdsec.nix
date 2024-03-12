@@ -63,8 +63,6 @@ in {
     };
 
     systemd.services.crowdsec.serviceConfig = {
-      StartLimitIntervalSec = 300;
-      StartLimitBurst = 5;
       ExecStartPre = let
         script = pkgs.writeScriptBin "pre-start" ''
           #!${pkgs.runtimeShell}
