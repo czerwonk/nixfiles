@@ -57,21 +57,23 @@ in {
       };
     };
 
-    systemd.services.crowdsec.serviceConfig.ExecStartPre = let
-      script = pkgs.writeScriptBin "pre-start" ''
-        #!${pkgs.runtimeShell}
-        set -eu
-        set -o pipefail
+    systemd.services.crowdsec.serviceConfig = {
+      ProtectProc = "noaccess";
+      ExecStartPre = let
+        script = pkgs.writeScriptBin "pre-start" ''
+          #!${pkgs.runtimeShell}
+          set -eu
+          set -o pipefail
 
-        ${lib.concatLines (map (collection: ''
-          cscli collections install ${collection}
-        '') cfg.collections)}
+          ${lib.concatLines (map (collection: ''
+            cscli collections install ${collection}
+          '') cfg.collections)}
 
-        if ! cscli bouncers list | grep -q "firewall-bouncer"; then
-          cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
-        fi
-      '';
-      in ["${script}/bin/pre-start"];
+          if ! cscli bouncers list | grep -q "firewall-bouncer"; then
+            cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
+          fi
+        '';
+        in ["${script}/bin/pre-start"];
 
     services.crowdsec-firewall-bouncer = {
       enable = true;
