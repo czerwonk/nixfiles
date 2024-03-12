@@ -74,6 +74,7 @@ in {
           fi
         '';
         in ["${script}/bin/pre-start"];
+    };
 
     services.crowdsec-firewall-bouncer = {
       enable = true;
