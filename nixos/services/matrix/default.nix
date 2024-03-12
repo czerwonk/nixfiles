@@ -203,6 +203,7 @@ in {
 
           ReadWritePaths = [
             "/data/backup"
+            "/var/lib/containers/storage"
           ];
 
           ExecPaths = ["/nix/store"];
