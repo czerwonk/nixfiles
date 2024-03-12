@@ -73,14 +73,16 @@ in {
         api_key = cfg.bouncerApiKey;
         api_url = "http://127.0.0.1:8000";
         mode = "nftables";
-        blacklists_ipv4 = [ "crowdsec-blacklists" ];
-        blacklists_ipv6 = [ "crowdsec6-blacklists" ];
+        blacklists_ipv4 = "crowdsec-blacklists";
+        blacklists_ipv6 = "crowdsec6-blacklists";
         nftables = {
           ipv4 = {
+            table = "nixos-fw";
             enabled = true;
             set-only = true;
           };
           ipv6 = {
+            table = "nixos-fw";
             enabled = true;
             set-only = true;
           };
