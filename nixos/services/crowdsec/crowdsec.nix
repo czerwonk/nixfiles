@@ -60,8 +60,6 @@ in {
         set -o pipefail
 
         cscli collections install crowdsecurity/sshd
-        cscli scenarios install crowdsecurity/ssh-bf
-        cscli scenarios install crowdsecurity/ssh-slow-bf
 
         if ! cscli bouncers list | grep -q "firewall-bouncer"; then
           cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
