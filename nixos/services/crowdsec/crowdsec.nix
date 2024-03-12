@@ -50,7 +50,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "::";
+          listen_addr = "[::]";
           listen_port = 6060;
         };
       };
