@@ -69,6 +69,5 @@
     openFirewall = lib.mkDefault true;
   };
 
-  my.services.crowdsec.enable = true;
   my.services.netdata.enable = true;
 }

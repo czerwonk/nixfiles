@@ -14,18 +14,22 @@ in {
         type = types.str;
         description = "API key to use for bouncer to communicate with the crowdsec engine";
       };
+
+      collections = mkOption {
+        type = types.listOf types.str;
+        default = [ "crowdsecurity/linux" ];
+        description = "Collections to install";
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    environment.etc."crowdsec/acquis.yaml".text = ''
-      ---
+    environment.etc."crowdsec/acquis/sshd.yaml".text = ''
       source: journalctl
       journalctl_filter:
        - "_SYSTEMD_UNIT=sshd.service"
       labels:
         type: syslog
-      ---
     '';
 
     services.crowdsec = {
@@ -38,7 +42,7 @@ in {
           trusted_ips = [ "127.0.0.1" "::1" ];
         };
         crowdsec_service = {
-          acquisition_path = "/etc/crowdsec/acquis.yaml";
+          acquisition_dir = "/etc/crowdsec/acquis";
         };
         cscli = {
           output = "human";
@@ -59,7 +63,9 @@ in {
         set -eu
         set -o pipefail
 
-        cscli collections install crowdsecurity/linux
+        ${lib.concatLines (map (collection: ''
+          cscli collections install ${collection}
+        '') cfg.collections)}
 
         if ! cscli bouncers list | grep -q "firewall-bouncer"; then
           cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
@@ -89,6 +95,8 @@ in {
         };
       };
     };
+
+    users.users.crowdsec.extraGroups = [ "systemd-journal" ];
 
     networking.nftables.tables."nixos-fw".content = lib.mkBefore ''
       set crowdsec-blacklists {
