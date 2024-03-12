@@ -18,6 +18,27 @@
         "type": "github"
       }
     },
+    "crowdsec": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710081776,
+        "narHash": "sha256-o4o5MoMrJNQ3/BVOQRpFDmKIudaJxcJpm55Y5AsDnk0=",
+        "owner": "kampka",
+        "repo": "nix-flake-crowdsec",
+        "rev": "a700a08c5b40f3ceec7e7eabf04be5151426b2b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kampka",
+        "repo": "nix-flake-crowdsec",
+        "type": "github"
+      }
+    },
     "dns-drain": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -54,6 +75,23 @@
     "flake-utils": {
       "inputs": {
         "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1705309234,
@@ -108,7 +146,7 @@
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nix-filter": "nix-filter",
         "nix-index-database": "nix-index-database",
         "nixpkgs": [
@@ -272,11 +310,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1710236964,
-        "narHash": "sha256-E/4FConIHt+W8M2dLMti6Eau6QipL1NjUYLFVRBBGZw=",
+        "lastModified": 1710244308,
+        "narHash": "sha256-F7rlr7zreY+hm+8eRQAKN3vOcXuIJwmqalXZxA+8olA=",
         "ref": "refs/heads/main",
-        "rev": "7e63df643ebe5458861a3503cfa17b8c7c0e2372",
-        "revCount": 286,
+        "rev": "f94a04f3df264cb77a5d6881b113ac1097dbca83",
+        "revCount": 287,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -306,6 +344,7 @@
     "root": {
       "inputs": {
         "ansible-role": "ansible-role",
+        "crowdsec": "crowdsec",
         "dns-drain": "dns-drain",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
@@ -335,6 +374,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
