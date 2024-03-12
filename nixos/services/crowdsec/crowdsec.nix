@@ -1,4 +1,4 @@
-{ pkgs, lib, config, hostname, domain, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib;
 
@@ -50,7 +50,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "${hostname}.${domain}";
+          listen_addr = interfaces.lo.ipv6.addresses[0].address;
           listen_port = 6060;
         };
       };
