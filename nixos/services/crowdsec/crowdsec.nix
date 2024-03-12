@@ -58,7 +58,6 @@ in {
     };
 
     systemd.services.crowdsec.serviceConfig = {
-      ProtectProc = false;
       ExecStartPre = let
         script = pkgs.writeScriptBin "pre-start" ''
           #!${pkgs.runtimeShell}
