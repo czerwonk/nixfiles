@@ -24,6 +24,7 @@ in {
         ProtectSystem = "strict";
         ProtectHostname = true;
         ProtectClock = true;
+        ProtectControlGroups = true;
         ProtectKernelTunables = true;
         ProtectKernelModules = true;
 
