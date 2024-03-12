@@ -100,11 +100,13 @@ in {
         type ipv6_addr
         flags timeout
       }
-    '';
 
-    networking.firewall.extraInputRules = lib.mkBefore ''
-      ip saddr @crowdsec-blacklists drop
-      ip6 saddr @crowdsec6-blacklists drop
+      chain crowdsec {
+        type filter hook input priority filter - 1; policy accept;
+        ip6 saddr 2001:678:1e0::/48 accept
+        ip saddr @crowdsec-blacklists counter drop
+        ip6 saddr @crowdsec6-blacklists counter drop
+      }
     '';
   };
 }
