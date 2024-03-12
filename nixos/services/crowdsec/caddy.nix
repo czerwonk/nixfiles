@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 
 with lib;
 
@@ -6,7 +6,7 @@ let
   cfg = config.my.services.crowdsec;
 
 in {
-  config = mkIf (cfg.enable && services.caddy.enable) {
+  config = mkIf (cfg.enable && config.services.caddy.enable) {
     my.services.crowdsec.collections = [ "crowdsecurity/caddy" ];
 
     environment.etc."crowdsec/acquis/caddy.yaml".text = ''
