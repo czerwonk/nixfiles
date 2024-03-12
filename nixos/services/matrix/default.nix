@@ -28,7 +28,23 @@ in {
     networking.firewall.allowedTCPPorts = [ 8448 ];
 
     systemd.services.podman-create-matrix-net = {
-      serviceConfig.Type = "oneshot";
+      serviceConfig = {
+        Type = "oneshot";
+
+        ProtectSystem = "strict";
+        ProtectHostname = true;
+        ProtectClock = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+
+        ReadWritePaths = [
+          "/etc/containers"
+          "/var/lib/containers"
+        ];
+
+        ExecPaths = ["/nix/store"];
+        NoExecPaths = ["/"];
+      };
       wantedBy = [ "podman-matrix-synapse.service" ];
       path = [ pkgs.podman ];
       script = ''

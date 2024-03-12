@@ -55,7 +55,23 @@ in {
 
   config = mkIf cfg.enable {
     systemd.services.podman-create-mastodon-pod = {
-      serviceConfig.Type = "oneshot";
+      serviceConfig = {
+        Type = "oneshot";
+
+        ProtectSystem = "strict";
+        ProtectHostname = true;
+        ProtectClock = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+
+        ReadWritePaths = [
+          "/etc/containers"
+          "/var/lib/containers"
+        ];
+
+        ExecPaths = ["/nix/store"];
+        NoExecPaths = ["/"];
+      };
       wantedBy = [
         "podman-mastodon-web.service"
         "podman-mastodon-db.service"

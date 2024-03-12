@@ -46,4 +46,10 @@
 
   my.services.openssh-server.enable = true;
   security.pam.u2f.enable = false;
+
+  my.services.forgejo.enable = true;
+  services.restic.backups.forgejo = {
+    passwordFile = "/root/.restic-password";
+    repository = "/backup/forgejo";
+  };
 }

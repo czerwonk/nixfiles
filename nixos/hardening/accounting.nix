@@ -36,6 +36,7 @@ in {
       ProtectSystem = "strict";
       PrivateDevices = true;
       ProtectHostname = true;
+      ProtectClock = true;
       ProtectKernelTunables = true;
       ProtectKernelModules = true;
 

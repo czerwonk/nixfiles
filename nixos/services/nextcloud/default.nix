@@ -36,7 +36,23 @@ in {
 
   config = mkIf cfg.enable {
     systemd.services.podman-create-nextcloud-net = {
-      serviceConfig.Type = "oneshot";
+      serviceConfig = {
+        Type = "oneshot";
+
+        ProtectSystem = "strict";
+        ProtectHostname = true;
+        ProtectClock = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+
+        ReadWritePaths = [
+          "/etc/containers"
+          "/var/lib/containers"
+        ];
+
+        ExecPaths = ["/nix/store"];
+        NoExecPaths = ["/"];
+      };
       wantedBy = [
         "podman-nextcloud-aio-apache.service"
         "podman-nextcloud-aio-database.service"

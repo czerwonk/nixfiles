@@ -15,7 +15,23 @@ in {
 
   config = mkIf cfg.enable {
     systemd.services.podman-create-forgejo-net = {
-      serviceConfig.Type = "oneshot";
+      serviceConfig = {
+        Type = "oneshot";
+
+        ProtectSystem = "strict";
+        ProtectHostname = true;
+        ProtectClock = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+
+        ReadWritePaths = [
+          "/etc/containers"
+          "/var/lib/containers"
+        ];
+
+        ExecPaths = ["/nix/store"];
+        NoExecPaths = ["/"];
+      };
       wantedBy = [ "podman-forgejo.service" ];
       path = [ pkgs.podman ];
       script = ''
