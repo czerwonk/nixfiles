@@ -80,6 +80,25 @@ in {
           ];
         }
         {
+          job_name = "crowdsec";
+          static_configs = [{
+            targets = [ 
+              "bb1.dus.routing.rocks:6060"
+              "bb2.dus.routing.rocks:6060"
+              "homey.ess.routing.rocks:6060"
+            ];
+          }];
+          relabel_configs = [
+            {
+              source_labels = [ "__address__" ];
+              regex = "^(.*)\\.routing\\.rocks:\\d+$";
+              target_label = "instance";
+              replacement = "$1";
+              action = "replace";
+            }
+          ];
+        }
+        {
           job_name = "blackbox_https";
           metrics_path = "/probe";
           params = {

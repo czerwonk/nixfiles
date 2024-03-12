@@ -39,7 +39,6 @@ in {
         api.server = {
           enable = true;
           listen_uri = "127.0.0.1:8000";
-          trusted_ips = [ "127.0.0.1" "::1" ];
         };
         crowdsec_service = {
           acquisition_dir = "/etc/crowdsec/acquis";
@@ -51,7 +50,7 @@ in {
         prometheus = {
           enabled = true;
           level = "full";
-          listen_addr = "127.0.0.1";
+          listen_addr = "::";
           listen_port = 6060;
         };
       };
