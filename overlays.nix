@@ -35,6 +35,9 @@ in {
       };
     })
     (self: super: {
+      ethr = pkgs-unstable.callPackage ./pkgs/ethr {};
+    })
+    (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
         gnome-keyring = gprev.gnome-keyring.overrideAttrs (oldAttrs: {
           configureFlags = oldAttrs.configureFlags or [ ] ++ [
