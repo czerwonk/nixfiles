@@ -21,7 +21,7 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       adguard = {
-        image = "adguard/adguard:${version}";
+        image = "adguard/adguard:v${version}";
 
         autoStart = true;
 
