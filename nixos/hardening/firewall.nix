@@ -25,7 +25,7 @@
 
   networking.nftables.enable = lib.mkDefault true;
 
-  networking.nftables.tables."nixos-fw".content = lib.mkBefore ''
+  networking.nftables.tables."nixos-fw".content = lib.mkOrder 0 ''
     set blocklist-v4 {
       type ipv4_addr
       flags timeout

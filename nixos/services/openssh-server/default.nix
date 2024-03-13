@@ -29,7 +29,7 @@ in {
     services.openssh = {
       enable = true;
       ports = [ 2222 ];
-      openFirewall = cfg.openFirewall;
+      openFirewall = false;
       settings = {
         Port = 2222;
         TCPKeepAlive = false;
@@ -73,5 +73,24 @@ in {
           ChrootDirectory %h
       '';
     };
+
+    networking.nftables.tables."nixos-fw".content = mkIf cfg.openFirewall (mkOrder 10 ''
+      set ssh-ratelimit-v4 {
+        type ipv4_addr
+        timeout 60s
+        flags dynamic
+      }
+
+      set ssh-ratelimit-v6 {
+        type ipv6_addr
+        timeout 60s
+        flags dynamic
+      }
+    '');
+
+    my.networking.firewall.extraInputRules = mkIf cfg.openFirewall (mkOrder 0 ''
+      tcp dport 2222 update @ssh-ratelimit-v4 { ip saddr limit rate 10/minute } accept
+      tcp dport 2222 update @ssh-ratelimit-v6 { ip6 saddr limit rate 10/minute } accept
+    '');
   };
 }
