@@ -21,7 +21,7 @@ in {
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       adguard = {
-        image = "adguard/adguard:v${version}";
+        image = "adguard/adguardhome:v${version}";
 
         autoStart = true;
 
@@ -30,7 +30,7 @@ in {
         };
 
         ports = [
-          "127.0.0.1:8082:3000"
+          "127.0.0.1:8082:80"
           "${cfg.dnsBindAddress}:53:53/tcp"
           "${cfg.dnsBindAddress}:53:53/udp"
         ];
