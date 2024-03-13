@@ -1,5 +1,6 @@
 {
   imports = [
+    ./adguard
     ./audiobookshelf
     ./calibre-web
     ./crowdsec
@@ -14,7 +15,6 @@
     ./nextcloud
     ./ntfy
     ./openssh-server
-    ./pihole
     ./ripe-atlas
   ];
 }
