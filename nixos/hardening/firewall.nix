@@ -36,7 +36,7 @@
       flags timeout
     }
 
-    chain blocklist {
+    chain input-blocklist {
       type filter hook input priority filter - 1; policy accept;
       ip6 saddr 2001:678:1e0::/48 accept
       ip saddr @blocklist-v4 counter drop
