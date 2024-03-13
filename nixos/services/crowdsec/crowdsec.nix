@@ -71,7 +71,9 @@ in {
           set -o pipefail
 
           ${lib.concatLines (map (collection: ''
-            cscli collections install ${collection}
+            if ! cscli collections list | grep -q "${collection}"; then
+              cscli collections install ${collection}
+            fi
           '') cfg.collections)}
 
           if ! cscli bouncers list | grep -q "firewall-bouncer"; then
