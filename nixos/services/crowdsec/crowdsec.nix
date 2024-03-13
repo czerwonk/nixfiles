@@ -17,7 +17,7 @@ in {
 
       collections = mkOption {
         type = types.listOf types.str;
-        default = [];
+        default = [ "crowdsecurity/linux" ];
         description = "Collections to install";
       };
 
@@ -30,8 +30,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    cfg.collections = [ "crowdsecurity/linux" ];
-
     environment.etc."crowdsec/acquis/sshd.yaml".text = ''
       source: journalctl
       journalctl_filter:
