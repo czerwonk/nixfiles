@@ -280,11 +280,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1710162809,
-        "narHash": "sha256-i2R2bcnQp+85de67yjgZVvJhd6rRnJbSYNpGmB6Leb8=",
+        "lastModified": 1710283656,
+        "narHash": "sha256-nI+AOy4uK6jLGBi9nsbHjL1EdSIzoo8oa+9oeVhbyFc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ddcd7598b2184008c97e6c9c6a21c5f37590b8d2",
+        "rev": "51063ed4f2343a59fdeebb279bb81d87d453942b",
         "type": "github"
       },
       "original": {
@@ -310,11 +310,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1710339915,
-        "narHash": "sha256-I22UWyTu89hGGu6rGJOUbh6d46TBkPvmrd3lYQwVriY=",
+        "lastModified": 1710347894,
+        "narHash": "sha256-+rErHJ2QtgOaSEEPACrsT236nr6hk4uV+1odQDBpQS0=",
         "ref": "refs/heads/main",
-        "rev": "1c215035fdb3cd20f64cb4e4641488a1b93538ab",
-        "revCount": 293,
+        "rev": "a17a088716c2f8f3d811d47e0b66e9e0775f220b",
+        "revCount": 294,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
