@@ -89,8 +89,8 @@ in {
         api_key = cfg.bouncerApiKey;
         api_url = "http://127.0.0.1:8000";
         mode = "nftables";
-        blacklists_ipv4 = "blocklist-crowdsec-v4";
-        blacklists_ipv6 = "blocklist-crowdsec-v6";
+        blacklists_ipv4 = "blocklist-v4";
+        blacklists_ipv6 = "blocklist-v6";
         nftables = {
           ipv4 = {
             table = "nixos-fw";
@@ -107,24 +107,5 @@ in {
     };
 
     users.users.crowdsec.extraGroups = [ "systemd-journal" ];
-
-    networking.nftables.tables."nixos-fw".content = lib.mkBefore ''
-      set blocklist-crowdsec-v4 {
-        type ipv4_addr
-        flags timeout
-      }
-
-      set blocklist-crowdsec-v6 {
-        type ipv6_addr
-        flags timeout
-      }
-
-      chain crowdsec {
-        type filter hook input priority filter - 1; policy accept;
-        ip6 saddr 2001:678:1e0::/48 accept
-        ip saddr @blocklist-crowdsec-v4 counter drop
-        ip6 saddr @blocklist-crowdsec-v6 counter drop
-      }
-    '';
   };
 }
