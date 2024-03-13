@@ -109,12 +109,12 @@ in {
     users.users.crowdsec.extraGroups = [ "systemd-journal" ];
 
     networking.nftables.tables."nixos-fw".content = lib.mkBefore ''
-      set crowdsec-blacklists {
+      set blocklist-crowdsec-v4 {
         type ipv4_addr
         flags timeout
       }
 
-      set crowdsec6-blacklists {
+      set blocklist-crowdsec-v6 {
         type ipv6_addr
         flags timeout
       }
@@ -122,8 +122,8 @@ in {
       chain crowdsec {
         type filter hook input priority filter - 1; policy accept;
         ip6 saddr 2001:678:1e0::/48 accept
-        ip saddr @crowdsec-blacklists counter drop
-        ip6 saddr @crowdsec6-blacklists counter drop
+        ip saddr @blocklist-crowdsec-v6 counter drop
+        ip6 saddr @blocklist-crowdsec-v4 counter drop
       }
     '';
   };

@@ -24,4 +24,23 @@
   networking.firewall.filterForward = lib.mkDefault true;
 
   networking.nftables.enable = lib.mkDefault true;
+
+  networking.nftables.tables."nixos-fw".content = lib.mkBefore ''
+    set blocklist-v4 {
+      type ipv4_addr
+      flags timeout
+    }
+
+    set blocklist-v6 {
+      type ipv6_addr
+      flags timeout
+    }
+
+    chain blocklist {
+      type filter hook input priority filter - 5; policy accept;
+      ip6 saddr 2001:678:1e0::/48 accept
+      ip saddr @blocklist-v4 counter drop
+      ip6 saddr @blocklist-v6 counter drop
+    }
+  '';
 }
