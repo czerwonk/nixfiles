@@ -17,7 +17,7 @@ in {
 
       collections = mkOption {
         type = types.listOf types.str;
-        default = [ "crowdsecurity/linux" ];
+        default = [];
         description = "Collections to install";
       };
 

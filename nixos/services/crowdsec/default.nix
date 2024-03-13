@@ -9,4 +9,6 @@
     ./crowdsec.nix
     ./caddy.nix
   ];
+
+  my.services.crowdsec.collections = [ "crowdsecurity/linux" ];
 }

@@ -7,7 +7,7 @@ let
 
 in {
   config = mkIf (cfg.enable && config.services.caddy.enable) {
-    my.services.crowdsec.collections = cfg.collections ++ [ "crowdsecurity/caddy" ];
+    my.services.crowdsec.collections = [ "crowdsecurity/caddy" ];
 
     environment.etc."crowdsec/acquis/caddy.yaml".text = ''
       source: journalctl
