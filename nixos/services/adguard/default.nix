@@ -3,13 +3,13 @@
 with lib;
 
 let
-  cfg = config.my.services.pihole;
-  version = "2024.02.0";
+  cfg = config.my.services.adguard;
+  version = "0.107.45";
 
 in {
   options = {
-    my.services.pihole = {
-      enable = mkEnableOption "pihole";
+    my.services.adguard = {
+      enable = mkEnableOption "adguard";
 
       dnsBindAddress = mkOption {
         description = "IP Address to bind DNS resolver to";
@@ -20,41 +20,40 @@ in {
 
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
-      pihole = {
-        image = "pihole/pihole:${version}";
+      adguard = {
+        image = "adguard/adguard:${version}";
 
         autoStart = true;
 
         environment = {
           TZ = "Europe/Berlin";
-          DNSMASQ_USER = "root";
         };
 
         ports = [
-          "127.0.0.1:8082:80"
+          "127.0.0.1:8082:3000"
           "${cfg.dnsBindAddress}:53:53/tcp"
           "${cfg.dnsBindAddress}:53:53/udp"
         ];
 
         volumes = [
-          "pihole_config:/etc/pihole"
-          "pihole_dnsmasq:/etc/dnsmasq.d"
+          "adguard_config:/opt/adguardhome/conf"
+          "adguard_work:/opt/adguardhome/work"
         ];
       };
     };
 
-    services.caddy.virtualHosts."pihole.routing.rocks".extraConfig = ''
+    services.caddy.virtualHosts."adguard.routing.rocks".extraConfig = ''
       @blocked not remote_ip 2001:678:1e0::/48
       abort @blocked
 
       reverse_proxy * 127.0.0.1:8082
     '';
 
-    services.restic.backups.pihole = {
+    services.restic.backups.adguard = {
       initialize = true;
       paths = [
-        "/var/lib/containers/storage/volumes/pihole_config/_data/"
-        "/var/lib/containers/storage/volumes/pihole_dnsmasq/_data/"
+        "/var/lib/containers/storage/volumes/adguard_config/_data/"
+        "/var/lib/containers/storage/volumes/adguard_work/_data/"
       ];
       pruneOpts = [
         "--keep-daily 7"

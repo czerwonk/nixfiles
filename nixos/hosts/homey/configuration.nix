@@ -38,7 +38,7 @@
   my.services.calibre-web.enable = true;
   my.services.audiobookshelf.enable = true;
   my.services.forgejo.enable = true;
-  my.services.pihole.enable = true;
+  my.services.adguard.enable = true;
   my.services.ntfy.enable = true;
 
   my.services.netdata.receiver = true;
