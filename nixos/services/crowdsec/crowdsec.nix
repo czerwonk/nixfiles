@@ -89,8 +89,8 @@ in {
         api_key = cfg.bouncerApiKey;
         api_url = "http://127.0.0.1:8000";
         mode = "nftables";
-        blacklists_ipv4 = "crowdsec-blacklists";
-        blacklists_ipv6 = "crowdsec6-blacklists";
+        blacklists_ipv4 = "blocklist-crowdsec-v4";
+        blacklists_ipv6 = "blocklist-crowdsec-v6";
         nftables = {
           ipv4 = {
             table = "nixos-fw";
@@ -122,8 +122,8 @@ in {
       chain crowdsec {
         type filter hook input priority filter - 1; policy accept;
         ip6 saddr 2001:678:1e0::/48 accept
-        ip saddr @blocklist-crowdsec-v6 counter drop
-        ip6 saddr @blocklist-crowdsec-v4 counter drop
+        ip saddr @blocklist-crowdsec-v4 counter drop
+        ip6 saddr @blocklist-crowdsec-v6 counter drop
       }
     '';
   };
