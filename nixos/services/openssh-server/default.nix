@@ -89,8 +89,8 @@ in {
     '');
 
     my.networking.firewall.extraInputRules = mkIf cfg.openFirewall (mkOrder 0 ''
-      tcp dport 2222 update @ssh-ratelimit-v4 { ip saddr limit rate 10/minute } accept
-      tcp dport 2222 update @ssh-ratelimit-v6 { ip6 saddr limit rate 10/minute } accept
+      tcp dport 2222 update @ssh-ratelimit-v4 { ip saddr limit rate 5/minute } accept
+      tcp dport 2222 update @ssh-ratelimit-v6 { ip6 saddr limit rate 5/minute } accept
     '');
   };
 }
