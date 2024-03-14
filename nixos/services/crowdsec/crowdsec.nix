@@ -41,6 +41,7 @@ in {
     services.crowdsec = {
       enable = true;
       package = pkgs.crowdsec;
+      journaldSupport = true;
       settings = {
         api.server = {
           enable = true;

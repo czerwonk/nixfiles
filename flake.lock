@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710406323,
-        "narHash": "sha256-GjApbKyxaKPDsuXGgiarmiQPJt9rkOor5jMmCP5eI5w=",
+        "lastModified": 1710407105,
+        "narHash": "sha256-1eIO/lVjMh1d4Vjxh/XZa5L767Gxwo6SyNdLmaf1DXs=",
         "owner": "czerwonk",
         "repo": "nix-flake-crowdsec",
-        "rev": "0d8a5f924c54cd5f37b2edac57a1b2b7136e5993",
+        "rev": "0661d71e4b330a08eeffbba7a4c2bac5b415d022",
         "type": "github"
       },
       "original": {
