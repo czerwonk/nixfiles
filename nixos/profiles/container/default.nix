@@ -16,7 +16,5 @@
 
   virtualisation.oci-containers.backend = "podman";
   
-  networking.firewall.trustedInterfaces = [
-    "podman*"
-  ];
+  networking.firewall.trustedInterfaces = [ "podman*" ];
 }

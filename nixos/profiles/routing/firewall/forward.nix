@@ -20,9 +20,9 @@ with lib;
         ct status dnat accept comment "allow port forward"
         ct state vmap { established : accept, related : accept }
         icmpv6 type == { router-renumbering, 139 } jump drop-forward comment "Accept all ICMPv6 messages except renumbering and node information queries (type 139).  See RFC 4890, section 4.3."
-        iifname "lo" accept
-        iifname "wg*" accept
-        iifname "podman*" accept
+        ${flip concatMapStrings config.networking.firewall.trustedInterfaces (iface: ''
+          iifname "${iface}" accept
+        '')}
         ${config.my.networking.firewall.extraForwardRules}
         ip6 saddr 2001:678:1e0::/48 counter accept
         ip6 saddr @blocklist-v6 counter drop
