@@ -63,7 +63,6 @@ in {
     };
 
     systemd.services.crowdsec.serviceConfig = {
-      ProcSubset = "all";
       ExecStartPre = let
         script = pkgs.writeScriptBin "pre-start" ''
           #!${pkgs.runtimeShell}
@@ -105,7 +104,5 @@ in {
         };
       };
     };
-
-    users.users.crowdsec.extraGroups = [ "systemd-journal" ];
   };
 }
