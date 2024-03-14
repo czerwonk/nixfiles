@@ -28,13 +28,13 @@
       "locked": {
         "lastModified": 1710081776,
         "narHash": "sha256-o4o5MoMrJNQ3/BVOQRpFDmKIudaJxcJpm55Y5AsDnk0=",
-        "owner": "kampka",
+        "owner": "czerwonk",
         "repo": "nix-flake-crowdsec",
         "rev": "a700a08c5b40f3ceec7e7eabf04be5151426b2b1",
         "type": "github"
       },
       "original": {
-        "owner": "kampka",
+        "owner": "czerwonk",
         "repo": "nix-flake-crowdsec",
         "type": "github"
       }
