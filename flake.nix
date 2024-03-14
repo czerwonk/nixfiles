@@ -19,7 +19,7 @@
     };
 
     crowdsec = {
-      url = "github:kampka/nix-flake-crowdsec";
+      url = "github:czerwonk/nix-flake-crowdsec";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
