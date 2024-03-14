@@ -37,6 +37,13 @@ in {
       labels:
         type: syslog
     '';
+    environment.etc."crowdsec/acquis/kernel.yaml".text = ''
+      source: journalctl
+      journalctl_filter:
+       - "-k"
+      labels:
+        type: syslog
+    '';
 
     services.crowdsec = {
       enable = true;

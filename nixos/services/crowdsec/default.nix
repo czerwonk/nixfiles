@@ -10,5 +10,8 @@
     ./caddy.nix
   ];
 
-  my.services.crowdsec.collections = [ "crowdsecurity/linux" ];
+  my.services.crowdsec.collections = [
+    "crowdsecurity/linux"
+    "crowdsecurity/iptables"
+  ];
 }
