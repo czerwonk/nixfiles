@@ -11,6 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager-unstable.url = "github:nix-community/home-manager/master";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     thinkpad-fprint-sensor = {
@@ -147,7 +149,7 @@
             inputs.private.mauve.home
           ];
         };
-        surf-vm = systemLib.mkNixOSSystem {
+        surf-vm = systemLib.mkNixOSSystemUnstable {
           inherit system;
           username = "user";
           hostname = "surf-vm";
