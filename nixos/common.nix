@@ -39,6 +39,7 @@
   environment.systemPackages = with pkgs; [
     bcachefs-tools
     btrfs-progs
+    ethtool
     git
     gnupg
     htop
