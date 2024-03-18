@@ -24,6 +24,7 @@ in {
       crowdsec = pkgs-unstable.crowdsec;
       dns-drain = dns-drain-packages.dns-drainctl;
       go = pkgs-unstable.go_1_22;
+      kdePackages = pkgs-unstable.kdePackages;
       nix-alien = nix-alien-packages.nix-alien;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
