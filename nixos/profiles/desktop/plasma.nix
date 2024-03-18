@@ -1,10 +1,14 @@
 { inputs, ... }:
 
 {
-  disabledModules = [ "services/x11/desktop-managers/plasma5.nix" ];
+  disabledModules = [
+    "services/x11/desktop-managers/plasma5.nix"
+    "programs/chromium.nix"
+  ];
 
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
+    "${inputs.nixpkgs-unstable}/nixos/modules/programs/chromium.nix"
   ];
 
   services.xserver = {
@@ -17,6 +21,4 @@
     };
     desktopManager.plasma6.enable = true;
   };
-
-  programs.dconf.enable = true;
 }
