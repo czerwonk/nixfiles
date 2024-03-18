@@ -34,7 +34,7 @@
     packages = with pkgs; [
       gnome.gnome-tweaks
       wgnord
-      linuxKernel.packages.linuxKernel.packages.linux_6_7_hardened.virtualboxGuestAdditions
+      linuxKernel.packages.linux_hardened.virtualboxGuestAdditions
     ];
   };
 
