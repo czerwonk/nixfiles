@@ -7,6 +7,16 @@
     "${inputs.nixpkgs-unstable}/nixos/modules/services/x11/desktop-managers/plasma6.nix"
   ];
 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.xserver = {
+    displayManager = {
+      defaultSession = "plasma";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
+    desktopManager.plasma6.enable = true;
+  };
+
+  programs.dconf.enable = true;
 }
