@@ -50,6 +50,9 @@
         plugin = neotest-python;
       }
       {
+        plugin = neotest-dotnet;
+      }
+      {
         plugin = nvim-coverage;
         type = "lua";
         config = builtins.readFile ./lua/coverage.lua;

@@ -33,6 +33,7 @@ in {
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
+      omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
       vimPlugins = pkgs-unstable.vimPlugins;
