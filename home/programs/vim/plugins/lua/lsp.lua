@@ -216,7 +216,7 @@ lspconfig.omnisharp.setup {
   enable_ms_build_load_projects_on_demand = false,
   enable_roslyn_analyzers = true,
   organize_imports_on_format = true,
-  enable_import_completion = true,
+  enable_import_completion = true
 }
 
 lspconfig.jsonls.setup {
@@ -229,6 +229,7 @@ lspconfig.jsonls.setup {
     }
   }
 }
+
 lspconfig.helm_ls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
