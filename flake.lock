@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710842751,
+        "lastModified": 1710850257,
         "narHash": "sha256-h5cviDyTom94UcURc8beLI+dB+4TYPLsbnU62aoDiaY=",
         "owner": "czerwonk",
         "repo": "nix-flake-crowdsec",
-        "rev": "101574f84b16bd005d60a8cdc9ef298443c786ef",
+        "rev": "a2d096187880c2f9946d23520eb2be47389f43df",
         "type": "github"
       },
       "original": {
@@ -44,11 +44,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1709903362,
-        "narHash": "sha256-x3pZvoG3YfORkiMGAC5FkOA7sbcgx6bBbWAc3YDMttk=",
+        "lastModified": 1710845494,
+        "narHash": "sha256-OEzvOmnvqoxzcxAahDqKCGnKeHU31Q/+Cntyg4YUUzU=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "1987c1444bd0c200fd66066fb1124fb82ecafd98",
+        "rev": "b93ac503245b7d997245013e6a0867fda3c95c4f",
         "type": "github"
       },
       "original": {
