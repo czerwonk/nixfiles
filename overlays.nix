@@ -19,24 +19,26 @@ let
 in {
   nixpkgs.overlays = [
     (self: super: {
-      ansible = super.ansible.override { windowsSupport = true; };
       ansible-role = ansible-role-packages.ansible-role;
-      crowdsec = pkgs-unstable.crowdsec;
       dns-drain = dns-drain-packages.dns-drainctl;
-      go = pkgs-unstable.go_1_22;
-      kdePackages = pkgs-unstable.kdePackages;
+      ethr = pkgs-unstable.callPackage ./pkgs/ethr {};
       nix-alien = nix-alien-packages.nix-alien;
+      provisionize = provisionize-packages.provisionize;
+    })
+    (self: super: {
+      ansible = super.ansible.override { windowsSupport = true; };
+      crowdsec = pkgs-unstable.crowdsec;
+      go = pkgs-unstable.go_1_22;
+      neovim = pkgs-unstable.neovim;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       podman = pkgs-unstable.podman;
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
-      provisionize = provisionize-packages.provisionize;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
       vimPlugins = super.vimPlugins // {
+        harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
         neotest = pkgs-unstable.vimPlugins.neotest;
       };
-    })
-    (self: super: {
-      ethr = pkgs-unstable.callPackage ./pkgs/ethr {};
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
