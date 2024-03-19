@@ -94,6 +94,4 @@
   programs.hyprland.enable = true;
 
   services.pcscd.enable = true;
-
-  virtualisation.virtualbox.host.enable = true;
 }

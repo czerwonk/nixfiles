@@ -26,6 +26,7 @@
     inputs.nixpkgs-unstable.lib.nixosSystem {
       inherit system;
       modules = [
+        ../overlays.nix
         ../nixos/hosts/${hostname}/configuration.nix
         inputs.home-manager-unstable.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   services.xserver = {
     displayManager.gdm = {
-      enable = true;
+      enable = lib.mkDefault true;
       wayland = true;
     };
     desktopManager.gnome = {

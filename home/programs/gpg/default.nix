@@ -15,6 +15,5 @@
     enableSshSupport = true;
     defaultCacheTtl = 7200;
     maxCacheTtl = 86400;
-    pinentryFlavor = lib.mkDefault "gnome3";
   };
 }
