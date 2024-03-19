@@ -70,6 +70,9 @@
       {
         plugin = copilot-cmp;
       }
+      {
+        plugin = omnisharp-extended-lsp-nvim;
+      }
     ];
   };
 }
