@@ -35,10 +35,7 @@ in {
       podman-unwrapped = pkgs-unstable.podman-unwrapped;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = super.vimPlugins // {
-        harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
-        neotest = pkgs-unstable.vimPlugins.neotest;
-      };
+      vimPlugins = pkgs-unstable.vimPlugins;
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
