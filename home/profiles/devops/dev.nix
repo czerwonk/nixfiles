@@ -9,6 +9,7 @@
     packages = with pkgs; [
       cargo
       clippy
+      dotnet-sdk_8
       gh
       gnumake
       go
