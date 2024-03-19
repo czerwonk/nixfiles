@@ -10,7 +10,6 @@
       helm-ls
       marksman
       nil
-      omnisharp-roslyn
       pyright
       rust-analyzer
       solargraph
