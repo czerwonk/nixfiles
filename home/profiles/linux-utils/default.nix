@@ -12,6 +12,7 @@
       iotop
       parted
       pciutils
+      procs
       samba
       strace
       usbutils
