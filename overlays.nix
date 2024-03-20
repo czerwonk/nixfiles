@@ -28,6 +28,7 @@ in {
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       crowdsec = pkgs-unstable.crowdsec;
+      firefox = pkgs-unstable.firefox;
       go = pkgs-unstable.go_1_22;
       neovim = pkgs-unstable.neovim;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
