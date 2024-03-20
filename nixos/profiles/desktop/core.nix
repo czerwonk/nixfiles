@@ -15,10 +15,4 @@
   networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
-
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
 }
