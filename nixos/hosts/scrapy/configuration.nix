@@ -43,6 +43,4 @@
 
   my.services.openssh-server.enable = true;
   security.pam.u2f.enable = false;
-
-  programs.gnupg.agent.pinentryPackage = "gnome3";
 }

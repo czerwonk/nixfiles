@@ -40,6 +40,4 @@
   services.power-profiles-daemon.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
-
-  programs.gnupg.agent.pinentryFlavor = "gnome3";
 }
