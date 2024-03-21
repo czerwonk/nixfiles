@@ -129,7 +129,7 @@
             inputs.private.home
           ];
         };
-        scrapy = systemLib.mkNixOSSystemUnstable {
+        scrapy = systemLib.mkNixOSSystem {
           inherit system;
           username = inputs.private.username {};
           hostname = "scrapy";
