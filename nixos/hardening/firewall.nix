@@ -28,12 +28,12 @@
   networking.nftables.tables."nixos-fw".content = lib.mkOrder 0 ''
     set blocklist-v4 {
       type ipv4_addr
-      flags timeout
+      flags timeout, interval
     }
 
     set blocklist-v6 {
       type ipv6_addr
-      flags timeout
+      flags timeout, interval
     }
 
     chain input-blocklist {
