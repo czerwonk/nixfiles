@@ -39,16 +39,6 @@
     neededForBoot = true;
   };
 
-  fileSystems."/mnt/backup" = {
-    device = "zpool/backup";
-    fsType = "zfs";
-  };
-
-  fileSystems."/mnt/unifi" = {
-    device = "zpool/unifi";
-    fsType = "zfs";
-  };
-
   swapDevices = [
     {
       device = "/dev/disk/by-uuid/8129591d-ae96-4803-b6cb-608b68cee75b";
