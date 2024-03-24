@@ -29,6 +29,7 @@ in {
       ansible = super.ansible.override { windowsSupport = true; };
       crowdsec = pkgs-unstable.crowdsec;
       go = pkgs-unstable.go_1_22;
+      k3s = pkgs-unstable.k3s;
       neovim = pkgs-unstable.neovim;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       podman = pkgs-unstable.podman;

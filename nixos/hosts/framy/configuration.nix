@@ -1,6 +1,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
+    ./k3s.nix
     ../../configuration.nix
     ../../zfs.nix
     ../../profiles/desktop
