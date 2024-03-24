@@ -8,6 +8,7 @@
     ./freshrss
     ./immich
     ./jellyfin
+    ./k3s
     ./mastodon
     ./matrix
     ./monitoring

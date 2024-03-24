@@ -1,7 +1,6 @@
 {
   imports = [ 
     ./hardware-configuration.nix
-    ./k3s.nix
     ../../configuration.nix
     ../../zfs.nix
     ../../profiles/desktop
@@ -41,4 +40,6 @@
   services.power-profiles-daemon.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
+
+  my.services.k3s.enable = true;
 }
