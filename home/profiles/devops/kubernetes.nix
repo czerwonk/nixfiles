@@ -8,6 +8,7 @@
       kubectl
       kubernetes-helm
       stern
+      kubevirt
     ];
   };
 
