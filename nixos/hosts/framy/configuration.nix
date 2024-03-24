@@ -42,5 +42,8 @@
 
   virtualisation.virtualbox.host.enable = true;
 
-  my.services.k3s.enable = true;
+  my.services.k3s = {
+    enable = true;
+    autoStart = false;
+  };
 }

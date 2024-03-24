@@ -7,7 +7,14 @@ let
 
 in {
   options = {
-    my.services.k3s.enable = mkEnableOption "Jellyfin Media System";
+    my.services.k3s = {
+      enable = mkEnableOption "Jellyfin Media System";
+
+      autoStart = mkOption {
+        type = types.bool;
+        default = true;
+      };
+    };
   };
 
   config = mkIf cfg.enable {
@@ -25,5 +32,7 @@ in {
     };
 
     networking.firewall.trustedInterfaces = [ "cni*" ];
+
+    systemd.services.k3s.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
   };
 }
