@@ -8,6 +8,7 @@
   home = {
     packages = with pkgs; [
       ansible
+      ansible-lint
       ansible-role
       dns-drain
       google-cloud-sdk

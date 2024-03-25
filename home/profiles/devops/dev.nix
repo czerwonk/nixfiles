@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./lsp.nix
-  ];
-
   home = {
     packages = with pkgs; [
       cargo
