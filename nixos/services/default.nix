@@ -17,5 +17,6 @@
     ./ntfy
     ./openssh-server
     ./ripe-atlas
+    ./vaultwarden
   ];
 }

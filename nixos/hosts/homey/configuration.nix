@@ -40,6 +40,7 @@
   my.services.forgejo.enable = true;
   my.services.adguard.enable = true;
   my.services.ntfy.enable = true;
+  my.services.vaultwarden.enable = true;
 
   my.services.netdata.receiver = true;
 }
