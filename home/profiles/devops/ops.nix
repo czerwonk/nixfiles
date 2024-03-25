@@ -11,6 +11,7 @@
       ansible-role
       dns-drain
       google-cloud-sdk
+      inspec
       lynis
       mysql-shell
       opentofu
