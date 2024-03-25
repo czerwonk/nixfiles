@@ -14,11 +14,9 @@
     ../../programs/zoxide
   ];
 
-  home = {
-    packages = with pkgs; [
-      bitwarden-cli
-      octave
-      wireguard-tools
-    ];
-  };
+  home.packages = with pkgs; [
+    bitwarden-cli
+    octave
+    wireguard-tools
+  ];
 }

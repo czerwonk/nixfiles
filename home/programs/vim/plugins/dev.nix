@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.neovim = {
@@ -65,10 +65,25 @@
       {
         plugin = copilot-lua;
         type = "lua";
-        config = builtins.readFile ./lua/copilot.lua;
+        config = ''
+          require('copilot').setup {
+            copilot_node_command = '${lib.getExe pkgs.nodejs}',
+            panel = {
+              enabled = false,
+            },
+            suggestion = {
+              enabled = false,
+            },
+          }
+        '';
       }
       {
         plugin = copilot-cmp;
+        type = "lua";
+        config = ''
+          vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+          require("copilot_cmp").setup()
+        '';
       }
       {
         plugin = omnisharp-extended-lsp-nvim;
