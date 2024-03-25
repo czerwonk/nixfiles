@@ -8,7 +8,19 @@ let
 
 in {
   options = {
-    my.services.vaultwarden.enable = mkEnableOption "Vaultwarden";
+    my.services.vaultwarden = {
+      enable = mkEnableOption "Vaultwarden";
+
+      yubico_client_id = mkOption {
+        type = types.str;
+        description = "Client ID to use with Yubico API";
+      };
+
+      yubico_api_key = mkOption {
+        type = types.str;
+        description = "Secret API Key to use with Yubico API";
+      };
+    };
   };
 
   config = mkIf cfg.enable {
@@ -20,6 +32,7 @@ in {
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
+        user = "1000:1000";
 
         environment = {
           PUID = "1000";
@@ -28,6 +41,8 @@ in {
           ROCKET_PORT = "8085";
           DOMAIN = "https://vaultwarden.routing.rocks";
           WEBSOCKET_ENABLED = "true";
+          YUBICO_CLIENT_ID = cfg.yubico_client_id;
+          YUBICO_SECRET_KEY = cfg.yubico_api_key;
         };
 
         ports = [
