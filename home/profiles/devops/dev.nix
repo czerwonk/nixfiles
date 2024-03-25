@@ -17,7 +17,6 @@
       graphviz
       jsonnet
       mysql-shell
-      nodejs
       podman
       podman-compose
       protobuf
