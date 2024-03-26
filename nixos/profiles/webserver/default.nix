@@ -6,7 +6,7 @@
   services.caddy = {
     enable = true;
     adapter = "caddyfile";
-    globalConfig = lib.mkBefore ''
+    extraConfig = lib.mkBefore ''
       (common) {
         header /* {
           -Server
