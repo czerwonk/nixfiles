@@ -68,7 +68,7 @@ in {
         "/var/lib/containers/storage/volumes/vaultwarden-data"
       ];
       pruneOpts = [
-        "--keep-daily 7"
+        "--keep-daily 90"
       ];
     };
   };
