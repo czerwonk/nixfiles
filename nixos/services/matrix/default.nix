@@ -222,6 +222,8 @@ in {
     '';
 
     services.caddy.virtualHosts."routing.rocks".extraConfig = lib.mkAfter ''
+      import common
+
       handle /.well-known/matrix/server {
         import matrix-well-known-header
         respond `{"m.server":"matrix.routing.rocks:443"}`

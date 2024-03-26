@@ -23,4 +23,5 @@ in {
   networking.hostId = "292ea3ce";
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
+  my.services.ripe-atlas.enable = true;
 }

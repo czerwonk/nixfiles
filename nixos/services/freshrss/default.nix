@@ -38,8 +38,7 @@ in {
     };
 
     services.caddy.virtualHosts."rss.routing.rocks".extraConfig = ''
-      @blocked not remote_ip 2001:678:1e0::/48
-      abort @blocked
+      import private
 
       reverse_proxy * 127.0.0.1:1080
     '';

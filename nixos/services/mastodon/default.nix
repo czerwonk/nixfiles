@@ -275,11 +275,15 @@ in {
     };
 
     services.caddy.virtualHosts."routing.rocks".extraConfig = lib.mkAfter ''
+      import common
+
       redir /.well-known/host-meta https://social.routing.rocks{uri}
       redir /.well-known/webfinger https://social.routing.rocks{uri}
     '';
 
     services.caddy.virtualHosts."social.routing.rocks".extraConfig = ''
+      import common
+
       reverse_proxy * 127.0.0.1:3000
 
       encode gzip
