@@ -38,6 +38,8 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     provisionize.url = "github:MauveSoftware/provisionize";
+
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.37.1";
   };
 
   outputs = inputs:
