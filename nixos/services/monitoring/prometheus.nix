@@ -117,6 +117,7 @@ in {
               "books.routing.rocks/login"
               "code.routing.rocks"
               "ntfy.routing.rocks"
+              "vaultwarden.routing.rocks"
             ];
           }];
           relabel_configs = [
