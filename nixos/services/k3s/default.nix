@@ -25,12 +25,6 @@ in {
 
     environment.systemPackages = [ pkgs.k3s ];
 
-    environment.persistence."/persist" = {
-      directories = [
-        "/etc/rancher"
-      ];
-    };
-
     networking.firewall.trustedInterfaces = [ "cni*" ];
 
     systemd.services.k3s.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
