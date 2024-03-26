@@ -74,6 +74,7 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "altgr-intl";
+    xkbOptions = "caps:escape";
   };
 
   console = {
