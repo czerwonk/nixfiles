@@ -1,6 +1,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix
+    ./persistence.nix
     ../../configuration.nix
     ../../zfs.nix
     ../../profiles/desktop
