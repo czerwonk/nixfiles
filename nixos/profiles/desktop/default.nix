@@ -61,6 +61,7 @@
       bitwarden
       blueberry
       calibre
+      distrobox
       foliate
       gimp
       libation
