@@ -2,6 +2,8 @@
   boot.kernel.sysctl = {
     "fs.protected_hardlinks" = true;
     "fs.protected_symlinks" = true;
+    "fs.protected_fifos" = 2;
+    "fs.protected_regular" = 2;
     "fs.suid_dumpable" = false;
 
     "kernel.ctrl-alt-del" = false;
