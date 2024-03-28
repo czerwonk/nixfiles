@@ -19,8 +19,14 @@
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;
   security.lockKernelModules = lib.mkDefault true;
-  security.sudo.execWheelOnly = true;
   security.allowUserNamespaces = lib.mkDefault false;
+
+  security.sudo = {
+    execWheelOnly = true;
+    extraConfig = ''
+      Defaults requiretty,use_pty,env_reset
+    '';
+  };
 
   systemd.coredump.enable = lib.mkDefault false;
   security.pam.loginLimits = [
