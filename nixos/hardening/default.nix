@@ -28,7 +28,6 @@
       Defaults log_format=json
       Defaults log_subcmds
       Defaults log_output
-      Defaults intercept
 
       Defaults:root !requiretty
     '';
