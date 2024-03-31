@@ -11,6 +11,7 @@
 
   security.audit = {
     enable = true;
+    backlogLimit = 8192;
     rules = [
       "-a exit,always -F arch=b64 -F euid=0 -S execve"
     ];
