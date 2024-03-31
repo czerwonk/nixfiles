@@ -25,6 +25,11 @@
     execWheelOnly = true;
     extraConfig = lib.mkBefore ''
       Defaults requiretty,use_pty,env_reset
+      Defaults log_format=json
+      Defaults log_subcmds
+      Defaults log_input, log_output
+      Defaults !log_passwords
+      Defaults intercept
 
       Defaults:root !requiretty
     '';
