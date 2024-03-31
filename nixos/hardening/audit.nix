@@ -3,6 +3,11 @@
     enable = "lock";
     backlogLimit = 8192;
     rules = [
+      "-i" # ignore missing users or files
+
+      # file access
+      "-w /var/log/audit/ -p wra -k file_access"
+
       # file integrity monitoring
       "-w /etc/sudoers -p wa -k file_integrity"
       "-w /etc/passwd -p wa -k file_integrity"
@@ -14,12 +19,13 @@
       "-w /etc/hosts -p wa -k file_integrity"
       "-w /etc/systemd/network -p wa -k file_integrity"
       "-w /etc/pam.d/ -p wa -k file_integrity"
-      "-w /etc/security/limits.conf -p wa -k file_integrity"
       "-w /etc/ssh/sshd_config -p wa -k file_integrity"
       "-w /etc/systemd/ -p wa -k file_integrity"
       "-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity"
+      "-w /etc/localtime -p wa -k file_integrity"
 
       # executions
+      "-a always,exclude -F msgtype=CWD"
       "-a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo"
       "-a always,exit -F arch=b64 -S mount -S umount2 -F auid!=-1 -k mount"
       "-a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles"
