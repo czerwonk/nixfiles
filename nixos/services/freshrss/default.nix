@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.freshrss;
-  version = "1.23.1-ls219";
+  version = "1.23.1-ls221";
 
 in {
   options = {
