@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./audit.nix
     ./firewall.nix
     ./sysctl.nix
     ./services.nix
