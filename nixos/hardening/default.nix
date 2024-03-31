@@ -23,8 +23,10 @@
 
   security.sudo = {
     execWheelOnly = true;
-    extraConfig = ''
+    extraConfig = lib.mkBefore ''
       Defaults requiretty,use_pty,env_reset
+
+      Defaults:root !requiretty
     '';
   };
 
