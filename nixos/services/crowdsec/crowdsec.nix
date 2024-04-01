@@ -103,5 +103,7 @@ in {
         };
       };
     };
+
+    users.users.crowdsec.extraGroups = [ "audit" ];
   };
 }

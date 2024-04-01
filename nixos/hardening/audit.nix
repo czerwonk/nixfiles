@@ -1,4 +1,22 @@
 {
+  users.groups.audit.members = [ "root" ];
+
+  environment.etc."audit/auditd.conf".text = ''
+    log_file = /var/log/audit/audit.log
+    log_format = RAW
+    log_group = audit
+    priority_boost = 4
+    flush = INCREMENTAL
+    freq = 50
+    max_log_file = 100
+    max_log_file_action = ROTATE
+    num_logs = 20
+    admin_space_left = 512
+    admin_space_left_action = suspend
+    disk_full_action = SUSPEND
+    disk_error_action = SUSPEND
+  '';
+
   security.audit = {
     enable = "lock";
     backlogLimit = 8192;
@@ -7,6 +25,20 @@
 
       # file access
       "-w /var/log/audit/ -p wra -k file_access"
+
+      # failed file access
+      "-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_access"
+      "-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_access"
+      "-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_access"
+      "-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_access"
+
+      # access modifications
+      "-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod"
+      "-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod"
+      "-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=-1 -k perm_mod"
+      "-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=-1 -k perm_mod"
+      "-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=-1 -k perm_mod"
+      "-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=-1 -k perm_mod"
 
       # file integrity monitoring
       "-w /etc/sudoers -p wa -k file_integrity"
@@ -23,17 +55,23 @@
       "-w /etc/systemd/ -p wa -k file_integrity"
       "-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity"
       "-w /etc/localtime -p wa -k file_integrity"
+      "-w /var/log/sudo-io -p wra -k file_integrity"
 
       # executions
       "-a always,exclude -F msgtype=CWD"
       "-a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo"
+      "-a always,exit -F arch=b32 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo"
       "-a always,exit -F arch=b64 -S mount -S umount2 -F auid!=-1 -k mount"
       "-a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles"
 
+      # deletions
+      "-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=-1 -k delete"
+      "-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=-1 -k delete"
+
       # modules
-      "-a always,exit -F perm=x -F auid!=-1 -F path=/sbin/insmod -k modules"
-      "-a always,exit -F perm=x -F auid!=-1 -F path=/sbin/modprobe -k modules"
-      "-a always,exit -F perm=x -F auid!=-1 -F path=/sbin/rmmod -k modules"
+      "-a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/insmod -k modules"
+      "-a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/modprobe -k modules"
+      "-a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/rmmod -k modules"
       "-a always,exit -F arch=b64 -S finit_module -S init_module -S delete_module -F auid!=-1 -k modules"
 
       # ptrace

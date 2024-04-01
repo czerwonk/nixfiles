@@ -13,5 +13,6 @@
   my.services.crowdsec.collections = [
     "crowdsecurity/linux"
     "crowdsecurity/iptables"
+    "crowdsecurity/auditd"
   ];
 }
