@@ -44,6 +44,12 @@ in {
       labels:
         type: syslog
     '';
+    environment.etc."crowdsec/acquis/audit.yaml".text = ''
+      filenames:
+        - /var/log/audit/*.log
+      labels:
+        type: auditd
+    '';
 
     services.crowdsec = {
       enable = true;
