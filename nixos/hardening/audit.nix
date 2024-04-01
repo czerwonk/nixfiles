@@ -1,5 +1,8 @@
 {
-  users.groups.audit.members = [ "root" ];
+  users.groups.audit = {
+    gid = 800;
+    members = [ "root" ];
+  };
 
   environment.etc."audit/auditd.conf".text = ''
     log_file = /var/log/audit/audit.log
