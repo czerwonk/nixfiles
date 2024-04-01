@@ -23,9 +23,6 @@
     rules = [
       "-i" # ignore missing users or files
 
-      # file access
-      "-w /var/log/audit/ -p wra -k file_access"
-
       # failed file access
       "-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_access"
       "-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_access"
