@@ -21,8 +21,8 @@
       image = "nlnetlabs/routinator";
       extraOptions = [
         "--runtime=${pkgs.gvisor}/bin/runsc"
+        "--ip=10.88.0.2"
       ];
-      ports = [ "127.0.0.1:3323:3323" ];
     };
   };
 }

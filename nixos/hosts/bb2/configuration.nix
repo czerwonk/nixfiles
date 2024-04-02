@@ -24,4 +24,6 @@ in {
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
   my.services.ripe-atlas.enable = true;
+
+  profiles.container.disableFirewall = true;
 }
