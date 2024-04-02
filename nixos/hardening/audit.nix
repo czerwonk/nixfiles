@@ -52,10 +52,14 @@
       "-w /etc/systemd/network -p wa -k file_integrity"
       "-w /etc/pam.d/ -p wa -k file_integrity"
       "-w /etc/ssh/sshd_config -p wa -k file_integrity"
-      "-w /etc/systemd/ -p wa -k file_integrity"
       "-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity"
       "-w /etc/localtime -p wa -k file_integrity"
       "-w /var/log/sudo-io -p wra -k file_integrity"
+
+      # systemd
+      "-w /run/current-system/sw/bin/systemctl -p x -k systemd"
+      "-w /etc/systemd/ -p wa -k systemd"
+      "-w /usr/lib/systemd -p wa -k systemd"
 
       # executions
       "-a always,exclude -F msgtype=CWD"
