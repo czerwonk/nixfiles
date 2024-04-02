@@ -9,13 +9,15 @@
     log_format = RAW
     log_group = audit
     priority_boost = 4
-    flush = INCREMENTAL
+    flush = INCREMENTAL_ASYNC
     freq = 50
     max_log_file = 100
     max_log_file_action = ROTATE
     num_logs = 20
-    admin_space_left = 512
-    admin_space_left_action = suspend
+    space_left = 100
+    space_left_action = SYSLOG
+    admin_space_left = 50
+    admin_space_left_action = SUSPEND
     disk_full_action = SUSPEND
     disk_error_action = SUSPEND
   '';
