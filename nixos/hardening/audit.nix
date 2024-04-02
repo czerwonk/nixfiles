@@ -49,7 +49,6 @@
       "-w /etc/sysctl.d -p wa -k file_integrity"
       "-w /etc/login.defs -p wa -k file_integrity"
       "-w /etc/hosts -p wa -k file_integrity"
-      "-w /etc/systemd/network -p wa -k file_integrity"
       "-w /etc/pam.d/ -p wa -k file_integrity"
       "-w /etc/ssh/sshd_config -p wa -k file_integrity"
       "-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity"
