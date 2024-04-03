@@ -10,7 +10,10 @@
   networking.useNetworkd = lib.mkDefault true;
   networking.useDHCP = lib.mkDefault false;
 
-  systemd.network.enable = lib.mkDefault true;
+  systemd.network = {
+    enable = lib.mkDefault true;
+    wait-online.anyInterface = true;
+  };
 
   services.dnsmasq.settings.dnssec = false;
 
