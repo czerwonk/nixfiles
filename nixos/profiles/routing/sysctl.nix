@@ -13,12 +13,5 @@
     "net.ipv6.conf.default.autoconf" = false;
     "net.ipv6.conf.default.accept_ra" = false;
     "net.ipv6.route.max_size" = 2147483647;
-
-    "net.netfilter.nf_conntrack_max" = 120000;
-    "net.netfilter.nf_conntrack_tcp_loose" = false;
-
-    "net.core.netdev_max_backlog" = 10000;
-
-    "vm.max_map_count" = 262144;
   };
 }
