@@ -23,7 +23,7 @@
   '';
 
   security.audit = {
-    enable = "lock";
+    enable = true;
     backlogLimit = 8192;
     rules = [
       "-i" # ignore missing users or files
