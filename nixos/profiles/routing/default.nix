@@ -8,8 +8,6 @@
 
   routing-rocks.bird2.enable = true;
 
-  systemd.network.wait-online.anyInterface = true;
-
   services.prometheus.exporters.bird = {
     enable = true;
     user = "bird2";
