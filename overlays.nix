@@ -34,7 +34,7 @@ in {
       ansible = super.ansible.override { windowsSupport = true; };
       bitwarden-cli = pkgs-unstable.bitwarden-cli;
       crowdsec = pkgs-unstable.crowdsec;
-      go = pkgs-unstable.go_1_22;
+      go = pkgs-unstable.go;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
       podman = pkgs-unstable.podman;
