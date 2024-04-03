@@ -37,8 +37,6 @@ in {
       go = pkgs-unstable.go_1_22;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
-      neovim = pkgs-unstable.neovim;
-      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       podman = pkgs-unstable.podman;
       omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
       sublime4 = pkgs-unstable.sublime4;

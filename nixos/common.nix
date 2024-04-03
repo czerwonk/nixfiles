@@ -45,7 +45,6 @@
     htop
     lsof
     mdadm
-    neovim
     ntp
     smartmontools
     tmux
