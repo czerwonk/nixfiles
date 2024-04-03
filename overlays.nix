@@ -33,7 +33,24 @@ in {
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       bitwarden-cli = pkgs-unstable.bitwarden-cli;
-      crowdsec = pkgs-unstable.crowdsec;
+      crowdsec = pkgs-unstable.crowdsec.overrideAttrs (old: {
+        ldflags =
+          (old.ldflags or [])
+          ++ [
+            "-X github.com/crowdsecurity/go-cs-lib/version.Version=v${old.version}"
+          ];
+        patches =
+          (old.patches or [])
+          ++ [
+            (
+              pkgs-unstable.fetchpatch
+              {
+                url = "https://patch-diff.githubusercontent.com/raw/crowdsecurity/crowdsec/pull/2868.patch";
+                hash = "sha256-KLoGgHGwkS3+e0vSrivL0HQVRCCZ+saH9NDWlH7/Zmw=";
+              }
+            )
+          ];
+      });
       go = pkgs-unstable.go;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
