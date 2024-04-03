@@ -71,6 +71,4 @@
     enable = lib.mkDefault true;
     openFirewall = lib.mkDefault true;
   };
-
-  my.services.netdata.enable = true;
 }
