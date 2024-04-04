@@ -5,6 +5,6 @@ pkgs.mkShell {
     bcc
     bpftrace
     dropwatch
-    perf
+    perf-tools
   ];
 }
