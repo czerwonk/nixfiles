@@ -7,7 +7,6 @@
     ../../../home/profiles/devops
     ../../../home/profiles/pentest
     ../../../home/profiles/hyprland
-    ../../../home/profiles/performance
   ] ++ extraHomeModules;
 
   profiles.hyprland = {

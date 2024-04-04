@@ -12,6 +12,7 @@
       ansible-role
       dns-drain
       google-cloud-sdk
+      hey
       inspec
       lynis
       mysql-shell
