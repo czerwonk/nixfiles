@@ -53,7 +53,6 @@ in {
       });
       go = pkgs-unstable.go;
       k3s = pkgs-unstable.k3s;
-      kitty = pkgs-unstable.kitty;
       kubevirt = pkgs-unstable.kubevirt;
       neovim = pkgs-unstable.neovim;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
