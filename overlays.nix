@@ -16,17 +16,6 @@ let
   nix-alien-packages = inputs.nix-alien.packages.${system};
   provisionize-packages = inputs.provisionize.packages.${system};
   hyprland-packages = inputs.hyprland.packages.${system};
-  obsidian-nvim = pkgs-unstable.vimUtils.buildVimPlugin {
-    pname = "obsidian.nvim";
-    version = "v2.5";
-    src = pkgs-unstable.fetchFromGitHub {
-      owner = "epwalsh";
-      repo = "obsidian.nvim";
-      rev = "88bf9150d9639a2cae3319e76abd7ab6b30d27f0";
-      hash = "sha256-irPk9iprbI4ijNUjMxXjw+DljudZ8aB3f/FJxXhFSoA=";
-    };
-    meta.homepage = "https://github.com/epwalsh/obsidian.nvim/";
-  };
 
 in {
   nixpkgs.overlays = [
@@ -64,6 +53,7 @@ in {
       });
       go = pkgs-unstable.go;
       k3s = pkgs-unstable.k3s;
+      kitty = pkgs-unstable.kitty;
       kubevirt = pkgs-unstable.kubevirt;
       neovim = pkgs-unstable.neovim;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
@@ -71,9 +61,8 @@ in {
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = super.vimPlugins // {
-        obsidian-nvim = obsidian-nvim;
-        harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
+      vimPlugins = pkgs-unstable.vimPlugins // {
+        obsidian-nvim = pkgs-unstable.callPackage ./pkgs/obsidian-nvim {};
       };
     })
     (self: super: {
