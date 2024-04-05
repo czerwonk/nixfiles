@@ -16,17 +16,6 @@ let
   nix-alien-packages = inputs.nix-alien.packages.${system};
   provisionize-packages = inputs.provisionize.packages.${system};
   hyprland-packages = inputs.hyprland.packages.${system};
-  nvim-dap-ui = pkgs-unstable.vimUtils.buildVimPlugin {
-    pname = "nvim-dap-ui";
-    version = "2024-02-17";
-    src = pkgs-unstable.fetchFromGitHub {
-      owner = "rcarriga";
-      repo = "nvim-dap-ui";
-      rev = "9720eb5fa2f41988e8770f973cd11b76dd568a5d";
-      sha256 = "0ahc1f2h9qv6bns5mh7m90lfrf3yldy018p27dsc9cgpdpb15i1q";
-    };
-    meta.homepage = "https://github.com/rcarriga/nvim-dap-ui/";
-  };
   obsidian-nvim = pkgs-unstable.vimUtils.buildVimPlugin {
     pname = "obsidian.nvim";
     version = "v2.5";
@@ -82,9 +71,9 @@ in {
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = pkgs-unstable.vimPlugins // {
-        nvim-dap-ui = nvim-dap-ui;
+      vimPlugins = super.vimPlugins // {
         obsidian-nvim = obsidian-nvim;
+        harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
       };
     })
     (self: super: {
