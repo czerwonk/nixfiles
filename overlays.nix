@@ -16,6 +16,28 @@ let
   nix-alien-packages = inputs.nix-alien.packages.${system};
   provisionize-packages = inputs.provisionize.packages.${system};
   hyprland-packages = inputs.hyprland.packages.${system};
+  nvim-dap-ui = pkgs-unstable.vimUtils.buildVimPlugin {
+    pname = "nvim-dap-ui";
+    version = "2024-02-17";
+    src = pkgs-unstable.fetchFromGitHub {
+      owner = "rcarriga";
+      repo = "nvim-dap-ui";
+      rev = "9720eb5fa2f41988e8770f973cd11b76dd568a5d";
+      sha256 = "0ahc1f2h9qv6bns5mh7m90lfrf3yldy018p27dsc9cgpdpb15i1q";
+    };
+    meta.homepage = "https://github.com/rcarriga/nvim-dap-ui/";
+  };
+  obsidian-nvim = pkgs-unstable.vimUtils.buildVimPlugin {
+    pname = "obsidian.nvim";
+    version = "v2.5";
+    src = pkgs-unstable.fetchFromGitHub {
+      owner = "epwalsh";
+      repo = "obsidian.nvim";
+      rev = "88bf9150d9639a2cae3319e76abd7ab6b30d27f0";
+      hash = "sha256-irPk9iprbI4ijNUjMxXjw+DljudZ8aB3f/FJxXhFSoA=";
+    };
+    meta.homepage = "https://github.com/epwalsh/obsidian.nvim/";
+  };
 
 in {
   nixpkgs.overlays = [
@@ -54,11 +76,16 @@ in {
       go = pkgs-unstable.go;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
-      podman = pkgs-unstable.podman;
+      neovim = pkgs-unstable.neovim;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
+      podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = pkgs-unstable.vimPlugins;
+      vimPlugins = pkgs-unstable.vimPlugins // {
+        nvim-dap-ui = nvim-dap-ui;
+        obsidian-nvim = obsidian-nvim;
+      };
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
