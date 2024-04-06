@@ -60,8 +60,10 @@ in {
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
-      vimPlugins = pkgs-unstable.vimPlugins // {
-        obsidian-nvim = pkgs-unstable.callPackage ./pkgs/obsidian-nvim {};
+      vimPlugins = super.vimPlugins // {
+        harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
+        obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
+        neotest = super.callPackage ./pkgs/neotest-nvim {};
       };
     })
     (self: super: {
