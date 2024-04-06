@@ -38,5 +38,11 @@
         ff00::/8
       }
     }
+
+    chain filter-ingress {
+      ip saddr @bogon-v4 counter drop
+      ip6 saddr @bogon-v6 counter drop
+      ip6 saddr 2001:678:1e0::/48 counter drop
+    }
   '';
 }

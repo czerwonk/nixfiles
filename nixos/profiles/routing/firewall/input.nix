@@ -2,11 +2,9 @@
 
 {
   networking.nftables.tables."nixos-fw".content = lib.mkOrder 10 ''
-    chain input-block-spoofed {
+    chain pre-input {
       type filter hook input priority filter - 1; policy accept;
-      ip6 saddr 2001:678:1e0::/48 iifname @outside-interfaces counter drop
-      iifname @outside-interfaces ip saddr @bogon-v4 counter drop
-      iifname @outside-interfaces ip6 saddr @bogon-v6 counter drop
+      iifname @outside-interfaces jump filter-ingress
     }
   '';
 
