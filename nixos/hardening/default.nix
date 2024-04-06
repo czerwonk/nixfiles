@@ -25,11 +25,7 @@
   security.sudo = {
     execWheelOnly = true;
     extraConfig = lib.mkBefore ''
-      Defaults env_reset
-      Defaults requiretty
-      Defaults log_format=json
-      Defaults log_subcmds
-      Defaults log_output
+      Defaults requiretty,use_pty,env_reset
 
       Defaults:root !requiretty
     '';

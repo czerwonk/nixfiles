@@ -22,36 +22,36 @@
         type = "lua";
         config = builtins.readFile ./lua/refactoring.lua; 
       }
-      {
-        plugin = nvim-dap;
-        type = "lua";
-        config = builtins.readFile ./lua/dap.lua;
-      }
-      {
-        plugin = nvim-dap-virtual-text;
-        type = "lua";
-        config = "require('nvim-dap-virtual-text').setup()";
-      }
-      {
-        plugin = nvim-dap-ui;
-      }
-      {
-        plugin = nvim-dap-go;
-      }
-      {
-        plugin = pkgs.vimPlugins.neotest;
-        type = "lua";
-        config = builtins.readFile ./lua/test.lua;
-      }
-      {
-        plugin = neotest-go;
-      }
-      {
-        plugin = neotest-python;
-      }
-      {
-        plugin = neotest-dotnet;
-      }
+      # {
+      #   plugin = nvim-dap;
+      #   type = "lua";
+      #   config = builtins.readFile ./lua/dap.lua;
+      # }
+      # {
+      #   plugin = nvim-dap-virtual-text;
+      #   type = "lua";
+      #   config = "require('nvim-dap-virtual-text').setup()";
+      # }
+      # {
+      #   plugin = nvim-dap-ui;
+      # }
+      # {
+      #   plugin = nvim-dap-go;
+      # }
+      # {
+      #   plugin = pkgs.vimPlugins.neotest;
+      #   type = "lua";
+      #   config = builtins.readFile ./lua/test.lua;
+      # }
+      # {
+      #   plugin = neotest-go;
+      # }
+      # {
+      #   plugin = neotest-python;
+      # }
+      # {
+      #   plugin = neotest-dotnet;
+      # }
       {
         plugin = nvim-coverage;
         type = "lua";
