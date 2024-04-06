@@ -12,6 +12,7 @@
       ${lib.flip lib.concatMapStrings config.networking.firewall.trustedInterfaces (iface: ''
         iifname "${iface}" accept
       '')}
+      ip6 saddr 2001:678:1e0::/48 iifname @outside-interfaces counter drop comment "spoofed traffic"
       ${config.networking.firewall.extraForwardRules}
       ip6 saddr 2001:678:1e0::/48 counter accept
       ip6 saddr @blocklist-v6 counter drop
