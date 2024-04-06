@@ -74,7 +74,7 @@ in {
       '';
     };
 
-    networking.nftables.tables."nixos-fw".content = mkIf cfg.openFirewall (mkOrder 10 ''
+    networking.nftables.tables."nixos-fw".content = mkIf cfg.openFirewall (mkOrder 20 ''
       set ssh-ratelimit-v4 {
         type ipv4_addr
         timeout 60s
