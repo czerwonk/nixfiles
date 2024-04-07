@@ -5,23 +5,16 @@
 
 {
   boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
-
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0ffefff7-757c-4967-b28c-02ec2155d0f1";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/CFA4-DB13";
+    device = "/dev/disk/by-uuid/B365-D403";
     fsType = "vfat";
   };
 
-  fileSystems."/" = { 
-    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
-    fsType = "btrfs";
+  fileSystems."/" = {
+    device = "zroot/root";
+    fsType = "zfs";
     options = [
-      "subvol=root"
-      "compress=zstd"
       "noatime"
       "nosuid"
       "nodev"
@@ -29,15 +22,13 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
+    device = "zroot/nix";
+    fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
-    fsType = "btrfs";
-    options = [ "subvol=persist" ];
+    device = "zroot/persist";
+    fsType = "zfs";
     neededForBoot = true;
   };
 

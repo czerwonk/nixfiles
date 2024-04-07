@@ -9,9 +9,7 @@
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "uas" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
 
   fileSystems."/boot" = { 
     device = "/dev/disk/by-uuid/3278-6A86";

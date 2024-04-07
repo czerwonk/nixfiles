@@ -9,9 +9,7 @@
   ];
 
   boot.initrd.availableKernelModules = [ ];
-  boot.initrd.kernelModules = [ "zfs" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8F8E-2F3A";

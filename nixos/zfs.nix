@@ -3,6 +3,8 @@
 {
   boot.supportedFilesystems = [ "zfs" ];
 
+  boot.initrd.kernelModules = [ "zfs" ];
+
   boot.zfs.forceImportRoot = lib.mkDefault false;
 
   boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_6_hardened;
