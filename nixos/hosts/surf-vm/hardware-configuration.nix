@@ -9,15 +9,15 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0d0b9a60-0772-4aed-a579-0f090fc2f71b";
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0ffefff7-757c-4967-b28c-02ec2155d0f1";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/906C-8F9F";
+    device = "/dev/disk/by-uuid/CFA4-DB13";
     fsType = "vfat";
   };
 
   fileSystems."/" = { 
-    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
+    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
     fsType = "btrfs";
     options = [
       "subvol=root"
@@ -29,13 +29,13 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
+    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
     fsType = "btrfs";
     options = [ "subvol=nix" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
+    device = "/dev/disk/by-uuid/68086e99-6272-4cfb-b399-0972a4958eca";
     fsType = "btrfs";
     options = [ "subvol=persist" ];
     neededForBoot = true;
