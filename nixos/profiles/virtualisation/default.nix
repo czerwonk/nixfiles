@@ -1,4 +1,4 @@
-{ lib, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   virtualisation.libvirtd = {
@@ -6,6 +6,13 @@
     onBoot = lib.mkDefault "ignore";
     qemu = {
       swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = false;
+          tpmSupport = true;
+        }).fd];
+      };
     };
   };
 
