@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop/core.nix
-    ../../profiles/desktop/plasma.nix
+    ../../profiles/desktop/gnome.nix
     ./vbox-fix.nix
   ];
 
