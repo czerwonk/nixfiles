@@ -8,7 +8,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  boot.loader.grub.devices = [ "/dev/vda" ];
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0d0b9a60-0772-4aed-a579-0f090fc2f71b";
 
