@@ -64,6 +64,7 @@
       distrobox
       foliate
       gimp
+      gnome.gnome-boxes
       libation
       libreoffice
       mysql-workbench
