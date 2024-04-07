@@ -39,7 +39,7 @@
 
     provisionize.url = "github:MauveSoftware/provisionize";
 
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.37.1";
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.38.1";
   };
 
   outputs = inputs:

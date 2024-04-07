@@ -32,7 +32,6 @@ in {
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
-      bitwarden-cli = pkgs-unstable.bitwarden-cli;
       crowdsec = pkgs-unstable.crowdsec.overrideAttrs (old: {
         ldflags =
           (old.ldflags or [])
