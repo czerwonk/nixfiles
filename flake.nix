@@ -11,7 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager-unstable.url = "github:nix-community/home-manager/master";
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -27,6 +30,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
@@ -34,8 +42,6 @@
     ansible-role.url = "github:czerwonk/ansible-role";
 
     dns-drain.url = "github:czerwonk/dns-drain";
-
-    nix-alien.url = "github:thiagokokada/nix-alien";
 
     provisionize.url = "github:MauveSoftware/provisionize";
 
