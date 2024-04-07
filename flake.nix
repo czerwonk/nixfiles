@@ -157,7 +157,7 @@
             inputs.private.mauve.home
           ];
         };
-        surf-vm = systemLib.mkNixOSSystem {
+        surf-vm = systemLib.mkNixOSSystemUnstable {
           inherit system;
           username = "user";
           hostname = "surf-vm";

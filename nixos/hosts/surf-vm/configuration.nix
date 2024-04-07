@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop/core.nix
-    ../../profiles/desktop/gnome.nix
     ./vbox-fix.nix
   ];
 
@@ -52,11 +51,11 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
-  virtualisation.virtualbox.guest = {
-    enable = true;
-    x11 = true;
-  };
+  virtualisation.virtualbox.guest.enable = true;
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
+
+  services.desktopManager.plasma6.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
 }
