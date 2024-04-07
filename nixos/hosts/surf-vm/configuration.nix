@@ -20,8 +20,6 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6_hardened;
-
   networking.hostId = "f0659bbf";
 
   users.users.${username} = {
