@@ -26,15 +26,23 @@
     umount /btrfs_mnt
   '';
 
+  boot.kernel.sysctl = {
+    "kernel.unprivileged_userns_clone" = 1;
+  };
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6_hardened;
+
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_6_6_hardened.virtualboxGuestAdditions
+  ];
+
   networking.hostId = "f0659bbf";
 
   users.users.${username} = {
     initialHashedPassword = "$6$rounds=50000$lAvjJYJgE8kUR6We$QKS9zjKcYrFQlz1jFnqkHs9amUeZbjFxZVQVuMbVrpsXMDNnWa1yUq2sU1Hf7yLNsesjeUSojUx0R9MN99nEL0";
     description = lib.mkForce "";
     packages = with pkgs; [
-      gnome.gnome-tweaks
       wgnord
-      linuxKernel.packages.linux_hardened.virtualboxGuestAdditions
     ];
   };
 
@@ -46,10 +54,6 @@
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
-  };
-
-  boot.kernel.sysctl = {
-    "kernel.unprivileged_userns_clone" = 1;
   };
 
   virtualisation.virtualbox.guest.enable = true;
