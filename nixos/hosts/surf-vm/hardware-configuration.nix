@@ -12,6 +12,11 @@
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/0d0b9a60-0772-4aed-a579-0f090fc2f71b";
 
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/906C-8F9F";
+    fsType = "vfat";
+  };
+
   fileSystems."/" = { 
     device = "/dev/disk/by-uuid/19324760-7b37-43c9-93c0-219cfa9d8b73";
     fsType = "btrfs";
@@ -35,11 +40,6 @@
     fsType = "btrfs";
     options = [ "subvol=persist" ];
     neededForBoot = true;
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/90551259-5980-4956-b04e-5d0a501fe0f2";
-    fsType = "ext4";
   };
 
   swapDevices = [ ];
