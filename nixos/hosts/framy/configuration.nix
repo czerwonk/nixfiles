@@ -8,6 +8,7 @@
     ../../profiles/pentest
     ../../profiles/container
     ../../profiles/virtualisation
+    ../../profiles/virtualisation/virtualbox.nix
     ../../tpm.nix
   ];
 
@@ -40,8 +41,6 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
-
-  virtualisation.virtualbox.host.enable = true;
 
   my.services.k3s = {
     enable = true;

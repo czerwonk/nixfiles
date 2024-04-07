@@ -59,6 +59,7 @@ in {
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       unifi = pkgs-unstable.unifi8;
+      virtualbox = pkgs-unstable.virtualbox;
       vimPlugins = super.vimPlugins // {
         harpoon2 = pkgs-unstable.vimPlugins.harpoon2;
         obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
