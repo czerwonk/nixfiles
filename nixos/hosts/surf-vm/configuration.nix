@@ -30,12 +30,6 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6_hardened;
-
-  environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_6_6_hardened.virtualboxGuestAdditions
-  ];
-
   networking.hostId = "f0659bbf";
 
   users.users.${username} = {
@@ -55,8 +49,6 @@
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
   };
-
-  virtualisation.virtualbox.guest.enable = true;
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
