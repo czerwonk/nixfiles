@@ -12,6 +12,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.zfs.forceImportRoot = true;
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    zfs rollback -r zroot/root@blank
+  '';
 
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
