@@ -8,7 +8,6 @@
     ../../profiles/pentest
     ../../profiles/container
     ../../profiles/virtualisation
-    ../../profiles/virtualisation/virtualbox.nix
     ../../tpm.nix
   ];
 
