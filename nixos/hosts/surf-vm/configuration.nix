@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop/core.nix
+    ../../profiles/desktop/plasma.nix
     ./vbox-fix.nix
   ];
 
@@ -55,7 +56,4 @@
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
-
-  services.desktopManager.plasma6.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
 }
