@@ -86,11 +86,9 @@
 
       nixosConfigurations = {
         framy = systemLib.mkNixOSSystem {
-          name = "framy";
+          configName = "framy";
           inherit system;
           username = inputs.private.username {};
-          hostname = "framy";
-          domain = "routing.rocks";
           extraModules = [
             inputs.private.nixosModule
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
@@ -101,11 +99,9 @@
           ];
         };
         bb1-dus = systemLib.mkNixOSSystem {
-          name = "bb1-dus";
+          configName = "bb1-dus";
           inherit system;
           username = inputs.private.username {};
-          hostname = "bb1";
-          domain = "dus.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
             inputs.routing-rocks-policy.nixosModule
@@ -115,11 +111,9 @@
           ];
         };
         bb2-dus = systemLib.mkNixOSSystem {
-          name = "bb2-dus";
+          configName = "bb2-dus";
           inherit system;
           username = inputs.private.username {};
-          hostname = "bb2";
-          domain = "dus.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
             inputs.routing-rocks-policy.nixosModule
@@ -129,11 +123,9 @@
           ];
         };
         homey = systemLib.mkNixOSSystem {
-          name = "homey";
+          configName = "homey";
           inherit system;
           username = inputs.private.username {};
-          hostname = "homey";
-          domain = "ess.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -142,11 +134,9 @@
           ];
         };
         backup1-ess = systemLib.mkNixOSSystem {
-          name = "backup1-ess";
+          configName = "backup1-ess";
           inherit system;
           username = inputs.private.username {};
-          hostname = "backup1";
-          domain = "ess.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -155,11 +145,9 @@
           ];
         };
         backup1-wup = systemLib.mkNixOSSystem {
-          name = "backup1-wup";
+          configName = "backup1-wup";
           inherit system;
           username = inputs.private.username {};
-          hostname = "backup1";
-          domain = "wup.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -168,11 +156,9 @@
           ];
         };
         scrapy = systemLib.mkNixOSSystem {
-          name = "scrapy";
+          configName = "scrapy";
           inherit system;
           username = inputs.private.username {};
-          hostname = "scrapy";
-          domain = "routing.rocks";
           extraModules = [
             inputs.private.nixosModule
             inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
@@ -189,11 +175,9 @@
           ];
         };
         surf-vm = systemLib.mkNixOSSystem {
-          name = "surf-vm";
+          configName = "surf-vm";
           inherit system;
           username = "user";
-          hostname = "surf-vm";
-          domain = "";
           extraModules = [];
           extraHomeModules = [];
         };

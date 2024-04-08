@@ -19,7 +19,10 @@
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "8G";
 
-  networking.hostId = "0ac77f35";
+  networking = {
+    hostId = "0ac77f35";
+    hostName = "scrapy";
+  };
 
   security.lockKernelModules = false;
 

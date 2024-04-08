@@ -21,7 +21,11 @@ in {
     zfs rollback -r zroot/root@blank
   '';
 
-  networking.hostId = "2d1165a8";
+  networking = {
+    hostId = "2d1165a8";
+    hostName = "bb1";
+    domain = "dus.routing.rocks";
+  };
 
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;

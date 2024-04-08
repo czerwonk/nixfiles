@@ -1,16 +1,16 @@
 { inputs, ... }:
 
 {
-  mkNixOSSystem = { name, hostname, domain, username, system, extraModules, extraHomeModules }:
+  mkNixOSSystem = { configName, username, system, extraModules, extraHomeModules }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../overlays.nix
-        ../nixos/hosts/${name}/configuration.nix
+        ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../nixos/hosts/${name}/home.nix;
+          home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
           };
@@ -18,19 +18,19 @@
         inputs.impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
-        inherit username hostname domain system inputs;
+        inherit configName username system inputs;
       };
     };
 
-  mkNixOSSystemUnstable = { name, hostname, domain, username, system, extraModules, extraHomeModules }:
+  mkNixOSSystemUnstable = { configName, username, system, extraModules, extraHomeModules }:
     inputs.nixpkgs-unstable.lib.nixosSystem {
       inherit system;
       modules = [
-        ../nixos/hosts/${name}/configuration.nix
+        ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager-unstable.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../nixos/hosts/${name}/home.nix;
+          home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
           };
@@ -38,7 +38,7 @@
         inputs.impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
-        inherit username hostname domain system inputs;
+        inherit configName username system inputs;
       };
     };
 
@@ -62,8 +62,6 @@
         inherit inputs;
         system = "x86_64-linux";
         username = "nixos";
-        hostname = "nixos";
-        domain = "";
       };
     };
 }

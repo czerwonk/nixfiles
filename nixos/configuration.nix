@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -29,8 +29,6 @@
     enable = true;
     mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
   };
-
-  networking.hostName = hostname;
 
   services.journald.extraConfig = ''
     SystemMaxUse=10000M

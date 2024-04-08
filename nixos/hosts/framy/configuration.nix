@@ -25,8 +25,11 @@
   boot.tmp.tmpfsSize = "16G";
   boot.tmp.cleanOnBoot = false;
 
-  networking.hostId = "7181c80f";
-  networking.firewall.filterForward = false;
+  networking = {
+    hostName = "framy";
+    hostId = "7181c80f";
+    firewall.filterForward = false;
+  };
 
   security.lockKernelModules = false;
 

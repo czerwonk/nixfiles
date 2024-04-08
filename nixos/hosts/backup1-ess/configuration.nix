@@ -19,8 +19,12 @@
     zfs rollback -r zroot/root@blank
   '';
 
-  networking.hostId = "a4ca5dcd";
-  networking.useNetworkd = true;
-  networking.useDHCP = true;
+  networking = {
+    hostId = "a4ca5dcd";
+    hostName = "backup1";
+    domain = "ess.routing.rocks";
+    useNetworkd = true;
+    useDHCP = true;
+  };
   systemd.network.enable = false;
 }

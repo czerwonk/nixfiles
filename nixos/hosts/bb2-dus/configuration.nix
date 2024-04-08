@@ -20,7 +20,11 @@ in {
     zfs rollback -r zroot/root@blank
   '';
 
-  networking.hostId = "292ea3ce";
+  networking = {
+    hostId = "292ea3ce";
+    hostName = "bb2";
+    domain = "dus.routing.rocks";
+  };
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
   my.services.ripe-atlas.enable = true;

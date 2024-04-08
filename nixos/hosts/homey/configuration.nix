@@ -22,9 +22,13 @@
     zfs rollback -r zroot/root@blank
   '';
 
-  networking.hostId = "76affc21";
-  networking.useNetworkd = false;
-  networking.useDHCP = false;
+  networking = {
+    hostName = "homey";
+    domain = "ess.routing.rocks";
+    hostId = "76affc21";
+    useNetworkd = false;
+    useDHCP = false;
+  };
   systemd.network.enable = false;
 
   services.dnsmasq.settings.no-hosts = false;
