@@ -86,6 +86,7 @@
 
       nixosConfigurations = {
         framy = systemLib.mkNixOSSystem {
+          name = "framy";
           inherit system;
           username = inputs.private.username {};
           hostname = "framy";
@@ -100,6 +101,7 @@
           ];
         };
         bb1-dus = systemLib.mkNixOSSystem {
+          name = "bb1-dus";
           inherit system;
           username = inputs.private.username {};
           hostname = "bb1";
@@ -113,6 +115,7 @@
           ];
         };
         bb2-dus = systemLib.mkNixOSSystem {
+          name = "bb2-dus";
           inherit system;
           username = inputs.private.username {};
           hostname = "bb2";
@@ -126,6 +129,7 @@
           ];
         };
         homey = systemLib.mkNixOSSystem {
+          name = "homey";
           inherit system;
           username = inputs.private.username {};
           hostname = "homey";
@@ -138,6 +142,7 @@
           ];
         };
         backup1-ess = systemLib.mkNixOSSystem {
+          name = "backup1-ess";
           inherit system;
           username = inputs.private.username {};
           hostname = "backup1";
@@ -150,6 +155,7 @@
           ];
         };
         backup1-wup = systemLib.mkNixOSSystem {
+          name = "backup1-wup";
           inherit system;
           username = inputs.private.username {};
           hostname = "backup1";
@@ -162,6 +168,7 @@
           ];
         };
         scrapy = systemLib.mkNixOSSystem {
+          name = "scrapy";
           inherit system;
           username = inputs.private.username {};
           hostname = "scrapy";
@@ -182,6 +189,7 @@
           ];
         };
         surf-vm = systemLib.mkNixOSSystem {
+          name = "surf-vm";
           inherit system;
           username = "user";
           hostname = "surf-vm";

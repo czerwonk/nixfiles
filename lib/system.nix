@@ -1,16 +1,16 @@
 { inputs, ... }:
 
 {
-  mkNixOSSystem = { hostname, domain, username, system, extraModules, extraHomeModules }:
+  mkNixOSSystem = { name, hostname, domain, username, system, extraModules, extraHomeModules }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../overlays.nix
-        ../nixos/hosts/${hostname}/configuration.nix
+        ../nixos/hosts/${name}/configuration.nix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../nixos/hosts/${hostname}/home.nix;
+          home-manager.users.${username} = import ../nixos/hosts/${name}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
           };
@@ -22,15 +22,15 @@
       };
     };
 
-  mkNixOSSystemUnstable = { hostname, domain, username, system, extraModules, extraHomeModules }:
+  mkNixOSSystemUnstable = { name, hostname, domain, username, system, extraModules, extraHomeModules }:
     inputs.nixpkgs-unstable.lib.nixosSystem {
       inherit system;
       modules = [
-        ../nixos/hosts/${hostname}/configuration.nix
+        ../nixos/hosts/${name}/configuration.nix
         inputs.home-manager-unstable.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../nixos/hosts/${hostname}/home.nix;
+          home-manager.users.${username} = import ../nixos/hosts/${name}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
           };
