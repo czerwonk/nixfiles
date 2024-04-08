@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.calibre-web;
-  version = "0.6.21-ls260";
+  version = "0.6.21-ls262";
 
 in {
   options = {
