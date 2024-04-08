@@ -99,7 +99,7 @@
             inputs.private.mauve.home
           ];
         };
-        bb1 = systemLib.mkNixOSSystem {
+        bb1-dus = systemLib.mkNixOSSystem {
           inherit system;
           username = inputs.private.username {};
           hostname = "bb1";
@@ -112,7 +112,7 @@
             inputs.private.home
           ];
         };
-        bb2 = systemLib.mkNixOSSystem {
+        bb2-dus = systemLib.mkNixOSSystem {
           inherit system;
           username = inputs.private.username {};
           hostname = "bb2";
@@ -130,6 +130,30 @@
           username = inputs.private.username {};
           hostname = "homey";
           domain = "ess.routing.rocks";
+          extraModules = [
+            inputs.private.nixosModule
+          ];
+          extraHomeModules = [
+            inputs.private.home
+          ];
+        };
+        backup1-ess = systemLib.mkNixOSSystem {
+          inherit system;
+          username = inputs.private.username {};
+          hostname = "backup1";
+          domain = "ess.routing.rocks";
+          extraModules = [
+            inputs.private.nixosModule
+          ];
+          extraHomeModules = [
+            inputs.private.home
+          ];
+        };
+        backup1-wup = systemLib.mkNixOSSystem {
+          inherit system;
+          username = inputs.private.username {};
+          hostname = "backup1";
+          domain = "wup.routing.rocks";
           extraModules = [
             inputs.private.nixosModule
           ];
