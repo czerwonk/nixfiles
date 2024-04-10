@@ -35,6 +35,10 @@
     };
   };
 
+  virtualisation.qemu.guestAgent.enable = true;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
 }
