@@ -1,4 +1,4 @@
-{ username, pkgs, lib, ... }:
+{ username, pkgs, lib, modulesPath, ... }:
 
 {
   imports = [ 
@@ -6,6 +6,7 @@
     ../../configuration.nix
     ../../profiles/desktop/core.nix
     ../../profiles/desktop/gnome.nix
+    (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -34,9 +35,6 @@
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
   };
-
-  services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
