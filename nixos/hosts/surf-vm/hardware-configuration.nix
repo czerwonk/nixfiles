@@ -23,12 +23,12 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/by-uuid/a5c1b33b-bf0c-4b5b-a4e7-5ed836ec5153";
+    device = "/dev/disk/by-uuid/a5c1b33b-bf0c-4b5b-a4e7-5ed836ec5153";
     fsType = "ext4";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/by-uuid/014c357b-6e48-48d3-bd55-32f8ff6abe17";
+    device = "/dev/disk/by-uuid/014c357b-6e48-48d3-bd55-32f8ff6abe17";
     fsType = "ext4";
     neededForBoot = true;
   };
