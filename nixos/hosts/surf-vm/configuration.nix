@@ -4,21 +4,12 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs.nix
     ../../profiles/desktop/core.nix
     ../../profiles/desktop/gnome.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    zfs rollback -r zroot/root@blank
-  '';
-
-  boot.zfs = {
-    forceImportRoot = true;
-    devNodes = "/dev/disk/by-partuuid";
-  };
 
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
