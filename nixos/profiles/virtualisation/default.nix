@@ -8,8 +8,8 @@
       swtpm.enable = true;
       ovmf = {
         enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = false;
+        packages = [(pkgs.OVMFFull.override {
+          secureBoot = true;
           tpmSupport = true;
         }).fd];
       };
