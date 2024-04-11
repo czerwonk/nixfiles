@@ -1,6 +1,8 @@
 { pkgs, lib, username, ... }:
 
 {
+  environment.systemPackages = [ pkgs.swtpm ];
+
   virtualisation.libvirtd = {
     enable = true;
     onBoot = lib.mkDefault "ignore";
