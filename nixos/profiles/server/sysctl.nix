@@ -9,7 +9,5 @@
     "net.netfilter.nf_conntrack_tcp_loose" = false;
 
     "net.core.netdev_max_backlog" = 10000;
-
-    "vm.max_map_count" = 262144;
   };
 }

@@ -29,6 +29,9 @@
     enable = true;
     mdadmConf = "PROGRAM ${pkgs.coreutils}/bin/true";
   };
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 1048576;
+  };
 
   services.journald.extraConfig = ''
     SystemMaxUse=10000M
