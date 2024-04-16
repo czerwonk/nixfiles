@@ -8,6 +8,7 @@
       "/var/cache"
       "/etc/wireguard"
       "/data"
+      "/opt"
     ];
     files = [
       "/etc/machine-id"
