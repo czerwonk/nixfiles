@@ -20,7 +20,7 @@
     config = {
       default_config = {};
       homeassistant = {
-        name = "routing-rocks HOME";
+        name = "#routing-rocks HOME";
       };
       http = {
         server_host = "::1";
