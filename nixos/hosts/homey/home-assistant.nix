@@ -15,6 +15,7 @@
       "met"
       "hue"
       "mqtt"
+      "tasmota"
     ];
     config = {
       default_config = {};
