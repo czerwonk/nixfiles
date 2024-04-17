@@ -18,6 +18,7 @@
       "tasmota"
       "tradfri"
     ];
+    configWritable = true;
     config = {
       default_config = {};
       homeassistant = {
