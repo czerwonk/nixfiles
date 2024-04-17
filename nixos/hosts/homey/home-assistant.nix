@@ -21,9 +21,9 @@
     ];
     config = {
       default_config = {};
-    };
-    http = {
-      server_host = "127.0.0.1";
+      http = {
+        server_host = "127.0.0.1";
+      };
     };
   };
 
