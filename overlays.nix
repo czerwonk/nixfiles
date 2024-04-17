@@ -51,6 +51,7 @@ in {
           ];
       });
       go = pkgs-unstable.go;
+      home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
       neovim = pkgs-unstable.neovim;

@@ -1,4 +1,14 @@
+{ inputs, ... }:
+
 {
+  disabledModules = [
+    "services/home-automation/home-assistant.nix"
+  ];
+
+  imports = [
+    "${inputs.nixpkgs-unstable}/nixos/modules/services/home-automation/home-assistant.nix"
+  ];
+
   services.home-assistant = {
     enable = true;
     name = "routing-rocks HOME";
