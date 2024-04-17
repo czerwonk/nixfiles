@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
   disabledModules = [
@@ -24,7 +24,9 @@
         name = "routing-rocks HOME";
       };
       http = {
-        server_host = "127.0.0.1";
+        server_host = "::1";
+        trusted_proxies = [ "::1" ];
+        use_x_forwarded_for = true;
       };
     };
   };
@@ -32,6 +34,6 @@
   services.caddy.virtualHosts."home.routing.rocks".extraConfig = ''
     import private
 
-    reverse_proxy * 127.0.0.1:8123
+    reverse_proxy * [::1]:${config.services.home-assistant.config.http.server_port}
   '';
 }
