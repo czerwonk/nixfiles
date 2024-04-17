@@ -11,7 +11,6 @@
 
   services.home-assistant = {
     enable = true;
-    name = "routing-rocks HOME";
     extraComponents = [
       "esphome"
       "met"
@@ -21,6 +20,9 @@
     ];
     config = {
       default_config = {};
+      homeassistant = {
+        name = "routing-rocks HOME";
+      };
       http = {
         server_host = "127.0.0.1";
       };
