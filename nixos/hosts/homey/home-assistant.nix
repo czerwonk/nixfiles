@@ -34,6 +34,6 @@
   services.caddy.virtualHosts."home.routing.rocks".extraConfig = ''
     import private
 
-    reverse_proxy * [::1]:${config.services.home-assistant.config.http.server_port}
+    reverse_proxy * [::1]:${toString config.services.home-assistant.config.http.server_port}
   '';
 }
