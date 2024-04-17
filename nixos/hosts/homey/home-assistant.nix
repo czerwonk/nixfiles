@@ -16,6 +16,7 @@
       "hue"
       "mqtt"
       "tasmota"
+      "tradfri"
     ];
     config = {
       default_config = {};
