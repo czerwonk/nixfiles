@@ -9,6 +9,7 @@
     ../../profiles/webserver
     ../../profiles/container
     ./unifi.nix
+    ./home-assistant.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

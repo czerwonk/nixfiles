@@ -1,0 +1,25 @@
+{
+  services.home-assistant = {
+    enable = true;
+    name = "routing-rocks HOME";
+    extraComponents = [
+      "esphome"
+      "met"
+      "radio_browser"
+      "hue"
+      "mqtt"
+    ];
+    config = {
+      default_config = {};
+    };
+    http = {
+      server_host = "127.0.0.1";
+    };
+  };
+
+  services.caddy.virtualHosts."home.routing.rocks".extraConfig = ''
+    import private
+
+    reverse_proxy * 127.0.0.1:8123
+  '';
+}
