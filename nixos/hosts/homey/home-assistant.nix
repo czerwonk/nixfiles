@@ -17,6 +17,7 @@
       "mqtt"
       "tasmota"
       "tradfri"
+      "smartthings"
     ];
     config = {
       default_config = {};
