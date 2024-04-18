@@ -28,6 +28,7 @@
         trusted_proxies = [ "::1" ];
         use_x_forwarded_for = true;
       };
+      "automation ui" = "!include automations.yaml";
     };
   };
 
