@@ -11,6 +11,7 @@
 
   boot.supportedFilesystems = [ "btrfs" ];
   boot.kernelModules = [
+    "8021q"
     "af_packet"
     "btrfs"
     "ext4"
