@@ -50,6 +50,8 @@
     ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 1883 ];
+
   services.caddy.virtualHosts."home.routing.rocks".extraConfig = ''
     import private
 
