@@ -45,5 +45,5 @@
 
   services.dnsmasq.enable = false;
 
-  displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.wayland = false;
 }
