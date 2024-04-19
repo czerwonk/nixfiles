@@ -44,6 +44,4 @@
   };
 
   services.dnsmasq.enable = false;
-
-  services.xserver.videoDrivers = [ "qxl" ];
 }
