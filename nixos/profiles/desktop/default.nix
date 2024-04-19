@@ -66,6 +66,7 @@
       distrobox
       foliate
       gimp
+      chromium
       libation
       libreoffice
       mysql-workbench
