@@ -83,19 +83,14 @@
     extraGroups = [ "wireshark" ];
   };
 
-  services.teamviewer.enable = true;
-
   programs.wireshark.enable = true;
-
   programs.nix-index.enable = true;
   programs.command-not-found.enable = false;
-
   programs.nix-ld.enable = true;
-
-  services.flatpak.enable = true;
-
   programs.hyprland.enable = true;
 
+  services.teamviewer.enable = true;
+  services.flatpak.enable = true;
   services.pcscd.enable = true;
 
   qt = {
