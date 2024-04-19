@@ -21,9 +21,11 @@
     options usbserial vendor=0403 product=6001
   '';
 
-  boot.tmp.useTmpfs = true;
-  boot.tmp.tmpfsSize = "16G";
-  boot.tmp.cleanOnBoot = false;
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "16G";
+    cleanOnBoot = false;
+  };
 
   networking = {
     hostName = "framy";

@@ -15,7 +15,7 @@
     device = "none";
     fsType = "tmpfs";
     options = [ 
-      "size=2G"
+      "size=4G"
       "mode=755"
       "nosuid"
       "nodev"

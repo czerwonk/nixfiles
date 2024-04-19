@@ -16,6 +16,12 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "8G";
+    cleanOnBoot = false;
+  };
+
   networking.hostId = "f0659bbf";
 
   users.users.${username} = {
