@@ -4,6 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../profiles/qemu-vm
     ../../profiles/desktop/core.nix
     ../../profiles/desktop/gnome.nix
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -15,10 +16,6 @@
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };
-
-  boot.kernelModules = [
-    "uinput"
-  ];
 
   boot.tmp = {
     useTmpfs = true;
@@ -45,8 +42,6 @@
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
   };
-
-  services.spice-vdagentd.enable = true;
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
