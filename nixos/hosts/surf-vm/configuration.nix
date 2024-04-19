@@ -44,6 +44,4 @@
   };
 
   services.dnsmasq.enable = false;
-
-  services.xserver.displayManager.gdm.wayland = false;
 }
