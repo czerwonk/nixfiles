@@ -4,7 +4,7 @@
 { lib, ... }:
 
 {
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/BFC5-FFBC";
