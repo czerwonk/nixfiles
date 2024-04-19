@@ -45,6 +45,4 @@
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
-
-  #security.lockKernelModules = false;
 }
