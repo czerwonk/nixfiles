@@ -16,6 +16,10 @@
     "kernel.unprivileged_userns_clone" = 1;
   };
 
+  boot.kernelModules = [
+    "uinput"
+  ];
+
   boot.tmp = {
     useTmpfs = true;
     tmpfsSize = "8G";
@@ -46,6 +50,4 @@
 
   services.dnsmasq.enable = false;
   services.stubby.enable = false;
-
-  security.lockKernelModules = false;
 }
