@@ -4,10 +4,10 @@
   services.xserver = {
     displayManager.gdm = {
       enable = lib.mkDefault true;
-      wayland = true;
+      wayland = lib.mkDefault true;
     };
     desktopManager.gnome = {
-      enable = true;
+      enable = lib.mkDefault true;
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']

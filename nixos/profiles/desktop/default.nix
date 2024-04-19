@@ -7,6 +7,8 @@
     ./gnome.nix
     ./impermanence.nix
     ./pam.nix
+    ./sound.nix
+    ./wayland.nix
   ];
 
   boot.binfmt.registrations.appimage = {
@@ -95,4 +97,10 @@
   programs.hyprland.enable = true;
 
   services.pcscd.enable = true;
+
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 }

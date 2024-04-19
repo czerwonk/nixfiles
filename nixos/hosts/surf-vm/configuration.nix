@@ -44,5 +44,6 @@
   };
 
   services.dnsmasq.enable = false;
-  services.stubby.enable = false;
+
+  displayManager.gdm.wayland = false;
 }
