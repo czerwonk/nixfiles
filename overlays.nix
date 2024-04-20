@@ -50,6 +50,7 @@ in {
             )
           ];
       });
+      fractal = pkgs-unstable.fractal;
       go = pkgs-unstable.go;
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;

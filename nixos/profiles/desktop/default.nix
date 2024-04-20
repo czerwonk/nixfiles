@@ -65,6 +65,7 @@
       calibre
       distrobox
       foliate
+      fractal
       gimp
       chromium
       libation
