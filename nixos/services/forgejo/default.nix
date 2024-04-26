@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.forgejo;
-  version = "1.21.11-0-rootless";
+  version = "7.0.0-rootless";
 
 in {
   options = {
