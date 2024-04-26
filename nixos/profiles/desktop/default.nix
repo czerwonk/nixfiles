@@ -94,10 +94,4 @@
   services.teamviewer.enable = true;
   services.flatpak.enable = true;
   services.pcscd.enable = true;
-
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
 }
