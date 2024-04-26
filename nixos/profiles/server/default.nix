@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, configName, ... }:
 
 {
   imports = [
@@ -24,7 +24,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = "${inputs.self.outPath}#${configName}";
     flags = [
       "--update-input"
       "nixpkgs"
