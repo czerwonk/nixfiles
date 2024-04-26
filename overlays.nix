@@ -32,24 +32,7 @@ in {
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
-      crowdsec = pkgs-unstable.crowdsec.overrideAttrs (old: {
-        ldflags =
-          (old.ldflags or [])
-          ++ [
-            "-X github.com/crowdsecurity/go-cs-lib/version.Version=v${old.version}"
-          ];
-        patches =
-          (old.patches or [])
-          ++ [
-            (
-              pkgs-unstable.fetchpatch
-              {
-                url = "https://patch-diff.githubusercontent.com/raw/crowdsecurity/crowdsec/pull/2868.patch";
-                hash = "sha256-KLoGgHGwkS3+e0vSrivL0HQVRCCZ+saH9NDWlH7/Zmw=";
-              }
-            )
-          ];
-      });
+      crowdsec = super.callPackage ./pkgs/crowdsec {};
       fractal = pkgs-unstable.fractal;
       go = pkgs-unstable.go;
       home-assistant = pkgs-unstable.home-assistant;
