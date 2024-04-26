@@ -43,6 +43,7 @@ in {
       omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
+      termius = super.callPackage ./pkgs/termius {};
       unifi = pkgs-unstable.unifi8;
       vault = pkgs-unstable.vault;
       vimPlugins = super.vimPlugins // {

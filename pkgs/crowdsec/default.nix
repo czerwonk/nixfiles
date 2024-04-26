@@ -64,6 +64,5 @@ buildGoModule rec {
       being shared among all users to further improve everyone's security.
     '';
     license = licenses.mit;
-    maintainers = with maintainers; [ jk urandom ];
   };
 }
