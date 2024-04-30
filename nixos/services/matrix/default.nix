@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.matrix;
-  version = "v1.105.1";
+  version = "v1.106.0";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in {
