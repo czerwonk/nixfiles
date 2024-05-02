@@ -4,6 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    systemd.enable = true;
     settings = {
       monitor = ",preferred,auto,auto";
       input = {
@@ -132,6 +133,5 @@
 
       windowrulev2 = float,class:^(steam)$,title:^(?!.*(Library|Steam)).*$
     '';
-    systemd.enable = true;
   };
 }
