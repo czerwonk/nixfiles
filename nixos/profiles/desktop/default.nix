@@ -4,7 +4,6 @@
   imports = [
     ./core.nix
     ./firejail-icons.nix
-    ./gnome.nix
     ./impermanence.nix
     ./pam.nix
     ./sound.nix

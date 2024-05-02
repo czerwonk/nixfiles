@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
+    ../../profiles/desktop/gnome.nix
     ../../zfs.nix
   ];
 
