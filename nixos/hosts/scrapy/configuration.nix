@@ -45,4 +45,7 @@
   };
 
   my.services.openssh-server.enable = true;
+
+  security.pam.u2f.enable = false;
+  services.logrotate.checkConfig = false;
 }
