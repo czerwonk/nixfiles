@@ -44,8 +44,6 @@
     dns-drain.url = "github:czerwonk/dns-drain";
 
     provisionize.url = "github:MauveSoftware/provisionize";
-
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.39.0";
   };
 
   outputs = inputs:

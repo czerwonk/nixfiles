@@ -24,7 +24,7 @@
 
   boot.tmp = {
     useTmpfs = true;
-    tmpfsSize = "16G";
+    tmpfsSize = "24G";
     cleanOnBoot = false;
   };
 

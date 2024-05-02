@@ -15,19 +15,13 @@ let
   dns-drain-packages = inputs.dns-drain.packages.${system};
   nix-alien-packages = inputs.nix-alien.packages.${system};
   provisionize-packages = inputs.provisionize.packages.${system};
-  hyprland-packages = inputs.hyprland.packages.${system};
 
 in {
   nixpkgs.overlays = [
     (self: super: {
-      hyprland = hyprland-packages.hyprland;
-      hyprland-debug = hyprland-packages.hyprland-debug;
-      hyprland-legacy-renderer = hyprland-packages.hyprland-legacy-renderer;
-      hyprland-protocols = hyprland-packages.hyprland-protocols;
-      hyprland-unwrapped = hyprland-packages.hyprland-unwrapped;
+      hyprland = pkgs-unstable.hyprland;
       mesa = pkgs-unstable.mesa;
-      wlroots-hyprland = hyprland-packages.wlroots-hyprland;
-      xdg-desktop-portal-hyprland = hyprland-packages.xdg-desktop-portal-hyprland;
+      xdg-desktop-portal-hyprland = pkgs-unstable.xdg-desktop-portal-hyprland;
     })
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
