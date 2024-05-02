@@ -27,9 +27,22 @@
         force_default_wallpaper = 0;
         vfr = true;
       };
+      xwayland = {
+        force_zero_scaling = true;
+      };
     };
     extraConfig = ''
       ${config.profiles.hyprland.extraConfig}
+
+      env = GDK_BACKEND, wayland
+      env = MOZ_ENABLE_WAYLAND, 1
+      env = NIXOS_OZONE_WL, 1
+      env = QT_QPA_PLATFORM, wayland
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+      env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
+      env = SDL_VIDEODRIVER, wayland
+      env = XDG_SESSION_TYPE, wayland
+
       exec-once = ${lib.getExe pkgs.waybar}
       exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
       exec-once = ${lib.getExe pkgs.hyprpaper}
@@ -116,6 +129,8 @@
       # Scratchpad
       bind= $mainMod + SHIFT, H, movetoworkspace, special
       bind= $mainMod, H, togglespecialworkspace
+
+      windowrulev2 = float,class:^(steam)$,title:^(?!.*(Library|Steam)).*$
     '';
     systemd.enable = true;
   };

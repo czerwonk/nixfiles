@@ -8,7 +8,6 @@
     ./impermanence.nix
     ./pam.nix
     ./sound.nix
-    ./wayland.nix
   ];
 
   boot.binfmt.registrations.appimage = {
@@ -85,11 +84,26 @@
     extraGroups = [ "wireshark" ];
   };
 
-  programs.wireshark.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  xdg.portal.wlr = {
+    enable = true;
+    settings = {
+      screencast = {
+        chooser_type = "simple";
+        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -ro";
+      };
+    };
+  };
+
   programs.nix-index.enable = true;
-  programs.command-not-found.enable = false;
   programs.nix-ld.enable = true;
-  programs.hyprland.enable = true;
+  programs.command-not-found.enable = false;
+
+  programs.wireshark.enable = true;
 
   services.teamviewer.enable = true;
   services.flatpak.enable = true;

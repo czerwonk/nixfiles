@@ -4,11 +4,12 @@
     ./persistence.nix
     ../../configuration.nix
     ../../zfs.nix
+    ../../tpm.nix
     ../../profiles/desktop
-    ../../profiles/pentest
     ../../profiles/container
     ../../profiles/virtualisation
-    ../../tpm.nix
+    ../../profiles/pentest
+    ../../profiles/gaming
   ];
 
   boot.loader.systemd-boot.enable = true;
