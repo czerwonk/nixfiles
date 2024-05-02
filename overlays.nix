@@ -25,6 +25,7 @@ in {
       hyprland-legacy-renderer = hyprland-packages.hyprland-legacy-renderer;
       hyprland-protocols = hyprland-packages.hyprland-protocols;
       hyprland-unwrapped = hyprland-packages.hyprland-unwrapped;
+      mesa = pkgs-unstable.mesa;
       wlroots-hyprland = hyprland-packages.wlroots-hyprland;
       xdg-desktop-portal-hyprland = hyprland-packages.xdg-desktop-portal-hyprland;
     })
