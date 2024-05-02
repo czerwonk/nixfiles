@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
-    ../../profiles/desktop/plasma.nix
     ../../zfs.nix
   ];
 

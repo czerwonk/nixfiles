@@ -7,6 +7,7 @@
     ./impermanence.nix
     ./pam.nix
     ./sound.nix
+    ./gnome.nix
   ];
 
   boot.binfmt.registrations.appimage = {

@@ -6,7 +6,6 @@
     ../../zfs.nix
     ../../tpm.nix
     ../../profiles/desktop
-    ../../profiles/desktop/gnome.nix
     ../../profiles/container
     ../../profiles/virtualisation
     ../../profiles/pentest
