@@ -5,9 +5,6 @@ let
     inherit system;
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "openssl-1.1.1w"
-      ];
     };
   };
 
@@ -16,6 +13,10 @@ let
   provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
   nixpkgs.overlays = [
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;

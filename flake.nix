@@ -149,13 +149,6 @@
           username = inputs.private.username {};
           extraModules = [
             inputs.private.nixosModule
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-            {
-              services.fprintd.tod.enable = true;
-              services.fprintd.tod.driver = inputs.thinkpad-fprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
-                calib-data-file = ./nixos/hosts/scrapy/calib-data.bin;
-              };
-            }
           ];
           extraHomeModules = [
             inputs.private.home
