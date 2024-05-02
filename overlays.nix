@@ -20,15 +20,20 @@ let
 in {
   nixpkgs.overlays = [
     (self: super: {
+      hyprland = hyprland-packages.hyprland;
+      hyprland-debug = hyprland-packages.hyprland-debug;
+      hyprland-legacy-renderer = hyprland-packages.hyprland-legacy-renderer;
+      hyprland-protocols = hyprland-packages.hyprland-protocols;
+      hyprland-unwrapped = hyprland-packages.hyprland-unwrapped;
+      wlroots-hyprland = hyprland-packages.wlroots-hyprland;
+      xdg-desktop-portal-hyprland = hyprland-packages.xdg-desktop-portal-hyprland;
+    })
+    (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       ethr = pkgs-unstable.callPackage ./pkgs/ethr {};
-      hyprland = hyprland-packages.hyprland;
-      hyprland-protocols = hyprland-packages.hyprland-protocols;
       nix-alien = nix-alien-packages.nix-alien;
       provisionize = provisionize-packages.provisionize;
-      wlroots-hyprland = hyprland-packages.wlroots-hyprland;
-      xdg-desktop-portal-hyprland = hyprland-packages.xdg-desktop-portal-hyprland;
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
