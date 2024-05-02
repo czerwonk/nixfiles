@@ -2,12 +2,12 @@
   description = "Daniel Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,22 +18,12 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    thinkpad-fprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     crowdsec = {
       url = "github:czerwonk/nix-flake-crowdsec";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     impermanence.url = "github:nix-community/impermanence";
-
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 

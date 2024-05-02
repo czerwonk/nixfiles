@@ -71,7 +71,6 @@
       libreoffice
       mysql-workbench
       nextcloud-client
-      nix-alien
       remmina
       sublime4
       termius

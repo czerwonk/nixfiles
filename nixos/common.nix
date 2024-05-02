@@ -70,10 +70,10 @@
     LC_TELEPHONE = "de_DE.UTF-8";
   };
 
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "altgr-intl";
-    xkbOptions = "caps:escape";
+    variant = "altgr-intl";
+    options = "caps:escape";
   };
 
   console = {
