@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
+    ../../profiles/container
+    ../../profiles/virtualisation
     ../../zfs.nix
   ];
 

@@ -36,7 +36,7 @@
     { domain = "*"; item = "core"; type = "hard"; value = "0"; }
   ];
 
-  security.unprivilegedUsernsClone = config.virtualisation.containers.enable;
+  security.unprivilegedUsernsClone = lib.mkDefault config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always"; 
 
   programs.firejail.enable = true;

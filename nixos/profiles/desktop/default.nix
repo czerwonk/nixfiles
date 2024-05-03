@@ -20,6 +20,7 @@
   };
 
   security.chromiumSuidSandbox.enable = true;
+  security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
     firefox = {
