@@ -74,7 +74,6 @@
       remmina
       sublime4
       termius
-      veracrypt
       virt-viewer
       vlc
       wireshark
