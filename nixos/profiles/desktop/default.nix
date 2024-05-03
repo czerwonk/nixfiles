@@ -67,7 +67,6 @@
       foliate
       fractal
       chromium
-      libation
       libreoffice
       mysql-workbench
       nextcloud-client
