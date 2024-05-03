@@ -30,8 +30,6 @@
 
   services.printing.enable = true;
 
-  services.fprintd.enable = true;
-
   powerManagement.cpuFreqGovernor = "performance";
   services.power-profiles-daemon.enable = false;
   services.tlp = {
@@ -48,6 +46,5 @@
 
   my.services.openssh-server.enable = true;
 
-  security.pam.u2f.enable = false;
   services.logrotate.checkConfig = false;
 }
