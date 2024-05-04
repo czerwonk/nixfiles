@@ -10,6 +10,8 @@
     ./sound.nix
   ];
 
+  security.auditd.enable = false;
+
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
