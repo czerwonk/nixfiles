@@ -135,6 +135,8 @@
       bind= $mainMod, H, togglespecialworkspace
 
       windowrulev2 = float,class:^(steam)$,title:^(?!.*(Library|Steam)).*$
+      windowrulev2 = stayfocused, title:^()$,class:^(steam)$
+      windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
     '';
   };
 }
