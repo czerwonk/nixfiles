@@ -20,7 +20,6 @@ in {
   nixpkgs.overlays = [
     (self: super: {
       hyprland = pkgs-unstable.hyprland;
-      mesa = pkgs-unstable.mesa;
       xdg-desktop-portal-hyprland = pkgs-unstable.xdg-desktop-portal-hyprland;
     })
     (self: super: {
