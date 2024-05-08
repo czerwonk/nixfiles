@@ -64,7 +64,6 @@
       bitwarden
       blueberry
       calibre
-      crowdsec
       distrobox
       foliate
       fractal
@@ -115,4 +114,10 @@
 
   services.flatpak.enable = true;
   services.pcscd.enable = true;
+
+  my.services.crowdsec = {
+    enable = true;
+    autoStart = false;
+    enableMitigation = false;
+  };
 }
