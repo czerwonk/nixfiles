@@ -62,6 +62,7 @@ in {
       labels:
         type: auditd
     '';
+    environment.etc."crowdsec/patterns".source = "${pkgs.crowdsec.out}/share/crowdsec/config/patterns";
 
     services.crowdsec = {
       enable = true;

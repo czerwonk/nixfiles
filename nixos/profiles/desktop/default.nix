@@ -64,6 +64,7 @@
       bitwarden
       blueberry
       calibre
+      crowdsec
       distrobox
       foliate
       fractal
