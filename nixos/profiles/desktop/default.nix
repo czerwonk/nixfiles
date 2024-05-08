@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   imports = [
@@ -110,6 +110,8 @@
   programs.wireshark.enable = true;
 
   services.teamviewer.enable = true;
+  systemd.services.teamviewerd.wantedBy = lib.mkForce [];
+
   services.flatpak.enable = true;
   services.pcscd.enable = true;
 }
