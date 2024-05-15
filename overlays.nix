@@ -17,18 +17,18 @@ in {
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
-      ethr = pkgs-unstable.callPackage ./pkgs/ethr {};
+      ethr = super.callPackage ./pkgs/ethr {};
       provisionize = provisionize-packages.provisionize;
+      termius = super.callPackage ./pkgs/termius {};
+      vimPlugins = super.vimPlugins // {
+        obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
+      };
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
-      termius = super.callPackage ./pkgs/termius {};
-      vimPlugins = super.vimPlugins // {
-        obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
-      };
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
