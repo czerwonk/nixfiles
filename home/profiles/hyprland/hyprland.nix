@@ -46,6 +46,7 @@
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
       env = SDL_VIDEODRIVER, wayland
       env = XDG_SESSION_TYPE, wayland
+      env = GTK_THEME, ${config.gtk.theme.name}
 
       exec-once = ${lib.getExe pkgs.waybar}
       exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
@@ -135,6 +136,8 @@
       bind= $mainMod, H, togglespecialworkspace
 
       windowrulev2 = float,class:^(steam)$,title:^(?!.*(Library|Steam)).*$
+      windowrulev2 = stayfocused, title:^()$,class:^(steam)$
+      windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
     '';
   };
 }

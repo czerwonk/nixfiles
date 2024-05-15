@@ -17,7 +17,7 @@
       "mqtt"
       "tasmota"
       "tradfri"
-      "tuya"
+      "shelly"
     ];
     config = {
       default_config = {};

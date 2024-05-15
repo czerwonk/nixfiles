@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   imports = [
@@ -9,6 +9,8 @@
     ./sound.nix
     ./gnome.nix
   ];
+
+  security.auditd.enable = false;
 
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
@@ -63,6 +65,7 @@
       bitwarden
       blueberry
       calibre
+      crowdsec
       distrobox
       foliate
       fractal
@@ -80,6 +83,8 @@
     ];
     extraGroups = [ "wireshark" ];
   };
+
+  services.xserver.displayManager.defaultSession = "hyprland";
 
   programs.hyprland = {
     enable = true;
@@ -103,6 +108,14 @@
   programs.wireshark.enable = true;
 
   services.teamviewer.enable = true;
+  systemd.services.teamviewerd.wantedBy = lib.mkForce [];
+
   services.flatpak.enable = true;
   services.pcscd.enable = true;
+
+  my.services.crowdsec = {
+    enable = true;
+    autoStart = false;
+    enableMitigation = false;
+  };
 }

@@ -26,6 +26,18 @@ in {
         default = "127.0.0.1";
         description = "Address to listen for metrics calls";
       };
+
+      autoStart = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Wether to start crowdsec on boot";
+      };
+
+      enableMitigation = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Wether to enabled crowdsec mitigation";
+      };
     };
   };
 
@@ -50,6 +62,7 @@ in {
       labels:
         type: auditd
     '';
+    environment.etc."crowdsec/patterns".source = "${pkgs.crowdsec.out}/share/crowdsec/config/patterns";
 
     services.crowdsec = {
       enable = true;
@@ -86,9 +99,10 @@ in {
         fi
       '';
     };
+    systemd.services.crowdsec.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
 
     services.crowdsec-firewall-bouncer = {
-      enable = true;
+      enable = cfg.enableMitigation;
       settings = {
         api_key = cfg.bouncerApiKey;
         api_url = "http://127.0.0.1:8000";

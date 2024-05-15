@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   users.groups.audit = {
     gid = 800;
@@ -90,5 +92,5 @@
       "-a always,exit -F arch=b32 -S all -k 32bit"
     ];
   };
-  security.auditd.enable = true;
+  security.auditd.enable = lib.mkDefault true;
 }

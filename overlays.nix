@@ -13,10 +13,6 @@ let
   provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-
   nixpkgs.overlays = [
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
@@ -26,12 +22,10 @@ in {
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
-      crowdsec = super.callPackage ./pkgs/crowdsec {};
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
       termius = super.callPackage ./pkgs/termius {};
-      unifi = pkgs-unstable.unifi8;
       vimPlugins = super.vimPlugins // {
         obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
       };
