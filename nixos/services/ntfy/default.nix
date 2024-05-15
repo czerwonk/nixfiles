@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.ntfy;
-  version = "v2.10.0";
+  version = "v2.11.0";
 
 in {
   options = {
