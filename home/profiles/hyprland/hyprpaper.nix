@@ -1,10 +1,9 @@
-{ username, config, ... }:
+{ username, ... }:
 
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
     ipc = off
     preload = /home/${username}/.config/bg.jpg
-    wallpaper = eDP-1,/home/${username}/.config/bg.jpg
-    wallpaper = ${config.profiles.hyprland.externalMonitor},/home/${username}/.config/bg.jpg
+    wallpaper = ,/home/${username}/.config/bg.jpg
   '';
 }
