@@ -22,7 +22,7 @@
     zfs rollback -r zroot/root@blank
   '';
 
-  boot.blacklistedKernelModules = lib.mkForce [];
+  boot.blacklistedKernelModules = lib.mkForce [ "firewire-core" ];
 
   networking = {
     hostName = "homey";
