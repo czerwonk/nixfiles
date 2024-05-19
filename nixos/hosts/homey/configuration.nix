@@ -16,12 +16,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.zfs.forceImportRoot = true;
-  boot.zfs.requestEncryptionCredentials = [ "zroot" "zpool" ];
-  boot.zfs.extraPools = [ "zpool" ];
+  boot.zfs.requestEncryptionCredentials = [ "zroot" ];
+  boot.zfs.extraPools = [ "zext" ];
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     zfs rollback -r zroot/root@blank
   '';
+
+  boot.blacklistedKernelModules = lib.mkForce [ "firewire-core" ];
 
   networking = {
     hostName = "homey";
