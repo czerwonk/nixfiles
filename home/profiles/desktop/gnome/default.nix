@@ -34,6 +34,13 @@
     "org/gnome/gnome-session" = {
       auto-save-session = true;
     };
+    "org/gnome/desktop/wm/preferences" = {
+      workspace-names = [
+        "Terminal"
+        "Web"
+        "Mail"
+      ];
+    };
   };
 
   services.gpg-agent.pinentryFlavor = "gnome3";
