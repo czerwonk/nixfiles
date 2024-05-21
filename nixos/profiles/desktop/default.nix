@@ -84,7 +84,7 @@
     extraGroups = [ "wireshark" ];
   };
 
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland";
 
   programs.hyprland = {
     enable = true;

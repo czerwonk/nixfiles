@@ -5,6 +5,9 @@ let
     inherit system;
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+      ];
     };
   };
 
@@ -29,6 +32,7 @@ in {
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
+      sublime4 = pkgs-unstable.sublime4;
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (gfinal: gprev: {
