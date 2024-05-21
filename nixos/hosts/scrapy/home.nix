@@ -4,8 +4,8 @@
   imports = [
     ../../../home/linux.nix
     ../../../home/profiles/desktop
+    ../../../home/profiles/desktop/hyprland
     ../../../home/profiles/devops
-    ../../../home/profiles/hyprland
   ] ++ extraHomeModules;
 
   profiles.hyprland = {
