@@ -31,6 +31,9 @@
       tile-by-default = true;
       activate-launcher = [ "<Super>space" ];
     };
+    "org/gnome/gnome-session" = {
+      auto-save-session = true;
+    };
   };
 
   services.gpg-agent.pinentryFlavor = "gnome3";
