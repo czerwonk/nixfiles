@@ -37,8 +37,6 @@ in {
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
-      neovim = pkgs-unstable.neovim;
-      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
