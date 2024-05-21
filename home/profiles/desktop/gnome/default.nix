@@ -26,7 +26,7 @@
     "org/gnome/shell/extensions/pop-shell" = {
       activate-launcher = [ "<Super>space" ];
       active-hint = true;
-      active-hint-border-radius = 10;
+      active-hint-border-radius = "uint32 10";
       gap-inner = "uint32 1";
       gap-outer = "uint32 1";
       tile-by-default = true;
