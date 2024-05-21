@@ -22,11 +22,6 @@
         config = builtins.readFile ./lua/which-key.lua;
       }
       {
-        plugin = comment-nvim;
-        type = "lua";
-        config = "require('Comment').setup()";
-      }
-      {
         plugin = vim-tmux-navigator;
         type = "lua";
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;

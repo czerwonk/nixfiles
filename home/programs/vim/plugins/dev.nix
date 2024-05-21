@@ -9,9 +9,6 @@
         config = builtins.readFile ./lua/lsp.lua;
       }
       {
-        plugin = lsp-inlayhints-nvim;
-      }
-      {
         plugin = nvim-navic;
       }
       {

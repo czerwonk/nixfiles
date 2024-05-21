@@ -1,12 +1,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local inlayhints = require('lsp-inlayhints')
-inlayhints.setup()
-
 local on_attach = function(client, bufnr)
-  inlayhints.on_attach(client, bufnr)
-
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local map = function (mode, key, binding, desc)
@@ -39,8 +34,9 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
 
   if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true);
     map('n', '<leader>gh', function ()
-      require('lsp-inlayhints').toggle()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end, 'Toggle inlay hints')
   end
 
@@ -147,7 +143,7 @@ lspconfig.lua_ls.setup {
         enable = false
       },
       codeLens = {
-        enable = true
+        enable = false
       },
       hint = {
         enable = true
