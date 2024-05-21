@@ -8,8 +8,16 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = "disabled";
+      favorite-apps = [
+        "kitty.desktop"
+        "firefox.desktop"
+        "thunderbird.desktop"
+        "element-desktop.desktop"
+      ];
       enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
         "pop-shell@system76.com"
+        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];
       had-bluetooth-devices-setup = true;
       remember-mount-password = false;
