@@ -24,12 +24,12 @@
       remember-mount-password = false;
     };
     "org/gnome/shell/extensions/pop-shell" = {
+      activate-launcher = [ "<Super>space" ];
       active-hint = true;
       active-hint-border-radius = 10;
-      gap-inner = 5;
-      gap-outer = 0;
+      gap-inner = "uint32 1";
+      gap-outer = "uint32 1";
       tile-by-default = true;
-      activate-launcher = [ "<Super>space" ];
     };
     "org/gnome/gnome-session" = {
       auto-save-session = true;
