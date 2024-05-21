@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ../common.nix
@@ -43,5 +45,5 @@
     };
   };
 
-  services.gpg-agent.pinentryFlavor = "gnome3";
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 }
