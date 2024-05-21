@@ -30,6 +30,7 @@
       gap-inner = "uint32 1";
       gap-outer = "uint32 1";
       tile-by-default = true;
+      smart-gaps = true;
     };
     "org/gnome/gnome-session" = {
       auto-save-session = true;
