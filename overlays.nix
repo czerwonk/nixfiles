@@ -38,6 +38,7 @@ in {
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
       omnisharp-roslyn = pkgs-unstable.omnisharp-roslyn;
+      opentofu = pkgs-unstable.opentofu;
       podman = pkgs-unstable.podman;
       sublime4 = pkgs-unstable.sublime4;
       termius = super.callPackage ./pkgs/termius {};
