@@ -35,7 +35,6 @@
   ]);
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.pop-shell
   ];
