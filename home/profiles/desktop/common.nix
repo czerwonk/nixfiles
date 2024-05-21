@@ -3,7 +3,6 @@
 {
   imports = [
     ../../programs/kitty
-    ./theme.nix
   ];
 
   programs.zsh.shellAliases = {
@@ -12,8 +11,5 @@
 
   programs.tmux.mouse = true;
 
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-  };
+  services.gpg-agent.enable = true;
 }
