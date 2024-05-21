@@ -55,7 +55,7 @@
       pull.rebase = true;
 
       push = {
-        default = "matching";
+        default = "simple";
         autoSetupRemote = true;
       };
 

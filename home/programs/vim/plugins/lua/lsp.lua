@@ -219,6 +219,24 @@ lspconfig.omnisharp.setup {
   enable_import_completion = true,
   sdk_include_prereleases = true,
   analyze_open_documents_only = false,
+  settings = {
+    RoslynExtensionsOptions = {
+      InlayHintsOptions = {
+        EnableForParameters = true,
+        ForLiteralParameters = true,
+        ForIndexerParameters = true,
+        ForObjectCreationParameters = true,
+        ForOtherParameters = true,
+        SuppressForParametersThatDifferOnlyBySuffix = false,
+        SuppressForParametersThatMatchMethodIntent = false,
+        SuppressForParametersThatMatchArgumentName = false,
+        EnableForTypes = true,
+        ForImplicitVariableTypes = true,
+        ForLambdaParameterTypes = true,
+        ForImplicitObjectCreatio = true,
+      }
+    }
+  }
 }
 
 lspconfig.jsonls.setup {

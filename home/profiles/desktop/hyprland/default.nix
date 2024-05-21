@@ -26,8 +26,8 @@ let
 
 in {
   imports = [
+    ./../gnome
     ./options.nix
-    ./theme.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./waybar.nix

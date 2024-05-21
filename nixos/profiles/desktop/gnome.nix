@@ -33,4 +33,10 @@
     geary # email reader
     seahorse # keyring UI
   ]);
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
+    gnomeExtensions.pop-shell
+  ];
 }
