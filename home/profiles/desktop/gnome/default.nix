@@ -16,6 +16,7 @@
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
+        "caffeine@patapon.info"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];
