@@ -73,7 +73,7 @@
       move-to-workspace-7 = [ "<Shift><Super>7" ];
       move-to-workspace-8 = [ "<Shift><Super>8" ];
       move-to-workspace-9 = [ "<Shift><Super>9" ];
-      move-to-workspace-10 = [ "<Shift><Super>10" ];
+      move-to-workspace-10 = [ "<Shift><Super>0" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
