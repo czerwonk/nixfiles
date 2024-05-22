@@ -44,6 +44,7 @@
       switch-to-application-7 = [];
       switch-to-application-8 = [];
       switch-to-application-9 = [];
+      switch-to-application-10 = [];
       switch-input-source = [];
       switch-input-source-backward = [];
     };
@@ -54,7 +55,7 @@
       idle-delay = "uint32 300";
     };
     "org/gnome/desktop/wm/preferences" = {
-      num-workspaces = 9;
+      num-workspaces = 10;
       workspace-names = [
         "Home"
         "Terminal"
@@ -72,6 +73,7 @@
       move-to-workspace-7 = [ "<Shift><Super>7" ];
       move-to-workspace-8 = [ "<Shift><Super>8" ];
       move-to-workspace-9 = [ "<Shift><Super>9" ];
+      move-to-workspace-10 = [ "<Shift><Super>10" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
@@ -81,6 +83,7 @@
       switch-to-workspace-7 = [ "<Super>7" ];
       switch-to-workspace-8 = [ "<Super>8" ];
       switch-to-workspace-9 = [ "<Super>9" ];
+      switch-to-workspace-10 = [ "<Super>0" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Super>comma" ];
