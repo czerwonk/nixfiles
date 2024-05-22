@@ -32,6 +32,7 @@ in {
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       sublime4 = pkgs-unstable.sublime4;
     })
     (self: super: {
