@@ -27,8 +27,8 @@
     };
     "org/gnome/shell/extensions/pop-shell" = {
       active-hint = false;
-      gap-inner = "uint32 1";
-      gap-outer = "uint32 1";
+      gap-inner = lib.gvariant.mkInt32 1;
+      gap-outer = lib.gvariant.mkInt32 1;
       tile-by-default = true;
       smart-gaps = true;
     };
@@ -47,11 +47,15 @@
       switch-input-source = [];
       switch-input-source-backward = [];
     };
+
+    "org/gnome/desktop/default/applications/terminal" = {
+      exec = "${lib.getExe pkgs.kitty}";
+    };
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:escape" ];
     };
     "org/gnome/desktop/session" = {
-      idle-delay = "uint32 300";
+      idle-delay = lib.gvariant.mkInt32 300;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
@@ -63,16 +67,6 @@
       ];
     };
     "org/gnome/desktop/wm/keybindings" = {
-      move-to-workspace-1 = [ "<Shift><Super>1" ];
-      move-to-workspace-2 = [ "<Shift><Super>2" ];
-      move-to-workspace-3 = [ "<Shift><Super>3" ];
-      move-to-workspace-4 = [ "<Shift><Super>4" ];
-      move-to-workspace-5 = [ "<Shift><Super>5" ];
-      move-to-workspace-6 = [ "<Shift><Super>6" ];
-      move-to-workspace-7 = [ "<Shift><Super>7" ];
-      move-to-workspace-8 = [ "<Shift><Super>8" ];
-      move-to-workspace-9 = [ "<Shift><Super>9" ];
-      move-to-workspace-10 = [ "<Shift><Super>0" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
@@ -83,6 +77,16 @@
       switch-to-workspace-8 = [ "<Super>8" ];
       switch-to-workspace-9 = [ "<Super>9" ];
       switch-to-workspace-10 = [ "<Super>0" ];
+      move-to-workspace-1 = [ "<Shift><Super>1" ];
+      move-to-workspace-2 = [ "<Shift><Super>2" ];
+      move-to-workspace-3 = [ "<Shift><Super>3" ];
+      move-to-workspace-4 = [ "<Shift><Super>4" ];
+      move-to-workspace-5 = [ "<Shift><Super>5" ];
+      move-to-workspace-6 = [ "<Shift><Super>6" ];
+      move-to-workspace-7 = [ "<Shift><Super>7" ];
+      move-to-workspace-8 = [ "<Shift><Super>8" ];
+      move-to-workspace-9 = [ "<Shift><Super>9" ];
+      move-to-workspace-10 = [ "<Shift><Super>0" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Super>comma" ];

@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
+    gnomeExtensions.just-perfection
     gnomeExtensions.pop-shell
   ];
 }
