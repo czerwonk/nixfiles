@@ -1,5 +1,7 @@
 { pkgs, lib, ... }:
 
+with lib.gvariant;
+
 {
   imports = [
     ../common.nix
@@ -19,6 +21,7 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
+        "just-perfection-desktop@just-perfection"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];
@@ -27,25 +30,27 @@
     };
     "org/gnome/shell/extensions/pop-shell" = {
       active-hint = false;
-      gap-inner = lib.gvariant.mkInt32 1;
-      gap-outer = lib.gvariant.mkInt32 1;
+      gap-inner = mkInt32 1;
+      gap-outer = mkInt32 1;
       tile-by-default = true;
       smart-gaps = true;
     };
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = [ "<Super><Shift>S" ];
-      switch-to-application-1 = [];
-      switch-to-application-2 = [];
-      switch-to-application-3 = [];
-      switch-to-application-4 = [];
-      switch-to-application-5 = [];
-      switch-to-application-6 = [];
-      switch-to-application-7 = [];
-      switch-to-application-8 = [];
-      switch-to-application-9 = [];
-      switch-to-application-10 = [];
-      switch-input-source = [];
-      switch-input-source-backward = [];
+      switch-to-application-1 = mkEmptyArray type.string;
+      switch-to-application-2 = mkEmptyArray type.string;
+      switch-to-application-3 = mkEmptyArray type.string;
+      switch-to-application-4 = mkEmptyArray type.string;
+      switch-to-application-5 = mkEmptyArray type.string;
+      switch-to-application-6 = mkEmptyArray type.string;
+      switch-to-application-7 = mkEmptyArray type.string;
+      switch-to-application-8 = mkEmptyArray type.string;
+      switch-to-application-9 = mkEmptyArray type.string;
+      switch-to-application-10 = mkEmptyArray type.string;
+      switch-input-source = mkEmptyArray type.string;
+      switch-input-source-backward = mkEmptyArray type.string;
+      maximize = mkEmptyArray type.string;
+      unmaximize = mkEmptyArray type.string;
     };
 
     "org/gnome/desktop/default/applications/terminal" = {
@@ -55,7 +60,7 @@
       xkb-options = [ "caps:escape" ];
     };
     "org/gnome/desktop/session" = {
-      idle-delay = lib.gvariant.mkInt32 300;
+      idle-delay = mkInt32 300;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
@@ -109,6 +114,10 @@
         "element-desktop.desktop:5"
         "teams-for-linux.desktop:9"
       ];
+    };
+    "org/gnome/shell/extensions/just-perfection" = {
+      notification-banner-position = 2;
+      workspace-wrap-around = true;
     };
   };
 
