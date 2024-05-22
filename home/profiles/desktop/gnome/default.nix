@@ -106,7 +106,7 @@
         "kitty.desktop:2"
         "firefox.desktop:3"
         "thunderbird.desktop:4"
-        "org.gnome.Fractal.desktop:5"
+        "element-desktop.desktop:5"
         "teams-for-linux.desktop:9"
       ];
     };
