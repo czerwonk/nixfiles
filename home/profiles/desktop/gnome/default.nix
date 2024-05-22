@@ -28,13 +28,6 @@ with lib.gvariant;
       had-bluetooth-devices-setup = true;
       remember-mount-password = false;
     };
-    "org/gnome/shell/extensions/pop-shell" = {
-      active-hint = false;
-      gap-inner = mkInt32 1;
-      gap-outer = mkInt32 1;
-      tile-by-default = true;
-      smart-gaps = true;
-    };
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = [ "<Super><Shift>S" ];
       switch-to-application-1 = mkEmptyArray type.string;
@@ -105,6 +98,14 @@ with lib.gvariant;
       binding = "<Super>t";
       command = "${lib.getExe pkgs.kitty}";
       name = "Open Terminal";
+    };
+    "org/gnome/shell/extensions/pop-shell" = {
+      activate-launcher = [ "<Super>space" ];
+      active-hint = false;
+      gap-inner = mkInt32 1;
+      gap-outer = mkInt32 1;
+      smart-gaps = true;
+      tile-by-default = true;
     };
     "org/gnome/shell/extensions/auto-move-windows" = {
       application-list = [
