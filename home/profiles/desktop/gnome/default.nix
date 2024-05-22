@@ -31,9 +31,6 @@
       tile-by-default = true;
       smart-gaps = true;
     };
-    "org/gnome/gnome-session" = {
-      auto-save-session = true;
-    };
     "org/gnome/desktop/wm/preferences" = {
       workspace-names = [
         "Terminal"
@@ -72,6 +69,11 @@
       binding = "<Super>t";
       command = "${lib.getExe pkgs.kitty}";
       name = "Open Terminal";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>Space";
+      command = "${lib.getExe pkgs.albert}";
+      name = "Open Application Launcher";
     };
   };
 
