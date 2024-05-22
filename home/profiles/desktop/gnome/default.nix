@@ -1,8 +1,9 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
     ../common.nix
+    ../rofi
     ./theme.nix
   ];
 
@@ -31,6 +32,16 @@
       tile-by-default = true;
       smart-gaps = true;
     };
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = [ "<Super><Shift>S" ];
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
+    };
+    "org/gnome/desktop/input-sources/xkb-options" = {
+      xkb-options = [ "caps:escape" ];
+    };
     "org/gnome/desktop/wm/preferences" = {
       workspace-names = [
         "Terminal"
@@ -58,13 +69,6 @@
       switch-to-workspace-8 = [ "<Super>8" ];
       switch-to-workspace-9 = [ "<Super>9" ];
     };
-    "org/gnome/shell/keybindings" = {
-      show-screenshot-ui = [ "<Super><Shift>S" ];
-      switch-to-application-1 = [];
-      switch-to-application-2 = [];
-      switch-to-application-3 = [];
-      switch-to-application-4 = [];
-    };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Super>comma" ];
       www = [ "<Super>b" ];
@@ -80,7 +84,7 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Super>Space";
-      command = "${lib.getExe pkgs.albert}";
+      command = "${lib.getExe config.programs.rofi.package} -show drun";
       name = "Open Application Launcher";
     };
   };

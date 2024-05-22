@@ -26,13 +26,12 @@ let
 
 in {
   imports = [
-    ./../gnome
+    ../gnome
     ./options.nix
     ./hyprland.nix
     ./hyprpaper.nix
     ./waybar.nix
     ./dunst.nix
-    ./rofi
     ./swaylock.nix
     ./swayidle.nix
   ];
