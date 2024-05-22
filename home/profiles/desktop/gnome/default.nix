@@ -46,6 +46,9 @@
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:escape" ];
     };
+    "org/gnome/desktop/session" = {
+      idle-delay = "uint32 300";
+    };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9;
       workspace-names = [

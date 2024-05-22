@@ -87,6 +87,8 @@
     extraGroups = [ "wireshark" ];
   };
 
+  programs.xwayland.enable = true;
+
   programs.nix-index.enable = true;
   programs.nix-ld.enable = true;
   programs.command-not-found.enable = false;
