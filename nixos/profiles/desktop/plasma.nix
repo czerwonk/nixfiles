@@ -1,14 +1,13 @@
 {
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-  };
-
   services.xserver = {
-    displayManager.gdm = {
-      enable = false;
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+      gdm = {
+        enable = false;
+      };
     };
     desktopManager.gnome = {
       enable = false;
