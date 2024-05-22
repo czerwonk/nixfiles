@@ -27,6 +27,7 @@ let
 in {
   imports = [
     ../gnome
+    ../rofi
     ./options.nix
     ./hyprland.nix
     ./hyprpaper.nix

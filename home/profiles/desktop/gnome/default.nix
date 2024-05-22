@@ -1,9 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
     ../common.nix
-    ../rofi
     ./theme.nix
   ];
 
@@ -91,18 +90,12 @@
       screensaver = [ "<Control><Super>l" ];
       custom-keybindings=[
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>t";
       command = "${lib.getExe pkgs.kitty}";
       name = "Open Terminal";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      binding = "<Super>Space";
-      command = "${lib.getExe config.programs.rofi.package} -show drun";
-      name = "Open Application Launcher";
     };
     "org/gnome/shell/extensions/auto-move-windows" = {
       application-list = [
