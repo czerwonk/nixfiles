@@ -24,9 +24,7 @@
       remember-mount-password = false;
     };
     "org/gnome/shell/extensions/pop-shell" = {
-      activate-launcher = [ "<Super>space" ];
-      active-hint = true;
-      active-hint-border-radius = "uint32 10";
+      active-hint = false;
       gap-inner = "uint32 1";
       gap-outer = "uint32 1";
       tile-by-default = true;
@@ -41,6 +39,9 @@
         "Web"
         "Mail"
       ];
+    };
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = [ "<Super><Shift>S" ];
     };
   };
 
