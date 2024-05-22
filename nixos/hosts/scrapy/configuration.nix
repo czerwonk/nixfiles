@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
-    ../../profiles/desktop/cosmic.nix
     ../../profiles/container
     ../../profiles/virtualisation
     ../../zfs.nix
