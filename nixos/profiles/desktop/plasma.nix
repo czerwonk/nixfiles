@@ -1,10 +1,13 @@
 {
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+  };
+
   services.xserver = {
     displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
       gdm = {
         enable = false;
       };
