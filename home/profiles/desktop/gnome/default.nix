@@ -18,6 +18,7 @@
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
+        "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
@@ -45,6 +46,7 @@
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9;
       workspace-names = [
+        "Home"
         "Terminal"
         "Web"
         "Mail"
@@ -87,6 +89,15 @@
       binding = "<Super>Space";
       command = "${lib.getExe config.programs.rofi.package} -show drun";
       name = "Open Application Launcher";
+    };
+    "org/gnome/shell/extensions/auto-move-windows" = {
+      application-list = [
+        "kitty.desktop:2"
+        "firefox.desktop:3"
+        "thunderbird.desktop:4"
+        "org.gnome.Fractal.desktop:5"
+        "teams-for-linux.desktop:9"
+      ];
     };
   };
 
