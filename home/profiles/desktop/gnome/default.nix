@@ -40,8 +40,10 @@
       switch-to-application-3 = [];
       switch-to-application-4 = [];
       switch-to-application-5 = [];
+      switch-input-source = [];
+      switch-input-source-backward = [];
     };
-    "org/gnome/desktop/input-sources/xkb-options" = {
+    "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:escape" ];
     };
     "org/gnome/desktop/wm/preferences" = {
