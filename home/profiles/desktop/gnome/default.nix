@@ -12,7 +12,6 @@
         "kitty.desktop"
         "firefox.desktop"
         "thunderbird.desktop"
-        "element-desktop.desktop"
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
