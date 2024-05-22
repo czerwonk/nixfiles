@@ -43,6 +43,7 @@
       xkb-options = [ "caps:escape" ];
     };
     "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 9;
       workspace-names = [
         "Terminal"
         "Web"
