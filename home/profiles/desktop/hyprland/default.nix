@@ -37,7 +37,6 @@ in {
   ];
 
   home.packages = with pkgs; [
-    wl-clipboard
     networkmanagerapplet
     halt-script
     reboot-script

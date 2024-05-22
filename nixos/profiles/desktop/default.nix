@@ -87,21 +87,6 @@
     extraGroups = [ "wireshark" ];
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  xdg.portal.wlr = {
-    enable = true;
-    settings = {
-      screencast = {
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -ro";
-      };
-    };
-  };
-
   programs.nix-index.enable = true;
   programs.nix-ld.enable = true;
   programs.command-not-found.enable = false;
