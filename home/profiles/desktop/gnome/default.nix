@@ -113,6 +113,7 @@ with lib.gvariant;
         "firefox.desktop:3"
         "thunderbird.desktop:4"
         "element-desktop.desktop:5"
+        "Mattermost.desktop:5"
         "teams-for-linux.desktop:9"
       ];
     };

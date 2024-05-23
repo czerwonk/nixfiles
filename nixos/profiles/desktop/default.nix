@@ -70,6 +70,7 @@
       foliate
       chromium
       libreoffice
+      mattermost-desktop
       mysql-workbench
       nextcloud-client
       remmina
