@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.adguard;
-  version = "0.107.45";
+  version = "0.107.50";
 
 in {
   options = {
