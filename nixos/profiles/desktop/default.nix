@@ -7,7 +7,6 @@
     ./impermanence.nix
     ./pam.nix
     ./sound.nix
-    ./gnome.nix
   ];
 
   security.auditd.enable = false;
