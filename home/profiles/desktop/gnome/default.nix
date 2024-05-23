@@ -65,6 +65,7 @@ with lib.gvariant;
       ];
     };
     "org/gnome/desktop/wm/keybindings" = {
+      close = [ "<Super>q" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
