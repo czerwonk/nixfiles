@@ -8,6 +8,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    heroic
     steam-run
   ];
 }
