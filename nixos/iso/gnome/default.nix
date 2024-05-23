@@ -7,6 +7,7 @@
 
   services.xserver = {
     desktopManager.gnome = {
+      extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
