@@ -3,9 +3,9 @@
 {
   imports = [
     ../../../home/profiles/core/minimal-packages.nix
-    ../../../home/profiles/kitty
     ../../../home/programs/bat
     ../../../home/programs/fzf
+    ../../../home/programs/kitty
     ../../../home/programs/zsh
   ] ++ extraHomeModules;
 
