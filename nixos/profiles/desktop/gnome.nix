@@ -42,4 +42,6 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.pop-shell
   ];
+
+  security.pam.services.xscreensaver.u2fAuth = false;
 }

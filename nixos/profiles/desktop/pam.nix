@@ -4,13 +4,6 @@
   security.pam.services.login.fprintAuth = false;
   security.pam.services.su.fprintAuth = false;
   security.pam.services.sudo.fprintAuth = false;
-  security.pam.services.swaylock.u2fAuth = false;
-  security.pam.services.swaylock.fprintAuth = false;
-  security.pam.u2f = {
-    enable = lib.mkDefault true;
-    control = "required";
-    authFile = "/persist/u2f_keys";
-  };
   security.pam.services.gdm-fingerprint = lib.mkIf (config.services.fprintd.enable) {
     text = ''
       auth       required                    pam_shells.so
@@ -29,5 +22,11 @@
       session    include                     login
       session    optional                    ${pkgs.gnome.gnome-keyring}/lib/security/pam_gnome_keyring.so auto_start
     '';
+  };
+
+  security.pam.u2f = {
+    enable = lib.mkDefault true;
+    control = "required";
+    authFile = "/persist/u2f_keys";
   };
 }

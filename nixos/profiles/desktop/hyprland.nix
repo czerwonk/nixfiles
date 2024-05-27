@@ -15,4 +15,7 @@
       };
     };
   };
+
+  security.pam.services.swaylock.u2fAuth = false;
+  security.pam.services.swaylock.fprintAuth = false;
 }
