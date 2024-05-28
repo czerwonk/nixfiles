@@ -9,6 +9,9 @@ in {
     chain post {
       type nat hook postrouting priority srcnat - 1; policy accept;
       iifname { "podman*", "wg*" } oifname "${nat.externalInterface}" snat ip to ${nat.externalIP}
+      ${lib.flip lib.concatMapStrings config.networking.nat.internalInterfaces (iface: ''
+        iifname "${iface}" oifname "${nat.externalInterface}" snat ip to ${nat.externalIP}
+      '')}
     }
   '';
 }

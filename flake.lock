@@ -170,11 +170,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1716798306,
-        "narHash": "sha256-s8+OhT1WSPMoqbTawT30hj4NVMg+w03/a+2HVqcNhY0=",
+        "lastModified": 1716881121,
+        "narHash": "sha256-oTf3enbe/lbiNzsyZ8ria+422hx4e/FB3xQcY2LPnJw=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "9a20e17a73b052d6be912adcee220cb483477094",
+        "rev": "806e9d4a933dd1e75592e88894d4bd2f296f5bbf",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1716040592,
-        "narHash": "sha256-bo/R16WHa1zLbaet4B1KdtsZ3T7asgYgoTZ71oeaxMY=",
+        "lastModified": 1716906196,
+        "narHash": "sha256-P0TWud9G3d+VXZSgO5VVN2WrArEwUwKaS+SBBzS2kdU=",
         "ref": "refs/heads/main",
-        "rev": "8d810c5d49b21c8c92ff7c5d1980e8660317d5b6",
-        "revCount": 307,
+        "rev": "353250b12ea6eea611940b6c5b61f886fa050178",
+        "revCount": 309,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
