@@ -22,6 +22,7 @@ with lib.gvariant;
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "just-perfection-desktop@just-perfection"
+        "pano@elhan.io"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];

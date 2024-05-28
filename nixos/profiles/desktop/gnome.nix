@@ -36,10 +36,11 @@
   ]);
 
   environment.systemPackages = with pkgs; [
-    pop-launcher
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.just-perfection
+    gnomeExtensions.pano
     gnomeExtensions.pop-shell
+    pop-launcher
   ];
 }
