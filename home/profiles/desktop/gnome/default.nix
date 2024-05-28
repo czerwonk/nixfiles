@@ -129,6 +129,12 @@ with lib.gvariant;
       notification-banner-position = 2;
       workspace-wrap-around = true;
     };
+    "org/gnome/shell/extensions/pano" = {
+      history-length = 20;
+      link-previews = false;
+      play-audio-on-copy = false;
+      send-notification-on-copy = false;
+    };
   };
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
