@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -12,15 +10,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.zfs.forceImportRoot = true;
-  boot.zfs.requestEncryptionCredentials = [ "zroot" "zpool" ];
-  boot.zfs.extraPools = [ "zpool" ];
-
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    zfs rollback -r zroot/root@blank
-  '';
+  #boot.zfs.extraPools = [ "zpool" ];
 
   networking = {
-    hostId = "c1be8f9f";
+    hostId = "77889806";
     hostName = "backup1";
     domain = "wup.routing.rocks";
   };
