@@ -17,4 +17,11 @@
     hostName = "backup1";
     domain = "wup.routing.rocks";
   };
+
+  routing-rocks.bird2.enable = true;
+
+  services.prometheus.exporters.bird = {
+    enable = true;
+    user = "bird2";
+  };
 }
