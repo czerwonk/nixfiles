@@ -143,6 +143,7 @@
           username = inputs.private.username {};
           extraModules = [
             inputs.private.nixosModule
+            inputs.routing-rocks-policy.nixosModule
           ];
           extraHomeModules = [
             inputs.private.home
