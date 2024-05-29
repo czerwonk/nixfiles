@@ -260,11 +260,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1716998753,
-        "narHash": "sha256-JKXwoipbEEtgpOXptjJXEEm094+eu8iemalwc7tDQKc=",
+        "lastModified": 1717001020,
+        "narHash": "sha256-m1Lg6Ov28cJoVS97eM+nvJOpCOfDVvFNddRn+lRSdY4=",
         "ref": "refs/heads/main",
-        "rev": "4f0b39e2754a6c851b9959cde7e5185a5f97edc6",
-        "revCount": 320,
+        "rev": "5f77a55d9e8b285e5c67746a55ad1600113b3991",
+        "revCount": 321,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -310,11 +310,11 @@
     },
     "routing-rocks-policy": {
       "locked": {
-        "lastModified": 1705921583,
-        "narHash": "sha256-TqNns1dHfpJUVIoj5w0okXBwrRX/GJIt84O4/tJn37k=",
+        "lastModified": 1717000910,
+        "narHash": "sha256-1gpoiHQ1bPIKxIzTL3VOl9gwfMFjn7Fxf3xqjc/6bIw=",
         "owner": "czerwonk",
         "repo": "routing-rocks-policy-role",
-        "rev": "0bb53fa58d0a399772686b5d34d7fcecd66384d3",
+        "rev": "ef4dd79682a0ed5cd02f6ddd6520a64b3030e3fe",
         "type": "github"
       },
       "original": {
