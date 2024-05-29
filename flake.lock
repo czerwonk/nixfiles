@@ -155,11 +155,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716853176,
-        "narHash": "sha256-9gUu2VJu5bL+jjNS3mWG/h7T+vIsYhKYyQAunvZtBT4=",
+        "lastModified": 1716962049,
+        "narHash": "sha256-BqLcQdFfV1oLGXdKta2Ssui1gnTEMPSfyrnhxldRV2o=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "996ad8af9bfe04587c0457fcf72f5167e481fe5a",
+        "rev": "e9b83685d4cb801ed3dc18060a21898e6037bfe0",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1716906196,
-        "narHash": "sha256-P0TWud9G3d+VXZSgO5VVN2WrArEwUwKaS+SBBzS2kdU=",
+        "lastModified": 1716971907,
+        "narHash": "sha256-V9o0kqmw2vxhJoU/n8D5oRMes7as568zMPvKp1cdIlk=",
         "ref": "refs/heads/main",
-        "rev": "353250b12ea6eea611940b6c5b61f886fa050178",
-        "revCount": 309,
+        "rev": "bcf9d641248605a55576d82b6133110cebad9443",
+        "revCount": 310,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
