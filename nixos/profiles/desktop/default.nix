@@ -69,7 +69,6 @@
       foliate
       chromium
       libreoffice
-      localsend
       mattermost-desktop
       mysql-workbench
       nextcloud-client
