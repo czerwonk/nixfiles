@@ -24,4 +24,6 @@
     enable = true;
     user = "bird2";
   };
+
+  my.services.openssh-server.openFirewall = false;
 }
