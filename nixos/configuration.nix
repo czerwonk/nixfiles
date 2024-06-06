@@ -40,6 +40,7 @@
   '';
 
   users.users.${username} = {
+    uid = 1000;
     isNormalUser = true;
     description = "Daniel Czerwonk";
     extraGroups = [ "networkmanager" "wheel" ];
