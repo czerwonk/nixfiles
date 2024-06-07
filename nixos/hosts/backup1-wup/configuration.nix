@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -10,6 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.zfs.forceImportRoot = true;
+  boot.zfs.requestEncryptionCredentials = lib.mkForce [];
   #boot.zfs.extraPools = [ "zpool" ];
 
   networking = {
