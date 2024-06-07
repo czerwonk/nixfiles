@@ -16,10 +16,11 @@
   };
 
   fileSystems."/" = {
-    device = "zroot/root";
-    fsType = "zfs";
+    device = "none";
+    fsType = "tmpfs";
     options = [
-      "noatime"
+      "size=8G"
+      "mode=755"
       "nosuid"
       "nodev"
     ];
