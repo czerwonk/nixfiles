@@ -18,5 +18,6 @@
     ./openssh-server
     ./ripe-atlas
     ./vaultwarden
+    ./zfs-replication
   ];
 }
