@@ -30,7 +30,7 @@ in {
     };
   };
 
-  config = {
+  config = mkIf config.my.zfs-replication.enable {
     systemd.timers.zfs-replication = {
       timerConfig = {
         Unit = "zfs-replication.service";
