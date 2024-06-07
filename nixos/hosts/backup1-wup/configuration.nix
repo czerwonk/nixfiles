@@ -26,4 +26,6 @@
   };
 
   my.services.openssh-server.openFirewall = false;
+
+  my.zfs-replication.enable = true;
 }
