@@ -13,10 +13,6 @@ let
       syncoid --no-privilege-elevation --delete-target-snapshots --sendoptions="w" --sshport=2222 $1 $2
     }
 
-    sync backup@bb1.dus.routing.rocks:zroot/persist zroot/replication/bb1-dus/persist
-    sync backup@bb2.dus.routing.rocks:zroot/persist zroot/replication/bb2-dus/persist
-    sync backup@homey.ess.routing.rocks:zroot/replication/steffi zroot/replication/steffi
-    sync backup@homey.ess.routing.rocks:zroot/replication/fmeo. zroot/replication/fmeo
     ${lib.flip lib.concatMapStrings config.my.zfs-replication.targets (target: ''
       sync ${target}
     '')}
@@ -47,6 +43,7 @@ in {
     systemd.services.zfs-replication = {
       description = "ZFS replication";
       path = with pkgs; [
+        flock
         lzop
         mbuffer
         openssh
@@ -55,7 +52,7 @@ in {
       ];
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${zfs-replication}/bin/zfs-sync";
+        ExecStart = "${lib.getExe pkgs.flock} -n /tmp/zfs-replication.lock ${zfs-replication}/bin/zfs-sync";
 
         ProtectSystem = "strict";
         PrivateTmp = true;
