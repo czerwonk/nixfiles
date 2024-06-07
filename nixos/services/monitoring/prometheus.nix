@@ -30,6 +30,7 @@ in {
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "homey.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
             ];
           }];
           relabel_configs = [
@@ -48,6 +49,7 @@ in {
             targets = [
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
             ];
           }];
           relabel_configs = [
@@ -67,6 +69,7 @@ in {
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "homey.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
             ];
           }];
           relabel_configs = [
