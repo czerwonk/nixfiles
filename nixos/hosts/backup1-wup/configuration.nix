@@ -21,6 +21,12 @@
     domain = "wup.routing.rocks";
   };
 
+  environment.persistence."/persist" = {
+    files = [
+      "/root/.ssh/id_ed25519"
+    ];
+  };
+
   routing-rocks.bird2.enable = true;
 
   services.prometheus.exporters.bird = {
