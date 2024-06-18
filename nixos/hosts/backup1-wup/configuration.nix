@@ -13,7 +13,7 @@
 
   boot.zfs.forceImportRoot = true;
   boot.zfs.requestEncryptionCredentials = lib.mkForce [];
-  #boot.zfs.extraPools = [ "zpool" ];
+  boot.zfs.extraPools = [ "zdata" ];
 
   networking = {
     hostId = "77889806";
