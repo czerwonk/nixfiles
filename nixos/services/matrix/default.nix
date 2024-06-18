@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.matrix;
-  version = "1.109.0";
+  version = "v1.109.0";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in {
@@ -127,27 +127,6 @@ in {
         ];
       };
 
-      matrix-whatsapp = {
-        image = "dock.mau.dev/mautrix/whatsapp";
-        cmd = [ "/usr/bin/mautrix-whatsapp" ];
-        workdir = "/data";
-
-        autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-          "--network=matrix"
-        ];
-        user = "1337:1337";
-
-        volumes = [
-          "matrix_whatsapp_data:/data"
-        ];
-
-        dependsOn = [
-          "matrix-synapse"
-        ];
-      };
-
       matrix-slack = {
         image = "dock.mau.dev/mautrix/slack";
         cmd = [ "/usr/bin/mautrix-slack" ];
@@ -267,7 +246,6 @@ in {
       initialize = true;
       paths = [
         "/var/lib/containers/storage/volumes/matrix_homeserver_data/_data"
-        "/var/lib/containers/storage/volumes/matrix_whatsapp_data/_data"
         "/var/lib/containers/storage/volumes/matrix_slack_data/_data"
         "/data/backup/matrix"
       ];
