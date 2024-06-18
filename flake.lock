@@ -263,11 +263,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1718708570,
-        "narHash": "sha256-98+MyD+E+Nb6eQ5n3xaGQud9KkSDW+FU0iVVLJ1Y9AM=",
+        "lastModified": 1718714148,
+        "narHash": "sha256-GQ7hr/VAsX4j0ls4uCW5InU1FZL1uXr2zqYcj/+4njk=",
         "ref": "refs/heads/main",
-        "rev": "bf3a6566c1ce8452ba696f552897079a99b460d9",
-        "revCount": 332,
+        "rev": "fb06d9cc58e133411acc9e8d87d3c8a470f17686",
+        "revCount": 333,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
