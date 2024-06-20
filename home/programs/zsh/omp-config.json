@@ -7,9 +7,29 @@
     {
       "segments": [
         {
-          "type": "time",
-          "foreground": "248",
+          "type": "text",
+          "background": "transparent",
+          "foreground": "p:background",
+          "style": "plain",
+          "template": "\uE0B2"
+        },
+        {
+          "type": "status",
+          "style": "plain",
           "background": "p:background",
+          "foreground_templates": [
+            "{{if gt .Code 0}}#C34043{{end}}",
+            "{{if eq .Code 0}}#76946A{{end}}"
+          ],
+          "template": " {{if eq .Code 0}}✔{{ else }}✘ {{ .Code }}{{ end }} <#808080>\uE0B3</>",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "time",
+          "background": "p:background",
+          "foreground": "#658594",
           "template": " {{ .CurrentDate | date .Format }} ",
           "properties": {
             "time_format": "15:04:05"
@@ -26,30 +46,34 @@
         {
           "type": "session",
           "background": "p:background",
-          "foreground": "green",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "template": "{{ if .SSHSession }} {{ .UserName }}@{{ .HostName }} {{ end }}"
+          "foreground": "#76946A",
+          "style": "plain",
+          "template": "{{ if .SSHSession }} {{ .UserName }}@{{ .HostName }} <#808080>\uE0B1</>{{ end }}"
         },
         {
           "type": "path",
           "background": "p:background",
-          "foreground": "#658594",
-          "style": "powerline",
-          "powerline_symbol": "",
+          "foreground": "#7FB4CA",
+          "style": "plain",
           "template": " {{ .Path }} "
         },
         {
           "type": "git",
           "background": "p:background",
-          "foreground": "#76946A",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }} ",
+          "foreground": "#98BB6C",
+          "style": "plain",
+          "template": " <#808080>\uE0B1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }} ",
           "properties": {
             "branch_max_length": 25,
             "fetch_status": true
           }
+        },
+        {
+          "type": "text",
+          "background": "transparent",
+          "foreground": "p:background",
+          "style": "plain",
+          "template": "\ue0b0"
         }
       ],
       "type": "prompt"
