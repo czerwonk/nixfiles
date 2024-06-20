@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 
 with lib;
 
@@ -14,21 +14,10 @@ in {
   };
 
   config = mkIf cfg.theme.enable {
-    programs.zsh = {
-      initExtraFirst = ''
-        export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-        export ZSH_THEME="powerlevel10k/powerlevel10k"
-        source ~/.p10k.zsh
-      '';
-      plugins = [
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-      ];
+    programs.oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ./omp-config.json));
     };
-
-    home.file.".p10k.zsh".source = ./p10k.zsh;
   };
 }
