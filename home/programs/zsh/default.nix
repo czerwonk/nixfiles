@@ -11,9 +11,6 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
-    initExtraBeforeCompInit = ''
-
-    '';
     initExtra = ''
       bindkey "^[[1;3D" backward-word
       bindkey "^[[1;3C" forward-word
@@ -49,8 +46,8 @@
       curl = "${pkgs.curlie}/bin/curlie";
     };
     history = {
-      size = 10000;
-      save = 10000;
+      size = 50000;
+      save = 50000;
       share = true;
       extended = true;
       expireDuplicatesFirst = true;
