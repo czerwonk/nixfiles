@@ -18,6 +18,7 @@ zstyle ':completion:*:*:-subscript-:*'    tag-order indexes parameters
 zstyle ':completion:*:*:zcompile:*'       ignored-patterns '(*~|*.zwc)'
 zstyle ':completion:*:-command-:*:'       verbose false
 zstyle ':completion:*:expand:*'           tag-order all-expansions
+zstyle ':completion:*:git-checkout:*'     sort false
 zstyle ':completion:*:history-words'      stop yes
 zstyle ':completion:*:history-words'      remove-all-dups yes
 zstyle ':completion:*:history-words'      menu yes
@@ -34,17 +35,17 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*'             command 'ps xf -u $USER -o pid,%cpu,cmd'
 
 ## formating
-zstyle ':completion:*:messages'        format '%d'
-zstyle ':completion:*:corrections'     format '%B%F{yellow}%d (errors: %e)%f%b'
-zstyle ':completion:*:descriptions'    format '%B%F{green}# %d%f%b'
-zstyle ':completion:*:warnings'        format '%B%F{red}No matches for: %d%f%b'
+zstyle ':completion:*:messages'     format '%d'
+zstyle ':completion:*:corrections'  format '%B%F{yellow}%d (errors: %e)%f%b'
+zstyle ':completion:*:descriptions' format '%B%F{green}# %d%f%b'
+zstyle ':completion:*:warnings'     format '%B%F{red}No matches for: %d%f%b'
 
 ## correction
-zstyle ':completion:*:correct:*'       insert-unambiguous true
-zstyle ':completion:correct:'          prompt 'correct to: %e'
-zstyle ':completion:correct:'          prompt 'correct to: %e'
+zstyle ':completion:*:correct:*'                  insert-unambiguous true
+zstyle ':completion:correct:'                     prompt 'correct to: %e'
+zstyle ':completion:correct:'                     prompt 'correct to: %e'
 zstyle ':completion::(^approximate*):*:functions' ignored-patterns '_*'
-zstyle ':completion:*:correct:*'       original true
+zstyle ':completion:*:correct:*'                  original true
 
 ## keybindings
 bindkey -M menuselect '/' history-incremental-search-forward
