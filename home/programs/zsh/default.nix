@@ -19,8 +19,7 @@
       bindkey "^[[1;3C" forward-word
       bindkey "^[^[[D"  backward-word
       bindkey "^[^[[C"  forward-word
-      bindkey '^p'      history-search-backward
-      bindkey '^n'      history-search-forward
+      bindkey "^[^?"    backward-kill-word
 
       # history
       ${builtins.readFile ./history.zsh}
