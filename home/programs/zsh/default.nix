@@ -7,16 +7,35 @@
 
   programs.zsh = {
     enable = lib.mkDefault true;
+    autocd = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
-    completionInit = ""; # is called by GRML
-    initExtraFirst = ''
-      source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
+    initExtraBeforeCompInit = ''
+
     '';
     initExtra = ''
-      source ~/.zshrc.local
+      bindkey "^[[1;3D" backward-word
+      bindkey "^[[1;3C" forward-word
+      bindkey "^[^[[D"  backward-word
+      bindkey "^[^[[C"  forward-word
+      bindkey '^p'      history-search-backward
+      bindkey '^n'      history-search-forward
+
+      # history
+      ${builtins.readFile ./history.zsh}
+
+      # completion
+      ${builtins.readFile ./completion.zsh}
+
+      # highlighting
+      ${builtins.readFile ./highlight.zsh}
+
+      ${builtins.readFile ./functions.zsh}
+
       if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
+      source ~/.profile
     '';
     shellAliases = {
       l = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
@@ -31,6 +50,9 @@
       curl = "${pkgs.curlie}/bin/curlie";
     };
     history = {
+      size = 10000;
+      save = 10000;
+      share = true;
       extended = true;
       expireDuplicatesFirst = true;
       ignoreDups = true;
@@ -38,6 +60,4 @@
       ignoreSpace = true;
     };
   };
-
-  home.file.".zshrc.local".source = ./zshrc.local;
 }
