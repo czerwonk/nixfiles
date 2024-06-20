@@ -27,6 +27,17 @@
           }
         },
         {
+          "type": "executiontime",
+          "background": "p:background",
+          "foreground": "#a8a8a8",
+          "template": "   {{ .FormattedMs }} <#808080>\uE0B3</>",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
+        },
+        {
           "type": "time",
           "background": "p:background",
           "foreground": "#658594",
@@ -46,9 +57,12 @@
         {
           "type": "session",
           "background": "p:background",
-          "foreground": "#76946A",
+          "foreground_templates": [
+            "{{if .Root }}#C34043{{end}}",
+            "{{if not .Root }}#76946A{{end}}"
+          ],
           "style": "plain",
-          "template": "{{ if .SSHSession }} {{ .UserName }}@{{ .HostName }} <#808080>\uE0B1</>{{ end }}"
+          "template": "{{ if or .SSHSession .Root }} {{ .UserName }}{{ if or .SSHSession }}@{{ .HostName }}{{ end }} <#808080>\uE0B1</>{{ end }}"
         },
         {
           "type": "path",
