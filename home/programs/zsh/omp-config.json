@@ -85,7 +85,7 @@
           "background": "p:background",
           "foreground": "#98BB6C",
           "style": "plain",
-          "template": " <#808080>\uE0B1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }} ",
+          "template": " <#808080>\uE0B1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }} ",
           "properties": {
             "branch_max_length": 25,
             "fetch_status": true
