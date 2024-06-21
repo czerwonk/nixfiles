@@ -90,7 +90,7 @@
           "background": "p:background",
           "foreground": "#98BB6C",
           "style": "plain",
-          "template": " <#808080>\uE0B1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#DCA561>\uF044 {{ .Working.String }}</>{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }}{{ end }}{{ if .Staging.Changed }} <#658594>\uF046 {{ .Staging.String }}</>{{ end }} ",
+          "template": "<#808080>\uE0B1</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#DCA561>\uF044 {{ .Working.String }}</>{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }}{{ end }}{{ if .Staging.Changed }} <#658594>\uF046 {{ .Staging.String }}</>{{ end }} ",
           "properties": {
             "fetch_status": true,
             "branch_max_length": 25
