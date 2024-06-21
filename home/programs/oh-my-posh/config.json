@@ -79,7 +79,7 @@
           "background": "p:background",
           "foreground": "#7FB4CA",
           "style": "plain",
-          "template": " {{ if not .Writable }} {{ end }}{{ if not .RootDir }}/{{ end }}{{ .Path }} ",
+          "template": " {{ if not .Writable }} {{ end }}{{ if and (not .RootDir) (not (matchP \"~.*\" .Path)) }}/{{ end }}{{ .Path }} ",
           "properties": {
             "style": "agnoster_short",
             "max_depth": 5
