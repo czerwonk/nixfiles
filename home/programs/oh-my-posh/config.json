@@ -28,6 +28,7 @@
         },
         {
           "type": "executiontime",
+          "style": "plain",
           "background": "p:background",
           "foreground": "#a8a8a8",
           "template": "   {{ .FormattedMs }} <#808080>\uE0B3</>",
