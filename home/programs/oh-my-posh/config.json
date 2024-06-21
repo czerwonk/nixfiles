@@ -39,15 +39,6 @@
           }
         },
         {
-          "type": "text",
-          "foreground": "#87af00",
-          "background": "p:background",
-          "style": "plain",
-          "properties": {
-            "template": " {{ .Env.SHELL_VI_PROMPT }} <#808080>\uE0B3</>"
-          }
-        },
-        {
           "type": "time",
           "background": "p:background",
           "foreground": "#658594",
