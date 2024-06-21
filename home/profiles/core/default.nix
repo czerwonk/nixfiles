@@ -7,11 +7,12 @@
     ../../programs/fzf
     ../../programs/git
     ../../programs/gpg
+    ../../programs/oh-my-posh
     ../../programs/ssh
     ../../programs/tmux
     ../../programs/vim
-    ../../programs/zsh
     ../../programs/zoxide
+    ../../programs/zsh
   ];
 
   home.packages = with pkgs; [

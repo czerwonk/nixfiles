@@ -1,10 +1,6 @@
 { pkgs, lib, config, ... }:
 
 {
-  imports = [
-    ./theme.nix
-  ];
-
   programs.zsh = {
     enable = lib.mkDefault true;
     autocd = true;
