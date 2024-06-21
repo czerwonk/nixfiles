@@ -102,11 +102,11 @@
     solargraph
     sumneko-lua-language-server
     terraform-ls
+    vscode-langservers-extracted
   ] ++ (with pkgs.nodePackages; [
       bash-language-server
       dockerfile-language-server-nodejs
       typescript-language-server
-      vscode-json-languageserver
       yaml-language-server
   ]);
 }
