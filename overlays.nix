@@ -33,6 +33,7 @@ in {
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
+      oh-my-posh = pkgs-unstable.oh-my-posh;
       sublime4 = pkgs-unstable.sublime4;
     })
     (self: super: {
