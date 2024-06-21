@@ -81,8 +81,7 @@
           "template": " {{ if not .Writable }} {{ end }}{{ if not .RootDir }}/{{ end }}{{ .Path }} ",
           "properties": {
             "style": "agnoster_short",
-            "max_depth": 5,
-            "home_icon": " "
+            "max_depth": 5
           }
         },
         {
