@@ -78,7 +78,12 @@
           "background": "p:background",
           "foreground": "#7FB4CA",
           "style": "plain",
-          "template": " {{ .Path }} "
+          "template": " {{ if not .Writable }} {{ end }}{{ .Path }} ",
+          "properties": {
+            "style": "mixed",
+            "mixed_threshold": 10,
+            "home_icon": " "
+          }
         },
         {
           "type": "git",
