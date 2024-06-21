@@ -78,7 +78,7 @@
           "background": "p:background",
           "foreground": "#7FB4CA",
           "style": "plain",
-          "template": " {{ if not .Writable }} {{ end }}{{ .Path }} ",
+          "template": " {{ if not .Writable }} {{ end }}{{ if not .RootDir }}/{{ end }}{{ .Path }} ",
           "properties": {
             "style": "mixed",
             "mixed_threshold": 10,

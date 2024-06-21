@@ -6,5 +6,7 @@ zle -N history-beginning-search-forward-end history-search-end
 
 bindkey "${terminfo[kcuu1]}" history-beginning-search-backward-end
 bindkey "${terminfo[kcud1]}" history-beginning-search-forward-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 bindkey '^p'   history-search-backward
 bindkey '^n'   history-search-forward
