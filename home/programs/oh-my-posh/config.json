@@ -1,5 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "disable_notice": true,
+  "auto_upgrade": false,
   "palette": {
     "background": "#333333"
   },
@@ -98,7 +102,6 @@
       "type": "prompt"
     }
   ],
-  "final_space": true,
   "transient_prompt": {
     "background": "transparent",
     "foreground_templates": [
@@ -106,6 +109,5 @@
       "{{if eq .Code 0}}#76946A{{end}}"
     ],
     "template": "❯ "
-  },
-  "version": 2
+  }
 }
