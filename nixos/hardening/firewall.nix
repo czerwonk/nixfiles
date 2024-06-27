@@ -22,6 +22,11 @@
   networking.firewall.enable = true;
   networking.firewall.checkReversePath = false;
   networking.firewall.filterForward = lib.mkDefault true;
+  networking.firewall.allowPing = false;
+  networking.firewall.extraInputRules = lib.mkOrder 0 ''
+    icmp type != { timestamp-request, timestamp-reply } accept
+  '';
+
 
   networking.nftables.enable = lib.mkDefault true;
 
