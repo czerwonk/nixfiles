@@ -8,7 +8,6 @@
     ../../profiles/server
     ../../profiles/webserver
     ../../profiles/container
-    ./unifi.nix
     ./home-assistant.nix
   ];
 
