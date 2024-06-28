@@ -17,6 +17,7 @@
     ./ntfy
     ./openssh-server
     ./ripe-atlas
+    ./unifi
     ./vaultwarden
     ./zfs-replication
   ];

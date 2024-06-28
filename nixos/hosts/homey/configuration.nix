@@ -12,8 +12,6 @@
     ./home-assistant.nix
   ];
 
-  system.autoUpgrade.enable = false;
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -51,4 +49,5 @@
   my.services.adguard.enable = true;
   my.services.ntfy.enable = true;
   my.services.vaultwarden.enable = true;
+  my.services.unifi.enable = true;
 }
