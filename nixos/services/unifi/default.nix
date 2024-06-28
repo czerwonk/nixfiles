@@ -62,6 +62,10 @@ in {
       unifi-network-application = {
         image = "lscr.io/linuxserver/unifi-network-application:${version}";
 
+        dependsOn = [
+          "unifi-db"
+        ];
+
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
