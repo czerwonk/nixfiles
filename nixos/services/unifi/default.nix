@@ -112,7 +112,7 @@ in {
 
         volumes = [
           "${cfg.dataDir}/db:/data/db"
-          "${mongoInitJS}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+          "${mongoInitJS}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
         ];
       };
     };
