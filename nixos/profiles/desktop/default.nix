@@ -24,6 +24,16 @@
   security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
+    chromium = {
+      executable = "${pkgs.lib.getBin pkgs.chromium}/bin/chromium";
+      desktop = "${pkgs.chromium}/share/applications/chromium-browser.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/chromium-browser.profile";
+    };
+    element-desktop = {
+      executable = "${pkgs.lib.getBin pkgs.element-desktop}/bin/element-desktop";
+      desktop = "${pkgs.element-desktop}/share/applications/element-desktop.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
+    };
     firefox = {
       executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
       desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
@@ -38,16 +48,6 @@
         "--dbus-user.talk=org.freedesktop.Notifications"
       ];
     };
-    thunderbird = {
-      executable = "${pkgs.lib.getBin pkgs.thunderbird}/bin/thunderbird";
-      desktop = "${pkgs.thunderbird}/share/applications/thunderbird.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/thunderbird.profile";
-    };
-    element-desktop = {
-      executable = "${pkgs.lib.getBin pkgs.element-desktop}/bin/element-desktop";
-      desktop = "${pkgs.element-desktop}/share/applications/element-desktop.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
-    };
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
       desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";
@@ -55,6 +55,11 @@
         ignore novideo
         include teams-for-linux.profile
       '';
+    };
+    thunderbird = {
+      executable = "${pkgs.lib.getBin pkgs.thunderbird}/bin/thunderbird";
+      desktop = "${pkgs.thunderbird}/share/applications/thunderbird.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/thunderbird.profile";
     };
   };
 
@@ -67,7 +72,6 @@
       crowdsec
       distrobox
       foliate
-      chromium
       libreoffice
       mattermost-desktop
       mysql-workbench

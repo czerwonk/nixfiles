@@ -4,6 +4,7 @@
   environment.systemPackages = [
     (
       let packages = with pkgs; [
+        chromium
         element-desktop
         firefox
         teams-for-linux
