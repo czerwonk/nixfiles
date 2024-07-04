@@ -142,17 +142,6 @@
             inputs.private.home
           ];
         };
-        backup1-ess = systemLib.mkNixOSSystem {
-          configName = "backup1-ess";
-          inherit system;
-          username = inputs.private.username {};
-          extraModules = [
-            inputs.private.nixosModule
-          ];
-          extraHomeModules = [
-            inputs.private.home
-          ];
-        };
         backup1-wup = systemLib.mkNixOSSystem {
           configName = "backup1-wup";
           inherit system;
