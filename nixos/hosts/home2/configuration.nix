@@ -26,5 +26,7 @@
   };
   systemd.network.enable = false;
 
+  security.allowUserNamespaces = true;
+
   my.services.openssh-server.openFirewall = false;
 }
