@@ -28,4 +28,5 @@
   systemd.network.enable = false;
 
   my.services.openssh-server.openFirewall = false;
+  my.services.unifi.enable = true;
 }

@@ -45,6 +45,5 @@
   my.services.monitoring.enable = true;
   my.services.nextcloud.enable = true;
   my.services.ntfy.enable = true;
-  my.services.unifi.enable = true;
   my.services.vaultwarden.enable = true;
 }
