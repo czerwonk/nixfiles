@@ -12,7 +12,7 @@
   boot.kernelModules = [ "kvm-intel" ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/XXX";
+    device = "/dev/disk/by-uuid/5095-3DA0";
     fsType = "vfat";
   };
 
@@ -39,7 +39,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/XXX";
+      device = "/dev/disk/by-uuid/6adf830f-3045-4083-a348-e54b322e33ea";
     }
   ];
 
