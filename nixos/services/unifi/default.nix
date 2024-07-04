@@ -18,7 +18,7 @@ in {
       dataDir = mkOption {
         description = "Data directory";
         type = types.str;
-        default = "/mnt/unifi";
+        default = "/var/lib/unifi";
       };
 
       databasePassword = mkOption {
