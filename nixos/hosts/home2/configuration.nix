@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../zfs.nix
+    ../../profiles/container
     ../../profiles/server
     ../../profiles/webserver
     ./home-assistant.nix
@@ -25,8 +26,6 @@
     useDHCP = false;
   };
   systemd.network.enable = false;
-
-  security.allowUserNamespaces = true;
 
   my.services.openssh-server.openFirewall = false;
 }
