@@ -29,7 +29,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    systemd.services.podman-create-immmich-net = {
+    systemd.services.podman-create-unifi-net = {
       serviceConfig = {
         Type = "oneshot";
 
