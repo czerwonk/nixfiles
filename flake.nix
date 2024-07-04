@@ -120,8 +120,8 @@
             inputs.private.home
           ];
         };
-        homey = systemLib.mkNixOSSystem {
-          configName = "homey";
+        home1 = systemLib.mkNixOSSystem {
+          configName = "home1";
           inherit system;
           username = inputs.private.username {};
           extraModules = [
