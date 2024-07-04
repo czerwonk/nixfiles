@@ -25,7 +25,7 @@
   boot.blacklistedKernelModules = lib.mkForce [ "firewire-core" ];
 
   networking = {
-    hostName = "homey";
+    hostName = "home1";
     domain = "ess.routing.rocks";
     hostId = "76affc21";
     useNetworkd = false;
