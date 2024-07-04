@@ -8,7 +8,6 @@
     ../../profiles/server
     ../../profiles/webserver
     ../../profiles/container
-    ./home-assistant.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -37,16 +36,15 @@
 
   my.services.openssh-server.openFirewall = false;
 
-  my.services.monitoring.enable = true;
-  my.services.jellyfin.enable = true;
-  my.services.nextcloud.enable = true;
+  my.services.audiobookshelf.enable = true;
+  my.services.calibre-web.enable = true;
+  my.services.forgejo.enable = true;
   my.services.freshrss.enable = true;
   my.services.immich.enable = true;
-  my.services.calibre-web.enable = true;
-  my.services.audiobookshelf.enable = true;
-  my.services.forgejo.enable = true;
-  my.services.adguard.enable = true;
+  my.services.jellyfin.enable = true;
+  my.services.monitoring.enable = true;
+  my.services.nextcloud.enable = true;
   my.services.ntfy.enable = true;
-  my.services.vaultwarden.enable = true;
   my.services.unifi.enable = true;
+  my.services.vaultwarden.enable = true;
 }

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./adguard
     ./audiobookshelf
     ./calibre-web
     ./crowdsec
