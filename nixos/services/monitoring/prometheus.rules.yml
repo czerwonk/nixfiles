@@ -74,14 +74,14 @@ groups:
     annotations:
       description: "OOM kill detected"
   - alert: HostNetworkPacketDropEgress
-    expr: rate(node_network_transmit_drop_total[2m]) > 0
+    expr: rate(node_network_transmit_drop_total[2m]) > 10
     for: 5m
     labels:
       severity: warning
     annotations:
       description: '{{ $labels.instance }} drops packages for more than 5 minutes'
   - alert: HostNetworkPacketDropIngress
-    expr: rate(node_network_receive_drop_total[2m]) > 0
+    expr: rate(node_network_receive_drop_total[2m]) > 10
     for: 5m
     labels:
       severity: warning
