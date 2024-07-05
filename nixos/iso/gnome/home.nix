@@ -1,6 +1,6 @@
 {
   imports = [
     ../home.nix
-    ../../../home/profiles/desktop
+    ../../../home/profiles/desktop/gnome
   ];
 }

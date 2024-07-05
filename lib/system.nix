@@ -62,6 +62,7 @@
         inherit inputs;
         system = "x86_64-linux";
         username = "nixos";
+        configName = "iso";
       };
     };
 }
