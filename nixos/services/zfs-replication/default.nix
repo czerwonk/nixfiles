@@ -6,16 +6,19 @@ let
   zfs-replication = pkgs.writeShellScriptBin "zfs-sync" ''
     # Script to replicate datasets to this server
     # Required permissions: send,snapshot,hold,mount,destroy
-
-    set -e
+    has_error=0
 
     sync() {
       syncoid --no-privilege-elevation --delete-target-snapshots --sendoptions="w" --sshport=2222 $1 $2
     }
 
     ${lib.flip lib.concatMapStrings config.my.zfs-replication.targets (target: ''
-      sync ${target}
+      sync ${target} || has_error=1
     '')}
+
+    if [ $has_error -gt 0 ]; then
+      exit 1
+    fi
   '';
 
 in {
