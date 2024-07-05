@@ -30,6 +30,7 @@ in {
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+              "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
             ];
           }];
@@ -69,6 +70,7 @@ in {
               "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
             ];
           }];
@@ -109,17 +111,18 @@ in {
           };
           static_configs = [{
             targets = [
-              "social.routing.rocks"
-              "nextcloud.routing.rocks/login"
-              "matrix.routing.rocks/_matrix/client/versions"
-              "media.routing.rocks/web/index.html"
-              "rss.routing.rocks"
-              "unifi.routing.rocks/manage/account/login"
-              "photos.routing.rocks"
               "audiobooks.routing.rocks"
               "books.routing.rocks/login"
               "code.routing.rocks"
+              "home.routing.rocks"
+              "matrix.routing.rocks/_matrix/client/versions"
+              "media.routing.rocks/web/index.html"
+              "nextcloud.routing.rocks/login"
               "ntfy.routing.rocks"
+              "photos.routing.rocks"
+              "rss.routing.rocks"
+              "social.routing.rocks"
+              "unifi.routing.rocks/manage/account/login"
               "vaultwarden.routing.rocks"
             ];
           }];
