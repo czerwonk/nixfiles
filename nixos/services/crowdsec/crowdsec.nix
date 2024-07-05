@@ -42,6 +42,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    security.allowUserNamespaces = true;
+
     environment.etc."crowdsec/acquis/sshd.yaml".text = ''
       source: journalctl
       journalctl_filter:
