@@ -117,11 +117,11 @@ with lib.gvariant;
     };
     "org/gnome/shell/extensions/auto-move-windows" = {
       application-list = [
-        "kitty.desktop:2"
-        "firefox.desktop:3"
-        "thunderbird.desktop:4"
-        "element-desktop.desktop:5"
-        "Mattermost.desktop:5"
+        "kitty.desktop:1"
+        "firefox.desktop:2"
+        "thunderbird.desktop:3"
+        "element-desktop.desktop:4"
+        "Mattermost.desktop:4"
         "teams-for-linux.desktop:9"
       ];
     };
