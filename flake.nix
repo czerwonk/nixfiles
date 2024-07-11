@@ -2,9 +2,9 @@
   description = "Daniel Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
