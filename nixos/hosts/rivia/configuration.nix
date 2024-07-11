@@ -30,7 +30,7 @@
   };
 
   networking = {
-    hostName = "framy";
+    hostName = "rivia";
     hostId = "7181c80f";
     firewall.filterForward = false;
   };

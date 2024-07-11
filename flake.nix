@@ -83,8 +83,8 @@
       };
 
       nixosConfigurations = {
-        framy = systemLib.mkNixOSSystem {
-          configName = "framy";
+        rivia = systemLib.mkNixOSSystem {
+          configName = "rivia";
           inherit system;
           username = inputs.private.username {};
           extraModules = [
@@ -154,8 +154,8 @@
             inputs.private.home
           ];
         };
-        scrapy = systemLib.mkNixOSSystem {
-          configName = "scrapy";
+        cintra = systemLib.mkNixOSSystem {
+          configName = "cintra";
           inherit system;
           username = inputs.private.username {};
           extraModules = [

@@ -26,7 +26,7 @@
 
   networking = {
     hostId = "0ac77f35";
-    hostName = "scrapy";
+    hostName = "cintra";
   };
 
   security.lockKernelModules = false;
