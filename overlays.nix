@@ -23,9 +23,6 @@ in {
       ethr = super.callPackage ./pkgs/ethr {};
       provisionize = provisionize-packages.provisionize;
       termius = super.callPackage ./pkgs/termius {};
-      vimPlugins = super.vimPlugins // {
-        obsidian-nvim = super.callPackage ./pkgs/obsidian-nvim {};
-      };
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
