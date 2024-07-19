@@ -17,10 +17,6 @@
   boot.zfs.requestEncryptionCredentials = [ "zroot" ];
   boot.zfs.extraPools = [ "zext" ];
 
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    zfs rollback -r zroot/root@blank
-  '';
-
   boot.blacklistedKernelModules = lib.mkForce [ "firewire-core" ];
 
   networking = {
