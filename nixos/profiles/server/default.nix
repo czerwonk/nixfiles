@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, configName, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -21,18 +21,6 @@
     wireguard-tools
     restic
   ];
-
-  system.autoUpgrade = {
-    enable = true;
-    flake = "${inputs.self.outPath}#${configName}";
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L"
-    ];
-    dates = "02:00";
-    randomizedDelaySec = "90min";
-  };
 
   services.rsyslogd.enable = true;
 
