@@ -1,11 +1,10 @@
-{ config, ... }:
+{ lib, config, ... }:
 
 {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
-    ../../profiles/desktop/cosmic.nix
     ../../profiles/container
     ../../profiles/virtualisation
     ../../zfs.nix
@@ -50,4 +49,10 @@
   my.services.openssh-server.enable = true;
 
   services.logrotate.checkConfig = false;
+
+  specialisation = {
+    gnome.configuration = ../../profiles/desktop/gnome.nix;
+    cosmic.configuration = ../../profiles/desktop/cosmic.nix;
+  };
+  services.flatpak.enable = lib.mkForce false;
 }
