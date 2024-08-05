@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   nix.settings = {
@@ -12,8 +12,14 @@
 
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
+  services.xserver = {
+    displayManager.gdm.enable = lib.mkForce false;
+    desktopManager.gnome.enable = lib.mkForce false;
+  };
 
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
   ];
+
+  services.flatpak.enable = lib.mkForce false;
 }

@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/desktop
+    ../../profiles/desktop/gnome.nix
     ../../profiles/container
     ../../profiles/virtualisation
     ../../zfs.nix
@@ -51,8 +52,6 @@
   services.logrotate.checkConfig = false;
 
   specialisation = {
-    gnome.configuration = ../../profiles/desktop/gnome.nix;
     cosmic.configuration = ../../profiles/desktop/cosmic.nix;
   };
-  services.flatpak.enable = lib.mkForce false;
 }
