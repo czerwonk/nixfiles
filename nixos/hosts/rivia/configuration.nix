@@ -1,3 +1,5 @@
+{ pkgs, username, ... }:
+
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -52,4 +54,8 @@
     enable = true;
     autoStart = false;
   };
+
+  users.users.${username}.packages = with pkgs; [
+    all-ways-egpu
+  ];
 }
