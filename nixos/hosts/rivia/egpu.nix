@@ -1,5 +1,7 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 
 {
-  users.users.${username}.packages = [ pkgs.all-ways-egpu ];
+  environment.systemPackages = [
+    pkgs.all-ways-egpu
+  ];
 }
