@@ -13,8 +13,11 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp all-ways-egpu $out/bin/all-ways-egpu
+    cp all-ways-egpu $out/bin/.
     chmod +x $out/bin/all-ways-egpu
+
+    mkdir -p $out/lib/systemd/system
+    cp systemd/* $out/lib/systemd/system/.
   '';
 
   meta = with lib; {
