@@ -1,5 +1,3 @@
-{ pkgs, username, ... }:
-
 {
   imports = [ 
     ./hardware-configuration.nix
@@ -13,6 +11,7 @@
     ../../profiles/virtualisation
     ../../profiles/pentest
     ../../profiles/gaming
+    ./egpu.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -54,8 +53,4 @@
     enable = true;
     autoStart = false;
   };
-
-  users.users.${username}.packages = with pkgs; [
-    all-ways-egpu
-  ];
 }
