@@ -55,7 +55,6 @@
       exec-once = [workspace 2] ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.tmux} a
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/firefox
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
-      exec-once = [workspace 5 silent] /run/current-system/sw/bin/element-desktop
       exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
       exec-once = [workspace 10 silent] ${lib.getExe pkgs.bitwarden}
       exec-once = sleep 1; ${lib.getExe pkgs.nextcloud-client} --background

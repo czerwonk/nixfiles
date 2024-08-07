@@ -27,6 +27,7 @@ in {
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
+      fractal = pkgs-unstable.fractal;
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       kubevirt = pkgs-unstable.kubevirt;

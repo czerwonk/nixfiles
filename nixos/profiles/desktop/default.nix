@@ -29,11 +29,6 @@
       desktop = "${pkgs.chromium}/share/applications/chromium-browser.desktop";
       profile = "${pkgs.firejail}/etc/firejail/chromium-browser.profile";
     };
-    element-desktop = {
-      executable = "${pkgs.lib.getBin pkgs.element-desktop}/bin/element-desktop";
-      desktop = "${pkgs.element-desktop}/share/applications/element-desktop.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
-    };
     firefox = {
       executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
       desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
@@ -47,6 +42,14 @@
         # Enable system notifications
         "--dbus-user.talk=org.freedesktop.Notifications"
       ];
+    };
+    fractal = {
+      executable = "${pkgs.lib.getBin pkgs.fractal}/bin/fractal";
+      desktop = "${pkgs.fractal}/share/applications/org.gnome.Fractal.desktop";
+      profile = pkgs.writeText "fractal.local" ''
+        ignore dbus-user
+        include fractal.profile
+      '';
     };
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";

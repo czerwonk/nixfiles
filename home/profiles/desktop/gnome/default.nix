@@ -119,7 +119,7 @@ with lib.gvariant;
         "kitty.desktop:1"
         "firefox.desktop:2"
         "thunderbird.desktop:3"
-        "element-desktop.desktop:4"
+        "org.gnome.Fractal.desktop:4"
         "Mattermost.desktop:4"
         "teams-for-linux.desktop:9"
       ];

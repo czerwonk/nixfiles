@@ -5,8 +5,8 @@
     (
       let packages = with pkgs; [
         chromium
-        element-desktop
         firefox
+        fractal
         teams-for-linux
         thunderbird
       ];
