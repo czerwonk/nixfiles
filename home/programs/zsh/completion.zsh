@@ -12,7 +12,7 @@ zstyle ':completion:*'                    matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*'                    menu select
 zstyle ':completion:*'                    special-dirs ..
 zstyle ':completion:*'                    use-cache yes
-zstyle ':completion:*:complete:*'         cache-path '~/.zcomp.cache'
+zstyle ':completion:*:complete:*'         cache-path '$HOME/.zcomp.cache'
 zstyle ':completion:*'                    verbose true
 zstyle ':completion:*:*:-subscript-:*'    tag-order indexes parameters
 zstyle ':completion:*:*:zcompile:*'       ignored-patterns '(*~|*.zwc)'
