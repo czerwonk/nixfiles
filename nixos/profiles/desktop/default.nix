@@ -43,14 +43,6 @@
         "--dbus-user.talk=org.freedesktop.Notifications"
       ];
     };
-    fractal = {
-      executable = "${pkgs.lib.getBin pkgs.fractal}/bin/fractal";
-      desktop = "${pkgs.fractal}/share/applications/org.gnome.Fractal.desktop";
-      profile = pkgs.writeText "fractal.local" ''
-        ignore dbus-user
-        include fractal.profile
-      '';
-    };
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
       desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";
@@ -76,6 +68,7 @@
       crowdsec
       distrobox
       foliate
+      fractal
       libreoffice
       mattermost-desktop
       mysql-workbench
