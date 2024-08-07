@@ -59,7 +59,6 @@ with lib.gvariant;
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
       workspace-names = [
-        "Home"
         "Terminal"
         "Web"
         "Mail"
