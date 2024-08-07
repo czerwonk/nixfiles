@@ -9,17 +9,33 @@ in {
   options = {
     my.services.ai = {
       enable = mkEnableOption "AI workstation services";
+
+      acceleration = lib.mkOption {
+        type = types.nullOr (types.enum [ false "rocm" "cuda" ]);
+        default = null;
+        example = "rocm";
+      };
+
+      autoStart = mkOption {
+        type = types.bool;
+        default = false;
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    services.ollama.enable = true;
+    services.ollama = {
+      enable = true;
+      acceleration = cfg.acceleration;
+    };
+
+    systemd.services.ollama.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
 
     virtualisation.oci-containers.containers = {
       open-webui = {
         image = "ghcr.io/open-webui/open-webui:main";
 
-        autoStart = false;
+        autoStart = cfg.autoStart;
         extraOptions = [
           "--name=open-webui"
           "--hostname=open-webui"
