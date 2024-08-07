@@ -53,4 +53,6 @@
     enable = true;
     autoStart = false;
   };
+
+  my.services.ai.enable = true;
 }
