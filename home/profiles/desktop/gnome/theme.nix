@@ -36,4 +36,8 @@
       package = pkgs.adwaita-qt;
     };
   };
+
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita:dark";
+  };
 }
