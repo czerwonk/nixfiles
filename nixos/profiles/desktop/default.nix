@@ -68,6 +68,7 @@
       appimage-run
       bitwarden
       blueberry
+      bruno
       calibre
       crowdsec
       distrobox
