@@ -197,6 +197,7 @@
 
       devShells.${system} = {
         debug = import ./shell/debug/shell.nix { inherit pkgs; };
+        gstreamer = import ./shell/gstreamer/shell.nix { inherit pkgs; };
         javafx = import ./shell/javafx/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
