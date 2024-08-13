@@ -55,4 +55,10 @@
   };
 
   my.services.ai.enable = true;
+
+  specialisation = {
+    without-egpu.configuration = {
+      use_egpu = false;
+    };
+  };
 }

@@ -1,21 +1,50 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+
+with lib;
 
 {
-  kernelParams = [
-    "amdgpu.pcie_gen_cap=0x40000" # Force AMD GPU to use full width (optional)
-  ];
+  options = {
+    use_egpu = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Wether to use e-GPU";
+    };
+  };
 
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  config = mkIf config.use_egpu {
+    boot.kernelParams = [
+      "amdgpu.pcie_gen_cap=0x40000" # Force AMD GPU to use full width (optional)
+    ];
 
-  hardware.opengl.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-  ];
+    systemd.tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
 
-  environment.systemPackages = [
-    pkgs.all-ways-egpu
-  ];
+    hardware.opengl.extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
 
-  my.services.ai.acceleration = "rocm";
+    environment.systemPackages = [
+      pkgs.all-ways-egpu
+    ];
+
+    my.services.ai.acceleration = "rocm";
+
+    systemd.services.all-ways-egpu = {
+      enable = true;
+      description = "Configure eGPU as primary under Wayland desktops";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${lib.getExe pkgs.all-ways-egpu} set-boot-vga egpu";
+      };
+      before = [ "display-manager.service" ];
+      wantedBy = [ "graphical.target" ];
+      path = with pkgs; [
+        gawk
+        mount
+        pciutils
+        umount
+      ];
+    };
+  };
 }
