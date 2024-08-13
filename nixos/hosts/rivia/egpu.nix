@@ -16,19 +16,27 @@ with lib;
       "amdgpu.pcie_gen_cap=0x40000" # Force AMD GPU to use full width (optional)
     ];
 
-    systemd.tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    systemd.tmpfiles.rules = 
+    let
+      rocmEnv = pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+        ];
+      };
+    in [
+      "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
 
     hardware.opengl.extraPackages = with pkgs; [
       rocmPackages.clr.icd
     ];
 
-    environment.systemPackages = [
-      pkgs.all-ways-egpu
+    environment.systemPackages = with pkgs; [
+      all-ways-egpu
     ];
-
-    my.services.ai.acceleration = "rocm";
 
     systemd.services.all-ways-egpu = {
       enable = true;
@@ -46,5 +54,7 @@ with lib;
         umount
       ];
     };
+
+    my.services.ai.acceleration = "rocm";
   };
 }
