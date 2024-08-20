@@ -26,7 +26,6 @@ in {
       termius = super.callPackage ./pkgs/termius {};
     })
     (self: super: {
-      unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
       fractal = pkgs-unstable.fractal;
       home-assistant = pkgs-unstable.home-assistant;

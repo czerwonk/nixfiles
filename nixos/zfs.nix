@@ -5,12 +5,11 @@
 
   boot.initrd.kernelModules = [ "zfs" ];
 
-  boot.zfs.package = pkgs.unstable.zfs;
   boot.zfs.forceImportRoot = lib.mkDefault false;
 
-  boot.kernelPackages = lib.mkForce pkgs.unstable.linuxKernel.packages.linux_6_9_hardened;
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_6_hardened;
   environment.systemPackages = with pkgs; [
-    unstable.linuxKernel.packages.linux_6_9_hardened.zfs
+    linuxKernel.packages.linux_6_6_hardened.zfs
     sanoid
     lzop
     mbuffer
