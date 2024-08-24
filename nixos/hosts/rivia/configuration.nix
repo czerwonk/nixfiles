@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./persistence.nix
     ../../configuration.nix
-    ../../zfs.nix
     ../../tpm.nix
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
@@ -11,6 +10,7 @@
     ../../profiles/virtualisation
     ../../profiles/pentest
     ../../profiles/gaming
+    ./zfs.nix
     ./egpu.nix
   ];
 
