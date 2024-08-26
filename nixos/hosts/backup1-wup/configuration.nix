@@ -4,14 +4,13 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs.nix
+    ../../zfs
     ../../profiles/server
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.zfs.forceImportRoot = true;
   boot.zfs.requestEncryptionCredentials = lib.mkForce [];
   boot.zfs.extraPools = [ "zdata" ];
 

@@ -3,21 +3,20 @@
     ./hardware-configuration.nix
     ./persistence.nix
     ../../configuration.nix
-    ../../tpm.nix
-    ../../zfs-unstable.nix
+    ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
-    ../../profiles/container
-    ../../profiles/virtualisation
-    ../../profiles/pentest
     ../../profiles/gaming
+    ../../profiles/pentest
+    ../../profiles/virtualisation
+    ../../tpm.nix
+    ../../zfs/unstable.nix
     ./egpu.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.zfs.forceImportRoot = true;
   boot.zfs.requestEncryptionCredentials = [ "zroot" ];
 
   boot.extraModprobeConfig = ''

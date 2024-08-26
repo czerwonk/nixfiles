@@ -7,7 +7,7 @@ in {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs.nix
+    ../../zfs
     ../../profiles/server
     ../../profiles/container
     ../../profiles/routing
@@ -16,7 +16,6 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.zfs.forceImportRoot = true;
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     zfs rollback -r zroot/root@blank
   '';

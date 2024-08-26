@@ -4,7 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs.nix
+    ../../zfs
     ../../profiles/server
     ../../profiles/webserver
     ../../profiles/container
@@ -13,7 +13,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.zfs.forceImportRoot = true;
   boot.zfs.requestEncryptionCredentials = [ "zroot" ];
   boot.zfs.extraPools = [ "zext" ];
 

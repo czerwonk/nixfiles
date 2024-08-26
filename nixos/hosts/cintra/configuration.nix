@@ -1,14 +1,14 @@
-{ lib, config, ... }:
+{ config, ... }:
 
 {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
-    ../../profiles/container
     ../../profiles/virtualisation
-    ../../zfs-unstable.nix
+    ../../zfs/unstable.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

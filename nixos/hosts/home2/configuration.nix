@@ -4,7 +4,7 @@
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs.nix
+    ../../zfs
     ../../profiles/container
     ../../profiles/server
     ../../profiles/webserver
@@ -13,8 +13,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.zfs.forceImportRoot = true;
 
   boot.blacklistedKernelModules = lib.mkForce [ "firewire-core" ];
 
