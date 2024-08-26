@@ -1,8 +1,6 @@
 { pkgs,  ... }:
 
 {
-  nixpkgs.config.allowBroken = true;
-
   boot.supportedFilesystems = [ "zfs" ];
   boot.initrd.kernelModules = [ "zfs" ];
   boot.zfs.package = pkgs.unstable.zfs_unstable;
