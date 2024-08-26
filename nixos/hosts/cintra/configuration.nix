@@ -8,7 +8,7 @@
     ../../profiles/desktop/gnome.nix
     ../../profiles/container
     ../../profiles/virtualisation
-    ../../zfs.nix
+    ../../zfs-unstable.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

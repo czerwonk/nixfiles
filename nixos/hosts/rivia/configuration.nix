@@ -4,13 +4,13 @@
     ./persistence.nix
     ../../configuration.nix
     ../../tpm.nix
+    ../../zfs-unstable.nix
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
     ../../profiles/container
     ../../profiles/virtualisation
     ../../profiles/pentest
     ../../profiles/gaming
-    ./zfs.nix
     ./egpu.nix
   ];
 
