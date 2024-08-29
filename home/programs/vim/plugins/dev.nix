@@ -93,6 +93,7 @@
     docker-compose-language-service
     gopls
     helm-ls
+    jdt-language-server
     marksman
     nil
     nodejs

@@ -268,6 +268,11 @@ lspconfig.yamlls.setup {
   }
 }
 
+lspconfig.jdtls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach
+}
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
