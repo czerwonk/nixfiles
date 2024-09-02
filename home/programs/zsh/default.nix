@@ -16,6 +16,8 @@
       bindkey "^[[1;5C"  forward-word
       bindkey "^[^?"    backward-kill-word
 
+      autoload zmv
+
       # history
       ${builtins.readFile ./history.zsh}
 
