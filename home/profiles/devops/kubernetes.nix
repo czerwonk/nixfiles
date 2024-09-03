@@ -7,8 +7,9 @@
       krew
       kubectl
       kubernetes-helm
-      stern
       kubevirt
+      stern
+      trivy
     ];
   };
 
