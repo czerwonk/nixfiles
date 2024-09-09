@@ -1,5 +1,5 @@
 {
-  description = "Daniel Czerwonk's Nix configuration";
+  description = "Daniel Brendgen-Czerwonk's Nix configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
