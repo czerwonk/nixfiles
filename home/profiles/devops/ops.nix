@@ -22,6 +22,7 @@
       termshark
       terrascan
       trurl
+      vault
     ];
   };
 }
