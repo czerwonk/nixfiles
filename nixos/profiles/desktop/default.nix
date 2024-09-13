@@ -61,6 +61,7 @@
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
+      ausweisapp
       bitwarden
       blueberry
       bruno
