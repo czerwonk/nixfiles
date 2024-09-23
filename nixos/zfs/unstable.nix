@@ -5,10 +5,10 @@
     ./common.nix
   ];
 
-  boot.zfs.package = pkgs.unstable.zfs_unstable;
+  boot.zfs.package = pkgs.zfs;
 
-  boot.kernelPackages = lib.mkForce pkgs.unstable.linuxKernel.packages.linux_6_10;
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_10;
   environment.systemPackages = with pkgs; [
-    unstable.linuxKernel.packages.linux_6_10.zfs_unstable
+    linuxKernel.packages.linux_6_10.zfs
   ];
 }
