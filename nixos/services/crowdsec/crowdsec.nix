@@ -44,39 +44,30 @@ in {
   config = mkIf cfg.enable {
     security.allowUserNamespaces = true;
 
-    environment.etc."crowdsec/acquis/sshd.yaml".text = ''
-      source: journalctl
-      journalctl_filter:
-       - "_SYSTEMD_UNIT=sshd.service"
-      labels:
-        type: syslog
-    '';
-    environment.etc."crowdsec/acquis/kernel.yaml".text = ''
-      source: journalctl
-      journalctl_filter:
-       - "-k"
-      labels:
-        type: syslog
-    '';
-    environment.etc."crowdsec/acquis/audit.yaml".text = ''
-      filenames:
-        - /var/log/audit/*.log
-      labels:
-        type: auditd
-    '';
-    environment.etc."crowdsec/patterns".source = "${pkgs.crowdsec.out}/share/crowdsec/config/patterns";
-
     services.crowdsec = {
       enable = true;
       package = pkgs.crowdsec;
       allowLocalJournalAccess = true;
+      acquisitions = [
+        {
+          source = "journalctl";
+          journalctl_filter = [ "_SYSTEMD_UNIT=sshd.service" ];
+          labels.type = "syslog";
+        }
+        {
+          source = "journalctl";
+          journalctl_filter = [ "-k" ];
+          labels.type = "syslog";
+        }
+        {
+          filenames = [ "/var/log/audit/*.log" ];
+          labels.type = "auditd";
+        }
+      ];
       settings = {
         api.server = {
           enable = true;
           listen_uri = "127.0.0.1:8000";
-        };
-        crowdsec_service = {
-          acquisition_dir = "/etc/crowdsec/acquis";
         };
         cscli = {
           output = "human";
