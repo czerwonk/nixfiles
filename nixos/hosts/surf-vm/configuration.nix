@@ -12,6 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_10;
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };
