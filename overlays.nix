@@ -13,6 +13,7 @@ let
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
+  net-merge-packages = inputs.net-merge.packages.${system};
   provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
@@ -22,6 +23,7 @@ in {
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       ethr = super.callPackage ./pkgs/ethr {};
+      net-merge = net-merge-packages.net-merge;
       provisionize = provisionize-packages.provisionize;
       termius = super.callPackage ./pkgs/termius {};
     })

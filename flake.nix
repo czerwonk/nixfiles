@@ -40,6 +40,8 @@
     dns-drain.url = "github:czerwonk/dns-drain";
 
     provisionize.url = "github:MauveSoftware/provisionize";
+
+    net-merge.url = "github:czerwonk/net-merge";
   };
 
   outputs = inputs:

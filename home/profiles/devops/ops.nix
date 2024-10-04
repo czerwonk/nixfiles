@@ -16,6 +16,7 @@
       inspec
       lynis
       mysql-shell
+      net-merge
       opentofu
       provisionize
       redis
