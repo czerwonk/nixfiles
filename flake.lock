@@ -148,6 +148,24 @@
         "type": "github"
       }
     },
+    "net-merge": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1728034323,
+        "narHash": "sha256-t5W0cp4YtfnSvJNgBm6ML928+QaZS0NY9b4FBdzL6DM=",
+        "owner": "czerwonk",
+        "repo": "net-merge",
+        "rev": "c07c8a65d7ae7f2574301c50cab01802f041972d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "czerwonk",
+        "repo": "net-merge",
+        "type": "github"
+      }
+    },
     "nixos-cosmic": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -235,6 +253,18 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-QftbyPoieM5M50WKUMzQmWtBWib/ZJbHo7mhj5riQec=",
+        "path": "/nix/store/6dxvxz52z172kxdi97bw4grpkhzx4dx7-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1727907660,
         "narHash": "sha256-QftbyPoieM5M50WKUMzQmWtBWib/ZJbHo7mhj5riQec=",
         "owner": "nixos",
@@ -249,7 +279,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1708564076,
         "narHash": "sha256-KKkqoxlgx9n3nwST7O2kM8tliDOijiSSNaWuSkiozdQ=",
@@ -280,7 +310,7 @@
     },
     "provisionize": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1714373131,
@@ -304,9 +334,10 @@
         "home-manager": "home-manager",
         "home-manager-unstable": "home-manager-unstable",
         "impermanence": "impermanence",
+        "net-merge": "net-merge",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "provisionize": "provisionize",
