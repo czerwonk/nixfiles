@@ -27,6 +27,11 @@
   networking = {
     hostId = "0ac77f35";
     hostName = "cintra";
+    firewall.filterForward = false;
+    nat = {
+      enable = true;
+      internalInterfaces = [ "waydroid0" ];
+    };
   };
 
   security.lockKernelModules = false;
@@ -51,7 +56,9 @@
 
   services.logrotate.checkConfig = false;
 
-  specialisation = {
-    cosmic.configuration = ../../profiles/desktop/cosmic.nix;
-  };
+  virtualisation.waydroid.enable = true;
+
+  # specialisation = {
+  #   cosmic.configuration = ../../profiles/desktop/cosmic.nix;
+  # };
 }
