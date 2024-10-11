@@ -56,9 +56,7 @@
 
   services.logrotate.checkConfig = false;
 
-  virtualisation.waydroid.enable = true;
-
-  # specialisation = {
-  #   cosmic.configuration = ../../profiles/desktop/cosmic.nix;
-  # };
+  specialisation = {
+    cosmic.configuration = ../../profiles/desktop/cosmic.nix;
+  };
 }
