@@ -41,6 +41,20 @@
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
+    firefox = {
+      executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
+      desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
+      profile = pkgs.writeText "firefox.local" ''
+        noblacklist ''${DOWNLOADS}
+        whitelist ''${DOWNLOADS}
+        ignore nou2f
+        include firefox.profile
+      '';
+      extraArgs = [
+        # Enable system notifications
+        "--dbus-user.talk=org.freedesktop.Notifications"
+      ];
+    };
   };
 
   services.dnsmasq.enable = false;
