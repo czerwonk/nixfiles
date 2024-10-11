@@ -1,4 +1,4 @@
-{ pkgs, lib, username, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -80,6 +80,7 @@
       veracrypt
       virt-viewer
       vlc
+      wgnord
       wireshark
       xsel
     ];
