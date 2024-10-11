@@ -28,10 +28,6 @@
     hostId = "0ac77f35";
     hostName = "cintra";
     firewall.filterForward = false;
-    nat = {
-      enable = true;
-      internalInterfaces = [ "waydroid0" ];
-    };
   };
 
   security.lockKernelModules = false;
