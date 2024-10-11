@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./android.nix
     ./core.nix
     ./firejail-icons.nix
     ./impermanence.nix
