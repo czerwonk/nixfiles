@@ -66,7 +66,6 @@ in {
     virtualisation.oci-containers.containers = {
       immich_server = {
         image = "ghcr.io/immich-app/immich-server:${version}";
-        entrypoint = "/usr/src/app/start.sh";
         cmd = [ "immich" ];
 
         autoStart = true;
@@ -82,50 +81,11 @@ in {
           "${cfg.dataDir}:/usr/src/app/upload" 
         ];
 
-        ports = [ "127.0.0.1:3001:3001" ];
+        ports = [ "127.0.0.1:3001:2283" ];
 
         dependsOn = [
           "immich_postgres"
           "immich_redis"
-        ];
-      };
-
-      immich_microservices = {
-        image = "ghcr.io/immich-app/immich-server:${version}";
-        entrypoint = "/usr/src/app/start.sh";
-        cmd = [ "microservices" ];
-
-        autoStart = true;
-        extraOptions = [
-          "--network=immich"
-        ];
-        user = "1000";
-
-        environment = environment;
-
-        volumes = [
-          "${cfg.dataDir}:/usr/src/app/upload" 
-        ];
-
-        dependsOn = [
-          "immich_postgres"
-          "immich_redis"
-        ];
-      };
-
-      immich_machine_learning = {
-        image = "ghcr.io/immich-app/immich-machine-learning:${version}";
-
-        autoStart = true;
-        extraOptions = [
-          "--network=immich"
-        ];
-        user = "1000";
-
-        environment = environment;
-
-        volumes = [
-          "immich_model_cache:/cache"
         ];
       };
 
