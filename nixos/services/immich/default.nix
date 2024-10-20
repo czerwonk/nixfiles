@@ -66,6 +66,7 @@ in {
     virtualisation.oci-containers.containers = {
       immich_server = {
         image = "ghcr.io/immich-app/immich-server:${version}";
+        entrypoint = "/usr/src/app/start.sh";
         cmd = [ "immich" ];
 
         autoStart = true;
