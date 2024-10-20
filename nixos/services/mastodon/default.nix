@@ -163,8 +163,8 @@ in {
       };
 
       mastodon-streaming = {
-        image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "node" "./streaming" ];
+        image = "ghcr.io/mastodon/mastodon-streaming:v${version}";
+        cmd = [ "node" "./streaming/index.js" ];
 
         autoStart = true;
         extraOptions = [
