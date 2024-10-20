@@ -54,6 +54,18 @@ in {
       otpSecret = mkOption {
         type = types.str;
       };
+
+      recordEncryptionDeterministicKey = mkOption {
+        type = types.str;
+      };
+
+      recordEncryptionKeyDerivationSalt = mkOption {
+        type = types.str;
+      };
+
+      recordEncryptionPrimaryKey = mkOption {
+        type = types.str;
+      };
     };
   };
 
