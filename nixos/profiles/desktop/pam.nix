@@ -27,6 +27,8 @@
   security.pam.u2f = {
     enable = lib.mkDefault true;
     control = "required";
-    authFile = "/persist/u2f_keys";
+    settings = {
+      authfile = "/persist/u2f_keys";
+    };
   };
 }

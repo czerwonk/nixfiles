@@ -156,7 +156,7 @@
             inputs.private.home
           ];
         };
-        cintra = systemLib.mkNixOSSystem {
+        cintra = systemLib.mkNixOSSystemUnstable {
           configName = "cintra";
           inherit system;
           username = inputs.private.username {};
