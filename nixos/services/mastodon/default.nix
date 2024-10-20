@@ -32,6 +32,10 @@ let
     VAPID_PRIVATE_KEY = "${cfg.vapipPrivateKey}";
     SECRET_KEY_BASE = "${cfg.secretKeyBase}";
     OTP_SECRET = "${cfg.otpSecret}";
+
+    ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY = "${cfg.recordEncryptionDeterministicKey}";
+    ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT = "${cfg.recordEncryptionKeyDerivationSalt}";
+    ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY = "${cfg.recordEncryptionPrimaryKey}";
   };
 
 in {
