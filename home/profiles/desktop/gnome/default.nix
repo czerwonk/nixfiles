@@ -102,7 +102,7 @@ with lib.gvariant;
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Super>e";
-      command = "${lib.getExe pkgs.gnome.nautilus}";
+      command = "${lib.getExe pkgs.nautilus}";
       name = "Open File Explorer";
     };
     "org/gnome/shell/extensions/pop-shell" = {

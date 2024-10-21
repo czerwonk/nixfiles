@@ -62,7 +62,7 @@
       $mainMod = SUPER
 
       bind = $mainMod, B, exec, /run/current-system/sw/bin/firefox
-      bind = $mainMod, E, exec, ${pkgs.gnome.nautilus}/bin/nautilus
+      bind = $mainMod, E, exec, ${pkgs.nautilus}/bin/nautilus
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, hypr-screenshot
