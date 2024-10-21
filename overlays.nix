@@ -36,6 +36,7 @@ in {
     (self: super: {
       unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
+      calibre = pkgs-stable.calibre;
       fractal = pkgs-unstable.fractal;
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
@@ -44,7 +45,6 @@ in {
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama = pkgs-unstable.ollama;
       sublime4 = pkgs-unstable.sublime4;
-      calibre = pkgs-stable.calibre;
     })
     (self: super: {
       gnome = super.gnome // {
