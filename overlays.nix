@@ -47,13 +47,11 @@ in {
       sublime4 = pkgs-unstable.sublime4;
     })
     (self: super: {
-      gnome = super.gnome // {
-        gnome-keyring = super.gnome.gnome-keyring.overrideAttrs (oldAttrs: {
-          configureFlags = oldAttrs.configureFlags or [ ] ++ [
-            "--disable-ssh-agent"
-          ];
-        });
-      };
+      gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
+        configureFlags = oldAttrs.configureFlags or [ ] ++ [
+          "--disable-ssh-agent"
+        ];
+      });
       gnomeExtensions = super.gnomeExtensions // {
         pop-shell = super.gnomeExtensions.pop-shell.overrideAttrs (oldAttrs: {
           preFixup = oldAttrs.preFixup + ''
