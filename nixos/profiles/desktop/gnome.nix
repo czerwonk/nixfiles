@@ -39,7 +39,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.just-perfection
-    gnomeExtensions.pano
     gnomeExtensions.pop-shell
     pop-launcher
   ];

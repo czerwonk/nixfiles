@@ -22,7 +22,6 @@ with lib.gvariant;
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "just-perfection-desktop@just-perfection"
-        "pano@elhan.io"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       ];
@@ -127,12 +126,6 @@ with lib.gvariant;
     "org/gnome/shell/extensions/just-perfection" = {
       notification-banner-position = 2;
       workspace-wrap-around = true;
-    };
-    "org/gnome/shell/extensions/pano" = {
-      history-length = 20;
-      link-previews = false;
-      play-audio-on-copy = false;
-      send-notification-on-copy = false;
     };
   };
 
