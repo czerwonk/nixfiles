@@ -8,7 +8,7 @@
     };
     desktopManager.gnome = {
       enable = lib.mkDefault true;
-      extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
@@ -22,16 +22,15 @@
   };
 
   environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    gnome-connections
-    gnome-text-editor
-  ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
-    gnome-music
-    gnome-maps
     epiphany # web browser
     geary # email reader
+    gnome-connections
+    gnome-maps
+    gnome-music
+    gnome-photos
+    gnome-text-editor
+    gnome-tour
     seahorse # keyring UI
   ]);
 

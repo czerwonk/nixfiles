@@ -10,6 +10,12 @@ let
       ];
     };
   };
+  pkgs-stable = import inputs.nixpkgs {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
@@ -38,6 +44,7 @@ in {
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama = pkgs-unstable.ollama;
       sublime4 = pkgs-unstable.sublime4;
+      calibre = pkgs-stable.calibre;
     })
     (self: super: {
       gnome = super.gnome // {
