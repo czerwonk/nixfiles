@@ -26,7 +26,7 @@
 
   networking = {
     hostId = "0ac77f35";
-    hostName = "cintra";
+    hostName = "osaka";
     firewall.filterForward = false;
   };
 
