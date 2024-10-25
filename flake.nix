@@ -85,8 +85,8 @@
       };
 
       nixosConfigurations = {
-        rivia = systemLib.mkNixOSSystem {
-          configName = "rivia";
+        kyoto = systemLib.mkNixOSSystem {
+          configName = "kyoto";
           inherit system;
           username = inputs.private.username {};
           extraModules = [
@@ -156,8 +156,8 @@
             inputs.private.home
           ];
         };
-        cintra = systemLib.mkNixOSSystemUnstable {
-          configName = "cintra";
+        osaka = systemLib.mkNixOSSystemUnstable {
+          configName = "osaka";
           inherit system;
           username = inputs.private.username {};
           extraModules = [
