@@ -12,7 +12,7 @@ require("gp").setup {
   chat_confirm_delete = false
 }
 
-vim.keymap.set("n", "<leader>ac", "<cmd>GpRewrite<cr>",
+vim.keymap.set("n", "<leader>ac", "<cmd>GpAppend<cr>",
   {silent = true, noremap = true, desc = 'Code'}
 )
 vim.keymap.set("n", "<leader>aa", "<cmd>GpChatToggle popup<cr>",
