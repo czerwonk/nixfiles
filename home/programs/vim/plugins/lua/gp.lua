@@ -12,8 +12,8 @@ require("gp").setup {
   chat_confirm_delete = false
 }
 
-vim.keymap.set("n", "<leader>ai", "<cmd>GpAppend popup<cr>",
-  {silent = true, noremap = true, desc = 'Insert'}
+vim.keymap.set("n", "<leader>ac", "<cmd>GpRewrite<cr>",
+  {silent = true, noremap = true, desc = 'Code'}
 )
 vim.keymap.set("n", "<leader>aa", "<cmd>GpChatToggle popup<cr>",
   {silent = true, noremap = true, desc = 'Toggle'}
