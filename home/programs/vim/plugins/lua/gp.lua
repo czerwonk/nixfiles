@@ -8,7 +8,7 @@ require("gp").setup {
     }
   },
   default_command_agent = "CodeOllamaLlama3.1-8B",
-	default_chat_agent = "ChatOllamaLlama3.1-8B",
+  default_chat_agent = "ChatOllamaLlama3.1-8B",
   chat_confirm_delete = false
 }
 
