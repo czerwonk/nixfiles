@@ -8,6 +8,9 @@ wk.setup {
   },
 }
 wk.register({
+  a = {
+    name = "AI"
+  },
   c = {
     name = "Coverage"
   },

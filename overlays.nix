@@ -26,6 +26,9 @@ in {
       net-merge = net-merge-packages.net-merge;
       provisionize = provisionize-packages.provisionize;
       termius = super.callPackage ./pkgs/termius {};
+      vimPlugins = super.vimPlugins // {
+        gp-nvim = super.callPackage ./pkgs/gp-nvim {};
+      };
     })
     (self: super: {
       unstable = pkgs-unstable;
