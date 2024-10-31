@@ -30,6 +30,6 @@ vim.keymap.set("n", "<leader>ad", "<cmd>GpChatDelete<cr>",
 vim.keymap.set("n", "<leader>as", "<cmd>GpStop<cr>",
   {silent = true, noremap = true, desc = 'Stop'}
 )
-vim.keymap.set("n", "<leader>as", "<cmd>GpImplement<cr>",
+vim.keymap.set("n", "<leader>ai", "<cmd>GpImplement<cr>",
   {silent = true, noremap = true, desc = 'Implement'}
 )
