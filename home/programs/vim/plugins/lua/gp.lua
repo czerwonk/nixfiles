@@ -27,3 +27,6 @@ vim.keymap.set("n", "<leader>ay", "<cmd>GpChatPaste popup<cr>",
 vim.keymap.set("n", "<leader>ad", "<cmd>GpChatDelete<cr>",
   {silent = true, noremap = true, desc = 'Delete'}
 )
+vim.keymap.set("n", "<leader>as", "<cmd>GpStop<cr>",
+  {silent = true, noremap = true, desc = 'Stop'}
+)
