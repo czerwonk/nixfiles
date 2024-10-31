@@ -13,7 +13,7 @@ require("gp").setup {
 }
 
 vim.keymap.set("n", "<leader>ac", "<cmd>GpAppend<cr>",
-  {silent = true, noremap = true, desc = 'Code'}
+  {silent = true, noremap = true, desc = 'Command'}
 )
 vim.keymap.set("n", "<leader>aa", "<cmd>GpChatToggle popup<cr>",
   {silent = true, noremap = true, desc = 'Toggle'}
@@ -29,4 +29,7 @@ vim.keymap.set("n", "<leader>ad", "<cmd>GpChatDelete<cr>",
 )
 vim.keymap.set("n", "<leader>as", "<cmd>GpStop<cr>",
   {silent = true, noremap = true, desc = 'Stop'}
+)
+vim.keymap.set("n", "<leader>as", "<cmd>GpImplement<cr>",
+  {silent = true, noremap = true, desc = 'Implement'}
 )
