@@ -2,12 +2,12 @@
   description = "Daniel Brendgen-Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -156,7 +156,7 @@
             inputs.private.home
           ];
         };
-        osaka = systemLib.mkNixOSSystemUnstable {
+        osaka = systemLib.mkNixOSSystem {
           configName = "osaka";
           inherit system;
           username = inputs.private.username {};
