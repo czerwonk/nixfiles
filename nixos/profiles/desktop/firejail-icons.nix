@@ -4,7 +4,6 @@
   environment.systemPackages = [
     (
       let packages = with pkgs; [
-        chromium
         firefox
         teams-for-linux
         thunderbird
