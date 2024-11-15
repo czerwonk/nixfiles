@@ -27,4 +27,10 @@
       color234 = "#1F1F28";
     };
   };
+
+  home = {
+    shellAliases = {
+      icat = "${pkgs.kitty}/bin/kitten icat";
+    };
+  };
 }

@@ -24,11 +24,6 @@
   security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
-    chromium = {
-      executable = "${pkgs.lib.getBin pkgs.chromium}/bin/chromium";
-      desktop = "${pkgs.chromium}/share/applications/chromium-browser.desktop";
-      profile = "${pkgs.firejail}/etc/firejail/chromium-browser.profile";
-    };
     firefox = {
       executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
       desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
@@ -66,6 +61,7 @@
       blueberry
       bruno
       calibre
+      google-chrome
       crowdsec
       distrobox
       foliate
