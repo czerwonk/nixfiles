@@ -15,7 +15,7 @@
   nix.settings.allowed-users = [ "@users" ];
   nix.settings.sandbox = lib.mkDefault false;
 
-  boot.kernelPackages = lib.mkOverride 500 pkgs.linuxKernel.packages.linux_hardened;
+  boot.kernelPackages = lib.mkOverride 500 pkgs.linuxKernel.kernels.linux_6_11_hardened;
 
   security.protectKernelImage = true;
   security.forcePageTableIsolation = true;
