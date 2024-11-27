@@ -34,6 +34,11 @@ in {
         type = types.str;
         description = "IP address of the gateway";
       };
+
+      subnet = mkOption {
+        type = types.str;
+        description = "Local subnet";
+      };
     };
   };
 
@@ -60,7 +65,7 @@ in {
       wantedBy = [ "podman-nordvpn.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman network exists nordvpn || podman network create nordvpn --interface-name=${cfg.interface} --gateway=${cfg.gateway}
+        podman network exists nordvpn || podman network create nordvpn --interface-name=${cfg.interface} --gateway=${cfg.gateway} --subnet=${cfg.subnet}
       '';
     };
 
