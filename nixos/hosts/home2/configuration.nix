@@ -27,4 +27,5 @@
 
   my.services.openssh-server.openFirewall = false;
   my.services.unifi.enable = true;
+  my.services.nordvpn.enable = true;
 }
