@@ -22,6 +22,7 @@
     hostId = "3facf4b1";
     useNetworkd = false;
     useDHCP = false;
+    firewall.filterForward = false;
   };
   systemd.network.enable = false;
 
