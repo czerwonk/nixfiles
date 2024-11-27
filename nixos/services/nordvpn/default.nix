@@ -43,6 +43,11 @@ in {
   };
 
   config = mkIf cfg.enable {
+
+    boot.kernelModules = [
+      "iptables"
+    ];
+
     systemd.services.podman-create-nordvpn-net = {
       serviceConfig = {
         Type = "oneshot";
