@@ -76,8 +76,7 @@ in {
         autoStart = true;
         extraOptions = [
           "--network=nordvpn"
-          "--cap-add=NET_ADMIN"
-          "--cap-add=NET_RAW"
+          "--cap-add=NET_ADMIN,NET_RAW"
           "--ip=${cfg.ip}"
         ];
 
