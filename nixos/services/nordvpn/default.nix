@@ -84,6 +84,7 @@ in {
           CONNECT = "${cfg.country}";
           TECHNOLOGY = "NordLynx";
           TOKEN = "${cfg.token}";
+          NET_LOCAL = "${cfg.subnet}";
         };
       };
     };
