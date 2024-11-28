@@ -1,5 +1,11 @@
+{ hostname, ... }:
+
 {
   time.timeZone = "Europe/Berlin";
+
+  networking.hostName = hostname;
+  networking.computerName = hostname;
+  system.defaults.smb.NetBIOSName = hostname;
 
   system = {
     activationScripts.postUserActivation.text = ''
