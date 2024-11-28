@@ -1,11 +1,15 @@
-{ hostname, ... }:
+{ hostname, username, ... }:
 
 {
   time.timeZone = "Europe/Berlin";
 
   networking.hostName = hostname;
   networking.computerName = hostname;
-  system.defaults.smb.NetBIOSName = hostname;
+
+  users.users."${username}" = {
+    home = "/Users/${username}";
+    description = username;
+  };
 
   system = {
     activationScripts.postUserActivation.text = ''
@@ -18,6 +22,8 @@
     defaults = {
       menuExtraClock.Show24Hour = true;
       menuExtraClock.ShowSeconds = true;
+
+      smb.NetBIOSName = hostname;
 
       trackpad = {
         Clicking = true;
