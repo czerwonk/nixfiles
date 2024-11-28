@@ -62,9 +62,9 @@
       calibre
       crowdsec
       distrobox
+      foliate
       fractal
       google-chrome
-      koreader
       libreoffice
       mattermost-desktop
       mysql-workbench
