@@ -6,6 +6,8 @@
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +18,17 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    home-manager-darwin = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
 
     crowdsec = {
       url = "github:czerwonk/nix-flake-crowdsec";
@@ -193,6 +205,18 @@
           ];
           extraHomeModules = [
             inputs.private.home
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        nara = systemLib.mkDarwinSystem {
+          configName = "nara";
+          system = "x86_64-darwin";
+          username = inputs.private.username {};
+          extraHomeModules = [
+            inputs.private.home
+            inputs.private.mauve.home
           ];
         };
       };
