@@ -3,7 +3,7 @@
 {
   imports = [
     ./../default.nix
-    ./../profiles/desktop
+    ./../profiles/desktop/common.nix
   ];
   
   home = {
@@ -13,8 +13,6 @@
       findutils
       gnused
       openssh
-      qemu
-      virt-viewer
     ];
     file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
   };

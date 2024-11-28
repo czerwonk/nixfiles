@@ -72,7 +72,6 @@
       remmina
       sublime4
       termius
-      virt-viewer
       vlc
       wgnord
       wireshark

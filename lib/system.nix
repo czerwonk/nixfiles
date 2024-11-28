@@ -70,6 +70,7 @@
     inputs.darwin.lib.darwinSystem {
       inherit system;
       modules = [
+        ../overlays.nix
         ../darwin/hosts/${configName}/configuration.nix
         inputs.home-manager-darwin.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;

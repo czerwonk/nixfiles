@@ -1,4 +1,4 @@
-{ pkgs, hostname, username, ... }:
+{ pkgs, username, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -7,28 +7,20 @@
   programs.nix-index.enable = true;
 
   nix = {
-    package = pkgs.lix;
-
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
     };
 
     gc = {
       automatic = true;
-      dates = "weekly";
       options = "--delete-older-than 30d";
     };
   };
 
   time.timeZone = "Europe/Berlin";
 
-  networking.hostName = hostname;
-  networking.computerName = hostname;
-
   users.users."${username}" = {
     home = "/Users/${username}";
-    description = username;
   };
 
   system = {
@@ -36,14 +28,14 @@
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
 
+    stateVersion = 5;
+
     keyboard.enableKeyMapping = true;
     keyboard.remapCapsLockToControl = true;
 
     defaults = {
       menuExtraClock.Show24Hour = true;
       menuExtraClock.ShowSeconds = true;
-
-      smb.NetBIOSName = hostname;
 
       trackpad = {
         Clicking = true;
@@ -68,6 +60,7 @@
       finder = {
         ShowStatusBar = true;
         ShowPathbar = true;
+        AppleShowAllExtensions = true;
 
         FXPreferredViewStyle = "Nlsv";
         _FXShowPosixPathInTitle = true;

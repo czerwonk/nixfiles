@@ -214,6 +214,7 @@
           configName = "nara";
           system = "x86_64-darwin";
           username = inputs.private.username {};
+          extraModules = [];
           extraHomeModules = [
             inputs.private.home
             inputs.private.mauve.home
