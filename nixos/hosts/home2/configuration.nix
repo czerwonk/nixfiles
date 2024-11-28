@@ -22,9 +22,11 @@
     hostId = "3facf4b1";
     useNetworkd = false;
     useDHCP = false;
+    firewall.filterForward = false;
   };
   systemd.network.enable = false;
 
   my.services.openssh-server.openFirewall = false;
   my.services.unifi.enable = true;
+  my.services.nordvpn.enable = true;
 }

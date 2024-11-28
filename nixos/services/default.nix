@@ -12,6 +12,7 @@
     ./mastodon
     ./matrix
     ./monitoring
+    ./nordvpn
     ./netdata
     ./nextcloud
     ./ntfy
