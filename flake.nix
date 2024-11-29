@@ -73,15 +73,6 @@
 
     in {
       homeConfigurations = {
-        "osx" = userLib.mkOSXHMUser {
-          username = inputs.private.username {};
-          extraModules = [
-            ./home/profiles/devops
-            inputs.private.home
-            inputs.private.mauve.home
-          ];
-        };
-
         "mauve-linux" = userLib.mkLinuxHMUser {
           username = inputs.private.mauve.username {};
           extraModules = [ 
