@@ -16,7 +16,7 @@
   programs.kitty = {
     settings = {
       hide_window_decorations = false;
-      background_opacity = "0.9";
+      background_opacity = "0.99";
     };
   };
 
