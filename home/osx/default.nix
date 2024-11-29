@@ -13,6 +13,7 @@
       findutils
       gnused
       openssh
+      mas
     ];
     file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
   };

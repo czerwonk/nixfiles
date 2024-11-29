@@ -1,10 +1,7 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
-
-  services.nix-daemon.enable = true;
-  programs.nix-index.enable = true;
 
   nix = {
     settings = {
@@ -31,11 +28,15 @@
     stateVersion = 5;
 
     keyboard.enableKeyMapping = true;
-    keyboard.remapCapsLockToControl = true;
+    keyboard.remapCapsLockToEscape = true;
 
     defaults = {
       menuExtraClock.Show24Hour = true;
       menuExtraClock.ShowSeconds = true;
+
+      alf = {
+        globalstate = 1;
+      };
 
       trackpad = {
         Clicking = true;
@@ -44,27 +45,45 @@
       };
 
       NSGlobalDomain = {
+        AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = false;
         AppleShowAllFiles = true;
+        AppleShowAllExtensions = true;
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
         "com.apple.swipescrolldirection" = false;
       };
 
       dock = {
         autohide = false;
         magnification = false;
+        show-recents = false;
       };
 
       finder = {
         ShowStatusBar = true;
         ShowPathbar = true;
+
+        AppleShowAllFiles = true;
         AppleShowAllExtensions = true;
 
         FXPreferredViewStyle = "Nlsv";
         _FXShowPosixPathInTitle = true;
-        _FXSortFoldersFirstOnDesktop = true;
+        _FXSortFoldersFirst = true;
+      };
+
+      controlcenter = {
+        BatteryShowPercentage = true;
+      };
+
+      spaces.spans-displays = true;
+
+      screensaver = {
+        askForPassword = true;
+        askForPasswordDelay = 30;
       };
 
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
@@ -73,7 +92,17 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
-  programs.zsh.enable = true;
+  programs = {
+    nix-index.enable = true;
+  };
+
+  services = {
+    nix-daemon.enable = true;
+  };
+
+  homebrew = {
+    enable = true;
+  };
 
   environment.extraInit = let
     homeManagerSessionVars =
