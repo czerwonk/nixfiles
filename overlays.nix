@@ -10,12 +10,6 @@ let
       ];
     };
   };
-  pkgs-stable = import inputs.nixpkgs {
-    inherit system;
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
