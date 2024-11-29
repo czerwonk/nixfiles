@@ -370,11 +370,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1732894701,
-        "narHash": "sha256-+RC8sPhgSUvY2r/eHx2CbCCBc1xp3B0k8BNLpQlBAbk=",
+        "lastModified": 1732912700,
+        "narHash": "sha256-HgkLus2RKyX6Cf/DNbzAo4xYZX/OVGGwc67gtu7DaF0=",
         "owner": "MauveSoftware",
         "repo": "provisionize",
-        "rev": "07df47c3814297c7cb81c38b6cb4f17c3ad2eed0",
+        "rev": "9c5631a93c9c07904e59f5650a9a9ec4e6db2fcb",
         "type": "github"
       },
       "original": {
