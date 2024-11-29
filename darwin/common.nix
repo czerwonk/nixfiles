@@ -88,10 +88,6 @@
 
   users.users."${username}" = {
     home = "/Users/${username}";
-    packages = with pkgs; [
-      firefox
-      thunderbird
-    ];
   };
 
   security.pam.enableSudoTouchIdAuth = true;

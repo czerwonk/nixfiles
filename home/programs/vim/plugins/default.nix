@@ -66,11 +66,6 @@
         config = "require('todo-comments').setup()";
       }
       {
-        plugin = obsidian-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/obsidian.lua;
-      }
-      {
         plugin = gp-nvim;
         type = "lua";
         config = builtins.readFile ./lua/gp.lua;
