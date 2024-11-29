@@ -125,6 +125,7 @@
       "Mattermost Desktop" = 1614666244;
       Wireguard = 1451685025;
       Xcode = 497799835;
+      "Yubico Authenticator" = 1497506650;
     };
   };
 
