@@ -16,5 +16,11 @@
 
   programs.tmux.mouse = true;
 
+  programs.kitty = {
+    settings = {
+      hide_window_decorations = false;
+    };
+  };
+
   services.gpg-agent.enable = true;
 }
