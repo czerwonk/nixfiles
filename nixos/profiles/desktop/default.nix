@@ -56,16 +56,15 @@
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
-      ausweisapp
       bitwarden
       blueberry
       bruno
       calibre
-      google-chrome
       crowdsec
       distrobox
       foliate
       fractal
+      google-chrome
       libreoffice
       mattermost-desktop
       mysql-workbench
@@ -73,7 +72,6 @@
       remmina
       sublime4
       termius
-      virt-viewer
       vlc
       wgnord
       wireshark

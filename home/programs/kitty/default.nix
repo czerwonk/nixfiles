@@ -4,9 +4,9 @@
   programs.kitty = {
     enable = lib.mkDefault true;
     font = {
-      package = pkgs.jetbrains-mono;
-      name = "JetBrains Mono";
-      size = 12;
+      package = lib.mkDefault pkgs.jetbrains-mono;
+      name = lib.mkDefault "JetBrains Mono";
+      size = lib.mkDefault 12;
     };
     settings = {
       copy_on_select = true;
@@ -14,7 +14,7 @@
       font_size_delta = 1;
       text_composition_strategy = "1.0 0";
       enable_audio_bell = false;
-      hide_window_decorations = true;
+      hide_window_decorations = lib.mkDefault true;
       foreground = "#E1D9D1";
       background = "#1F1F28";
       color1 = "#C34043";

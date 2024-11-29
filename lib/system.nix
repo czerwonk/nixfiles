@@ -66,4 +66,24 @@
         configName = "iso";
       };
     };
+
+  mkDarwinSystem = { configName, username, system, extraModules, extraHomeModules }:
+    inputs.darwin.lib.darwinSystem {
+      inherit system;
+      modules = [
+        ../overlays.nix
+        ../darwin/hosts/${configName}/configuration.nix
+        inputs.home-manager-darwin.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = import ../darwin/hosts/${configName}/home.nix;
+          home-manager.extraSpecialArgs = {
+            inherit username extraHomeModules;
+          };
+        }
+      ] ++ extraModules;
+      specialArgs = {
+        inherit configName username system inputs;
+      };
+    };
 }
