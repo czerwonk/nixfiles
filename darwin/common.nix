@@ -1,4 +1,4 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -15,10 +15,6 @@
   };
 
   time.timeZone = "Europe/Berlin";
-
-  users.users."${username}" = {
-    home = "/Users/${username}";
-  };
 
   system = {
     activationScripts.postUserActivation.text = ''
@@ -88,6 +84,14 @@
 
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
     };
+  };
+
+  users.users."${username}" = {
+    home = "/Users/${username}";
+    packages = with pkgs; [
+      firefox
+      thunderbird
+    ];
   };
 
   security.pam.enableSudoTouchIdAuth = true;
