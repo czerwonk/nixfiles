@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -102,6 +102,30 @@
 
   homebrew = {
     enable = true;
+    onActivation = {
+      cleanup = "zap";
+      upgrade = true;
+    };
+    brews = [
+      "wireshark"
+    ];
+    casks = [
+      "calibre"
+      "firefox"
+      "google-chrome"
+      "kitty"
+      "kobo"
+      "nextcloud"
+      "postbox"
+      "sublime-text"
+    ];
+    masApps = {
+      Bitwarden = 1352778147;
+      "Termius - SSH & SFTP client" = 1176074088;
+      "Mattermost Desktop" = 1614666244;
+      Wireguard = 1451685025;
+      Xcode = 497799835;
+    };
   };
 
   environment.extraInit = let
