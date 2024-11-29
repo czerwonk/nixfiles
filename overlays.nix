@@ -5,9 +5,6 @@ let
     inherit system;
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "openssl-1.1.1w"
-      ];
     };
   };
 
@@ -17,6 +14,13 @@ let
   provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-core-combined"
+    "dotnet-sdk-6.0.428"
+    "dotnet-sdk-wrapped-6.0.428"
+    "openssl-1.1.1w"
+  ];
+
   nixpkgs.overlays = [
     (self: super: {
       all-ways-egpu = super.callPackage ./pkgs/all-ways-egpu {};
