@@ -110,7 +110,9 @@
       "wireshark"
     ];
     casks = [
+      "android-studio"
       "calibre"
+      "daisydisk"
       "firefox"
       "google-chrome"
       "kitty"

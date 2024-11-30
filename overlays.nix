@@ -39,7 +39,7 @@ in {
       ansible = super.ansible.override { windowsSupport = true; };
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
-      kubevirt = pkgs-unstable.kubevirt;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama = pkgs-unstable.ollama;
     })
