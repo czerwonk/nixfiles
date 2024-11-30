@@ -112,7 +112,6 @@
     casks = [
       "android-studio"
       "calibre"
-      "daisydisk"
       "firefox"
       "google-chrome"
       "kitty"
@@ -123,6 +122,7 @@
     ];
     masApps = {
       Bitwarden = 1352778147;
+      DaisyDisk = 411643860;
       "Termius - SSH & SFTP client" = 1176074088;
       "Mattermost Desktop" = 1614666244;
       Wireguard = 1451685025;
