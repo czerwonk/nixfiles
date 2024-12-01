@@ -28,7 +28,6 @@
 
     defaults = {
       menuExtraClock.Show24Hour = true;
-      menuExtraClock.ShowSeconds = true;
 
       alf = {
         globalstate = 1;
