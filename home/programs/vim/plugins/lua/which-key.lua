@@ -2,12 +2,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 500
 local wk = require('which-key')
 wk.setup {
-  window = {
-    border = "single",
-    position = "bottom",
-  },
-}
-wk.add({
+  spec = {
   { "<leader>a", group = "AI" },
   { "<leader>c", group = "Coverage" },
   { "<leader>d", group = "Debug" },
@@ -20,4 +15,5 @@ wk.add({
   { "<leader>t", group = "Test" },
   { "<leader>tc", group = "Coverage" },
   { "<leader>x", group = "Trouble" },
-})
+  }
+}
