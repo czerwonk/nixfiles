@@ -1,4 +1,4 @@
-{ extraHomeModules, ... }:
+{ pkgs, extraHomeModules, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
   ] ++ extraHomeModules;
 
   programs.tmux = {
+    package = pkgs.tmux;
     shortcut = "b";
     position = "bottom";
   };

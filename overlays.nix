@@ -7,6 +7,12 @@ let
       allowUnfree = true;
     };
   };
+  pkgs-deprecated = import inputs.nixpkgs-deprecated {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
@@ -41,6 +47,7 @@ in {
       k3s = pkgs-unstable.k3s;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama = pkgs-unstable.ollama;
+      tmux = pkgs-deprecated.tmux;
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
