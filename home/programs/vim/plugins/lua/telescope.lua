@@ -1,5 +1,5 @@
 local projectTelescope = require('telescope._extensions.project.actions')
-local troubleTelescope = require('trouble.providers.telescope')
+local troubleTelescope = require('trouble.sources.telescope')
 
 local on_project_selected = function(buf)
   projectTelescope.change_working_directory(buf, false)
@@ -12,8 +12,8 @@ local telescope = require('telescope')
 telescope.setup {
   defaults = {
     mappings = {
-      i = { ["<C-t>"] = troubleTelescope.open_with_trouble },
-      n = { ["<C-t>"] = troubleTelescope.open_with_trouble }
+      i = { ["<C-t>"] = troubleTelescope.open },
+      n = { ["<C-t>"] = troubleTelescope.open }
     },
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
