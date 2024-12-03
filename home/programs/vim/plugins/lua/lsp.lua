@@ -54,14 +54,10 @@ local on_attach = function(client, bufnr)
     end, 'Code Lens Action (LSP)')
   end
 
-  require('which-key').register({
-    g = {
-      name = "LSP",
-    },
-    W = {
-      name = "Workspace",
-    }
-  }, { prefix = "<leader>", buffer = bufnr });
+  require('which-key').add({
+    { "<leader>W", buffer = 3, group = "Workspace" },
+    { "<leader>g", buffer = 3, group = "LSP" },
+  });
 end
 
 local lspconfig = require('lspconfig')
