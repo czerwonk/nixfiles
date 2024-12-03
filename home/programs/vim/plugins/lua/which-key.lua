@@ -7,41 +7,17 @@ wk.setup {
     position = "bottom",
   },
 }
-wk.register({
-  a = {
-    name = "AI"
-  },
-  c = {
-    name = "Coverage"
-  },
-  d = {
-    name = "Debug"
-  },
-  f = {
-    name = "Telescope",
-  },
-  m = {
-    name = "Harpoon",
-  },
-  r = {
-    name = "Refactoring",
-  },
-  h = {
-    name = "HTTP",
-  },
-  s = {
-    name = "Git"
-  },
-  t = {
-    name = "Test"
-  },
-  tc = {
-    name = "Coverage"
-  },
-  q = {
-    name = "Quickfix",
-  },
-  x = {
-    name = "Trouble",
-  }
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>a", group = "AI" },
+  { "<leader>c", group = "Coverage" },
+  { "<leader>d", group = "Debug" },
+  { "<leader>f", group = "Telescope" },
+  { "<leader>h", group = "HTTP" },
+  { "<leader>m", group = "Harpoon" },
+  { "<leader>q", group = "Quickfix" },
+  { "<leader>r", group = "Refactoring" },
+  { "<leader>s", group = "Git" },
+  { "<leader>t", group = "Test" },
+  { "<leader>tc", group = "Coverage" },
+  { "<leader>x", group = "Trouble" },
+})
