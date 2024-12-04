@@ -18,6 +18,7 @@
       "tasmota"
       "tradfri"
       "shelly"
+      "netatmo"
     ];
     config = {
       default_config = {};
