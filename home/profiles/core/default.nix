@@ -16,7 +16,6 @@
   ];
 
   home.packages = with pkgs; [
-    bitwarden-cli
     octave
     wireguard-tools
   ];
