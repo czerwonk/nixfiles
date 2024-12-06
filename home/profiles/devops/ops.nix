@@ -18,7 +18,6 @@
       mysql-shell
       net-merge
       opentofu
-      provisionize
       redis
       termshark
       terrascan

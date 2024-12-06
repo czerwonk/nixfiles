@@ -11,7 +11,6 @@ let
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
-  provisionize-packages = inputs.provisionize.packages.${system};
 
 in {
   nixpkgs.config.permittedInsecurePackages = [
@@ -28,7 +27,6 @@ in {
       dns-drain = dns-drain-packages.dns-drainctl;
       ethr = super.callPackage ./pkgs/ethr {};
       net-merge = net-merge-packages.net-merge;
-      provisionize = provisionize-packages.provisionize;
       termius = super.callPackage ./pkgs/termius {};
       vimPlugins = super.vimPlugins // {
         gp-nvim = super.callPackage ./pkgs/gp-nvim {};
