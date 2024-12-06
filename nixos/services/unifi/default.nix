@@ -50,7 +50,7 @@ in {
       };
       wantedBy = [
         "podman-unifi-network-application.service"
-        "podman-unifi-monogo.service"
+        "podman-unifi-db.service"
       ];
       path = [ pkgs.podman ];
       script = ''
