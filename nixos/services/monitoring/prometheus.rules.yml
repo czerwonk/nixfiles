@@ -49,7 +49,7 @@ groups:
     annotations:
       description: "CPU iowait > 10%. A high iowait means that you are disk or network bound."
   - alert: HostSystemdServiceCrashed
-    expr: (node_systemd_unit_state{state="failed",name!~"systemd-networkd-wait-online.service|[0-9a-f]{64}.service"} == 1) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
+    expr: (node_systemd_unit_state{state="failed",name!~"systemd-networkd-wait-online.service|[0-9a-f]{64}.service",name!="systemd-machine-id-commit.service"} == 1) * on(instance) group_left (nodename) node_uname_info{nodename=~".+"}
     labels:
       severity: warning
     annotations:
