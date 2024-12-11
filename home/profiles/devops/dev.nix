@@ -20,7 +20,7 @@
       protoc-gen-go-grpc
       python3
       reuse
-      ruby
+      (ruby.withPackages (ps: with ps; [ rubyPackages.mysql2 ]))
       rustc
       rustfmt
       sqlite
