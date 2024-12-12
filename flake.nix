@@ -2,7 +2,7 @@
   description = "Daniel Brendgen-Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
