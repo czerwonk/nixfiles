@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, lib, username, ... }:
 
 {
   imports = [
@@ -96,4 +96,7 @@
     autoStart = false;
     enableMitigation = false;
   };
+
+  services.teamviewer.enable = true;
+  systemd.services.teamviewerd.wantedBy = lib.mkForce [];
 }
