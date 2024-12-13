@@ -74,6 +74,7 @@
       termius
       vlc
       wgnord
+      wineWowPackages.waylandFull
       wireshark
       xsel
     ];
