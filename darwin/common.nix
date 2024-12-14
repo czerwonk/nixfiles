@@ -27,7 +27,10 @@
     keyboard.remapCapsLockToEscape = true;
 
     defaults = {
-      menuExtraClock.Show24Hour = true;
+      menuExtraClock = {
+        Show24Hour = true;
+        ShowSeconds = false;
+      };
 
       alf = {
         globalstate = 1;
