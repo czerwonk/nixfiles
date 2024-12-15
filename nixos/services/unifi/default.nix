@@ -68,7 +68,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
+          #"--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=unifi"
         ];
 

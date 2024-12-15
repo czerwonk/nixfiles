@@ -18,7 +18,7 @@
       autoStart = true;
       image = "nlnetlabs/routinator";
       extraOptions = [
-        "--runtime=${pkgs.gvisor}/bin/runsc"
+        #"--runtime=${pkgs.gvisor}/bin/runsc"
         "--ip=10.88.0.2"
       ];
     };
