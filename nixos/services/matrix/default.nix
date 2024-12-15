@@ -59,7 +59,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          #"--runtime=${pkgs.gvisor}/bin/runsc"
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";
@@ -107,7 +107,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          #"--runtime=${pkgs.gvisor}/bin/runsc"
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";
@@ -134,7 +134,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          #"--runtime=${pkgs.gvisor}/bin/runsc"
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "1337:1337";

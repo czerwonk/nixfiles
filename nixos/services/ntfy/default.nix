@@ -21,7 +21,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          #"--runtime=${pkgs.gvisor}/bin/runsc"
+          "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
         user = "1000:1000";
 

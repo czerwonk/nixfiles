@@ -49,7 +49,7 @@ in {
 
         autoStart = true;
         extraOptions = [
-          #"--runtime=${pkgs.gvisor}/bin/runsc"
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=ripe-atlas"
           "--cap-drop=all"
           "--cap-add=CHOWN,SETUID,SETGID,DAC_OVERRIDE,NET_RAW"
