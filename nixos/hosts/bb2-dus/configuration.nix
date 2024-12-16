@@ -15,9 +15,6 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    zfs rollback -r zroot/root@blank
-  '';
 
   networking = {
     hostId = "292ea3ce";
