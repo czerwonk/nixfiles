@@ -27,7 +27,6 @@ in {
       dns-drain = dns-drain-packages.dns-drainctl;
       ethr = super.callPackage ./pkgs/ethr {};
       net-merge = net-merge-packages.net-merge;
-      termius = super.callPackage ./pkgs/termius {};
       vimPlugins = super.vimPlugins // {
         gp-nvim = super.callPackage ./pkgs/gp-nvim {};
       };
@@ -53,6 +52,23 @@ in {
           '';
         });
       };
+      gvisor = super.gvisor.overrideAttrs (old: {
+        version = "20241210.0";
+        src = super.fetchFromGitHub {
+          owner = "google";
+          repo = "gvisor";
+          rev = "aa8ecac76a04b495181d784d84bf9ecc4e1fb876";
+          hash = "sha256-sX3Er0IOXv+HCxQB0lU9oBMTlQJgaf8OJnpkWkFLnRQ=";
+        };
+        vendorHash = "sha256-cWMOmCgN+nXZh0X7ZXoguIiFVSXIJAbuuBWxysbgn6U=";
+      });
+      termius = super.termius.overrideAttrs (old: {
+        version = "9.6.1";
+        src = super.fetchurl {
+          url = "https://api.snapcraft.io/api/v1/snaps/download/WkTBXwoX81rBe3s3OTt3EiiLKBx2QhuS_204.snap";
+          hash = "sha512-ok3B/h+d0Q7k5i+IjgGB+4S5g2kzrQT/b4dYz4k07OnyfjJRgJ4X4f7BFFrwKLd+IbIC5OIibrvivWnkSWU3Ew==";
+        };
+      });
     })
   ];
 }
