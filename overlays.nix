@@ -62,13 +62,6 @@ in {
         };
         vendorHash = "sha256-cWMOmCgN+nXZh0X7ZXoguIiFVSXIJAbuuBWxysbgn6U=";
       });
-      termius = super.termius.overrideAttrs (old: {
-        version = "9.6.1";
-        src = super.fetchurl {
-          url = "https://api.snapcraft.io/api/v1/snaps/download/WkTBXwoX81rBe3s3OTt3EiiLKBx2QhuS_204.snap";
-          hash = "sha512-ok3B/h+d0Q7k5i+IjgGB+4S5g2kzrQT/b4dYz4k07OnyfjJRgJ4X4f7BFFrwKLd+IbIC5OIibrvivWnkSWU3Ew==";
-        };
-      });
     })
   ];
 }
