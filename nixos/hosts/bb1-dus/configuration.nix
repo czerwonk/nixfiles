@@ -7,7 +7,7 @@ in {
   imports = [ 
     ./hardware-configuration.nix
     ../../configuration.nix
-    ../../zfs
+    ../../zfs/kernel_6_6.nix
     ../../profiles/server
     ../../profiles/container
     ../../profiles/routing
