@@ -5,8 +5,8 @@
     ./common.nix
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_6_hardened;
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_12;
   environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_6_6_hardened.zfs
+    linuxKernel.packages.linux_6_12.zfs
   ];
 }
