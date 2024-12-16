@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ config, ... }:
 
 let
   loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
