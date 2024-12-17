@@ -203,7 +203,7 @@ in {
       };
 
       mastodon-es = {
-        image = "docker.elastic.co/elasticsearch/elasticsearch:7.17.4";
+        image = "docker.elastic.co/elasticsearch/elasticsearch:8.16.1";
 
         autoStart = true;
         extraOptions = [
