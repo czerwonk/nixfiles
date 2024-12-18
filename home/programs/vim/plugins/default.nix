@@ -50,11 +50,6 @@
         config = builtins.readFile ./lua/gitsigns.lua;
       }
       {
-        plugin = git-worktree-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/git-worktree.lua;
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {
@@ -64,11 +59,6 @@
         plugin = todo-comments-nvim;
         type = "lua";
         config = "require('todo-comments').setup()";
-      }
-      {
-        plugin = gp-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/gp.lua;
       }
     ];
   };
