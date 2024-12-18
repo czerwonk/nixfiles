@@ -52,6 +52,11 @@
       {
         plugin = nvim-treesitter-refactor;
       }
+      {
+        plugin = nvim-ts-autotag;
+        type = "lua";
+        config = "require('nvim-ts-autotag').setup()";
+      }
     ];
   };
 }
