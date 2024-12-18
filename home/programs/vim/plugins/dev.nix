@@ -15,11 +15,6 @@
         plugin = nvim-navbuddy;
       }
       {
-        plugin = refactoring-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/refactoring.lua; 
-      }
-      {
         plugin = nvim-dap;
         type = "lua";
         config = builtins.readFile ./lua/dap.lua;
