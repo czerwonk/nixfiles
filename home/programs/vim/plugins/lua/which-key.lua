@@ -9,7 +9,6 @@ wk.setup {
   { "<leader>d", group = "Debug" },
   { "<leader>f", group = "Telescope" },
   { "<leader>h", group = "HTTP" },
-  { "<leader>m", group = "Harpoon" },
   { "<leader>q", group = "Quickfix" },
   { "<leader>r", group = "Refactoring" },
   { "<leader>s", group = "Git" },

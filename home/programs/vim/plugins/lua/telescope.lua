@@ -1,12 +1,4 @@
-local projectTelescope = require('telescope._extensions.project.actions')
 local troubleTelescope = require('trouble.sources.telescope')
-
-local on_project_selected = function(buf)
-  projectTelescope.change_working_directory(buf, false)
-  vim.cmd([[Neotree show dir=./]])
-  require('harpoon.ui').nav_file(1)
-  require('harpoon.tmux').sendCommand("2", " cd " .. vim.fn.getcwd())
-end
 
 local telescope = require('telescope')
 telescope.setup {
@@ -34,19 +26,12 @@ telescope.setup {
     }
   },
   extensions = {
-    project = {
-      hidden_files = true,
-      sorting_strategy = 'ascending',
-      on_project_selected = on_project_selected,
-      theme = "dropdown"
-    },
     undo = {
       side_by_side = true
     }
   }
 }
 telescope.load_extension("ui-select")
-telescope.load_extension('project')
 telescope.load_extension('undo')
 
 local telescopeBuiltin = require('telescope.builtin')
@@ -62,9 +47,4 @@ vim.keymap.set('n', '<leader>fk', telescopeBuiltin.keymaps, { desc = 'Keymaps' }
 vim.keymap.set('n', '<leader>fv', telescopeBuiltin.vim_options, { desc = 'Options' })
 vim.keymap.set('n', '<leader>fs', telescopeBuiltin.git_commits, { desc = 'Git Commits' })
 vim.keymap.set('n', '<leader>ft', "<cmd>TodoTelescope<CR>", { desc = 'TODOs' })
-vim.keymap.set('n', '<leader>fp', function()
-  telescope.extensions.project.project {
-    display_type = 'full',
-  }
-end, { desc = 'Projects' })
 vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Undo' })

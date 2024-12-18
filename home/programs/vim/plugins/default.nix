@@ -32,11 +32,6 @@
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
       }
       {
-        plugin = harpoon2;
-        type = "lua";
-        config = builtins.readFile ./lua/harpoon.lua;
-      }
-      {
         plugin = nvim-neoclip-lua;
         type = "lua";
         config = builtins.readFile ./lua/neoclip.lua;

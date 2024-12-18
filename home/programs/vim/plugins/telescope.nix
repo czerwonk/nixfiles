@@ -19,9 +19,6 @@
         config = "require('telescope').load_extension('fzf')";
       }
       {
-        plugin = telescope-project-nvim;
-      }
-      {
         plugin = telescope-undo-nvim;
       }
       {
