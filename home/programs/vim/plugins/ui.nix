@@ -25,11 +25,6 @@
         plugin = rainbow-delimiters-nvim;
       }
       {
-        plugin = indent-blankline-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/indent-blankline.lua;
-      }
-      {
         plugin = nvim-colorizer-lua;
         type = "lua";
         config = "require('colorizer').setup()";

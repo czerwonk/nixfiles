@@ -23,6 +23,12 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.termguicolors = true
 
+vim.opt.list = true
+vim.opt.listchars:append({
+  trail = '⋅',
+  tab = '⇢ ',
+})
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 

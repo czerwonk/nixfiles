@@ -1,3 +1,16 @@
 local notify = vim.notify
-require("snacks").setup()
+
+local highlight = {
+    "CursorColumn",
+    "Whitespace",
+}
+require("snacks").setup {
+  indent = {
+    enabled = true,
+    hl = highlight,
+    scope = {
+      enabled = false
+    }
+  }
+}
 vim.notify = notify
