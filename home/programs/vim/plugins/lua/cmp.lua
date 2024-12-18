@@ -36,14 +36,20 @@ local kind_icons = {
   Variable = " ",
 }
 
+local borderStyle = 'roundet';
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   appearance = {
+    use_nvim_cmp_as_default = true,
     kind_icons = kind_icons,
   },
   completion = {
+    menu = {
+      border = borderStyle,
+    },
     documentation = {
       auto_show = true,
+      border = borderStyle;
     },
     ghost_text = {
       enabled = true,
@@ -52,10 +58,24 @@ require('blink.cmp').setup {
   sources = {
     cmdline = {},
     default = { 'lsp', 'buffer', 'path', 'snippets' },
+    providers = {
+      buffer = {
+        min_keyword_length = 2,
+      },
+      path = {
+        min_keyword_length = 1,
+      },
+    }
   },
   fuzzy = {
     prebuilt_binaries = {
       download = false
+    },
+  },
+  signature = {
+    enabled = true,
+    window = {
+      border = borderStyle
     },
   },
 }
