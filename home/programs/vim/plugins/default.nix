@@ -42,11 +42,6 @@
         config = builtins.readFile ./lua/neoclip.lua;
       }
       {
-        plugin = toggleterm-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/toggleterm.lua;
-      }
-      {
         plugin = vim-fugitive;
       }
       {
