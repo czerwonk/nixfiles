@@ -17,6 +17,11 @@
         config = builtins.readFile ./lua/mini.lua;
       }
       {
+        plugin = snacks-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/snacks.lua;
+      }
+      {
         plugin = which-key-nvim;
         type = "lua";
         config = builtins.readFile ./lua/which-key.lua;

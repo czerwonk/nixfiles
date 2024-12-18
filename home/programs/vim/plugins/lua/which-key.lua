@@ -14,6 +14,21 @@ wk.setup {
   { "<leader>s", group = "Git" },
   { "<leader>t", group = "Test" },
   { "<leader>tc", group = "Coverage" },
-  { "<leader>x", group = "Trouble" },
+  { "<leader>x", group = "Diagnostics" },
+  {
+    "<leader>b",
+      group = "buffer",
+      expand = function()
+        return require("which-key.extras").expand.buf()
+      end,
+    },
+{
+    "<leader>w",
+      group = "windows",
+      proxy = "<c-w>",
+      expand = function()
+        return require("which-key.extras").expand.win()
+      end,
+    },
   }
 }
