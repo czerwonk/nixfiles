@@ -31,7 +31,6 @@ telescope.setup {
     }
   }
 }
-telescope.load_extension("ui-select")
 telescope.load_extension('undo')
 
 local telescopeBuiltin = require('telescope.builtin')

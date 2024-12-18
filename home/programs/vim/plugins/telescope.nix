@@ -21,9 +21,6 @@
       {
         plugin = telescope-undo-nvim;
       }
-      {
-        plugin = telescope-ui-select-nvim;
-      }
     ];
   };
 }
