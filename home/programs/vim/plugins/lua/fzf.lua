@@ -1,5 +1,5 @@
 local fzf = require('fzf-lua')
-fzf.setup({'fzf-native'})
+fzf.setup({'fzf-native',fzf_opts = { ["--layout"] = "default" }})
 
 vim.keymap.set('n', '<leader>ff', fzf.files, { desc = 'Files' })
 vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = 'Buffers' })
