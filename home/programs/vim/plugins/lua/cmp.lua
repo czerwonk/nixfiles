@@ -41,15 +41,17 @@ require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   appearance = {
     use_nvim_cmp_as_default = true,
-    kind_icons = kind_icons,
+    kind_icons = kind_icons
   },
   completion = {
     menu = {
-      border = borderStyle,
+      border = borderStyle
     },
     documentation = {
       auto_show = true,
-      border = borderStyle;
+      window = {
+        border = borderStyle
+      },
     },
     ghost_text = {
       enabled = true,
