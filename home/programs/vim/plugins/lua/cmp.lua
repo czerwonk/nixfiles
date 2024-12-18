@@ -36,7 +36,7 @@ local kind_icons = {
   Variable = " ",
 }
 
-local borderStyle = 'roundet';
+local borderStyle = 'rounded';
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   appearance = {
