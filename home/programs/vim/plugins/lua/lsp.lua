@@ -272,7 +272,12 @@ lspconfig.yamlls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
+    redhat = { telemetry = { enabled = false } },
     yaml = {
+      keyOrdering = false,
+      format = {
+        enable = true,
+      },
       hover = true,
       completion = true,
       validate = true,
