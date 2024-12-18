@@ -7,7 +7,7 @@ wk.setup {
   { "<leader>a", group = "AI" },
   { "<leader>c", group = "Coverage" },
   { "<leader>d", group = "Debug" },
-  { "<leader>f", group = "Telescope" },
+  { "<leader>f", group = "Find" },
   { "<leader>h", group = "HTTP" },
   { "<leader>q", group = "Quickfix" },
   { "<leader>r", group = "Refactoring" },
