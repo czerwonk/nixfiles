@@ -37,9 +37,8 @@ local kind_icons = {
 }
 
 require('blink.cmp').setup {
-  keymap = { preset = 'super-tab' },
+  keymap = { preset = 'enter' },
   appearance = {
-    use_nvim_cmp_as_default = false,
     kind_icons = kind_icons,
   },
   completion = {
@@ -60,6 +59,8 @@ require('blink.cmp').setup {
     default = { 'lsp', 'buffer', 'path', 'snippets' },
   },
   fuzzy = {
-    prebuilt_binaries = { download = false },
+    prebuilt_binaries = {
+      download = false
+    },
   },
 }
