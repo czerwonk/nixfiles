@@ -2,7 +2,6 @@ vim.o.timeout = true
 vim.o.timeoutlen = 500
 local wk = require('which-key')
 wk.setup {
-  preset = "helix",
   spec = {
   { "<leader>a", group = "AI" },
   { "<leader>c", group = "Coverage" },
