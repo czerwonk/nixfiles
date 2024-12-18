@@ -12,11 +12,6 @@
         config = builtins.readFile ./lua/noice.lua;
       }
       {
-        plugin = nvim-notify;
-        type = "lua";
-        config = builtins.readFile ./lua/notify.lua;
-      }
-      {
         plugin = neo-tree-nvim;
         type = "lua";
         config = builtins.readFile ./lua/neo-tree.lua;
@@ -46,7 +41,7 @@
         type = "lua";
         config = builtins.readFile ./lua/bufferline.lua;
       }
-      { 
+      {
         plugin = barbecue-nvim;
         type = "lua";
         config = builtins.readFile ./lua/barbecue.lua;
