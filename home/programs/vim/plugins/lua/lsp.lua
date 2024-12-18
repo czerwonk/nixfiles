@@ -26,11 +26,13 @@ local on_attach = function(client, bufnr)
   end, 'Previous diagnostic')
   map('n', '<leader>xR', '<cmd>TroubleToggle lsp_references<CR>', 'Toggle (LSP References)')
 
-  local telescopeBuiltin = require('telescope.builtin')
-  map('n', '<leader>gi', telescopeBuiltin.lsp_implementations, 'Implementations (LSP)')
-  map('n', '<leader>gd', telescopeBuiltin.lsp_definitions, 'Definitions (LSP)')
-  map('n', '<leader>gt', telescopeBuiltin.lsp_type_definitions, 'Type Definitions (LSP)')
-  map('n', '<leader>gr', telescopeBuiltin.lsp_references, 'References (LSP)')
+  local fzf = require('fzf-lua')
+  map('n', '<leader>gi', fzf.lsp_implementations, 'Implementations (LSP)')
+  map('n', '<leader>gd', fzf.lsp_definitions, 'Definitions (LSP)')
+  map('n', '<leader>gt', fzf.lsp_typedefs, 'Type Definitions (LSP)')
+  map('n', '<leader>gr', fzf.lsp_references, 'References (LSP)')
+  map('n', '<leader>ga', fzf.lsp_code_actions, 'References (LSP)')
+  map('n', '<leader>gD', fzf.lsp_workspace_diagnostics, 'References (LSP)')
 
   if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true);

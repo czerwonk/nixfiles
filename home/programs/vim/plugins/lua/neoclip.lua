@@ -17,5 +17,4 @@ require('neoclip').setup {
   end
 }
 
-require('telescope').load_extension('neoclip')
-vim.keymap.set('n', '<leader>o', '<cmd>Telescope neoclip<cr>', { desc = 'Neoclip' })
+vim.keymap.set('n', '<leader>o', function() require('neoclip.fzf')() end, { desc = 'Neoclip' })

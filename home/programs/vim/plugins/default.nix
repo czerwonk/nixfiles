@@ -3,7 +3,6 @@
 {
   imports = [
     ./ui.nix
-    ./telescope.nix
     ./treesitter.nix
     ./cmp.nix
     ./dev.nix
@@ -25,6 +24,11 @@
         plugin = which-key-nvim;
         type = "lua";
         config = builtins.readFile ./lua/which-key.lua;
+      }
+      {
+        plugin = fzf-lua;
+        type = "lua";
+        config = builtins.readFile ./lua/fzf.lua;
       }
       {
         plugin = vim-tmux-navigator;

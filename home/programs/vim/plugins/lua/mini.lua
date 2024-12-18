@@ -46,8 +46,6 @@ vim.api.nvim_create_autocmd("FileType", {
     'markdown',
     'text',
     'terminal',
-    'TelescopePrompt',
-    'TelescopeResults',
   },
   callback = function()
     vim.b.miniindentscope_disable = true
