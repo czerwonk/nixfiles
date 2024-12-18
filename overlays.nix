@@ -11,6 +11,7 @@ let
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
+  blink-cmp-packages = inputs.blink-cmp.packages.${system};
 
 in {
   nixpkgs.config.permittedInsecurePackages = [
@@ -29,6 +30,7 @@ in {
       net-merge = net-merge-packages.net-merge;
       vimPlugins = super.vimPlugins // {
         gp-nvim = super.callPackage ./pkgs/gp-nvim {};
+        blink-cmp = blink-cmp-packages.blink-cmp;
       };
     })
     (self: super: {

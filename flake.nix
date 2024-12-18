@@ -52,6 +52,8 @@
     dns-drain.url = "github:czerwonk/dns-drain";
 
     net-merge.url = "github:czerwonk/net-merge";
+
+    blink-cmp.url = "github:Saghen/blink.cmp";
   };
 
   outputs = inputs:
