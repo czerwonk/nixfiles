@@ -47,17 +47,11 @@ require('blink.cmp').setup {
     menu = {
       border = borderStyle
     },
-    list = {
-      selection = 'manual';
-    },
     documentation = {
       auto_show = true,
       window = {
         border = borderStyle
       },
-    },
-    ghost_text = {
-      enabled = true,
     },
   },
   sources = {
