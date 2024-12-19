@@ -33,6 +33,7 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gr', fzf.lsp_references, 'References (LSP)')
   map('n', '<leader>ga', fzf.lsp_code_actions, 'References (LSP)')
   map('n', '<leader>gD', fzf.lsp_workspace_diagnostics, 'References (LSP)')
+  map('n', '<leader>gg', fzf.lsp_document_symbols, 'Symbols (LSP)')
 
   if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true);
@@ -43,9 +44,6 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
-    require("nvim-navbuddy").attach(client, bufnr)
-
-    map('n', '<leader>p', '<cmd>Navbuddy<CR>', 'Navbuddy (LSP)')
   end
 
   if client.server_capabilities.codeLensProvider then
