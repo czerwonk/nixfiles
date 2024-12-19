@@ -5,6 +5,7 @@
     packages = with pkgs; [
       cargo
       clippy
+      delve
       dotnet-sdk_8
       gh
       gnumake
