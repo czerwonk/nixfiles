@@ -1,11 +1,8 @@
-{ config, ... }:
-
 {
   imports = [
     ../common.nix
+    ../zfs
   ];
-
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   networking.firewall.enable = true;
   networking.nftables.enable = true;
