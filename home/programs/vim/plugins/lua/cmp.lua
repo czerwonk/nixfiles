@@ -47,6 +47,9 @@ require('blink.cmp').setup {
     menu = {
       border = borderStyle
     },
+    list = {
+      selection = 'manual';
+    },
     documentation = {
       auto_show = true,
       window = {
@@ -60,14 +63,6 @@ require('blink.cmp').setup {
   sources = {
     cmdline = {},
     default = { 'lsp', 'buffer', 'path', 'snippets' },
-    providers = {
-      buffer = {
-        min_keyword_length = 2,
-      },
-      path = {
-        min_keyword_length = 1,
-      },
-    }
   },
   fuzzy = {
     prebuilt_binaries = {
