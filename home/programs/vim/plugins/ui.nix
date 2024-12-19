@@ -12,11 +12,6 @@
         config = builtins.readFile ./lua/noice.lua;
       }
       {
-        plugin = dressing-nvim;
-        type = "lua";
-        config = "require('dressing').setup()";
-      }
-      {
         plugin = neo-tree-nvim;
         type = "lua";
         config = builtins.readFile ./lua/neo-tree.lua;
