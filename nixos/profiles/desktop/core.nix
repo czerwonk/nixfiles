@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   security.allowUserNamespaces = true;
@@ -10,4 +10,8 @@
   networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
 }

@@ -1,17 +1,11 @@
-{ pkgs, lib, config, extraHomeModules, ... }:
+{ extraHomeModules, ... }:
 
 {
   imports = [
     ../../../home/osx
-    ../../../home/programs/kitty
+    ../../../home/profiles/desktop/common.nix
     ../../../home/profiles/devops
   ] ++ extraHomeModules;
-
-  programs.zsh.shellAliases = {
-    ycode = "${lib.getExe pkgs.yubikey-manager} oath accounts code | ${lib.getExe config.programs.fzf.package}";
-  };
-
-  programs.tmux.mouse = true;
 
   programs.kitty = {
     settings = {
@@ -19,6 +13,4 @@
       background_opacity = "0.99";
     };
   };
-
-  services.gpg-agent.enable = true;
 }
