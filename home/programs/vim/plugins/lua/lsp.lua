@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>gd', fzf.lsp_definitions, 'Definitions (LSP)')
   map('n', '<leader>gt', fzf.lsp_typedefs, 'Type Definitions (LSP)')
   map('n', '<leader>gr', fzf.lsp_references, 'References (LSP)')
-  map('n', '<leader>ga', fzf.lsp_code_actions, 'References (LSP)')
+  map('n', '<leader>ga', fzf.lsp_code_actions, 'Code Actions (LSP)')
   map('n', '<leader>gD', fzf.lsp_workspace_diagnostics, 'References (LSP)')
   map('n', '<leader>gg', fzf.lsp_document_symbols, 'Symbols (LSP)')
 
