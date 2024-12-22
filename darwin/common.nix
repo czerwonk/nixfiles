@@ -46,12 +46,13 @@
         AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = false;
-        AppleShowAllFiles = true;
         AppleShowAllExtensions = true;
-        KeyRepeat = 2;
+        AppleShowAllFiles = true;
         InitialKeyRepeat = 15;
+        KeyRepeat = 2;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
+        NSWindowShouldDragOnGesture = true;
         "com.apple.swipescrolldirection" = false;
       };
 
