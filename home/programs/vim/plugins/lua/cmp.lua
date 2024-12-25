@@ -46,6 +46,7 @@ require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   appearance = {
     use_nvim_cmp_as_default = true,
+    nerd_font_variant = "mono",
     kind_icons = kind_icons
   },
   completion = {
@@ -61,7 +62,7 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    cmdline = {},
+    cmdline = {}, -- disable cmdline completion
     default = { 'lsp', 'buffer', 'path', 'snippets' },
   },
   fuzzy = {
