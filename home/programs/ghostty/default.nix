@@ -44,6 +44,16 @@ in {
         palette = 76=98BB6C
         palette = 234=1F1F28
 
+        keybind = alt+w=close_surface
+        keybind = alt+shift+l=new_split:right
+        keybind = alt+shift+k=new_split:up
+        keybind = alt+shift+j=new_split:down
+        keybind = alt+shift+h=new_split:left
+        keybind = alt+l=goto_split:right
+        keybind = alt+k=goto_split:top
+        keybind = alt+j=goto_split:bottom
+        keybind = alt+h=goto_split:left
+
         ${cfg.extraConfig}
       '';
     };
