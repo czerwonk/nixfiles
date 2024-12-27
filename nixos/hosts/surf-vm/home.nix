@@ -5,7 +5,7 @@
     ../../../home/profiles/core/minimal-packages.nix
     ../../../home/programs/bat
     ../../../home/programs/fzf
-    ../../../home/programs/kitty
+    ../../../home/programs/ghostty
     ../../../home/programs/zsh
   ] ++ extraHomeModules;
 

@@ -3,7 +3,6 @@
 {
   imports = [
     ../../programs/ghostty
-    ../../programs/kitty
   ];
 
   programs.zsh.shellAliases = {

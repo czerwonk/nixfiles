@@ -12,7 +12,6 @@
       copy_on_select = true;
       confirm_os_window_close = 0;
       font_size_delta = 1;
-      text_composition_strategy = "1.0 0";
       enable_audio_bell = false;
       hide_window_decorations = lib.mkDefault true;
       foreground = "#E1D9D1";

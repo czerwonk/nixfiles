@@ -118,7 +118,6 @@
       "calibre"
       "firefox"
       "google-chrome"
-      "kitty"
       "kobo"
       "nextcloud"
       "postbox"
