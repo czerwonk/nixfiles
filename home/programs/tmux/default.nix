@@ -4,17 +4,6 @@ with lib;
 
 let
   cfg = config.programs.tmux;
-  power-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "power";
-    rtpFilePath = "tmux-power.tmux";
-    version = "unstable-2023-11-27";
-    src = pkgs.fetchFromGitHub {
-      owner = "wfxr";
-      repo = "tmux-power";
-      rev = "1d73c304573b3ae369567d2ef635f0e1c3de7ecc";
-      hash = "sha256-HOUnLm2GSvJkCxK9ofM5p2I9xpF6Se44/8a/bkwrnmw=";
-    };
-  };
 
 in {
   options = {
@@ -51,6 +40,7 @@ in {
       extraConfig = ''
         set -g renumber-windows on
         set-option -g allow-rename off
+        set-option -g automatic-rename off
 
         bind C-l send-keys 'C-l'
         bind-key -n M-S-Left swap-window -d -t -1
@@ -62,10 +52,23 @@ in {
         set-option -g pane-border-style 'fg=colour242,bg=colour234'
         set-option -g pane-active-border-style 'fg=colour242,bg=colour234'
 
+        set -g bell-action none
+        set -g monitor-activity on
+        set -g monitor-bell on
+        set -g visual-activity off
+        set -g visual-bell on
+        set -g visual-silence off
+
+        bind m {
+          set -w monitor-bell
+          set -w monitor-activity
+          display 'window mute #{?#{monitor-bell},off,on}'
+        }
+
         ${optionalString (cfg.theme.enable) ''
           set -g @tmux_power_time_format '%H:%M'
           set -g @tmux_power_theme '#C0A36E'
-          run-shell ${power-theme}/share/tmux-plugins/power/tmux-power.tmux
+          run-shell ${pkgs.tmuxPlugins.power-theme}/share/tmux-plugins/power/tmux-power.tmux
         ''}
       '';
     };
