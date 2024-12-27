@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
 
@@ -41,7 +41,7 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
-    impermanence.url = "github:nix-community/impermanence?ref=23c1f06316b67cb5dabdfe2973da3785cfe9c34a";
+    impermanence.url = "github:nix-community/impermanence?ref=d000479f4f41390ff7cf9204979660ad5dd16176";
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
@@ -53,9 +53,9 @@
 
     net-merge.url = "github:czerwonk/net-merge";
 
-    blink-cmp.url = "github:Saghen/blink.cmp";
+    blink-cmp.url = "github:Saghen/blink.cmp?ref=5f442681df24fe705d1ee7ce5b4d435aa4b4dee4";
 
-    ghostty.url = "github:ghostty-org/ghostty";
+    ghostty.url = "github:ghostty-org/ghostty?ref=4b4d4062dfed7b37424c7210d1230242c709e990";
   };
 
   outputs = inputs:
