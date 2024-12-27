@@ -40,6 +40,7 @@ in {
       ansible = super.ansible.override { windowsSupport = true; };
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
+      oh-my-posh = pkgs-unstable.oh-my-posh;
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
