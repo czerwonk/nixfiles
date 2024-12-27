@@ -12,6 +12,7 @@ let
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
   blink-cmp-packages = inputs.blink-cmp.packages.${system};
+  ghostty-packages = inputs.ghostty.packages.${system};
 
 in {
   nixpkgs.config.permittedInsecurePackages = [
@@ -27,6 +28,7 @@ in {
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       ethr = super.callPackage ./pkgs/ethr {};
+      ghostty = ghostty-packages.default;
       net-merge = net-merge-packages.net-merge;
       vimPlugins = super.vimPlugins // {
         gp-nvim = super.callPackage ./pkgs/gp-nvim {};

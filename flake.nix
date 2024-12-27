@@ -54,6 +54,8 @@
     net-merge.url = "github:czerwonk/net-merge";
 
     blink-cmp.url = "github:Saghen/blink.cmp";
+
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
   outputs = inputs:

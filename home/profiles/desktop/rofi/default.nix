@@ -8,7 +8,7 @@
       rofi-calc
       rofi-emoji
     ];
-    terminal = lib.getExe pkgs.kitty;
+    terminal = lib.getExe pkgs.ghostty;
     font = "JetBrains Mono";
     theme = ./theme.rasi;
     extraConfig = {

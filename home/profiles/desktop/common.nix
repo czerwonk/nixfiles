@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../programs/ghostty
     ../../programs/kitty
   ];
 

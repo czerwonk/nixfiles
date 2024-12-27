@@ -52,7 +52,7 @@
       exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
       exec-once = ${lib.getExe pkgs.hyprpaper}
       exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
-      exec-once = [workspace 2] ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.tmux} a
+      exec-once = [workspace 2] ${lib.getExe pkgs.ghostty} ${lib.getExe pkgs.tmux} a
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/firefox
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
       exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
@@ -66,7 +66,7 @@
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, S, exec, hypr-screenshot
-      bind = $mainMod, T, exec, ${lib.getExe pkgs.kitty}
+      bind = $mainMod, T, exec, ${lib.getExe pkgs.ghostty}
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, killactive,
       bind = $mainMod, SPACE, exec, rofi -show drun

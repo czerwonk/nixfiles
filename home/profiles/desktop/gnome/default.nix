@@ -13,7 +13,7 @@ with lib.gvariant;
       disable-user-extensions = false;
       disabled-extensions = "disabled";
       favorite-apps = [
-        "kitty.desktop"
+        "ghostty.desktop"
         "firefox.desktop"
         "thunderbird.desktop"
       ];
@@ -47,7 +47,7 @@ with lib.gvariant;
     };
 
     "org/gnome/desktop/default/applications/terminal" = {
-      exec = "${lib.getExe pkgs.kitty}";
+      exec = "${lib.getExe pkgs.ghostty}";
     };
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "caps:escape" ];
@@ -97,7 +97,7 @@ with lib.gvariant;
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>t";
-      command = "${lib.getExe pkgs.kitty}";
+      command = "${lib.getExe pkgs.ghostty}";
       name = "Open Terminal";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
@@ -115,6 +115,7 @@ with lib.gvariant;
     };
     "org/gnome/shell/extensions/auto-move-windows" = {
       application-list = [
+        "ghostty.desktop:1"
         "kitty.desktop:1"
         "firefox.desktop:2"
         "thunderbird.desktop:3"

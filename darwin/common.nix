@@ -110,6 +110,7 @@
       upgrade = true;
     };
     brews = [
+      "ghostty"
       "wireshark"
     ];
     casks = [
