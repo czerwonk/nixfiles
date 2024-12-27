@@ -8,6 +8,11 @@ let
 in {
   options = {
     my.programs.ghostty = {
+      package = mkOption {
+        type = types.nullOr types.package;
+        default = pkgs.ghostty;
+      };
+
       extraConfig = mkOption {
         type = types.str;
         default = "";
@@ -18,7 +23,7 @@ in {
   config = {
     home = {
       packages = with pkgs; [
-        ghostty
+        (mkIf (cfg.package != null) cfg.package)
         jetbrains-mono
       ];
       file.".config/ghostty/config".text = ''

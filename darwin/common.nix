@@ -110,13 +110,13 @@
       upgrade = true;
     };
     brews = [
-      "ghostty"
       "wireshark"
     ];
     casks = [
       "android-studio"
       "calibre"
       "firefox"
+      "ghostty"
       "google-chrome"
       "kobo"
       "nextcloud"
