@@ -50,8 +50,13 @@ require('blink.cmp').setup {
     kind_icons = kind_icons
   },
   completion = {
+    list = {
+      selection = function(ctx)
+        return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
+      end
+    },
     menu = {
-      border = borderStyle
+      border = borderStyle,
     },
     documentation = {
       auto_show = true,
@@ -62,7 +67,6 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    cmdline = {}, -- disable cmdline completion
     default = { 'lsp', 'buffer', 'path', 'snippets' },
   },
   fuzzy = {
