@@ -1,5 +1,4 @@
 font-family = JetBrains Mono
-font-size = 14
 confirm-close-surface = false
 shell-integration = zsh
 window-decoration = false
