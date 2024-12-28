@@ -10,7 +10,7 @@
     ../../profiles/pentest
     ../../profiles/virtualisation
     ../../tpm.nix
-    ../../zfs
+    ../../zfs/desktop.nix
     ./egpu.nix
   ];
 
