@@ -1,7 +1,7 @@
 {
   imports = [
     ../common.nix
-    ../zfs
+    ../zfs/desktop.nix
   ];
 
   boot.zfs.forceImportRoot = false;
