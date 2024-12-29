@@ -45,7 +45,14 @@ with lib.gvariant;
       maximize = mkEmptyArray type.string;
       unmaximize = mkEmptyArray type.string;
     };
-
+    "org/gnome/desktop/interface" = {
+      clock-show-weekday = true;
+      show-battery-percentage = true;
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      natural-scroll = false;
+      two-finger-scrolling-enabled = true;
+    };
     "org/gnome/desktop/default/applications/terminal" = {
       exec = "${lib.getExe pkgs.ghostty}";
     };
@@ -54,6 +61,11 @@ with lib.gvariant;
     };
     "org/gnome/desktop/session" = {
       idle-delay = mkInt32 300;
+    };
+    "org/gnome/mutter" = {
+      dynamic-workspaces = false;
+      workspaces-only-on-primary = true;
+      attach-modal-dialogs = true;
     };
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 10;
@@ -126,6 +138,9 @@ with lib.gvariant;
     "org/gnome/shell/extensions/just-perfection" = {
       notification-banner-position = 2;
       workspace-wrap-around = true;
+    };
+    "org/gnome/nautilus/preferences" = {
+      show-delete-permanently = true;
     };
   };
 
