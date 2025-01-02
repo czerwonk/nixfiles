@@ -84,6 +84,7 @@ in {
           "--mount=type=tmpfs,destination=/var/run/supervisord,rw=true"
           "--mount=type=tmpfs,destination=/usr/local/apache2/logs,rw=true"
           "--mount=type=tmpfs,destination=/home/www-data,rw=true"
+          "--no-healthcheck"
         ];
 
         environment = {
