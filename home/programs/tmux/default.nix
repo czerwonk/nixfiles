@@ -33,8 +33,6 @@ in {
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [
         tmux-fzf
-        yank
-        logging
         vim-tmux-navigator
       ];
       extraConfig = ''
@@ -45,6 +43,8 @@ in {
         bind C-l send-keys 'C-l'
         bind-key -n M-S-Left swap-window -d -t -1
         bind-key -n M-S-Right swap-window -d -t +1
+
+        set -s set-clipboard external
 
         set-option -g status-position ${cfg.position}
         set-option -g window-style 'fg=default,bg=colour234'
