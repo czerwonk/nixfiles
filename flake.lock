@@ -311,11 +311,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1736253736,
-        "narHash": "sha256-k8uJg82l9cOBknexU5x6XtYaHUVAf8QFqBgtY3KPqjs=",
+        "lastModified": 1736320757,
+        "narHash": "sha256-aUrO7oGZfjOo9i46sIhnoh3ZVpDl5+JX3JZ0Qapdsj4=",
         "owner": "czerwonk",
         "repo": "net-merge",
-        "rev": "db82685c860fb61b814f9131a8a5e1d8415f1efb",
+        "rev": "12b35af9447939883bdc5ef8c50f34b29f44897d",
         "type": "github"
       },
       "original": {
