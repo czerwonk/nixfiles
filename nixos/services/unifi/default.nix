@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.unifi;
-  version = "8.2.93";
+  version = "8.6.9";
   mongoInitJS = pkgs.writeText "init-mongo.js" ''
     db.getSiblingDB("unifi").createUser({user: "unifi", pwd: "${cfg.databasePassword}", roles: [{role: "dbOwner", db: "unifi"}]});
     db.getSiblingDB("unifi_stat").createUser({user: "unifi", pwd: "${cfg.databasePassword}", roles: [{role: "dbOwner", db: "unifi_stat"}]});
