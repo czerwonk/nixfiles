@@ -79,7 +79,7 @@
           username = inputs.private.mauve.username {};
           extraModules = [ 
             ./home/profiles/server
-            ./home/profiles/devops/dev.nix
+            ./home/profiles/devops
             inputs.private.home
             inputs.private.mauve.home
             {
