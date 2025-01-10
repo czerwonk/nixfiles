@@ -12,6 +12,7 @@
       ansible-role
       dns-drain
       google-cloud-sdk
+      grype
       hey
       inspec
       lynis
@@ -19,6 +20,7 @@
       net-merge
       opentofu
       redis
+      syft
       termshark
       terrascan
       trurl
