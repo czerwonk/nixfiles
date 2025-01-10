@@ -113,6 +113,7 @@
       "wireshark"
     ];
     casks = [
+      "adobe-digital-editions"
       "android-studio"
       "calibre"
       "firefox"
