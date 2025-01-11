@@ -127,10 +127,6 @@
       cleanup = "zap";
       upgrade = true;
     };
-    global = {
-      autoUpdate = true;
-      brewfile = true;
-    };
     brews = [
       "wireshark"
     ];
