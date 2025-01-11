@@ -38,8 +38,8 @@
 
       trackpad = {
         Clicking = true;
-        Dragging = true;
         TrackpadRightClick = true;
+        TrackpadThreeFingerDrag = true;
       };
 
       NSGlobalDomain = {
@@ -54,6 +54,23 @@
         NSAutomaticSpellingCorrectionEnabled = false;
         NSWindowShouldDragOnGesture = true;
         "com.apple.swipescrolldirection" = false;
+        "com.apple.mouse.tapBehavior" = 1;
+      };
+
+      CustomUserPreferences = {
+        "com.apple.finder" = {
+          ShowExternalHardDrivesOnDesktop = false;
+          ShowHardDrivesOnDesktop = false;
+          ShowMountedServersOnDesktop = false;
+          ShowRemovableMediaOnDesktop = false;
+        };
+
+        "com.apple.desktopservices" = {
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+
+        "com.apple.TimeMachine".DoNotOfferNewDisksForBackup = true;
       };
 
       dock = {
@@ -133,12 +150,6 @@
       Wireguard = 1451685025;
       Xcode = 497799835;
     };
-  };
-
-  nix-homebrew = {
-    enable = true;
-    autoMigrate = true;
-    user = username;
   };
 
   environment.extraInit = let

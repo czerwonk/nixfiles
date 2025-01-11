@@ -71,7 +71,6 @@
     inputs.darwin.lib.darwinSystem {
       inherit system;
       modules = [
-        inputs.nix-homebrew.darwinModules.nix-homebrew
         ../overlays.nix
         ../darwin/hosts/${configName}/configuration.nix
         inputs.home-manager-darwin.darwinModules.home-manager {
