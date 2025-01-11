@@ -17,7 +17,7 @@
       };
     };
 
-  mkLinuxHMUser = {username, extraModules}:
+  mkLinuxHMUser = { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         ../overlays.nix

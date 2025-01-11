@@ -106,6 +106,7 @@
   homebrew = {
     enable = true;
     onActivation = {
+      autoUpdate = true;
       cleanup = "zap";
       upgrade = true;
     };
@@ -132,6 +133,12 @@
       Wireguard = 1451685025;
       Xcode = 497799835;
     };
+  };
+
+  nix-homebrew = {
+    enable = true;
+    autoMigrate = true;
+    user = username;
   };
 
   environment.extraInit = let

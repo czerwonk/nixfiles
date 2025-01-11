@@ -30,6 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
     crowdsec = {
       url = "github:czerwonk/nix-flake-crowdsec";
       inputs.nixpkgs.follows = "nixpkgs";
