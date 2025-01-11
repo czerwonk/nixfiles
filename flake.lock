@@ -34,8 +34,8 @@
       },
       "original": {
         "owner": "Saghen",
+        "ref": "e3b7cb4a1094377c3093a021300de123d9fc60d3",
         "repo": "blink.cmp",
-        "rev": "e3b7cb4a1094377c3093a021300de123d9fc60d3",
         "type": "github"
       }
     },
@@ -222,8 +222,8 @@
       },
       "original": {
         "owner": "ghostty-org",
+        "ref": "3f7c3afaf947280bd2852626ff4599c02d9fb07e",
         "repo": "ghostty",
-        "rev": "3f7c3afaf947280bd2852626ff4599c02d9fb07e",
         "type": "github"
       }
     },
@@ -301,8 +301,8 @@
       },
       "original": {
         "owner": "nix-community",
+        "ref": "d000479f4f41390ff7cf9204979660ad5dd16176",
         "repo": "impermanence",
-        "rev": "d000479f4f41390ff7cf9204979660ad5dd16176",
         "type": "github"
       }
     },
