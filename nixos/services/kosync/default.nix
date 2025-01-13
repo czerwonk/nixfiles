@@ -38,7 +38,11 @@ in {
     services.caddy.virtualHosts."kosync.routing.rocks".extraConfig = ''
       import private
 
-      reverse_proxy * 127.0.0.1:7200
+      reverse_proxy * 127.0.0.1:7200 {
+        transport http {
+          tls_insecure_skip_verify
+        }
+      }
     '';
 
     services.restic.backups.kosync = {
