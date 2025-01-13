@@ -27,13 +27,19 @@ in {
           TZ = "Europe/Berlin";
         };
 
-        ports = [ "7200:7200" ];
+        ports = [ "127.0.0.1:7200:7200" ];
 
         volumes = [
           "kosync-redis-data:/var/lib/redis"
         ];
       };
     };
+
+    services.caddy.virtualHosts."kosync.routing.rocks".extraConfig = ''
+      import private
+
+      reverse_proxy * 127.0.0.1:7200
+    '';
 
     services.restic.backups.kosync = {
       initialize = true;
