@@ -9,6 +9,7 @@
     ./immich
     ./jellyfin
     ./k3s
+    ./kosync
     ./mastodon
     ./matrix
     ./monitoring

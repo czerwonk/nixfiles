@@ -37,6 +37,7 @@
   my.services.freshrss.enable = true;
   my.services.immich.enable = true;
   my.services.jellyfin.enable = true;
+  my.services.kosync.enable = true;
   my.services.monitoring.enable = true;
   my.services.nextcloud.enable = true;
   my.services.ntfy.enable = true;
