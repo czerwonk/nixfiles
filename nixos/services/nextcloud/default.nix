@@ -171,8 +171,8 @@ in {
           PHP_MAX_TIME = "3600";
           ADDITIONAL_APKS = "imagemagick";
           ADDITIONAL_PHP_EXTENSIONS = "imagick";
+          APACHE_HOST = "nextcloud-aio-apache";
           APACHE_PORT = "11000";
-          APACHE_IP_BINDING = "127.0.0.1";
         };
 
         volumes = [
