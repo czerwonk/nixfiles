@@ -26,11 +26,6 @@ in {
         type = types.str;
         description = "Password for the admin account";
       };
-
-      fulltextsearchPassword = mkOption {
-        type = types.str;
-        description = "Password for the full text search";
-      };
     };
   };
 
