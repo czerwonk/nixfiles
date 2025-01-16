@@ -70,7 +70,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    systemd.services.podman-create-mastodon-pod = {
+    systemd.services.podman-create-mastodon-net = {
       serviceConfig = {
         Type = "oneshot";
 
