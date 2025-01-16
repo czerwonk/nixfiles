@@ -60,9 +60,6 @@ in {
         "podman-nextcloud-aio-nextcloud.service"
         "podman-nextcloud-aio-notify-push.service"
         "podman-nextcloud-aio-redis.service"
-        "podman-nextcloud-aio-clamav.service"
-        "podman-nextcloud-aio-imaginary.service"
-        "podman-nextcloud-aio-fulltextsearch.service"
       ];
       path = [ pkgs.podman ];
       script = ''
