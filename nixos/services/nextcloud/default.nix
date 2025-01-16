@@ -144,6 +144,7 @@ in {
 
         environment = {
           TZ = "${timezone}";
+          NEXTCLOUD_HOST = "nextcloud-aio-nextcloud";
           NEXTCLOUD_DATA_DIR = "/mnt/ncdata";
           POSTGRES_HOST = "nextcloud-aio-database";
           POSTGRES_PASSWORD = "${cfg.databasePassword}";
