@@ -85,6 +85,7 @@ in {
           "--mount=type=tmpfs,destination=/usr/local/apache2/logs,rw=true"
           "--mount=type=tmpfs,destination=/home/www-data,rw=true"
           "--no-healthcheck"
+          "--user=33"
         ];
 
         environment = {
@@ -116,6 +117,7 @@ in {
           "--read-only"
           "--shm-size=268435456"
           "--mount=type=tmpfs,destination=/var/run/postgresql,rw=true"
+          "--user=999"
         ];
 
         environment = {
@@ -137,7 +139,6 @@ in {
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=nextcloud"
         ];
 
@@ -155,23 +156,20 @@ in {
           ADMIN_PASSWORD = "${cfg.nextcloudPassword}";
           OVERWRITEHOST = "${nextcloudDomain}";
           OVERWRITEPROTOCOL = "https";
-          CLAMAV_ENABLED = "yes";
-          CLAMAV_HOST = "nextcloud-aio-clamav";
-          ONLYOFFICE_ENABLED = "no";
           COLLABORA_ENABLED = "no";
+          UPDATE_NEXTCLOUD_APPS = "yes";
+          REMOVE_DISABLED_APPS = "yes";
+          IMAGINARY_ENABLED = "no";
           TALK_ENABLED = "no";
-          UPDATE_NEXTCLOUD_APPS = "no";
-          IMAGINARY_ENABLED = "yes";
-          IMAGINARY_HOST = "nextcloud-aio-imaginary";
+          FULLTEXTSEARCH_ENABLED = "no";
+          ONLYOFFICE_ENABLED = "no";
+          WHITEBOARD_ENABLED = "no";
+          CLAMAV_ENABLED = "no";
           PHP_UPLOAD_LIMIT = "10G";
           PHP_MEMORY_LIMIT = "512M";
-          FULLTEXTSEARCH_ENABLED = "yes";
-          FULLTEXTSEARCH_HOST = "nextcloud-aio-fulltextsearch";
           PHP_MAX_TIME = "3600";
           ADDITIONAL_APKS = "imagemagick";
           ADDITIONAL_PHP_EXTENSIONS = "imagick";
-          FULLTEXTSEARCH_PASSWORD = "${cfg.fulltextsearchPassword}";
-          REMOVE_DISABLED_APPS = "yes";
           APACHE_PORT = "11000";
           APACHE_IP_BINDING = "127.0.0.1";
         };
@@ -194,6 +192,7 @@ in {
         extraOptions = [
           "--network=nextcloud"
           "--read-only"
+          "--user=999"
         ];
 
         environment = {
@@ -206,28 +205,6 @@ in {
         ];
       };
 
-      nextcloud-aio-clamav = {
-        image = "nextcloud/aio-clamav";
-
-        autoStart = true;
-        extraOptions = [
-          "--network=nextcloud"
-          "--read-only"
-          "--read-only-tmpfs"
-          "--mount=type=tmpfs,destination=/var/lock,rw=true"
-          "--mount=type=tmpfs,destination=/var/log/clamav,rw=true"
-        ];
-
-        environment = {
-          TZ = "${timezone}";
-          CLAMD_STARTUP_TIMEOUT = "90";
-        };
-
-        volumes = [
-          "nextcloud_aio_clamav:/var/lib/clamav:rw"
-        ];
-      };
-
       nextcloud-aio-notify-push = {
         image = "nextcloud/aio-notify-push";
 
@@ -235,6 +212,7 @@ in {
         extraOptions = [
           "--network=nextcloud"
           "--read-only"
+          "--user=33"
         ];
 
         environment = {
@@ -250,48 +228,6 @@ in {
 
         volumes = [
           "nextcloud_aio_nextcloud:/nextcloud:ro"
-        ];
-      };
-
-      nextcloud-aio-imaginary = {
-        image = "nextcloud/aio-imaginary";
-
-        autoStart = true;
-        extraOptions = [
-          "--network=nextcloud"
-          "--read-only"
-          "--read-only-tmpfs"
-          "--cap-add=SYS_NICE"
-        ];
-
-        environment = {
-          TZ = "${timezone}";
-        };
-      };
-
-      nextcloud-aio-fulltextsearch = {
-        image = "nextcloud/aio-fulltextsearch";
-
-        autoStart = true;
-        extraOptions = [
-          "--network=nextcloud"
-        ];
-
-        environment = {
-          TZ = "${timezone}";
-          FULLTEXTSEARCH_PASSWORD = "${cfg.fulltextsearchPassword}";
-          ES_JAVA_OPTS = "-Xms512M -Xmx512M";
-          "bootstrap.memory_lock" = "true";
-          "cluster.name" = "nextcloud-aio";
-          "discovery.type" = "single-node";
-          "logger.org.elasticsearch.discovery" = "WARN";
-          "http.port" = "9200";
-          "xpack.license.self_generated.type" = "basic";
-          "xpack.security.enabled" = "false";
-        };
-
-        volumes = [
-          "nextcloud_aio_elasticsearch:/usr/share/elasticsearch/data:rw"
         ];
       };
     };
