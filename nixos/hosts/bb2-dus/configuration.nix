@@ -11,6 +11,7 @@ in {
     ../../profiles/server
     ../../profiles/container
     ../../profiles/routing
+    ../../profiles/webserver
   ];
 
   boot.loader.systemd-boot.enable = true;
