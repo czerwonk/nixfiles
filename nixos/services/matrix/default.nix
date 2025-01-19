@@ -83,7 +83,7 @@ in {
       };
 
       matrix-db = {
-        image = "postgres:16";
+        image = "postgres:16-alpine";
 
         autoStart = true;
         extraOptions = [
