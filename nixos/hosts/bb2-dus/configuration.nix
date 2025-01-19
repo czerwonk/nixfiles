@@ -22,8 +22,11 @@ in {
     domain = "dus.routing.rocks";
   };
 
-  my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
   my.services.ripe-atlas.enable = true;
+  my.services.matrix.enable = true;
+  my.services.mastodon.enable = true;
+
+  my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 
   profiles.container.disableFirewall = true;
 }
