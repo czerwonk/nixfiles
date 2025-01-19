@@ -27,6 +27,4 @@ in {
   my.services.mastodon.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
-
-  profiles.container.disableFirewall = true;
 }
