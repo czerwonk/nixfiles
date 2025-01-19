@@ -27,7 +27,7 @@ in {
           job_name = "node";
           static_configs = [{
             targets = [ 
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+              #"bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
               "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
@@ -48,7 +48,7 @@ in {
           job_name = "bird";
           static_configs = [{
             targets = [
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+              #"bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
               "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
             ];
@@ -67,7 +67,7 @@ in {
           job_name = "zfs";
           static_configs = [{
             targets = [
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              #"bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
               "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
@@ -88,7 +88,7 @@ in {
           job_name = "crowdsec";
           static_configs = [{
             targets = [ 
-              "bb1.dus.routing.rocks:6060"
+              #"bb1.dus.routing.rocks:6060"
               "bb2.dus.routing.rocks:6060"
               "127.0.0.1:6060"
             ];
