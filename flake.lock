@@ -335,11 +335,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737250613,
-        "narHash": "sha256-0QcnnQZ/il9UPVmhJtDqjPDCCcW5vTCz7QaLu+rlrRQ=",
+        "lastModified": 1737360510,
+        "narHash": "sha256-uiTiklpgmxZ7BJlQOvqULU9oCOkk9glmSDGSIkerPcc=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "6ec08f11bbf0e936ad82f1bb532f3757f8b5e3c2",
+        "rev": "cfc19b6d0a0940e600b995827366092405f2bf73",
         "type": "github"
       },
       "original": {
@@ -350,11 +350,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1737306472,
-        "narHash": "sha256-+X9KAryvDsIE7lQ0FdfiD1u33nOVgsgufedqspf77N4=",
+        "lastModified": 1737359802,
+        "narHash": "sha256-utplyRM6pqnN940gfaLFBb9oUCSzkan86IvmkhsVlN8=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "cb3173dc5c746fa95bca1f035a7e4d2b588894ac",
+        "rev": "61c79181e77ef774ab0468b28a24bc2647d498d6",
         "type": "github"
       },
       "original": {
@@ -487,8 +487,8 @@
     "nixpkgs_4": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-s40Kk/OulP3J/1JvC3VT16U4r/Xw6Qdi7SRw3LYkPWs=",
-        "path": "/nix/store/n67nldl8x3f44w9mvk5zvij0q1rwnsmq-source",
+        "narHash": "sha256-Qw2PwmkXDK8sPQ5YQ/y/icbQ+TYgbxfjhgnkNJyT1X8=",
+        "path": "/nix/store/sbnwhhx7zjp45n53bkmnj4whg79aw8pq-source",
         "type": "path"
       },
       "original": {
@@ -514,11 +514,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1737283928,
-        "narHash": "sha256-JMalkERlvJ0qPfwPYpkKNJIIQE1PxVFgFLiY3TaiFmc=",
+        "lastModified": 1737363376,
+        "narHash": "sha256-QEf6zdYcntFCmbPb8IivVNxt/uJDgF6vTbisEBw8/pQ=",
         "ref": "refs/heads/main",
-        "rev": "8f17c5b358bc023466b9fd1360e18815f790279f",
-        "revCount": 365,
+        "rev": "2fc1a1c461ee9203b234f6f8f23df78961c85c40",
+        "revCount": 367,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
