@@ -3,7 +3,7 @@ zshaddhistory() {
 
   whence ${${(z)1}[1]} >/dev/null || return 2
 
-  if ! [[ "$1" =~ "(^( |git commit |cd |# ))" ]] ; then
+  if ! [[ "$1" =~ "(^( |git commit |git c |cd |# ))" ]] ; then
     print -sr -- "${1%%$'\n'}"
     fc -p
   else
