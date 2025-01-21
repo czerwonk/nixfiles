@@ -1,6 +1,10 @@
 { pkgs, lib, ... }:
 
 {
+  imports = [
+    ./sanoid.nix
+  ];
+
   boot.supportedFilesystems = [ "zfs" ];
 
   boot.initrd.kernelModules = [ "zfs" ];

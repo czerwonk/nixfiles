@@ -23,8 +23,6 @@ in {
     domain = "dus.routing.rocks";
   };
 
-  profiles.container.disableFirewall = true;
-
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
 
