@@ -9,7 +9,7 @@ let
     has_error=0
 
     sync() {
-      syncoid --no-privilege-elevation --delete-target-snapshots --sendoptions="w" --sshport=2222 $1 $2
+      syncoid --no-privilege-elevation --no-sync-snap --delete-target-snapshots --sendoptions="w" --sshport=2222 $1 $2
     }
 
     ${lib.flip lib.concatMapStrings config.my.zfs-replication.targets (target: ''
