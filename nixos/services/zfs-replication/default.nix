@@ -9,6 +9,7 @@ let
     has_error=0
 
     sync() {
+      echo "Replicate from $1"
       syncoid --no-privilege-elevation --no-sync-snap --delete-target-snapshots --sendoptions="w" --sshport=2222 $1 $2
     }
 
