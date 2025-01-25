@@ -10,9 +10,10 @@
       eza
       fd
       hexyl
-      inetutils
+      iputils
       jq
       meslo-lgs-nf
+      nettools
       openssl
       p7zip
       perlPackages.JSONPP
