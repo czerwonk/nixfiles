@@ -23,6 +23,7 @@
       sshpass
       watch
       wget
+      whois
       yamlfmt
       yq
     ];
