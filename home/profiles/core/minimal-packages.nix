@@ -8,6 +8,7 @@
       dejavu_fonts
       du-dust
       eza
+      expect
       fd
       hexyl
       iputils
