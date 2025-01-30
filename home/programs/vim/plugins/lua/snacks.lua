@@ -7,6 +7,13 @@ require('snacks').setup {
     style = 'fancy',
   },
   words = { enabled = true },
+  terminal = {
+    win = {
+      wo = {
+        winbar = ''
+      }
+    }
+  }
 }
 vim.notify = notify
 
