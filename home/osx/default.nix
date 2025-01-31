@@ -5,7 +5,7 @@
     ./../default.nix
     ./../profiles/desktop/common.nix
   ];
-  
+
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
