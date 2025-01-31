@@ -18,13 +18,13 @@
       lynis
       mysql-shell
       net-merge
+      openbao
       opentofu
       redis
       syft
       termshark
       terrascan
       trurl
-      vault
     ];
   };
 }
