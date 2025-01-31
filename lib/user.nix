@@ -9,7 +9,9 @@
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {
         system = "x86_64-darwin";
-        config = { allowUnfreePredicate = pkg: true;};
+        config = {
+          allowUnfree = true;
+        };
       };
       extraSpecialArgs = {
         inherit username inputs;
@@ -25,7 +27,9 @@
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {
         system = "x86_64-linux";
-        config = { allowUnfreePredicate = pkg: true;};
+        config = {
+          allowUnfree = true;
+        };
       };
       extraSpecialArgs = {
         inherit username inputs;
