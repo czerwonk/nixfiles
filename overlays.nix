@@ -38,7 +38,6 @@ in {
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       oh-my-posh = pkgs-unstable.oh-my-posh;
-      openbao = pkgs-unstable.openbao;
       termius = pkgs-unstable.termius;
     })
     (self: super: {
