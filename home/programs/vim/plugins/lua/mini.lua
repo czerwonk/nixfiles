@@ -36,8 +36,6 @@ mini_indentscope.setup {
 }
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
-    'NvimTree',
-    'Trouble',
     'lspinfo',
     'checkhealth',
     'help',

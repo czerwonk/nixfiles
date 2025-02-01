@@ -47,11 +47,6 @@
         config = builtins.readFile ./lua/coverage.lua;
       }
       {
-        plugin = trouble-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/trouble.lua;
-      }
-      {
         plugin = omnisharp-extended-lsp-nvim;
       }
       {

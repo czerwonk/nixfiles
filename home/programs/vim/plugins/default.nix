@@ -26,19 +26,9 @@
         config = builtins.readFile ./lua/which-key.lua;
       }
       {
-        plugin = fzf-lua;
-        type = "lua";
-        config = builtins.readFile ./lua/fzf.lua;
-      }
-      {
         plugin = vim-tmux-navigator;
         type = "lua";
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
-      }
-      {
-        plugin = nvim-neoclip-lua;
-        type = "lua";
-        config = builtins.readFile ./lua/neoclip.lua;
       }
       {
         plugin = vim-fugitive;
