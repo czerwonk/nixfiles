@@ -12,4 +12,12 @@
   programs.tmux.mouse = true;
 
   services.gpg-agent.enable = true;
+
+  services.cliphist = {
+    enable = true;
+    extraOptions = [
+      "-max-items"
+      "10"
+    ];
+  };
 }
