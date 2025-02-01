@@ -30,4 +30,4 @@ vim.keymap.set('n', '<C-n>', function() Snacks.explorer() end, { desc = 'Toggle 
 vim.keymap.set('n', '<leader>u', function() Snacks.picker.undo() end, { desc = 'Undo Picker' })
 vim.keymap.set('n', '<leader>i', function() Snacks.picker.icons() end, { desc = 'Icon Picker' })
 vim.keymap.set('n', '<leader>i', function() Snacks.picker.icons() end, { desc = 'Icon Picker' })
-vim.keymap.set('n', '<leader>ft', function() Snacks.picker.todo_comments() end, { desc = 'Todo Comments' })
+vim.keymap.set('n', '<leader>ft', function() Snacks.picker.todo_comments() end, { desc = 'TODO Comments' })
