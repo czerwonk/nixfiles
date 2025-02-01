@@ -12,11 +12,6 @@
         config = builtins.readFile ./lua/noice.lua;
       }
       {
-        plugin = neo-tree-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/neo-tree.lua;
-      }
-      {
         plugin = rainbow-delimiters-nvim;
       }
       {

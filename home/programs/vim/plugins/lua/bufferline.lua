@@ -18,13 +18,5 @@ require("bufferline").setup{
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
     end,
-    offsets = {
-      {
-        filetype = "neo-tree",
-        text = "EXPLORER",
-        highlight = "Directory",
-        text_align = "center",
-      },
-    },
   },
 }
