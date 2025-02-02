@@ -32,6 +32,7 @@ in {
         confirm-close-surface = false
         shell-integration = zsh
         window-decoration = false
+        gtk-titlebar = false
 
         foreground = E1D9D1
         background = 1F1F28
