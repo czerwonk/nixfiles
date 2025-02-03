@@ -67,7 +67,6 @@
     nil
     nodejs
     pyright
-    rust-analyzer
     solargraph
     sumneko-lua-language-server
     terraform-ls
