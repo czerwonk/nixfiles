@@ -2,7 +2,8 @@
 
 pkgs.mkShell {
   packages = with pkgs; [
-    php
+    php84
+    php84Packages.composer
     phpactor
   ];
 }
