@@ -66,7 +66,6 @@
     marksman
     nil
     nodejs
-    omnisharp-roslyn
     pyright
     rust-analyzer
     solargraph

@@ -219,6 +219,7 @@
 
       devShells.${system} = {
         debug = import ./shell/debug/shell.nix { inherit pkgs; };
+        dotnet = import ./shell/dotnet/shell.nix { inherit pkgs; };
         gstreamer = import ./shell/gstreamer/shell.nix { inherit pkgs; };
         javafx = import ./shell/javafx/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
@@ -226,6 +227,7 @@
         pentest = import ./shell/pentest/shell.nix { inherit pkgs; };
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
         php = import ./shell/php/shell.nix { inherit pkgs; };
+        rust = import ./shell/rust/shell.nix { inherit pkgs; };
       };
     };
 }
