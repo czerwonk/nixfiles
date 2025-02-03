@@ -225,7 +225,7 @@
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
         pentest = import ./shell/pentest/shell.nix { inherit pkgs; };
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
-        php = import ./shell/php/disk/shell.nix { inherit pkgs; };
+        php = import ./shell/php/shell.nix { inherit pkgs; };
       };
     };
 }
