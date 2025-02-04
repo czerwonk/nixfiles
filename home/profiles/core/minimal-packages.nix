@@ -7,8 +7,8 @@
       curl
       dejavu_fonts
       du-dust
-      eza
       expect
+      eza
       fd
       hexyl
       iputils
@@ -22,6 +22,7 @@
       screen
       sd
       sshpass
+      traceroute
       watch
       wget
       whois
