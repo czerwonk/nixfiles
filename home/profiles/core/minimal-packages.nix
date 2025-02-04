@@ -22,7 +22,6 @@
       screen
       sd
       sshpass
-      traceroute
       watch
       wget
       whois
