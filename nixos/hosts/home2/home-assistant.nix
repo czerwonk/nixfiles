@@ -16,7 +16,6 @@
       "hue"
       "mqtt"
       "tasmota"
-      "tradfri"
       "shelly"
       "netatmo"
     ];
