@@ -1,16 +1,10 @@
 local notify = vim.notify
 
 require('snacks').setup {
-  explorer = {},
   input = { enabled = true },
   notifier = {
     enabled = true,
     style = 'fancy',
-  },
-  picker = {
-    sources = {
-      explorer = {}
-    }
   },
   terminal = {
     win = {
