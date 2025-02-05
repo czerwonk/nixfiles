@@ -5,7 +5,7 @@ with lib;
 let
   zfs-replication = pkgs.writeShellScriptBin "zfs-sync" ''
     # Script to replicate datasets to this server
-    # Required permissions: send,snapshot,hold,mount,destroy
+    # Required permissions: send,hold
     has_error=0
 
     sync() {
