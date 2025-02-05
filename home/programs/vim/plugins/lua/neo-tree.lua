@@ -76,14 +76,7 @@ require("neo-tree").setup({
     }
   },
   source_selector = {
-    winbar = true,
-    content_layout = "center",
-    sources = {
-      { source = "filesystem", display_name = " 󰉓 Files " },
-      { source = "git_status", display_name = " 󰊢 Git " },
-      { source = "buffers", display_name = "  Buffers " },
-      { source = "document_symbols", display_name = " 󰅩 Document Symbols " },
-    },
+    winbar = false,
   },
 })
 
