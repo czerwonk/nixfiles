@@ -50,6 +50,7 @@ in {
           ADMIN_TOKEN = cfg.admin_token;
           SIGNUPS_ALLOWED = "false";
           INVITATIONS_ALLOWED = "false";
+          EMAIL_CHANGE_ALLOWED = "false";
         };
 
         ports = [
