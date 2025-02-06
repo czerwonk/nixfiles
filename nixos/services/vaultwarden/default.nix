@@ -20,6 +20,11 @@ in {
         type = types.str;
         description = "Secret API Key to use with Yubico API";
       };
+
+      admin_token = mkOption {
+        type = types.str;
+        description = "Admin Token to access the admin interface";
+      };
     };
   };
 
@@ -42,6 +47,7 @@ in {
           DOMAIN = "https://vaultwarden.routing.rocks";
           YUBICO_CLIENT_ID = cfg.yubico_client_id;
           YUBICO_SECRET_KEY = cfg.yubico_api_key;
+          ADMIN_TOKEN = cfg.admin_token;
         };
 
         ports = [
