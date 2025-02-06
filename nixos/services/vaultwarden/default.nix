@@ -48,6 +48,8 @@ in {
           YUBICO_CLIENT_ID = cfg.yubico_client_id;
           YUBICO_SECRET_KEY = cfg.yubico_api_key;
           ADMIN_TOKEN = cfg.admin_token;
+          SIGNUPS_ALLOWED = "false";
+          INVITATIONS_ALLOWED = "false";
         };
 
         ports = [
