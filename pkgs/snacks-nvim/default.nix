@@ -2,12 +2,12 @@
 
 pkgs.vimUtils.buildVimPlugin {
   pname = "snacks.nvim";
-  version = "v2.18.0";
+  version = "v2.19.0";
   src = fetchFromGitHub {
     owner = "folke";
     repo = "snacks.nvim";
-    rev = "43c884478d65e014ffd7dc04e32cdaa8305a7a28";
-    sha256 = "sha256-90+LyldTortUMM7CpGZFH42QIP0efQhDshb6nw8pLXI=";
+    rev = "789f161de12021b9304dc36231283a8b2ecabbe9";
+    sha256 = "sha256-+Af4epvkGStCv2tlWWoI2MZSCNafkpgVahUlkrt9fmc=";
   };
   meta.homepage = "https://github.com/folke/snacks.nvim/";
 }

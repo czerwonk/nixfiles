@@ -28,7 +28,6 @@ in {
       ghostty = ghostty-packages.default;
       net-merge = net-merge-packages.net-merge;
       vimPlugins = super.vimPlugins // {
-        gp-nvim = super.callPackage ./pkgs/gp-nvim {};
         blink-cmp = blink-cmp-packages.blink-cmp;
         snacks-nvim = super.callPackage ./pkgs/snacks-nvim {};
       };

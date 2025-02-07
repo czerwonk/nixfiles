@@ -49,11 +49,6 @@
       {
         plugin = omnisharp-extended-lsp-nvim;
       }
-      {
-        plugin = gp-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/gp.lua;
-      }
     ];
   };
 
