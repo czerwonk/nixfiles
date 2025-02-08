@@ -11,7 +11,6 @@
       eza
       fd
       hexyl
-      iputils
       jq
       meslo-lgs-nf
       nettools

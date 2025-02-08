@@ -14,7 +14,6 @@
       nmap
       tcpdump
       tcptraceroute
-      traceroute
     ];
   };
 }
