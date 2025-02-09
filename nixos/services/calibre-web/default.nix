@@ -122,6 +122,7 @@ in {
       initialize = true;
       paths = [
         "/var/lib/containers/storage/volumes/calibre_books_config"
+        "/var/lib/containers/storage/volumes/calibre_comics_config"
         "/var/lib/containers/storage/volumes/calibre_manga_config"
       ];
       pruneOpts = [
