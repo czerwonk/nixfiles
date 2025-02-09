@@ -22,6 +22,12 @@ in {
         type = types.str;
         default = "/data/media/Manga";
       };
+
+      comicsLibraryDir = mkOption {
+        description = "Local path to data directory containing comic files";
+        type = types.str;
+        default = "/data/media/Comics";
+      };
     };
   };
 
@@ -70,6 +76,28 @@ in {
           "calibre_manga_config:/config"
         ];
       };
+
+      calibre-web-comics = {
+        image = "lscr.io/linuxserver/calibre-web:${version}";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+        ];
+
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "Europe/Berlin";
+        };
+
+        ports = [ "127.0.0.1:8087:8083" ];
+
+        volumes = [
+          "${cfg.comicsLibraryDir}:/books:ro"
+          "calibre_comics_config:/config"
+        ];
+      };
     };
 
     services.caddy.virtualHosts."books.routing.rocks".extraConfig = ''
@@ -82,6 +110,12 @@ in {
       import private
 
       reverse_proxy * 127.0.0.1:8086
+    '';
+
+    services.caddy.virtualHosts."comics.routing.rocks".extraConfig = ''
+      import private
+
+      reverse_proxy * 127.0.0.1:8087
     '';
 
     services.restic.backups.calibre-web = {
