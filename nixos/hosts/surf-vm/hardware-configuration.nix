@@ -7,7 +7,7 @@
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/508A-D096";
+    device = "/dev/disk/by-uuid/A05C-C8CE";
     fsType = "vfat";
   };
 
