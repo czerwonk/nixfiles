@@ -6,13 +6,16 @@
     ../../configuration.nix
     ../../profiles/qemu-vm
     ../../profiles/desktop/core.nix
+    ../../zfs/desktop.nix
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_12;
+  boot.zfs.forceImportRoot = true;
+  boot.zfs.requestEncryptionCredentials = [ "zroot" ];
+
   boot.kernel.sysctl = {
     "kernel.unprivileged_userns_clone" = 1;
   };

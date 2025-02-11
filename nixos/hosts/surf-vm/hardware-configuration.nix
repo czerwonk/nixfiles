@@ -7,7 +7,7 @@
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/BFC5-FFBC";
+    device = "/dev/disk/by-uuid/508A-D096";
     fsType = "vfat";
   };
 
@@ -15,7 +15,7 @@
     device = "none";
     fsType = "tmpfs";
     options = [ 
-      "size=4G"
+      "size=2G"
       "mode=755"
       "nosuid"
       "nodev"
@@ -23,13 +23,13 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/a5c1b33b-bf0c-4b5b-a4e7-5ed836ec5153";
-    fsType = "ext4";
+    device = "zroot/nix";
+    fsType = "zfs";
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/014c357b-6e48-48d3-bd55-32f8ff6abe17";
-    fsType = "ext4";
+    device = "zroot/persist";
+    fsType = "zfs";
     neededForBoot = true;
   };
 
