@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, username, ... }:
 
 with lib;
 
@@ -42,6 +42,12 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.${username} = {
+      packages = with pkgs; [
+        crowdsec
+      ];
+    };
+
     security.allowUserNamespaces = true;
 
     services.crowdsec = {

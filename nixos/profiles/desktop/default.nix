@@ -60,7 +60,6 @@
       blueberry
       bruno
       calibre
-      crowdsec
       distrobox
       foliate
       fractal
