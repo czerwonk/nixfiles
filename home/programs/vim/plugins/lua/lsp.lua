@@ -10,18 +10,11 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>K', vim.lsp.buf.hover, 'Hover Documentation (LSP)')
   map('n', '<leader>Wa', vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder (LSP)')
   map('n', '<leader>Wr', vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder (LSP)')
-  map('n', '<leader>Wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, 'List Workspace Folders (LSP)')
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
 
-  map('n', 'gn', function ()
-    vim.diagnostic.goto_next()
-  end, 'Next diagnostic')
-  map('n', 'gp', function ()
-    vim.diagnostic.goto_prev()
-  end, 'Previous diagnostic')
+  map('n', 'gn', function () vim.diagnostic.goto_next() end, 'Next diagnostic')
+  map('n', 'gp', function () vim.diagnostic.goto_prev() end, 'Previous diagnostic')
 
   map('n', '<leader>gd', function() Snacks.picker.lsp_definitions() end, 'Definitions (LSP)')
   map('n', '<leader>gg', function() Snacks.picker.lsp_symbols() end, 'Symbols (LSP)')
@@ -43,9 +36,7 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.codeLensProvider then
     vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
-    map('n', '<leader>;', function()
-      vim.lsp.codelens.run()
-    end, 'Code Lens Action (LSP)')
+    map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
   end
 
   require('which-key').add({

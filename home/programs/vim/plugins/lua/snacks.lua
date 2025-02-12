@@ -1,17 +1,22 @@
 local notify = vim.notify
 
 require('snacks').setup {
+  bigfile = { enabled = true },
+  quickfile = { enabled = true },
   input = { enabled = true },
   notifier = {
     enabled = true,
     style = 'fancy',
   },
+  picker = {
+    ui_select = true,
+  },
   terminal = {
     win = {
       wo = {
         winbar = ''
-      }
-    }
+      },
+    },
   },
   words = { enabled = true },
 }
