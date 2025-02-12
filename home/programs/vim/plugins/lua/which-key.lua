@@ -4,14 +4,13 @@ local wk = require('which-key')
 wk.setup {
   preset = "modern",
   spec = {
-  { "<leader>a", group = "AI" },
   { "<leader>c", group = "Coverage" },
   { "<leader>d", group = "Debug" },
   { "<leader>f", group = "Find" },
+  { "<leader>g", group = "Git" },
   { "<leader>h", group = "HTTP" },
   { "<leader>q", group = "Quickfix" },
   { "<leader>r", group = "Refactoring" },
-  { "<leader>s", group = "Git" },
   { "<leader>t", group = "Test" },
   { "<leader>tc", group = "Coverage" },
   { "<leader>x", group = "Diagnostics" },

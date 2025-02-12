@@ -16,18 +16,16 @@ local on_attach = function(client, bufnr)
   map('n', 'gn', function () vim.diagnostic.goto_next() end, 'Next diagnostic')
   map('n', 'gp', function () vim.diagnostic.goto_prev() end, 'Previous diagnostic')
 
-  map('n', '<leader>gd', function() Snacks.picker.lsp_definitions() end, 'Definitions (LSP)')
-  map('n', '<leader>gg', function() Snacks.picker.lsp_symbols() end, 'Symbols (LSP)')
-  map('n', '<leader>gi', function() Snacks.picker.lsp_implementations() end, 'Implementations (LSP)')
-  map('n', '<leader>gr', function() Snacks.picker.lsp_references() end, 'References (LSP)')
-  map('n', '<leader>gt', function() Snacks.picker.lsp_type_definitions() end, 'Type Definitions (LSP)')
-  map('n', '<leader>gx', function() Snacks.picker.diagnostics() end, 'Diagnostics (LSP)')
+  map('n', '<leader>o', function() Snacks.picker.lsp_symbols() end, 'Symbols (LSP)')
+  map('n', 'gd', function() Snacks.picker.lsp_definitions() end, 'Definitions (LSP)')
+  map('n', 'gr', function() Snacks.picker.lsp_references() end, 'References (LSP)')
+  map('n', 'gI', function() Snacks.picker.lsp_implementations() end, 'Implementations (LSP)')
+  map('n', 'gt', function() Snacks.picker.lsp_type_definitions() end, 'Type Definitions (LSP)')
+  map('n', 'gx', function() Snacks.picker.diagnostics() end, 'Diagnostics (LSP)')
 
   if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true);
-    map('n', 'gh', function ()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, 'Toggle inlay hints')
+    map('n', '<leader>H', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, 'Toggle inlay hints')
   end
 
   if client.server_capabilities.documentSymbolProvider then
@@ -40,7 +38,6 @@ local on_attach = function(client, bufnr)
   end
 
   require('which-key').add({
-    { "<leader>g", buffer = 3, group = "LSP" },
     { "<leader>W", buffer = 3, group = "Workspace" },
   });
 end

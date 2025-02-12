@@ -38,4 +38,4 @@ vim.keymap.set('n', '<leader>fj', function() Snacks.picker.jumps() end, { desc =
 vim.keymap.set('n', '<leader>fk', function() Snacks.picker.keymaps() end, { desc = 'Keymaps' })
 vim.keymap.set('n', '<leader>fq', function() Snacks.picker.qflist() end, { desc = 'Quickfix' })
 vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = 'Files (recent)' })
-vim.keymap.set('n', '<leader>fs', function() Snacks.picker.git_log() end, { desc = 'Git Commits' })
+vim.keymap.set('n', '<leader>fG', function() Snacks.picker.git_log() end, { desc = 'Git Commits' })
