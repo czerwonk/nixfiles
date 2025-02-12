@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true);
-    map('n', '<leader>H', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, 'Toggle inlay hints')
+    map('n', '<leader>h', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, 'Toggle inlay hints')
   end
 
   if client.server_capabilities.documentSymbolProvider then
