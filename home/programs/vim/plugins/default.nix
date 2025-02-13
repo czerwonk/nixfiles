@@ -2,11 +2,10 @@
 
 {
   imports = [
+    ./ui.nix
+    ./treesitter.nix
     ./cmp.nix
     ./dev.nix
-    ./llm.nix
-    ./treesitter.nix
-    ./ui.nix
   ];
 
   programs.neovim = {
