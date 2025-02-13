@@ -39,6 +39,9 @@ in {
       k3s = pkgs-unstable.k3s;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       termius = pkgs-unstable.termius;
+      vimPlugins = super.vimPlugins // {
+        llm-nvim = pkgs-unstable.vimPlugins.llm-nvim;
+      };
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
