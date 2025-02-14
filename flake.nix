@@ -55,7 +55,7 @@
 
     blink-cmp.url = "github:Saghen/blink.cmp?ref=b6f11a0aa33e601c469a126e3ed6e35208fe3ea3";
 
-    ghostty.url = "github:ghostty-org/ghostty?ref=facda0c3fb1310c7698fc77ba193165ef38cd58e";
+    ghostty.url = "github:ghostty-org/ghostty?ref=ee963f62968264157003d84d579b46b9df2e7806";
   };
 
   outputs = inputs:
