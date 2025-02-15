@@ -35,12 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-    };
-
     impermanence.url = "github:nix-community/impermanence?ref=d000479f4f41390ff7cf9204979660ad5dd16176";
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";

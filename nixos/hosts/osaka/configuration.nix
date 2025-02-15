@@ -51,8 +51,4 @@
   my.services.openssh-server.enable = true;
 
   services.logrotate.checkConfig = false;
-
-  specialisation = {
-    cosmic.configuration = ../../profiles/desktop/cosmic.nix;
-  };
 }
