@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   map('n', 'gd', function() Snacks.picker.lsp_definitions() end, 'Definitions (LSP)')
   map('n', 'gr', function() Snacks.picker.lsp_references() end, 'References (LSP)')
   map('n', 'gI', function() Snacks.picker.lsp_implementations() end, 'Implementations (LSP)')
-  map('n', 'gt', function() Snacks.picker.lsp_type_definitions() end, 'Type Definitions (LSP)')
+  map('n', 'gT', function() Snacks.picker.lsp_type_definitions() end, 'Type Definitions (LSP)')
   map('n', 'gx', function() Snacks.picker.diagnostics() end, 'Diagnostics (LSP)')
 
   if client.server_capabilities.inlayHintProvider then
