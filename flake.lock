@@ -25,17 +25,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1739671465,
-        "narHash": "sha256-OjGoXH2rVF/u7xPr8V6eVNGGj3pYfUN9mxY2G8hv8BA=",
+        "lastModified": 1739740624,
+        "narHash": "sha256-ybzEQHvZIiF+B2SIdFX8HJGai50PUw5QRgrL7qJ0sUk=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "cc2f10e9d8b6420324d4743a4d9a428de427e2cf",
+        "rev": "18b352d12b35bca148427b607098df14b75a218f",
         "type": "github"
       },
       "original": {
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "cc2f10e9d8b6420324d4743a4d9a428de427e2cf",
+        "rev": "18b352d12b35bca148427b607098df14b75a218f",
         "type": "github"
       }
     },

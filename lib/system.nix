@@ -58,6 +58,7 @@
           home-manager.users.nixos = import ../nixos/iso/${edition}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit inputs extraHomeModules;
+            username = "nixos";
           };
         }
       ] ++ extraModules;
