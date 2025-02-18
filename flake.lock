@@ -518,8 +518,8 @@
     "nixpkgs_4": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-f84lBmLl4tkDp1ZU5LBTSFzlxXP4926DVW3KnXrke10=",
-        "path": "/nix/store/k5m013s96104sv1fl3awxn83l57j9dpm-source",
+        "narHash": "sha256-uq6A2L7o1/tR6VfmYhZWoVAwb3gTy7j4Jx30MIrH0rE=",
+        "path": "/nix/store/mma8n3yfap91nw44hfcfyl18ffv5hl68-source",
         "type": "path"
       },
       "original": {
@@ -545,11 +545,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1739780226,
-        "narHash": "sha256-P5iXmwa5BKxcpO4FZEVGiXXAEPikvgF7HRRCeQUX6vw=",
+        "lastModified": 1739868698,
+        "narHash": "sha256-YPwcEjBrxR7orhnQyrKxUZYnXPyWhQ6w6I1O56ki6rA=",
         "ref": "refs/heads/main",
-        "rev": "e9b017699d72456894aa23f2fa1f04db31ae7ab1",
-        "revCount": 371,
+        "rev": "aab1a75dcba242012a3571f64537f746d5cda16a",
+        "revCount": 372,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
