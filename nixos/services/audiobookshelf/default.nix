@@ -16,6 +16,12 @@ in {
         type = types.str;
         default = "/data/media/Audiobooks";
       };
+
+      podcastDir = mkOption {
+        description = "Local path to data directory containing podcast files";
+        type = types.str;
+        default = "/data/media/Podcasts";
+      };
     };
   };
 
@@ -41,6 +47,7 @@ in {
 
         volumes = [
           "${cfg.audiobookDir}:/audiobooks:ro"
+          "${cfg.podcastDir}:/podcasts"
           "audiobookshelf_config:/config"
           "audiobookshelf_metadata:/metadata"
         ];
