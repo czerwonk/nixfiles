@@ -5,7 +5,6 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        inputs.lix-module.nixosModules.default
         ../overlays.nix
         ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager.nixosModules.home-manager {
@@ -27,7 +26,6 @@
     inputs.nixpkgs-unstable.lib.nixosSystem {
       inherit system;
       modules = [
-        inputs.lix-module.nixosModules.default
         ../overlays.nix
         ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager-unstable.nixosModules.home-manager {
