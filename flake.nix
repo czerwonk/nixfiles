@@ -69,6 +69,13 @@
         };
       };
 
+      pkgs-unstable = import inputs.nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+
     in {
       homeConfigurations = {
         "mauve-linux" = userLib.mkLinuxHMUser {
@@ -218,7 +225,7 @@
         javafx = import ./shell/javafx/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
-        pentest = import ./shell/pentest/shell.nix { inherit pkgs; };
+        pentest = import ./shell/pentest/shell.nix { inherit pkgs; pkgs-unstable = pkgs-unstable; };
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
         php = import ./shell/php/shell.nix { inherit pkgs; };
         rust = import ./shell/rust/shell.nix { inherit pkgs; };
