@@ -8,6 +8,7 @@
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
     ../../profiles/virtualisation
+    ../../profiles/pentest
     ../../zfs/desktop.nix
   ];
 
