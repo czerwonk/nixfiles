@@ -34,16 +34,16 @@
       source ~/.profile
     '';
     shellAliases = {
-      l = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
-      ls = "${lib.getExe pkgs.eza} --group -H";
-      ll = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
-      la = "${lib.getExe pkgs.eza} -laH --group --icons --group-directories-first --time-style long-iso";
-      tree = "${lib.getExe pkgs.eza} --tree";
       cat  = "${lib.getExe pkgs.bat} -pp";
+      egrep = "egrep --color=auto";
       fzfp = "${lib.getExe config.programs.fzf.package} --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
-      egrep = "egrep --color=auto";
-      curl = "${pkgs.curlie}/bin/curlie";
+      l = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
+      la = "${lib.getExe pkgs.eza} -laH --group --icons --group-directories-first --time-style long-iso";
+      ll = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
+      ls = "${lib.getExe pkgs.eza} --group -H";
+      tree = "${lib.getExe pkgs.eza} --tree";
+      ttfb = "${lib.getExe pkgs.curl} -o /dev/null -sS -w \"Connect: %{time_connect} TTFB: %{time_starttransfer} Total time: %{time_total} \\n\" $@";
     };
     history = {
       size = 50000;
