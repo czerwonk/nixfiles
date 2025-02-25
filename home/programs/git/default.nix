@@ -5,7 +5,8 @@
     enable = lib.mkDefault true;
     aliases = {
       br = "branch";
-      c = "commit";
+      c = "commit -a -m";
+      ca = "!git add -A && git commit -m";
       co = "checkout";
       f = "fetch";
       ignores = "ls-files -o -i --exclude-standard";
