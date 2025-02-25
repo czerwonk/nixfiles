@@ -35,6 +35,7 @@
     '';
     shellAliases = {
       cat  = "${lib.getExe pkgs.bat} -pp";
+      curl = "${lib.getExe pkgs.curlie}";
       egrep = "egrep --color=auto";
       fzfp = "${lib.getExe config.programs.fzf.package} --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       grep = "grep --color=auto";
@@ -43,7 +44,7 @@
       ll = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
       ls = "${lib.getExe pkgs.eza} --group -H";
       tree = "${lib.getExe pkgs.eza} --tree";
-      ttfb = "${lib.getExe pkgs.curl} -o /dev/null -sS -w \"Connect: %{time_connect} TTFB: %{time_starttransfer} Total time: %{time_total} \\n\" $@";
+      ttfb = "${lib.getExe pkgs.curl} -o /dev/null -s -w \"Connect: %{time_connect} TTFB: %{time_starttransfer} Total time: %{time_total} \\n\" $@";
     };
     history = {
       size = 50000;
