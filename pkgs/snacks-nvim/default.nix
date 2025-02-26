@@ -1,13 +1,13 @@
-{ pkgs, fetchFromGitHub, lib }:
+{ pkgs, fetchFromGitHub }:
 
 pkgs.vimUtils.buildVimPlugin {
   pname = "snacks.nvim";
-  version = "v2.21.0";
+  version = "v2.22.0";
   src = fetchFromGitHub {
     owner = "folke";
     repo = "snacks.nvim";
-    rev = "51542bb8f43cbd0ca9d2ff3c5ad8a86fd76475a1";
-    sha256 = "sha256-COvKNofUMiNV9MZvP18dtmkNSMXeTlumN2sIeBl4VqE=";
+    rev = "5eac729fa290248acfe10916d92a5ed5e5c0f9ed";
+    sha256 = "sha256-iXfOTmeTm8/BbYafoU6ZAstu9+rMDfQtuA2Hwq0jdcE=";
   };
   meta.homepage = "https://github.com/folke/snacks.nvim/";
 }
