@@ -25,16 +25,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1739740624,
-        "narHash": "sha256-ybzEQHvZIiF+B2SIdFX8HJGai50PUw5QRgrL7qJ0sUk=",
+        "lastModified": 1740599449,
+        "narHash": "sha256-sZmWEJwphmuBt43kuFM84CV+muSour1/R9lF4S5lbvs=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "18b352d12b35bca148427b607098df14b75a218f",
+        "rev": "705f20f92bb5edffaab3598fbb484dc37a558bc9",
         "type": "github"
       },
       "original": {
         "owner": "Saghen",
-        "ref": "18b352d12b35bca148427b607098df14b75a218f",
+        "ref": "705f20f92bb5edffaab3598fbb484dc37a558bc9",
         "repo": "blink.cmp",
         "type": "github"
       }
@@ -403,11 +403,11 @@
     },
     "nixpkgs-unstable_2": {
       "locked": {
-        "lastModified": 1740367490,
-        "narHash": "sha256-WGaHVAjcrv+Cun7zPlI41SerRtfknGQap281+AakSAw=",
+        "lastModified": 1740560979,
+        "narHash": "sha256-Vr3Qi346M+8CjedtbyUevIGDZW8LcA1fTG0ugPY/Hic=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0196c0175e9191c474c26ab5548db27ef5d34b05",
+        "rev": "5135c59491985879812717f4c9fea69604e7f26f",
         "type": "github"
       },
       "original": {
