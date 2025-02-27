@@ -298,11 +298,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1740650999,
-        "narHash": "sha256-ATa+6jeZR4F4GUboK6eJvJ9K41OPptCbxfD9PiJunj8=",
+        "lastModified": 1740651024,
+        "narHash": "sha256-NsJp2kLKqPrm00R5tNdfCE3JkBURPS9M72lUOL2cdUk=",
         "owner": "czerwonk",
         "repo": "net-merge",
-        "rev": "2cda4f5bbf28ce42c9cefb59fc024d3ba7fa9745",
+        "rev": "568f01b17df1ed33053296d297c4da1463a61dbc",
         "type": "github"
       },
       "original": {
