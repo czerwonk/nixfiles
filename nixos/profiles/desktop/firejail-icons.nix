@@ -4,7 +4,7 @@
   environment.systemPackages = [
     (
       let packages = with pkgs; [
-        firefox
+        librewolf
         teams-for-linux
         thunderbird
       ];

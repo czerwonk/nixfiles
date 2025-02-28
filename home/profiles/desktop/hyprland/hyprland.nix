@@ -53,7 +53,7 @@
       exec-once = ${lib.getExe pkgs.hyprpaper}
       exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
       exec-once = [workspace 2] ${lib.getExe pkgs.ghostty} ${lib.getExe pkgs.tmux} a
-      exec-once = [workspace 3 silent] /run/current-system/sw/bin/firefox
+      exec-once = [workspace 3 silent] /run/current-system/sw/bin/librewolf
       exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
       exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
       exec-once = [workspace 10 silent] ${lib.getExe pkgs.bitwarden}
@@ -61,7 +61,7 @@
 
       $mainMod = SUPER
 
-      bind = $mainMod, B, exec, /run/current-system/sw/bin/firefox
+      bind = $mainMod, B, exec, /run/current-system/sw/bin/librewolf
       bind = $mainMod, E, exec, ${pkgs.nautilus}/bin/nautilus
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, P, pseudo, # dwindle

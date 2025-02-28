@@ -24,14 +24,14 @@
   security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
-    firefox = {
-      executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
-      desktop = "${pkgs.firefox}/share/applications/firefox.desktop";
-      profile = pkgs.writeText "firefox.local" ''
+    librewolf = {
+      executable = "${lib.getExe pkgs.librewolf}";
+      desktop = "${pkgs.librewolf}/share/applications/librewolf.desktop";
+      profile = pkgs.writeText "librewolf.local" ''
         noblacklist ''${DOWNLOADS}
         whitelist ''${DOWNLOADS}
         ignore nou2f
-        include firefox.profile
+        include librewolf.profile
       '';
       extraArgs = [
         # Enable system notifications

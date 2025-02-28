@@ -132,7 +132,7 @@
       "adobe-digital-editions"
       "android-studio"
       "calibre"
-      "firefox"
+      "librewolf"
       "ghostty"
       "google-chrome"
       "kobo"
