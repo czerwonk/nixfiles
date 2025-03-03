@@ -5,6 +5,12 @@ with lib;
 let
   cfg = config.my.services.calibre-web;
   version = "0.6.24";
+  environment = {
+    PUID = "1000";
+    PGID = "1000";
+    TZ = "Europe/Berlin";
+    CALIBRE_RECONNECT = "1";
+  };
 
 in {
   options = {
@@ -41,11 +47,7 @@ in {
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
 
-        environment = {
-          PUID = "1000";
-          PGID = "1000";
-          TZ = "Europe/Berlin";
-        };
+        environment = environment;
 
         ports = [ "127.0.0.1:8083:8083" ];
 
@@ -63,11 +65,7 @@ in {
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
 
-        environment = {
-          PUID = "1000";
-          PGID = "1000";
-          TZ = "Europe/Berlin";
-        };
+        environment = environment;
 
         ports = [ "127.0.0.1:8086:8083" ];
 
@@ -85,11 +83,7 @@ in {
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
 
-        environment = {
-          PUID = "1000";
-          PGID = "1000";
-          TZ = "Europe/Berlin";
-        };
+        environment = environment;
 
         ports = [ "127.0.0.1:8087:8083" ];
 
