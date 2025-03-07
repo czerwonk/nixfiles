@@ -32,7 +32,7 @@ vim.keymap.set('n', '<leader>ft', function() Snacks.picker.todo_comments() end, 
 vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>fc', function() Snacks.picker.commands() end, { desc = 'Commands' })
 vim.keymap.set('n', '<leader>ff', function() Snacks.picker.files() end, { desc = 'Files' })
-vim.keymap.set('n', '<leader>fF', function() Snacks.picker.files() end, { desc = 'Files (git)' })
+vim.keymap.set('n', '<leader>fF', function() Snacks.picker.git_files() end, { desc = 'Files (git)' })
 vim.keymap.set('n', '<leader>fg', function() Snacks.picker.grep() end, { desc = 'Live Grep' })
 vim.keymap.set('n', '<leader>fj', function() Snacks.picker.jumps() end, { desc = 'Jumplist' })
 vim.keymap.set('n', '<leader>fk', function() Snacks.picker.keymaps() end, { desc = 'Keymaps' })
