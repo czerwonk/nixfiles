@@ -59,7 +59,6 @@ vim.keymap.set('n', '<leader>qc', '<cmd>copen<CR>', { desc = 'Open quickfix list
 vim.keymap.set('n', '<leader>qn', '<cmd>cnext<CR>', { desc = 'Next quickfix list item' })
 vim.keymap.set('n', '<leader>qp', '<cmd>cprev<CR>', { desc = 'Previous quickfix list item' })
 vim.keymap.set('n', '<c-b>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' })
-vim.keymap.set('n', '<leader>w', function() require('mini.bufremove').delete(0, false) end, { desc = 'Close current buffer' })
 vim.keymap.set('n', '<leader>H', function()
   vim.cmd('%!xxd')
   vim.bo[0].ft = 'xxd'
