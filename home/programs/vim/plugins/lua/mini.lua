@@ -71,4 +71,11 @@ mini_ai.setup {
   },
 }
 
+require('mini.diff').setup {
+  view = {
+    style = 'sign',
+    signs = { add = '▎', change = '▎', delete = '' },
+  }
+}
+
 vim.keymap.set('n', '<leader>w', function() require('mini.bufremove').delete(0, false) end, { desc = 'Close current buffer' })

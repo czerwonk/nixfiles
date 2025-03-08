@@ -39,11 +39,6 @@
         plugin = vim-fugitive;
       }
       {
-        plugin = gitsigns-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/gitsigns.lua;
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {
