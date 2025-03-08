@@ -60,7 +60,7 @@
         autoSetupRemote = true;
       };
 
-      merge.tool = "vimdiff";
+      merge.tool = "vimdiff2";
 
       rerere.enabled = true;
     };
