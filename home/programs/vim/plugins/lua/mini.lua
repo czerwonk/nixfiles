@@ -1,3 +1,5 @@
+require('mini.git').setup()
+
 require('mini.bracketed').setup {
   comment = { suffix = '', options = {} },
   file = { suffix = '', options = {} },

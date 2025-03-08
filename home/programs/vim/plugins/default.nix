@@ -36,9 +36,6 @@
         config = builtins.readFile ./lua/neo-tree.lua;
       }
       {
-        plugin = vim-fugitive;
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {

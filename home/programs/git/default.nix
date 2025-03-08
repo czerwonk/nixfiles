@@ -60,11 +60,7 @@
         autoSetupRemote = true;
       };
 
-      merge.tool = "nvim";
-      mergetool = {
-        prompt = false;
-        nvim.cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\"";
-      };
+      merge.tool = "vimdiff";
 
       rerere.enabled = true;
     };
