@@ -9,9 +9,6 @@
         config = builtins.readFile ./lua/lsp.lua;
       }
       {
-        plugin = nvim-navic;
-      }
-      {
         plugin = nvim-dap;
         type = "lua";
         config = builtins.readFile ./lua/dap.lua;

@@ -28,10 +28,6 @@ local on_attach = function(client, bufnr)
     map('n', '<leader>h', function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, 'Toggle inlay hints')
   end
 
-  if client.server_capabilities.documentSymbolProvider then
-    require("nvim-navic").attach(client, bufnr)
-  end
-
   if client.server_capabilities.codeLensProvider then
     vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
     map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
