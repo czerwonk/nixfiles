@@ -3,6 +3,7 @@
 {
   imports = [
     ../../programs/ghostty
+    ./librewolf.nix
   ];
 
   programs.zsh.shellAliases = {

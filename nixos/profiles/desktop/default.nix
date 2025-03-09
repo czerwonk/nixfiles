@@ -24,20 +24,6 @@
   security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
-    librewolf = {
-      executable = "${lib.getExe pkgs.librewolf}";
-      desktop = "${pkgs.librewolf}/share/applications/librewolf.desktop";
-      profile = pkgs.writeText "librewolf.local" ''
-        noblacklist ''${DOWNLOADS}
-        whitelist ''${DOWNLOADS}
-        ignore nou2f
-        include librewolf.profile
-      '';
-      extraArgs = [
-        # Enable system notifications
-        "--dbus-user.talk=org.freedesktop.Notifications"
-      ];
-    };
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
       desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";

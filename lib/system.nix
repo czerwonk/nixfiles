@@ -13,6 +13,7 @@
           home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
+            wrapFirejailBinary = import ./firejail.nix;
           };
         }
         inputs.impermanence.nixosModule
@@ -34,6 +35,7 @@
           home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
             inherit username extraHomeModules;
+            wrapFirejailBinary = import ./firejail.nix;
           };
         }
         inputs.impermanence.nixosModule
@@ -57,6 +59,7 @@
           home-manager.extraSpecialArgs = {
             inherit inputs extraHomeModules;
             username = "nixos";
+            wrapFirejailBinary = import ./firejail.nix;
           };
         }
       ] ++ extraModules;
