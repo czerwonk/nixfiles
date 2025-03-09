@@ -39,6 +39,7 @@ in {
       gopls = pkgs-unstable.gopls;
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
+      lua-language-server = pkgs-unstable.lua-language-server;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       termius = pkgs-unstable.termius;
     })
