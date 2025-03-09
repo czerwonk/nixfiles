@@ -36,11 +36,6 @@
         type = "lua";
         config = builtins.readFile ./lua/bufferline.lua;
       }
-      {
-        plugin = nvim-web-devicons;
-        type = "lua";
-        config = "require('nvim-web-devicons').get_icons()";
-      }
     ];
   };
 }
