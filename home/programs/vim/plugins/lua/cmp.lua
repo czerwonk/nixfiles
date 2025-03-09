@@ -1,54 +1,6 @@
-local kind_icons = {
-  Array         = " ",
-  Boolean       = "󰨙 ",
-  Class         = " ",
-  Codeium       = "󰘦 ",
-  Color         = " ",
-  Control       = " ",
-  Collapsed     = " ",
-  Constant      = "󰏿 ",
-  Constructor   = " ",
-  Copilot       = " ",
-  Enum          = " ",
-  EnumMember    = " ",
-  Event         = " ",
-  Field         = " ",
-  File          = " ",
-  Folder        = " ",
-  Function      = "󰊕 ",
-  Interface     = " ",
-  Key           = " ",
-  Keyword       = " ",
-  Method        = "󰊕 ",
-  Module        = " ",
-  Namespace     = "󰦮 ",
-  Null          = " ",
-  Number        = "󰎠 ",
-  Object        = " ",
-  Operator      = " ",
-  Package       = " ",
-  Property      = " ",
-  Reference     = " ",
-  Snippet       = "󱄽 ",
-  String        = " ",
-  Struct        = "󰆼 ",
-  Supermaven    = " ",
-  TabNine       = "󰏚 ",
-  Text          = " ",
-  TypeParameter = " ",
-  Unit          = " ",
-  Value         = " ",
-  Variable      = "󰀫 ",
-}
-
 local borderStyle = 'rounded';
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
-  appearance = {
-    use_nvim_cmp_as_default = true,
-    nerd_font_variant = "mono",
-    kind_icons = kind_icons
-  },
   completion = {
     list = {
       selection = {
@@ -62,6 +14,21 @@ require('blink.cmp').setup {
     },
     menu = {
       border = borderStyle,
+      draw = {
+        components = {
+          kind_icon = {
+            ellipsis = false,
+            text = function(ctx)
+              local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+              return kind_icon
+            end,
+            highlight = function(ctx)
+              local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              return hl
+            end,
+          }
+        }
+      }
     },
     documentation = {
       auto_show = true,
