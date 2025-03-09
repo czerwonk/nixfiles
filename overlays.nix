@@ -36,6 +36,7 @@ in {
       unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
       go = pkgs-unstable.go_1_24;
+      gopls = pkgs-unstable.gopls;
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       oh-my-posh = pkgs-unstable.oh-my-posh;
