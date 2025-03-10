@@ -44,20 +44,6 @@
       desktop = "${pkgs.brave}/share/applications/brave-browser.desktop";
       profile = "${pkgs.firejail}/etc/firejail/brave.profile";
     };
-    librewolf = {
-      executable = "${lib.getExe pkgs.librewolf}";
-      desktop = "${pkgs.librewolf}/share/applications/librewolf.desktop";
-      profile = pkgs.writeText "librewolf.local" ''
-        noblacklist ''${DOWNLOADS}
-        whitelist ''${DOWNLOADS}
-        ignore nou2f
-        include librewolf.profile
-      '';
-      extraArgs = [
-        # Enable system notifications
-        "--dbus-user.talk=org.freedesktop.Notifications"
-      ];
-    };
   };
 
   environment.systemPackages = [
