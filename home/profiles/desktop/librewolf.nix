@@ -28,7 +28,6 @@ in {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       DisableFirefoxAccounts = true;
-      DisableFormHistory = true;
       DisableMasterPasswordCreation = true;
       DisableProfileImport = true;
       DisablePocket = true;
@@ -109,6 +108,7 @@ in {
         user_pref("privacy.clearOnShutdown_v2.cache", false);
         user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
         user_pref("privacy.clearOnShutdown_v2.downloads", false);
+        user_pref("privacy.clearOnShutdown_v2.formdata", false);
         user_pref("privacy.donottrackheader.enabled", true);
         user_pref("privacy.fingerprintingProtection", true);
         user_pref("privacy.history.custom", true);
@@ -119,7 +119,6 @@ in {
         user_pref("security.tls.enable_0rtt_data", false);
         user_pref("security.tls.version.enable-deprecated", false);
         user_pref("sidebar.visibility", "hide-sidebar");
-        user_pref("signon.autofillForms", false);
         user_pref("signon.autofillForms", false);
         user_pref("signon.rememberSignons", false);
         user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
