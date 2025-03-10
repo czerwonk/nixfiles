@@ -50,39 +50,6 @@ in {
     };
 
     profiles."${username}" = {
-      containersForce = true;
-      containers = {
-        Work = {
-          id = 2;
-          color = "blue";
-          icon = "briefcase";
-        };
-        Banking = {
-          id = 3;
-          color = "turquoise";
-          icon = "dollar";
-        };
-        Shopping = {
-          id = 4;
-          color = "pink";
-          icon = "cart";
-        };
-        Private = {
-          id = 6;
-          color = "green";
-          icon = "fingerprint";
-        };
-        PHILUNET = {
-          id = 7;
-          color = "orange";
-          icon = "briefcase";
-        };
-        Gaming = {
-          id = 8;
-          color = "yellow";
-          icon = "circle";
-        };
-      };
       extraConfig = ''
         user_pref("browser.download.alwaysOpenPanel", false);
         user_pref("browser.download.always_ask_before_handling_new_types", true);
