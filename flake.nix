@@ -47,7 +47,7 @@
 
     net-merge.url = "github:czerwonk/net-merge";
 
-    blink-cmp.url = "github:Saghen/blink.cmp?ref=dcda20d3aa345025699a920c45b0a0603551f41d";
+    blink-cmp.url = "github:Saghen/blink.cmp?ref=bfa1aea2cc8754db36729f32d669bb855037eb9f";
 
     ghostty.url = "github:ghostty-org/ghostty?ref=ee963f62968264157003d84d579b46b9df2e7806";
   };
