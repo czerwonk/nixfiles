@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>gp', '<cmd>Git push<CR>', { desc = 'Push' })
 vim.keymap.set('n', '<leader>gb', '<cmd>Git blame %<CR>', { desc = 'Blame (current file)' })
 vim.keymap.set('n', '<leader>gl', '<cmd>Git log %<CR>', { desc = 'Log (current file)' })
 vim.keymap.set('n', '<leader>gL', '<cmd>Git log<CR>', { desc = 'Log' })
+vim.keymap.set('n', '<leader>ga', '<cmd>Git add .<CR>', { desc = 'Add' })
 
 local mini_icons = require('mini.icons')
 mini_icons.setup()
