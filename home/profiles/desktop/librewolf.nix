@@ -72,8 +72,8 @@ in {
         user_pref("network.predictor.enabled", false);
         user_pref("network.prefetch-next", false);
         user_pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", false);
-        user_pref("privacy.clearOnShutdown_v2.cache", false);
-        user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
+        user_pref("privacy.clearOnShutdown_v2.cache", true);
+        user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true);
         user_pref("privacy.clearOnShutdown_v2.downloads", false);
         user_pref("privacy.clearOnShutdown_v2.formdata", false);
         user_pref("privacy.donottrackheader.enabled", true);
