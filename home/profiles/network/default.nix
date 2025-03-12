@@ -5,6 +5,7 @@
     packages = with pkgs; [
       bgpq4
       dig
+      dogdns
       ethr
       host
       ipcalc

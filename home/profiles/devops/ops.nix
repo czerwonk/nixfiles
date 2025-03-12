@@ -10,10 +10,10 @@
       ansible
       ansible-lint
       ansible-role
+      dive
       dns-drain
       google-cloud-sdk
       grype
-      hey
       inspec
       lynis
       mysql-shell
@@ -25,6 +25,7 @@
       terrascan
       trurl
       vault
+      vegeta
     ];
   };
 }
