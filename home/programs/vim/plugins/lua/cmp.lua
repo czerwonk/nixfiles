@@ -46,7 +46,7 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer', 'codecompanion' },
+    default = { 'lsp', 'path', 'buffer' },
   },
   fuzzy = {
     prebuilt_binaries = {
