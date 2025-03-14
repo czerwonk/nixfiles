@@ -6,6 +6,7 @@
     ./treesitter.nix
     ./cmp.nix
     ./dev.nix
+    ./llm.nix
   ];
 
   programs.neovim = {

@@ -44,6 +44,11 @@ in {
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama = pkgs-unstable.ollama;
       termius = pkgs-unstable.termius;
+      vimPlugins = super.vimPlugins // {
+        codecompanion-nvim = pkgs-unstable.vimPlugins.codecompanion-nvim;
+        copilot-lua = pkgs-unstable.vimPlugins.copilot-lua;
+        plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;
+      };
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
