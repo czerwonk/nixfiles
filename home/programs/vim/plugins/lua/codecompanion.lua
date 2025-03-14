@@ -41,7 +41,7 @@ require('codecompanion').setup {
   display = {
     chat = {
       window = {
-        layout = "float",
+        position = "right",
       },
     },
   },
