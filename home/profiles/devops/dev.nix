@@ -3,6 +3,7 @@
 {
   home = {
     packages = with pkgs; [
+      claude-code
       delve
       gnumake
       go
