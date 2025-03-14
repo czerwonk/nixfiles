@@ -38,6 +38,13 @@ require('codecompanion').setup {
       adapter = "copilot",
     },
   },
+  display = {
+    chat = {
+      window = {
+        layout = "float",
+      },
+    },
+  },
 }
 
 vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true,desc = 'CodeCompanion Actions' })
