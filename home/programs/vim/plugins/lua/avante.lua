@@ -10,6 +10,9 @@ require("avante").setup {
   file_selector = {
     provider = 'snacks',
   },
+  hints = {
+    enabled = false,
+  },
 }
 
 require('which-key').add({

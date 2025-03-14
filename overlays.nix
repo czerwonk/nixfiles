@@ -46,8 +46,8 @@ in {
       termius = pkgs-unstable.termius;
       vimPlugins = super.vimPlugins // {
         avante-nvim = pkgs-unstable.vimPlugins.avante-nvim;
+        blink-compat = pkgs-unstable.vimPlugins.blink-compat;
         codecompanion-nvim = pkgs-unstable.vimPlugins.codecompanion-nvim;
-        copilot-lua = pkgs-unstable.vimPlugins.copilot-lua;
         dressing-nvim = pkgs-unstable.vimPlugins.dressing-nvim;
         plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;
       };

@@ -8,6 +8,9 @@
         type = "lua";
         config = builtins.readFile ./lua/cmp.lua;
       }
+      {
+        plugin = blink-compat;
+      }
     ];
   };
 }

@@ -22,9 +22,6 @@ in {
           config = builtins.readFile ./lua/avante.lua;
         }
         {
-          plugin = copilot-lua;
-        }
-        {
           plugin = plenary-nvim;
         }
         {
