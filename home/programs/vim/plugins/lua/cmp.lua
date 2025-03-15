@@ -46,7 +46,7 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer', 'avante_commands', 'avante_mentions', 'avante_files' },
+    default = { 'lsp', 'path', 'buffer', 'avante_commands', 'avante_mentions', 'avante_files', 'markdown'},
     providers = {
       avante_commands = {
         name = 'avante_commands',
@@ -65,6 +65,11 @@ require('blink.cmp').setup {
         module = 'blink.compat.source',
         score_offset = 1000, -- show at a higher priority than lsp
         opts = {},
+      },
+      markdown = {
+        name = 'RenderMarkdown',
+        module = 'render-markdown.integ.blink',
+        fallbacks = { 'lsp' },
       },
     },
   },

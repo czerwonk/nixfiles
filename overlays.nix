@@ -50,6 +50,7 @@ in {
         codecompanion-nvim = pkgs-unstable.vimPlugins.codecompanion-nvim;
         dressing-nvim = pkgs-unstable.vimPlugins.dressing-nvim;
         plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;
+        render-markdown-nvim = pkgs-unstable.vimPlugins.render-markdown-nvim;
       };
     })
     (self: super: {
