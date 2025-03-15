@@ -13,8 +13,6 @@
 
   programs.tmux.mouse = true;
 
-  programs.neovim.withLLM = true;
-
   services.gpg-agent.enable = true;
 
   home = {
