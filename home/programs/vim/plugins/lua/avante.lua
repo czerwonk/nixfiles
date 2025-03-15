@@ -1,11 +1,11 @@
-require("avante").setup {
-  provider = "copilot",
-  auto_suggestions_provider = "copilot",
+require('avante').setup {
+  provider = 'copilot',
+  auto_suggestions_provider = 'copilot',
   copilot = {
-    model = "claude-3.7-sonnet",
+    model = 'claude-3.7-sonnet',
   },
   ollama = {
-    model = "codellama:latest",
+    model = 'codellama:latest',
   },
   file_selector = {
     provider = 'snacks',
@@ -16,5 +16,5 @@ require("avante").setup {
 }
 
 require('which-key').add({
-  { "<leader>a", group = "AI" },
+  { '<leader>a', group = 'AI' },
 });

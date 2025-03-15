@@ -45,7 +45,7 @@
       {
         plugin = render-markdown-nvim;
         type = "lua";
-        config = "require('render-markdown').setup({})";
+        config = builtins.readFile ./lua/render-markdown.lua;
       }
     ];
   };

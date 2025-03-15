@@ -5,7 +5,7 @@ require('blink.cmp').setup {
     accept = {
       auto_brackets = {
         kind_resolution = {
-          blocked_filetypes = { "codecompanion" },
+          blocked_filetypes = { 'codecompanion' },
         },
       },
     },
@@ -49,20 +49,20 @@ require('blink.cmp').setup {
     default = { 'lsp', 'path', 'buffer', 'avante_commands', 'avante_mentions', 'avante_files' },
     providers = {
       avante_commands = {
-        name = "avante_commands",
-        module = "blink.compat.source",
+        name = 'avante_commands',
+        module = 'blink.compat.source',
         score_offset = 90, -- show at a higher priority than lsp
         opts = {},
       },
       avante_files = {
-        name = "avante_files",
-        module = "blink.compat.source",
+        name = 'avante_files',
+        module = 'blink.compat.source',
         score_offset = 100, -- show at a higher priority than lsp
         opts = {},
       },
       avante_mentions = {
-        name = "avante_mentions",
-        module = "blink.compat.source",
+        name = 'avante_mentions',
+        module = 'blink.compat.source',
         score_offset = 1000, -- show at a higher priority than lsp
         opts = {},
       },
