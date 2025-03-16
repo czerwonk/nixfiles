@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, username, ... }:
 
 with lib;
 
@@ -12,6 +12,8 @@ with lib;
   };
 
   config = mkIf config.use_egpu {
+    users.users.${username}.extraGroups = [ "render" ];
+
     boot.kernelParams = [
       "amdgpu.pcie_gen_cap=0x40000" # Force AMD GPU to use full width (optional)
     ];
@@ -40,7 +42,8 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       all-ways-egpu
-      nvtop
+      nvtopPackages.full
+      rocmPackages.rocminfo
     ];
 
     systemd.services.all-ways-egpu = {
@@ -59,5 +62,14 @@ with lib;
         umount
       ];
     };
+
+    services.ollama = {
+      enable = true;
+      acceleration = "rocm";
+      package = pkgs.ollama-rocm;
+      rocmOverrideGfx = "11.0.0";
+    };
+
+    systemd.services.ollama.wantedBy = lib.mkForce [];
   };
 }
