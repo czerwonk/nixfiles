@@ -5,7 +5,7 @@ require('avante').setup {
     model = 'claude-3.7-sonnet',
   },
   ollama = {
-    model = 'codellama:latest',
+    model = 'qwen2.5-coder',
   },
   file_selector = {
     provider = 'snacks',
