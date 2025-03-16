@@ -42,7 +42,7 @@ in {
       k3s = pkgs-unstable.k3s;
       lua-language-server = pkgs-unstable.lua-language-server;
       oh-my-posh = pkgs-unstable.oh-my-posh;
-      ollama = pkgs-unstable.ollama;
+      ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
       vimPlugins = super.vimPlugins // {
         avante-nvim = pkgs-unstable.vimPlugins.avante-nvim;

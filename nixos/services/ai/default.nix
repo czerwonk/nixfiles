@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib;
 
@@ -10,12 +10,6 @@ in {
     my.services.ai = {
       enable = mkEnableOption "AI workstation services";
 
-      acceleration = lib.mkOption {
-        type = types.nullOr (types.enum [ false "rocm" "cuda" ]);
-        default = null;
-        example = "rocm";
-      };
-
       autoStart = mkOption {
         type = types.bool;
         default = false;
@@ -26,7 +20,7 @@ in {
   config = mkIf cfg.enable {
     services.ollama = {
       enable = true;
-      acceleration = cfg.acceleration;
+      package = lib.mkDefault pkgs.ollama-rocm;
     };
 
     systemd.services.ollama.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);

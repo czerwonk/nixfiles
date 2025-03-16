@@ -40,6 +40,7 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       all-ways-egpu
+      nvtop
     ];
 
     systemd.services.all-ways-egpu = {
@@ -58,7 +59,5 @@ with lib;
         umount
       ];
     };
-
-    my.services.ai.acceleration = "rocm";
   };
 }
