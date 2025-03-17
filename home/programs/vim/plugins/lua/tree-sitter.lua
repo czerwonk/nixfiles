@@ -16,12 +16,6 @@ require('nvim-treesitter.configs').setup {
       goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
     },
   },
-  rainbow = {
-    enable = true,
-    query = 'rainbow-delimiters',
-    strategy = require('rainbow-delimiters.strategy.global'),
-    max_file_lines = 5000,
-  },
   incremental_selection = {
     enable = true,
     keymaps = {
