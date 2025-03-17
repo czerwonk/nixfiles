@@ -54,6 +54,9 @@
         type = "lua";
         config = "require('nvim-ts-autotag').setup()";
       }
+      {
+        plugin = rainbow-delimiters-nvim;
+      }
     ];
   };
 }

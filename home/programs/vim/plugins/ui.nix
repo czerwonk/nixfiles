@@ -12,9 +12,6 @@
         config = builtins.readFile ./lua/noice.lua;
       }
       {
-        plugin = rainbow-delimiters-nvim;
-      }
-      {
         plugin = nvim-colorizer-lua;
         type = "lua";
         config = "require('colorizer').setup()";
