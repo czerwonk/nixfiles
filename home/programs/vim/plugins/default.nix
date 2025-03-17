@@ -40,9 +40,6 @@
         plugin = SchemaStore-nvim;
       }
       {
-        plugin = vim-helm;
-      }
-      {
         plugin = render-markdown-nvim;
         type = "lua";
         config = builtins.readFile ./lua/render-markdown.lua;
