@@ -3,6 +3,15 @@ require('avante').setup {
   auto_suggestions_provider = 'copilot',
   copilot = {
     model = 'claude-3.7-sonnet',
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = "<Tab>",
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = "<C-]>",
+      },
+    },
   },
   ollama = {
     model = 'qwen2.5-coder',

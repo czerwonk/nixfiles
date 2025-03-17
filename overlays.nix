@@ -47,6 +47,7 @@ in {
       vimPlugins = super.vimPlugins // {
         avante-nvim = pkgs-unstable.vimPlugins.avante-nvim;
         blink-compat = pkgs-unstable.vimPlugins.blink-compat;
+        copilot-vim = pkgs-unstable.vimPlugins.copilot-vim;
         codecompanion-nvim = pkgs-unstable.vimPlugins.codecompanion-nvim;
         dressing-nvim = pkgs-unstable.vimPlugins.dressing-nvim;
         plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;

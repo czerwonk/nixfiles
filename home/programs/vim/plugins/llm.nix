@@ -27,6 +27,9 @@ in {
         {
           plugin = dressing-nvim;
         }
+        {
+          plugin = copilot-vim;
+        }
       ];
     };
   };
