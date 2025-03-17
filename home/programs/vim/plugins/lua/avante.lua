@@ -13,6 +13,9 @@ require('avante').setup {
   hints = {
     enabled = false,
   },
+  web_search_engine = {
+    provider = 'google',
+  },
 }
 
 require('which-key').add({
