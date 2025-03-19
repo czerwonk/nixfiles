@@ -14,6 +14,7 @@ let
                                   --bind "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
                                   --bind "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
                                   --bind "$HOME/.cache" "$HOME/.cache" \
+                                  --bind /run/user/1000 /run/user/1000 \
                                   --proc /proc \
                                   --dev /dev \
       ${lib.getExe config.programs.neovim.finalPackage} $@
