@@ -5,7 +5,7 @@ let
     ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind "/etc/profiles/per-user/${username}" "/etc/profiles/per-user/${username}" \
-                                  --ro-bind /run/current-system /run/current-system \
+                                  --ro-bind /run /run \
                                   --ro-bind "$HOME" "$HOME" \
                                   --bind /tmp /tmp \
                                   --bind "$(pwd)" "$(pwd)" \
@@ -23,5 +23,5 @@ in {
     };
   };
 
-  #my.scripts.neovimExe = "${nvim-bwrapped}/bin/nvim-bwrapped";
+  my.scripts.neovimExe = "${nvim-bwrapped}/bin/nvim-bwrapped";
 }
