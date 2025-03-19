@@ -24,7 +24,6 @@ in {
       all-ways-egpu = super.callPackage ./pkgs/all-ways-egpu {};
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
-      ethr = super.callPackage ./pkgs/ethr {};
       ghostty = ghostty-packages.default;
       net-merge = net-merge-packages.net-merge;
       vimPlugins = super.vimPlugins // {

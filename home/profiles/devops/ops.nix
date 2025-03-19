@@ -19,7 +19,6 @@
       mysql-shell
       net-merge
       opentofu
-      redis
       syft
       termshark
       terrascan

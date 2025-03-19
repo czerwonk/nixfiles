@@ -16,7 +16,6 @@
       samba
       strace
       usbutils
-      zmap
     ];
   };
 }

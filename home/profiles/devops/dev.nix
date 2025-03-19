@@ -6,7 +6,6 @@
       delve
       gnumake
       go
-      goreleaser
       graphviz
       mysql-shell
       podman
@@ -17,8 +16,6 @@
       python3
       (ruby.withPackages (ps: with ps; [ rubyPackages.mysql2 ]))
       sqlite
-      tree-sitter
-      typescript
     ];
   };
 }
