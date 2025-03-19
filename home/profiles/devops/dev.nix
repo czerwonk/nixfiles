@@ -15,7 +15,6 @@
       protoc-gen-go
       protoc-gen-go-grpc
       python3
-      reuse
       (ruby.withPackages (ps: with ps; [ rubyPackages.mysql2 ]))
       sqlite
       tree-sitter
