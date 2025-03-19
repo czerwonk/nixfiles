@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGai
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+vim.opt.undodir = os.getenv('HOME') .. '/.local/state/nvim/undodir'
 vim.opt.undofile = true
 
 -- convenience key mappings
