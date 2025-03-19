@@ -4,7 +4,6 @@
   imports = [
     ../../programs/ghostty
     ./librewolf.nix
-    #./nvim-bwrapped.nix
   ];
 
   programs.zsh.shellAliases = {
@@ -22,5 +21,10 @@
     packages = with pkgs; [
       bitwarden-cli
     ];
+    # shellAliases = {
+    #   nvim = "${lib.getExe config.programs.neovim.sandboxPackage}";
+    # };
   };
+
+  #my.scripts.neovimExe = "${lib.getExe config.programs.neovim.sandboxPackage}";
 }
