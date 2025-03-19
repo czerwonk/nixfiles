@@ -3,6 +3,7 @@
 {
   imports = [
     ./plugins
+    ./sandbox.nix
   ];
 
   programs.neovim = {

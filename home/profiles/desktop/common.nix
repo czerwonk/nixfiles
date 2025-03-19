@@ -4,7 +4,7 @@
   imports = [
     ../../programs/ghostty
     ./librewolf.nix
-    ./nvim-bwrapped.nix
+    #./nvim-bwrapped.nix
   ];
 
   programs.zsh.shellAliases = {
