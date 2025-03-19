@@ -1,4 +1,4 @@
-{ pkgs, lib, config, username, ... }:
+{ pkgs, lib, username, ... }:
 
 let
   nvim-bwrapped = pkgs.writeShellScriptBin "nvim-bwrapped" ''
@@ -22,4 +22,6 @@ in {
       nvim = "${nvim-bwrapped}/bin/nvim-bwrapped";
     };
   };
+
+  #my.scripts.neovimExe = "${nvim-bwrapped}/bin/nvim-bwrapped";
 }
