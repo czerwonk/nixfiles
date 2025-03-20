@@ -7,7 +7,6 @@ let
     ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /etc/ /etc \
-                                  --ro-bind /run /run \
                                   --ro-bind "$HOME" "$HOME" \
                                   --bind /tmp /tmp \
                                   --bind "$(pwd)" "$(pwd)" \

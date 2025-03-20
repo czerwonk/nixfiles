@@ -9,6 +9,7 @@
       go
       graphviz
       mysql-shell
+      podman
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
