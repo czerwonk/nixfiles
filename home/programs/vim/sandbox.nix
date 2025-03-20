@@ -4,6 +4,8 @@ with lib;
 
 let
   nvim-bwrapped = pkgs.writeShellScriptBin "nvim-bwrapped" ''
+    export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+
     ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /etc/ /etc \
@@ -14,7 +16,7 @@ let
                                   --bind "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
                                   --bind "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
                                   --bind "$HOME/.cache" "$HOME/.cache" \
-                                  --bind /run/user/1000 /run/user/1000 \
+                                  --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
                                   --proc /proc \
                                   --dev /dev \
       ${lib.getExe config.programs.neovim.finalPackage} $@
