@@ -14,7 +14,7 @@ in {
     virtualisation = {
       podman = {
         enable = true;
-        dockerCompat = true;
+        dockerCompat = false;
         defaultNetwork.settings.dns_enabled = true;
         extraPackages = with pkgs; [
           gvisor
@@ -32,6 +32,10 @@ in {
 
     networking.proxy.envVars = lib.mkIf cfg.disableFirewall {
       NETAVARK_FW = "none";
+    };
+
+    environment.sessionVariables = {
+      DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
     };
   };
 }

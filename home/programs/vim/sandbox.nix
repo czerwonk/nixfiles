@@ -4,8 +4,6 @@ with lib;
 
 let
   nvim-bwrapped = pkgs.writeShellScriptBin "nvim-bwrapped" ''
-    export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
-
     ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /etc/ /etc \
