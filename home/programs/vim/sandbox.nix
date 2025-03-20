@@ -6,7 +6,9 @@ let
   nvim-bwrapped = pkgs.writeShellScriptBin "nvim-bwrapped" ''
     ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
-                                  --ro-bind /etc/ /etc \
+                                  --ro-bind /bin /bin \
+                                  --ro-bind /etc /etc \
+                                  --ro-bind /run/current-system/sw/bin /run/current-system/sw/bin \
                                   --ro-bind "$HOME" "$HOME" \
                                   --bind /tmp /tmp \
                                   --bind "$(pwd)" "$(pwd)" \
