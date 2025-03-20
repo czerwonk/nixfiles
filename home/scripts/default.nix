@@ -8,7 +8,7 @@ let
   git-worktree-clone = pkgs.writeScriptBin "git-worktree-clone" (builtins.readFile ./git-worktree-clone.sh);
   nvim-tmux = pkgs.writeShellScriptBin "nvim-tmux" ''
     if [[ -z $TMUX ]]; then
-      ${cfg.neovimExe} $@
+      ${cfg.neovimExe} "$@"
       exit 0
     fi
 
@@ -17,7 +17,7 @@ let
     tmux resize-pane -t 2 -y 10
     tmux select-pane -t 1
     tmux resize-pane -Z
-    ${cfg.neovimExe} $@
+    ${cfg.neovimExe} "$@"
     tmux kill-pane -a -t 2
   '';
 
