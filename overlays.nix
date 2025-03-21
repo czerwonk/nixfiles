@@ -35,6 +35,7 @@ in {
       unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
       claude-code = pkgs-unstable.claude-code;
+      delve = pkgs-unstable.delve;
       go = pkgs-unstable.go_1_24;
       gopls = pkgs-unstable.gopls;
       home-assistant = pkgs-unstable.home-assistant;
