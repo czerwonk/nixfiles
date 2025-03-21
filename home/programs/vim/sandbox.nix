@@ -16,6 +16,7 @@ let
                                   --bind "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
                                   --bind "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
                                   --bind "$HOME/.cache" "$HOME/.cache" \
+                                  --bind "$HOME/go/pkg" "$HOME/go/pkg" \
                                   --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
                                   --tmpfs /tmp \
                                   --proc /proc \
