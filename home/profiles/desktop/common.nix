@@ -27,4 +27,10 @@
   };
 
   my.scripts.neovimExe = "${lib.getExe config.programs.neovim.sandboxPackage}";
+
+  programs.zsh = {
+    shellAliases = {
+      docker = "${lib.getExe pkgs.podman}";
+    };
+  };
 }
