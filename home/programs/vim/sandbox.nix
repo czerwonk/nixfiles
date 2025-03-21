@@ -10,8 +10,6 @@ let
                                        --ro-bind /etc /etc \
                                        --ro-bind /run/current-system/sw/bin /run/current-system/sw/bin \
                                        --ro-bind "$HOME" "$HOME" \
-                                       --tmpfs "$HOME/.ssh" \
-                                       --ro-bind "$HOME/.ssh/known_hosts" "$HOME/.ssh/known_hosts" \
                                        --bind "$(pwd)" "$(pwd)" \
                                        --bind "$HOME/.local/share/nvim" "$HOME/.local/share/nvim" \
                                        --bind "$HOME/.local/state/nvim" "$HOME/.local/state/nvim" \
