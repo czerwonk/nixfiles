@@ -23,6 +23,8 @@
       }
       {
         plugin = nvim-dap-go;
+        type = "lua";
+        config = "require('dap-go').setup()";
       }
       {
         plugin = pkgs.vimPlugins.neotest;
