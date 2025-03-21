@@ -16,6 +16,7 @@
         }).fd];
       };
     };
+    sshProxy = false;
   };
 
   programs.virt-manager.enable = true;
