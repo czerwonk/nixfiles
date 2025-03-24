@@ -40,3 +40,5 @@ vim.keymap.set('n', '<leader>fk', function() Snacks.picker.keymaps() end, { desc
 vim.keymap.set('n', '<leader>fq', function() Snacks.picker.qflist() end, { desc = 'Quickfix' })
 vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = 'Files (recent)' })
 vim.keymap.set('n', '<leader>fG', function() Snacks.picker.git_log() end, { desc = 'Git Commits' })
+vim.keymap.set('n', '<leader>.', function() Snacks.scratch() end, { desc = 'Toggle Scratch Buffer' })
+vim.keymap.set('n', '<leader>S', function() Snacks.scratch.select() end, { desc = 'Scratch Buffers' })
