@@ -55,7 +55,6 @@
       mysql-workbench
       nextcloud-client
       remmina
-      sublime4
       termius
       vlc
       wgnord

@@ -15,10 +15,6 @@ let
   ghostty-packages = inputs.ghostty.packages.${system};
 
 in {
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-
   nixpkgs.overlays = [
     (self: super: {
       all-ways-egpu = super.callPackage ./pkgs/all-ways-egpu {};

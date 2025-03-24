@@ -138,7 +138,6 @@
       "kobo"
       "nextcloud"
       "postbox"
-      "sublime-text"
     ];
     masApps = {
       Bitwarden = 1352778147;
