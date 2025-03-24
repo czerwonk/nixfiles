@@ -32,11 +32,6 @@
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
       }
       {
-        plugin = neo-tree-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/neo-tree.lua;
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {
