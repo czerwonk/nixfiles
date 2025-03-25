@@ -1,8 +1,8 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'codedark',
+    theme = 'kanagawa',
     global = true,
   },
-  extensions = { 'fugitive', 'neo-tree' },
+  extensions = { 'fugitive' },
 }

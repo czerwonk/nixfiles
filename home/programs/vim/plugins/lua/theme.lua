@@ -1,4 +1,5 @@
-require('kanagawa').setup {
+local kanagawa = require('kanagawa')
+kanagawa.setup {
   transparent = false,
   theme = 'wave',
   colors = {
@@ -11,10 +12,16 @@ require('kanagawa').setup {
     },
   },
   overrides = function(colors)
-      local theme = colors.theme
-      return {
-        LspInlayHint = { bg = theme.ui.bg, fg = theme.syn.comment },
-      }
+    local theme = colors.theme
+
+    return {
+      LspInlayHint = { bg = theme.ui.bg, fg = theme.syn.comment },
+      Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+      PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+      PmenuSbar = { bg = theme.ui.bg_m1 },
+      PmenuThumb = { bg = theme.ui.bg_p2 },
+    }
   end,
 }
-vim.cmd("colorscheme kanagawa")
+
+kanagawa.load('wave')
