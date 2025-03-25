@@ -10,8 +10,13 @@ vim.keymap.set('n', '<leader>ga', '<cmd>Git add .<CR>', { desc = 'Add' })
 local mini_icons = require('mini.icons')
 mini_icons.setup()
 mini_icons.mock_nvim_web_devicons()
+mini_icons.tweak_lsp_kind()
 
-require('mini.tabline').setup()
+require('mini.tabline').setup {
+  format = function(buf_id, label)
+    return string.format('   %s   ', MiniTabline.default_format(buf_id, label))
+  end
+}
 
 require('mini.bracketed').setup {
   comment = { suffix = '', options = {} },
