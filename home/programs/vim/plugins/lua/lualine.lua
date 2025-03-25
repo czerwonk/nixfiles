@@ -4,5 +4,4 @@ require('lualine').setup {
     theme = 'kanagawa',
     global = true,
   },
-  extensions = { 'fugitive' },
 }
