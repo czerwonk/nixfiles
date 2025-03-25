@@ -28,11 +28,6 @@
         type = "lua";
         config = builtins.readFile ./lua/lualine.lua;
       }
-      {
-        plugin = bufferline-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/bufferline.lua;
-      }
     ];
   };
 }
