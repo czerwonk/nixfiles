@@ -45,6 +45,7 @@ in {
         blink-compat = pkgs-unstable.vimPlugins.blink-compat;
         copilot-vim = pkgs-unstable.vimPlugins.copilot-vim;
         dressing-nvim = pkgs-unstable.vimPlugins.dressing-nvim;
+        kanagawa-nvim = pkgs-unstable.vimPlugins.kanagawa-nvim;
         plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;
         render-markdown-nvim = pkgs-unstable.vimPlugins.render-markdown-nvim;
       };
