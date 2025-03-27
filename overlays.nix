@@ -24,7 +24,6 @@ in {
       net-merge = net-merge-packages.net-merge;
       vimPlugins = super.vimPlugins // {
         blink-cmp = blink-cmp-packages.blink-cmp;
-        snacks-nvim = super.callPackage ./pkgs/snacks-nvim {};
       };
     })
     (self: super: {
@@ -37,18 +36,11 @@ in {
       home-assistant = pkgs-unstable.home-assistant;
       k3s = pkgs-unstable.k3s;
       lua-language-server = pkgs-unstable.lua-language-server;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
-      vimPlugins = super.vimPlugins // {
-        avante-nvim = pkgs-unstable.vimPlugins.avante-nvim;
-        blink-compat = pkgs-unstable.vimPlugins.blink-compat;
-        copilot-vim = pkgs-unstable.vimPlugins.copilot-vim;
-        dressing-nvim = pkgs-unstable.vimPlugins.dressing-nvim;
-        kanagawa-nvim = pkgs-unstable.vimPlugins.kanagawa-nvim;
-        plenary-nvim = pkgs-unstable.vimPlugins.plenary-nvim;
-        render-markdown-nvim = pkgs-unstable.vimPlugins.render-markdown-nvim;
-      };
+      vimPlugins = pkgs-unstable.vimPlugins;
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {

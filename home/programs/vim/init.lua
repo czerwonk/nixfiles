@@ -22,6 +22,7 @@ vim.opt.encoding = 'UTF-8'
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.termguicolors = true
+vim.opt.winborder = 'rounded'
 
 vim.opt.list = true
 vim.opt.listchars:append({
@@ -63,6 +64,11 @@ vim.keymap.set('n', '<leader>H', function()
   vim.cmd('%!xxd')
   vim.bo[0].ft = 'xxd'
 end, { desc = 'Hex view' })
+
+vim.diagnostic.config {
+  virtual_text = true,
+  virtual_lines = true
+}
 
 -- icons & signs
 local signs = {
