@@ -22,7 +22,6 @@ vim.opt.encoding = 'UTF-8'
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.termguicolors = true
-vim.opt.winborder = 'rounded'
 
 vim.opt.list = true
 vim.opt.listchars:append({
@@ -67,19 +66,28 @@ end, { desc = 'Hex view' })
 
 vim.diagnostic.config {
   virtual_text = true,
-  virtual_lines = true
+  virtual_lines = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+    },
+  },
 }
-
--- icons & signs
-local signs = {
-  Error = ' ', Warn = ' ', Hint = ' ', Info = ' '
-}
-for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, {
-    text = icon, texthl = hl, numhl = hl
-  })
-end
 
 -- editorfile
 require('editorconfig').properties.file_type = function(bufnr, val, _)
