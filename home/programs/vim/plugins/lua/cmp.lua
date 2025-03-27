@@ -2,13 +2,6 @@ local borderStyle = 'rounded';
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   completion = {
-    accept = {
-      auto_brackets = {
-        kind_resolution = {
-          blocked_filetypes = { 'codecompanion' },
-        },
-      },
-    },
     list = {
       selection = {
         preselect = function(ctx)
