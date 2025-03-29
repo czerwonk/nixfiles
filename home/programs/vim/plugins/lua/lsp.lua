@@ -42,22 +42,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lspconfig = require('lspconfig')
-
 lspconfig.nil_ls.setup {}
-
 lspconfig.bashls.setup {}
-
 lspconfig.marksman.setup {}
-
 lspconfig.rust_analyzer.setup {}
-
 lspconfig.terraformls.setup {}
-
 lspconfig.ansiblels.setup {}
-
-lspconfig.dockerls.setup {}
-
-lspconfig.docker_compose_language_service.setup {}
+lspconfig.jdtls.setup {}
+lspconfig.phpactor.setup {}
 
 lspconfig.omnisharp.setup {
   cmd = { "OmniSharp" },
@@ -92,41 +84,3 @@ lspconfig.omnisharp.setup {
     }
   }
 }
-
-lspconfig.jsonls.setup {
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = { enable = true }
-    }
-  }
-}
-
-lspconfig.helm_ls.setup {}
-
-lspconfig.yamlls.setup {
-  settings = {
-    redhat = { telemetry = { enabled = false } },
-    yaml = {
-      keyOrdering = false,
-      format = {
-        enable = true,
-      },
-      hover = true,
-      completion = true,
-      validate = true,
-      schemas = require('schemastore').yaml.schemas()
-    }
-  }
-}
-
-lspconfig.jdtls.setup {}
-
-lspconfig.phpactor.setup {}
-
-vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'} , {
-  pattern = '*/templates/*.yaml,*/templates/*.tpl,*.gotmpl,helmfile*.yaml',
-  callback = function()
-    vim.opt_local.filetype = 'helm'
-  end
-})

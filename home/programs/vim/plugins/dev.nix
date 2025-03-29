@@ -60,7 +60,6 @@ in {
 
   home.packages = with pkgs; [
     ansible-language-server
-    docker-compose-language-service
     gopls
     helm-ls
     jdt-language-server
