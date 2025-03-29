@@ -89,7 +89,10 @@ lspconfig.bashls.setup {}
 
 lspconfig.marksman.setup {}
 
-lspconfig.lua_ls.setup {
+vim.lsp.config['luals'] = {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luacheckrc', '.stylua.toml', 'stylua.toml' },
   settings = {
     Lua = {
       runtime = {
@@ -110,11 +113,12 @@ lspconfig.lua_ls.setup {
     }
   }
 }
+vim.lsp.enable('luals')
 
-lspconfig.gopls.setup {
+vim.lsp.config['gopls'] = {
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
-  root_dir = lsputil.root_pattern("go.mod"),
+  root_markers = { 'go.mod' },
   settings = {
     gopls = {
       gofumpt = true,
@@ -151,6 +155,8 @@ lspconfig.gopls.setup {
     },
   }
 }
+vim.lsp.enable('gopls')
+
 
 lspconfig.rust_analyzer.setup {}
 
