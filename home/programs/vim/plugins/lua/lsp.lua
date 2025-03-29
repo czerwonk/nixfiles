@@ -43,14 +43,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local lspconfig = require('lspconfig')
 
-lspconfig.solargraph.setup {
-  settings = {
-    solargraph = {
-      diagnostics = true
-    }
-  }
-}
-
 lspconfig.nil_ls.setup {}
 
 lspconfig.bashls.setup {}
