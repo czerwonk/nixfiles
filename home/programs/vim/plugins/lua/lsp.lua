@@ -42,7 +42,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lspconfig = require('lspconfig')
-lspconfig.rust_analyzer.setup {}
 
 lspconfig.omnisharp.setup {
   cmd = { "OmniSharp" },
