@@ -10,7 +10,7 @@
     ../../programs/oh-my-posh
     ../../programs/ssh
     ../../programs/tmux
-    ../../programs/vim
+    ../../programs/neovim
     ../../programs/zoxide
     ../../programs/zsh
   ];
