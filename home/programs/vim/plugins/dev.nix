@@ -1,10 +1,11 @@
 { pkgs, lib, ... }:
 
 let 
+  lspConfigs = builtins.readDir ./lua/lsp;
+  lspConfigLua = map (name: builtins.readFile (./lua/lsp/${name})) (builtins.attrNames lspConfigs);
   lspConfig = ''
     ${builtins.readFile ./lua/lsp.lua}
-    ${builtins.readFile ./lua/lsp/go.lua}
-    ${builtins.readFile ./lua/lsp/lua.lua}
+    ${lib.concatStringsSep "\n\n" lspConfigLua}
   '';
 
 in {
