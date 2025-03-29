@@ -5,9 +5,6 @@
     extraLuaConfig = lib.mkAfter (builtins.readFile ./lua/lsp.lua);
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = nvim-lspconfig;
-      }
-      {
         plugin = nvim-dap;
         type = "lua";
         config = builtins.readFile ./lua/dap.lua;
