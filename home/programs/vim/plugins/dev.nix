@@ -1,8 +1,15 @@
 { pkgs, lib, ... }:
 
-{
+let 
+  lspConfig = ''
+    ${builtins.readFile ./lua/lsp.lua}
+    ${builtins.readFile ./lua/lsp/go.lua}
+    ${builtins.readFile ./lua/lsp/lua.lua}
+  '';
+
+in {
   programs.neovim = {
-    extraLuaConfig = lib.mkAfter (builtins.readFile ./lua/lsp.lua);
+    extraLuaConfig = lib.mkAfter lspConfig;
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-lspconfig;
