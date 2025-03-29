@@ -66,9 +66,6 @@ end, { desc = 'Hex view' })
 
 vim.diagnostic.config {
   virtual_text = true,
-  virtual_lines = {
-    current_line = true
-  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = ' ',
