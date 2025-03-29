@@ -1,12 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.neovim = {
+    extraLuaConfig = lib.mkAfter (builtins.readFile ./lua/lsp.lua);
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-lspconfig;
-        type = "lua";
-        config = builtins.readFile ./lua/lsp.lua;
       }
       {
         plugin = nvim-dap;
