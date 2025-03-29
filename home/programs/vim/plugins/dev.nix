@@ -13,9 +13,6 @@ in {
     extraLuaConfig = lib.mkAfter lspConfig;
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = nvim-lspconfig;
-      }
-      {
         plugin = nvim-dap;
         type = "lua";
         config = builtins.readFile ./lua/dap.lua;
@@ -51,9 +48,6 @@ in {
         plugin = nvim-coverage;
         type = "lua";
         config = builtins.readFile ./lua/coverage.lua;
-      }
-      {
-        plugin = omnisharp-extended-lsp-nvim;
       }
     ];
   };
