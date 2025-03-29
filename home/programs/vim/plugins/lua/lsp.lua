@@ -1,8 +1,4 @@
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   local map = function (mode, key, binding, desc)
     vim.keymap.set(mode, key, binding, { desc = desc, noremap = true, silent = true, buffer = bufnr })
   end
@@ -33,21 +29,24 @@ local on_attach = function(client, bufnr)
   end
 
   require('which-key').add({
-    { "<leader>W", buffer = 3, group = "Workspace" },
+    { "<leader>W", buffer = bufnr, group = "Workspace" },
   });
 end
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('LspAttach', {}),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    on_attach(client, args.buf)
+  end,
+})
 
 local lspconfig = require('lspconfig')
 local lsputil = require('lspconfig/util')
 
-lspconfig.pyright.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.pyright.setup {}
 
 lspconfig.ts_ls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     typescript = {
       inlayHints = {
@@ -77,8 +76,6 @@ lspconfig.ts_ls.setup {
 }
 
 lspconfig.solargraph.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     solargraph = {
       diagnostics = true
@@ -86,24 +83,13 @@ lspconfig.solargraph.setup {
   }
 }
 
-lspconfig.nil_ls.setup{
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+lspconfig.nil_ls.setup {}
 
-lspconfig.bashls.setup{
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+lspconfig.bashls.setup {}
 
-lspconfig.marksman.setup{
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+lspconfig.marksman.setup {}
 
 lspconfig.lua_ls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -126,8 +112,6 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.gopls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
   root_dir = lsputil.root_pattern("go.mod"),
@@ -168,34 +152,17 @@ lspconfig.gopls.setup {
   }
 }
 
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.rust_analyzer.setup {}
 
-lspconfig.terraformls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.terraformls.setup {}
 
-lspconfig.ansiblels.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.ansiblels.setup {}
 
-lspconfig.dockerls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.dockerls.setup {}
 
-lspconfig.docker_compose_language_service.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.docker_compose_language_service.setup {}
 
 lspconfig.omnisharp.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
   cmd = { "OmniSharp" },
   handlers = {
     ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
@@ -230,8 +197,6 @@ lspconfig.omnisharp.setup {
 }
 
 lspconfig.jsonls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -240,14 +205,9 @@ lspconfig.jsonls.setup {
   }
 }
 
-lspconfig.helm_ls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+lspconfig.helm_ls.setup {}
 
 lspconfig.yamlls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     redhat = { telemetry = { enabled = false } },
     yaml = {
@@ -263,15 +223,9 @@ lspconfig.yamlls.setup {
   }
 }
 
-lspconfig.jdtls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.jdtls.setup {}
 
-lspconfig.phpactor.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+lspconfig.phpactor.setup {}
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
