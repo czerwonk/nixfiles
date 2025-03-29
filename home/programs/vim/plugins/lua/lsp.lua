@@ -42,7 +42,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lspconfig = require('lspconfig')
-local lsputil = require('lspconfig/util')
 
 lspconfig.pyright.setup {}
 
