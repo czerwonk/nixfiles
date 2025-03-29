@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {}
-lspconfig.terraformls.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.phpactor.setup {}
 
