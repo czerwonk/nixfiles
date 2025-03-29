@@ -42,7 +42,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lspconfig = require('lspconfig')
-lspconfig.nil_ls.setup {}
 lspconfig.bashls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.rust_analyzer.setup {}
