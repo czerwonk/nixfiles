@@ -57,6 +57,7 @@
       remmina
       termius
       vlc
+      vault
       wgnord
       wineWowPackages.waylandFull
       wireshark
