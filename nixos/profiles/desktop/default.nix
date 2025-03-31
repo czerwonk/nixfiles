@@ -56,8 +56,8 @@
       nextcloud-client
       remmina
       termius
-      vlc
       vault
+      vlc
       wgnord
       wineWowPackages.waylandFull
       wireshark
