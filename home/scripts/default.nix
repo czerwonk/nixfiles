@@ -25,7 +25,7 @@ in {
   options = {
     my.scripts.neovimExe = mkOption {
       type = types.str;
-      default = "${lib.getExe pkgs.neovim}";
+      default = "${lib.getExe config.programs.neovim.finalPackage}";
       description = "The neovim executable to use";
     };
   };
