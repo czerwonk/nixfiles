@@ -3,6 +3,7 @@
 {
   imports = [
     ../../programs/ghostty
+    ./claude-code.nix
     ./librewolf.nix
     ./neovide.nix
   ];
