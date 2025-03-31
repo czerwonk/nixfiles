@@ -25,7 +25,7 @@ in {
   options = {
     my.scripts.neovimExe = mkOption {
       type = types.str;
-      default = "/etc/profiles/per-user/${username}/bin/nvim";
+      default = "${lib.getExe pkgs.neovim}";
       description = "The neovim executable to use";
     };
   };
