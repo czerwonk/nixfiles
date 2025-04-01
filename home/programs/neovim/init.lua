@@ -64,6 +64,10 @@ vim.keymap.set('n', '<leader>H', function()
   vim.bo[0].ft = 'xxd'
 end, { desc = 'Hex view' })
 
+vim.keymap.set("n", "<leader>co", ":diffget LOCAL<CR>", { desc = "Get OUR changes" })
+vim.keymap.set("n", "<leader>ct", ":diffget REMOTE<CR>", { desc = "Get THEIR changes" })
+vim.keymap.set("n", "<leader>cb", ":diffget BASE<CR>", { desc = "Get BASE changes" })
+
 vim.diagnostic.config {
   virtual_text = true,
   signs = {

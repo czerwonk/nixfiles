@@ -63,11 +63,10 @@
       merge.tool = "nvim";
 
       mergetool = {
+        keepBackup = false;
+        keepTemporaries = false;
         nvim = {
-          cmd = "nvim -c 'DiffviewOpen'";
-          keepBackup = false;
-          keepTemporaries = false;
-          trustExitCode = false;
+          cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'wincmd =' -c 'resize 20'";
         };
       };
 

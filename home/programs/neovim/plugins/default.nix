@@ -35,11 +35,6 @@
         plugin = plenary-nvim;
       }
       {
-        plugin = diffview-nvim;
-        type = "lua";
-        config = "require('diffview').setup();";
-      }
-      {
         plugin = SchemaStore-nvim;
       }
       {
