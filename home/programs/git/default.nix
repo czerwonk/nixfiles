@@ -60,13 +60,29 @@
         autoSetupRemote = true;
       };
 
-      merge.tool = "nvim";
+      diff = {
+        tool = "nvimdiff";
+      };
+
+
+      difftool = {
+        prompt = false;
+        nvimdiff = {
+          cmd = "nvim -d -R $LOCAL $REMOTE";
+        };
+      };
+
+      merge = {
+        tool = "nvimdiff";
+        conflictStyle = "diff3";
+      };
 
       mergetool = {
+        prompt = false;
         keepBackup = false;
         keepTemporaries = false;
-        nvim = {
-          cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'wincmd =' -c 'resize 20'";
+        nvimdiff = {
+          cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
           trustExitCode = false;
         };
       };
