@@ -4,7 +4,6 @@
   imports = [
     ../../programs/ghostty
     ./librewolf.nix
-    ./neovide.nix
   ];
 
   programs.zsh.shellAliases = {

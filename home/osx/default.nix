@@ -3,7 +3,6 @@
 {
   imports = [
     ./../default.nix
-    ./../profiles/desktop/common.nix
   ];
 
   home = {

@@ -64,16 +64,24 @@ vim.keymap.set('n', '<leader>H', function()
   vim.bo[0].ft = 'xxd'
 end, { desc = 'Hex view' })
 
--- icons & signs
-local signs = {
-  Error = ' ', Warn = ' ', Hint = ' ', Info = ' '
+vim.diagnostic.config {
+  virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+    },
+  },
+  severity_sort = true,
 }
-for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, {
-    text = icon, texthl = hl, numhl = hl
-  })
-end
 
 -- editorfile
 require('editorconfig').properties.file_type = function(bufnr, val, _)

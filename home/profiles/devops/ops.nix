@@ -23,7 +23,6 @@
       termshark
       terrascan
       trurl
-      vault
       vegeta
     ];
   };

@@ -11,8 +11,6 @@ let
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
-  blink-cmp-packages = inputs.blink-cmp.packages.${system};
-  ghostty-packages = inputs.ghostty.packages.${system};
 
 in {
   nixpkgs.overlays = [
@@ -20,11 +18,7 @@ in {
       all-ways-egpu = super.callPackage ./pkgs/all-ways-egpu {};
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
-      ghostty = ghostty-packages.default;
       net-merge = net-merge-packages.net-merge;
-      vimPlugins = super.vimPlugins // {
-        blink-cmp = blink-cmp-packages.blink-cmp;
-      };
     })
     (self: super: {
       unstable = pkgs-unstable;

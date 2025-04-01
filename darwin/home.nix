@@ -1,7 +1,7 @@
 {
   imports = [
     ../home/osx
-    ../home/profiles/desktop/common.nix
+    ../home/programs/ghostty
   ];
 
   my.programs.ghostty = {

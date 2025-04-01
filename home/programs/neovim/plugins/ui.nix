@@ -16,9 +16,8 @@
         type = "lua";
         config = "require('colorizer').setup()";
       }
-
-      # theme
       {
+        # theme
         plugin = kanagawa-nvim;
         type = "lua";
         config = builtins.readFile ./lua/theme.lua;

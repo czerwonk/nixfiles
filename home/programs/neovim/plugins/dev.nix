@@ -1,13 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
-{
+let 
+  lspConfigs = builtins.readDir ./lua/lsp;
+  lspConfigLua = map (name: builtins.readFile (./lua/lsp/${name})) (builtins.attrNames lspConfigs);
+  lspConfig = ''
+    ${builtins.readFile ./lua/lsp.lua}
+    ${lib.concatStringsSep "\n\n" lspConfigLua}
+  '';
+
+in {
   programs.neovim = {
+    extraLuaConfig = lib.mkAfter lspConfig;
     plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nvim-lspconfig;
-        type = "lua";
-        config = builtins.readFile ./lua/lsp.lua;
-      }
       {
         plugin = nvim-dap;
         type = "lua";
@@ -45,15 +49,11 @@
         type = "lua";
         config = builtins.readFile ./lua/coverage.lua;
       }
-      {
-        plugin = omnisharp-extended-lsp-nvim;
-      }
     ];
   };
 
   home.packages = with pkgs; [
     ansible-language-server
-    docker-compose-language-service
     gopls
     helm-ls
     jdt-language-server
