@@ -60,7 +60,16 @@
         autoSetupRemote = true;
       };
 
-      merge.tool = "vimdiff2";
+      merge.tool = "nvim";
+
+      mergetool = {
+        nvim = {
+          cmd = "nvim -c 'DiffviewOpen'";
+          keepBackup = false;
+          keepTemporaries = false;
+          trustExitCode = false;
+        };
+      };
 
       rerere.enabled = true;
     };

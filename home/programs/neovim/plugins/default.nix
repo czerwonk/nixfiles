@@ -32,6 +32,11 @@
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
       }
       {
+        plugin = diffview-nvim;
+        type = "lua";
+        config = "require('diffview').setup();";
+      }
+      {
         plugin = SchemaStore-nvim;
       }
       {

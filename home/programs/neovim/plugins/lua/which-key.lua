@@ -12,7 +12,6 @@ wk.setup {
   { "<leader>q", group = "Quickfix" },
   { "<leader>r", group = "Refactoring" },
   { "<leader>t", group = "Test" },
-  { "<leader>tc", group = "Coverage" },
   { "<leader>x", group = "Diagnostics" },
   {
     "<leader>b",
