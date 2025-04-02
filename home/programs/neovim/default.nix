@@ -11,6 +11,11 @@
     defaultEditor = true;
     vimdiffAlias = true;
     package = pkgs.neovim-unwrapped;
-    extraLuaConfig = builtins.readFile ./init.lua;
+    extraLuaConfig = ''
+      ${lib.readFile ./lua/options.lua}
+      ${lib.readFile ./lua/keymap.lua}
+      ${lib.readFile ./lua/diagnostic.lua}
+      ${lib.readFile ./lua/editorfile.lua}
+    '';
   };
 }
