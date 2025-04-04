@@ -8,9 +8,6 @@ local on_attach = function(client, bufnr)
   map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, 'Format (LSP)')
   map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename (LSP)')
 
-  map('n', 'gn', function () vim.diagnostic.goto_next() end, 'Next diagnostic')
-  map('n', 'gp', function () vim.diagnostic.goto_prev() end, 'Previous diagnostic')
-
   map('n', '<leader>o', function() Snacks.picker.lsp_symbols() end, 'Symbols (LSP)')
   map('n', 'gd', function() Snacks.picker.lsp_definitions() end, 'Definitions (LSP)')
   map('n', 'gr', function() Snacks.picker.lsp_references() end, 'References (LSP)')

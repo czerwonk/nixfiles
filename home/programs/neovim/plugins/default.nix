@@ -32,6 +32,9 @@
         config = builtins.readFile ./lua/vim-tmux-navigator.lua;
       }
       {
+        plugin = plenary-nvim;
+      }
+      {
         plugin = SchemaStore-nvim;
       }
       {

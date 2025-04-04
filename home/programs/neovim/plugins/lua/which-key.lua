@@ -4,7 +4,7 @@ local wk = require('which-key')
 wk.setup {
   preset = "modern",
   spec = {
-  { "<leader>c", group = "Coverage" },
+  { "<leader>c", group = "Diff" },
   { "<leader>d", group = "Debug" },
   { "<leader>f", group = "Find" },
   { "<leader>g", group = "Git" },
@@ -12,15 +12,7 @@ wk.setup {
   { "<leader>q", group = "Quickfix" },
   { "<leader>r", group = "Refactoring" },
   { "<leader>t", group = "Test" },
-  { "<leader>tc", group = "Coverage" },
   { "<leader>x", group = "Diagnostics" },
-  {
-    "<leader>b",
-      group = "buffer",
-      expand = function()
-        return require("which-key.extras").expand.buf()
-      end,
-    },
 {
     "<leader>w",
       group = "windows",
