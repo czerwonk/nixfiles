@@ -21,7 +21,6 @@ in {
       net-merge = net-merge-packages.net-merge;
     })
     (self: super: {
-      unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
       claude-code = pkgs-unstable.claude-code;
       delve = pkgs-unstable.delve;
