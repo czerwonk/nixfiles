@@ -27,7 +27,6 @@ in {
       go = pkgs-unstable.go;
       gopls = pkgs-unstable.gopls;
       home-assistant = pkgs-unstable.home-assistant;
-      k3s = pkgs-unstable.k3s;
       lua-language-server = pkgs-unstable.lua-language-server;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       oh-my-posh = pkgs-unstable.oh-my-posh;
