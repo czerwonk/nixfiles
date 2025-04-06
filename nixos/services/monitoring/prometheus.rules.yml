@@ -102,14 +102,14 @@ groups:
     annotations:
       description: "The network interface {{ $labels.device }} on {{ $labels.instance }} is getting overloaded."
   - alert: HostNetworkReceiveErrors
-    expr: rate(node_network_receive_errs_total[2m]) / rate(node_network_receive_packets_total[2m]) > 0.01
+    expr: rate(node_network_receive_packets_total[2m]) > 0 AND rate(node_network_receive_errs_total[2m]) / rate(node_network_receive_packets_total[2m]) > 0.01
     for: 2m
     labels:
       severity: warning
     annotations:
       description: "Host {{ $labels.instance }} interface {{ $labels.device }} has encountered {{ printf \"%.0f\" $value }} receive errors in the last two minutes."
   - alert: HostNetworkTransmitErrors
-    expr: rate(node_network_transmit_errs_total[2m]) / rate(node_network_transmit_packets_total[2m]) > 0.01
+    expr: rate(node_network_transmit_packets_total[2m]) > 0 AND rate(node_network_transmit_errs_total[2m]) / rate(node_network_transmit_packets_total[2m]) > 0.01
     for: 2m
     labels:
       severity: warning
