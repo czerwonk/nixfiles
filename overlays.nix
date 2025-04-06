@@ -31,6 +31,7 @@ in {
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       oh-my-posh = pkgs-unstable.oh-my-posh;
       ollama-rocm = pkgs-unstable.ollama-rocm;
+      prometheus = pkgs-unstable.prometheus;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins;
     })
