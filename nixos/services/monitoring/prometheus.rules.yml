@@ -5,7 +5,7 @@ groups:
     expr: bird_protocol_up{proto="BGP",import_filter!="drain",export_filter!="drain"} == 0
     for: 15m
     labels:
-      severity: error
+      severity: critical
     annotations:
       description: Session {{ $labels.name }} down for more than 15 minutes
   - alert: HostConntrackLimit
@@ -64,7 +64,7 @@ groups:
     expr: node_md_disks{state="failed"} > 0
     for: 2m
     labels:
-      severity: error
+      severity: critical
     annotations:
       description: "At least one device in RAID array on {{ $labels.instance }} failed. Array {{ $labels.md_device }} needs attention and possibly a disk swap."
   - alert: HostOomKillDetected
@@ -95,7 +95,7 @@ groups:
     annotations:
       description: "Bond {{ $labels.device }} degraded on {{ $labels.instance }}."
   - alert: HostNetworkInterfaceSaturated
-    expr: (rate(node_network_receive_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m]) + rate(node_network_transmit_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m])) / node_network_speed_bytes{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"} > 0.8 < 10000
+    expr: (rate(node_network_receive_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m]) + rate(node_network_transmit_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m])) / node_network_speed_bytes{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"} > 0.8 and (rate(node_network_receive_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m]) + rate(node_network_transmit_bytes_total{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"}[1m])) / node_network_speed_bytes{device!~"^tap.*|^vnet.*|^veth.*|^tun.*"} < 10000
     for: 1m
     labels:
       severity: warning
