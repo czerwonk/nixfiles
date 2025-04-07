@@ -17,6 +17,7 @@
       ${lib.readFile ./lua/diagnostic.lua}
       ${lib.readFile ./lua/editorfile.lua}
       ${lib.readFile ./lua/abbreviations.lua}
+      ${lib.readFile ./lua/marks.lua}
     '';
   };
 }
