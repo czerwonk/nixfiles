@@ -22,11 +22,6 @@
         type = "lua";
         config = builtins.readFile ./lua/theme.lua;
       }
-      {
-        plugin = lualine-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/lualine.lua;
-      }
     ];
   };
 }

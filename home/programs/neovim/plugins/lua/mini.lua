@@ -20,6 +20,10 @@ require('mini.tabline').setup {
   end
 }
 
+require('mini.statusline').setup {
+  use_icons = true,
+}
+
 require('mini.bracketed').setup {
   comment = { suffix = '', options = {} },
   file = { suffix = '', options = {} },
