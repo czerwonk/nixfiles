@@ -14,7 +14,7 @@ require('avante').setup {
     },
   },
   ollama = {
-    model = 'qwen2.5-coder',
+    model = 'gemma3',
   },
   file_selector = {
     provider = 'snacks',
