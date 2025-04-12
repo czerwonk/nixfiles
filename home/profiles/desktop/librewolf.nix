@@ -54,7 +54,6 @@ in {
         user_pref("browser.download.alwaysOpenPanel", false);
         user_pref("browser.download.always_ask_before_handling_new_types", true);
         user_pref("browser.download.manager.addToRecentDocs", false);
-        user_pref("browser.download.useDownloadDir", true);
         user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
         user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
         user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
