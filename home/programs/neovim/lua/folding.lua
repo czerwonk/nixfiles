@@ -1,5 +1,5 @@
 vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = 'v:lua.require("nvim-treesitter.fold").foldexpr()'
+vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 3
 vim.opt.foldlevel = 99
+vim.opt.foldminlines = 3

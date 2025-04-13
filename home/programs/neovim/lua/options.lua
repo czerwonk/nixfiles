@@ -27,6 +27,14 @@ vim.opt.listchars:append({
   tab = '⇢ ',
 })
 
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+}
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
