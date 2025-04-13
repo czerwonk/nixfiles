@@ -3,18 +3,11 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  fold = {
+    enable = true
+  },
   indent = {
     enable = true,
-  },
-  textobjects = {
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-      goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-      goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-      goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
-    },
   },
   incremental_selection = {
     enable = true,

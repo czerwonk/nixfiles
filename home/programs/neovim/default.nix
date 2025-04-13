@@ -18,6 +18,7 @@
       ${lib.readFile ./lua/editorfile.lua}
       ${lib.readFile ./lua/abbreviations.lua}
       ${lib.readFile ./lua/marks.lua}
+      ${lib.readFile ./lua/folding.lua}
     '';
   };
 }
