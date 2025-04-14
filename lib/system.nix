@@ -70,11 +70,10 @@
         }
       ] ++ extraModules;
       specialArgs = {
-        inherit inputs;
+        inherit inputs util;
         system = "x86_64-linux";
         username = "nixos";
         configName = "iso";
-        util = import ./util.nix;
       };
     };
 
