@@ -2,7 +2,9 @@
 
 {
   mkNixOSSystem = { configName, username, system, extraModules, extraHomeModules }:
-    inputs.nixpkgs.lib.nixosSystem {
+    let
+      util = import ./util.nix;
+    in inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../overlays.nix
@@ -12,19 +14,21 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit username extraHomeModules;
+            inherit username extraHomeModules util;
             wrapFirejailBinary = import ./firejail.nix;
           };
         }
         inputs.impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
-        inherit configName username system inputs;
+        inherit configName username system inputs util;
       };
     };
 
   mkNixOSSystemUnstable = { configName, username, system, extraModules, extraHomeModules }:
-    inputs.nixpkgs-unstable.lib.nixosSystem {
+    let
+      util = import ./util.nix;
+    in inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../overlays.nix
@@ -34,19 +38,21 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ../nixos/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit username extraHomeModules;
+            inherit username extraHomeModules util;
             wrapFirejailBinary = import ./firejail.nix;
           };
         }
         inputs.impermanence.nixosModule
       ] ++ extraModules;
       specialArgs = {
-        inherit configName username system inputs;
+        inherit configName username system inputs util;
       };
     };
 
   mkISO = { edition, baseModule, extraModules, extraHomeModules }:
-    inputs.nixpkgs.lib.nixosSystem {
+    let
+      util = import ./util.nix;
+    in inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         baseModule
@@ -57,7 +63,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.nixos = import ../nixos/iso/${edition}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit inputs extraHomeModules;
+            inherit inputs extraHomeModules util;
             username = "nixos";
             wrapFirejailBinary = import ./firejail.nix;
           };
@@ -68,11 +74,14 @@
         system = "x86_64-linux";
         username = "nixos";
         configName = "iso";
+        util = import ./util.nix;
       };
     };
 
   mkDarwinSystem = { configName, username, system, extraModules, extraHomeModules }:
-    inputs.darwin.lib.darwinSystem {
+    let
+      util = import ./util.nix;
+    in inputs.darwin.lib.darwinSystem {
       inherit system;
       modules = [
         ../overlays.nix
@@ -82,12 +91,12 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import ../darwin/hosts/${configName}/home.nix;
           home-manager.extraSpecialArgs = {
-            inherit username extraHomeModules;
+            inherit username extraHomeModules util;
           };
         }
       ] ++ extraModules;
       specialArgs = {
-        inherit configName username system inputs;
+        inherit configName username system inputs util;
       };
     };
 }
