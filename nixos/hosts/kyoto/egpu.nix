@@ -12,39 +12,40 @@ with lib;
   };
 
   config = mkIf config.use_egpu {
-    users.users.${username}.extraGroups = [ "render" ];
+    users.users.${username}.extraGroups = [ "render" "video" ];
 
     boot.kernelParams = [
       "amdgpu.pcie_gen_cap=0x40000" # Force AMD GPU to use full width (optional)
     ];
 
-    systemd.tmpfiles.rules = 
-    let
-      rocmEnv = pkgs.symlinkJoin {
-        name = "rocm-combined";
-        paths = with pkgs.rocmPackages; [
-          rocblas
-          hipblas
-          clr
+    hardware = {
+      amdgpu = {
+        opencl.enable = true;
+      };
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = with pkgs; [
+          rocmPackages.clr.icd
+          rocmPackages.rocm-runtime
+          amdvlk
         ];
       };
-    in [
-      "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
-    ];
-
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd
-      ];
     };
 
     environment.systemPackages = with pkgs; [
       all-ways-egpu
-      nvtopPackages.full
+      rocmPackages.rocm-smi
       rocmPackages.rocminfo
+      rocmPackages.hipcc
+      rocmPackages.rocm-runtime
     ];
+
+    environment.variables = {
+      HSA_OVERRIDE_GFX_VERSION = "11.0.0";  # For RDNA 3 GPUs like RX 7800
+      ROCR_VISIBLE_DEVICES = "0";
+      HIP_VISIBLE_DEVICES = "0";
+    };
 
     systemd.services.all-ways-egpu = {
       enable = true;
@@ -65,6 +66,8 @@ with lib;
 
     services.ollama = {
       enable = true;
+      user = "ollama";
+      group = "ollama";
       acceleration = "rocm";
       package = pkgs.ollama-rocm;
       rocmOverrideGfx = "11.0.0";
