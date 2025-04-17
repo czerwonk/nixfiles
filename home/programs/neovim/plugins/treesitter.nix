@@ -47,9 +47,6 @@
         config = builtins.readFile ./lua/tree-sitter.lua;
       }
       {
-        plugin = nvim-treesitter-textobjects;
-      }
-      {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = "require('nvim-ts-autotag').setup()";

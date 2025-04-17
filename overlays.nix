@@ -21,11 +21,14 @@ in {
       net-merge = net-merge-packages.net-merge;
     })
     (self: super: {
-      unstable = pkgs-unstable;
       ansible = super.ansible.override { windowsSupport = true; };
+      claude-code = pkgs-unstable.claude-code;
       home-assistant = pkgs-unstable.home-assistant;
+      neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
+      prometheus = pkgs-unstable.prometheus;
       termius = pkgs-unstable.termius;
+      vimPlugins = pkgs-unstable.vimPlugins;
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {

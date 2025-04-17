@@ -1,16 +1,11 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, util, ... }:
 
-let 
-  lspConfigs = builtins.readDir ./lua/lsp;
-  lspConfigLua = map (name: builtins.readFile (./lua/lsp/${name})) (builtins.attrNames lspConfigs);
-  lspConfig = ''
-    ${builtins.readFile ./lua/lsp.lua}
-    ${lib.concatStringsSep "\n\n" lspConfigLua}
-  '';
-
-in {
+{
   programs.neovim = {
-    extraLuaConfig = lib.mkAfter lspConfig;
+    extraLuaConfig = lib.mkAfter ''
+      ${builtins.readFile ./lua/lsp.lua}
+      ${util.readDirString ./lua/lsp}
+    '';
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-dap;

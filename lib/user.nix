@@ -13,6 +13,7 @@
       extraSpecialArgs = {
         inherit username inputs;
         system = "x86_64-darwin";
+        util = import ./util.nix;
       };
     };
 
@@ -28,6 +29,7 @@
       extraSpecialArgs = {
         inherit username inputs;
         system = "x86_64-linux";
+        util = import ./util.nix;
       };
     };
 }

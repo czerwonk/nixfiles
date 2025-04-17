@@ -29,6 +29,7 @@ vim.keymap.set('n', '<C-n>', function() Snacks.explorer() end, { desc = 'Toggle 
 vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end, { desc = 'Notification History' })
 vim.keymap.set('n', '<leader>u', function() Snacks.picker.undo() end, { desc = 'Undo Picker' })
 vim.keymap.set('n', '<leader>i', function() Snacks.picker.icons() end, { desc = 'Icon Picker' })
+vim.keymap.set('n', '<leader>mm', function() Snacks.picker.marks() end, { desc = 'Mark Picker' })
 vim.keymap.set('n', '<leader>ft', function() Snacks.picker.todo_comments() end, { desc = 'TODO Comments' })
 vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>fc', function() Snacks.picker.commands() end, { desc = 'Commands' })

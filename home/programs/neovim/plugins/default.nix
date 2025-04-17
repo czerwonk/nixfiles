@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, util, ... }:
 
 {
   imports = [
@@ -14,7 +14,7 @@
       {
         plugin = mini-nvim;
         type = "lua";
-        config = builtins.readFile ./lua/mini.lua;
+        config = util.readDirString ./lua/mini;
       }
       {
         plugin = snacks-nvim;

@@ -26,6 +26,8 @@ in {
         }
         {
           plugin = copilot-vim;
+          type = "lua";
+          config = builtins.readFile ./lua/copilot.lua;
         }
       ];
     };
