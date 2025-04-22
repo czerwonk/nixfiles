@@ -52,10 +52,4 @@
     enable = true;
     autoStart = false;
   };
-
-  specialisation = {
-    without-egpu.configuration = {
-      use_egpu = false;
-    };
-  };
 }
