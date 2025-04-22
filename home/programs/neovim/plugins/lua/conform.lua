@@ -10,7 +10,7 @@ conform.setup {
     ansible = { 'ansible-lint' },
     css = { 'dprint' },
     dockerfile = { 'dprint' },
-    hcl = { "hclfmt" },
+    hcl = { 'hclfmt' },
     html = { 'dprint' },
     javascript = { 'dprint' },
     json = { 'dprint' },
