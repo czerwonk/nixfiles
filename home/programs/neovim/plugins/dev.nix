@@ -8,6 +8,11 @@
     '';
     plugins = with pkgs.vimPlugins; [
       {
+        plugin = conform-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/conform.lua;
+      }
+      {
         plugin = nvim-dap;
         type = "lua";
         config = builtins.readFile ./lua/dap.lua;
@@ -49,21 +54,26 @@
 
   home.packages = with pkgs; [
     ansible-language-server
+    dprint
     gopls
+    hclfmt
     helm-ls
     jdt-language-server
     marksman
     nil
+    nixfmt-rfc-style
     nodejs
     pyright
+    python312Packages.black
     solargraph
+    stylua
     sumneko-lua-language-server
     terraform-ls
     vscode-langservers-extracted
   ] ++ (with pkgs.nodePackages; [
-      bash-language-server
-      dockerfile-language-server-nodejs
-      typescript-language-server
-      yaml-language-server
+    bash-language-server
+    dockerfile-language-server-nodejs
+    typescript-language-server
+    yaml-language-server
   ]);
 }
