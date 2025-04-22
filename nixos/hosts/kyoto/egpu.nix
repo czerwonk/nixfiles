@@ -41,12 +41,6 @@ with lib;
       rocmPackages.rocm-runtime
     ];
 
-    environment.variables = {
-      HSA_OVERRIDE_GFX_VERSION = "11.0.0";  # For RDNA 3 GPUs like RX 7800
-      ROCR_VISIBLE_DEVICES = "0";
-      HIP_VISIBLE_DEVICES = "0";
-    };
-
     systemd.services.all-ways-egpu = {
       enable = true;
       description = "Configure eGPU as primary under Wayland desktops";
@@ -70,7 +64,6 @@ with lib;
       group = "ollama";
       acceleration = "rocm";
       package = pkgs.ollama-rocm;
-      rocmOverrideGfx = "11.0.0";
     };
 
     systemd.services.ollama.wantedBy = lib.mkForce [];
