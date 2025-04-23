@@ -7,7 +7,7 @@ conform.setup {
     lsp_format = "fallback",
   },
   formatters_by_ft = {
-    ansible = { 'ansible-lint' },
+    [ 'yaml.ansible' ] = { 'ansible-lint' },
     css = { 'prettierd' },
     html = { 'prettierd' },
     javascript = { 'prettierd' },
@@ -39,5 +39,12 @@ conform.setup {
     },
   },
 }
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "ansible,css,html,javascript,json,nix,python,typescript,yaml",
+  callback = function(args)
+    conform.format({ bufnr = args.buf })
+  end,
+})
 
 vim.keymap.set('n', '<leader>F', conform.format, { desc = 'Format'})
