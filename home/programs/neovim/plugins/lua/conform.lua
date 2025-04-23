@@ -27,6 +27,7 @@ conform.setup {
         "--indent-type", "Spaces",
         "--indent-width", "2",
         "--quote-style","AutoPreferSingle",
+        "--call-parentheses", "NoSingleTable",
       },
     },
     shfmt = {
