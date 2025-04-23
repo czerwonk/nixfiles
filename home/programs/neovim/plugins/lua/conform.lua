@@ -39,9 +39,9 @@ conform.setup {
   },
 }
 
-local format_filetypes = { "css", "html", "javascript", "json", "nix", "python", "typescript", "yaml" }
+local format_for_extensions = { "css", "html", "js", "json", "nix", "py", "ts", "yml", "yaml"}
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*." .. table.concat(format_filetypes, ",*."),
+  pattern = "*." .. table.concat(format_for_extensions, ",*."),
   callback = function(args)
     conform.format({ bufnr = args.buf })
   end,
