@@ -23,7 +23,7 @@ conform.setup {
   },
   formatters = {
     stylua = {
-      args = {
+      prepend_args = {
         "--indent-type", "Spaces",
         "--indent-width", "2",
         "--quote-style","AutoPreferSingle",
