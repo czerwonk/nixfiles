@@ -7,7 +7,6 @@ conform.setup {
     lsp_format = "fallback",
   },
   formatters_by_ft = {
-    [ 'yaml.ansible' ] = { 'ansible-lint' },
     css = { 'prettierd' },
     html = { 'prettierd' },
     javascript = { 'prettierd' },
@@ -40,8 +39,9 @@ conform.setup {
   },
 }
 
+local format_filetypes = { "css", "html", "javascript", "json", "nix", "python", "typescript", "yaml" }
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "yaml.ansible,css,html,javascript,json,nix,python,typescript,yaml",
+  pattern = "*." .. table.concat(format_filetypes, ",*."),
   callback = function(args)
     conform.format({ bufnr = args.buf })
   end,
