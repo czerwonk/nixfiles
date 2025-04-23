@@ -1,11 +1,18 @@
-{ pkgs, lib, config, username, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.crowdsec;
 
-in {
+in
+{
   options = {
     my.services.crowdsec = {
       enable = mkEnableOption "CrowSec Security Engine (including firewall-bouncer for nftables)";
@@ -17,7 +24,7 @@ in {
 
       collections = mkOption {
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
         description = "Collections to install";
       };
 
@@ -87,18 +94,20 @@ in {
         };
       };
       extraExecStartPre = ''
-        ${lib.concatLines (map (collection: ''
-          if ! cscli collections list | grep -q '${collection}'; then
-            cscli collections install ${collection}
-          fi
-        '') cfg.collections)}
+        ${lib.concatLines (
+          map (collection: ''
+            if ! cscli collections list | grep -q '${collection}'; then
+              cscli collections install ${collection}
+            fi
+          '') cfg.collections
+        )}
 
         if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
           cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
         fi
       '';
     };
-    systemd.services.crowdsec.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
+    systemd.services.crowdsec.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
 
     services.crowdsec-firewall-bouncer = {
       enable = cfg.enableMitigation;

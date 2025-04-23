@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.programs.tmux;
 
-in {
+in
+{
   options = {
     programs.tmux.position = mkOption {
       type = types.str;

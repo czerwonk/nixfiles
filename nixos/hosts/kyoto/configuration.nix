@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ./persistence.nix
     ../../configuration.nix
@@ -60,5 +60,5 @@
     acceleration = "rocm";
     package = pkgs.ollama-rocm;
   };
-  systemd.services.ollama.wantedBy = lib.mkForce [];
+  systemd.services.ollama.wantedBy = lib.mkForce [ ];
 }

@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -24,7 +29,8 @@ let
       ${lib.getExe config.programs.neovim.finalPackage} "$@"
   '';
 
-in {
+in
+{
   options = {
     programs.neovim.sandboxPackage = mkOption {
       type = types.package;

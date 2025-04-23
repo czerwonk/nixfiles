@@ -5,7 +5,8 @@ with lib;
 let
   cfg = config.my.services.monitoring;
 
-in {
+in
+{
   config = mkIf cfg.enable {
     services.prometheus = {
       enable = true;
@@ -25,15 +26,17 @@ in {
       scrapeConfigs = [
         {
           job_name = "node";
-          static_configs = [{
-            targets = [ 
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
-              "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
-              "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
-              "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
-              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
-            ];
-          }];
+          static_configs = [
+            {
+              targets = [
+                "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+                "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+                "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+                "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+                "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.node.port}"
+              ];
+            }
+          ];
           relabel_configs = [
             {
               source_labels = [ "__address__" ];
@@ -46,13 +49,15 @@ in {
         }
         {
           job_name = "bird";
-          static_configs = [{
-            targets = [
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
-              "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
-              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
-            ];
-          }];
+          static_configs = [
+            {
+              targets = [
+                "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+                "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+                "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.bird.port}"
+              ];
+            }
+          ];
           relabel_configs = [
             {
               source_labels = [ "__address__" ];
@@ -65,15 +70,17 @@ in {
         }
         {
           job_name = "zfs";
-          static_configs = [{
-            targets = [
-              "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
-              "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
-              "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
-              "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
-              "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
-            ];
-          }];
+          static_configs = [
+            {
+              targets = [
+                "bb1.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+                "bb2.dus.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+                "home1.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+                "home2.ess.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+                "backup1.wup.routing.rocks:${toString config.services.prometheus.exporters.zfs.port}"
+              ];
+            }
+          ];
           relabel_configs = [
             {
               source_labels = [ "__address__" ];
@@ -86,13 +93,15 @@ in {
         }
         {
           job_name = "crowdsec";
-          static_configs = [{
-            targets = [ 
-              "bb1.dus.routing.rocks:6060"
-              "bb2.dus.routing.rocks:6060"
-              "127.0.0.1:6060"
-            ];
-          }];
+          static_configs = [
+            {
+              targets = [
+                "bb1.dus.routing.rocks:6060"
+                "bb2.dus.routing.rocks:6060"
+                "127.0.0.1:6060"
+              ];
+            }
+          ];
           relabel_configs = [
             {
               source_labels = [ "__address__" ];
@@ -109,23 +118,25 @@ in {
           params = {
             module = [ "http_2xx" ];
           };
-          static_configs = [{
-            targets = [
-              "audiobooks.routing.rocks"
-              "books.routing.rocks/login"
-              "code.routing.rocks"
-              "home.routing.rocks"
-              "matrix.routing.rocks/_matrix/client/versions"
-              "media.routing.rocks/web/index.html"
-              "nextcloud.routing.rocks/login"
-              "ntfy.routing.rocks"
-              "photos.routing.rocks"
-              "rss.routing.rocks"
-              "social.routing.rocks"
-              "unifi.routing.rocks/manage/account/login"
-              "vaultwarden.routing.rocks"
-            ];
-          }];
+          static_configs = [
+            {
+              targets = [
+                "audiobooks.routing.rocks"
+                "books.routing.rocks/login"
+                "code.routing.rocks"
+                "home.routing.rocks"
+                "matrix.routing.rocks/_matrix/client/versions"
+                "media.routing.rocks/web/index.html"
+                "nextcloud.routing.rocks/login"
+                "ntfy.routing.rocks"
+                "photos.routing.rocks"
+                "rss.routing.rocks"
+                "social.routing.rocks"
+                "unifi.routing.rocks/manage/account/login"
+                "vaultwarden.routing.rocks"
+              ];
+            }
+          ];
           relabel_configs = [
             {
               source_labels = [ "__address__" ];

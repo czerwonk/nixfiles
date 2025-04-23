@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.kosync;
 
-in {
+in
+{
   options = {
     my.services.kosync = {
       enable = mkEnableOption "Koreader Sync Server";

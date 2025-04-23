@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../zfs

@@ -1,7 +1,10 @@
 { pkgs, username, ... }:
 
 {
-  users.users.${username}.extraGroups = [ "render" "video" ];
+  users.users.${username}.extraGroups = [
+    "render"
+    "video"
+  ];
 
   hardware = {
     amdgpu = {

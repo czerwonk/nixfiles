@@ -12,7 +12,8 @@ let
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
 
-in {
+in
+{
   nixpkgs.overlays = [
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
@@ -42,9 +43,11 @@ in {
       });
       gnomeExtensions = super.gnomeExtensions // {
         pop-shell = super.gnomeExtensions.pop-shell.overrideAttrs (oldAttrs: {
-          preFixup = oldAttrs.preFixup + ''
-            echo '.pop-shell-search-element:select{ color: #DCD7BA !important; }' >> $out/share/gnome-shell/extensions/pop-shell@system76.com/light.css
-          '';
+          preFixup =
+            oldAttrs.preFixup
+            + ''
+              echo '.pop-shell-search-element:select{ color: #DCD7BA !important; }' >> $out/share/gnome-shell/extensions/pop-shell@system76.com/light.css
+            '';
         });
       };
       gvisor = super.gvisor.overrideAttrs (old: {

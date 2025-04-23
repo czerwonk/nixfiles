@@ -1,4 +1,10 @@
-{ pkgs, lib, username, wrapFirejailBinary, ... }:
+{
+  pkgs,
+  lib,
+  username,
+  wrapFirejailBinary,
+  ...
+}:
 
 let
   profile = pkgs.writeText "librewolf.local" ''
@@ -8,15 +14,18 @@ let
     include librewolf.profile
   '';
 
-in {
+in
+{
   programs.librewolf = {
     enable = true;
-    package = (wrapFirejailBinary {
-      inherit pkgs lib;
-      package = pkgs.librewolf;
-      profile = profile;
-      extraArgs = [ "--dbus-user.talk=org.freedesktop.Notifications" ];
-    });
+    package = (
+      wrapFirejailBinary {
+        inherit pkgs lib;
+        package = pkgs.librewolf;
+        profile = profile;
+        extraArgs = [ "--dbus-user.talk=org.freedesktop.Notifications" ];
+      }
+    );
     languagePacks = [
       "en-US"
       "de"
@@ -36,7 +45,7 @@ in {
       OfferToSaveLogins = false;
       PasswordManagerEnabled = false;
       EnableTrackingProtection = {
-        Value= true;
+        Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;

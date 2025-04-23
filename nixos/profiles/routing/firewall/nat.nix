@@ -3,7 +3,8 @@
 let
   nat = config.networking.nat;
 
-in {
+in
+{
   networking.nftables.tables."nixos-nat".family = "ip";
   networking.nftables.tables."nixos-nat".content = lib.mkAfter ''
     chain post {

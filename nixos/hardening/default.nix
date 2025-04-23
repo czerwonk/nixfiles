@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -33,11 +38,16 @@
 
   systemd.coredump.enable = lib.mkDefault false;
   security.pam.loginLimits = [
-    { domain = "*"; item = "core"; type = "hard"; value = "0"; }
+    {
+      domain = "*";
+      item = "core";
+      type = "hard";
+      value = "0";
+    }
   ];
 
   security.unprivilegedUsernsClone = lib.mkDefault config.virtualisation.containers.enable;
-  security.virtualisation.flushL1DataCache = "always"; 
+  security.virtualisation.flushL1DataCache = "always";
 
   programs.firejail.enable = true;
 

@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -12,7 +17,8 @@ let
     CALIBRE_RECONNECT = "1";
   };
 
-in {
+in
+{
   options = {
     my.services.calibre-web = {
       enable = mkEnableOption "Calibre Web";

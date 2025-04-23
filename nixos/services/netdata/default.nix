@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.netdata;
 
-in {
+in
+{
   options = {
     my.services.netdata.enable = mkEnableOption "Netdata Monitoring";
 

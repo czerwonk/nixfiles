@@ -6,7 +6,8 @@ let
   cfg = config.my.services.jellyfin;
   version = "10.10.6";
 
-in {
+in
+{
   options = {
     my.services.jellyfin = {
       enable = mkEnableOption "Jellyfin Media System";

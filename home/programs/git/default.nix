@@ -64,7 +64,6 @@
         tool = "nvimdiff";
       };
 
-
       difftool = {
         prompt = false;
         nvimdiff = {

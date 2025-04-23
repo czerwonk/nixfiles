@@ -11,7 +11,9 @@
   networking.nftables.tables."nixos-fw".content = lib.mkOrder 5 ''
     set outside-interfaces {
       type ifname
-      elements = { ${lib.concatMapStringsSep "," (s: ''"${s}"'') config.networking.firewall.outsideInterfaces} }
+      elements = { ${
+        lib.concatMapStringsSep "," (s: ''"${s}"'') config.networking.firewall.outsideInterfaces
+      } }
     }
 
     set bogon-v4 {

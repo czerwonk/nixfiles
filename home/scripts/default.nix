@@ -1,11 +1,21 @@
-{ pkgs, lib, config, username, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.scripts;
-  git-worktree-it = pkgs.writeScriptBin "git-worktree-it" ("PATH=$PATH:${lib.makeBinPath [ pkgs.perl ]}\n" + (builtins.readFile ./git-worktree-it.sh));
-  git-worktree-clone = pkgs.writeScriptBin "git-worktree-clone" (builtins.readFile ./git-worktree-clone.sh);
+  git-worktree-it = pkgs.writeScriptBin "git-worktree-it" (
+    "PATH=$PATH:${lib.makeBinPath [ pkgs.perl ]}\n" + (builtins.readFile ./git-worktree-it.sh)
+  );
+  git-worktree-clone = pkgs.writeScriptBin "git-worktree-clone" (
+    builtins.readFile ./git-worktree-clone.sh
+  );
   nvim-tmux = pkgs.writeShellScriptBin "nvim-tmux" ''
     if [[ -z $TMUX ]]; then
       ${cfg.neovimExe} "$@"
@@ -21,7 +31,8 @@ let
     tmux kill-pane -a -t 2
   '';
 
-in {
+in
+{
   options = {
     my.scripts.neovimExe = mkOption {
       type = types.str;

@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
   cfg = config.my.services.freshrss;
   version = "1.26.1";
 
-in {
+in
+{
   options = {
     my.services.freshrss = {
       enable = mkEnableOption "FreshRSS";

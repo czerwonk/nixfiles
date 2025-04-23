@@ -4,17 +4,24 @@
 { lib, ... }:
 
 {
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [
+    "ahci"
+    "xhci_pci"
+    "virtio_pci"
+    "virtio_scsi"
+    "sd_mod"
+    "sr_mod"
+  ];
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/A05C-C8CE";
     fsType = "vfat";
   };
 
-  fileSystems."/" = { 
+  fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ 
+    options = [
       "size=2G"
       "mode=755"
       "nosuid"

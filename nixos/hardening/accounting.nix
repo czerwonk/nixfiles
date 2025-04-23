@@ -15,7 +15,8 @@ let
     chmod 600 /var/log/account/pacct
   '';
 
-in {
+in
+{
   environment.systemPackages = [
     pkgs.acct
   ];
@@ -43,8 +44,8 @@ in {
 
       ReadWritePaths = [ "/var/log" ];
 
-      ExecPaths = ["/nix/store"];
-      NoExecPaths = ["/"];
+      ExecPaths = [ "/nix/store" ];
+      NoExecPaths = [ "/" ];
     };
   };
 }

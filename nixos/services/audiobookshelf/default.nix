@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
   cfg = config.my.services.audiobookshelf;
   version = "2.20.0";
 
-in {
+in
+{
   options = {
     my.services.audiobookshelf = {
       enable = mkEnableOption "Audio Book Shelf";

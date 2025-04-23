@@ -2,7 +2,11 @@
 
 {
   networking.networkmanager.dns = "none";
-  networking.nameservers = lib.mkDefault [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
+  networking.nameservers = lib.mkDefault [
+    "1.1.1.1"
+    "2606:4700:4700::1111"
+    "8.8.8.8"
+  ];
 
   services.resolved.enable = false;
 
@@ -12,7 +16,11 @@
       listen-address = "127.0.0.1";
       interface = "lo";
       bind-interfaces = true;
-      server = [ "1.1.1.1" "2606:4700:4700::1111" "8.8.8.8" ];
+      server = [
+        "1.1.1.1"
+        "2606:4700:4700::1111"
+        "8.8.8.8"
+      ];
       strict-order = true;
       domain-needed = true;
       bogus-priv = true;

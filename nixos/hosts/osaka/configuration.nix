@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/container

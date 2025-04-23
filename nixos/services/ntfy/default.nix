@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
   cfg = config.my.services.ntfy;
   version = "v2.11.0";
 
-in {
+in
+{
   options = {
     my.services.ntfy = {
       enable = mkEnableOption "ntfy";

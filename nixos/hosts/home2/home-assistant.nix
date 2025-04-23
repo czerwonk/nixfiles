@@ -20,7 +20,7 @@
       "netatmo"
     ];
     config = {
-      default_config = {};
+      default_config = { };
       homeassistant = {
         name = "#routing-rocks HOME";
       };

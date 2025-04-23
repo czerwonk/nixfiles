@@ -18,7 +18,8 @@ let
       ${lib.getExe pkgs.claude-code} $@
   '';
 
-in {
+in
+{
   home = {
     packages = [
       claude-code-bwrapped

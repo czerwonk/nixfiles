@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -7,7 +12,8 @@ let
   version = "v1.128.0";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
-in {
+in
+{
   options = {
     my.services.matrix = {
       enable = mkEnableOption "Matrix";
@@ -43,8 +49,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [ "podman-matrix-synapse.service" ];
       path = [ pkgs.podman ];
@@ -98,7 +104,7 @@ in {
         };
 
         volumes = [
-          "matrix_db_data:/var/lib/postgresql/data" 
+          "matrix_db_data:/var/lib/postgresql/data"
         ];
       };
 
@@ -185,8 +191,8 @@ in {
             "/var/lib/containers/storage"
           ];
 
-          ExecPaths = ["/nix/store"];
-          NoExecPaths = ["/"];
+          ExecPaths = [ "/nix/store" ];
+          NoExecPaths = [ "/" ];
         };
       };
     };

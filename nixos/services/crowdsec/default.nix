@@ -1,7 +1,7 @@
 { inputs, ... }:
 
 {
-  nixpkgs.overlays = [inputs.crowdsec.overlays.default];
+  nixpkgs.overlays = [ inputs.crowdsec.overlays.default ];
 
   imports = [
     inputs.crowdsec.nixosModules.crowdsec

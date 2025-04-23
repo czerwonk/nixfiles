@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.programs.neovim;
 
-in {
+in
+{
   options = {
     programs.neovim.withLLM = mkOption {
       type = types.bool;

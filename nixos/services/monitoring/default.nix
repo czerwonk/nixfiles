@@ -5,7 +5,8 @@ with lib;
 let
   cfg = config.my.services.monitoring;
 
-in {
+in
+{
   imports = [
     ./prometheus.nix
     ./grafana.nix

@@ -43,7 +43,10 @@
     uid = 1000;
     isNormalUser = true;
     description = "Daniel Brendgen-Czerwonk";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   system.stateVersion = "23.11";

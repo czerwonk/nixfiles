@@ -1,4 +1,9 @@
-{ pkgs, lib, util, ... }:
+{
+  pkgs,
+  lib,
+  util,
+  ...
+}:
 
 {
   programs.neovim = {
@@ -52,27 +57,30 @@
     ];
   };
 
-  home.packages = with pkgs; [
-    ansible-language-server
-    gopls
-    helm-ls
-    jdt-language-server
-    marksman
-    nil
-    nixfmt-rfc-style
-    prettierd
-    pyright
-    python312Packages.black
-    shfmt
-    solargraph
-    stylua
-    sumneko-lua-language-server
-    terraform-ls
-    vscode-langservers-extracted
-  ] ++ (with pkgs.nodePackages; [
-    bash-language-server
-    dockerfile-language-server-nodejs
-    typescript-language-server
-    yaml-language-server
-  ]);
+  home.packages =
+    with pkgs;
+    [
+      ansible-language-server
+      gopls
+      helm-ls
+      jdt-language-server
+      marksman
+      nil
+      nixfmt-rfc-style
+      prettierd
+      pyright
+      python312Packages.black
+      shfmt
+      solargraph
+      stylua
+      sumneko-lua-language-server
+      terraform-ls
+      vscode-langservers-extracted
+    ]
+    ++ (with pkgs.nodePackages; [
+      bash-language-server
+      dockerfile-language-server-nodejs
+      typescript-language-server
+      yaml-language-server
+    ]);
 }

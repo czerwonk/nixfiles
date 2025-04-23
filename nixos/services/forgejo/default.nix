@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
   cfg = config.my.services.forgejo;
   version = "10.0.1-rootless";
 
-in {
+in
+{
   options = {
     my.services.forgejo = {
       enable = mkEnableOption "forgejo";
@@ -30,8 +36,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [ "podman-forgejo.service" ];
       path = [ pkgs.podman ];
