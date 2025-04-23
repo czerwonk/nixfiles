@@ -48,7 +48,8 @@
     net-merge.url = "github:czerwonk/net-merge";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       userLib = import ./lib/user.nix {
         inherit inputs;
@@ -72,11 +73,12 @@
         };
       };
 
-    in {
+    in
+    {
       homeConfigurations = {
         "mauve-linux" = userLib.mkLinuxHMUser {
-          username = inputs.private.mauve.username {};
-          extraModules = [ 
+          username = inputs.private.mauve.username { };
+          extraModules = [
             ./home/profiles/server
             ./home/profiles/devops
             inputs.private.home
@@ -93,7 +95,7 @@
         kyoto = systemLib.mkNixOSSystem {
           configName = "kyoto";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
@@ -106,7 +108,7 @@
         bb1-dus = systemLib.mkNixOSSystem {
           configName = "bb1-dus";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
             inputs.routing-rocks-policy.nixosModule
@@ -118,7 +120,7 @@
         bb2-dus = systemLib.mkNixOSSystem {
           configName = "bb2-dus";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
             inputs.routing-rocks-policy.nixosModule
@@ -130,7 +132,7 @@
         home1 = systemLib.mkNixOSSystem {
           configName = "home1";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -141,7 +143,7 @@
         home2 = systemLib.mkNixOSSystem {
           configName = "home2";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -152,7 +154,7 @@
         backup1-wup = systemLib.mkNixOSSystem {
           configName = "backup1-wup";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
             inputs.routing-rocks-policy.nixosModule
@@ -164,7 +166,7 @@
         osaka = systemLib.mkNixOSSystem {
           configName = "osaka";
           inherit system;
-          username = inputs.private.username {};
+          username = inputs.private.username { };
           extraModules = [
             inputs.private.nixosModule
           ];
@@ -177,8 +179,8 @@
           configName = "surf-vm";
           inherit system;
           username = "user";
-          extraModules = [];
-          extraHomeModules = [];
+          extraModules = [ ];
+          extraHomeModules = [ ];
         };
         iso-minimal = systemLib.mkISO {
           edition = "minimal";
@@ -206,8 +208,8 @@
         nara = systemLib.mkDarwinSystem {
           configName = "nara";
           system = "x86_64-darwin";
-          username = inputs.private.username {};
-          extraModules = [];
+          username = inputs.private.username { };
+          extraModules = [ ];
           extraHomeModules = [
             inputs.private.home
             inputs.private.mauve.home
@@ -222,7 +224,10 @@
         javafx = import ./shell/javafx/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
-        pentest = import ./shell/pentest/shell.nix { inherit pkgs; pkgs-unstable = pkgs-unstable; };
+        pentest = import ./shell/pentest/shell.nix {
+          inherit pkgs;
+          pkgs-unstable = pkgs-unstable;
+        };
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
         php = import ./shell/php/shell.nix { inherit pkgs; };
         rust = import ./shell/rust/shell.nix { inherit pkgs; };
