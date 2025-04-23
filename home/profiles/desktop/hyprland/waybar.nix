@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.waybar = {
@@ -7,7 +12,7 @@
       height = 26;
       spacing = 5;
       show-special = true;
-      modules-left = [ 
+      modules-left = [
         "hyprland/workspaces"
       ];
       modules-center = [
@@ -26,13 +31,22 @@
       backlight = {
         device = "${config.profiles.hyprland.backlightDevice}";
         format = "{icon} {percent}%";
-        format-icons = [ "" "" ];
+        format-icons = [
+          ""
+          ""
+        ];
       };
       battery = {
         format = "{icon} {capacity}%";
         format-alt = "{icon} {time}";
         format-charging = " {capacity}%";
-        format-icons = [ "" "" "" "" "" ];
+        format-icons = [
+          ""
+          ""
+          ""
+          ""
+          ""
+        ];
         format-plugged = " {capacity}%";
       };
       bluetooth = {
@@ -87,7 +101,11 @@
         format-source = " {volume}%";
         format-source-muted = "";
         format-icons = {
-          "default" = [ "" "" "" ];
+          "default" = [
+            ""
+            ""
+            ""
+          ];
           "headphone" = "";
         };
         on-click = "${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink";

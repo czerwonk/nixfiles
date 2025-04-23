@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -18,7 +23,8 @@ let
     TZ = "Europe/Berlin";
   };
 
-in {
+in
+{
   options = {
     my.services.immich = {
       enable = mkEnableOption "Immich - High performance self-hosted photo and video backup solution";
@@ -53,8 +59,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [ "podman-immich_server.service" ];
       path = [ pkgs.podman ];
@@ -77,7 +83,7 @@ in {
         environment = environment;
 
         volumes = [
-          "${cfg.dataDir}:/usr/src/app/upload" 
+          "${cfg.dataDir}:/usr/src/app/upload"
         ];
 
         ports = [ "127.0.0.1:3001:2283" ];
@@ -157,8 +163,8 @@ in {
             "/var/lib/containers/storage"
           ];
 
-          ExecPaths = ["/nix/store"];
-          NoExecPaths = ["/"];
+          ExecPaths = [ "/nix/store" ];
+          NoExecPaths = [ "/" ];
         };
       };
     };

@@ -12,10 +12,10 @@ let
   dns-drain-packages = inputs.dns-drain.packages.${system};
   net-merge-packages = inputs.net-merge.packages.${system};
 
-in {
+in
+{
   nixpkgs.overlays = [
     (self: super: {
-      all-ways-egpu = super.callPackage ./pkgs/all-ways-egpu {};
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       net-merge = net-merge-packages.net-merge;
@@ -38,9 +38,11 @@ in {
       });
       gnomeExtensions = super.gnomeExtensions // {
         pop-shell = super.gnomeExtensions.pop-shell.overrideAttrs (oldAttrs: {
-          preFixup = oldAttrs.preFixup + ''
-            echo '.pop-shell-search-element:select{ color: #DCD7BA !important; }' >> $out/share/gnome-shell/extensions/pop-shell@system76.com/light.css
-          '';
+          preFixup =
+            oldAttrs.preFixup
+            + ''
+              echo '.pop-shell-search-element:select{ color: #DCD7BA !important; }' >> $out/share/gnome-shell/extensions/pop-shell@system76.com/light.css
+            '';
         });
       };
       gvisor = super.gvisor.overrideAttrs (old: {

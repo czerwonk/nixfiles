@@ -3,7 +3,10 @@
 {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
     gc = {
@@ -149,10 +152,11 @@
     };
   };
 
-  environment.extraInit = let
-    homeManagerSessionVars =
-      "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
-  in ''
-    [[ -f ${homeManagerSessionVars} ]] && source ${homeManagerSessionVars}
-  '';
+  environment.extraInit =
+    let
+      homeManagerSessionVars = "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh";
+    in
+    ''
+      [[ -f ${homeManagerSessionVars} ]] && source ${homeManagerSessionVars}
+    '';
 }

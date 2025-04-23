@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -22,7 +27,8 @@ let
     fi
   '';
 
-in {
+in
+{
   options = {
     my.zfs-replication.enable = mkEnableOption "ZFS-Replication";
 
@@ -30,7 +36,7 @@ in {
       description = mdDoc "Targets to replicate to the local machine";
       example = [ "user@server:zroot/my-dataset zpool/my-dataset" ];
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
   };
 
@@ -70,8 +76,8 @@ in {
           "/tmp"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
     };
   };

@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.k3s;
 
-in {
+in
+{
   options = {
     my.services.k3s = {
       enable = mkEnableOption "Jellyfin Media System";
@@ -27,6 +33,6 @@ in {
 
     networking.firewall.trustedInterfaces = [ "cni*" ];
 
-    systemd.services.k3s.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce []);
+    systemd.services.k3s.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
   };
 }

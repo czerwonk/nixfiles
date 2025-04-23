@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -38,7 +43,8 @@ let
     ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY = "${cfg.recordEncryptionPrimaryKey}";
   };
 
-in {
+in
+{
   options = {
     my.services.mastodon = {
       enable = mkEnableOption "Mastodon";
@@ -86,8 +92,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [
         "podman-mastodon-web.service"
@@ -137,7 +143,13 @@ in {
 
       mastodon-web = {
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "bundle" "exec" "puma" "-C" "config/puma.rb" ];
+        cmd = [
+          "bundle"
+          "exec"
+          "puma"
+          "-C"
+          "config/puma.rb"
+        ];
 
         autoStart = true;
         extraOptions = [
@@ -164,7 +176,10 @@ in {
 
       mastodon-streaming = {
         image = "ghcr.io/mastodon/mastodon-streaming:v${version}";
-        cmd = [ "node" "./streaming/index.js" ];
+        cmd = [
+          "node"
+          "./streaming/index.js"
+        ];
 
         autoStart = true;
         extraOptions = [
@@ -182,7 +197,11 @@ in {
 
       mastodon-sidekiq = {
         image = "ghcr.io/mastodon/mastodon:v${version}";
-        cmd = [ "bundle" "exec" "sidekiq" ];
+        cmd = [
+          "bundle"
+          "exec"
+          "sidekiq"
+        ];
 
         autoStart = true;
         extraOptions = [
@@ -284,8 +303,8 @@ in {
             "/var/lib/containers/storage"
           ];
 
-          ExecPaths = ["/nix/store"];
-          NoExecPaths = ["/"];
+          ExecPaths = [ "/nix/store" ];
+          NoExecPaths = [ "/" ];
         };
       };
     };

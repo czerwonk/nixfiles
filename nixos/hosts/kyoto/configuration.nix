@@ -1,5 +1,7 @@
+{ pkgs, lib, ... }:
+
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ./persistence.nix
     ../../configuration.nix
@@ -11,7 +13,7 @@
     ../../profiles/virtualisation
     ../../tpm.nix
     ../../zfs/desktop.nix
-    ./egpu.nix
+    ./gpu.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -53,9 +55,10 @@
     autoStart = false;
   };
 
-  specialisation = {
-    without-egpu.configuration = {
-      use_egpu = false;
-    };
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    package = pkgs.ollama-rocm;
   };
+  systemd.services.ollama.wantedBy = lib.mkForce [ ];
 }

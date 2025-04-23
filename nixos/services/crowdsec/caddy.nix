@@ -5,7 +5,8 @@ with lib;
 let
   cfg = config.my.services.crowdsec;
 
-in {
+in
+{
   config = mkIf (cfg.enable && config.services.caddy.enable) {
     my.services.crowdsec.collections = [ "crowdsecurity/caddy" ];
 

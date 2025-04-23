@@ -24,7 +24,8 @@ let
     hyprctl dispatch exit
   '';
 
-in {
+in
+{
   imports = [
     ../gnome
     ../rofi

@@ -1,4 +1,9 @@
-{ pkgs, lib, username, ... }:
+{
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 {
   imports = [
@@ -14,7 +19,8 @@
       openssh
       mas
     ];
-    file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text = builtins.readFile ./us-int-nodeadkeys.keylayout;
+    file."Library/Keyboard Layouts/us-int-nodeadkeys.keylayout".text =
+      builtins.readFile ./us-int-nodeadkeys.keylayout;
   };
 
   services.gpg-agent.enable = lib.mkForce false;

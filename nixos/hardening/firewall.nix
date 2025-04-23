@@ -27,7 +27,6 @@
     icmp type != { timestamp-request, timestamp-reply } accept
   '';
 
-
   networking.nftables.enable = lib.mkDefault true;
 
   networking.nftables.tables."nixos-fw".content = lib.mkOrder 0 ''

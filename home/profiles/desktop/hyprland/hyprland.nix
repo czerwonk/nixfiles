@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland = {
@@ -6,7 +11,7 @@
     xwayland.enable = true;
     systemd = {
       enable = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
     settings = {
       monitor = ",preferred,auto,auto";

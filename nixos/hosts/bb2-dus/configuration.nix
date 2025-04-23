@@ -3,8 +3,9 @@
 let
   loopback = builtins.elemAt config.networking.interfaces.lo.ipv6.addresses 0;
 
-in {
-  imports = [ 
+in
+{
+  imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../zfs

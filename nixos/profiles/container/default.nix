@@ -1,9 +1,15 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   cfg = config.profiles.container;
 
-in {
+in
+{
   options = {
     profiles.container.disableFirewall = lib.mkEnableOption "Wether to create firewall rules";
   };

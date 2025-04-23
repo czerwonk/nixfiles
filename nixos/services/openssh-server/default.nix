@@ -1,11 +1,17 @@
-{ lib, config, username, ... }:
+{
+  lib,
+  config,
+  username,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.openssh-server;
 
-in {
+in
+{
   options = {
     my.services.openssh-server = {
       enable = mkEnableOption "OpenSSH Server";
@@ -19,8 +25,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    users.groups.ssh = {};
-    users.groups.sftp = {};
+    users.groups.ssh = { };
+    users.groups.sftp = { };
 
     users.users.${username} = {
       extraGroups = [ "ssh" ];
@@ -40,7 +46,10 @@ in {
         LogLevel = "VERBOSE";
 
         # Authentication
-        AllowGroups = [ "ssh" "sftp" ];
+        AllowGroups = [
+          "ssh"
+          "sftp"
+        ];
         LoginGraceTime = "1m";
         PermitRootLogin = lib.mkForce "no";
         StrictModes = true;
@@ -74,23 +83,27 @@ in {
       '';
     };
 
-    networking.nftables.tables."nixos-fw".content = mkIf cfg.openFirewall (mkOrder 20 ''
-      set ssh-ratelimit-v4 {
-        type ipv4_addr
-        timeout 60s
-        flags dynamic
-      }
+    networking.nftables.tables."nixos-fw".content = mkIf cfg.openFirewall (
+      mkOrder 20 ''
+        set ssh-ratelimit-v4 {
+          type ipv4_addr
+          timeout 60s
+          flags dynamic
+        }
 
-      set ssh-ratelimit-v6 {
-        type ipv6_addr
-        timeout 60s
-        flags dynamic
-      }
-    '');
+        set ssh-ratelimit-v6 {
+          type ipv6_addr
+          timeout 60s
+          flags dynamic
+        }
+      ''
+    );
 
-    networking.firewall.extraInputRules = mkIf cfg.openFirewall (mkOrder 5 ''
-      tcp dport 2222 update @ssh-ratelimit-v4 { ip saddr limit rate 5/minute } accept
-      tcp dport 2222 update @ssh-ratelimit-v6 { ip6 saddr limit rate 5/minute } accept
-    '');
+    networking.firewall.extraInputRules = mkIf cfg.openFirewall (
+      mkOrder 5 ''
+        tcp dport 2222 update @ssh-ratelimit-v4 { ip saddr limit rate 5/minute } accept
+        tcp dport 2222 update @ssh-ratelimit-v6 { ip6 saddr limit rate 5/minute } accept
+      ''
+    );
   };
 }

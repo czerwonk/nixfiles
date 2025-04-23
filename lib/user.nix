@@ -1,7 +1,8 @@
 { inputs, ... }:
 
 {
-  mkOSXHMUser = { username, extraModules }:
+  mkOSXHMUser =
+    { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         ../overlays.nix
@@ -17,7 +18,8 @@
       };
     };
 
-  mkLinuxHMUser = { username, extraModules }:
+  mkLinuxHMUser =
+    { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         ../overlays.nix

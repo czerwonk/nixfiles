@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -10,7 +15,8 @@ let
     db.getSiblingDB("unifi_stat").createUser({user: "unifi", pwd: "${cfg.databasePassword}", roles: [{role: "dbOwner", db: "unifi_stat"}]});
   '';
 
-in {
+in
+{
   options = {
     my.services.unifi = {
       enable = mkEnableOption "Unifi Network Application";
@@ -45,8 +51,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [
         "podman-unifi-network-application.service"

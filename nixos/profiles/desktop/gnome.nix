@@ -21,18 +21,21 @@
     core-developer-tools.enable = false;
   };
 
-  environment.gnome.excludePackages = (with pkgs; [
-    cheese # webcam tool
-    epiphany # web browser
-    geary # email reader
-    gnome-connections
-    gnome-maps
-    gnome-music
-    gnome-photos
-    gnome-text-editor
-    gnome-tour
-    seahorse # keyring UI
-  ]);
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      cheese # webcam tool
+      epiphany # web browser
+      geary # email reader
+      gnome-connections
+      gnome-maps
+      gnome-music
+      gnome-photos
+      gnome-text-editor
+      gnome-tour
+      seahorse # keyring UI
+    ]
+  );
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator

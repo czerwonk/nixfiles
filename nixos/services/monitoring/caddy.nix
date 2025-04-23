@@ -5,7 +5,8 @@ with lib;
 let
   cfg = config.my.services.monitoring;
 
-in {
+in
+{
   config = mkIf cfg.enable {
     services.caddy.virtualHosts."prometheus.routing.rocks".extraConfig = ''
       import private

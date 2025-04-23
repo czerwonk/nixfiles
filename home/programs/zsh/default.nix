@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.zsh = {
@@ -34,7 +39,7 @@
       source ~/.profile
     '';
     shellAliases = {
-      cat  = "${lib.getExe pkgs.bat} -pp";
+      cat = "${lib.getExe pkgs.bat} -pp";
       curl = "${lib.getExe pkgs.curlie}";
       egrep = "egrep --color=auto";
       fzfp = "${lib.getExe config.programs.fzf.package} --preview 'bat --color=always --style=numbers --line-range=:500 {}'";

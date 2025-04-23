@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.programs.ghostty;
 
-in {
+in
+{
   options = {
     my.programs.ghostty = {
       package = mkOption {

@@ -24,7 +24,6 @@
       watch
       wget
       whois
-      yamlfmt
       yq
     ];
   };

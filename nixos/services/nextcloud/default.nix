@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -7,7 +12,8 @@ let
   timezone = "Europe/Berlin";
   cfg = config.my.services.nextcloud;
 
-in {
+in
+{
   options = {
     my.services.nextcloud = {
       enable = mkEnableOption "Nextcloud (All In One)";
@@ -46,8 +52,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [
         "podman-nextcloud-aio-apache.service"

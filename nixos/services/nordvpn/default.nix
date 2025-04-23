@@ -1,11 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.my.services.nordvpn;
 
-in {
+in
+{
   options = {
     my.services.nordvpn = {
       enable = mkEnableOption "NordVPN traffic routing";
@@ -64,8 +70,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [ "podman-nordvpn.service" ];
       path = [ pkgs.podman ];

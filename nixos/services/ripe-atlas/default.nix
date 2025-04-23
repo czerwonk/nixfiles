@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -9,7 +14,8 @@ let
     REG_2_HOST=2001:67c:2e8:11::c100:13f7
   '';
 
-in {
+in
+{
   options = {
     my.services.ripe-atlas = {
       enable = mkEnableOption "RIPE Atlas Probe";
@@ -33,8 +39,8 @@ in {
           "/var/lib/containers"
         ];
 
-        ExecPaths = ["/nix/store"];
-        NoExecPaths = ["/"];
+        ExecPaths = [ "/nix/store" ];
+        NoExecPaths = [ "/" ];
       };
       wantedBy = [ "podman-ripe-atlas.service" ];
       path = [ pkgs.podman ];

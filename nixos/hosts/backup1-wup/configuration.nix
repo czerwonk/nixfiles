@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  imports = [ 
+  imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../zfs
@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.zfs.requestEncryptionCredentials = lib.mkForce [];
+  boot.zfs.requestEncryptionCredentials = lib.mkForce [ ];
   boot.zfs.extraPools = [ "zdata" ];
 
   networking = {

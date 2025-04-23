@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
   cfg = config.my.services.vaultwarden;
   version = "1.33.2";
 
-in {
+in
+{
   options = {
     my.services.vaultwarden = {
       enable = mkEnableOption "Vaultwarden";
