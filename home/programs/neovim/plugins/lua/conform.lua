@@ -14,7 +14,7 @@ conform.setup {
     json = { 'prettierd' },
     lua = { 'stylua' },
     markdown = { 'prettierd' },
-    nix = { 'alejandra' },
+    nix = { 'nixfmt' },
     python = { 'black' },
     sh = { 'shfmt' },
     typescript = { 'prettierd' },

@@ -53,13 +53,13 @@
   };
 
   home.packages = with pkgs; [
-    alejandra
     ansible-language-server
     gopls
     helm-ls
     jdt-language-server
     marksman
     nil
+    nixfmt-rfc-style
     prettierd
     pyright
     python312Packages.black
