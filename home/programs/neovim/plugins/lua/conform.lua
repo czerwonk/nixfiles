@@ -41,7 +41,7 @@ conform.setup {
 }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "ansible,css,html,javascript,json,nix,python,typescript,yaml",
+  pattern = "yaml.ansible,css,html,javascript,json,nix,python,typescript,yaml",
   callback = function(args)
     conform.format({ bufnr = args.buf })
   end,
