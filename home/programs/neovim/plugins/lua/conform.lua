@@ -8,18 +8,34 @@ conform.setup {
   },
   formatters_by_ft = {
     ansible = { 'ansible-lint' },
-    css = { 'dprint' },
-    dockerfile = { 'dprint' },
+    css = { 'prettierd' },
     hcl = { 'hclfmt' },
-    html = { 'dprint' },
-    javascript = { 'dprint' },
-    json = { 'dprint' },
+    html = { 'prettierd' },
+    javascript = { 'prettierd' },
+    json = { 'prettierd' },
     lua = { 'stylua' },
-    markdown = { 'dprint' },
+    markdown = { 'prettierd' },
     python = { 'black' },
-    typescript = { 'dprint' },
-    yaml = { 'dprint' },
+    sh = { 'shfmt' },
+    typescript = { 'prettierd' },
+    yaml = { 'prettierd' },
     ["_"] = { "trim_whitespace" },
+  },
+  formatters = {
+    stylua = {
+      args = {
+        "--indent-type", "Spaces",
+        "--indent-width", "2",
+        "--quote-style","AutoPreferSingle",
+      },
+    },
+    shfmt = {
+      prepend_args = {
+        "-i", "2",
+        "-bn", -- allow binary ops at le begging of a line
+        "-ns", -- disable line splitting
+      },
+    },
   },
 }
 

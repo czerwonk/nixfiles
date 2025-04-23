@@ -1,7 +1,10 @@
 local notify = vim.notify
 
 require('snacks').setup {
-  bigfile = { enabled = true },
+  bigfile = {
+    enabled = true,
+    size = 10 * 1024 * 1024, -- 10MB
+  },
   explorer = { enabled = true },
   quickfile = { enabled = true },
   input = { enabled = true },

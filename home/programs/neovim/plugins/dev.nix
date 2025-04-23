@@ -62,9 +62,10 @@
     marksman
     nil
     nixfmt-rfc-style
-    nodejs
+    prettierd
     pyright
     python312Packages.black
+    shfmt
     solargraph
     stylua
     sumneko-lua-language-server
