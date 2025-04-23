@@ -15,10 +15,10 @@ conform.setup {
     markdown = { 'prettierd' },
     nix = { 'nixfmt' },
     python = { 'black' },
-    sh = { 'shfmt' },
+    sh = { 'shfmt', 'trim_whitespace' },
     typescript = { 'prettierd' },
     yaml = { 'prettierd' },
-    ["_"] = { "trim_whitespace" },
+    ['_'] = { 'trim_whitespace' },
   },
   formatters = {
     stylua = {
