@@ -54,7 +54,6 @@
 
   home.packages = with pkgs; [
     ansible-language-server
-    dprint
     gopls
     hclfmt
     helm-ls
