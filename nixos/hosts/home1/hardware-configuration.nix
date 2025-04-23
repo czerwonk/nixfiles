@@ -52,7 +52,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/eb9e67f0-ba4e-4e0f-8370-93daabf2e3dc";
+      device = "/dev/zvol/zroot/swap";
     }
   ];
 
