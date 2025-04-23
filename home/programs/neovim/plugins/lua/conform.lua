@@ -40,7 +40,7 @@ conform.setup {
   },
 }
 
-local format_for_extensions = { "css", "html", "js", "json", "nix", "py", "ts", "yml", "yaml", "sh", "bash" }
+local format_for_extensions = { "css", "html", "js", "json", "nix", "py", "ts", "yml", "yaml", "sh", "bash", "rb" }
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*." .. table.concat(format_for_extensions, ",*."),
   callback = function(args)
