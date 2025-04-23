@@ -32,7 +32,7 @@ conform.setup {
     shfmt = {
       prepend_args = {
         "-i", "2",
-        "-bn", -- allow binary ops at le begging of a line
+        "-bn", -- allow binary ops at the begging of a line
         "-ns", -- disable line splitting
       },
     },
