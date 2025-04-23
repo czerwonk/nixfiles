@@ -9,7 +9,6 @@ conform.setup {
   formatters_by_ft = {
     ansible = { 'ansible-lint' },
     css = { 'prettierd' },
-    hcl = { 'hclfmt' },
     html = { 'prettierd' },
     javascript = { 'prettierd' },
     json = { 'prettierd' },

@@ -55,7 +55,6 @@
   home.packages = with pkgs; [
     ansible-language-server
     gopls
-    hclfmt
     helm-ls
     jdt-language-server
     marksman
