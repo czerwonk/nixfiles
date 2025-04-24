@@ -48,13 +48,13 @@
     packages = with pkgs; [
       appimage-run
       bitwarden
-      blueberry
       bruno
       calibre
       foliate
       fractal
       google-chrome
       libreoffice
+      lima
       mattermost-desktop
       mysql-workbench
       nextcloud-client
@@ -63,7 +63,6 @@
       vault
       vlc
       wgnord
-      wineWowPackages.waylandFull
       wireshark
       xsel
     ];
