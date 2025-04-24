@@ -86,6 +86,7 @@
             {
               mauve.overrides.git = true;
               programs.neovim.withLLM = true;
+              programs.neovim.withDevTools = true;
             }
           ];
         };

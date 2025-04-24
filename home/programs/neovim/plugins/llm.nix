@@ -7,10 +7,6 @@
 
 with lib;
 
-let
-  cfg = config.programs.neovim;
-
-in
 {
   options = {
     programs.neovim.withLLM = mkOption {
@@ -19,7 +15,7 @@ in
     };
   };
 
-  config = mkIf cfg.withLLM {
+  config = mkIf config.programs.neovim.withLLM {
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         {
