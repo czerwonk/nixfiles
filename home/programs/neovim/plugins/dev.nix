@@ -16,7 +16,7 @@ with lib;
     };
   };
 
-  config = mkIf config.programs.neovim.withDevTools {
+  config = mkIf config.programs.neovim.withCoding {
     programs.neovim = {
       extraLuaConfig = lib.mkAfter ''
         ${builtins.readFile ./lua/lsp.lua}

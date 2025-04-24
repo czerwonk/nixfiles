@@ -20,8 +20,8 @@
   programs.tmux.mouse = true;
 
   programs.neovim = {
-    withLLM = true;
-    withDevTools = true;
+    withAI = true;
+    withCoding = true;
   };
 
   services.gpg-agent.enable = true;

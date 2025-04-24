@@ -15,7 +15,7 @@ with lib;
     };
   };
 
-  config = mkIf config.programs.neovim.withLLM {
+  config = mkIf config.programs.neovim.withAI {
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         {
