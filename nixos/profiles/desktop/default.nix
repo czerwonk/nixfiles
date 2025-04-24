@@ -51,7 +51,6 @@
       blueberry
       bruno
       calibre
-      distrobox
       foliate
       fractal
       google-chrome
