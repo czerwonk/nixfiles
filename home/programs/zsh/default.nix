@@ -12,7 +12,7 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
-    initExtra = ''
+    initContent = ''
       bindkey "^[[1;3D" backward-word
       bindkey "^[[1;3C" forward-word
       bindkey "^[^[[D"  backward-word
