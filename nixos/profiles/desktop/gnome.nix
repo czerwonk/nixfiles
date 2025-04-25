@@ -26,6 +26,7 @@
     [
       cheese # webcam tool
       epiphany # web browser
+      evince # document viewer
       geary # email reader
       gnome-connections
       gnome-maps
@@ -38,6 +39,7 @@
   );
 
   environment.systemPackages = with pkgs; [
+    papers
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.just-perfection
