@@ -20,7 +20,7 @@
   programs.tmux.mouse = true;
 
   programs.neovim = {
-    withAI = true;
+    withLLM = true;
     withCoding = true;
   };
 

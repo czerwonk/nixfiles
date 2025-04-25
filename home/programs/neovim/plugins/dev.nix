@@ -10,7 +10,7 @@ with lib;
 
 {
   options = {
-    programs.neovim.withDevTools = mkOption {
+    programs.neovim.withCoding = mkOption {
       type = types.bool;
       default = false;
     };
