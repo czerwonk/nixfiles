@@ -18,6 +18,7 @@ conform.setup {
     sh = { 'shfmt', 'trim_whitespace' },
     typescript = { 'prettierd' },
     yaml = { 'prettierd' },
+    zsh = { 'shfmt', 'trim_whitespace' },
     ['_'] = { 'trim_whitespace' },
   },
   formatters = {
