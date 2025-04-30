@@ -144,7 +144,7 @@ with lib.gvariant;
     };
   };
 
-  services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+  services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
 
   home.file.".local/share/thumbnailers/ffmpegthumbnailer.thumbnailer".text = ''
     [Thumbnailer Entry]

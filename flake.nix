@@ -43,9 +43,15 @@
 
     ansible-role.url = "github:czerwonk/ansible-role";
 
-    dns-drain.url = "github:czerwonk/dns-drain";
+    dns-drain = {
+      url = "github:czerwonk/dns-drain";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    net-merge.url = "github:czerwonk/net-merge";
+    net-merge = {
+      url = "github:czerwonk/net-merge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
