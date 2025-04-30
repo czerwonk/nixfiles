@@ -14,7 +14,7 @@ in
 {
   options = {
     my.services.k3s = {
-      enable = mkEnableOption "Jellyfin Media System";
+      enable = mkEnableOption "k3s Kubernetes service";
 
       autoStart = mkOption {
         type = types.bool;

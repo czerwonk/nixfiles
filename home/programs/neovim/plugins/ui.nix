@@ -7,11 +7,6 @@
         plugin = nui-nvim;
       }
       {
-        plugin = noice-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/noice.lua;
-      }
-      {
         plugin = nvim-colorizer-lua;
         type = "lua";
         config = "require('colorizer').setup()";

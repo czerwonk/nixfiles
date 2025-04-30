@@ -57,6 +57,8 @@
   ];
   environment.shells = [ pkgs.zsh ];
 
+  programs.nano.enable = false;
+
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
