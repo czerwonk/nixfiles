@@ -66,11 +66,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1745918036,
-        "narHash": "sha256-svNH0FoonXVYOez9v7qU2KfMfwXSP4p6TguLjSy8xMg=",
+        "lastModified": 1737630103,
+        "narHash": "sha256-RrF4IX3FTto2KXNdtLxGHLqFuQ1acTD/Dt1IE004K54=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "a68c3c7ee6912dcb8834791344d055e0b1cee9f1",
+        "rev": "049063f1f859c0cd862dd1c6bb4a0103c266b3c2",
         "type": "github"
       },
       "original": {
