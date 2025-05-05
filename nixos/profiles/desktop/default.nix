@@ -50,6 +50,7 @@
       bitwarden
       bruno
       calibre
+      filezilla
       foliate
       fractal
       google-chrome
