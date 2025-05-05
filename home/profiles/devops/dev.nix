@@ -8,6 +8,7 @@
       gnumake
       go
       graphviz
+      jujutsu
       mysql-shell
       podman
       protobuf
