@@ -24,9 +24,9 @@ in
       ansible = super.ansible.override { windowsSupport = true; };
       claude-code = pkgs-unstable.claude-code;
       home-assistant = pkgs-unstable.home-assistant;
+      jujutsu = pkgs-unstable.jujutsu;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
-      prometheus = pkgs-unstable.prometheus;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins;
     })
