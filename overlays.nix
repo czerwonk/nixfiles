@@ -1,4 +1,10 @@
-{ system, inputs, ... }:
+{
+  system,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 let
   pkgs-unstable = import inputs.nixpkgs-unstable {
@@ -19,6 +25,7 @@ in
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       net-merge = net-merge-packages.net-merge;
+      load-env-bw = import ./pkgs/load-env-bw { inherit pkgs lib; };
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
