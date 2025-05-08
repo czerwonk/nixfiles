@@ -49,7 +49,7 @@
       ll = "${lib.getExe pkgs.eza} -lH --group --icons --group-directories-first --time-style long-iso";
       ls = "${lib.getExe pkgs.eza} --group -H";
       tree = "${lib.getExe pkgs.eza} --tree";
-      ttfb = "${lib.getExe pkgs.curl} -o /dev/null -s -w 'Status: %{http_status}\nConnect: %{time_connect}\nTTFB: %{time_starttransfer}\nTotal time: %{time_total}\n' $@";
+      ttfb = "${lib.getExe pkgs.curl} -o /dev/null -s -w 'Status: %{http_code}\nConnect: %{time_connect}\nTTFB: %{time_starttransfer}\nTotal time: %{time_total}\n' $@";
     };
     history = {
       size = 50000;
