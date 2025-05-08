@@ -104,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746703400,
-        "narHash": "sha256-mSqWQsJYMJBI3+X3opqaUqeNsGQxVdaNL5iUF7a6p50=",
+        "lastModified": 1746710194,
+        "narHash": "sha256-r2zE8+rWZieU05LMKixeU5SsMy9I4truiTPKchTPNaw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "50894120e8ac792a5d3046d23e4e4c4ef32cf09c",
+        "rev": "cea975d46d08293eae3ad0d9f16207f1ce2dfc81",
         "type": "github"
       },
       "original": {
@@ -146,11 +146,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746703400,
-        "narHash": "sha256-mSqWQsJYMJBI3+X3opqaUqeNsGQxVdaNL5iUF7a6p50=",
+        "lastModified": 1746710194,
+        "narHash": "sha256-r2zE8+rWZieU05LMKixeU5SsMy9I4truiTPKchTPNaw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "50894120e8ac792a5d3046d23e4e4c4ef32cf09c",
+        "rev": "cea975d46d08293eae3ad0d9f16207f1ce2dfc81",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1746703868,
-        "narHash": "sha256-SfJsxTfaZTkrmIUuqTcQBMoDYiiEaRu6BuVa8sHe0sQ=",
+        "lastModified": 1746710107,
+        "narHash": "sha256-QPGqfEnjbWPCFKNh408IB4yWCUMGD/wpttejm05rOjg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c8feb1223db80d515675b232bc0bda08aff6a039",
+        "rev": "7fc3a8e2a7535fbdea3e31e3cba731c5825f7816",
         "type": "github"
       },
       "original": {
@@ -276,11 +276,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1746702606,
-        "narHash": "sha256-Tg5BIks7YSkVjPWscA6I/Afq2OtesrZTcYvvGTewaNE=",
+        "lastModified": 1746711897,
+        "narHash": "sha256-lBt+5szrnpRDHdQKnhl7ZgOyL7iVHwPNZA2Uh0N3QJo=",
         "ref": "refs/heads/main",
-        "rev": "b21038a896758fb162c6c9efe3f7d2583c53c8f6",
-        "revCount": 394,
+        "rev": "82bb7423ab9ed8ed1034486abe83ba824484c6ca",
+        "revCount": 396,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
