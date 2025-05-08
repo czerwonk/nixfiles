@@ -6,7 +6,7 @@ let
       export $(load-openai-env)
     fi
 
-    ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
+    exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
                                   --ro-bind /etc /etc \
@@ -18,7 +18,7 @@ let
                                   --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
                                   --proc /proc \
                                   --dev /dev \
-      ${lib.getExe pkgs.codex} $@
+      ${lib.getExe pkgs.codex} "$@"
   '';
 
 in
