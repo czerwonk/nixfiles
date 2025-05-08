@@ -22,7 +22,7 @@ in
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
-      claude-code = pkgs-unstable.claude-code;
+      codex = pkgs-unstable.codex;
       home-assistant = pkgs-unstable.home-assistant;
       jujutsu = pkgs-unstable.jujutsu;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;

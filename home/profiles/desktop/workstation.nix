@@ -1,6 +1,6 @@
 {
   imports = [
+    ./codex.nix
     ./neovide.nix
-    ./claude-code.nix
   ];
 }
