@@ -7,11 +7,11 @@
 
 {
   imports = [
+    ./accounting.nix
     ./audit.nix
     ./firewall.nix
-    ./sysctl.nix
     ./services.nix
-    ./accounting.nix
+    ./sysctl.nix
   ];
 
   users.mutableUsers = false;
