@@ -33,6 +33,9 @@
       Defaults requiretty,use_pty,env_reset
 
       Defaults:root !requiretty
+
+      Defaults:root,%wheel env_keep+=SSH_AUTH_SOCK
+      Defaults:root,%wheel env_keep+=EDITOR
     '';
   };
 
