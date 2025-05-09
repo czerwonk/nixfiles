@@ -10,6 +10,8 @@
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 
+  security.auditd.enable = false;
+
   my.services.openssh-server = {
     enable = true;
     openFirewall = true;

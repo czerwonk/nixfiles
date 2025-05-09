@@ -4,7 +4,6 @@
   imports = [
     ./common.nix
     ./dns.nix
-    ./hardening
     ./impermanence.nix
     ./wrappers.nix
   ];
