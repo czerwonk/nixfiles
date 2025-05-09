@@ -67,11 +67,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745994243,
-        "narHash": "sha256-w2FsKoITkKMqQWt4IYh4pmgkrFcTgoHTjBS9VYCR+I4=",
+        "lastModified": 1746795314,
+        "narHash": "sha256-nHlwbv+0+jCPDK6QwyALoJTvR+gKJJp2qtLDO8u7Azg=",
         "owner": "czerwonk",
         "repo": "dns-drain",
-        "rev": "00b0c11dee214240add66b77608483d2360d0448",
+        "rev": "bd0314ff31aaea3f6fce41acd29cfe1a5fac7b4b",
         "type": "github"
       },
       "original": {
