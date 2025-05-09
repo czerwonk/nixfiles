@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./services
     ./hardening
+    ./services
   ];
 
   nix = {
