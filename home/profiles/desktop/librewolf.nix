@@ -36,7 +36,6 @@ in
       BlockAboutSupport = true;
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
-      DisableFirefoxAccounts = true;
       DisableMasterPasswordCreation = true;
       DisableProfileImport = true;
       DisablePocket = true;
