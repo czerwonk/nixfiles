@@ -26,11 +26,13 @@
   security.lockKernelModules = lib.mkDefault true;
   security.allowUserNamespaces = lib.mkDefault false;
 
-  security.sudo.enable = false;
-  security.sudo-rs = {
-    enable = true;
+  security.sudo = {
     execWheelOnly = true;
     extraConfig = lib.mkBefore ''
+      Defaults requiretty,use_pty,env_reset
+
+      Defaults:root !requiretty
+
       Defaults:root,%wheel env_keep+=SSH_AUTH_SOCK
       Defaults:root,%wheel env_keep+=EDITOR
     '';
