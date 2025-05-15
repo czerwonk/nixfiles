@@ -21,7 +21,7 @@
     games.enable = false;
     gnome-initial-setup.enable = false;
     gnome-remote-desktop.enable = false;
-    gnome.rygel.enable = false;
+    rygel.enable = false;
   };
 
   environment.gnome.excludePackages = (
