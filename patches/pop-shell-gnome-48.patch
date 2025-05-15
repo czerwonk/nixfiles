@@ -2,7 +2,7 @@ diff --git a/src/search.ts b/src/search.ts
 index 0d7a45f..f93775a 100644
 --- a/src/search.ts
 +++ b/src/search.ts
-@@ -373,12 +373,8 @@ export class Search {
+@@ -373,12 +373,6 @@ export class Search {
  
          this.list.show();
  
@@ -12,8 +12,6 @@ index 0d7a45f..f93775a 100644
 -        } else {
 -            vscroll.hide();
 -        }
-+        // Show vertical scrollbar only when needed, hide horizontal always
-+        //this.scroller.set_policy(St.PolicyType.NEVER, St.PolicyType.AUTOMATIC);
  
          if (id === 0) {
              GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
