@@ -17,8 +17,11 @@
   };
 
   services.gnome = {
-    games.enable = false;
     core-developer-tools.enable = false;
+    games.enable = false;
+    gnome-initial-setup.enable = false;
+    gnome-remote-desktop.enable = false;
+    gnome.rygel.enable = false;
   };
 
   environment.gnome.excludePackages = (
@@ -28,22 +31,26 @@
       epiphany # web browser
       evince # document viewer
       geary # email reader
+      gnome-backgrounds
+      gnome-console
       gnome-connections
       gnome-maps
       gnome-music
       gnome-photos
       gnome-text-editor
       gnome-tour
+      gnome-weather
       seahorse # keyring UI
     ]
   );
 
   environment.systemPackages = with pkgs; [
-    papers
     gnomeExtensions.appindicator
+    gnomeExtensions.auto-move-windows
     gnomeExtensions.caffeine
     gnomeExtensions.just-perfection
     gnomeExtensions.pop-shell
+    papers
     pop-launcher
   ];
 }
