@@ -49,8 +49,8 @@
       appimage-run
       bitwarden
       bruno
-      calibre
       filezilla
+      calibre
       foliate
       fractal
       google-chrome
@@ -61,7 +61,6 @@
       nextcloud-client
       remmina
       termius
-      vault
       vlc
       wgnord
       wireshark
