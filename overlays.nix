@@ -31,7 +31,6 @@ in
       ansible = super.ansible.override { windowsSupport = true; };
       codex = pkgs-unstable.codex;
       home-assistant = pkgs-unstable.home-assistant;
-      jujutsu = pkgs-unstable.jujutsu;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
