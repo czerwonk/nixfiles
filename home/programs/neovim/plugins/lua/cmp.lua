@@ -39,7 +39,7 @@ require('blink.cmp').setup {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer', 'avante_commands', 'avante_mentions', 'avante_files', 'markdown'},
+    default = { 'lsp', 'path', 'buffer', 'markdown'},
     providers = {
       markdown = {
         name = 'RenderMarkdown',
