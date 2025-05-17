@@ -39,7 +39,6 @@ blink.add_source_provider('avante_commands', {
   opts = {},
 })
 blink.add_filetype_source('AvanteInput', 'avante_commands')
-blink.add_filetype_source('AvantePromptInput', 'avante_commands')
 
 blink.add_source_provider('avante_files', {
   name = 'avante_files',
@@ -48,7 +47,6 @@ blink.add_source_provider('avante_files', {
   opts = {},
 })
 blink.add_filetype_source('AvanteInput', 'avante_files')
-blink.add_filetype_source('AvantePromptInput', 'avante_files')
 
 blink.add_source_provider('avante_mentions', {
   name = 'avante_mentions',
@@ -57,4 +55,11 @@ blink.add_source_provider('avante_mentions', {
   opts = {},
 })
 blink.add_filetype_source('AvanteInput', 'avante_mentions')
-blink.add_filetype_source('AvantePromptInput', 'avante_mentions')
+
+blink.add_source_provider('avante_prompt_mentions', {
+  name = 'avante_prompt_mentions',
+  module = 'blink.compat.source',
+  score_offset = 1000, -- show at a higher priority than lsp
+  opts = {},
+})
+blink.add_filetype_source('AvantePromptInput', 'avante_prompt_mentions')
