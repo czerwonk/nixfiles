@@ -16,5 +16,10 @@
     user = "bird";
   };
 
-  services.routinator.enable = true;
+  services.routinator = {
+    enable = true;
+    settings = {
+      rtr-listen = [ "127.0.0.1:3323" ];
+    };
+  };
 }
