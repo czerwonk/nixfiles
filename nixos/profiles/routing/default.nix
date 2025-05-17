@@ -6,21 +6,15 @@
     ./sysctl.nix
   ];
 
-  routing-rocks.bird.enable = true;
+  routing-rocks.bird = {
+    enable = true;
+    package = pkgs.bird3;
+  };
 
   services.prometheus.exporters.bird = {
     enable = true;
     user = "bird";
   };
 
-  virtualisation.oci-containers.containers = {
-    routinator = {
-      autoStart = true;
-      image = "nlnetlabs/routinator";
-      extraOptions = [
-        "--runtime=${pkgs.gvisor}/bin/runsc"
-        "--ip=10.88.0.2"
-      ];
-    };
-  };
+  services.routinator.enable = true;
 }
