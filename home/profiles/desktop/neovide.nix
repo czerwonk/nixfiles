@@ -11,8 +11,7 @@
         vim.opt.mouse = 'a'
 
         vim.g.neovide_scale_factor = 2.0
-        vim.g.neovide_opacity = 0.0
-        vim.g.transparency = 0.9
+        vim.g.neovide_opacity = 0.9
 
         vim.g.neovide_position_animation_length = 0
         vim.g.neovide_cursor_animation_length = 0.00
