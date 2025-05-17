@@ -26,7 +26,7 @@
     ];
   };
 
-  routing-rocks.bird2.enable = true;
+  routing-rocks.bird.enable = true;
 
   services.prometheus.exporters.bird = {
     enable = true;
