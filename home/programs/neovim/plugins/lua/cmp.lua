@@ -1,4 +1,4 @@
-local borderStyle = 'rounded';
+local borderStyle = 'rounded'
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
   completion = {
@@ -9,8 +9,8 @@ require('blink.cmp').setup {
         end,
         auto_insert = function(ctx)
           return ctx.mode == 'cmdline'
-        end
-      }
+        end,
+      },
     },
     menu = {
       border = borderStyle,
@@ -26,37 +26,30 @@ require('blink.cmp').setup {
               local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
               return hl
             end,
-          }
-        }
-      }
+          },
+        },
+      },
     },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
       window = {
-        border = borderStyle
+        border = borderStyle,
       },
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer', 'markdown'},
-    providers = {
-      markdown = {
-        name = 'RenderMarkdown',
-        module = 'render-markdown.integ.blink',
-        fallbacks = { 'lsp' },
-      },
-    },
+    default = { 'lsp', 'path', 'buffer' },
   },
   fuzzy = {
     prebuilt_binaries = {
-      download = false
+      download = false,
     },
   },
   signature = {
     enabled = true,
     window = {
-      border = borderStyle
+      border = borderStyle,
     },
   },
 }
