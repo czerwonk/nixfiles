@@ -1,15 +1,10 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./firewall
     ./sysctl.nix
   ];
 
-  routing-rocks.bird = {
-    enable = true;
-    package = pkgs.bird3;
-  };
+  routing-rocks.bird.enable = true;
 
   services.prometheus.exporters.bird = {
     enable = true;
