@@ -38,15 +38,20 @@ blink.add_source_provider('avante_commands', {
   score_offset = 90, -- show at a higher priority than lsp
   opts = {},
 })
+blink.add_filetype_source('AvanteInput', 'avante_commands')
+
 blink.add_source_provider('avante_files', {
   name = 'avante_files',
   module = 'blink.compat.source',
   score_offset = 100, -- show at a higher priority than lsp
   opts = {},
 })
+blink.add_filetype_source('AvanteInput', 'avante_files')
+
 blink.add_source_provider('avante_mentions', {
   name = 'avante_mentions',
   module = 'blink.compat.source',
   score_offset = 1000, -- show at a higher priority than lsp
   opts = {},
 })
+blink.add_filetype_source('AvanteInput', 'avante_mentions')
