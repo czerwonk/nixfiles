@@ -260,11 +260,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1747483468,
-        "narHash": "sha256-o+eKp63F6tQvuvKN4bTyWYGrvnJLtNYdhaettea8p4c=",
+        "lastModified": 1747485503,
+        "narHash": "sha256-QvB0aXPM8s0+XeHpZc1tnTNiVAH2DEbl7nFkarm1tpM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "98b49026246573052026600133d213073ce79278",
+        "rev": "ba44c1f5e56e471cf0004297c42255da59c7aa98",
         "type": "github"
       },
       "original": {
@@ -310,11 +310,11 @@
     },
     "routing-rocks-policy": {
       "locked": {
-        "lastModified": 1747476817,
-        "narHash": "sha256-t+s6JrGC+wXVqTAca4Hg7jjYyRb/YbAESIypgabsFeo=",
+        "lastModified": 1747486436,
+        "narHash": "sha256-Xmesf0uOPCfzpV/bvZRKqP9L0mLZonHxBmM7iUM7Ufw=",
         "owner": "czerwonk",
         "repo": "routing-rocks-policy-role",
-        "rev": "2f0568acc92ee4eb30a9c0993e12e2194bf8ca9a",
+        "rev": "ef6a457c929f87d9914de36d9e87c6681581165e",
         "type": "github"
       },
       "original": {
