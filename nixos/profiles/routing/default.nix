@@ -10,7 +10,7 @@
 
   services.prometheus.exporters.bird = {
     enable = true;
-    user = "bird2";
+    user = "bird";
   };
 
   virtualisation.oci-containers.containers = {

@@ -30,7 +30,7 @@
 
   services.prometheus.exporters.bird = {
     enable = true;
-    user = "bird2";
+    user = "bird";
   };
 
   my.services.openssh-server.openFirewall = false;
