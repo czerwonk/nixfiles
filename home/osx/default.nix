@@ -29,4 +29,12 @@
     max-cache-ttl 86400
     enable-ssh-support
   '';
+
+  programs.ghostty = {
+    settings = {
+      window-decoration = true;
+      macos-titlebar-style = "hidden";
+      background-opacity = 0.99;
+    };
+  };
 }
