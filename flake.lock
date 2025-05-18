@@ -183,11 +183,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747585559,
-        "narHash": "sha256-5LnPCvjPqsLXyY4xuDUozlQqny+Hg9YVkEJ9vAL7z8Q=",
+        "lastModified": 1747585580,
+        "narHash": "sha256-MdDImxh0lE3xzYjkQUJsa/hdlmS6jQ567eiHDwQcFYk=",
         "owner": "czerwonk",
         "repo": "net-merge",
-        "rev": "b65ea1a34e1dc3f17612afc8821941f35956a6ba",
+        "rev": "e91ca0beabff51a6e464ec7ef1c827cade097474",
         "type": "github"
       },
       "original": {
