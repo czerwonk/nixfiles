@@ -2,10 +2,10 @@
 
 let
   bitwarden-cli = pkgs.writeShellScriptBin "bitwarden-cli" ''
-    exec bw "@"
+    exec bw "$@"
   '';
   podman = pkgs.writeShellScriptBin "podman" ''
-    exec podman "@"
+    exec podman "$@"
   '';
 
 in
