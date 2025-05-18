@@ -130,6 +130,7 @@
       inherit system;
       modules = [
         ../overlays.nix
+        ../darwin/overlays.nix
         ../darwin/hosts/${configName}/configuration.nix
         inputs.home-manager-darwin.darwinModules.home-manager
         {

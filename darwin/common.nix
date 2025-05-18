@@ -124,14 +124,16 @@
     };
     brews = [
       "wireshark"
+      "podman"
     ];
     casks = [
       "adobe-digital-editions"
       "android-studio"
       "calibre"
-      "librewolf"
+      "ghostty"
       "google-chrome"
       "kobo"
+      "librewolf"
       "nextcloud"
       "postbox"
     ];

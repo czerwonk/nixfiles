@@ -31,6 +31,7 @@
   '';
 
   programs.ghostty = {
+    package = lib.mkForce null;
     settings = {
       window-decoration = true;
       macos-titlebar-style = "hidden";
