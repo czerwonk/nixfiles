@@ -80,7 +80,7 @@ with lib;
         nixfmt-rfc-style
         prettierd
         pyright
-        python312Packages.black
+        python313Packages.black
         shfmt
         solargraph
         stylua
