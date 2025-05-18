@@ -9,7 +9,7 @@
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master"; # TODO: use 25.05 branch when available
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,7 +19,7 @@
     };
 
     home-manager-darwin = {
-      url = "github:nix-community/home-manager/master"; # TODO: use 25.05 branch when available
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
