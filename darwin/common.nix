@@ -125,6 +125,7 @@
     brews = [
       "wireshark"
       "podman"
+      "bitwarden-cli"
     ];
     casks = [
       "adobe-digital-editions"
