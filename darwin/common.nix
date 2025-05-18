@@ -18,11 +18,9 @@
   time.timeZone = "Europe/Berlin";
 
   system = {
-    activationScripts.postUserActivation.text = ''
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    '';
-
     stateVersion = 5;
+
+    primaryUser = username;
 
     keyboard.enableKeyMapping = true;
     keyboard.remapCapsLockToEscape = true;
@@ -111,14 +109,10 @@
     home = "/Users/${username}";
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs = {
     nix-index.enable = true;
-  };
-
-  services = {
-    nix-daemon.enable = true;
   };
 
   homebrew = {
