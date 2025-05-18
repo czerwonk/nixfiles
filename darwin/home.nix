@@ -4,11 +4,10 @@
     ../home/programs/ghostty
   ];
 
-  my.programs.ghostty = {
-    package = null;
-    extraConfig = ''
-      macos-titlebar-style = hidden
-      background-opacity = 0.99
-    '';
+  programs.ghostty = {
+    settings = {
+      macos-titlebar-style = "hidden";
+      background-opacity = 0.99;
+    };
   };
 }

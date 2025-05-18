@@ -130,7 +130,6 @@
       "android-studio"
       "calibre"
       "librewolf"
-      "ghostty"
       "google-chrome"
       "kobo"
       "nextcloud"
