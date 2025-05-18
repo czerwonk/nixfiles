@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.ghostty = {
@@ -9,7 +9,7 @@
       font-family = "JetBrains Mono";
       font-size = 12;
       confirm-close-surface = false;
-      window-decoration = false;
+      window-decoration = lib.mkDefault false;
       gtk-titlebar = false;
 
       foreground = "E1D9D1";
