@@ -2,14 +2,14 @@
   description = "Daniel Brendgen-Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/master"; # TODO: use 25.05 branch when available
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,14 +19,14 @@
     };
 
     home-manager-darwin = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master"; # TODO: use 25.05 branch when available
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     darwin = {
-      url = "github:lnl7/nix-darwin/nix-darwin-24.11";
+      url = "github:lnl7/nix-darwin/master"; # TODO: use 25.05 branch when available
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
