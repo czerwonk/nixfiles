@@ -123,9 +123,9 @@
       upgrade = true;
     };
     brews = [
-      "wireshark"
-      "podman"
       "bitwarden-cli"
+      "podman"
+      "wireshark"
     ];
     casks = [
       "adobe-digital-editions"
