@@ -26,7 +26,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     darwin = {
-      url = "github:lnl7/nix-darwin/master"; # TODO: use 25.05 branch when available
+      url = "github:lnl7/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
