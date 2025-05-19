@@ -4,7 +4,7 @@
   home = {
     packages = with pkgs; [
       bcachefs-tools
-      btop
+      bottom
       btrfs-progs
       bubblewrap
       cifs-utils
