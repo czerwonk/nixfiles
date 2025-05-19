@@ -39,7 +39,7 @@
   };
 
   systemd.coredump.enable = lib.mkDefault false;
-  security.pam.loginLimits = [
+  security.pam.loginLimits = lib.mkIf (!config.virtualisation.libvirtd.enable) [
     {
       domain = "*";
       item = "core";
