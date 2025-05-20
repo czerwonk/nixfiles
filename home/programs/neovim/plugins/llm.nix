@@ -48,7 +48,7 @@ with lib;
       {
         "mcpServers": {
           "time": {
-            "command": "${lib.getExe pkgs.docker}",
+            "command": "${lib.getExe pkgs.podman}",
             "args": [
               "run",
               "-i",
@@ -57,7 +57,7 @@ with lib;
             ]
           },
           "memory": {
-            "command": "${lib.getExe pkgs.docker}",
+            "command": "${lib.getExe pkgs.podman}",
             "args": [
               "run",
               "-i",
@@ -66,7 +66,7 @@ with lib;
             ]
           },
           "git": {
-            "command": "${lib.getExe pkgs.docker}",
+            "command": "${lib.getExe pkgs.podman}",
             "args": [
               "run",
               "-i",
