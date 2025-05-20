@@ -4,7 +4,7 @@ with lib;
 
 let
   cfg = config.my.services.jellyfin;
-  version = "10.10.6";
+  version = "10.10.7";
 
 in
 {
