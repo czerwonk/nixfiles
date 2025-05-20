@@ -70,18 +70,6 @@ with lib;
             "env": {
               "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
             }
-          },
-          "git": {
-            "command": "${lib.getExe pkgs.docker}",
-            "args": [
-              "run",
-              "-i",
-              "--rm",
-              "mcp/git"
-            ],
-            "env": {
-              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
-            }
           }
         }
       }
