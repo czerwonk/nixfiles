@@ -48,31 +48,40 @@ with lib;
       {
         "mcpServers": {
           "time": {
-            "command": "${lib.getExe pkgs.podman}",
+            "command": "${lib.getExe pkgs.docker}",
             "args": [
               "run",
               "-i",
               "--rm",
               "mcp/time"
-            ]
+            ],
+            "env": {
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+            }
           },
           "memory": {
-            "command": "${lib.getExe pkgs.podman}",
+            "command": "${lib.getExe pkgs.docker}",
             "args": [
               "run",
               "-i",
               "--rm",
               "mcp/memory"
-            ]
+            ],
+            "env": {
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+            }
           },
           "git": {
-            "command": "${lib.getExe pkgs.podman}",
+            "command": "${lib.getExe pkgs.docker}",
             "args": [
               "run",
               "-i",
               "--rm",
               "mcp/git"
-            ]
+            ],
+            "env": {
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+            }
           }
         }
       }
