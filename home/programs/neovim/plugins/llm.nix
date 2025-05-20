@@ -31,7 +31,50 @@ with lib;
           type = "lua";
           config = builtins.readFile ./lua/copilot.lua;
         }
+        {
+          plugin = mcphub-nvim;
+          type = "lua";
+          config = ''
+            require('mcphub').setup {
+              cmd = "${pkgs.mcp-hub}/bin/mcp-hub"
+            }
+          '';
+        }
       ];
     };
+
+    home.file.".config/mcphub/servers.json".text = ''
+      {
+        "mcpServers": {
+          "time": {
+            "command": "${lib.getExe pkgs.docker}",
+            "args": [
+              "run",
+              "-i",
+              "--rm",
+              "mcp/time"
+            ]
+          },
+          "memory": {
+            "command": "${lib.getExe pkgs.docker}",
+            "args": [
+              "run",
+              "-i",
+              "--rm",
+              "mcp/memory"
+            ]
+          },
+          "git": {
+            "command": "${lib.getExe pkgs.docker}",
+            "args": [
+              "run",
+              "-i",
+              "--rm",
+              "mcp/git"
+            ]
+          }
+        }
+      }
+    '';
   };
 }

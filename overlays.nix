@@ -25,6 +25,7 @@ in
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
       net-merge = net-merge-packages.net-merge;
+      mcp-hub = inputs.mcp-hub.packages.${system}.default;
       load-env-bw = import ./pkgs/load-env-bw { inherit pkgs lib; };
     })
     (self: super: {
@@ -34,7 +35,9 @@ in
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
-      vimPlugins = pkgs-unstable.vimPlugins;
+      vimPlugins = pkgs-unstable.vimPlugins // {
+        mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;
+      };
     })
     (self: super: {
       gnome-keyring = super.gnome-keyring.overrideAttrs (oldAttrs: {
