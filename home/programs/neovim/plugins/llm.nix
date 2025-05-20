@@ -36,7 +36,8 @@ with lib;
           type = "lua";
           config = ''
             require('mcphub').setup {
-              cmd = "${pkgs.mcp-hub}/bin/mcp-hub"
+              cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
+              auto_toggle_mcp_servers = false
             }
           '';
         }
