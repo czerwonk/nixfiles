@@ -39,6 +39,7 @@ with lib;
               cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
               auto_toggle_mcp_servers = false
             }
+            vim.keymap.set('n', '<Leader>M', '<cmd>MCPHub<CR>', { desc = 'MCP-Hub' })
           '';
         }
       ];
