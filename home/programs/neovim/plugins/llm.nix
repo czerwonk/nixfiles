@@ -19,6 +19,30 @@ with lib;
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         {
+          plugin = mcphub-nvim;
+          type = "lua";
+          config = ''
+            vim.g.mcphub_initialized = false
+
+            local function load_mcphub()
+              if vim.g.mcphub_initialized then
+                return
+              end
+
+              require('mcphub').setup {
+                cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
+                shutdown_delay = 30000,
+              }
+              vim.g.mcphub_initialized = true
+            end
+
+            vim.keymap.set('n', '<Leader>M', function()
+              load_mcphub()
+              vim.cmd('MCPHub')
+            end, { desc = 'MCPHub' })
+          '';
+        }
+        {
           plugin = avante-nvim;
           type = "lua";
           config = builtins.readFile ./lua/avante.lua;
@@ -30,17 +54,6 @@ with lib;
           plugin = copilot-vim;
           type = "lua";
           config = builtins.readFile ./lua/copilot.lua;
-        }
-        {
-          plugin = mcphub-nvim;
-          type = "lua";
-          config = ''
-            require('mcphub').setup {
-              cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
-              shutdown_delay = 30000,
-            }
-            vim.keymap.set('n', '<Leader>M', '<cmd>MCPHub<CR>', { desc = 'MCP-Hub' })
-          '';
         }
       ];
     };
