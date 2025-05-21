@@ -83,7 +83,8 @@ with lib;
               "ghcr.io/github/github-mcp-server"
             ],
             "env": {
-              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock",
+              "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PERSONAL_ACCESS_TOKEN"
             }
           }
         }
