@@ -73,7 +73,7 @@ with lib;
               "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
             },
             "disabled": true
-          }
+          },
           "github": {
             "command": "${lib.getExe pkgs.github-mcp-server}",
             "args": ["stdio"],
