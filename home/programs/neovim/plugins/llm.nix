@@ -37,7 +37,7 @@ with lib;
           config = ''
             require('mcphub').setup {
               cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
-              auto_toggle_mcp_servers = false
+              shutdown_delay = 30000,
             }
             vim.keymap.set('n', '<Leader>M', '<cmd>MCPHub<CR>', { desc = 'MCP-Hub' })
           '';
@@ -58,8 +58,7 @@ with lib;
             ],
             "env": {
               "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
-            },
-            "disabled": true
+            }
           },
           "memory": {
             "command": "${lib.getExe pkgs.docker}",
@@ -71,13 +70,21 @@ with lib;
             ],
             "env": {
               "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
-            },
-            "disabled": true
+            }
           },
           "github": {
-            "command": "${lib.getExe pkgs.github-mcp-server}",
-            "args": ["stdio"],
-            "disabled": true
+            "command": "${lib.getExe pkgs.docker}",
+            "args": [
+              "run",
+              "-i",
+              "--rm",
+              "-e",
+              "GITHUB_PERSONAL_ACCESS_TOKEN",
+              "ghcr.io/github/github-mcp-server"
+            ],
+            "env": {
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+            }
           }
         }
       }
