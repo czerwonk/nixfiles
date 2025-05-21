@@ -74,6 +74,11 @@ with lib;
             },
             "disabled": true
           }
+          "github": {
+            "command": "${lib.getExe pkgs.github-mcp-server}",
+            "args": ["stdio"],
+            "disabled": true
+          }
         }
       }
     '';
