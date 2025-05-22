@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.immich;
-  version = "v1.132.3";
+  version = "v1.133.0";
   backup = pkgs.writeShellScriptBin "immich-backup" (builtins.readFile ./backup.sh);
   databaseName = "immich";
   databaseUsername = "postgres";
