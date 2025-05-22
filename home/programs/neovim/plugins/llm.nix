@@ -98,6 +98,20 @@ with lib;
             "env": {
               "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
             }
+          },
+          "mcp_k8s_go": {
+            "command": "${lib.getExe pkgs.docker}",
+            "args": [
+              "run",
+              "-i",
+              "-v",
+              "${config.home.homeDirectory}/.config/mcphub/kubeconfig:/home/nonroot/.kube/config",
+              "--rm",
+              "mcpk8s/server:latest"
+            ],
+            "env": {
+              "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+            }
           }
         }
       }
