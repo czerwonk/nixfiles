@@ -19,6 +19,19 @@ with lib;
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         {
+          plugin = avante-nvim;
+          type = "lua";
+          config = builtins.readFile ./lua/avante.lua;
+        }
+        {
+          plugin = dressing-nvim;
+        }
+        {
+          plugin = copilot-vim;
+          type = "lua";
+          config = builtins.readFile ./lua/copilot.lua;
+        }
+        {
           plugin = mcphub-nvim;
           type = "lua";
           config = ''
@@ -41,19 +54,6 @@ with lib;
               vim.cmd('MCPHub')
             end, { desc = 'MCPHub' })
           '';
-        }
-        {
-          plugin = avante-nvim;
-          type = "lua";
-          config = builtins.readFile ./lua/avante.lua;
-        }
-        {
-          plugin = dressing-nvim;
-        }
-        {
-          plugin = copilot-vim;
-          type = "lua";
-          config = builtins.readFile ./lua/copilot.lua;
         }
       ];
     };
