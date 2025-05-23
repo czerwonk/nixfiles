@@ -46,6 +46,28 @@ require('codecompanion').setup {
   strategies = {
     chat = {
       adapter = 'copilot',
+      slash_commands = {
+        ['buffer'] = {
+          opts = {
+            provider = 'snacks',
+          },
+        },
+        ['help'] = {
+          opts = {
+            provider = 'snacks',
+          },
+        },
+        ['file'] = {
+          opts = {
+            provider = 'snacks',
+          },
+        },
+        ['symbols'] = {
+          opts = {
+            provider = 'snacks',
+          },
+        },
+      },
     },
     inline = {
       adapter = 'copilot',
@@ -83,7 +105,7 @@ require('codecompanion').setup {
   },
 }
 
-vim.keymap.set({ 'n', 'v' }, '<leader>aa', function ()
+vim.keymap.set({ 'n', 'v' }, '<leader>aa', function()
   load_mcphub()
   vim.cmd('CodeCompanionChat Toggle')
 end, { desc = 'Chat' })
