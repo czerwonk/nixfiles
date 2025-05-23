@@ -12,7 +12,27 @@ require('codecompanion').setup {
         },
       })
     end,
-    ollama = function()
+    devstral = function()
+      return require('codecompanion.adapters').extend('devstral', {
+        name = 'devstral',
+        schema = {
+          model = {
+            default = 'devstral',
+          },
+        },
+      })
+    end,
+    deepcoder = function()
+      return require('codecompanion.adapters').extend('deepcoder', {
+        name = 'deepcoder',
+        schema = {
+          model = {
+            default = 'deepcoder',
+          },
+        },
+      })
+    end,
+    gemma3 = function()
       return require('codecompanion.adapters').extend('ollama', {
         name = 'gemma3',
         schema = {
@@ -40,13 +60,8 @@ require('codecompanion').setup {
       height = 10,
       prompt = 'Prompt ',
       provider = 'snacks',
-      opts = {
-        show_default_actions = true,
-        show_default_prompt_library = true,
-      },
     },
     chat = {
-      show_header_separator = false,
       show_references = true,
       show_token_count = true,
       window = {
