@@ -62,8 +62,6 @@ require('codecompanion').setup {
       provider = 'snacks',
     },
     chat = {
-      show_references = true,
-      show_token_count = true,
       window = {
         position = 'right',
       },
