@@ -1,5 +1,4 @@
-local notify = vim.notify
-
+---@diagnostic disable: undefined-global
 require('snacks').setup {
   bigfile = {
     enabled = true,
@@ -24,7 +23,6 @@ require('snacks').setup {
   },
   words = { enabled = true },
 }
-vim.notify = notify
 
 vim.keymap.set('n', '<c-t>', function() Snacks.terminal() end, { desc = 'Terminal (cwd)' })
 vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })

@@ -1,8 +1,8 @@
 require('mini.surround').setup {
   mappings = {
-    add = "sa",
-    delete = "sd",
-    replace = "sr",
+    add = 'sa',
+    delete = 'sd',
+    replace = 'sr',
   },
-  silent = true
+  silent = true,
 }
