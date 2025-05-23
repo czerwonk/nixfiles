@@ -1,4 +1,7 @@
 require('codecompanion').setup {
+  opts = {
+    system_prompt = '',
+  },
   adapters = {
     opts = {
       show_defaults = false,
@@ -115,7 +118,7 @@ vim.api.nvim_create_autocmd({ 'User' }, {
 
     vim.notify(msg, 'info', {
       timeout = 1000,
-      keep = function ()
+      keep = function()
         return not vim.endswith(request.match, 'Finished')
       end,
       id = 'code_companion_status',
