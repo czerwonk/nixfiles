@@ -7,5 +7,5 @@ require('render-markdown').setup {
       enabled = true
     }
   },
-  file_types = { 'markdown', 'Avante' },
+  file_types = { 'markdown', 'codecompanion' },
 };
