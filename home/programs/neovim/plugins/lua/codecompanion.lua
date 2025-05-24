@@ -15,8 +15,17 @@ require('codecompanion').setup {
         },
       })
     end,
+    gemini = function()
+      return require('codecompanion.adapters').extend('gemini', {
+        schema = {
+          model = {
+            default = 'gemini-2.5-flash-preview-05-20',
+          },
+        },
+      })
+    end,
     devstral = function()
-      return require('codecompanion.adapters').extend('devstral', {
+      return require('codecompanion.adapters').extend('ollama', {
         name = 'devstral',
         schema = {
           model = {
@@ -26,7 +35,7 @@ require('codecompanion').setup {
       })
     end,
     deepcoder = function()
-      return require('codecompanion.adapters').extend('deepcoder', {
+      return require('codecompanion.adapters').extend('ollama', {
         name = 'deepcoder',
         schema = {
           model = {
