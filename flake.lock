@@ -224,16 +224,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1748070218,
-        "narHash": "sha256-DgOfNkv+nk+ZX8CJ2H0Y/rO11cxoJToq+rwtYgTil+A=",
+        "lastModified": 1747411805,
+        "narHash": "sha256-0ZzuCYc3Umi342ZEQdlq3Icm9TYi/zVPz37B3B+9MAo=",
         "owner": "ravitemer",
         "repo": "mcp-hub",
-        "rev": "87e87598a982df18cb6e5d3a7bc8d866deaa86e7",
+        "rev": "e3bce4eb6ff446a236c9a87082f9f4e0063d6f05",
         "type": "github"
       },
       "original": {
         "owner": "ravitemer",
-        "ref": "87e87598a982df18cb6e5d3a7bc8d866deaa86e7",
+        "ref": "e3bce4eb6ff446a236c9a87082f9f4e0063d6f05",
         "repo": "mcp-hub",
         "type": "github"
       }
