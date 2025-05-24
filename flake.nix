@@ -35,7 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence.url = "github:nix-community/impermanence?ref=d000479f4f41390ff7cf9204979660ad5dd16176";
+    impermanence.url = "github:nix-community/impermanence?ref=4b3e914cdf97a5b536a889e939fb2fd2b043a170";
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
