@@ -36,6 +36,42 @@ require('avante').setup {
   end,
 }
 
+local prefill_edit_window = function(request)
+  require('avante.api').edit()
+  local code_bufnr = vim.api.nvim_get_current_buf()
+  local code_winid = vim.api.nvim_get_current_win()
+  if code_bufnr == nil or code_winid == nil then
+    return
+  end
+  vim.api.nvim_buf_set_lines(code_bufnr, 0, -1, false, { request })
+  -- Optionally set the cursor position to the end of the input
+  vim.api.nvim_win_set_cursor(code_winid, { 1, #request + 1 })
+  -- Simulate Ctrl+S keypress to submit
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-s>', true, true, true), 'v', true)
+end
+
+local avante_optimize_code = 'Optimize the following code'
+local avante_summarize = 'Summarize the following text'
+local avante_add_docstring = 'Add docstring to the following code'
+local avante_fix_bugs = 'Fix the bugs inside the following codes if any'
+local avante_add_tests = 'Implement tests for the following code'
+
+vim.keymap.set('v', '<leader>aC', function()
+  prefill_edit_window(avante_add_docstring)
+end, { desc = 'Avante: Add docstring' })
+vim.keymap.set('v', '<leader>aO', function()
+  prefill_edit_window(avante_optimize_code)
+end, { desc = 'Avante: Optimize code' })
+vim.keymap.set('v', '<leader>aS', function()
+  prefill_edit_window(avante_summarize)
+end, { desc = 'Avante: Summarize code' })
+vim.keymap.set('v', '<leader>aF', function()
+  prefill_edit_window(avante_fix_bugs)
+end, { desc = 'Avante: Fix bugs' })
+vim.keymap.set('v', '<leader>aT', function()
+  prefill_edit_window(avante_add_tests)
+end, { desc = 'Avante: Add tests' })
+
 require('which-key').add {
   { '<leader>a', group = 'AI' },
 }
