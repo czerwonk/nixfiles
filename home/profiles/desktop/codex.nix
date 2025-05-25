@@ -2,10 +2,6 @@
 
 let
   codex-bwrapped = pkgs.writeShellScriptBin "codex" ''
-    if [ -z "$OPENAI_API_KEY" ]; then
-      export $(load-openai-env)
-    fi
-
     exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
