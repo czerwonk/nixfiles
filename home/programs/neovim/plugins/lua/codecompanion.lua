@@ -178,4 +178,5 @@ require('which-key').add {
 
 vim.cmd([[
   abbrev cc CodeCompanion
+  abbrev ccc CodeCompanionChat
 ]])
