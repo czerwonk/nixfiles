@@ -51,9 +51,9 @@ with lib;
           '';
         }
         {
-          plugin = codecompanion-nvim;
+          plugin = avante-nvim;
           type = "lua";
-          config = builtins.readFile ./lua/codecompanion.lua;
+          config = builtins.readFile ./lua/avante.lua;
         }
       ];
     };
