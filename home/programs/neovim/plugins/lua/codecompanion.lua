@@ -15,8 +15,9 @@ require('codecompanion').setup {
         },
       })
     end,
-    gemini = function()
+    gemini_flash = function()
       return require('codecompanion.adapters').extend('gemini', {
+        name = 'gemini-2.5-flash',
         schema = {
           model = {
             default = 'gemini-2.5-flash-preview-05-20',
@@ -24,12 +25,21 @@ require('codecompanion').setup {
         },
       })
     end,
-    devstral = function()
-      return require('codecompanion.adapters').extend('ollama', {
-        name = 'devstral',
+    gemini_pro = function()
+      return require('codecompanion.adapters').extend('gemini', {
+        name = 'gemini-2.5-pro',
         schema = {
           model = {
-            default = 'devstral',
+            default = 'gemini-2.5-pro',
+          },
+        },
+      })
+    end,
+    openai = function()
+      return require('codecompanion.adapters').extend('openai', {
+        schema = {
+          model = {
+            default = 'o4-mini',
           },
         },
       })
