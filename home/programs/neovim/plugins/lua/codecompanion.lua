@@ -44,6 +44,15 @@ require('codecompanion').setup {
         },
       })
     end,
+    claude = function()
+      return require('codecompanion.adapters').extend('claude', {
+        schema = {
+          model = {
+            default = 'claude-sonnet-4-20250514',
+          },
+        },
+      })
+    end,
     deepcoder = function()
       return require('codecompanion.adapters').extend('ollama', {
         name = 'deepcoder',
