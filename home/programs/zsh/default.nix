@@ -17,8 +17,8 @@
       bindkey "^[[1;3C" forward-word
       bindkey "^[^[[D"  backward-word
       bindkey "^[^[[C"  forward-word
-      bindkey "^[[1;5D"  backward-word
-      bindkey "^[[1;5C"  forward-word
+      bindkey "^[[1;5D" backward-word
+      bindkey "^[[1;5C" forward-word
       bindkey "^[^?"    backward-kill-word
 
       autoload zmv
