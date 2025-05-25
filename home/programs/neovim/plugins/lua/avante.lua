@@ -1,6 +1,5 @@
 require('avante').setup {
   provider = 'copilot',
-  auto_suggestions_provider = 'copilot',
   copilot = {
     model = 'gemini-2.5-pro',
   },
