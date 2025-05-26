@@ -4,6 +4,7 @@
   home = {
     packages = with pkgs; [
       curl
+      coreutils
       du-dust
       expect
       eza
@@ -16,7 +17,6 @@
       screen
       sd
       sshpass
-      uutils-coreutils-noprefix
       watch
       wget
       whois
