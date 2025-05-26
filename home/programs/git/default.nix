@@ -73,7 +73,7 @@
 
       merge = {
         tool = "nvimdiff";
-        conflictStyle = "diff3";
+        conflictStyle = "zdiff3";
       };
 
       mergetool = {
