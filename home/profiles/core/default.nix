@@ -16,6 +16,7 @@
   ];
 
   home.packages = with pkgs; [
+    bottom
     wireguard-tools
   ];
 }
