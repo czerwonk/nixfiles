@@ -3,8 +3,8 @@
 {
   home = {
     packages = with pkgs; [
-      curl
       coreutils
+      curl
       du-dust
       expect
       eza
