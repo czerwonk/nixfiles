@@ -14,6 +14,7 @@
       dns-drain
       google-cloud-sdk
       grype
+      hyperfine
       inspec
       lynis
       mysql-shell
