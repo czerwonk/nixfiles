@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.vaultwarden;
-  version = "1.33.2";
+  version = "1.34.1";
 
 in
 {
