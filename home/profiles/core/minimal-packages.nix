@@ -11,6 +11,7 @@
       fd
       hexyl
       jq
+      openssl
       p7zip
       perlPackages.JSONPP
       ripgrep
