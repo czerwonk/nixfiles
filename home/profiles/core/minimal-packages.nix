@@ -5,6 +5,7 @@
     packages = with pkgs; [
       coreutils
       curl
+      dejavu_fonts
       du-dust
       expect
       eza
