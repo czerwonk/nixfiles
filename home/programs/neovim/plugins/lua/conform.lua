@@ -4,7 +4,7 @@ conform.setup {
     timeout_ms = 3000,
     async = false,
     quiet = false,
-    lsp_format = "fallback",
+    lsp_format = 'fallback',
   },
   formatters_by_ft = {
     css = { 'prettierd' },
@@ -14,6 +14,7 @@ conform.setup {
     lua = { 'stylua' },
     markdown = { 'prettierd' },
     nix = { 'nixfmt' },
+    php = { 'php_cs_fixer' },
     python = { 'black' },
     sh = { 'shfmt', 'trim_whitespace' },
     typescript = { 'prettierd' },
@@ -24,29 +25,46 @@ conform.setup {
   formatters = {
     stylua = {
       prepend_args = {
-        "--indent-type", "Spaces",
-        "--indent-width", "2",
-        "--quote-style","AutoPreferSingle",
-        "--call-parentheses", "NoSingleTable",
+        '--indent-type',
+        'Spaces',
+        '--indent-width',
+        '2',
+        '--quote-style',
+        'AutoPreferSingle',
+        '--call-parentheses',
+        'NoSingleTable',
       },
     },
     shfmt = {
       prepend_args = {
-        "--indent", "2",
-        "--binary-next-line",
-        "--keep-padding",
-        "--space-redirects"
+        '--indent',
+        '2',
+        '--binary-next-line',
+        '--keep-padding',
+        '--space-redirects',
       },
+    },
+    php_cs_fixer = {
+      command = 'php-cs-fixer',
+      args = {
+        'fix',
+        '--rules=@PSR12,@Symfony',
+        '--using-cache=no',
+        '--no-interaction',
+        '--quiet',
+        '$FILENAME',
+      },
+      stdin = false,
     },
   },
 }
 
-local format_for_extensions = { "css", "html", "js", "json", "nix", "py", "ts", "yml", "yaml", "sh", "bash", "rb" }
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*." .. table.concat(format_for_extensions, ",*."),
+local format_for_extensions = { 'css', 'html', 'js', 'json', 'nix', 'py', 'ts', 'yml', 'yaml', 'sh', 'bash', 'rb' }
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.' .. table.concat(format_for_extensions, ',*.'),
   callback = function(args)
-    conform.format({ bufnr = args.buf })
+    conform.format { bufnr = args.buf }
   end,
 })
 
-vim.keymap.set('n', '<leader>F', conform.format, { desc = 'Format'})
+vim.keymap.set('n', '<leader>F', conform.format, { desc = 'Format' })
