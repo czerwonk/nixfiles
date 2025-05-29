@@ -85,7 +85,6 @@ with lib;
         stylua
         sumneko-lua-language-server
         terraform-ls
-        vscode-langservers-extracted
       ]
       ++ (with pkgs.nodePackages; [
         bash-language-server
