@@ -74,7 +74,6 @@ with lib;
         ansible-language-server
         gopls
         helm-ls
-        jdt-language-server
         marksman
         nil
         nixfmt-rfc-style

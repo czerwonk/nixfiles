@@ -13,5 +13,6 @@ in
 pkgs.mkShell {
   packages = [
     jdk
+    pkgs.jdt-language-server
   ];
 }

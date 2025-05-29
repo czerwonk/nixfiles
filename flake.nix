@@ -231,7 +231,7 @@
         debug = import ./shell/debug/shell.nix { inherit pkgs; };
         dotnet = import ./shell/dotnet/shell.nix { inherit pkgs; };
         gstreamer = import ./shell/gstreamer/shell.nix { inherit pkgs; };
-        javafx = import ./shell/javafx/shell.nix { inherit pkgs; };
+        java = import ./shell/java/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
         pentest = import ./shell/pentest/shell.nix {
