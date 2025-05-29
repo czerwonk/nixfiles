@@ -9,4 +9,8 @@
     displayManager.gdm.enable = lib.mkForce false;
     desktopManager.gnome.enable = lib.mkForce false;
   };
+
+  environment.sessionVariables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
 }
