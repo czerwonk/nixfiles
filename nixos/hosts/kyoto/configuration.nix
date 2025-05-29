@@ -61,4 +61,14 @@
     package = pkgs.ollama-rocm;
   };
   systemd.services.ollama.wantedBy = lib.mkForce [ ];
+
+  specialisation = {
+    cosmic = {
+      configuration = {
+        imports = [
+          ../../profiles/desktop/cosmic.nix
+        ];
+      };
+    };
+  };
 }
