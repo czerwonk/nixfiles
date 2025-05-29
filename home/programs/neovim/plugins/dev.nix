@@ -90,7 +90,6 @@ with lib;
       ++ (with pkgs.nodePackages; [
         bash-language-server
         dockerfile-language-server-nodejs
-        typescript-language-server
         yaml-language-server
       ]);
   };

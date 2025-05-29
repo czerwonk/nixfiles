@@ -241,6 +241,7 @@
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
         php = import ./shell/php/shell.nix { inherit pkgs; };
         rust = import ./shell/rust/shell.nix { inherit pkgs; };
+        typescript = import ./shell/typescript/shell.nix { inherit pkgs; };
       };
     };
 }
