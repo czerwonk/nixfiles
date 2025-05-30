@@ -51,11 +51,6 @@ with lib;
           '';
         }
         {
-          plugin = img-clip-nvim;
-          type = "lua";
-          config = builtins.readFile ./lua/img-clip.lua;
-        }
-        {
           plugin = avante-nvim;
           type = "lua";
           config = builtins.readFile ./lua/avante.lua;

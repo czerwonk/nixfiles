@@ -1,9 +1,5 @@
 require('avante').setup {
   provider = 'copilot',
-  behavior = {
-    support_paste_from_clipboard = true,
-    use_cwd_as_project_root = true,
-  },
   hints = {
     enabled = false,
   },
