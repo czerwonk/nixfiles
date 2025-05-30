@@ -1,5 +1,18 @@
 require('avante').setup {
   provider = 'copilot',
+  behavior = {
+    support_paste_from_clipboard = true,
+    use_cwd_as_project_root = true,
+  },
+  hints = {
+    enabled = false,
+  },
+  selector = {
+    provider = 'snacks',
+  },
+  file_selector = {
+    provider = 'snacks',
+  },
   copilot = {
     model = 'gemini-2.5-pro',
   },
@@ -12,27 +25,18 @@ require('avante').setup {
   ollama = {
     model = 'gemma3',
   },
-  selector = {
-    provider = 'snacks',
-  },
-  file_selector = {
-    provider = 'snacks',
-  },
-  hints = {
-    enabled = false,
-  },
-  system_prompt = function()
-    ---@diagnostic disable-next-line: undefined-global
-    load_mcphub()
-    local hub = require('mcphub').get_hub_instance()
-    return hub and hub:get_active_servers_prompt() or ''
-  end,
   custom_tools = function()
     ---@diagnostic disable-next-line: undefined-global
     load_mcphub()
     return {
       require('mcphub.extensions.avante').mcp_tool(),
     }
+  end,
+  system_prompt = function()
+    ---@diagnostic disable-next-line: undefined-global
+    load_mcphub()
+    local hub = require('mcphub').get_hub_instance()
+    return hub and hub:get_active_servers_prompt() or ''
   end,
 }
 
