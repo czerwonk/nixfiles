@@ -244,16 +244,16 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1747897104,
-        "narHash": "sha256-6vDNBOuoO1PlTVf6/uQODJAm0ANCC+Z6UH0WUyFUk3w=",
+        "lastModified": 1748412368,
+        "narHash": "sha256-wA+1F6gYddRa25q7csi4h48KD4xDtR406Cy/pXoxe6w=",
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
-        "rev": "d43c0bef80434e4486d01323ecab072058c12a48",
+        "rev": "feaa49574d94c88c3ee7cdf1bb10d46cf31755b0",
         "type": "github"
       },
       "original": {
         "owner": "ravitemer",
-        "ref": "d43c0bef80434e4486d01323ecab072058c12a48",
+        "ref": "feaa49574d94c88c3ee7cdf1bb10d46cf31755b0",
         "repo": "mcphub.nvim",
         "type": "github"
       }
