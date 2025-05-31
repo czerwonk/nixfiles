@@ -52,4 +52,14 @@
   my.services.openssh-server.enable = true;
 
   services.logrotate.checkConfig = false;
+
+  specialisation = {
+    cosmic = {
+      configuration = {
+        imports = [
+          ../../profiles/desktop/cosmic.nix
+        ];
+      };
+    };
+  };
 }
