@@ -62,7 +62,7 @@
 
         home-manager.users.${username} = {
           imports = [
-            ../../profiles/desktop/cosmic
+            ../../../home/profiles/desktop/cosmic
           ];
         };
       };
@@ -75,7 +75,7 @@
 
         home-manager.users.${username} = {
           imports = [
-            ../../profiles/desktop/hyprland
+            ../../../home/profiles/desktop/hyprland
           ];
         };
       };
