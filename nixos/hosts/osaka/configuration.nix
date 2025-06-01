@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, username, ... }:
 
 {
   imports = [
@@ -59,6 +59,25 @@
         imports = [
           ../../profiles/desktop/cosmic.nix
         ];
+
+        home-manager.users.${username} = {
+          imports = [
+            ../../profiles/desktop/cosmic
+          ];
+        };
+      };
+    };
+    hyprland = {
+      configuration = {
+        imports = [
+          ../../profiles/desktop/hyprland.nix
+        ];
+
+        home-manager.users.${username} = {
+          imports = [
+            ../../profiles/desktop/hyprland
+          ];
+        };
       };
     };
   };
