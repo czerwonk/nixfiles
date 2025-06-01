@@ -77,6 +77,8 @@
           imports = [
             ../../../home/profiles/desktop/hyprland
           ];
+
+          profiles.hyprland.backlightDevice = "amdgpu_bl0";
         };
       };
     };
