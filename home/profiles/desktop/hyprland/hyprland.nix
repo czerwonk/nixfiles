@@ -57,11 +57,10 @@
       exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
       exec-once = ${lib.getExe pkgs.hyprpaper}
       exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
-      exec-once = [workspace 2] ${lib.getExe pkgs.ghostty} ${lib.getExe pkgs.tmux} a
-      exec-once = [workspace 3 silent] /run/current-system/sw/bin/librewolf
-      exec-once = [workspace 4 silent] /run/current-system/sw/bin/thunderbird
+      exec-once = [workspace 1] ${lib.getExe pkgs.ghostty} ${lib.getExe pkgs.tmux} a
+      exec-once = [workspace 2 silent] /run/current-system/sw/bin/librewolf
+      exec-once = [workspace 3 silent] /run/current-system/sw/bin/thunderbird
       exec-once = [workspace 9 silent] /run/current-system/sw/bin/teams-for-linux
-      exec-once = [workspace 10 silent] ${lib.getExe pkgs.bitwarden}
       exec-once = sleep 1; ${lib.getExe pkgs.nextcloud-client} --background
 
       $mainMod = SUPER
