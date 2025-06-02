@@ -30,7 +30,7 @@
       decoration = {
         rounding = 10;
         blur.enabled = false;
-        drop_shadow = false;
+        shadow.enabled = false;
       };
       misc = {
         force_default_wallpaper = 0;
