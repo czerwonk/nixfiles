@@ -77,10 +77,6 @@
     options = "caps:escape";
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
   console = {
     earlySetup = true;
     font = "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v24n.psf.gz";
