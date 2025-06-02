@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./persistence.nix
     ../../configuration.nix
+    ../../profiles/amd-rocm
     ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
