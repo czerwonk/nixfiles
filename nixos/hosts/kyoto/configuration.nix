@@ -14,7 +14,6 @@
     ../../profiles/virtualisation
     ../../tpm.nix
     ../../zfs/desktop.nix
-    ./gpu.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
