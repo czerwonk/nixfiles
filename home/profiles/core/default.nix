@@ -17,7 +17,6 @@
 
   home.packages = with pkgs; [
     bottom
-    nerd-fonts.jetbrains-mono
     wireguard-tools
   ];
 }

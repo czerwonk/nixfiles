@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = lib.mkDefault true;
     font = {
-      package = lib.mkDefault pkgs.nerd-fonts.jetbrains-mono;
+      package = lib.mkDefault pkgs.jetbrains-mono;
       name = lib.mkDefault "JetBrains Mono";
       size = lib.mkDefault 12;
     };
