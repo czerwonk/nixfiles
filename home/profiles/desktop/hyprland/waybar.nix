@@ -151,7 +151,7 @@
     };
     style = ''
       * {
-        font-family: JetBrains Mono NF;
+        font-family: JetBrains Mono;
         font-size: 14px;
       }
 

@@ -39,10 +39,11 @@ in
   ];
 
   home.packages = with pkgs; [
-    networkmanagerapplet
     halt-script
-    reboot-script
     logout-script
+    nerd-fonts.jetbrains-mono
+    networkmanagerapplet
+    reboot-script
     screenshot-script
   ];
 }
