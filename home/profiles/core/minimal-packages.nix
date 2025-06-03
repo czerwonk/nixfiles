@@ -4,7 +4,6 @@
   home = {
     packages = with pkgs; [
       bottom
-      coreutils
       curl
       dejavu_fonts
       du-dust
@@ -20,6 +19,7 @@
       screen
       sd
       sshpass
+      uutils-coreutils-noprefix
       watch
       wget
       whois
