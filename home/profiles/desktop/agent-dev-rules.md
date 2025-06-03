@@ -23,6 +23,7 @@
 - Keep it simple (KISS principle)
 - Avoid premature optimization
 - Prefer readable over clever code
+- Write tests for new features
 
 ## Workflow
 1. Pick task → Complete → Update todo.md → Commit
