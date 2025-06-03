@@ -24,4 +24,6 @@ in
       codex-bwrapped
     ];
   };
+
+  home.file.".codex/AGENTS.md".text = builtins.readFile ./agent-dev-rules.md;
 }
