@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./minimal-packages.nix
@@ -13,10 +11,5 @@
     ../../programs/neovim
     ../../programs/zoxide
     ../../programs/zsh
-  ];
-
-  home.packages = with pkgs; [
-    bottom
-    wireguard-tools
   ];
 }

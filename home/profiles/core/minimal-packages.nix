@@ -3,6 +3,7 @@
 {
   home = {
     packages = with pkgs; [
+      bottom
       coreutils
       curl
       dejavu_fonts
@@ -22,6 +23,7 @@
       watch
       wget
       whois
+      wireguard-tools
       yq
     ];
   };
