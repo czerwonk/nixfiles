@@ -36,7 +36,6 @@ in
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
-      uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
       vimPlugins = pkgs-unstable.vimPlugins // {
         mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;
       };
