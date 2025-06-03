@@ -3,7 +3,7 @@
 ## 1. Task Management
 - Break into small, completable units
 - Track in `docs/todo.md`:
-  - [ ] Current/upcoming tasks
+  - [ ] Current/upcoming tasks (with priority: high/medium/low)
   - [x] Completed tasks
   - Development decisions + rationale
   - Recurring issues + solutions
