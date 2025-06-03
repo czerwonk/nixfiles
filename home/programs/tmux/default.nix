@@ -38,7 +38,6 @@ in
       mouse = mkDefault false;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [
-        tmux-fzf
         vim-tmux-navigator
       ];
       extraConfig = ''
