@@ -11,7 +11,7 @@
     - Code audit reminders
 
 2. **Git Discipline**
-  - Commit after each code-modifying task
+  - Commit after each file-modifying task
   - Format: `type: description` (feat/fix/docs/refactor/test/chore)
 
 3. **Scope Control**
