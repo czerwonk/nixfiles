@@ -1,5 +1,5 @@
 vim.lsp.config['omnisharp'] = {
-  cmd = { 'OmniSharp' },
+  cmd = { 'OmniSharp', '--languageserver', '--hostPID', tostring(vim.fn.getpid()), '-z' },
   filetypes = { 'cs' },
   root_markers = { '.sln', '.csproj', 'omnisharp.json', 'function.json' },
   settings = {
