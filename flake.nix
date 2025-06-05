@@ -53,7 +53,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mcp-hub.url = "github:ravitemer/mcp-hub?ref=2b25fe1fc9bd5c3d29060ce81ca68545c0a739e3";
+    mcp-hub.url = "github:ravitemer/mcp-hub?ref=8e84658d20554488d0a346f0801b554ed5cf9c31";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim?ref=08cd58b0263b20638973ba57950d15f1c3b7b427";
   };
 
