@@ -19,10 +19,7 @@
 
   programs.tmux.mouse = true;
 
-  programs.neovim = {
-    withLLM = true;
-    withCoding = true;
-  };
+  programs.neovim.withCoding = true;
 
   services.gpg-agent.enable = true;
 
@@ -30,12 +27,7 @@
     packages = with pkgs; [
       bitwarden-cli
     ];
-    shellAliases = {
-      nvim = "${lib.getExe config.programs.neovim.sandboxPackage}";
-    };
   };
-
-  my.scripts.neovimExe = "${lib.getExe config.programs.neovim.sandboxPackage}";
 
   programs.zsh = {
     shellAliases = {
