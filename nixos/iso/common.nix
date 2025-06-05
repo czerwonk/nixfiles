@@ -11,6 +11,7 @@
   networking.nftables.enable = true;
 
   security.auditd.enable = false;
+  security.allowUserNamespaces = true;
 
   my.services.openssh-server = {
     enable = true;
