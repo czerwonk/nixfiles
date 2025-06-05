@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./persistence.nix
     ../../configuration.nix
     ../../profiles/amd-rocm
     ../../profiles/container

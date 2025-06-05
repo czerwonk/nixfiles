@@ -185,6 +185,18 @@
             inputs.private.mauve.home
           ];
         };
+        hakone = systemLib.mkNixOSSystem {
+          configName = "hakone";
+          inherit system;
+          username = inputs.private.username { };
+          extraModules = [
+            inputs.private.nixosModule
+          ];
+          extraHomeModules = [
+            inputs.private.home
+            inputs.private.mauve.home
+          ];
+        };
         surf-vm = systemLib.mkNixOSSystem {
           configName = "surf-vm";
           inherit system;
