@@ -11,7 +11,8 @@
   - Code audit reminders
 
 ## 2. Git Discipline
-- Commit after each task that modifies any file
+- **ALWAYS commit after each task that modifies any file**
+- No exceptions - even small fixes require commits
 - Format: `type: description` (feat/fix/docs/refactor/test/chore)
 
 ## 3. Scope Control
@@ -26,4 +27,7 @@
 - Write tests for new features
 
 ## Workflow
-1. Pick task → Complete → Update todo.md → Commit
+1. Pick task
+2. Complete task
+3. Update todo.md
+4. **COMMIT CHANGES** (required - no exceptions)

@@ -10,6 +10,7 @@
       graphviz
       mysql-shell
       podman
+      podman-compose
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc
