@@ -1,4 +1,20 @@
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
+require('copilot').setup({
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    debounce = 75,
+    max_lines = 10,
+    keymap = {
+      accept = '<C-j>',
+      accept_word = '<C-l>',
+      accept_line = '<C-k>',
+      next = '<M-]>',
+      prev = '<M-[>',
+      dismiss = '<C-g>',
+    },
+  },
+  panel = {
+    enabled = false,
+  },
+  copilot_node_command = 'node',
 })

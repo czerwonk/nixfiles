@@ -22,7 +22,7 @@ with lib;
           plugin = dressing-nvim;
         }
         {
-          plugin = copilot-vim;
+          plugin = copilot-lua;
           type = "lua";
           config = builtins.readFile ./lua/copilot.lua;
         }
@@ -55,6 +55,9 @@ with lib;
           type = "lua";
           config = builtins.readFile ./lua/avante.lua;
         }
+      ];
+      extraPackages = with pkgs; [
+        nodejs
       ];
     };
 

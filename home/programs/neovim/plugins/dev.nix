@@ -66,30 +66,29 @@ with lib;
           config = builtins.readFile ./lua/coverage.lua;
         }
       ];
+      extraPackages =
+        with pkgs;
+        [
+          ansible-language-server
+          gopls
+          helm-ls
+          marksman
+          nil
+          nixfmt-rfc-style
+          prettierd
+          pyright
+          python313Packages.black
+          shfmt
+          solargraph
+          stylua
+          sumneko-lua-language-server
+          terraform-ls
+        ]
+        ++ (with pkgs.nodePackages; [
+          bash-language-server
+          dockerfile-language-server-nodejs
+          yaml-language-server
+        ]);
     };
-
-    home.packages =
-      with pkgs;
-      [
-        ansible-language-server
-        gopls
-        helm-ls
-        marksman
-        nil
-        nixfmt-rfc-style
-        prettierd
-        pyright
-        python313Packages.black
-        shfmt
-        solargraph
-        stylua
-        sumneko-lua-language-server
-        terraform-ls
-      ]
-      ++ (with pkgs.nodePackages; [
-        bash-language-server
-        dockerfile-language-server-nodejs
-        yaml-language-server
-      ]);
   };
 }
