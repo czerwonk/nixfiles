@@ -5,11 +5,11 @@ require('copilot').setup({
     debounce = 75,
     max_lines = 10,
     keymap = {
-      accept = '<C-j>',
-      accept_word = '<C-l>',
-      accept_line = '<C-k>',
-      next = '<M-]>',
-      prev = '<M-[>',
+      accept = '<C-y>',
+      accept_word = false,
+      accept_line = '<C-l>',
+      next = '<C-j>',
+      prev = '<C-k>',
       dismiss = '<C-g>',
     },
   },
@@ -19,16 +19,16 @@ require('copilot').setup({
   copilot_node_command = 'node',
 })
 
-vim.keymap.set("i", "<Tab>", function()
-  if require("copilot.suggestion").is_visible() then
-    require("copilot.suggestion").accept()
+vim.keymap.set('i', '<Tab>', function()
+  if require('copilot.suggestion').is_visible() then
+    require('copilot.suggestion').accept()
   else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
   end
 end, { silent = true })
 
-vim.keymap.set("i", "<S-Tab>", "<Tab>", { remap = false })
+vim.keymap.set('i', '<S-Tab>', '<Tab>', { remap = false })
 
 vim.keymap.set('n', '<leader>C', function()
-  require("copilot.suggestion").toggle_auto_trigger()
+  require('copilot.suggestion').toggle_auto_trigger()
 end, { noremap = true, silent = true, desc = "Toggle Copilot Auto Trigger" })
