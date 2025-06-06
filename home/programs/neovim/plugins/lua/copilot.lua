@@ -1,4 +1,4 @@
-require('copilot').setup({
+require('copilot').setup {
   suggestion = {
     enabled = true,
     auto_trigger = true,
@@ -17,7 +17,7 @@ require('copilot').setup({
     enabled = false,
   },
   copilot_node_command = 'node',
-})
+}
 
 vim.keymap.set('i', '<Tab>', function()
   if require('copilot.suggestion').is_visible() then
@@ -31,4 +31,4 @@ vim.keymap.set('i', '<S-Tab>', '<Tab>', { remap = false })
 
 vim.keymap.set('n', '<leader>C', function()
   require('copilot.suggestion').toggle_auto_trigger()
-end, { noremap = true, silent = true, desc = "Toggle Copilot Auto Trigger" })
+end, { noremap = true, silent = true, desc = 'Toggle Copilot Auto Trigger' })
