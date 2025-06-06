@@ -19,6 +19,6 @@ require('copilot').setup({
   copilot_node_command = 'node',
 })
 
-vim.keymap.set('n', '<leader>C', function()
+vim.keymap.set('n', '<leader>ac', function()
   require("copilot.suggestion").toggle_auto_trigger()
 end, { noremap = true, silent = true, desc = "Toggle Copilot Auto Trigger" })
