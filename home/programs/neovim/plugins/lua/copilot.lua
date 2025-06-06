@@ -14,6 +14,7 @@ require('copilot').setup {
     },
     filetypes = {
       Avante = false,
+      markdown = false,
     },
   },
   panel = {
