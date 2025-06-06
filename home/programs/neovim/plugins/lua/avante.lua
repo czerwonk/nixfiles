@@ -1,5 +1,8 @@
 require('avante').setup {
   provider = 'copilot',
+  behavior = {
+    auto_apply_diff_after_generation = true,
+  },
   hints = {
     enabled = false,
   },
@@ -18,8 +21,19 @@ require('avante').setup {
   openai = {
     model = 'o4-mini',
   },
-  ollama = {
-    model = 'gemma3',
+  vendors = {
+    mellum = {
+      __inherited_from = 'ollama',
+      model = 'hf.co/JetBrains/Mellum-4b-base-gguf:Q8_0',
+    },
+    deepcoder = {
+      __inherited_from = 'ollama',
+      model = 'deepcoder',
+    },
+    gemma = {
+      __inherited_from = 'ollama',
+      model = 'gemma3',
+    },
   },
   custom_tools = function()
     ---@diagnostic disable-next-line: undefined-global

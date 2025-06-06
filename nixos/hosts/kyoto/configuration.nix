@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -60,5 +60,4 @@
     acceleration = "rocm";
     package = pkgs.ollama-rocm;
   };
-  systemd.services.ollama.wantedBy = lib.mkForce [ ];
 }
