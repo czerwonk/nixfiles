@@ -5,7 +5,7 @@ require('copilot').setup({
     debounce = 75,
     max_lines = 10,
     keymap = {
-      accept = '<Tab>',
+      accept = '<C-j>',
       accept_word = '<C-l>',
       accept_line = '<C-k>',
       next = '<M-]>',
