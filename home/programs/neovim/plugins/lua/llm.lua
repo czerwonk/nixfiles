@@ -2,12 +2,6 @@ require('llm').setup {
   backend = 'ollama',
   model = 'hf.co/JetBrains/Mellum-4b-base-gguf:Q8_0',
   url = 'http://localhost:11434',
-  request_body = {
-    parameters = {
-      temperature = 0.1,
-      top_p = 0.95,
-    },
-  },
   accept_keymap = '<Tab>',
   dismiss_keymap = '<C-g>',
 }
