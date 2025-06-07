@@ -55,9 +55,5 @@
     autoStart = false;
   };
 
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-    package = pkgs.ollama-rocm;
-  };
+  my.services.ollama.enable = true;
 }
