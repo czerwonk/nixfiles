@@ -22,11 +22,6 @@ with lib;
           plugin = dressing-nvim;
         }
         {
-          plugin = copilot-lua;
-          type = "lua";
-          config = builtins.readFile ./lua/copilot.lua;
-        }
-        {
           plugin = mcphub-nvim;
           type = "lua";
           config = ''
@@ -55,9 +50,20 @@ with lib;
           type = "lua";
           config = builtins.readFile ./lua/avante.lua;
         }
+        {
+          plugin = copilot-lua;
+          type = "lua";
+          config = builtins.readFile ./lua/copilot.lua;
+        }
+        # {
+        #   plugin = llm-nvim;
+        #   type = "lua";
+        #   config = builtins.readFile ./lua/llm.lua;
+        # }
       ];
       extraPackages = with pkgs; [
         nodejs
+        #llm-ls
       ];
     };
 
