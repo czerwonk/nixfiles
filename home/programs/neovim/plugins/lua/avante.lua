@@ -22,10 +22,6 @@ require('avante').setup {
     model = 'o4-mini',
   },
   vendors = {
-    mellum = {
-      __inherited_from = 'ollama',
-      model = 'hf.co/JetBrains/Mellum-4b-base-gguf:Q8_0',
-    },
     deepcoder = {
       __inherited_from = 'ollama',
       model = 'deepcoder',
