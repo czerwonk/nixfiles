@@ -245,6 +245,7 @@
         gstreamer = import ./shell/gstreamer/shell.nix { inherit pkgs; };
         java = import ./shell/java/shell.nix { inherit pkgs; };
         javaws = import ./shell/javaws/shell.nix { inherit pkgs; };
+        llm-convert = import ./shell/llm-convert/shell.nix { inherit pkgs; };
         pdf-merge = import ./shell/pdf-merge/shell.nix { inherit pkgs; };
         pentest = import ./shell/pentest/shell.nix {
           inherit pkgs;
