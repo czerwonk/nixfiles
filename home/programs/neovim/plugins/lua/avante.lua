@@ -12,23 +12,25 @@ require('avante').setup {
   file_selector = {
     provider = 'snacks',
   },
-  copilot = {
-    model = 'gemini-2.5-pro',
-  },
-  gemini = {
-    model = 'gemini-2.5-flash-preview-05-20',
-  },
-  openai = {
-    model = 'o4-mini',
-  },
-  vendors = {
-    deepcoder = {
-      __inherited_from = 'ollama',
-      model = 'deepcoder',
+  providers = {
+    copilot = {
+      model = 'gemini-2.5-pro',
     },
-    gemma = {
-      __inherited_from = 'ollama',
-      model = 'gemma3',
+    gemini = {
+      model = 'gemini-2.5-flash-preview-05-20',
+    },
+    openai = {
+      model = 'o4-mini',
+    },
+    vendors = {
+      deepcoder = {
+        __inherited_from = 'ollama',
+        model = 'deepcoder',
+      },
+      gemma = {
+        __inherited_from = 'ollama',
+        model = 'gemma3',
+      },
     },
   },
   custom_tools = function()
