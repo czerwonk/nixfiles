@@ -24,26 +24,7 @@ with lib;
         {
           plugin = mcphub-nvim;
           type = "lua";
-          config = ''
-            vim.g.mcphub_initialized = false
-
-            local function load_mcphub()
-              if vim.g.mcphub_initialized then
-                return
-              end
-
-              require('mcphub').setup {
-                cmd = "${pkgs.mcp-hub}/bin/mcp-hub",
-                shutdown_delay = 30000,
-              }
-              vim.g.mcphub_initialized = true
-            end
-
-            vim.keymap.set('n', '<Leader>M', function()
-              load_mcphub()
-              vim.cmd('MCPHub')
-            end, { desc = 'MCPHub' })
-          '';
+          config = builtins.readFile ./lua/mcphub.lua;
         }
         {
           plugin = avante-nvim;
@@ -55,15 +36,10 @@ with lib;
           type = "lua";
           config = builtins.readFile ./lua/copilot.lua;
         }
-        # {
-        #   plugin = llm-nvim;
-        #   type = "lua";
-        #   config = builtins.readFile ./lua/llm.lua;
-        # }
       ];
       extraPackages = with pkgs; [
+        mcp-hub
         nodejs
-        #llm-ls
       ];
     };
 
