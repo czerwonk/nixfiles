@@ -1,5 +1,5 @@
 require('avante').setup {
-  provider = 'copilot',
+  provider = 'gemma3',
   behavior = {
     auto_apply_diff_after_generation = true,
   },
@@ -25,14 +25,14 @@ require('avante').setup {
     ollama = {
       endpoint = "http://127.0.0.1:11434",
     },
-    deepcoder = {
-      __inherited_from = 'ollama',
-      model = 'deepcoder',
-    },
-    gemma = {
+    gemma3 = {
       __inherited_from = 'ollama',
       model = 'gemma3',
     },
+    deepcoder = {
+      __inherited_from = 'ollama',
+      model = 'deepcoder',
+    }
   },
   custom_tools = function()
     ---@diagnostic disable-next-line: undefined-global
