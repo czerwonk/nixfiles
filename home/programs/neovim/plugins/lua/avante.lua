@@ -22,15 +22,16 @@ require('avante').setup {
     openai = {
       model = 'o4-mini',
     },
-    vendors = {
-      deepcoder = {
-        __inherited_from = 'ollama',
-        model = 'deepcoder',
-      },
-      gemma = {
-        __inherited_from = 'ollama',
-        model = 'gemma3',
-      },
+    ollama = {
+      endpoint = "http://127.0.0.1:11434",
+    },
+    deepcoder = {
+      __inherited_from = 'ollama',
+      model = 'deepcoder',
+    },
+    gemma = {
+      __inherited_from = 'ollama',
+      model = 'gemma3',
     },
   },
   custom_tools = function()
