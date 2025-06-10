@@ -36,6 +36,7 @@
   };
 
   security.lockKernelModules = false;
+  security.pam.u2f.enable = false;
 
   services.fwupd.enable = true;
 
@@ -47,10 +48,4 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
-
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-    package = pkgs.ollama-rocm;
-  };
 }
