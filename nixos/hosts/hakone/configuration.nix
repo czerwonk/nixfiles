@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -48,4 +46,9 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
+
+  my.services.openssh-server = {
+    enable = true;
+    openFirewall = true;
+  };
 }
