@@ -4,9 +4,7 @@
     ../../configuration.nix
     ../../profiles/amd-rocm
     ../../profiles/container
-    ../../profiles/desktop
-    ../../profiles/desktop/gnome.nix
-    ../../profiles/gaming
+    ../../profiles/server
     ../../profiles/virtualisation
     ../../tpm.nix
     ../../zfs/desktop.nix
@@ -14,6 +12,21 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelParams = [
+    "pcie_port_pm=off"
+    "pci=realloc,hpiosize=0,hpmemsize=128M"
+  ];
+  services.udev.extraRules = ''
+    # Authorize all Thunderbolt devices
+    ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{authorized}=="0", ATTR{authorized}="1"
+
+    # Also try to authorize at the domain level
+    ACTION=="add", SUBSYSTEM=="thunderbolt", TEST=="authorized", ATTR{authorized}="2"
+
+    # Keep PCIe bridges active
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{class}=="0x060400", ATTR{power/control}="on"
+  '';
 
   boot.zfs.requestEncryptionCredentials = [ "zroot" ];
 
@@ -30,8 +43,10 @@
   networking = {
     hostName = "hakone";
     hostId = "a7f2e1c4";
-    firewall.filterForward = false;
+    useNetworkd = false;
+    useDHCP = false;
   };
+  systemd.network.enable = false;
 
   security.lockKernelModules = false;
   security.pam.u2f.enable = false;
@@ -46,9 +61,4 @@
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
-
-  my.services.openssh-server = {
-    enable = true;
-    openFirewall = true;
-  };
 }
