@@ -17,6 +17,11 @@ in
   options = {
     my.services.ollama = {
       enable = mkEnableOption "Ollama with AMD APU support";
+
+      hsa_override_gfx_version = mkOption {
+        type = types.str;
+        description = "Override for the GFX version used by HSA (AMD ROCm).";
+      };
     };
   };
 
@@ -35,7 +40,7 @@ in
 
         environment = {
           OLLAMA_FLASH_ATTENTION = "true";
-          HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+          HSA_OVERRIDE_GFX_VERSION = cfg.hsa_override_gfx_version;
           OLLAMA_KV_CACHE_TYPE = "q8_0";
           OLLAMA_DEBUG = "0";
         };

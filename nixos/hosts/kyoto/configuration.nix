@@ -55,5 +55,8 @@
     autoStart = false;
   };
 
-  my.services.ollama.enable = true;
+  my.services.ollama = {
+    enable = true;
+    hsa_override_gfx_version = "11.0.0";
+  };
 }
