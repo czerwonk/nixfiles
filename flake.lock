@@ -224,16 +224,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1749142017,
-        "narHash": "sha256-g5r0meIJ+iBOP3TkqEwPTuN4B0aKegV4ZsgfOMrDTRg=",
+        "lastModified": 1749621912,
+        "narHash": "sha256-tEHYSyqYFl4YNgfrKDmMIyO2VSLyD8+T8OM2NcixVj8=",
         "owner": "ravitemer",
         "repo": "mcp-hub",
-        "rev": "03c6abf6941595bbc3995efb042b745f8a515e4d",
+        "rev": "b8e7d1c80ccf7e2b81eb234b90becb535efff820",
         "type": "github"
       },
       "original": {
         "owner": "ravitemer",
-        "ref": "03c6abf6941595bbc3995efb042b745f8a515e4d",
+        "ref": "b8e7d1c80ccf7e2b81eb234b90becb535efff820",
         "repo": "mcp-hub",
         "type": "github"
       }
@@ -244,16 +244,16 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1749143197,
-        "narHash": "sha256-1zBeiZE1PixCAozl4NSlFOvTLvRX8oM1E0U85YblsZs=",
+        "lastModified": 1749621751,
+        "narHash": "sha256-3p7pwOSS4vcczyRRw93zu6++LCnbICZzc91HJiqxBMA=",
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
-        "rev": "d80c1286a3efe2157b173e0823e83d39ff563f45",
+        "rev": "72109843e29b9cf3ab663a799934bb498518bf00",
         "type": "github"
       },
       "original": {
         "owner": "ravitemer",
-        "ref": "d80c1286a3efe2157b173e0823e83d39ff563f45",
+        "ref": "72109843e29b9cf3ab663a799934bb498518bf00",
         "repo": "mcphub.nvim",
         "type": "github"
       }
