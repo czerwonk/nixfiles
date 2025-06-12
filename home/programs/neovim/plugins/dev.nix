@@ -61,6 +61,9 @@ with lib;
           plugin = neotest-dotnet;
         }
         {
+          plugin = neotest-rust;
+        }
+        {
           plugin = nvim-coverage;
           type = "lua";
           config = builtins.readFile ./lua/coverage.lua;

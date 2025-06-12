@@ -4,6 +4,7 @@ neotest.setup({
     require("neotest-go"),
     require("neotest-python"),
     require("neotest-dotnet"),
+    require("neotest-rust"),
   },
 })
 
