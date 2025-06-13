@@ -11,6 +11,7 @@
   home = {
     packages = with pkgs; [
       docker
+      gcc
       gnumake
       graphviz
       mysql-shell
