@@ -5,6 +5,9 @@ pkgs.mkShell {
     cargo
     cargo-nextest
     clippy
+    openssl
+    openssl.dev
+    pkg-config
     rust-analyzer
     rustc
     rustfmt
