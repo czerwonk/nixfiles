@@ -9,5 +9,8 @@
       protoc-gen-go
       protoc-gen-go-grpc
     ];
+    sessionVariables = {
+      CGO_ENABLED = "1";
+    };
   };
 }
