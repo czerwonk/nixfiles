@@ -73,6 +73,7 @@ with lib;
         with pkgs;
         [
           ansible-language-server
+          cargo-nextest
           gopls
           helm-ls
           marksman
@@ -81,6 +82,7 @@ with lib;
           prettierd
           pyright
           python313Packages.black
+          rust-analyzer
           shfmt
           solargraph
           stylua

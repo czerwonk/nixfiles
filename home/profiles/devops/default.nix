@@ -1,6 +1,6 @@
 {
   imports = [
-    ./dev.nix
+    ./dev
     ./ops.nix
   ];
 }
