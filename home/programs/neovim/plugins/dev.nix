@@ -47,6 +47,11 @@ with lib;
           config = "require('dap-go').setup()";
         }
         {
+          plugin = nvim-dap-lldb;
+          type = "lua";
+          config = "require('dap-lldb').setup()";
+        }
+        {
           plugin = pkgs.vimPlugins.neotest;
           type = "lua";
           config = builtins.readFile ./lua/test.lua;
@@ -88,6 +93,7 @@ with lib;
           stylua
           sumneko-lua-language-server
           terraform-ls
+          vscode-extensions.vadimcn.vscode-lldb
         ]
         ++ (with pkgs.nodePackages; [
           bash-language-server
