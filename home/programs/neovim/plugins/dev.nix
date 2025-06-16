@@ -49,7 +49,11 @@ with lib;
         {
           plugin = nvim-dap-lldb;
           type = "lua";
-          config = "require('dap-lldb').setup()";
+          config = ''
+            require('dap-lldb').setup {
+              codelldb_path = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb",
+            }
+          '';
         }
         {
           plugin = pkgs.vimPlugins.neotest;
@@ -93,7 +97,6 @@ with lib;
           stylua
           sumneko-lua-language-server
           terraform-ls
-          vscode-extensions.vadimcn.vscode-lldb
         ]
         ++ (with pkgs.nodePackages; [
           bash-language-server
