@@ -265,16 +265,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1750487657,
-        "narHash": "sha256-bHUjxvNBA7Kki40+5u55xo+yr2pFXqSMqcZ6nWwwgT0=",
+        "lastModified": 1750513767,
+        "narHash": "sha256-phViOqYRLSJhiYJDevUS7yHLIt0k/EjXvjyBnTgCoYI=",
         "owner": "czerwonk",
         "repo": "net-reduce",
-        "rev": "c59be0513f728c23b829c88e8751f974d469620f",
+        "rev": "b88ff7d8a53c2c0cfd84afafa285679406adfa4e",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "c59be0513f728c23b829c88e8751f974d469620f",
+        "ref": "b88ff7d8a53c2c0cfd84afafa285679406adfa4e",
         "repo": "net-reduce",
         "type": "github"
       }

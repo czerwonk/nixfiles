@@ -49,7 +49,7 @@
     };
 
     net-reduce = {
-      url = "github:czerwonk/net-reduce?ref=564d42dde6afef8d90d5354e2e410ff8b4967945";
+      url = "github:czerwonk/net-reduce?ref=b88ff7d8a53c2c0cfd84afafa285679406adfa4e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
