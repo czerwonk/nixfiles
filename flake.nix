@@ -49,7 +49,7 @@
     };
 
     net-reduce = {
-      url = "github:czerwonk/net-reduce?ref=c59be0513f728c23b829c88e8751f974d469620f";
+      url = "github:czerwonk/net-reduce?ref=564d42dde6afef8d90d5354e2e410ff8b4967945";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -253,7 +253,6 @@
         };
         performance-disk = import ./shell/performance/disk/shell.nix { inherit pkgs; };
         php = import ./shell/php/shell.nix { inherit pkgs; };
-        rust = import ./shell/rust/shell.nix { inherit pkgs; };
         typescript = import ./shell/typescript/shell.nix { inherit pkgs; };
       };
     };
