@@ -18,7 +18,7 @@
       inspec
       lynis
       mysql-shell
-      net-merge
+      net-reduce
       opentofu
       syft
       termshark

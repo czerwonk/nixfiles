@@ -258,23 +258,24 @@
         "type": "github"
       }
     },
-    "net-merge": {
+    "net-reduce": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1747585580,
-        "narHash": "sha256-MdDImxh0lE3xzYjkQUJsa/hdlmS6jQ567eiHDwQcFYk=",
+        "lastModified": 1750487657,
+        "narHash": "sha256-bHUjxvNBA7Kki40+5u55xo+yr2pFXqSMqcZ6nWwwgT0=",
         "owner": "czerwonk",
-        "repo": "net-merge",
-        "rev": "e91ca0beabff51a6e464ec7ef1c827cade097474",
+        "repo": "net-reduce",
+        "rev": "c59be0513f728c23b829c88e8751f974d469620f",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "repo": "net-merge",
+        "ref": "c59be0513f728c23b829c88e8751f974d469620f",
+        "repo": "net-reduce",
         "type": "github"
       }
     },
@@ -415,7 +416,7 @@
         "impermanence": "impermanence",
         "mcp-hub": "mcp-hub",
         "mcphub-nvim": "mcphub-nvim",
-        "net-merge": "net-merge",
+        "net-reduce": "net-reduce",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-darwin": "nixpkgs-darwin",

@@ -16,7 +16,7 @@ let
 
   ansible-role-packages = inputs.ansible-role.packages.${system};
   dns-drain-packages = inputs.dns-drain.packages.${system};
-  net-merge-packages = inputs.net-merge.packages.${system};
+  net-reduce-packages = inputs.net-reduce.packages.${system};
 
 in
 {
@@ -24,7 +24,7 @@ in
     (self: super: {
       ansible-role = ansible-role-packages.ansible-role;
       dns-drain = dns-drain-packages.dns-drainctl;
-      net-merge = net-merge-packages.net-merge;
+      net-reduce = net-reduce-packages.net-reduce;
       mcp-hub = inputs.mcp-hub.packages.${system}.default;
       load-env-bw = import ./pkgs/load-env-bw { inherit pkgs lib; };
     })
@@ -34,7 +34,6 @@ in
       codex = pkgs-unstable.codex;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
-      ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins // {
         mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;

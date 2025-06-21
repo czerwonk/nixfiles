@@ -48,8 +48,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    net-merge = {
-      url = "github:czerwonk/net-merge";
+    net-reduce = {
+      url = "github:czerwonk/net-reduce?ref=c59be0513f728c23b829c88e8751f974d469620f";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
