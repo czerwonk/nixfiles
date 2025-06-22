@@ -13,18 +13,13 @@ let
       allowUnfree = true;
     };
   };
-
-  ansible-role-packages = inputs.ansible-role.packages.${system};
-  dns-drain-packages = inputs.dns-drain.packages.${system};
-  net-reduce-packages = inputs.net-reduce.packages.${system};
-
 in
 {
   nixpkgs.overlays = [
     (self: super: {
-      ansible-role = ansible-role-packages.ansible-role;
-      dns-drain = dns-drain-packages.dns-drainctl;
-      net-reduce = net-reduce-packages.net-reduce;
+      ansible-role = inputs.ansible-role.packages.${system}.ansible-role;
+      dns-drain = inputs.dns-drain.packages.${system}.dns-drainctl;
+      net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
       mcp-hub = inputs.mcp-hub.packages.${system}.default;
       load-env-bw = import ./pkgs/load-env-bw { inherit pkgs lib; };
     })
