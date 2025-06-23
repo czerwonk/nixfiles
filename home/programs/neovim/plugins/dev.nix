@@ -72,11 +72,6 @@ with lib;
         {
           plugin = neotest-rust;
         }
-        {
-          plugin = nvim-coverage;
-          type = "lua";
-          config = builtins.readFile ./lua/coverage.lua;
-        }
       ];
       extraPackages =
         with pkgs;
