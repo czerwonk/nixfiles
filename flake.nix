@@ -54,7 +54,7 @@
     };
 
     mcp-hub.url = "github:ravitemer/mcp-hub?ref=2bc5d88405028b8d038dd37f6659718f3918ae58";
-    mcphub-nvim.url = "github:ravitemer/mcphub.nvim?ref=85a7a659fc82da1429a2241ab61e9ce07b3db374";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim?ref=f95d346668eb7ee39e1b714736a807449c2422c1";
   };
 
   outputs =
