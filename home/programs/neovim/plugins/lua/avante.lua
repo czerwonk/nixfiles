@@ -1,5 +1,5 @@
 require('avante').setup {
-  provider = 'gemma3',
+  provider = 'copilot',
   behavior = {
     auto_apply_diff_after_generation = true,
   },
