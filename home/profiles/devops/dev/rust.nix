@@ -4,6 +4,7 @@
   home = {
     packages = with pkgs; [
       cargo
+      cargo-llvm-cov
       clippy
       pkg-config
       rustc
