@@ -17,6 +17,9 @@ in
 {
   nixpkgs.overlays = [
     (self: super: {
+      unstable = pkgs-unstable;
+    })
+    (self: super: {
       ansible-role = inputs.ansible-role.packages.${system}.ansible-role;
       dns-drain = inputs.dns-drain.packages.${system}.dns-drainctl;
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
