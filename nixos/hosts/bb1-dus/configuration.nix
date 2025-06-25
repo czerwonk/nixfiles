@@ -26,6 +26,7 @@ in
 
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
+  my.services.hakanai.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 }
