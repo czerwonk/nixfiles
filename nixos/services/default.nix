@@ -5,6 +5,7 @@
     ./crowdsec
     ./forgejo
     ./freshrss
+    ./hakanai
     ./immich
     ./jellyfin
     ./k3s
@@ -12,9 +13,9 @@
     ./mastodon
     ./matrix
     ./monitoring
-    ./nordvpn
     ./netdata
     ./nextcloud
+    ./nordvpn
     ./ntfy
     ./ollama
     ./openssh-server
