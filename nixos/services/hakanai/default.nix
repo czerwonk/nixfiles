@@ -62,7 +62,7 @@ in
         user = "65532";
 
         environment = {
-          HAKANAI_REDIS_DSN = "hakanai-redis:6379";
+          HAKANAI_REDIS_DSN = "redis://hakanai-redis:6379";
           HAKANAI_PORT = "8080";
           HAKANAI_LISTEN_ADDRESS = "0.0.0.0";
           HAKANAI_TOKENS = cfg.tokens_env;
