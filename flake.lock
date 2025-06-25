@@ -139,6 +139,27 @@
         "type": "indirect"
       }
     },
+    "hakanai": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750862419,
+        "narHash": "sha256-yfAtUIcAMVSccGoeqF7rIcxTklR+YpP8hEUgpW20p30=",
+        "owner": "czerwonk",
+        "repo": "hakanai",
+        "rev": "276ca351b0b4497f19306309399bb786398682c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "czerwonk",
+        "ref": "276ca351b0b4497f19306309399bb786398682c2",
+        "repo": "hakanai",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -410,6 +431,7 @@
         "crowdsec": "crowdsec",
         "darwin": "darwin",
         "dns-drain": "dns-drain",
+        "hakanai": "hakanai",
         "home-manager": "home-manager",
         "home-manager-darwin": "home-manager-darwin",
         "home-manager-unstable": "home-manager-unstable",
