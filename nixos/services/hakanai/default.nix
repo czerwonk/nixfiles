@@ -94,8 +94,6 @@ in
     };
 
     services.caddy.virtualHosts."hakanai.routing.rocks".extraConfig = ''
-      import private
-
       reverse_proxy * 127.0.0.1:2284
     '';
   };
