@@ -68,7 +68,7 @@ in
           HAKANAI_TOKENS = cfg.tokens_env;
         };
 
-        ports = [ "127.0.0.1:2284:8008" ];
+        ports = [ "127.0.0.1:2284:8080" ];
 
         dependsOn = [
           "hakanai-redis"
