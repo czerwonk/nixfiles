@@ -10,7 +10,7 @@ with lib;
 
 let
   cfg = config.my.services.ollama;
-  version = "v0.9.3";
+  version = "v0.9.2";
 
 in
 {
