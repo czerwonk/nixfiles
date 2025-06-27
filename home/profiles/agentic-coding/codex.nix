@@ -25,5 +25,5 @@ in
     ];
   };
 
-  home.file.".codex/AGENTS.md".text = builtins.readFile ./agent-dev-rules.md;
+  home.file.".codex/AGENTS.md".text = builtins.readFile ./dev-rules.md;
 }

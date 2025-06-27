@@ -27,7 +27,7 @@ in
     ];
   };
 
-  home.file.".claude/CLAUDE.md".text = builtins.readFile ./agent-dev-rules.md;
+  home.file.".claude/CLAUDE.md".text = builtins.readFile ./dev-rules.md;
   home.file.".claude/commands/code/quality-review.md".text = ''
     ${slash-prompts.quality-review}
   '';
