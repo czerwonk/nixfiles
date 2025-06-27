@@ -57,5 +57,9 @@ in
         ];
       };
     };
+
+    environment.systemPackages = [
+      pkgs.ollama-rocm
+    ];
   };
 }

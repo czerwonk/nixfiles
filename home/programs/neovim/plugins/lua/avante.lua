@@ -25,9 +25,9 @@ require('avante').setup {
     ollama = {
       endpoint = "http://127.0.0.1:11434",
     },
-    gemma3 = {
+    gemma3n = {
       __inherited_from = 'ollama',
-      model = 'gemma3',
+      model = 'gemma3n',
     },
     deepcoder = {
       __inherited_from = 'ollama',

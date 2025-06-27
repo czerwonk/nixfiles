@@ -33,6 +33,7 @@ in
       codex = pkgs-unstable.codex;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
+      ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins // {
         mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;
