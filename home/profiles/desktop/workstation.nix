@@ -2,9 +2,8 @@
 
 {
   imports = [
-    ./claude-code.nix
-    ./codex.nix
     ./neovide.nix
+    ../agentic-coding
   ];
 
   programs.neovim.withLLM = true;
