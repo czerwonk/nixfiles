@@ -56,6 +56,11 @@ When writing code, follow these commenting principles:
    - `// Retry 3 times to handle transient network failures`
    - `// This seemingly redundant check prevents a race condition when...`
 
+## Dependency Guidelines
+
+- Avoid introducing new external dependencies unless absolutely necessary.
+- If a new dependency is required, please state the reason.
+
 ## Workflow
 
 1. Pick task
