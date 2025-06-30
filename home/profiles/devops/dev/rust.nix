@@ -4,6 +4,7 @@
   home = {
     packages = with pkgs; [
       cargo
+      cargo-audit
       clippy
       pkg-config
       rustc
