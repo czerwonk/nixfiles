@@ -37,6 +37,9 @@ in
   home.file.".claude/commands/code-audit.md".text = ''
     ${slash-prompts.security-review}
   '';
+  home.file.".claude/commands/code-audit-report.md".text = ''
+    ${slash-prompts.security-review}. Generate a markdown report summarizing the findings and recommendations and store it in SECURITY_REPORT.md
+  '';
   home.file.".claude/commands/fix-build.md".text = ''
     ${slash-prompts.fix-build}
   '';
