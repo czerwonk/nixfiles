@@ -28,13 +28,13 @@ in
   };
 
   home.file.".claude/CLAUDE.md".text = builtins.readFile ./dev-rules.md;
-  home.file.".claude/commands/code/quality-review.md".text = ''
+  home.file.".claude/commands/code-review.md".text = ''
     ${slash-prompts.quality-review}
   '';
-  home.file.".claude/commands/code/quality-report.md".text = ''
+  home.file.".claude/commands/code-review-report.md".text = ''
     ${slash-prompts.quality-review}. Generate a markdown report summarizing the findings and recommendations and store it in REVIEW_REPORT.md
   '';
-  home.file.".claude/commands/code/securtity-audit.md".text = ''
+  home.file.".claude/commands/code-audit.md".text = ''
     ${slash-prompts.security-review}
   '';
   home.file.".claude/commands/fix-build.md".text = ''
