@@ -15,7 +15,7 @@ in
 {
   options = {
     my.services.hakanai = {
-      enable = mkEnableOption "hakanai - High performance self-hosted photo and video backup solution";
+      enable = mkEnableOption "hakanai -  A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
     };
 
     my.services.hakanai.tokens_env = mkOption {
