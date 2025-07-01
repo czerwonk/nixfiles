@@ -17,7 +17,6 @@
     ./nextcloud
     ./nordvpn
     ./ntfy
-    ./ollama
     ./openssh-server
     ./ripe-atlas
     ./unifi

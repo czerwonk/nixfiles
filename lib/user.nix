@@ -5,7 +5,7 @@
     { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        ../overlays.nix
+        ../overlays
         ../home/osx
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {
@@ -22,7 +22,7 @@
     { username, extraModules }:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        ../overlays.nix
+        ../overlays
         ../home/linux.nix
       ] ++ extraModules;
       pkgs = import inputs.nixpkgs {

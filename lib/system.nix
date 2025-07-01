@@ -15,7 +15,7 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ../overlays.nix
+        ../overlays
         ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager.nixosModules.home-manager
         {
@@ -54,7 +54,7 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ../overlays.nix
+        ../overlays
         ../nixos/hosts/${configName}/configuration.nix
         inputs.home-manager-unstable.nixosModules.home-manager
         {
@@ -93,7 +93,7 @@
       system = "x86_64-linux";
       modules = [
         baseModule
-        ../overlays.nix
+        ../overlays
         ../nixos/iso/${edition}
         inputs.home-manager.nixosModules.home-manager
         {
@@ -129,8 +129,8 @@
     inputs.darwin.lib.darwinSystem {
       inherit system;
       modules = [
-        ../overlays.nix
-        ../darwin/overlays.nix
+        ../overlays
+        ../darwin/overlays
         ../darwin/hosts/${configName}/configuration.nix
         inputs.home-manager-darwin.darwinModules.home-manager
         {
