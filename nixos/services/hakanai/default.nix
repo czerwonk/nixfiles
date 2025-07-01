@@ -94,15 +94,6 @@ in
     };
 
     services.caddy.virtualHosts."hakanai.routing.rocks".extraConfig = ''
-      rate_limit {
-        zone general {
-          key {remote_host}
-          events 60
-          window 60s
-          burst 20
-        }
-      }
-
       reverse_proxy * 127.0.0.1:2284
     '';
   };
