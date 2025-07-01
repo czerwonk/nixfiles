@@ -95,7 +95,7 @@ in
 
     services.caddy.virtualHosts."hakanai.routing.rocks".extraConfig = ''
       rate_limit {
-        zone general {
+        zone hakanai {
           key {remote_host}
           events 60
           window 60s
