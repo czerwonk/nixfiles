@@ -14,15 +14,6 @@
         header /* {
           -Server
         }
-
-        rate_limit {
-          zone ddos_protection {
-            key {remote_host}
-            events 1000
-            window 60s
-            burst 100
-          }
-        }
       }
 
       (private) {
