@@ -8,6 +8,8 @@
 
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
+    nixpkgs-opencode.url = "github:nixos/nixpkgs/pull/419604/head";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";

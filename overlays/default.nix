@@ -26,6 +26,7 @@ in
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
       mcp-hub = inputs.mcp-hub.packages.${system}.default;
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
+      opencode = inputs.nixpkgs-opencode.legacyPackages.${system}.opencode;
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
