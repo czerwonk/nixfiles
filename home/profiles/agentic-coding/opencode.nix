@@ -30,7 +30,7 @@ in
     ];
   };
 
-  home.file."${configDir}/OpenCode.md".text = builtins.readFile ./dev-rules.md;
+  home.file."${configDir}/AGENTS.md".text = builtins.readFile ./dev-rules.md;
   home.file."${configDir}/commands/code-review.md".text = ''
     ${slash-prompts.quality-review}
   '';
