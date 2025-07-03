@@ -20,7 +20,6 @@ let
                                   --dev /dev \
       ${lib.getExe pkgs.opencode} $@
   '';
-  slash-prompts = import ./command-prompts.nix;
 
 in
 {
@@ -31,19 +30,4 @@ in
   };
 
   home.file."${configDir}/AGENTS.md".text = builtins.readFile ./dev-rules.md;
-  home.file."${configDir}/commands/code-review.md".text = ''
-    ${slash-prompts.quality-review}
-  '';
-  home.file."${configDir}/commands/code-review-report.md".text = ''
-    ${slash-prompts.quality-review}. Generate a markdown report summarizing the findings and recommendations and store it in REVIEW_REPORT.md
-  '';
-  home.file."${configDir}/commands/code-audit.md".text = ''
-    ${slash-prompts.security-review}
-  '';
-  home.file."${configDir}/commands/code-audit-report.md".text = ''
-    ${slash-prompts.security-review}. Generate a markdown report summarizing the findings and recommendations and store it in SECURITY_REPORT.md
-  '';
-  home.file."${configDir}/commands/fix-build.md".text = ''
-    ${slash-prompts.fix-build}
-  '';
 }
