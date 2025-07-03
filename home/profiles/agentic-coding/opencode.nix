@@ -10,6 +10,9 @@ let
                                   --ro-bind /run/current-system/sw/bin /run/current-system/sw/bin \
                                   --ro-bind "$HOME" "$HOME" \
                                   --bind /tmp /tmp \
+                                  --bind "$HOME/.cache/opencode" "$HOME/.cache/opencode" \
+                                  --bind "$HOME/.local/state/opencode" "$HOME/.local/state/opencode" \
+                                  --bind "$HOME/.local/share/opencode" "$HOME/.local/share/opencode" \
                                   --bind "$HOME/${configDir}" "$HOME/${configDir}" \
                                   --bind "$(pwd)" "$(pwd)" \
                                   --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
