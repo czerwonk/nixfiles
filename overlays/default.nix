@@ -24,7 +24,6 @@ in
       dns-drain = inputs.dns-drain.packages.${system}.dns-drainctl;
       hakanai-cli = inputs.hakanai.packages.${system}.hakanai-cli;
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
-      mcp-hub = inputs.mcp-hub.packages.${system}.default;
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
       opencode = inputs.nixpkgs-opencode.legacyPackages.${system}.opencode;
     })
@@ -37,9 +36,7 @@ in
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
-      vimPlugins = pkgs-unstable.vimPlugins // {
-        mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;
-      };
+      vimPlugins = pkgs-unstable.vimPlugins;
     })
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)

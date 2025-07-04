@@ -34,19 +34,6 @@ require('avante').setup {
       model = 'deepcoder',
     }
   },
-  custom_tools = function()
-    ---@diagnostic disable-next-line: undefined-global
-    load_mcphub()
-    return {
-      require('mcphub.extensions.avante').mcp_tool(),
-    }
-  end,
-  system_prompt = function()
-    ---@diagnostic disable-next-line: undefined-global
-    load_mcphub()
-    local hub = require('mcphub').get_hub_instance()
-    return hub and hub:get_active_servers_prompt() or ''
-  end,
 }
 
 local prefill_edit_window = function(request)
