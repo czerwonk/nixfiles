@@ -9,13 +9,13 @@ with lib;
 
 let
   cfg = config.my.services.hakanai;
-  version = "v0.5.0";
+  version = "v0.5.1";
 
 in
 {
   options = {
     my.services.hakanai = {
-      enable = mkEnableOption "hakanai -  A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
+      enable = mkEnableOption "hakanai - A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
     };
 
     my.services.hakanai.tokens_env = mkOption {
