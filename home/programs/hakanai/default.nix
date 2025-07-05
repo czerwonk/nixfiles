@@ -9,7 +9,8 @@
       HAKANAI_SERVER = "https://hakanai.routing.rocks";
     };
     shellAliases = {
-      hk = "${pkgs.hakanai-cli}/bin/hakanai send";
+      hs = "${pkgs.hakanai-cli}/bin/hakanai send";
+      hg = "${pkgs.hakanai-cli}/bin/hakanai get";
     };
   };
 }
