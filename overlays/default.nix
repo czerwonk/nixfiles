@@ -25,7 +25,6 @@ in
       hakanai-cli = inputs.hakanai.packages.${system}.hakanai-cli;
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
-      opencode = inputs.nixpkgs-opencode.legacyPackages.${system}.opencode;
     })
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
@@ -34,6 +33,7 @@ in
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
+      opencode = pkgs-unstable.opencode;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins;
     })
