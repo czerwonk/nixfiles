@@ -264,22 +264,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-opencode": {
-      "locked": {
-        "lastModified": 1751727912,
-        "narHash": "sha256-8+03efbQburmkfP0yMEyBHk4mO9zz+32WxpRJQtb9EI=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "4acc22caf616f5958042d2746921f39203277edc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "pull/419604/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1751791007,
@@ -342,7 +326,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-darwin": "nixpkgs-darwin",
-        "nixpkgs-opencode": "nixpkgs-opencode",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "routing-rocks-policy": "routing-rocks-policy"
