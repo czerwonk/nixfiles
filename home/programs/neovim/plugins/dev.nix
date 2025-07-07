@@ -92,6 +92,7 @@ with lib;
           stylua
           sumneko-lua-language-server
           terraform-ls
+          typescript-language-server
         ]
         ++ (with pkgs.nodePackages; [
           bash-language-server

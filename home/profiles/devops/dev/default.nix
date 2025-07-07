@@ -6,6 +6,7 @@
     ./python.nix
     ./ruby.nix
     ./rust.nix
+    ./typescript.nix
   ];
 
   home = {
