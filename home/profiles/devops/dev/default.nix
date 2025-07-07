@@ -16,6 +16,7 @@
       gnumake
       graphviz
       mysql-shell
+      nodejs_24
       podman
       podman-compose
       sqlite
