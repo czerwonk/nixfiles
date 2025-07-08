@@ -104,16 +104,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1751958883,
-        "narHash": "sha256-2Bn6M/WPJElPvg2TpXLgLLeHPCv2JPGQZaoT+wmEEi8=",
+        "lastModified": 1751966396,
+        "narHash": "sha256-10SDNDsGAmDYxqYkc6UCob92czYPotMIBAhePeOvWCw=",
         "owner": "czerwonk",
         "repo": "hakanai",
-        "rev": "9ea73518839a5c6d8005161cc4c7316cf6e48958",
+        "rev": "b96ba2441d4f3f1a880bace6f81b9238a2d9c42e",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "9ea73518839a5c6d8005161cc4c7316cf6e48958",
+        "ref": "b96ba2441d4f3f1a880bace6f81b9238a2d9c42e",
         "repo": "hakanai",
         "type": "github"
       }
