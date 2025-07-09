@@ -46,4 +46,7 @@ in
   home.file.".claude/commands/fix-build.md".text = ''
     ${slash-prompts.fix-build}
   '';
+  home.file.".claude/commands/version-update-rust.md".text = ''
+    ${slash-prompts.version-update-rust}
+  '';
 }
