@@ -83,9 +83,7 @@ with lib;
           marksman
           nil
           nixfmt-rfc-style
-          prettierd
           pyright
-          python313Packages.black
           rust-analyzer
           shfmt
           solargraph

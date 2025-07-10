@@ -1,3 +1,6 @@
+# Configuration Variables
+CONFIG_DIR = ~/.claude
+
 # General Rules
 
 ## 1. Conversation Mode
@@ -7,7 +10,7 @@
 
 ### Examples:
 - ✅ "Let's discuss how to implement user authentication" → Discuss approaches, pros/cons, architecture
-- ✅ "Can you implement the login feature?" → Go ahead and implement
+- ✅ "Can you implement the login feature?" → Go ahead and implement  
 - ❌ "Let's discuss the login feature" → Don't implement, just discuss
 - ❓ Unclear request → Ask: "Should I discuss the approach or implement the solution?"
 
@@ -73,7 +76,21 @@ When writing code, follow these commenting principles:
 - Avoid introducing new external dependencies unless absolutely necessary
 - If a new dependency is required, please state the reason
 
-## 7. Workflow
+## 7. Code Formatting
+- **Always trim trailing whitespace** from all lines
+- Remove unnecessary blank lines at end of files
+- Maintain consistent indentation
+
+## 8. Language-Specific Rules
+- **Rust**: Refer to `${CONFIG_DIR}/rust-style.md`
+- **Go**: Follow `${CONFIG_DIR}/go-style.md`
+- **Typescript, Javascript**: Follow `${CONFIG_DIR}/js-style.md`
+- **HTML**: Follow: `${CONFIG_DIR}/html-style.md`
+- *PHP*: `${CONFIG_DIR}/php-style.md`
+
+When working in a specific language, read the relevant style guide first.
+
+## 8. Workflow
 1. Pick task
 2. **Write tests first** (for features/fixes)
 3. Complete task

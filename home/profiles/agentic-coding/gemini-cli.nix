@@ -19,11 +19,16 @@ let
 
 in
 {
+  imports = [
+    (import ./rules {
+      configDir = ".gemini";
+      mainConfigFile = "GEMINI.md";
+    })
+  ];
+
   home = {
     packages = [
       gemini-cli-bwrapped
     ];
   };
-
-  home.file.".gemini/GEMINI.md".text = builtins.readFile ./dev-rules.md;
 }

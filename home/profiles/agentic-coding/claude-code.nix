@@ -24,13 +24,19 @@ let
 
 in
 {
+  imports = [
+    (import ./rules {
+      configDir = ".claude";
+      mainConfigFile = "CLAUDE.md";
+    })
+  ];
+
   home = {
     packages = [
       claude-code-bwrapped
     ];
   };
 
-  home.file.".claude/CLAUDE.md".text = builtins.readFile ./dev-rules.md;
   home.file.".claude/commands/code-review.md".text = ''
     ${slash-prompts.quality-review}
   '';

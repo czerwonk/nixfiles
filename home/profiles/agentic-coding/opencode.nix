@@ -23,11 +23,16 @@ let
 
 in
 {
+  imports = [
+    (import ./rules {
+      configDir = configDir;
+      mainConfigFile = "AGENTS.md";
+    })
+  ];
+
   home = {
     packages = [
       opencode-bwrapped
     ];
   };
-
-  home.file."${configDir}/AGENTS.md".text = builtins.readFile ./dev-rules.md;
 }
