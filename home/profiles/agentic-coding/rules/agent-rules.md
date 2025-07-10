@@ -81,15 +81,6 @@ When writing code, follow these commenting principles:
 - Remove unnecessary blank lines at end of files
 - Maintain consistent indentation
 
-## 8. Language-Specific Rules
-- **Rust**: Refer to `${CONFIG_DIR}/rust-style.md`
-- **Go**: Follow `${CONFIG_DIR}/go-style.md`
-- **Typescript, Javascript**: Follow `${CONFIG_DIR}/js-style.md`
-- **HTML**: Follow: `${CONFIG_DIR}/html-style.md`
-- *PHP*: `${CONFIG_DIR}/php-style.md`
-
-When working in a specific language, read the relevant style guide first.
-
 ## 8. Workflow
 1. Pick task
 2. **Write tests first** (for features/fixes)
