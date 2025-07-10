@@ -1,7 +1,24 @@
+# General Rules
+
+## 1. Conversation Mode
+- **DISCUSSION MODE**: When conversation starts with "Let us discuss" or similar phrases - ONLY discuss solutions, do NOT implement
+- **IMPLEMENTATION MODE**: Only implement when explicitly asked to do so
+- **When in doubt**: Always ask before implementing anything
+
+### Examples:
+- ✅ "Let's discuss how to implement user authentication" → Discuss approaches, pros/cons, architecture
+- ✅ "Can you implement the login feature?" → Go ahead and implement
+- ❌ "Let's discuss the login feature" → Don't implement, just discuss
+- ❓ Unclear request → Ask: "Should I discuss the approach or implement the solution?"
+
+## 2. General Behavior
+- If unclear about mode, ask: "Should I discuss the approach or implement the solution?"
+- Clarify ambiguities before proceeding
+- Break complex topics into digestible parts
+
 # Development Rules
 
 ## 1. Task Management
-
 - Break into small, completable units
 - Track in `docs/todo.md`:
   - [ ] Current/upcoming tasks (with priority: high/medium/low)
@@ -12,19 +29,16 @@
   - Code audit reminders
 
 ## 2. Git Discipline
-
 - **ALWAYS commit after each task that modifies any file**
 - No exceptions - even small fixes require commits
 - Format: `type: description` (feat/fix/docs/refactor/test/chore)
 
 ## 3. Scope Control
-
 - Only implement explicit requests
 - Clarify ambiguities
 - Log additional ideas as separate tasks
 
 ## 4. Code Quality
-
 - Keep it simple (KISS principle)
 - Avoid premature optimization
 - Prefer readable over clever code
@@ -32,7 +46,6 @@
 - Ask "Should I write tests for this?" if unclear
 
 ## 5. Code Commenting Guidelines
-
 When writing code, follow these commenting principles:
 
 1. **Avoid obvious comments** - Do not comment code that is self-explanatory
@@ -56,13 +69,11 @@ When writing code, follow these commenting principles:
    - `// Retry 3 times to handle transient network failures`
    - `// This seemingly redundant check prevents a race condition when...`
 
-## Dependency Guidelines
+## 6. Dependency Guidelines
+- Avoid introducing new external dependencies unless absolutely necessary
+- If a new dependency is required, please state the reason
 
-- Avoid introducing new external dependencies unless absolutely necessary.
-- If a new dependency is required, please state the reason.
-
-## Workflow
-
+## 7. Workflow
 1. Pick task
 2. **Write tests first** (for features/fixes)
 3. Complete task
