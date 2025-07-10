@@ -1,6 +1,3 @@
-# Configuration Variables
-CONFIG_DIR = ~/.claude
-
 # General Rules
 
 ## 1. Conversation Mode
