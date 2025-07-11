@@ -11,4 +11,7 @@
   version-update-rust = ''
     Ask me for a version number referred as VERSION. Update the version in all cargo.toml files to VERSION in this workspace. If a package.nix exists in the same directory, also update the version in the nix file and set the cargoHash to empty string.
   '';
+  release-notes = ''
+    Analyze all code changes since lastest tag. Build and output short but concise release notes in markdown format.
+  '';
 }

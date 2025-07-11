@@ -55,4 +55,7 @@ in
   home.file.".claude/commands/version-update-rust.md".text = ''
     ${slash-prompts.version-update-rust}
   '';
+  home.file.".claude/commands/release-notes.md".text = ''
+    ${slash-prompts.release-notes}
+  '';
 }
