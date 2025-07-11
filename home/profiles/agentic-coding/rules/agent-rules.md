@@ -16,6 +16,9 @@
 - Clarify ambiguities before proceeding
 - Break complex topics into digestible parts
 
+# Important local paths
+- **Screenshots**: ~/Pictures/Screenshots
+
 # Development Rules
 
 ## 1. Task Management
