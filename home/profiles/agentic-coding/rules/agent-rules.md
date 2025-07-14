@@ -88,3 +88,13 @@ When writing code, follow these commenting principles:
 3. Complete task
 4. Update todo.md
 5. **COMMIT CHANGES** (required - no exceptions)
+
+# Report rules
+- Identifiers
+For each item (e.g. recommendatation) create a identifier to be used for further discussion:
+Examples of good identifiers
+   - `H1`: top priority finding
+   - `M3`: third medium priority finding
+   - `L6`: sixth low priority finding
+- Resolved issues (if kept for reference and tracking) should be always moved to a RESOLVED section at the end of the report
+- On each update like adding a finding or when a issue is marked resolved, reevaluate the scoring of the report
