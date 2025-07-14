@@ -6,7 +6,7 @@
       pkgs.hakanai-cli
     ];
     sessionVariables = {
-      HAKANAI_SERVER = "https://hakanai.routing.rocks";
+      HAKANAI_SERVER = "https://hakanai.link";
     };
     shellAliases = {
       hs = "${pkgs.hakanai-cli}/bin/hakanai send";
