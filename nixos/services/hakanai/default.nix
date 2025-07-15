@@ -66,6 +66,7 @@ in
           HAKANAI_PORT = "8080";
           HAKANAI_LISTEN_ADDRESS = "0.0.0.0";
           HAKANAI_TOKENS = cfg.tokens_env;
+          HAKANAI_UPLOAD_SIZE_LIMIT = "25";
         };
 
         ports = [ "127.0.0.1:2284:8080" ];
