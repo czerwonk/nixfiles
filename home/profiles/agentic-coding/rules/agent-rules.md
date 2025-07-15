@@ -81,8 +81,8 @@ When writing code, follow these commenting principles:
 ## Report Creation Process
 1. **Before creating a new report**: Always read the corresponding resolved issues file to prevent reintroducing findings that have already been addressed
 2. **Check resolved issues**:
-   - For security reports: Review `docs/SECURITY_REPORT_RESOLVED.md`
-   - For review reports: Review `docs/REVIEW_REPORT_RESOLVED.md`
+   - For security reports: Review `docs/RESOLVED_SECURITY_ISSUES.md`
+   - For review reports: Review `docs/RESOLVED_REVIEW_ISSUES.md`
 3. **Cross-reference findings**: Ensure new findings are not duplicates of previously resolved issues
 ## Identifiers
 For each item (e.g. recommendation) create an identifier to be used for further discussion:
@@ -101,8 +101,8 @@ Examples of good identifiers:
 ## Resolved Issues Management
 - **Do NOT keep resolved issues in the main report**
 - **Move resolved issues to dedicated files**:
-  - Security issues → `docs/SECURITY_REPORT_RESOLVED.md`
-  - Review issues → `docs/REVIEW_REPORT_RESOLVED.md`
+  - Security issues → `docs/RESOLVED_SECURITY_ISSUES.md`
+  - Review issues → `docs/RESOLVED_REVIEW_ISSUES.md`
 - **When moving resolved issues**:
   - Add the date and version when the issue was resolved
   - Include the original identifier for tracking
