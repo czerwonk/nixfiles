@@ -72,6 +72,18 @@ When writing code, follow these commenting principles:
 4. Update todo.md
 5. **COMMIT CHANGES** (required - no exceptions)
 # Report Rules
+## File Naming Standards
+- **Security audit reports**: Always named `SECURITY_REPORT.md`
+- **Code Review (Code Quality) reports**: Always named `REVIEW_REPORT.md`
+- **Resolved issues files**:
+  - Security: `docs/SECURITY_REPORT_RESOLVED.md`
+  - Review: `docs/REVIEW_REPORT_RESOLVED.md`
+## Report Creation Process
+1. **Before creating a new report**: Always read the corresponding resolved issues file to prevent reintroducing findings that have already been addressed
+2. **Check resolved issues**:
+   - For security reports: Review `docs/SECURITY_REPORT_RESOLVED.md`
+   - For review reports: Review `docs/REVIEW_REPORT_RESOLVED.md`
+3. **Cross-reference findings**: Ensure new findings are not duplicates of previously resolved issues
 ## Identifiers
 For each item (e.g. recommendation) create an identifier to be used for further discussion:
 Examples of good identifiers:
@@ -83,16 +95,29 @@ Examples of good identifiers:
 - Grade should reflect the cumulative security risk or code quality based on all findings
 - **ALWAYS recalculate and update the grade** when:
   - Adding new findings
-  - Moving issues to RESOLVED section
+  - Moving issues to resolved files
   - Modifying existing findings
   - Making any changes that affect the overall assessment
-## Resolved Issues
-- Resolved issues (if kept for reference and tracking) should be moved to a RESOLVED section at the end of the report
-- Add the date and version when the issue was resolved
-- Example: `H1: [RESOLVED 2024-07-14 v1.2.3] SQL injection vulnerability in login endpoint`
+## Resolved Issues Management
+- **Do NOT keep resolved issues in the main report**
+- **Move resolved issues to dedicated files**:
+  - Security issues → `docs/SECURITY_REPORT_RESOLVED.md`
+  - Review issues → `docs/REVIEW_REPORT_RESOLVED.md`
+- **When moving resolved issues**:
+  - Add the date and version when the issue was resolved
+  - Include the original identifier for tracking
+  - Example: `H1: [RESOLVED 2024-07-14 v1.2.3] SQL injection vulnerability in login endpoint`
+  - Maintain the original finding description and resolution details
 ## Report Updates
 On each update (adding findings, marking issues resolved, etc.):
 1. Update the relevant finding/section
-2. **Recalculate the overall grade**
-3. Update the grade in the report header/summary
-4. This ensures the grade always reflects the current state
+2. **Move resolved issues to appropriate resolved file**
+3. **Recalculate the overall grade** (excluding resolved issues)
+4. Update the grade in the report header/summary
+5. This ensures the grade always reflects the current active state
+## Resolved Issues File Structure
+Both resolved files should maintain:
+- Clear section headers by resolution date
+- Original identifiers and descriptions
+- Resolution details and version information
+- Easy searchability for future reference
