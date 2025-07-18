@@ -61,7 +61,6 @@ in
           HAKANAI_REDIS_DSN = "redis://hakanai-redis:6379";
           HAKANAI_PORT = "8080";
           HAKANAI_LISTEN_ADDRESS = "0.0.0.0";
-          HAKANAI_TOKENS = cfg.tokens_env;
           HAKANAI_UPLOAD_SIZE_LIMIT = "25m";
           HAKANAI_ALLOW_ANONYMOUS = "true";
           HAKANAI_ANONYMOUS_UPLOAD_SIZE_LIMIT = "32k";
