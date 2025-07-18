@@ -104,16 +104,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1752748911,
-        "narHash": "sha256-7wHVubiZg0FNi1jCacSVI/oFdM4O0jpe7OEWUrkoMXQ=",
+        "lastModified": 1752862395,
+        "narHash": "sha256-eE8OPgSpgaVv/GY6ldutXx1g0zn/upjfXhDFu10VVHU=",
         "owner": "czerwonk",
         "repo": "hakanai",
-        "rev": "6771b17e8f80162ef4ee4efecdb91cfe75047987",
+        "rev": "9bc688c5878b014418e462d7612929498c43cd89",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "6771b17e8f80162ef4ee4efecdb91cfe75047987",
+        "ref": "9bc688c5878b014418e462d7612929498c43cd89",
         "repo": "hakanai",
         "type": "github"
       }
@@ -266,11 +266,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1752735392,
-        "narHash": "sha256-6MVfahGRB3quXdoepoHP8AvMDGOxAGzSjF+PyR8qFR0=",
+        "lastModified": 1752823602,
+        "narHash": "sha256-VVEVf5hfsRFVIunyACxv1YbzjPGSEkUy9LvPNe398ks=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "994618699f294e93b840df6f44b089d6fedb7e4a",
+        "rev": "ad20a3585a3402af241cfb2f758711945d0a725c",
         "type": "github"
       },
       "original": {
@@ -298,11 +298,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1752584776,
-        "narHash": "sha256-k+ddCLDaxU2Qp49AcsNUhRD65xGQvCwqhrN2eAPbw0Q=",
+        "lastModified": 1752861605,
+        "narHash": "sha256-sDCZwdNcOGEkeCS3HjNMQbTI8VhFNJqzT6CaWpcwRT0=",
         "ref": "refs/heads/main",
-        "rev": "94b8b0718994f5c3b6571dc2ce8ffecf65c24f20",
-        "revCount": 429,
+        "rev": "49b7dead43dcb3402e28f59d5dad9edb0b53eaff",
+        "revCount": 430,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
