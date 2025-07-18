@@ -54,7 +54,7 @@
     };
 
     hakanai = {
-      url = "github:czerwonk/hakanai?ref=6771b17e8f80162ef4ee4efecdb91cfe75047987";
+      url = "github:czerwonk/hakanai?ref=9bc688c5878b014418e462d7612929498c43cd89";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
