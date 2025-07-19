@@ -16,4 +16,7 @@
   release-notes = ''
     Analyze all code changes since lastest tag. Build and output short but concise release notes in markdown code.
   '';
+  look-at-screenshot = ''
+    Analyze the newst screenshot in the screenshot directory and eveluate it in the current context.
+  '';
 }

@@ -58,4 +58,7 @@ in
   home.file.".claude/commands/release-notes.md".text = ''
     ${slash-prompts.release-notes}
   '';
+  home.file.".claude/commands/look-at-screenshot.md".text = ''
+    ${slash-prompts.look-at-screenshot}
+  '';
 }
