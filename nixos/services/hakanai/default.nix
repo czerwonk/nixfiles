@@ -9,13 +9,21 @@ with lib;
 
 let
   cfg = config.my.services.hakanai;
-  version = "v2.3.0";
+  version = "v2.3.1";
 
 in
 {
   options = {
     my.services.hakanai = {
       enable = mkEnableOption "hakanai - A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
+
+      impressumFile = mkOption {
+        type = types.str;
+      };
+
+      privacyFile = mkOption {
+        type = types.str;
+      };
     };
   };
 
@@ -66,10 +74,12 @@ in
           HAKANAI_ANONYMOUS_UPLOAD_SIZE_LIMIT = "32k";
           HAKANAI_ENABLE_ADMIN_TOKEN = "true";
           HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
+          HAKANAI_PRIVACY_FILE = "/app/privacy.html";
         };
 
         volumes = [
-          "${cfg.impressum}:/app/impressum.html:ro"
+          "${cfg.impressumFile}:/app/impressum.html:ro"
+          "${cfg.privacyFile}:/app/privacy.html:ro"
         ];
 
         ports = [ "127.0.0.1:2284:8080" ];
