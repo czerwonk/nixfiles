@@ -16,6 +16,10 @@ in
   options = {
     my.services.hakanai = {
       enable = mkEnableOption "hakanai - A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
+
+      impressumFile = mkOption {
+        type = types.str;
+      };
     };
   };
 
@@ -65,7 +69,12 @@ in
           HAKANAI_ALLOW_ANONYMOUS = "true";
           HAKANAI_ANONYMOUS_UPLOAD_SIZE_LIMIT = "32k";
           HAKANAI_ENABLE_ADMIN_TOKEN = "true";
+          HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
         };
+
+        volumes = [
+          "${cfg.impressum}:/app/impressum.html:ro"
+        ];
 
         ports = [ "127.0.0.1:2284:8080" ];
 
