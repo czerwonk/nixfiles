@@ -16,10 +16,6 @@ in
   options = {
     my.services.hakanai = {
       enable = mkEnableOption "hakanai - A minimalist one-time secret sharing service. Share sensitive data through ephemeral links that self-destruct after a single view.";
-
-      impressumFile = mkOption {
-        type = types.str;
-      };
     };
   };
 
