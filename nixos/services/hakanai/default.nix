@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.hakanai;
-  version = "v2.4.2";
+  version = "v2.4.3";
 
 in
 {
