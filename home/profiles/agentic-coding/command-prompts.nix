@@ -14,8 +14,7 @@
     If a workspace.nix exists in the project root, update the version in the workspace.nix file and set the cargoHash to empty string.
   '';
   release-notes = ''
-    Analyze git changes since latest tag. Format: emoji categories (🔒 Security, 🎨 UI, 🔧 Technical), bullet points with emojis, <10 words each, bold key terms, exclude version bumps and unchanged features, no duplicate descriptions
-    across categories
+    Analyze all code changes since lastest tag. Build and output release notes in markdown code. Ensure the output is short and concise, focusing on the most important changes, exclude version bumps, unchanged features and do not repeat youself.
   '';
   look-at-screenshot = ''
     Analyze the newst screenshot in the screenshot directory and eveluate it in the current context.
