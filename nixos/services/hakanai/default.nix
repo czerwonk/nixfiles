@@ -109,6 +109,8 @@ in
 
     services.caddy.virtualHosts."hakanai.link".extraConfig = ''
       import common
+      @api path /api/*
+      header @api Cache-Control "no-transform"
 
       reverse_proxy * 127.0.0.1:2284
     '';
