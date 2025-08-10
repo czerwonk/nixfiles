@@ -6,6 +6,7 @@
     ./dns.nix
     ./impermanence.nix
     ./wrappers.nix
+    ./scripts
   ];
 
   boot.supportedFilesystems = [ "btrfs" ];
