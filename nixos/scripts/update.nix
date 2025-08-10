@@ -13,12 +13,15 @@ let
     # It will fetch the latest NixOS configuration and rebuild the system.
     set -e
 
+    print_green() { printf '\033[32m%s\033[0m\n' "$*"; }
+    print_cyan() { printf '\033[36m%s\033[0m\n' "$*"; }
+
     pushd ~/.nixfiles >> /dev/null
-    echo "Updating NixOS configuration..."
+    print_cyan "Updating NixOS configuration..."
     ${lib.getExe pkgs.git} pull origin main
-    echo "Updating system..."
+    print_cyan "Updating system..."
     sudo ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch --flake .#${configName}
-    echo "System updated successfully."
+    print_green "System updated successfully."
     popd >> /dev/null
   '';
 in
