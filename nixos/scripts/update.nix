@@ -13,13 +13,13 @@ let
     # It will fetch the latest NixOS configuration and rebuild the system.
     set -e
 
-    pushd ~/.nixfiles
+    pushd ~/.nixfiles >> /dev/null
     echo "Updating NixOS configuration..."
     ${lib.getExe pkgs.git} pull origin main
     echo "Updating system..."
     sudo ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch --flake .#${configName}
     echo "System updated successfully."
-    popd
+    popd >> /dev/null
   '';
 in
 {
