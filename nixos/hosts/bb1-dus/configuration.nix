@@ -27,6 +27,10 @@ in
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
   my.services.hakanai.enable = true;
+  my.services.ntfy = {
+    enable = true;
+    domain = "ntfy.hakanai.link";
+  };
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 }

@@ -16,6 +16,12 @@ in
   options = {
     my.services.ntfy = {
       enable = mkEnableOption "ntfy";
+
+      domain = mkOption {
+        type = types.str;
+        default = "ntfy.routing.rocks";
+        description = "The domain to use for ntfy.";
+      };
     };
   };
 
@@ -45,7 +51,7 @@ in
       };
     };
 
-    services.caddy.virtualHosts."ntfy.routing.rocks".extraConfig = ''
+    services.caddy.virtualHosts.${cfg.domain}.extraConfig = ''
       import private
 
       reverse_proxy * 127.0.0.1:8084

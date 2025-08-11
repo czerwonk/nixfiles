@@ -50,7 +50,7 @@ in
       wantedBy = [ "podman-hakanai-server.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman network exists hakanai || podman network create --ipv6 --subnet 2001:678:1e0:3::/64 --gateway 2001:678:1e0:3::1 hakanai
+        podman network exists hakanai || podman network create hakanai
       '';
     };
 
@@ -68,14 +68,14 @@ in
         environment = {
           HAKANAI_REDIS_DSN = "redis://hakanai-redis:6379";
           HAKANAI_PORT = "8080";
-          HAKANAI_LISTEN_ADDRESS = "::";
+          HAKANAI_LISTEN_ADDRESS = "0.0.0.0";
           HAKANAI_UPLOAD_SIZE_LIMIT = "100m";
           HAKANAI_ALLOW_ANONYMOUS = "true";
           HAKANAI_ANONYMOUS_UPLOAD_SIZE_LIMIT = "32k";
           HAKANAI_ENABLE_ADMIN_TOKEN = "true";
           HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
           HAKANAI_PRIVACY_FILE = "/app/privacy.html";
-          HAKANAI_WEBHOOK_URL = "https://ntfy.routing.rocks/hakanai";
+          HAKANAI_WEBHOOK_URL = "https://ntfy.hakanai.link/webhook";
         };
 
         volumes = [
