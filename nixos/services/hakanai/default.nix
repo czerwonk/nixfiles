@@ -110,6 +110,7 @@ in
 
     services.caddy.virtualHosts."hakanai.link".extraConfig = ''
       import common
+      import cloudflare_only
       @api path /api/*
       header @api Cache-Control "no-transform"
 
