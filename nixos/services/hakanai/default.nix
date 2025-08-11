@@ -114,7 +114,9 @@ in
       @api path /api/*
       header @api Cache-Control "no-transform"
 
-      reverse_proxy * 127.0.0.1:2284
+      reverse_proxy * 127.0.0.1:2284 {
+        import cloudflare_headers
+      }
     '';
   };
 }
