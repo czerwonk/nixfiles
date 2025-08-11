@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.hakanai;
-  version = "v2.8.2";
+  version = "v2.8.3";
 
 in
 {
@@ -111,8 +111,6 @@ in
     services.caddy.virtualHosts."hakanai.link".extraConfig = ''
       import common
       import cloudflare_only
-      @api path /api/*
-      header @api Cache-Control "no-transform"
 
       reverse_proxy 127.0.0.1:2284 {
         import cloudflare_headers
