@@ -19,7 +19,7 @@
       (private) {
         import common
 
-        @blocked not remote_ip 2001:678:1e0::/48
+        @blocked not remote_ip 2001:678:1e0::/48 185.232.100.248/31
         abort @blocked
       }
     '';
