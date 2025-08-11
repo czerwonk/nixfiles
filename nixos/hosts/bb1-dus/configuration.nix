@@ -30,6 +30,7 @@ in
   my.services.ntfy = {
     enable = true;
     domain = "ntfy.hakanai.link";
+    network = "hakanai";
   };
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";

@@ -22,6 +22,12 @@ in
         default = "ntfy.routing.rocks";
         description = "The domain to use for ntfy.";
       };
+
+      network = mkOption {
+        type = types.str;
+        default = "podman";
+        description = "The network to use for ntfy.";
+      };
     };
   };
 
@@ -34,6 +40,7 @@ in
         autoStart = true;
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=${cfg.network}"
         ];
         user = "1000:1000";
 
