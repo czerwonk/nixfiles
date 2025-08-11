@@ -50,7 +50,7 @@ in
       wantedBy = [ "podman-hakanai-server.service" ];
       path = [ pkgs.podman ];
       script = ''
-        podman network exists hakanai || podman network create hakanai
+        podman network exists hakanai || podman network create hakanai --ipv6
       '';
     };
 
