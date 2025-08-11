@@ -75,6 +75,7 @@ in
           HAKANAI_ENABLE_ADMIN_TOKEN = "true";
           HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
           HAKANAI_PRIVACY_FILE = "/app/privacy.html";
+          HAKANAI_WEBHOOK_URL = "https://ntfy.routing.rocks/hakanai";
         };
 
         volumes = [
