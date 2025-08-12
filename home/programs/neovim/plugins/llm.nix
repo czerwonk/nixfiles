@@ -19,14 +19,6 @@ with lib;
     programs.neovim = {
       plugins = with pkgs.vimPlugins; [
         {
-          plugin = dressing-nvim;
-        }
-        {
-          plugin = avante-nvim;
-          type = "lua";
-          config = builtins.readFile ./lua/avante.lua;
-        }
-        {
           plugin = copilot-lua;
           type = "lua";
           config = builtins.readFile ./lua/copilot.lua;

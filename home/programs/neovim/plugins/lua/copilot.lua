@@ -12,9 +12,6 @@ require('copilot').setup {
       prev = '<C-k>',
       dismiss = '<C-g>',
     },
-    filetypes = {
-      Avante = false,
-    },
   },
   panel = {
     enabled = false,
