@@ -1,12 +1,12 @@
 self: super: {
   gvisor = super.gvisor.overrideAttrs (old: {
-    version = "20241210.0";
+    version = "20250804.0";
     src = super.fetchFromGitHub {
       owner = "google";
       repo = "gvisor";
-      rev = "aa8ecac76a04b495181d784d84bf9ecc4e1fb876";
+      rev = "67b57f6fa0dea8c677c05d1a874dbcf2361f9bd1";
       hash = "sha256-sX3Er0IOXv+HCxQB0lU9oBMTlQJgaf8OJnpkWkFLnRQ=";
     };
-    vendorHash = "sha256-cWMOmCgN+nXZh0X7ZXoguIiFVSXIJAbuuBWxysbgn6U=";
+    vendorHash = "sha256-MAWqGtv89Wc8LWqrrEZpEkrxHYOpUnDUkBF50nfOkiI=";
   });
 }
