@@ -39,7 +39,6 @@ in
     })
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)
-    (import ./gvisor.nix)
     (import ./ollama-rocm-apu.nix)
   ];
 }
