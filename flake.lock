@@ -100,20 +100,20 @@
     "hakanai": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ]
       },
       "locked": {
-        "lastModified": 1755345836,
-        "narHash": "sha256-TZwdJbmGP77ZncSpfKBlNhaYs9buRs4q6Wg6kJo4GZ0=",
+        "lastModified": 1755367609,
+        "narHash": "sha256-3RYdhIflg4u15KWBDy53MY7gDs8QGuaLaHAY0U7PsHk=",
         "owner": "czerwonk",
         "repo": "hakanai",
-        "rev": "5b5bcdb42fac133a0143a9d4f4c5d0126b312089",
+        "rev": "d8f453f11c3a06352553ba01aaa7a3866265018d",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "5b5bcdb42fac133a0143a9d4f4c5d0126b312089",
+        "ref": "d8f453f11c3a06352553ba01aaa7a3866265018d",
         "repo": "hakanai",
         "type": "github"
       }
