@@ -3,13 +3,9 @@
 {
   home = {
     packages = with pkgs; [
-      cargo
-      cargo-audit
-      clippy
       lld_21
       pkg-config
-      rustc
-      rustfmt
+      rustup
       wasm-pack
     ];
     sessionVariables = {
