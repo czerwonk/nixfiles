@@ -16,7 +16,9 @@ in
           http_listen_port = 3200;
         };
 
-        distributor = { };
+        distributor = {
+          receivers = { };
+        };
 
         storage.trace = {
           backend = "local";
