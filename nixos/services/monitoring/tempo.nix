@@ -14,7 +14,6 @@ in
       settings = {
         server = {
           http_listen_port = 3200;
-          grpc_listen_port = 0;
         };
 
         storage.trace = {
