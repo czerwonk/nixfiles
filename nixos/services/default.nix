@@ -1,5 +1,6 @@
 {
   imports = [
+    ./alloy
     ./audiobookshelf
     ./calibre-web
     ./crowdsec
