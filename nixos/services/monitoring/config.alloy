@@ -4,7 +4,7 @@ otelcol.receiver.otlp "default" {
   }
 
   output {
-    logs = [otelcol.exporter.loki.loki.input]
+    logs = [otelcol.exporter.loki.default.input]
     traces = [otelcol.exporter.otlphttp.tempo.input]
   }
 }
@@ -15,10 +15,8 @@ otelcol.exporter.otlphttp "tempo" {
   }
 }
 
-otelcol.exporter.loki "loki" {
-  client {
-    url = "http://127.0.0.1:3100/loki/api/v1/push"
-  }
+otelcol.exporter.loki "default" {
+  forward_to = [loki.write.default.receiver]
 }
 
 loki.source.syslog "syslog" {
@@ -29,8 +27,8 @@ loki.source.syslog "syslog" {
   forward_to = [loki.write.loki.receiver]
 }
 
-loki.write "loki" {
+loki.write "default" {
   endpoint {
-    url = "http://127.0.0.1:3100/loki/api/v1/push"
+    url = "http://loki:3100/loki/api/v1/push"
   }
 }
