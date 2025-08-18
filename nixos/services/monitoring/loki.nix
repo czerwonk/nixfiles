@@ -17,6 +17,7 @@ in
 
         server = {
           http_listen_port = 3100;
+          grpc_listen_port = 0;
         };
 
         common = {
