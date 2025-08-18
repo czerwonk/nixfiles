@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.hakanai;
-  version = "v2.9.4";
+  version = "v2.9.5";
 
 in
 {
@@ -76,6 +76,8 @@ in
           HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
           HAKANAI_PRIVACY_FILE = "/app/privacy.html";
           HAKANAI_WEBHOOK_URL = "http://ntfy/webhook";
+          HAKANAI_TRUSTED_IP_RANGES = "2001:678:1e0::/48";
+          HAKANAI_TRUSTED_IP_HEADER = "cf-connecting-ip";
           OTEL_EXPORTER_OTLP_ENDPOINT = "http://host.containers.internal:4317";
         };
 
