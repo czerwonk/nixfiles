@@ -1,0 +1,37 @@
+otelcol.receiver.otlp "default" {
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+
+  output {
+    logs = [otelcol.exporter.loki.loki.input]
+    traces = [otelcol.exporter.otlphttp.tempo.input]
+  }
+}
+
+otelcol.exporter.otlphttp "tempo" {
+  client {
+    endpoint = "http://127.0.0.1:3200"
+    tls {
+      insecure = true
+    }
+  }
+}
+
+otelcol.exporter.loki "loki" {
+  endpoint = "http://127.0.0.1:3100/loki/api/v1/push"
+}
+
+loki.source.syslog "syslog" {
+  listener {
+    address  = "0.0.0.0:514"
+    protocol = "tcp"
+  }
+  forward_to = [loki.write.loki.receiver]
+}
+
+loki.write "loki" {
+  endpoint {
+    url = "http://127.0.0.1:3100/loki/api/v1/push"
+  }
+}

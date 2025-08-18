@@ -8,10 +8,13 @@ let
 in
 {
   imports = [
-    ./prometheus.nix
-    ./grafana.nix
     ./alertmanager.nix
+    ./alloy.nix
     ./caddy.nix
+    ./grafana.nix
+    ./loki.nix
+    ./prometheus.nix
+    ./tempo.nix
   ];
 
   options = {
