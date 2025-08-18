@@ -17,7 +17,15 @@ in
         };
 
         distributor = {
-          receivers = { };
+          receivers = {
+            otlp = {
+              protocols = {
+                grpc = {
+                  endpoint = "127.0.0.1:14317"; # non-defualt port
+                };
+              };
+            };
+          };
         };
 
         storage.trace = {
