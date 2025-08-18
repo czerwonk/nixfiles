@@ -35,7 +35,7 @@ in
     services.caddy.virtualHosts."otel.routing.rocks".extraConfig = ''
       import private
 
-      reverse_proxy * h2c://127.0.0.1:4317
+      reverse_proxy * h2c://127.0.0.1:4320
 
       encode gzip
     '';
