@@ -76,6 +76,7 @@ in
           HAKANAI_IMPRESSUM_FILE = "/app/impressum.html";
           HAKANAI_PRIVACY_FILE = "/app/privacy.html";
           HAKANAI_WEBHOOK_URL = "http://ntfy/webhook";
+          OTEL_EXPORTER_OTLP_ENDPOINT = "http://host.containers.internal:4317";
         };
 
         volumes = [
