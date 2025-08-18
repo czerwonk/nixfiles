@@ -24,5 +24,10 @@ in
         };
       };
     };
+
+    systemd.tmpfiles.rules = [
+      "d ${dataDir} 0755 tempo tempo -"
+      "d ${dataDir}/traces 0755 tempo tempo -"
+    ];
   };
 }
