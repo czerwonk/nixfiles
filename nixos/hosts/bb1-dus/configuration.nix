@@ -32,6 +32,7 @@ in
     domain = "ntfy.hakanai.link";
     network = "hakanai";
   };
+  my.services.alloy.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 }
