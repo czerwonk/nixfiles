@@ -24,7 +24,7 @@ loki.source.syslog "syslog" {
     address  = "0.0.0.0:514"
     protocol = "tcp"
   }
-  forward_to = [loki.write.loki.receiver]
+  forward_to = [loki.write.default.receiver]
 }
 
 loki.write "default" {
