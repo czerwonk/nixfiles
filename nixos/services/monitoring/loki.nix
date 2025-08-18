@@ -21,7 +21,7 @@ in
 
         common = {
           instance_addr = "127.0.0.1";
-          path_prefix = "/loki";
+          path_prefix = dataDir;
           storage = {
             filesystem = {
               chunks_directory = "${dataDir}/chunks";
