@@ -5,13 +5,16 @@ otelcol.receiver.otlp "default" {
 
   output {
     logs = [otelcol.exporter.loki.default.input]
-    traces = [otelcol.exporter.otlphttp.tempo.input]
+    traces = [otelcol.exporter.otlp.tempo.input]
   }
 }
 
-otelcol.exporter.otlphttp "tempo" {
+otelcol.exporter.otlp "tempo" {
   client {
     endpoint = "127.0.0.1:4317"
+    tls {
+      insecure = true
+    }
   }
 }
 
