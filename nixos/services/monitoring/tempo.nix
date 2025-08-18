@@ -14,8 +14,9 @@ in
       settings = {
         server = {
           http_listen_port = 3200;
-          grpc_listen_port = 9095;
         };
+
+        distributor = { };
 
         storage.trace = {
           backend = "local";
