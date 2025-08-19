@@ -17,3 +17,6 @@ vim.keymap.set('n', '<c-b>', '<cmd>bnext<CR>', { desc = 'Switch to next buffer' 
 vim.keymap.set("n", "<leader>co", ":diffget LOCAL<CR>", { desc = "Get OUR changes" })
 vim.keymap.set("n", "<leader>ct", ":diffget REMOTE<CR>", { desc = "Get THEIR changes" })
 vim.keymap.set("n", "<leader>cb", ":diffget BASE<CR>", { desc = "Get BASE changes" })
+
+vim.keymap.set('v', 'u', '<nop>', { desc = 'Disabled to prevent accidental lowercase, use gu instead' })
+vim.keymap.set('v', 'U', '<nop>', { desc = 'Disabled to prevent accidental uppercase, use gU instead' })
