@@ -8,6 +8,14 @@ otelcol.receiver.otlp "default" {
   }
 
   output {
+    metrics = [otelcol.processor.batch.otel.input]
+    logs    = [otelcol.processor.batch.otel.input]
+    traces  = [otelcol.processor.batch.otel.input]
+  }
+}
+
+otelcol.processor.batch "otel" {
+  output {
     logs   = [otelcol.exporter.otlp.monitoring.input]
     traces = [otelcol.exporter.otlp.monitoring.input]
     metrics = [otelcol.exporter.otlp.monitoring.input]

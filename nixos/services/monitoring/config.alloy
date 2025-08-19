@@ -4,8 +4,17 @@ otelcol.receiver.otlp "default" {
   }
 
   output {
-    logs = [otelcol.exporter.loki.default.input]
+    metrics = [otelcol.processor.batch.otel.input]
+    logs    = [otelcol.processor.batch.otel.input]
+    traces  = [otelcol.processor.batch.otel.input]
+  }
+}
+
+otelcol.processor.batch "otel" {
+  output {
     traces = [otelcol.exporter.otlp.tempo.input]
+    logs = [otelcol.exporter.loki.otel.input]
+    metrics = [otelcol.exporter.prometheus.otel.input]
   }
 }
 
@@ -18,8 +27,24 @@ otelcol.exporter.otlp "tempo" {
   }
 }
 
-otelcol.exporter.loki "default" {
+otelcol.exporter.loki "otel" {
   forward_to = [loki.write.default.receiver]
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://127.0.0.1:3100/loki/api/v1/push"
+  }
+}
+
+otelcol.exporter.prometheus "otel" {
+  forward_to = [prometheus.remote_write.default.receiver]
+}
+
+prometheus.remote_write "default" {
+  endpoint {
+    url = "http://127.0.0.1:9090/api/v1/write"
+  }
 }
 
 loki.source.syslog "syslog" {
@@ -28,10 +53,4 @@ loki.source.syslog "syslog" {
     protocol = "tcp"
   }
   forward_to = [loki.write.default.receiver]
-}
-
-loki.write "default" {
-  endpoint {
-    url = "http://127.0.0.1:3100/loki/api/v1/push"
-  }
 }
