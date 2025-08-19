@@ -11,7 +11,12 @@ in
     services.prometheus = {
       enable = true;
       listenAddress = "127.0.0.1";
-      pushgateway.enable = true;
+      extraFlags = [
+        "--web.enable-remote-write-receiver"
+        "--web.enable-lifecycle"
+        "--storage.tsdb.retention.time=30d"
+        "--storage.tsdb.retention.size=100GB"
+      ];
       alertmanagers = [
         {
           scheme = "http";
