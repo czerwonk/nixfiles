@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.freshrss;
-  version = "1.26.3";
+  version = "1.27.0";
 
 in
 {
