@@ -21,5 +21,11 @@
       podman-compose
       sqlite
     ];
+
+    sessionVariables = {
+      PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.sqlite.dev}/lib/pkgconfig:${pkgs.mysql80}/lib/pkgconfig";
+      MYSQLCLIENT_LIB_DIR = "${pkgs.mysql80}/lib";
+      MYSQLCLIENT_VERSION = "8.0";
+    };
   };
 }
