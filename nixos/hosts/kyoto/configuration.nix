@@ -37,6 +37,8 @@
     firewall.filterForward = false;
   };
 
+  networking.nat.enable = true;
+
   security.lockKernelModules = false;
 
   services.fwupd.enable = true;
