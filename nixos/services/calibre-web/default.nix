@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.calibre-web;
-  version = "0.6.24";
+  version = "0.6.25";
   environment = {
     PUID = "1000";
     PGID = "1000";
