@@ -35,4 +35,6 @@ in
   my.services.alloy.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
+
+  my.services.k3s.enable = true;
 }
