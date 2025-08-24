@@ -78,6 +78,7 @@ in
           HAKANAI_WEBHOOK_URL = "http://ntfy/webhook";
           HAKANAI_TRUSTED_IP_RANGES = "2001:678:1e0::/48";
           HAKANAI_TRUSTED_IP_HEADER = "cf-connecting-ip";
+          HAKANAI_COUNTRY_HEADER = "cf-ipcountry";
           OTEL_EXPORTER_OTLP_ENDPOINT = "http://host.containers.internal:4317";
         };
 
