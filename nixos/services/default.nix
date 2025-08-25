@@ -6,7 +6,6 @@
     ./crowdsec
     ./forgejo
     ./freshrss
-    ./hakanai
     ./immich
     ./jellyfin
     ./k3s
