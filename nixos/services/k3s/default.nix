@@ -32,7 +32,7 @@ in
         "--flannel-backend=host-gw"
         "--bind-address=192.168.100.2"
         "--cluster-cidr=10.42.0.0/16"
-        "--service-cidr=10.42.255.0/24"
+        "--service-cidr=10.43.0.0/24"
         "--node-ip=192.168.100.2"
       ];
     };
