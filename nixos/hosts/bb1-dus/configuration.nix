@@ -13,6 +13,7 @@ in
     ../../profiles/container
     ../../profiles/routing
     ../../profiles/webserver
+    ./hakanai.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
