@@ -24,6 +24,17 @@ in
   };
 
   config = mkIf cfg.enable {
+    boot.kernelModules = [
+      "xt_REJECT"
+      "xt_NFLOG"
+      "xt_physdev"
+      "xt_statistic"
+      "xt_set"
+      "xt_nfacct"
+      "ip_set"
+      "nfnetlink_acct"
+    ];
+
     services.k3s = {
       enable = true;
       role = "server";
