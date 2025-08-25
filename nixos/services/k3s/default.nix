@@ -9,14 +9,6 @@ with lib;
 
 let
   cfg = config.my.services.k3s;
-  flannelConf = pkgs.writeText "flannel.conf" ''
-    {
-      "Network": "10.42.0.0/16",
-      "Backend": {
-        "Type": "host-gw"
-      }
-    }
-  '';
 
 in
 {
@@ -37,10 +29,10 @@ in
       role = "server";
       extraFlags = [
         "--disable=traefik,servicelb"
-        "--flannel-cni-conf=${flannelConf}"
+        "--flannel-backend=host-gw"
         "--bind-address=192.168.100.2"
-        "--cluster-cidr=10.42.0.0/24"
-        "--service-cidr=10.42.255.0/24"
+        "--cluster-cidr=10.42.0.0/16"
+        "--service-cidr=10.43.0.0/16"
         "--node-ip=192.168.100.2"
       ];
     };
@@ -78,8 +70,11 @@ in
           ${pkgs.iproute2}/bin/ip netns exec k3s-ns ip link set lo up
           ${pkgs.iproute2}/bin/ip netns exec k3s-ns ip route add default via 192.168.100.1
 
-          # Route to kubernetes
+          # Route to pod network (flannel creates this in the namespace)
           ${pkgs.iproute2}/bin/ip route add 10.42.0.0/16 via 192.168.100.2 dev k3s-host || true
+
+          # Route to service network (kube-proxy creates this in the namespace)
+          ${pkgs.iproute2}/bin/ip route add 10.43.0.0/16 via 192.168.100.2 dev k3s-host || true
         '';
         ExecStop = pkgs.writeShellScript "cleanup-k3s-netns" ''
           ${pkgs.iproute2}/bin/ip link del k3s-host || true
