@@ -17,6 +17,7 @@
     "xt_limit"
     "xt_addrtype"
     "xt_multiport"
+    "xt_REJECT"
   ];
 
   networking.firewall.enable = true;
