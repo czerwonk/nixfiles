@@ -25,17 +25,11 @@ in
     domain = "dus.routing.rocks";
   };
 
+  my.services.k3s.enable = true;
   my.services.matrix.enable = true;
   my.services.mastodon.enable = true;
-  my.services.hakanai.enable = true;
-  my.services.ntfy = {
-    enable = true;
-    domain = "ntfy.hakanai.link";
-    network = "hakanai";
-  };
   my.services.alloy.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 
-  my.services.k3s.enable = true;
 }
