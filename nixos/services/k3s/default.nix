@@ -9,6 +9,14 @@ with lib;
 
 let
   cfg = config.my.services.k3s;
+  flannelConf = pkgs.writeText "flannel.conf" ''
+    {
+      "Network": "10.42.0.0/16",
+      "Backend": {
+        "Type": "host-gw"
+      }
+    }
+  '';
 
 in
 {
@@ -29,7 +37,7 @@ in
       role = "server";
       extraFlags = [
         "--disable=traefik,servicelb"
-        "--flannel-cni-conf='{\"Network\":\"10.42.0.0/16\",\"Backend\":{\"Type\":\"host-gw\"}}'"
+        "--flannel-cni-conf=${flannelConf}"
         "--bind-address=192.168.100.2"
         "--cluster-cidr=10.42.0.0/24"
         "--service-cidr=10.42.255.0/24"
