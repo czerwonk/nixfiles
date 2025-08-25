@@ -140,6 +140,7 @@ in
                 "social.routing.rocks"
                 "unifi.routing.rocks/manage/account/login"
                 "vaultwarden.routing.rocks"
+                "hakanai.link"
               ];
             }
           ];
