@@ -39,6 +39,7 @@
 - Prefer readable over clever code
 - **Create tests BEFORE implementing features** (TDD approach)
 - Ask "Should I write tests for this?" if unclear
+- Whenever writing tests with more than one assertion make sure to give the dev context why the test failed. For example by using description strings if available.
 ## 5. Code Commenting Guidelines
 When writing code, follow these commenting principles:
 1. **Avoid obvious comments** - Do not comment code that is self-explanatory
