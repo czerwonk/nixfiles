@@ -11,6 +11,9 @@
       buffer_font_size = 16;
       lsp_document_colors = "inline";
       cursor_blink = false;
+      hour_format = "hour24";
+      auto_update = false;
+      show_whitespaces = "all";
       telemetry = {
         metrics = false;
         diagnostics = false;
