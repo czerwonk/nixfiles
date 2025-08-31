@@ -46,6 +46,19 @@
         show_parameter_hints = true;
         show_other_hints = true;
       };
+      scrollbar = {
+        show = "never";
+        git_diff = true;
+        search_results = true;
+        selected_symbol = true;
+        diagnostics = "all";
+      };
+      git = {
+        git_gutter = "tracked_files";
+        inline_blame = {
+          enabled = false;
+        };
+      };
       languages = {
         rust = {
           formatter = "rustfmt";
@@ -127,8 +140,6 @@
           "space ," = "editor::ToggleCodeActions";
           "space o" = "outline::Toggle";
 
-          "space y" = "editor::Copy";
-
           "space d b" = "editor::ToggleBreakpoint";
           "space d c" = "debugger::Continue";
           "space d t" = "debugger::Stop";
@@ -137,12 +148,15 @@
           "f12" = "debugger::StepOut";
 
           "ctrl-t" = "terminal_panel::ToggleFocus";
-          "ctrl-n" = "project_panel::ToggleFocus";
 
           "space F" = "editor::Format";
 
           "ctrl-h" = "project_panel::ToggleFocus";
           "ctrl-l" = "pane::ActivateNextItem";
+
+          "space w" = "pane::CloseActiveItem";
+
+          "] h" = "editor::GoToHunk";
         };
       }
       {
