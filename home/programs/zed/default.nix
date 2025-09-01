@@ -122,16 +122,25 @@
     };
     userKeymaps = [
       {
-        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+        context = "Workspace";
         bindings = {
-          "ctrl-space" = "editor::SelectLargerSyntaxNode";
-          "backspace" = "editor::SelectSmallerSyntaxNode";
+          "ctrl-h" = "project_panel::ToggleFocus";
 
           "space f f" = "file_finder::Toggle";
           "space f g" = "pane::DeploySearch";
           "space f k" = "zed::OpenKeymap";
 
           "ctrl-b" = "pane::ActivateNextItem";
+          "space w" = "pane::CloseActiveItem";
+
+          "ctrl-t" = "terminal_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+        bindings = {
+          "ctrl-space" = "editor::SelectLargerSyntaxNode";
+          "backspace" = "editor::SelectSmallerSyntaxNode";
 
           "g r" = "editor::FindAllReferences";
 
@@ -147,14 +156,7 @@
           "f11" = "debugger::StepInto";
           "f12" = "debugger::StepOut";
 
-          "ctrl-t" = "terminal_panel::ToggleFocus";
-
           "space F" = "editor::Format";
-
-          "ctrl-h" = "project_panel::ToggleFocus";
-          "ctrl-l" = "pane::ActivateNextItem";
-
-          "space w" = "pane::CloseActiveItem";
 
           "] h" = "editor::GoToHunk";
         };
@@ -164,12 +166,6 @@
         bindings = {
           "ctrl-/" = "workspace::ToggleBottomDock";
           "ctrl-t" = "workspace::ToggleBottomDock";
-        };
-      }
-      {
-        context = "ProjectPanel && !vim_mode";
-        bindings = {
-          "ctrl-n" = "project_panel::ToggleFocus";
         };
       }
     ];
