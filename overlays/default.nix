@@ -36,6 +36,7 @@ in
       opencode = pkgs-unstable.opencode;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins;
+      zed-editor = pkgs-unstable.zed-editor;
     })
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)

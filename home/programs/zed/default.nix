@@ -119,15 +119,31 @@
           };
         };
       };
+      project_panel = {
+        hide_gitignore = true;
+      };
     };
     userKeymaps = [
       {
         context = "Workspace";
         bindings = {
           "ctrl-h" = "project_panel::ToggleFocus";
+          "alt-h" = "project_panel::ToggleHideGitIgnore";
 
-          "space f f" = "file_finder::Toggle";
-          "space f g" = "pane::DeploySearch";
+          "space f f" = [
+            "task::Spawn"
+            {
+              task_name = "File Finder";
+              reveal_target = "center";
+            }
+          ];
+          "space f g" = [
+            "task::Spawn"
+            {
+              task_name = "Find in Files";
+              reveal_target = "center";
+            }
+          ];
           "space f k" = "zed::OpenKeymap";
 
           "ctrl-b" = "pane::ActivateNextItem";
@@ -169,5 +185,23 @@
         };
       }
     ];
+    userTasks = [
+      {
+        label = "File Finder";
+        command = "zeditor \"$(tv files)\"";
+        hide = "always";
+        allow_concurrent_runs = true;
+        use_new_terminal = true;
+      }
+      {
+        label = "Find in Files";
+        command = "zeditor \"$(tv text)\"";
+        hide = "always";
+        allow_concurrent_runs = true;
+        use_new_terminal = true;
+      }
+    ];
   };
+
+  programs.television.enable = true;
 }
