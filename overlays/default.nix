@@ -40,5 +40,8 @@ in
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)
     (import ./ollama-rocm-apu.nix)
+    (self: super: {
+      termius = pkgs.callPackage ../pkgs/termius { };
+    })
   ];
 }
