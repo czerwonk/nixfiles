@@ -3,6 +3,22 @@
 {
   programs.zed-editor = {
     enable = true;
+    extensions = [
+      "html"
+      "toml"
+      "php"
+      "dockerfile"
+      "sql"
+      "ruby"
+      "make"
+      "terraform"
+      "lua"
+      "csharp"
+      "nix"
+      "proto"
+      "ansible"
+      "marksman"
+    ];
     userSettings = {
       theme = "Kanagawa Wave";
       vim_mode = true;
