@@ -40,8 +40,11 @@
       tab_size = 2;
       preferred_line_length = 120;
       show_whitespaces = "all";
+      current_line_highlight = "gutter";
       format_on_save = "on";
       remove_trailing_whitespace_on_save = true;
+      scroll_beyond_last_line = "off";
+      vertical_scroll_margin = 8;
       diagnostics = {
         inline = {
           enabled = true;
@@ -50,39 +53,31 @@
       features = {
         edit_prediction_provider = "copilot";
       };
-      indent_guides = {
-        enabled = true;
-      };
       inlay_hints = {
         enabled = true;
         show_type_hints = true;
         show_parameter_hints = true;
         show_other_hints = true;
       };
-      current_line_highlight = "gutter";
-      terminal = {
-        alternate_scroll = "off";
-        blinking = "terminal_controlled";
-        copy_on_select = true;
-        dock = "bottom";
-        env = {
-          TERM = "xterm-256color";
-        };
-        font_family = "JetBrains Mono";
-        font_size = 14;
-        line_height = "comfortable";
-        option_as_meta = false;
-        button = false;
-        shell = {
-          program = "zsh";
-        };
-        working_directory = "current_project_directory";
+      title_bar = {
+        show_branch_icon = true;
       };
       toolbar = {
         breadcrumbs = true;
         code_actions = true;
         quick_actions = false;
         selections_menu = false;
+      };
+      tab_bar = {
+        show_nav_history_buttons = false;
+      };
+      tabs = {
+        git_status = true;
+        file_icons = true;
+        show_diagnostics = true;
+      };
+      project_panel = {
+        hide_gitignore = true;
       };
       scrollbar = {
         show = "never";
@@ -92,9 +87,6 @@
         inline_blame = {
           enabled = false;
         };
-      };
-      project_panel = {
-        hide_gitignore = true;
       };
       lsp = {
         rust-analyzer = {
@@ -135,6 +127,24 @@
             };
           };
         };
+      };
+      terminal = {
+        alternate_scroll = "off";
+        blinking = "terminal_controlled";
+        copy_on_select = true;
+        dock = "bottom";
+        env = {
+          TERM = "xterm-256color";
+        };
+        font_family = "JetBrains Mono";
+        font_size = 14;
+        line_height = "comfortable";
+        option_as_meta = false;
+        button = false;
+        shell = {
+          program = "zsh";
+        };
+        working_directory = "current_project_directory";
       };
       telemetry = {
         metrics = false;
@@ -225,6 +235,7 @@
       {
         context = "ProjectPanel && not_editing";
         bindings = {
+          "a" = "project_panel::NewFile";
           "r" = "project_panel::Rename";
           "l" = "project_panel::Open";
           "ctrl-l" = "workspace::ActivatePaneRight";
