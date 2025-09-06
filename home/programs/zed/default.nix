@@ -31,6 +31,7 @@
         show_parameter_hints = true;
         show_other_hints = true;
       };
+      current_line_highlight = "gutter";
       terminal = {
         alternate_scroll = "off";
         blinking = "terminal_controlled";
