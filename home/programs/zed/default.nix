@@ -191,6 +191,8 @@
           "space h" = "editor::ToggleInlayHints";
           "space ," = "editor::ToggleCodeActions";
           "space o" = "outline::Toggle";
+          "space y" = "editor::Copy";
+          "space p" = "editor::Paste";
 
           "space d b" = "editor::ToggleBreakpoint";
           "space d c" = "debugger::Continue";
@@ -225,6 +227,7 @@
         bindings = {
           "r" = "project_panel::Rename";
           "l" = "project_panel::Open";
+          "ctrl-l" = "workspace::ActivatePaneRight";
         };
       }
     ];
