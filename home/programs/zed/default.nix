@@ -4,6 +4,7 @@
   programs.zed-editor = {
     enable = true;
     extensions = [
+      "material-icon-theme"
       "html"
       "toml"
       "php"
@@ -18,17 +19,26 @@
       "proto"
       "ansible"
       "marksman"
+      "git-firefly"
     ];
     userSettings = {
+      auto_update = false;
       theme = "Kanagawa Wave";
-      vim_mode = true;
-      relative_line_numbers = true;
+      icon_theme = "Material Icon Theme";
       ui_font_family = "JetBrains Mono";
       ui_font_size = 16;
       buffer_font_family = "JetBrains Mono";
       buffer_font_size = 16;
+      vim_mode = true;
+      vim = {
+        use_system_clipboard = "never";
+        use_smartcase_find = true;
+      };
+      relative_line_numbers = true;
       cursor_blink = false;
-      auto_update = false;
+      hide_mouse = "on_typing_and_movement";
+      tab_size = 2;
+      preferred_line_length = 120;
       show_whitespaces = "all";
       format_on_save = "on";
       remove_trailing_whitespace_on_save = true;
@@ -39,6 +49,9 @@
       };
       features = {
         edit_prediction_provider = "copilot";
+      };
+      indent_guides = {
+        enabled = true;
       };
       inlay_hints = {
         enabled = true;
@@ -64,6 +77,12 @@
           program = "zsh";
         };
         working_directory = "current_project_directory";
+      };
+      toolbar = {
+        breadcrumbs = true;
+        code_actions = true;
+        quick_actions = false;
+        selections_menu = false;
       };
       scrollbar = {
         show = "never";
@@ -126,7 +145,6 @@
       {
         context = "Workspace";
         bindings = {
-          "ctrl-h" = "project_panel::ToggleFocus";
           "alt-h" = "project_panel::ToggleHideGitIgnore";
 
           "space f f" = [
@@ -164,6 +182,9 @@
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "backspace" = "editor::SelectSmallerSyntaxNode";
 
+          "ctrl-h" = "project_panel::ToggleFocus";
+          "ctrl-j" = "terminal_panel::ToggleFocus";
+
           "g r" = "editor::FindAllReferences";
 
           "space rn" = "editor::Rename";
@@ -188,6 +209,22 @@
         bindings = {
           "ctrl-/" = "workspace::ToggleBottomDock";
           "ctrl-t" = "workspace::ToggleBottomDock";
+        };
+      }
+      {
+        context = "Dock";
+        bindings = {
+          "ctrl-w h" = "workspace::ActivatePaneLeft";
+          "ctrl-w l" = "workspace::ActivatePaneRight";
+          "ctrl-w k" = "workspace::ActivatePaneUp";
+          "ctrl-w j" = "workspace::ActivatePaneDown";
+        };
+      }
+      {
+        context = "ProjectPanel && not_editing";
+        bindings = {
+          "r" = "project_panel::Rename";
+          "l" = "project_panel::Open";
         };
       }
     ];
