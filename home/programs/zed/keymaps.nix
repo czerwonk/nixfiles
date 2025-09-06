@@ -29,6 +29,13 @@
         };
       }
       {
+        context = "Editor";
+        bindings = {
+          "ctrl-space" = "editor::SelectLargerSyntaxNode";
+          "backspace" = "editor::SelectSmallerSyntaxNode";
+        };
+      }
+      {
         context = "vim_operator == a || vim_operator == i || vim_operator == cs";
         bindings = {
           "q" = "vim::MiniQuotes";
@@ -36,7 +43,7 @@
         };
       }
       {
-        context = "VimVisual && !VimWaiting && !menu";
+        context = "Editor && vim_mode == visual && !VimWaiting && !menu";
         bindings = {
           "u" = null; # Disabled to prevent accidental lowercase conversion
           "U" = null; # Disabled to prevent accidental uppercase conversion
@@ -45,9 +52,6 @@
       {
         context = "Editor && vim_mode == normal && !VimWaiting && !menu";
         bindings = {
-          "ctrl-space" = "editor::SelectLargerSyntaxNode";
-          "backspace" = "editor::SelectSmallerSyntaxNode";
-
           "ctrl-h" = "project_panel::ToggleFocus";
           "ctrl-j" = "terminal_panel::ToggleFocus";
 
