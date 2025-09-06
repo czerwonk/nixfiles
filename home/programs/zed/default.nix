@@ -1,3 +1,5 @@
+{ pkgs, lib, ... }:
+
 {
   programs.zed-editor = {
     enable = true;
@@ -7,10 +9,9 @@
       vim_mode = true;
       relative_line_numbers = true;
       ui_font_family = "JetBrains Mono";
-      ui_font_size = 16;
+      ui_font_size = 14;
       buffer_font_family = "JetBrains Mono";
-      buffer_font_size = 16;
-      lsp_document_colors = "inline";
+      buffer_font_size = 14;
       cursor_blink = false;
       hour_format = "hour24";
       auto_update = false;
@@ -35,9 +36,6 @@
         shell = {
           program = "zsh";
         };
-        toolbar = {
-          title = true;
-        };
         working_directory = "current_project_directory";
       };
       inlay_hints = {
@@ -48,16 +46,19 @@
       };
       scrollbar = {
         show = "never";
-        git_diff = true;
-        search_results = true;
-        selected_symbol = true;
-        diagnostics = "all";
       };
       git = {
         git_gutter = "tracked_files";
         inline_blame = {
           enabled = false;
         };
+      };
+      project_panel = {
+        hide_gitignore = true;
+      };
+      format_on_save = true;
+      features = {
+        edit_prediction_provider = "copilot";
       };
       languages = {
         rust = {
@@ -119,9 +120,6 @@
           };
         };
       };
-      project_panel = {
-        hide_gitignore = true;
-      };
     };
     userKeymaps = [
       {
@@ -150,6 +148,13 @@
           "space w" = "pane::CloseActiveItem";
 
           "ctrl-t" = "terminal_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "vim_operator == a || vim_operator == i || vim_operator == cs";
+        bindings = {
+          "q" = "vim::MiniQuotes";
+          "b" = "vim::MiniBrackets";
         };
       }
       {
@@ -188,20 +193,18 @@
     userTasks = [
       {
         label = "File Finder";
-        command = "zeditor \"$(tv files)\"";
+        command = "zeditor \"$(${lib.getExe pkgs.television} files)\"";
         hide = "always";
         allow_concurrent_runs = true;
         use_new_terminal = true;
       }
       {
         label = "Find in Files";
-        command = "zeditor \"$(tv text)\"";
+        command = "zeditor \"$(${lib.getExe pkgs.television} text)\"";
         hide = "always";
         allow_concurrent_runs = true;
         use_new_terminal = true;
       }
     ];
   };
-
-  programs.television.enable = true;
 }
