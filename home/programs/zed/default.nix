@@ -1,8 +1,6 @@
 {
   imports = [
     ./settings.nix
-    ./theme.nix
-    ./lsp.nix
     ./keymaps.nix
     ./tasks.nix
   ];
