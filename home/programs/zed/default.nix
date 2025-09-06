@@ -13,17 +13,28 @@
       buffer_font_family = "JetBrains Mono";
       buffer_font_size = 14;
       cursor_blink = false;
-      hour_format = "hour24";
       auto_update = false;
       show_whitespaces = "all";
-      telemetry = {
-        metrics = false;
-        diagnostics = false;
+      format_on_save = "on";
+      remove_trailing_whitespace_on_save = true;
+      diagnostics = {
+        inline = {
+          enabled = true;
+        };
+      };
+      features = {
+        edit_prediction_provider = "copilot";
+      };
+      inlay_hints = {
+        enabled = true;
+        show_type_hints = true;
+        show_parameter_hints = true;
+        show_other_hints = true;
       };
       terminal = {
         alternate_scroll = "off";
         blinking = "terminal_controlled";
-        copy_on_select = false;
+        copy_on_select = true;
         dock = "bottom";
         env = {
           TERM = "xterm-256color";
@@ -38,12 +49,6 @@
         };
         working_directory = "current_project_directory";
       };
-      inlay_hints = {
-        enabled = true;
-        show_type_hints = true;
-        show_parameter_hints = true;
-        show_other_hints = true;
-      };
       scrollbar = {
         show = "never";
       };
@@ -56,34 +61,10 @@
       project_panel = {
         hide_gitignore = true;
       };
-      format_on_save = "on";
-      features = {
-        edit_prediction_provider = "copilot";
-      };
-      languages = {
-        rust = {
-          formatter = "rustfmt";
-        };
-        go = {
-          formatter = "gofumpt";
-        };
-        lua = {
-          formatter = "stylua";
-        };
-        TypeScript = {
-          language_servers = [ "typescript-language-servertsserver" ];
-        };
-      };
       lsp = {
         rust-analyzer = {
-          binary = {
-            path_lookup = true;
-          };
         };
         gopls = {
-          binary = {
-            path_lookup = true;
-          };
           settings = {
             gopls = {
               analyses = {
@@ -119,6 +100,10 @@
             };
           };
         };
+      };
+      telemetry = {
+        metrics = false;
+        diagnostics = false;
       };
     };
     userKeymaps = [
