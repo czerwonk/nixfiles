@@ -56,7 +56,7 @@
       project_panel = {
         hide_gitignore = true;
       };
-      format_on_save = true;
+      format_on_save = "on";
       features = {
         edit_prediction_provider = "copilot";
       };
