@@ -3,13 +3,12 @@
 {
   programs.zed-editor = {
     enable = true;
-    extensions = [ "kanagawa-themes" ];
     userSettings = {
       theme = "Kanagawa Wave";
       vim_mode = true;
       relative_line_numbers = true;
       ui_font_family = "JetBrains Mono";
-      ui_font_size = 14;
+      ui_font_size = 16;
       buffer_font_family = "JetBrains Mono";
       buffer_font_size = 14;
       cursor_blink = false;
@@ -193,4 +192,6 @@
       }
     ];
   };
+
+  home.file.".config/zed/themes/Kanagawa-Custom.json".source = ./Kanagawa-Custom.json;
 }
