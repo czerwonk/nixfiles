@@ -23,11 +23,6 @@
       remove_trailing_whitespace_on_save = true;
       scroll_beyond_last_line = "off";
       vertical_scroll_margin = 8;
-      diagnostics = {
-        inline = {
-          enabled = true;
-        };
-      };
       features = {
         edit_prediction_provider = "copilot";
       };
