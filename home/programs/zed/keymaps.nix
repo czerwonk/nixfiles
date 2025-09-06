@@ -33,13 +33,9 @@
         bindings = {
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "backspace" = "editor::SelectSmallerSyntaxNode";
-        };
-      }
-      {
-        context = "vim_operator == a || vim_operator == i || vim_operator == cs";
-        bindings = {
-          "q" = "vim::MiniQuotes";
-          "b" = "vim::MiniBrackets";
+
+          "ctrl-h" = "project_panel::ToggleFocus";
+          "ctrl-j" = "terminal_panel::ToggleFocus";
         };
       }
       {
@@ -52,9 +48,6 @@
       {
         context = "Editor && vim_mode == normal && !VimWaiting && !menu";
         bindings = {
-          "ctrl-h" = "project_panel::ToggleFocus";
-          "ctrl-j" = "terminal_panel::ToggleFocus";
-
           "g r" = "editor::FindAllReferences";
 
           "space rn" = "editor::Rename";
@@ -74,6 +67,13 @@
           "space F" = "editor::Format";
 
           "] h" = "editor::GoToHunk";
+        };
+      }
+      {
+        context = "vim_operator == a || vim_operator == i || vim_operator == cs";
+        bindings = {
+          "q" = "vim::MiniQuotes";
+          "b" = "vim::MiniBrackets";
         };
       }
       {
