@@ -6,6 +6,14 @@
         bindings = {
           "alt-h" = "project_panel::ToggleHideGitIgnore";
 
+          "ctrl-b" = "pane::ActivateNextItem";
+
+          "ctrl-t" = "terminal_panel::ToggleFocus";
+        };
+      }
+      {
+        context = "Workspace && !AssistantPanel";
+        bindings = {
           "space f f" = [
             "task::Spawn"
             {
@@ -22,10 +30,7 @@
           ];
           "space f k" = "zed::OpenKeymap";
 
-          "ctrl-b" = "pane::ActivateNextItem";
           "space w" = "pane::CloseActiveItem";
-
-          "ctrl-t" = "terminal_panel::ToggleFocus";
         };
       }
       {
