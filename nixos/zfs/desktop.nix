@@ -6,9 +6,9 @@
   ];
 
   boot.zfs.package = pkgs.zfs;
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_15;
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_16;
 
   environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_6_15.zfs_2_3
+    linuxKernel.packages.linux_6_16.zfs_2_3
   ];
 }
