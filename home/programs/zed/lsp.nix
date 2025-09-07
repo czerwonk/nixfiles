@@ -45,8 +45,6 @@
             formatting = {
               command = [
                 "${lib.getExe pkgs.nixfmt-rfc-style}"
-                "--stdin"
-                "--stdout"
               ];
             };
           };
