@@ -6,8 +6,6 @@
         bindings = {
           "alt-h" = "project_panel::ToggleHideGitIgnore";
 
-          "ctrl-b" = "pane::ActivateNextItem";
-
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
@@ -47,6 +45,8 @@
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
           "ctrl-j" = "terminal_panel::ToggleFocus";
+
+          "ctrl-b" = "pane::ActivateNextItem";
         };
       }
       {
