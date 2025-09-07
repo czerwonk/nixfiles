@@ -6,7 +6,7 @@
       ui_font_family = "JetBrains Mono";
       ui_font_size = 16;
       buffer_font_family = "JetBrains Mono";
-      buffer_font_size = 16;
+      buffer_font_size = 15;
     };
   };
 
