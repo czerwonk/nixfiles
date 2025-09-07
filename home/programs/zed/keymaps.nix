@@ -32,7 +32,7 @@
         context = "Editor";
         bindings = {
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
-          "backspace" = "editor::SelectSmallerSyntaxNode";
+          "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
 
           "ctrl-h" = "project_panel::ToggleFocus";
           "ctrl-j" = "terminal_panel::ToggleFocus";
