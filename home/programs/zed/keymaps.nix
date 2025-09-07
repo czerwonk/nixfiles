@@ -31,6 +31,7 @@
           "space f k" = "zed::OpenKeymap";
 
           "space w" = "pane::CloseActiveItem";
+          "space a" = "agent::ToggleFocus";
         };
       }
       {
@@ -39,9 +40,10 @@
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
 
-          "ctrl-h" = "project_panel::ToggleFocus";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
           "ctrl-j" = "terminal_panel::ToggleFocus";
-          "ctrl-l" = "agent::ToggleFocus";
         };
       }
       {
