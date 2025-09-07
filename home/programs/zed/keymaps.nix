@@ -8,7 +8,10 @@
 
           "ctrl-b" = "pane::ActivateNextItem";
 
-          "ctrl-t" = "terminal_panel::ToggleFocus";
+          "ctrl-h" = "workspace::ActivatePaneLeft";
+          "ctrl-l" = "workspace::ActivatePaneRight";
+          "ctrl-k" = "workspace::ActivatePaneUp";
+          "ctrl-j" = "terminal_panel::ToggleFocus";
         };
       }
       {
@@ -89,15 +92,6 @@
         bindings = {
           "ctrl-/" = "workspace::ToggleBottomDock";
           "ctrl-t" = "workspace::ToggleBottomDock";
-        };
-      }
-      {
-        context = "Dock";
-        bindings = {
-          "ctrl-w h" = "workspace::ActivatePaneLeft";
-          "ctrl-w l" = "workspace::ActivatePaneRight";
-          "ctrl-w k" = "workspace::ActivatePaneUp";
-          "ctrl-w j" = "workspace::ActivatePaneDown";
         };
       }
       {
