@@ -13,29 +13,6 @@
         };
       }
       {
-        context = "Workspace && !AgentPanel";
-        bindings = {
-          "space f f" = [
-            "task::Spawn"
-            {
-              task_name = "File Finder";
-              reveal_target = "center";
-            }
-          ];
-          "space f g" = [
-            "task::Spawn"
-            {
-              task_name = "Find in Files";
-              reveal_target = "center";
-            }
-          ];
-          "space f k" = "zed::OpenKeymap";
-
-          "space w" = "pane::CloseActiveItem";
-          "space a" = "agent::ToggleFocus";
-        };
-      }
-      {
         context = "Editor";
         bindings = {
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
@@ -59,8 +36,22 @@
       {
         context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AgentPanel";
         bindings = {
-          "g r" = "editor::FindAllReferences";
+          "space f f" = [
+            "task::Spawn"
+            {
+              task_name = "File Finder";
+              reveal_target = "center";
+            }
+          ];
+          "space f g" = [
+            "task::Spawn"
+            {
+              task_name = "Find in Files";
+              reveal_target = "center";
+            }
+          ];
 
+          "space w" = "pane::CloseActiveItem";
           "space rn" = "editor::Rename";
           "space h" = "editor::ToggleInlayHints";
           "space ," = "editor::ToggleCodeActions";
@@ -74,6 +65,8 @@
           "f10" = "debugger::StepOver";
           "f11" = "debugger::StepInto";
           "f12" = "debugger::StepOut";
+
+          "g r" = "editor::FindAllReferences";
 
           "space F" = "editor::Format";
 
