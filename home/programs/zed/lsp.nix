@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   programs.zed-editor = {
@@ -37,6 +37,17 @@
               includeInlayPropertyDeclarationTypeHints = true;
               includeInlayFunctionLikeReturnTypeHints = true;
               includeInlayEnumMemberValueHints = true;
+            };
+          };
+        };
+        nil = {
+          initialization_options = {
+            formatting = {
+              command = [
+                "${lib.getExe pkgs.nixfmt-rfc-style}"
+                "--stdin"
+                "--stdout"
+              ];
             };
           };
         };

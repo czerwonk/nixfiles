@@ -1,6 +1,7 @@
 {
   imports = [
     ./theme.nix
+    ./languages.nix
     ./lsp.nix
   ];
 
