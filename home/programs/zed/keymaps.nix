@@ -12,7 +12,7 @@
         };
       }
       {
-        context = "Workspace && !AssistantPanel";
+        context = "Workspace && !AgentPanel";
         bindings = {
           "space f f" = [
             "task::Spawn"
@@ -52,7 +52,7 @@
         };
       }
       {
-        context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AssistantPanel";
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AgentPanel";
         bindings = {
           "g r" = "editor::FindAllReferences";
 
