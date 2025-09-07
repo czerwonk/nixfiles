@@ -52,7 +52,7 @@
         };
       }
       {
-        context = "Editor && vim_mode == normal && !VimWaiting && !menu";
+        context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AssistantPanel";
         bindings = {
           "g r" = "editor::FindAllReferences";
 
