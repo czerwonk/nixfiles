@@ -36,8 +36,8 @@
         show_branch_icon = true;
       };
       toolbar = {
-        breadcrumbs = true;
-        code_actions = true;
+        breadcrumbs = false;
+        code_actions = false;
         quick_actions = false;
         selections_menu = false;
       };
