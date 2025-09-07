@@ -36,6 +36,7 @@
 
           "ctrl-h" = "project_panel::ToggleFocus";
           "ctrl-j" = "terminal_panel::ToggleFocus";
+          "crtl-l" = "agent::ToggleFocus";
         };
       }
       {
