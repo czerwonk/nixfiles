@@ -13,6 +13,25 @@
         };
       }
       {
+        context = "EmptyPane";
+        bindings = {
+          "space f f" = [
+            "task::Spawn"
+            {
+              task_name = "File Finder";
+              reveal_target = "center";
+            }
+          ];
+          "space f g" = [
+            "task::Spawn"
+            {
+              task_name = "Find in Files";
+              reveal_target = "center";
+            }
+          ];
+        };
+      }
+      {
         context = "Editor";
         bindings = {
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
