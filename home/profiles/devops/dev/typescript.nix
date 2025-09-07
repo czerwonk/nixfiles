@@ -6,6 +6,7 @@
       typescript
       prettierd
       eslint
+      typescript-language-server
     ];
   };
 }

@@ -5,6 +5,7 @@
     packages = with pkgs; [
       delve
       go
+      gopls
       protobuf
       protoc-gen-go
       protoc-gen-go-grpc

@@ -78,19 +78,14 @@ with lib;
         [
           ansible-language-server
           cargo-nextest
-          gopls
           helm-ls
           marksman
           nil
           nixfmt-rfc-style
-          pyright
-          rust-analyzer
           shfmt
-          solargraph
           stylua
           sumneko-lua-language-server
           terraform-ls
-          typescript-language-server
         ]
         ++ (with pkgs.nodePackages; [
           bash-language-server

@@ -1,9 +1,9 @@
+{ pkgs, ... }:
+
 {
   programs.zed-editor = {
     userSettings = {
       lsp = {
-        rust-analyzer = {
-        };
         gopls = {
           settings = {
             gopls = {
@@ -44,4 +44,9 @@
     };
   };
 
+  home.packages = with pkgs; [
+    marksman
+    nil
+    terraform-ls
+  ];
 }
