@@ -71,7 +71,7 @@
           ];
 
           "space w" = "pane::CloseActiveItem";
-          "space rn" = "editor::Rename";
+          "space r n" = "editor::Rename";
           "space h" = "editor::ToggleInlayHints";
           "space ," = "editor::ToggleCodeActions";
           "space o" = "outline::Toggle";
