@@ -73,6 +73,7 @@
           "space w" = "pane::CloseActiveItem";
           "space r n" = "editor::Rename";
           "space h" = "editor::ToggleInlayHints";
+          "space x" = "editor::ToggleInlineDiagnostics";
           "space ," = "editor::ToggleCodeActions";
           "space o" = "outline::Toggle";
           "space y" = "editor::Copy";
