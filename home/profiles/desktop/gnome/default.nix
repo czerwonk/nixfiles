@@ -16,6 +16,7 @@ with lib.gvariant;
         "ghostty.desktop"
         "librewolf.desktop"
         "thunderbird.desktop"
+        "dev.zed.Zed.desktop"
       ];
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
@@ -72,6 +73,7 @@ with lib.gvariant;
       workspace-names = [
         "Terminal"
         "Web"
+        "Code"
         "Mail"
       ];
     };
@@ -129,9 +131,9 @@ with lib.gvariant;
       application-list = [
         "ghostty.desktop:1"
         "librewolf.desktop:2"
-        "thunderbird.desktop:3"
-        "org.gnome.Fractal.desktop:4"
-        "Mattermost.desktop:4"
+        "dev.zed.Zed.desktop:3"
+        "thunderbird.desktop:4"
+        "Mattermost.desktop:5"
         "teams-for-linux.desktop:9"
       ];
     };
