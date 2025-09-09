@@ -114,6 +114,7 @@
           "a" = "project_panel::NewFile";
           "r" = "project_panel::Rename";
           "l" = "project_panel::Open";
+          "d" = "project_panel::Delete";
           "ctrl-l" = "workspace::ActivatePaneRight";
         };
       }
