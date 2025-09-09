@@ -78,6 +78,7 @@
           "space o" = "outline::Toggle";
           "space y" = "editor::Copy";
           "space p" = "editor::Paste";
+          "space g" = "editor::BlameHover";
 
           "space d b" = "editor::ToggleBreakpoint";
           "space d c" = "debugger::Continue";
