@@ -2,7 +2,6 @@
 
 {
   security.allowUserNamespaces = true;
-  nix.settings.sandbox = true;
   nix.settings.download-buffer-size = 524288000;
 
   boot.kernelParams = [ "panic=0" ];

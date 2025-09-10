@@ -17,7 +17,7 @@
   users.mutableUsers = false;
 
   nix.settings.allowed-users = [ "@users" ];
-  nix.settings.sandbox = lib.mkDefault false;
+  nix.settings.sandbox = lib.mkDefault true;
 
   boot.kernelPackages = lib.mkOverride 500 pkgs.linuxKernel.kernels.linux_6_12_hardened;
 
