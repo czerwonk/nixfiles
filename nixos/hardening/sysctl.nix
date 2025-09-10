@@ -8,6 +8,7 @@
 
     "kernel.ctrl-alt-del" = false;
     "kernel.core_uses_pid" = true;
+    "kernel.core_pattern" = "|/dev/null";
     "kernel.dmesg_restrict" = true;
     "kernel.kptr_restrict" = 2;
     "kernel.randomize_va_space" = 2;
