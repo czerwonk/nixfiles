@@ -53,6 +53,12 @@
         };
       }
       {
+        context = "Editor && vim_mode == insert && !VimWaiting && !menu";
+        bindings = {
+          "ctrl-x" = "editor::ShowCompletions";
+        };
+      }
+      {
         context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AgentPanel";
         bindings = {
           "space f f" = [
