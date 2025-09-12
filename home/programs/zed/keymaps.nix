@@ -34,9 +34,6 @@
       {
         context = "Editor";
         bindings = {
-          "ctrl-space" = "editor::SelectLargerSyntaxNode";
-          "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
-
           "ctrl-h" = "workspace::ActivatePaneLeft";
           "ctrl-l" = "workspace::ActivatePaneRight";
           "ctrl-k" = "workspace::ActivatePaneUp";
@@ -46,21 +43,27 @@
         };
       }
       {
+        context = "Editor && vim_mode == insert && !VimWaiting && !menu";
+        bindings = {
+          "ctrl-space" = "editor::ShowCompletions";
+        };
+      }
+      {
         context = "Editor && vim_mode == visual && !VimWaiting && !menu";
         bindings = {
+          "ctrl-space" = "editor::ShowCompletions";
+          "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
+
           "u" = null; # Disabled to prevent accidental lowercase conversion
           "U" = null; # Disabled to prevent accidental uppercase conversion
         };
       }
       {
-        context = "Editor && vim_mode == insert && !VimWaiting && !menu";
-        bindings = {
-          "ctrl-x" = "editor::ShowCompletions";
-        };
-      }
-      {
         context = "Editor && vim_mode == normal && !VimWaiting && !menu && !AgentPanel";
         bindings = {
+          "ctrl-space" = "editor::SelectLargerSyntaxNode";
+          "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
+
           "space f f" = [
             "task::Spawn"
             {
