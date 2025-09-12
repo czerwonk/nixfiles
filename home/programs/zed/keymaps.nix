@@ -51,7 +51,7 @@
       {
         context = "Editor && vim_mode == visual && !VimWaiting && !menu";
         bindings = {
-          "ctrl-space" = "editor::ShowCompletions";
+          "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
 
           "u" = null; # Disabled to prevent accidental lowercase conversion
