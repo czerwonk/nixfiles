@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.mastodon;
-  version = "4.4.3";
+  version = "4.4.4";
   backup = pkgs.writeShellScriptBin "mastodon-db-backup" (builtins.readFile ./db-backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
   env = {
