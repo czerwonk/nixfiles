@@ -4,7 +4,6 @@
   imports = [
     ../../home
     ../../home/profiles/linux-utils
-    ../../home/programs/hakanai
   ]
   ++ extraHomeModules;
 
