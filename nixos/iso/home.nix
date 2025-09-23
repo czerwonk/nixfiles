@@ -4,7 +4,9 @@
   imports = [
     ../../home
     ../../home/profiles/linux-utils
-  ] ++ extraHomeModules;
+    ../../home/programs/hakanai
+  ]
+  ++ extraHomeModules;
 
   programs.tmux = {
     shortcut = "b";
