@@ -38,6 +38,8 @@ loki.write "default" {
 }
 
 otelcol.exporter.prometheus "otel" {
+  resource_to_telemetry_conversion = true
+
   forward_to = [prometheus.remote_write.default.receiver]
 }
 
