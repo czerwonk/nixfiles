@@ -52,7 +52,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-label/swap";
+      device = "/dev/disk/by-uuid/1234-5678";
       randomEncryption = true;
     }
   ];
