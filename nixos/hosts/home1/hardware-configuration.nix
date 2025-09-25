@@ -24,7 +24,7 @@
   boot.kernelModules = [ "kvm-intel" ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/67E3-17ED";
+    device = "/dev/disk/by-uuid/3716-818B";
     fsType = "vfat";
   };
 
