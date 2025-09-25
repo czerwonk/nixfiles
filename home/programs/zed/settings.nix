@@ -12,8 +12,8 @@
       vim = {
         use_system_clipboard = "never";
         use_smartcase_find = true;
+        toggle_relative_line_numbers = true;
       };
-      relative_line_numbers = true;
       cursor_blink = false;
       hide_mouse = "on_typing_and_movement";
       tab_size = 2;
