@@ -19,4 +19,5 @@
   ];
 
   services.zfs.trim.enable = true;
+  services.zfs.autoScrub.enable = true;
 }
