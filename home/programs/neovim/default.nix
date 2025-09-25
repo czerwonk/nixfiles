@@ -13,6 +13,7 @@
     extraLuaConfig = ''
       ${lib.readFile ./lua/options.lua}
       ${lib.readFile ./lua/keymap.lua}
+      ${lib.readFile ./lua/autocmd.lua}
       ${lib.readFile ./lua/diagnostic.lua}
       ${lib.readFile ./lua/editorfile.lua}
       ${lib.readFile ./lua/abbreviations.lua}
