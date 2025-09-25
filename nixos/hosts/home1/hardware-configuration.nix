@@ -52,7 +52,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/1234-5678";
+      device = "/dev/disk/by-partuuid/72c0fb39-7bc0-4dda-960d-82a91c820db2";
       randomEncryption = true;
     }
   ];
