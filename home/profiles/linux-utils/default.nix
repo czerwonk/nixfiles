@@ -7,6 +7,7 @@
       btrfs-progs
       bubblewrap
       cifs-utils
+      cryptsetup
       iftop
       inotify-tools
       iotop
