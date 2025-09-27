@@ -50,12 +50,12 @@
     neededForBoot = true;
   };
 
-  swapDevices = [
-    {
-      device = "/dev/disk/by-partuuid/72c0fb39-7bc0-4dda-960d-82a91c820db2";
-      randomEncryption = true;
-    }
-  ];
+  # swapDevices = [
+  #   {
+  #     device = "/dev/disk/by-partuuid/72c0fb39-7bc0-4dda-960d-82a91c820db2";
+  #     randomEncryption = true;
+  #   }
+  # ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
