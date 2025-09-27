@@ -24,7 +24,7 @@
   boot.kernelModules = [ "kvm-intel" ];
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3716-818B";
+    device = "/dev/disk/by-uuid/EA48-F7ED";
     fsType = "vfat";
   };
 
@@ -50,12 +50,12 @@
     neededForBoot = true;
   };
 
-  # swapDevices = [
-  #   {
-  #     device = "/dev/disk/by-partuuid/72c0fb39-7bc0-4dda-960d-82a91c820db2";
-  #     randomEncryption = true;
-  #   }
-  # ];
+  swapDevices = [
+    {
+      device = "/dev/disk/by-partuuid/48c9e3ec-7185-4037-b18a-58d556925542";
+      randomEncryption = true;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
