@@ -61,6 +61,19 @@ in
           }
         ];
       };
+      settings = {
+        lapi = {
+          credentialsFile = "/var/lib/crowdsec/local_api_credentials.yaml";
+        };
+        general = {
+          api = {
+            server = {
+              enable = true;
+              listen_uri = "127.0.0.1:8000";
+            };
+          };
+        };
+      };
     };
 
     systemd.services.crowdsec = {
