@@ -10,8 +10,8 @@ with lib;
 let
   cfg = config.my.services.crowdsec;
   registerBouncer = pkgs.writeShellScript "crowdsec-register-bouncer" ''
-    if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
-      cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
+    if ! /run/current-system/sw/bin/cscli bouncers list | ${lib.getExe pkgs.gnugrep} -q 'firewall-bouncer'; then
+      /run/current-system/sw/bin/cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
     fi
   '';
 
@@ -78,10 +78,6 @@ in
 
     systemd.services.crowdsec = {
       wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
-      path = with pkgs; [
-        crowdsec
-        gnugrep
-      ];
       serviceConfig = {
         ExecStartPre = lib.mkIf (cfg.enableMitigation) [ registerBouncer ];
       };
