@@ -32,6 +32,12 @@ in
         description = "Wether to start crowdsec on boot";
       };
 
+      metricsListenAddr = mkOption {
+        type = types.str;
+        default = "127.0.0.1";
+        description = "Address to listen for metrics calls";
+      };
+
       enableMitigation = mkOption {
         type = types.bool;
         default = true;
@@ -71,6 +77,9 @@ in
               enable = true;
               listen_uri = "127.0.0.1:8000";
             };
+          };
+          prometheus = {
+            listen_addr = cfg.metricsListenAddr;
           };
         };
       };
