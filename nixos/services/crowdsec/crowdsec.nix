@@ -63,9 +63,11 @@ in
       };
       settings = {
         general = {
-          api.server = {
-            enable = true;
-            listen_uri = "127.0.0.1:8000";
+          api = {
+            server = {
+              enable = true;
+              listen_uri = "127.0.0.1:8000";
+            };
           };
         };
       };
