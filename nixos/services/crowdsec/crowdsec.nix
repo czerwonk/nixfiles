@@ -80,7 +80,7 @@ in
       wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
       path = with pkgs; [
         crowdsec
-        grep
+        gnugrep
       ];
       serviceConfig = {
         ExecStartPre = lib.mkIf (cfg.enableMitigation) [ registerBouncer ];
