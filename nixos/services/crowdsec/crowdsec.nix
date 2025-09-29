@@ -8,6 +8,11 @@ with lib;
 
 let
   cfg = config.my.services.crowdsec;
+  registerBouncer = pkgs.writeShellScript "crowdsec-register-bouncer" ''
+    if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
+      cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
+    fi
+  '';
 
 in
 {
@@ -65,11 +70,7 @@ in
     systemd.services.crowdsec = {
       wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
       serviceConfig = {
-        ExecStartPre = lib.mkAfter ''
-          if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
-            cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
-          fi
-        '';
+        ExecStartPre = lib.mkIf (cfg.enableMitigation) [ registerBouncer ];
       };
     };
 
