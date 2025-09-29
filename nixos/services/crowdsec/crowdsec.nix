@@ -1,8 +1,6 @@
 {
-  pkgs,
   lib,
   config,
-  username,
   ...
 }:
 
@@ -49,86 +47,41 @@ in
   };
 
   config = mkIf cfg.enable {
-    users.users.${username} = {
-      packages = with pkgs; [
-        crowdsec
-      ];
-    };
-
-    security.allowUserNamespaces = true;
-
     services.crowdsec = {
       enable = true;
-      package = pkgs.crowdsec;
-      allowLocalJournalAccess = true;
-      acquisitions = [
-        {
-          source = "journalctl";
-          journalctl_filter = [ "_SYSTEMD_UNIT=sshd.service" ];
-          labels.type = "syslog";
-        }
-        {
-          source = "journalctl";
-          journalctl_filter = [ "-k" ];
-          labels.type = "syslog";
-        }
-        {
-          filenames = [ "/var/log/audit/*.log" ];
-          labels.type = "auditd";
-        }
-      ];
+      localConfig = {
+        acquisitions = [
+          {
+            source = "journalctl";
+            journalctl_filter = [ "_SYSTEMD_UNIT=sshd.service" ];
+            labels.type = "syslog";
+          }
+          {
+            source = "journalctl";
+            journalctl_filter = [ "-k" ];
+            labels.type = "syslog";
+          }
+          {
+            filenames = [ "/var/log/audit/*.log" ];
+            labels.type = "auditd";
+          }
+        ];
+      };
       settings = {
-        api.server = {
-          enable = true;
-          listen_uri = "127.0.0.1:8000";
-        };
-        cscli = {
-          output = "human";
-          color = "auto";
-        };
-        prometheus = {
-          enabled = true;
-          level = "full";
-          listen_addr = cfg.metricsListenAddr;
-          listen_port = 6060;
+        general = {
+          api.server.listen_uri = "127.0.0.1:8000";
         };
       };
-      extraExecStartPre = ''
-        ${lib.concatLines (
-          map (collection: ''
-            if ! cscli collections list | grep -q '${collection}'; then
-              cscli collections install ${collection}
-            fi
-          '') cfg.collections
-        )}
-
-        if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
-          cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
-        fi
-      '';
     };
-    systemd.services.crowdsec.wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
 
-    services.crowdsec-firewall-bouncer = {
-      enable = cfg.enableMitigation;
-      settings = {
-        api_key = cfg.bouncerApiKey;
-        api_url = "http://127.0.0.1:8000";
-        mode = "nftables";
-        blacklists_ipv4 = "blocklist-v4";
-        blacklists_ipv6 = "blocklist-v6";
-        nftables = {
-          ipv4 = {
-            table = "nixos-fw";
-            enabled = true;
-            set-only = true;
-          };
-          ipv6 = {
-            table = "nixos-fw";
-            enabled = true;
-            set-only = true;
-          };
-        };
+    systemd.services.crowdsec = {
+      wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
+      serviceConfig = {
+        ExecStartPre = lib.mkAfter ''
+          if ! cscli bouncers list | grep -q 'firewall-bouncer'; then
+            cscli bouncers add "firewall-bouncer" --key "${cfg.bouncerApiKey}"
+          fi
+        '';
       };
     };
 

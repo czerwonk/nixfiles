@@ -29,6 +29,8 @@ in
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
       claude-code = pkgs-unstable.claude-code;
+      crowdsec = pkgs-unstable.crowdsec;
+      crowdsec-firewall-bouncer = pkgs-unstable.crowdsec-firewall-bouncer;
       gemini-cli = pkgs-unstable.gemini-cli;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;

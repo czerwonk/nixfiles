@@ -1,16 +1,14 @@
 { inputs, ... }:
 
 {
-  nixpkgs.overlays = [ inputs.crowdsec.overlays.default ];
-
   imports = [
-    inputs.crowdsec.nixosModules.crowdsec
-    inputs.crowdsec.nixosModules.crowdsec-firewall-bouncer
+    "${inputs.nixpkgs-unstable}/nixos/modules/services/security/crowdsec.nix"
     ./crowdsec.nix
+    ./bouncer.nix
     ./caddy.nix
   ];
 
-  my.services.crowdsec.collections = [
+  services.crowdsec.hub.collections = [
     "crowdsecurity/linux"
     "crowdsecurity/iptables"
     "crowdsecurity/auditd"

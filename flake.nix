@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    crowdsec = {
-      url = "github:czerwonk/nix-flake-crowdsec";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     impermanence.url = "github:nix-community/impermanence?ref=4b3e914cdf97a5b536a889e939fb2fd2b043a170";
 
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
