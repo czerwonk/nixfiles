@@ -61,15 +61,6 @@ in
           }
         ];
       };
-      settings = {
-        general = {
-          api = {
-            server = {
-              listen_uri = "127.0.0.1:8000";
-            };
-          };
-        };
-      };
     };
 
     systemd.services.crowdsec = {
