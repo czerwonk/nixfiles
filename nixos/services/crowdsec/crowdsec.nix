@@ -78,6 +78,10 @@ in
 
     systemd.services.crowdsec = {
       wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
+      path = [
+        pkgs.crowdsec
+        pkgs.grep
+      ];
       serviceConfig = {
         ExecStartPre = lib.mkIf (cfg.enableMitigation) [ registerBouncer ];
       };
