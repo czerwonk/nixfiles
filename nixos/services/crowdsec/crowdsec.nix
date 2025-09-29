@@ -20,18 +20,6 @@ in
         description = "API key to use for bouncer to communicate with the crowdsec engine";
       };
 
-      collections = mkOption {
-        type = types.listOf types.str;
-        default = [ ];
-        description = "Collections to install";
-      };
-
-      metricsListenAddr = mkOption {
-        type = types.str;
-        default = "127.0.0.1";
-        description = "Address to listen for metrics calls";
-      };
-
       autoStart = mkOption {
         type = types.bool;
         default = true;
