@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.crowdsec;
-  configFile = ''
+  configFile = lib.writeText "crowdsec-firewall-bouncer.yaml" ''
     api_key: ${cfg.bouncerApiKey}
     api_url: http://127.0.0.1:8000
     blacklists_ipv4: blocklist-v4
