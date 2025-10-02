@@ -40,6 +40,9 @@
           "ctrl-j" = "terminal_panel::ToggleFocus";
 
           "ctrl-b" = "pane::ActivateNextItem";
+
+          "ctrl-shift-c" = "editor::Copy";
+          "ctrl-shift-v" = "editor::Paste";
         };
       }
       {
@@ -85,8 +88,6 @@
           "space x" = "editor::ToggleInlineDiagnostics";
           "space ," = "editor::ToggleCodeActions";
           "space o" = "outline::Toggle";
-          "space y" = "editor::Copy";
-          "space p" = "editor::Paste";
           "space g" = "editor::BlameHover";
 
           "space d b" = "editor::ToggleBreakpoint";
