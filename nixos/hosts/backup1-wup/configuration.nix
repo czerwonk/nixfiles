@@ -26,6 +26,8 @@
     ];
   };
 
+  nix.settings.sandbox = false;
+
   routing-rocks.bird.enable = true;
 
   services.prometheus.exporters.bird = {
