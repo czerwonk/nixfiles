@@ -91,7 +91,6 @@
             inputs.private.mauve.home
             {
               mauve.overrides.git = true;
-              programs.neovim.withLLM = true;
               programs.neovim.withCoding = true;
             }
           ];
