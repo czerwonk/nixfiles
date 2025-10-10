@@ -46,6 +46,12 @@
         };
       }
       {
+        context = "Editor && vim_mode == insert && inline_completion";
+        bindings = {
+          "ctrl-l" = "editor::AcceptInlineCompletion";
+        };
+      }
+      {
         context = "Editor && vim_mode == insert && !VimWaiting && !menu";
         bindings = {
           "ctrl-space" = "editor::ShowCompletions";
