@@ -49,6 +49,7 @@
       appimage-run
       bitwarden
       bruno
+      cameractrls-gtk4
       filezilla
       calibre
       foliate
