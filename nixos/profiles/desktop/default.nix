@@ -49,11 +49,10 @@
       appimage-run
       bitwarden
       bruno
+      calibre
       cameractrls-gtk4
       filezilla
-      calibre
       foliate
-      fractal
       google-chrome
       libreoffice
       lima
@@ -64,9 +63,9 @@
       termius
       veracrypt
       vlc
-      wgnord
       wireshark
       xsel
+      yubioath-flutter
     ];
     extraGroups = [ "wireshark" ];
   };
