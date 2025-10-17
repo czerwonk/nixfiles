@@ -9,6 +9,7 @@
 {
   imports = [
     ../../programs/ghostty
+    ../../programs/zed
     ./librewolf.nix
   ];
 
@@ -18,8 +19,6 @@
   };
 
   programs.tmux.mouse = true;
-
-  programs.neovim.withCoding = true;
 
   services.gpg-agent.enable = true;
 

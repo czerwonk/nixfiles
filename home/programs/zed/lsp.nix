@@ -1,61 +1,77 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+
+with lib;
 
 {
-  programs.zed-editor = {
-    userSettings = {
-      lsp = {
-        gopls = {
-          settings = {
-            gopls = {
-              analyses = {
-                unusedparams = true;
-                nilness = true;
-                shadow = true;
-                unusedwrite = true;
-                useany = true;
-              };
-              staticcheck = true;
-              codelenses = {
-                generate = true;
-                gc_details = true;
-                test = true;
-                tidy = true;
-                upgrade_dependency = true;
-                vendor = true;
+  options = {
+    programs.zed-editor.withCoding = mkOption {
+      type = types.bool;
+      default = false;
+    };
+  };
+
+  config = mkIf config.programs.zed-editor.withCoding {
+    programs.zed-editor = {
+      userSettings = {
+        lsp = {
+          gopls = {
+            settings = {
+              gopls = {
+                analyses = {
+                  unusedparams = true;
+                  nilness = true;
+                  shadow = true;
+                  unusedwrite = true;
+                  useany = true;
+                };
+                staticcheck = true;
+                codelenses = {
+                  generate = true;
+                  gc_details = true;
+                  test = true;
+                  tidy = true;
+                  upgrade_dependency = true;
+                  vendor = true;
+                };
               };
             };
           };
-        };
-        typescript-language-server = {
-          initialization_options = {
-            preferences = {
-              includeInlayParameterNameHints = "all";
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-              includeInlayFunctionParameterTypeHints = true;
-              includeInlayVariableTypeHints = true;
-              includeInlayVariableTypeHintsWhenTypeMatchesName = true;
-              includeInlayPropertyDeclarationTypeHints = true;
-              includeInlayFunctionLikeReturnTypeHints = true;
-              includeInlayEnumMemberValueHints = true;
+          typescript-language-server = {
+            initialization_options = {
+              preferences = {
+                includeInlayParameterNameHints = "all";
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                includeInlayFunctionParameterTypeHints = true;
+                includeInlayVariableTypeHints = true;
+                includeInlayVariableTypeHintsWhenTypeMatchesName = true;
+                includeInlayPropertyDeclarationTypeHints = true;
+                includeInlayFunctionLikeReturnTypeHints = true;
+                includeInlayEnumMemberValueHints = true;
+              };
             };
           };
-        };
-        nil = {
-          initialization_options = {
-            formatting = {
-              command = [
-                "${lib.getExe pkgs.nixfmt-rfc-style}"
-              ];
+          nil = {
+            initialization_options = {
+              formatting = {
+                command = [
+                  "${lib.getExe pkgs.nixfmt-rfc-style}"
+                ];
+              };
             };
           };
         };
       };
     };
-  };
 
-  home.packages = with pkgs; [
-    marksman
-    nil
-    terraform-ls
-  ];
+    home.packages = with pkgs; [
+      marksman
+      nil
+      terraform-ls
+    ];
+  };
 }

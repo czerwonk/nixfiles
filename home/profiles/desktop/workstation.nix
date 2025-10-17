@@ -1,6 +1,8 @@
 {
   imports = [
     ../agentic-coding
-    ../../programs/zed
   ];
+
+  programs.neovim.withCoding = true;
+  programs.zed-editor.withCoding = true;
 }
