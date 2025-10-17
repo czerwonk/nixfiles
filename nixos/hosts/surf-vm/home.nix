@@ -7,6 +7,8 @@
     ../../../home/programs/fzf
     ../../../home/programs/ghostty
     ../../../home/programs/hakanai
+    ../../../home/programs/neovim
+    ../../../home/programs/zed
     ../../../home/programs/zsh
     ../../../home/profiles/desktop/librewolf.nix
   ]
