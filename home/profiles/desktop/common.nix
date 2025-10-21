@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   username,
   ...
 }:
@@ -11,10 +10,10 @@
     ../../programs/ghostty
     ../../programs/zed
     ./librewolf.nix
+    ./ycode.nix
   ];
 
   programs.zsh.shellAliases = {
-    ycode = "${lib.getExe pkgs.yubikey-manager} oath accounts code | ${lib.getExe config.programs.fzf.package} --tmux";
     bww = "BITWARDENCLI_APPDATA_DIR='/home/${username}/.config/Bitwarden CLI Work' ${lib.getExe pkgs.bitwarden-cli} $@";
   };
 
@@ -25,7 +24,6 @@
   home = {
     packages = with pkgs; [
       bitwarden-cli
-      zbar
     ];
   };
 
