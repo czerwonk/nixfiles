@@ -3,25 +3,23 @@
 {
   programs.git = {
     enable = lib.mkDefault true;
-    aliases = {
-      br = "branch";
-      c = "commit -a -m";
-      ca = "!git add -A && git commit -m";
-      co = "checkout";
-      f = "fetch";
-      ignores = "ls-files -o -i --exclude-standard";
-      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-      ls = "ls-files";
-      p = "pull";
-      pu = "push";
-      rb = "rebase";
-      st = "status";
-      sw = "switch";
-    };
-    ignores = [
-      "coverage.out"
-    ];
-    extraConfig = {
+    settings = {
+      aliases = {
+        br = "branch";
+        c = "commit -a -m";
+        ca = "!git add -A && git commit -m";
+        co = "checkout";
+        f = "fetch";
+        ignores = "ls-files -o -i --exclude-standard";
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        ls = "ls-files";
+        p = "pull";
+        pu = "push";
+        rb = "rebase";
+        st = "status";
+        sw = "switch";
+      };
+
       extensions.worktreeConfig = true;
 
       branch = {
@@ -88,6 +86,9 @@
 
       rerere.enabled = true;
     };
+    ignores = [
+      "coverage.out"
+    ];
   };
 
   programs.zsh.shellAliases = {

@@ -5,7 +5,7 @@
     ../common.nix
   ];
 
-  services.xserver = {
+  services = {
     desktopManager.gnome = {
       extraGSettingsOverridePackages = [ pkgs.mutter ];
       extraGSettingsOverrides = ''

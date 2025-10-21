@@ -76,7 +76,6 @@ with lib;
       extraPackages =
         with pkgs;
         [
-          ansible-language-server
           cargo-nextest
           helm-ls
           marksman
@@ -89,7 +88,7 @@ with lib;
         ]
         ++ (with pkgs.nodePackages; [
           bash-language-server
-          dockerfile-language-server-nodejs
+          dockerfile-language-server
           yaml-language-server
         ]);
     };

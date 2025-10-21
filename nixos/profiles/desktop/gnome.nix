@@ -1,19 +1,18 @@
 { pkgs, lib, ... }:
 
 {
-  services.xserver = {
-    displayManager.gdm = {
-      enable = lib.mkDefault true;
-      wayland = lib.mkDefault true;
-    };
-    desktopManager.gnome = {
-      enable = lib.mkDefault true;
-      extraGSettingsOverridePackages = [ pkgs.mutter ];
-      extraGSettingsOverrides = ''
-        [org.gnome.mutter]
-        experimental-features=['scale-monitor-framebuffer']
-      '';
-    };
+  services.displayManager.gdm = {
+    enable = lib.mkDefault true;
+    wayland = lib.mkDefault true;
+  };
+
+  services.desktopManager.gnome = {
+    enable = lib.mkDefault true;
+    extraGSettingsOverridePackages = [ pkgs.mutter ];
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
   };
 
   services.gnome = {

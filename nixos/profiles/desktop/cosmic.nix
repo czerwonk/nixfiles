@@ -1,13 +1,14 @@
 { lib, ... }:
 
 {
-  services.displayManager.cosmic-greeter.enable = true;
+  services.displayManager = {
+    cosmic-greeter.enable = true;
+    gdm.enable = lib.mkForce false;
+  };
 
-  services.desktopManager.cosmic.enable = true;
-
-  services.xserver = {
-    displayManager.gdm.enable = lib.mkForce false;
-    desktopManager.gnome.enable = lib.mkForce false;
+  services.desktopManager = {
+    cosmic.enable = true;
+    gnome.enable = lib.mkForce false;
   };
 
   environment.sessionVariables = {
