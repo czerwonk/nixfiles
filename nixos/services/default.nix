@@ -2,6 +2,7 @@
   imports = [
     ./alloy
     ./audiobookshelf
+    ./bentopdf
     ./calibre-web
     ./crowdsec
     ./forgejo

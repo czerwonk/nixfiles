@@ -32,6 +32,7 @@
   my.services.openssh-server.openFirewall = false;
 
   my.services.audiobookshelf.enable = true;
+  my.services.bentopdf.enable = true;
   my.services.calibre-web.enable = true;
   my.services.immich.enable = true;
   my.services.jellyfin.enable = true;
