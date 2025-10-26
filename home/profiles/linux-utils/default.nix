@@ -3,7 +3,6 @@
 {
   home = {
     packages = with pkgs; [
-      bcachefs-tools
       btrfs-progs
       bubblewrap
       cifs-utils
