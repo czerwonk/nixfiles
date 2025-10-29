@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.bentopdf;
-  version = "v1.1.1";
+  version = "v1.1.5";
 
 in
 {
@@ -34,15 +34,14 @@ in
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
+        user = "2000:2000";
 
         environment = {
           TZ = "Europe/Berlin";
-          PUID = "1000";
-          PGID = "1000";
         };
 
         ports = [
-          "127.0.0.1:8088:80"
+          "127.0.0.1:8088:8080"
         ];
       };
     };
