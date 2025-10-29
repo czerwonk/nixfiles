@@ -34,7 +34,7 @@ in
         extraOptions = [
           "--runtime=${pkgs.gvisor}/bin/runsc"
         ];
-        user = "2000:2000";
+        user = "101:101";
 
         environment = {
           TZ = "Europe/Berlin";
