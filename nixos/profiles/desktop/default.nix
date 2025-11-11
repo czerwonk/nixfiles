@@ -55,7 +55,6 @@
       foliate
       google-chrome
       libreoffice
-      lima
       mattermost-desktop
       mysql-workbench
       nextcloud-client
