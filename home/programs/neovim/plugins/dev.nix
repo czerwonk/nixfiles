@@ -78,12 +78,12 @@ with lib;
         [
           cargo-nextest
           helm-ls
+          lua-language-server
           marksman
           nil
           nixfmt-rfc-style
           shfmt
           stylua
-          sumneko-lua-language-server
           terraform-ls
         ]
         ++ (with pkgs.nodePackages; [

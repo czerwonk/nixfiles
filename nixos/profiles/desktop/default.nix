@@ -47,7 +47,7 @@
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
-      bitwarden
+      bitwarden-desktop
       bruno
       calibre
       cameractrls-gtk4

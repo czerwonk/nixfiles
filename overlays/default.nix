@@ -27,23 +27,19 @@ in
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
     })
     (self: super: {
-      ansible = super.ansible.override { windowsSupport = true; };
       claude-code = pkgs-unstable.claude-code;
-      crowdsec = pkgs-unstable.crowdsec;
-      crowdsec-firewall-bouncer = pkgs-unstable.crowdsec-firewall-bouncer;
       gemini-cli = pkgs-unstable.gemini-cli;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
-      ollama-rocm = pkgs-unstable.ollama-rocm;
       opencode = pkgs-unstable.opencode;
       termius = pkgs-unstable.termius;
       vimPlugins = pkgs-unstable.vimPlugins;
       zed-editor = pkgs-unstable.zed-editor;
     })
+    (self: super: {
+      ansible = super.ansible.override { windowsSupport = true; };
+    })
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)
-    (self: super: {
-      termius = pkgs.callPackage ../pkgs/termius { };
-    })
   ];
 }

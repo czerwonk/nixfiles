@@ -7,7 +7,7 @@
       coreutils
       curl
       dejavu_fonts
-      du-dust
+      dust
       expect
       eza
       fd
