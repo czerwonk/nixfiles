@@ -47,14 +47,12 @@
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
-      bitwarden-desktop
       ausweisapp
-      bitwarden
+      bitwarden-desktop
       bruno
       calibre
       cameractrls-gtk4
       filezilla
-      foliate
       google-chrome
       libreoffice
       mattermost-desktop
