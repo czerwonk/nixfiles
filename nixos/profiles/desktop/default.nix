@@ -48,6 +48,8 @@
     packages = with pkgs; [
       appimage-run
       bitwarden-desktop
+      ausweisapp
+      bitwarden
       bruno
       calibre
       cameractrls-gtk4
