@@ -294,11 +294,11 @@
     },
     "routing-rocks-policy": {
       "locked": {
-        "lastModified": 1747486436,
-        "narHash": "sha256-Xmesf0uOPCfzpV/bvZRKqP9L0mLZonHxBmM7iUM7Ufw=",
+        "lastModified": 1764524349,
+        "narHash": "sha256-bTvhCq8lY7JlGsRfjqykYe9HLRYgkDgXJkFmKPYUF3A=",
         "owner": "czerwonk",
         "repo": "routing-rocks-policy-role",
-        "rev": "ef6a457c929f87d9914de36d9e87c6681581165e",
+        "rev": "93933151d229c00b620b699b35cb2d122f0317cd",
         "type": "github"
       },
       "original": {
