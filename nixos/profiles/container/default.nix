@@ -33,7 +33,7 @@ in
     networking.firewall.trustedInterfaces = [ "podman*" ];
 
     virtualisation.containers.containersConf.settings = lib.mkIf cfg.disableFirewall {
-      network.firewall_driver = "none";
+      network.firewall_driver = lib.mkForce "none";
     };
 
     networking.proxy.envVars = lib.mkIf cfg.disableFirewall {
