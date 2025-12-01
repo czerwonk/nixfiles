@@ -24,8 +24,6 @@ in
     domain = "dus.routing.rocks";
   };
 
-  virtualisation.containers.containersConf.settings.network.firewall_driver = "none";
-
   my.services.ripe-atlas.enable = true;
 
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
