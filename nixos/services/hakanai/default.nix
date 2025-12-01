@@ -74,7 +74,7 @@ in
         };
 
         volumes = [
-          "hakanai-static-data:/static:ro"
+          "hakanai-static-data:/static"
         ];
 
         ports = [ "127.0.0.1:2284:8080" ];
