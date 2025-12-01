@@ -1,14 +1,8 @@
 {
   pkgs,
-  lib,
-  config,
   ...
 }:
 
-let
-  cfg = config.profiles.container;
-
-in
 {
   config = {
     security.allowUserNamespaces = true;
