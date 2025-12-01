@@ -29,6 +29,7 @@ in
       "ip_vs_rr"
       "ip_vs_wrr"
       "ip_vs_sh"
+      "nf_conntrack"
     ];
 
     services.k3s = {
