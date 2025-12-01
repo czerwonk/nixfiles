@@ -43,7 +43,7 @@ in
         "--flannel-backend=host-gw"
         "--bind-address=192.168.100.2"
         "--node-ip=192.168.100.2"
-        "--kube-proxy-arg=proxy-mode=nftables"
+        "--kube-proxy-arg=proxy-mode=ipvs"
         "--disable-network-policy"
       ];
     };
