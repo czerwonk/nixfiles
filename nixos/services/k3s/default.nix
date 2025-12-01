@@ -43,7 +43,6 @@ in
         "--flannel-backend=host-gw"
         "--bind-address=192.168.100.2"
         "--node-ip=192.168.100.2"
-        "--disable-network-policy"
       ];
     };
 
