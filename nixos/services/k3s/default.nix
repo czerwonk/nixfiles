@@ -25,14 +25,10 @@ in
 
   config = mkIf cfg.enable {
     boot.kernelModules = [
-      "xt_REJECT"
-      "xt_NFLOG"
-      "xt_physdev"
-      "xt_statistic"
-      "xt_set"
-      "xt_nfacct"
-      "ip_set"
-      "nfnetlink_acct"
+      "ip_vs"
+      "ip_vs_rr"
+      "ip_vs_wrr"
+      "ip_vs_sh"
     ];
 
     services.k3s = {
