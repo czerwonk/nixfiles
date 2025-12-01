@@ -10,10 +10,6 @@ let
 
 in
 {
-  options = {
-    profiles.container.disableFirewall = lib.mkEnableOption "Wether to create firewall rules";
-  };
-
   config = {
     security.allowUserNamespaces = true;
 
@@ -31,14 +27,6 @@ in
     virtualisation.oci-containers.backend = "podman";
 
     networking.firewall.trustedInterfaces = [ "podman*" ];
-
-    virtualisation.containers.containersConf.settings = lib.mkIf cfg.disableFirewall {
-      network.firewall_driver = lib.mkForce "none";
-    };
-
-    networking.proxy.envVars = lib.mkIf cfg.disableFirewall {
-      NETAVARK_FW = "none";
-    };
 
     environment.sessionVariables = {
       DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";

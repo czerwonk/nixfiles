@@ -25,6 +25,8 @@ in
     domain = "dus.routing.rocks";
   };
 
+  virtualisation.containers.containersConf.settings.network.firewall_driver = "none";
+
   my.services.alloy.enable = true;
   my.services.forgejo.enable = true;
   my.services.k3s.enable = true;

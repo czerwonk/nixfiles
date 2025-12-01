@@ -24,7 +24,7 @@ in
     domain = "dus.routing.rocks";
   };
 
-  profiles.container.disableFirewall = true;
+  virtualisation.containers.containersConf.settings.network.firewall_driver = "none";
 
   my.services.ripe-atlas.enable = true;
 
