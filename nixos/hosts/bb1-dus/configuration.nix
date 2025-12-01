@@ -27,7 +27,6 @@ in
 
   my.services.alloy.enable = true;
   my.services.forgejo.enable = true;
-  my.services.k3s.enable = true;
   my.services.mastodon.enable = true;
   my.services.matrix.enable = true;
   my.services.vaultwarden.enable = true;
