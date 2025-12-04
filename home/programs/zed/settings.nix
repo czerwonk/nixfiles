@@ -19,6 +19,7 @@
       tab_size = 2;
       preferred_line_length = 120;
       show_whitespaces = "all";
+      relative_line_numbers = "enabled";
       current_line_highlight = "gutter";
       format_on_save = "on";
       remove_trailing_whitespace_on_save = true;
