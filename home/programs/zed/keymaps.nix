@@ -46,9 +46,9 @@
         };
       }
       {
-        context = "Editor && vim_mode == insert && inline_completion";
+        context = "Editor && vim_mode == insert && edit_prediction";
         bindings = {
-          "ctrl-l" = "editor::AcceptInlineCompletion";
+          "ctrl-l" = "editor::AcceptEditPrediction";
         };
       }
       {
