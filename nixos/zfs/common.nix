@@ -9,7 +9,7 @@
 
   boot.initrd.kernelModules = [ "zfs" ];
 
-  boot.zfs.package = lib.mkDefault pkgs.zfs;
+  boot.zfs.package = lib.mkDefault pkgs.zfs_2_4;
   boot.zfs.forceImportRoot = lib.mkDefault true;
 
   environment.systemPackages = with pkgs; [
