@@ -60,7 +60,6 @@
       nextcloud-client
       remmina
       termius
-      veracrypt
       vlc
       wireshark
       xsel
