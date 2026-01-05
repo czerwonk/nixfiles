@@ -33,7 +33,6 @@ in
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       opencode = pkgs-unstable.opencode;
       termius = pkgs-unstable.termius;
-      vimPlugins = pkgs-unstable.vimPlugins;
       zed-editor = pkgs-unstable.zed-editor;
     })
     (self: super: {
