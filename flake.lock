@@ -66,16 +66,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1766816143,
-        "narHash": "sha256-ykkXKmS9kUvdqGltHCA0RSeJbFJz3t0HKURv/R7FJc4=",
+        "lastModified": 1768208078,
+        "narHash": "sha256-NQwPu9bNf2Yvoow8e2XaDM/fnhB7VqacZfve336LOyo=",
         "owner": "czerwonk",
         "repo": "hakanai",
-        "rev": "3033fce3cc3bbba7ba314906e28201caf4cb8d2a",
+        "rev": "5074a55406a0e241514f0f8955eabe35c08176a9",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "3033fce3cc3bbba7ba314906e28201caf4cb8d2a",
+        "ref": "5074a55406a0e241514f0f8955eabe35c08176a9",
         "repo": "hakanai",
         "type": "github"
       }
@@ -129,11 +129,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768068402,
-        "narHash": "sha256-bAXnnJZKJiF7Xr6eNW6+PhBf1lg2P1aFUO9+xgWkXfA=",
+        "lastModified": 1768240557,
+        "narHash": "sha256-bVqJ34yMiiUQwYhjliiiN5LBH1Y+UldbIjNTCUtDdwE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8bc5473b6bc2b6e1529a9c4040411e1199c43b4c",
+        "rev": "b3f737e70fb9eef1d2308ea6738ffed5ae080f9b",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1761051199,
-        "narHash": "sha256-AOVErA8uCnYmiZK77CCMIzhLsAlzGb7dM9ZcDsQTFgo=",
+        "lastModified": 1768244005,
+        "narHash": "sha256-hf/YeHu5QXncTNE/uvnR0k4/6vQUguvgHJ7pnUasf24=",
         "ref": "refs/heads/main",
-        "rev": "b1bc3136cfe1f1565ccd094f2bc5646a3aa3f2d8",
-        "revCount": 445,
+        "rev": "f38f6033f5a28e7b3ae634f3bc56d77971b9f195",
+        "revCount": 446,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -294,11 +294,11 @@
     },
     "routing-rocks-policy": {
       "locked": {
-        "lastModified": 1764524953,
-        "narHash": "sha256-w9TxhNbhq80OrAfVCQdk5IZz8NjDctjfTDZZuYSYlWc=",
+        "lastModified": 1768243896,
+        "narHash": "sha256-CKNxRabqWz1vkDeUrxwxt6O8FD0W9xt+ntymuKpOfgw=",
         "owner": "czerwonk",
         "repo": "routing-rocks-policy-role",
-        "rev": "0e8f1b14d16307aab036cbe949c06c11b7007edb",
+        "rev": "1ac1de29eebe855dfda446b4d1eb64189b5611c7",
         "type": "github"
       },
       "original": {
