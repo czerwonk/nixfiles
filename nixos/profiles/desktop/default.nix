@@ -52,11 +52,11 @@
       bruno
       calibre
       cameractrls-gtk4
+      dbeaver-bin
       filezilla
       google-chrome
       libreoffice
       mattermost-desktop
-      mysql-workbench
       nextcloud-client
       remmina
       termius
