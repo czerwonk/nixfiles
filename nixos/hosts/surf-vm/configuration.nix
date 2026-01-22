@@ -84,4 +84,10 @@
 
   services.xserver.desktopManager.pantheon.enable = true;
   services.pantheon.apps.enable = false;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-pantheon ];
+    config.common.default = "*";
+  };
 }
