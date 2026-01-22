@@ -11,6 +11,7 @@
     ../../../home/programs/zed
     ../../../home/programs/zsh
     ../../../home/profiles/desktop/librewolf.nix
+    ../../../home/profiles/desktop/cosmic
   ]
   ++ extraHomeModules;
 
