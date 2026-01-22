@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/qemu-vm
-    ../../profiles/desktop/cosmic.nix
+    ../../profiles/desktop/core.nix
     ../../zfs/desktop.nix
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
@@ -82,5 +82,5 @@
 
   services.dnsmasq.enable = false;
 
-  nix.settings.sandbox = false;
+  services.xserver.desktopManager.pantheon.enable = true;
 }
