@@ -81,4 +81,6 @@
   ];
 
   services.dnsmasq.enable = false;
+
+  nix.settings.sandbox = false;
 }
