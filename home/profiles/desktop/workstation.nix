@@ -1,6 +1,7 @@
 {
   imports = [
     ../agentic-coding
+    ../photo
   ];
 
   programs.neovim.withCoding = true;
