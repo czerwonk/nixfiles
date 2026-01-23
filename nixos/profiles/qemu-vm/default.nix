@@ -5,13 +5,12 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
-  boot.kernelModules = [
-    "uinput"
-  ];
+  boot.kernelModules = [ "uinput" ];
+  boot.initrd.kernelModules = [ "virtio_gpu" ];
 
   services.spice-vdagentd.enable = true;
 
   services.qemuGuest.enable = true;
 
-  services.xserver.videoDrivers = [ "qxl" ];
+  hardware.graphics.enable = true;
 }
