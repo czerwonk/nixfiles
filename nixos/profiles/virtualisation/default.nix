@@ -6,7 +6,10 @@
 }:
 
 {
-  environment.systemPackages = [ pkgs.swtpm ];
+  environment.systemPackages = with pkgs; [
+    swtpm
+    virt-viewer
+  ];
 
   virtualisation.libvirtd = {
     enable = true;
