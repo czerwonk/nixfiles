@@ -11,6 +11,7 @@
     ../../configuration.nix
     ../../profiles/qemu-vm
     ../../profiles/desktop/core.nix
+    ../../profiles/desktop/gnome.nix
     ../../zfs/desktop.nix
   ];
 
@@ -79,7 +80,4 @@
   ];
 
   services.dnsmasq.enable = false;
-
-  services.xserver.desktopManager.pantheon.enable = true;
-  services.pantheon.apps.enable = false;
 }
