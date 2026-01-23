@@ -12,4 +12,6 @@
   services.spice-vdagentd.enable = true;
 
   services.qemuGuest.enable = true;
+
+  services.xserver.videoDrivers = [ "qxl" ];
 }

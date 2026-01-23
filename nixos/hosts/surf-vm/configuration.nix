@@ -2,7 +2,6 @@
   username,
   pkgs,
   lib,
-  modulesPath,
   ...
 }:
 
@@ -14,7 +13,6 @@
     ../../profiles/desktop/core.nix
     ../../profiles/desktop/plasma.nix
     ../../zfs/desktop.nix
-    (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
   boot.loader.systemd-boot.enable = true;
