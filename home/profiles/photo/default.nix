@@ -4,7 +4,7 @@
   home = {
     packages = with pkgs; [
       gphoto2
-      darktable
+      rawtherapee
       exiftool
     ];
   };
