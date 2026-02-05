@@ -2,6 +2,7 @@
   imports = [
     ../agentic-coding
     ../photo
+    ../../programs/atuin
   ];
 
   programs.neovim.withCoding = true;
