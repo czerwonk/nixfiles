@@ -2,7 +2,7 @@
 
 {
   programs.ghostty = {
-    enable = true;
+    enable = lib.mkDefault true;
     package = pkgs.ghostty;
     enableZshIntegration = true;
     settings = {

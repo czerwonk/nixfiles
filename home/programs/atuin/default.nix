@@ -1,8 +1,10 @@
+{ lib, config, ... }:
+
 {
   programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
+    enable = lib.mkDefault true;
+    enableZshIntegration = lib.mkDefault config.programs.zsh.enable;
+    enableBashIntegration = lib.mkDefault config.programs.bash.enable;
     flags = [ "--disable-up-arrow" ];
     forceOverwriteSettings = true;
     settings = {
