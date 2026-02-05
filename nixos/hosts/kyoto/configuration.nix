@@ -53,11 +53,6 @@
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
 
-  my.services.k3s = {
-    enable = true;
-    autoStart = false;
-  };
-
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
