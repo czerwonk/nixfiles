@@ -1,8 +1,13 @@
 zshaddhistory() {
   emulate -L zsh
 
+  # exclude failed commands
   whence ${${(z)1}[1]} >/dev/null || return 2
 
+  # exclude multiline commands
+  [[ "$1" == *$'\n'*$'\n'* ]] && return 1
+
+  # exclude defined list of commands
   if ! [[ "$1" =~ "(^( |git commit |git c |cd |# ))" ]] ; then
     print -sr -- "${1%%$'\n'}"
     fc -p
