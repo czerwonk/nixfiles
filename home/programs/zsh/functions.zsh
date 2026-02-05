@@ -8,7 +8,7 @@ zshaddhistory() {
   [[ "$1" == *$'\n'*$'\n'* ]] && return 1
 
   # exclude defined list of commands
-  if ! [[ "$1" =~ "(^( |git commit |git c |cd |# ))" ]] ; then
+  if ! [[ "$1" =~ "(^( |git commit |git c |cd |# |export ))" ]] ; then
     print -sr -- "${1%%$'\n'}"
     fc -p
   else
