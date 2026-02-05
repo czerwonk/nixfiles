@@ -7,6 +7,12 @@ zshaddhistory() {
   # exclude multiline commands
   [[ "$1" == *$'\n'*$'\n'* ]] && return 1
 
+  # exclude inline secret env vars (VAR=value command)
+  [[ "$1" =~ "^[A-Za-z_]*(_)?(PASSWORD|SECRET|TOKEN|KEY|API|AUTH|CREDENTIAL)[A-Za-z_]*=" ]] && return 1
+
+  # exclude secrets
+  [[ "$1" =~ "(Bearer |-----BEGIN)" ]] && return 1
+
   # exclude defined list of commands
   if ! [[ "$1" =~ "(^( |git commit |git c |cd |# |export ))" ]] ; then
     print -sr -- "${1%%$'\n'}"
