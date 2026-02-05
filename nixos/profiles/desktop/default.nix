@@ -29,6 +29,11 @@
   security.unprivilegedUsernsClone = true;
 
   programs.firejail.wrappedBinaries = {
+    fractal = {
+      executable = "${pkgs.lib.getExe pkgs.fractal}";
+      desktop = "${pkgs.fractal}/share/applications/org.gnome.Fractal.desktop";
+      profile = "${pkgs.firejail}/etc/firejail/fractal.profile";
+    };
     teams-for-linux = {
       executable = "${pkgs.lib.getBin pkgs.teams-for-linux}/bin/teams-for-linux";
       desktop = "${pkgs.teams-for-linux}/share/applications/teams-for-linux.desktop";

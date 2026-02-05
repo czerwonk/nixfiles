@@ -28,6 +28,7 @@ in
     })
     (self: super: {
       claude-code = pkgs-unstable.claude-code;
+      fluffychat = pkgs-unstable.fluffychat;
       gemini-cli = pkgs-unstable.gemini-cli;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;

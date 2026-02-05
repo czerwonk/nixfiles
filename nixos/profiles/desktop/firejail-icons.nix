@@ -5,6 +5,7 @@
     (
       let
         packages = with pkgs; [
+          fractal
           librewolf
           teams-for-linux
           thunderbird
