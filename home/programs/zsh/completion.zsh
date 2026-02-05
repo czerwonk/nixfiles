@@ -3,7 +3,7 @@ zmodload -i zsh/complist
 setopt hist_find_no_dups
 setopt complete_in_word
 
-_force_rehash() { (( CURRENT == 1 )) && rehash return 1 }
+_force_rehash() { (( CURRENT == 1 )) && rehash; return 1 }
 
 zstyle ':completion:*'                    completer _extensions _complete _approximate _force_rehash
 zstyle ':completion:*'                    group-name ''
