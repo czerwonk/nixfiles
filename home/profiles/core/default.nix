@@ -1,6 +1,7 @@
 {
   imports = [
     ./minimal-packages.nix
+    ../../programs/atuin
     ../../programs/bat
     ../../programs/fzf
     ../../programs/git
