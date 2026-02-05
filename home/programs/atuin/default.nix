@@ -34,6 +34,7 @@
           width = 20;
         }
       ];
+      update_check = false;
     };
     themes.kanagawa = {
       theme = {
