@@ -1,6 +1,8 @@
+{ lib, ... }:
+
 {
   programs.zoxide = {
-    enable = true;
+    enable = lib.mkDefault true;
     options = [
       "--cmd cd"
     ];

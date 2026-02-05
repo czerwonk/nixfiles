@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [
     ./settings.nix
@@ -6,7 +8,7 @@
   ];
 
   programs.zed-editor = {
-    enable = true;
+    enable = lib.mkDefault false;
     extensions = [
       "material-icon-theme"
       "html"

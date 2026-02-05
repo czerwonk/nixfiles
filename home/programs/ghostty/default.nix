@@ -1,13 +1,18 @@
-{ pkgs, lib, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 
 {
+  imports = [
+    ./font.nix
+  ];
+
   programs.ghostty = {
-    enable = lib.mkDefault true;
-    package = pkgs.ghostty;
-    enableZshIntegration = true;
+    enable = lib.mkDefault false;
+    enableZshIntegration = lib.mkDefault config.programs.zsh.enable;
     settings = {
-      font-family = "JetBrains Mono";
-      font-size = 12;
       confirm-close-surface = false;
       window-decoration = lib.mkDefault false;
       gtk-titlebar = false;
@@ -37,11 +42,5 @@
         "alt+h=goto_split:left"
       ];
     };
-  };
-
-  home = {
-    packages = with pkgs; [
-      jetbrains-mono
-    ];
   };
 }

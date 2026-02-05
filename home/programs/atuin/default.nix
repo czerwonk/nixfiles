@@ -2,7 +2,7 @@
 
 {
   programs.atuin = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
     enableZshIntegration = lib.mkDefault config.programs.zsh.enable;
     enableBashIntegration = lib.mkDefault config.programs.bash.enable;
     flags = [ "--disable-up-arrow" ];

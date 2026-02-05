@@ -7,17 +7,19 @@
 
 {
   imports = [
-    ../../programs/ghostty
-    ../../programs/zed
     ./librewolf.nix
     ./ycode.nix
   ];
 
-  programs.zsh.shellAliases = {
-    bww = "BITWARDENCLI_APPDATA_DIR='/home/${username}/.config/Bitwarden CLI Work' ${lib.getExe pkgs.bitwarden-cli} $@";
-  };
+  programs.ghostty.enable = true;
+  programs.zed-editor.enable = true;
 
   programs.tmux.mouse = true;
+
+  programs.zsh.shellAliases = {
+    bww = "BITWARDENCLI_APPDATA_DIR='/home/${username}/.config/Bitwarden CLI Work' ${lib.getExe pkgs.bitwarden-cli} $@";
+    docker = "${lib.getExe pkgs.podman}";
+  };
 
   services.gpg-agent.enable = true;
 
@@ -25,11 +27,5 @@
     packages = with pkgs; [
       bitwarden-cli
     ];
-  };
-
-  programs.zsh = {
-    shellAliases = {
-      docker = "${lib.getExe pkgs.podman}";
-    };
   };
 }
