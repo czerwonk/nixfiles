@@ -18,6 +18,7 @@
       strace
       traceroute
       usbutils
+      uutils-coreutils-noprefix
     ];
   };
 }

@@ -28,12 +28,12 @@ in
     })
     (self: super: {
       claude-code = pkgs-unstable.claude-code;
-      fluffychat = pkgs-unstable.fluffychat;
       gemini-cli = pkgs-unstable.gemini-cli;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       opencode = pkgs-unstable.opencode;
       termius = pkgs-unstable.termius;
+      uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
       zed-editor = pkgs-unstable.zed-editor;
     })
     (self: super: {
