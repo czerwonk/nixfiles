@@ -50,7 +50,7 @@
         Annotation = "#C8C093"; # oldWhite - supporting text
         AlertInfo = "#7FB4CA"; # springBlue - info
         AlertWarn = "#FF9E3B"; # roninYellow - warning
-        AlertError = "#E82424"; # samuraiRed - error
+        AlertError = "#658594"; # dragonBlue - error
       };
     };
   };
