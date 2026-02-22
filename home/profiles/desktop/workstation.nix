@@ -1,7 +1,6 @@
 {
   imports = [
     ../agentic-coding
-    ../photo
   ];
 
   programs.atuin.enable = true;
