@@ -59,6 +59,7 @@
       calibre
       cameractrls-gtk4
       dbeaver-bin
+      digikam
       filezilla
       google-chrome
       libreoffice
