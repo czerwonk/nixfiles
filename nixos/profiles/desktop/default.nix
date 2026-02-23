@@ -11,6 +11,7 @@
     ./firejail-icons.nix
     ./impermanence.nix
     ./pam.nix
+    ./photo.nix
     ./sound.nix
     ./thumbnails.nix
   ];
@@ -59,7 +60,6 @@
       calibre
       cameractrls-gtk4
       dbeaver-bin
-      digikam
       filezilla
       google-chrome
       libreoffice
