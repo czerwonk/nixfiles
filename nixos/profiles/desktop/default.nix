@@ -12,6 +12,7 @@
     ./impermanence.nix
     ./pam.nix
     ./sound.nix
+    ./thumbnails.nix
   ];
 
   security.auditd.enable = false;
