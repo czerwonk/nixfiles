@@ -25,8 +25,8 @@
       remove_trailing_whitespace_on_save = true;
       scroll_beyond_last_line = "off";
       vertical_scroll_margin = 8;
-      features = {
-        edit_prediction_provider = "copilot";
+      edit_predictions = {
+        provider = "copilot";
       };
       inlay_hints = {
         enabled = true;
