@@ -91,6 +91,26 @@ in
         dependsOn = [
           "immich_postgres"
           "immich_redis"
+          "immich_machine_learning"
+        ];
+      };
+
+      immich_machine_learning = {
+        image = "ghcr.io/immich-app/immich-machine-learning:${version}";
+
+        autoStart = true;
+        extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
+          "--network=immich"
+        ];
+        user = "1000";
+
+        environment = environment;
+
+        volumes = [
+          "immich_model_cache:/cache"
+          "immich_dotcache:/.cache"
+          "immich_ml_config:/.config"
         ];
       };
 
