@@ -32,6 +32,7 @@ in
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       opencode = pkgs-unstable.opencode;
+      ollama-rocm = pkgs-unstable.ollama-rocm;
       termius = pkgs-unstable.termius;
       uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
       zed-editor = pkgs-unstable.zed-editor;
