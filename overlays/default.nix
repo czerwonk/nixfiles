@@ -31,8 +31,9 @@ in
       gemini-cli = pkgs-unstable.gemini-cli;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
-      opencode = pkgs-unstable.opencode;
       ollama-rocm = pkgs-unstable.ollama-rocm;
+      opencode = pkgs-unstable.opencode;
+      rocmPackages = pkgs-unstable.rocmPackages;
       termius = pkgs-unstable.termius;
       uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
       zed-editor = pkgs-unstable.zed-editor;
