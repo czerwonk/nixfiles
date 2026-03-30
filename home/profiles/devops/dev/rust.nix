@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home = {
-    sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
     packages = with pkgs; [
       lld_21
       pkg-config
