@@ -36,6 +36,7 @@ in
       rocmPackages = pkgs-unstable.rocmPackages;
       termius = pkgs-unstable.termius;
       uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
+      vimPlugins = pkgs-unstable.vimPlugins;
       zed-editor = pkgs-unstable.zed-editor;
     })
     (self: super: {

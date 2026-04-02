@@ -45,8 +45,6 @@
             ]
           )
         );
-        type = "lua";
-        config = builtins.readFile ./lua/tree-sitter.lua;
       }
       {
         plugin = nvim-ts-autotag;
