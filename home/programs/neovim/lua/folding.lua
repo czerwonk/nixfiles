@@ -15,8 +15,8 @@ _G.foldexpr = function()
 end
 
 vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.foldexpr()"
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr   = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldnestmax = 3
 vim.opt.foldlevel = 99
 vim.opt.foldminlines = 3
