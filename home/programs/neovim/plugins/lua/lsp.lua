@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   end
 
   if client.server_capabilities.codeLensProvider then
-    vim.api.nvim_command [[autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]]
+    vim.lsp.codelens.enable(true, { bufnr = bufnr })
     map('n', '<leader>;', function() vim.lsp.codelens.run() end, 'Code Lens Action (LSP)')
   end
 
