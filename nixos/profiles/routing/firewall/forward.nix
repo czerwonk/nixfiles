@@ -5,7 +5,7 @@
 
   networking.nftables.tables."nixos-fw".content = lib.mkAfter ''
     chain forward {
-      type filter hook forward priority filter - 1; policy drop;
+      type filter hook forward priority filter; policy drop;
       ct status dnat accept comment "allow port forward"
       ct state vmap { established : accept, related : accept }
       icmp type == { timestamp-request, timestamp-reply } jump drop-forward comment "Accept all ICMP messages except timestamp requests"
