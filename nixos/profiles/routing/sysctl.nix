@@ -1,5 +1,7 @@
 {
   boot.kernel.sysctl = {
+    "net.netfilter.nf_conntrack_tcp_be_liberal" = 1;
+
     "net.ipv4.ip_forward" = true;
     "net.ipv4.ip_nonlocal_bind" = true;
     "net.ipv4.conf.all.forwarding" = true;
