@@ -11,7 +11,7 @@
     ./firejail-icons.nix
     ./impermanence.nix
     ./pam.nix
-    ./photo.nix
+    ./media.nix
     ./sound.nix
     ./thumbnails.nix
   ];
