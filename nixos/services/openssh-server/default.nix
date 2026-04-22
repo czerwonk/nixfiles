@@ -36,6 +36,7 @@ in
       enable = true;
       ports = [ 2222 ];
       openFirewall = false;
+      authorizedKeysInHomedir = false;
       settings = {
         Port = 2222;
         TCPKeepAlive = false;
@@ -70,9 +71,6 @@ in
         UseDns = false;
       };
       extraConfig = lib.mkAfter ''
-        AuthorizedKeysFile /etc/ssh/authorized_keys.d/%u
-        Subsystem sftp internal-sftp
-
         Match User ${username}
           AllowAgentForwarding yes
           AllowTcpForwarding yes
