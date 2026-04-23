@@ -28,6 +28,7 @@ in
     })
     (self: super: {
       claude-code = pkgs-unstable.claude-code;
+      davinci-resolve-studio = pkgs-unstable.davinci-resolve-studio;
       dbeaver-bin = pkgs-unstable.dbeaver-bin;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
