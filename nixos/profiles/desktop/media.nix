@@ -9,6 +9,7 @@
     libraw
   ];
 
+  users.groups.plugdev = { };
   users.users.${username}.extraGroups = [ "plugdev" ];
 
   services.udev.extraRules = ''
