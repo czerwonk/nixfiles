@@ -28,11 +28,10 @@ in
     })
     (self: super: {
       claude-code = pkgs-unstable.claude-code;
-      gemini-cli = pkgs-unstable.gemini-cli;
+      dbeaver-bin = pkgs-unstable.dbeaver-bin;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
-      opencode = pkgs-unstable.opencode;
       rocmPackages = pkgs-unstable.rocmPackages;
       termius = pkgs-unstable.termius;
       uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
