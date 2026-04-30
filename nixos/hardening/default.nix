@@ -95,6 +95,9 @@
     "qnx6"
     "sysv"
     "ufs"
+
+    # CVE-2026-31431
+    "algif_aead"
   ];
 
   security.loginDefs = {
