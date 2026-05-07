@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.matrix;
-  version = "v1.151.0";
+  version = "v1.152.1";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in
