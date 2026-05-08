@@ -96,8 +96,13 @@
     "sysv"
     "ufs"
 
-    # CVE-2026-31431
+    # copy-fail mitigation (CVE-2026-31431)
     "algif_aead"
+
+    # dirty-frag mitigation
+    "esp4"
+    "esp6"
+    "rxrpc"
   ];
 
   security.loginDefs = {
