@@ -4,7 +4,7 @@
   programs.git = {
     enable = lib.mkDefault true;
     settings = {
-      aliases = {
+      alias = {
         br = "branch";
         c = "commit -a -m";
         ca = "!git add -A && git commit -m";
