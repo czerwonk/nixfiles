@@ -36,7 +36,10 @@
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
 
-    ansible-role.url = "github:czerwonk/ansible-role";
+    ansible-role = {
+      url = "github:czerwonk/ansible-role";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     dns-drain = {
       url = "github:czerwonk/dns-drain";
