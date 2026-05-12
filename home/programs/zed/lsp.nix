@@ -59,7 +59,7 @@ with lib;
             initialization_options = {
               formatting = {
                 command = [
-                  "${lib.getExe pkgs.nixfmt-rfc-style}"
+                  "${lib.getExe pkgs.nixfmt}"
                 ];
               };
             };

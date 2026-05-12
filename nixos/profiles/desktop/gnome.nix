@@ -3,7 +3,6 @@
 {
   services.displayManager.gdm = {
     enable = lib.mkDefault true;
-    wayland = lib.mkDefault true;
   };
 
   services.desktopManager.gnome = {

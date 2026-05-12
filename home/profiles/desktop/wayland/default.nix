@@ -5,7 +5,6 @@
     ../gnome
     ./rofi
     ./options.nix
-    ./wallpaper.nix
     ./waybar.nix
     ./dunst.nix
     ./swaylock.nix
