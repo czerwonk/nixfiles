@@ -8,7 +8,6 @@
     ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/gnome.nix
-    ../../profiles/gaming
     ../../profiles/pentest
     ../../profiles/virtualisation
     ../../profiles/android
