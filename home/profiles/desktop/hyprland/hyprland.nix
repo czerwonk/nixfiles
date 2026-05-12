@@ -55,8 +55,7 @@
 
       exec-once = ${lib.getExe pkgs.waybar}
       exec-once = ${lib.getExe pkgs.wlsunset} -l -23 -L -46
-      exec-once = ${lib.getExe pkgs.hyprpaper}
-      exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
+exec-once = ${pkgs.systemd}/bin/systemctl --user start swayidle
       exec-once = [workspace 1] ${lib.getExe pkgs.ghostty} ${lib.getExe pkgs.tmux} a
       exec-once = [workspace 2 silent] /run/current-system/sw/bin/librewolf
       exec-once = [workspace 3 silent] /run/current-system/sw/bin/thunderbird

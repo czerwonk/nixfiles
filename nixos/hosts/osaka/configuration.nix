@@ -78,7 +78,7 @@
             ../../../home/profiles/desktop/hyprland
           ];
 
-          profiles.hyprland.backlightDevice = "amdgpu_bl0";
+          profiles.wayland.backlightDevice = "amdgpu_bl0";
         };
       };
     };

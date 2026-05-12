@@ -27,22 +27,15 @@ let
 in
 {
   imports = [
-    ../gnome
-    ../rofi
+    ../wayland
     ./options.nix
     ./hyprland.nix
-    ./hyprpaper.nix
     ./waybar.nix
-    ./dunst.nix
-    ./swaylock.nix
-    ./swayidle.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = [
     halt-script
     logout-script
-    nerd-fonts.jetbrains-mono
-    networkmanagerapplet
     reboot-script
     screenshot-script
   ];
