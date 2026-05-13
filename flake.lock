@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778654234,
-        "narHash": "sha256-I2cvH3ihsPH9BK+oEk7RSYKtARUm/de9880XrZN7Myg=",
+        "lastModified": 1778655069,
+        "narHash": "sha256-SFblMqnoRFaD98oRpwAh7WczxVffQQgyjbSI0Lyq/jM=",
         "owner": "czerwonk",
         "repo": "ansible-role",
-        "rev": "b3ddf80a91ded2cac62e0ae462a10dce5a3abb1d",
+        "rev": "4ea3f06f0600aabebec9983197b414e5232912fc",
         "type": "github"
       },
       "original": {
