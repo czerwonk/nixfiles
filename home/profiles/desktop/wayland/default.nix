@@ -2,14 +2,12 @@
 
 {
   imports = [
-    ../gnome
-    ./rofi
-    ./options.nix
-    ./wallpaper.nix
-    ./waybar.nix
     ./dunst.nix
-    ./swaylock.nix
+    ./options.nix
+    ./rofi
     ./swayidle.nix
+    ./swaylock.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs; [

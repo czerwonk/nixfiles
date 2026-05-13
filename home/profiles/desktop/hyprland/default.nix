@@ -28,8 +28,8 @@ in
 {
   imports = [
     ../wayland
-    ./options.nix
     ./hyprland.nix
+    ./options.nix
     ./waybar.nix
   ];
 
