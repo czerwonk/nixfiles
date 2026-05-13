@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   xdg.configFile = {
     "cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = {
