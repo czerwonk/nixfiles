@@ -52,4 +52,6 @@
     papers
     pop-launcher
   ];
+
+  programs.gpaste.enable = true;
 }
