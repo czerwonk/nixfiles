@@ -25,6 +25,7 @@ with lib.gvariant;
         "just-perfection-desktop@just-perfection"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+        "GPaste@gnome-shell-extensions.gnome.com"
       ];
       had-bluetooth-devices-setup = true;
       remember-mount-password = false;
@@ -143,6 +144,10 @@ with lib.gvariant;
     };
     "org/gnome/nautilus/preferences" = {
       show-delete-permanently = true;
+    };
+    "org/gnome/GPaste" = {
+      save-history = false;
+      track-password-manager-passwords = false;
     };
   };
 
