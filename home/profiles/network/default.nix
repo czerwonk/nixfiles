@@ -4,7 +4,7 @@
   home = {
     packages = with pkgs; [
       bgpq4
-      dogdns
+      dig
       host
       ipcalc
       iperf

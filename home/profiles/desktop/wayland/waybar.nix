@@ -51,7 +51,7 @@
         format-disabled = "";
         interval = 30;
         on-click = lib.getExe pkgs.rofi-bluetooth;
-        on-click-right = "${pkgs.blueberry}/bin/blueberry";
+        on-click-right = "${pkgs.blueman}/bin/blueman-applet";
       };
       clock = {
         timezone = "Europe/Berlin";
