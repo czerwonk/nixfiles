@@ -28,7 +28,7 @@ in
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       bentopdf = {
-        image = "bentopdf/bentopdf-simple:${version}";
+        image = "ghcr.io/alam00000/bentopdf-simple:${version}";
 
         autoStart = true;
         extraOptions = [
