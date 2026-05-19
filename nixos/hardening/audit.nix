@@ -13,6 +13,8 @@
   security.audit.enable = false;
   security.auditd.enable = lib.mkDefault true;
 
+  environment.systemPackages = [ pkgs.audit ];
+
   environment.etc = {
     "audit/auditd.conf".text = ''
       log_file = /var/log/audit/audit.log
