@@ -25,7 +25,7 @@
   '';
 
   security.audit = {
-    enable = true;
+    enable = lib.mkDefault true;
     backlogLimit = 8192;
     rules = [
       "-i" # ignore missing users or files

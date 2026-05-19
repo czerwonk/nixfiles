@@ -10,6 +10,7 @@
   networking.firewall.enable = true;
   networking.nftables.enable = true;
 
+  security.audit.enable = false;
   security.auditd.enable = false;
   security.allowUserNamespaces = true;
 

@@ -16,6 +16,7 @@
     ./thumbnails.nix
   ];
 
+  security.audit.enable = false;
   security.auditd.enable = false;
 
   boot.binfmt.registrations.appimage = {
