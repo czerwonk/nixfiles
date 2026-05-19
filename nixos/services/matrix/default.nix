@@ -134,7 +134,7 @@ in
       };
 
       matrix-slack = {
-        image = "dock.mau.dev/mautrix/slack:v0.1.4";
+        image = "dock.mau.dev/mautrix/slack:v26.05";
         cmd = [ "/usr/bin/mautrix-slack" ];
         workdir = "/data";
 

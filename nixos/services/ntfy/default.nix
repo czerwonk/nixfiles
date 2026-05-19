@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.ntfy;
-  version = "v2.21.0";
+  version = "v2.23.0";
 
 in
 {
