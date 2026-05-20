@@ -6,6 +6,7 @@
     ../../../home/profiles/desktop/gnome
     ../../../home/profiles/desktop/workstation.nix
     ../../../home/profiles/devops
+    ../../../home/profiles/static-web
   ]
   ++ extraHomeModules;
 }

@@ -4,5 +4,7 @@
   imports = [
     ../../../home/linux.nix
     ../../../home/profiles/server
-  ] ++ extraHomeModules;
+    ../../../home/profiles/static-web
+  ]
+  ++ extraHomeModules;
 }
