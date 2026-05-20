@@ -13,6 +13,7 @@ in
     ../../profiles/container
     ../../profiles/routing
     ../../profiles/webserver
+    ./static-web
   ];
 
   boot.loader.systemd-boot.enable = true;
