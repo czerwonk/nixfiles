@@ -103,6 +103,10 @@
     "esp4"
     "esp6"
     "rxrpc"
+
+    # pin-theft mitigation
+    "rds"
+    "rds_tcp"
   ];
 
   security.loginDefs = {
