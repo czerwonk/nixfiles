@@ -18,7 +18,7 @@ with lib;
 
   config = mkIf config.programs.neovim.withCoding {
     programs.neovim = {
-      extraLuaConfig = lib.mkAfter ''
+      initLua = lib.mkAfter ''
         ${builtins.readFile ./lua/lsp.lua}
         ${util.readDirString ./lua/lsp}
       '';
@@ -73,24 +73,20 @@ with lib;
           plugin = neotest-rust;
         }
       ];
-      extraPackages =
-        with pkgs;
-        [
-          cargo-nextest
-          helm-ls
-          lua-language-server
-          marksman
-          nil
-          nixfmt-rfc-style
-          shfmt
-          stylua
-          terraform-ls
-        ]
-        ++ (with pkgs.nodePackages; [
-          bash-language-server
-          dockerfile-language-server
-          yaml-language-server
-        ]);
+      extraPackages = with pkgs; [
+        bash-language-server
+        cargo-nextest
+        dockerfile-language-server
+        helm-ls
+        lua-language-server
+        marksman
+        nil
+        nixfmt
+        shfmt
+        stylua
+        terraform-ls
+        yaml-language-server
+      ];
     };
   };
 }

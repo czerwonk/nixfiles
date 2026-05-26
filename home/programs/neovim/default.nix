@@ -10,7 +10,9 @@
     defaultEditor = true;
     vimdiffAlias = true;
     package = pkgs.neovim-unwrapped;
-    extraLuaConfig = ''
+    withRuby = false;
+    withPython3 = false;
+    initLua = ''
       ${lib.readFile ./lua/options.lua}
       ${lib.readFile ./lua/keymap.lua}
       ${lib.readFile ./lua/autocmd.lua}
