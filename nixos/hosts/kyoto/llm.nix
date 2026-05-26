@@ -4,7 +4,6 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
-    acceleration = "rocm";
     rocmOverrideGfx = "11.0.1";
     environmentVariables = {
       OLLAMA_FLASH_ATTENTION = "true";

@@ -8,10 +8,9 @@
       HostKeyAlgorithms=+ssh-rsa
       PubkeyAcceptedAlgorithms=+ssh-rsa
     '';
-    matchBlocks = {
+    settings = {
       "*" = {
-        forwardAgent = true;
-        serverAliveInterval = 10;
+        ServerAliveInterval = 10;
       };
     };
   };
