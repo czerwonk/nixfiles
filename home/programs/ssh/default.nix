@@ -4,13 +4,12 @@
   programs.ssh = {
     enable = lib.mkDefault true;
     enableDefaultConfig = false;
-    extraConfig = ''
-      HostKeyAlgorithms=+ssh-rsa
-      PubkeyAcceptedAlgorithms=+ssh-rsa
-    '';
     settings = {
       "*" = {
+        Compression = false;
         ServerAliveInterval = 10;
+        HostKeyAlgorithms = "+ssh-rsa";
+        PubkeyAcceptedAlgorithms = "+ssh-rsa";
       };
     };
   };
