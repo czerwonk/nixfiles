@@ -31,10 +31,6 @@
         "time"
         "duration"
         "command"
-        {
-          type = "directory";
-          width = 20;
-        }
       ];
       update_check = false;
     };
