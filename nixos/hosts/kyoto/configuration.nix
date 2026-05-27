@@ -1,7 +1,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./persistence.nix
     ./llm.nix
     ../../configuration.nix
     ../../profiles/amd-rocm
