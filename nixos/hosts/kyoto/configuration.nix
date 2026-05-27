@@ -45,9 +45,6 @@
 
   services.fprintd.enable = true;
 
-  services.dnsmasq.enable = false;
-  #services.dnsmasq.settings.no-hosts = false;
-
   powerManagement.cpuFreqGovernor = "ondemand";
   services.power-profiles-daemon.enable = true;
 }
