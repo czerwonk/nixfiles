@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home = {
@@ -14,5 +14,8 @@
       tcpdump
       tcptraceroute
     ];
+    shellAliases = {
+      dig = lib.getExe pkgs.dogedns;
+    };
   };
 }
