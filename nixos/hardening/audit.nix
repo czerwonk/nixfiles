@@ -49,10 +49,6 @@
 
   environment.etc."audit/rules.d/audit.rules".text = ''
     -D
-    -b 8192
-    -f 1
-    -r 0
-    -i
 
     # access modifications
     -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
@@ -114,7 +110,5 @@
 
     # 32bit (all systems are 64bit)
     -a always,exit -F arch=b32 -S all -k 32bit
-
-    -e 1
   '';
 }
