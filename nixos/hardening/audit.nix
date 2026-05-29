@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   users.groups.audit = {
@@ -24,23 +24,28 @@
       admin_space_left_action = "SUSPEND";
       disk_full_action = "SUSPEND";
       disk_error_action = "SUSPEND";
-      # kernel 6.18+ restricts AUDIT_ADD_RULE/DEL_RULE to the registered
-      # daemon PID. rules_dir makes auditd load rules from its own PID,
-      # bypassing that restriction. reload with: systemctl reload auditd
-      rules_dir = "/etc/audit/rules.d";
     };
   };
 
   # Set audit=1 and audit_backlog_limit kernel params so audit events are
-  # captured before auditd starts. The upstream audit-rules-nixos.service
-  # (auditctl -R as a separate process) is disabled because it fails on
-  # kernel 6.18+ — rules_dir above replaces it.
+  # captured before auditd starts.
   security.audit = {
     enable = lib.mkForce true;
     backlogLimit = 8192;
   };
 
+  # Disable the upstream auditctl-based service — replaced by ExecStartPre
+  # below, which runs before auditd registers with the kernel and thus has no
+  # kernel 6.18+ AUDIT_SET PID restriction.
   systemd.services.audit-rules-nixos.enable = false;
+
+  systemd.services.auditd.serviceConfig = {
+    ExecStartPre = "${lib.getExe' pkgs.audit "auditctl"} -R /etc/audit/rules.d/audit.rules";
+    ExecStart = lib.mkForce [
+      ""
+      "${lib.getExe' pkgs.audit "auditd"} -l -s nochange"
+    ];
+  };
 
   environment.etc."audit/rules.d/audit.rules".text = ''
     -D
