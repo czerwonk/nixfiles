@@ -29,13 +29,11 @@ in
     (self: super: {
       claude-code = pkgs-unstable.claude-code;
       davinci-resolve-studio = pkgs-unstable.davinci-resolve-studio;
-      dbeaver-bin = pkgs-unstable.dbeaver-bin;
       home-assistant = pkgs-unstable.home-assistant;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       rocmPackages = pkgs-unstable.rocmPackages;
       termius = pkgs-unstable.termius;
-      uutils-coreutils-noprefix = pkgs-unstable.uutils-coreutils-noprefix;
       vimPlugins = pkgs-unstable.vimPlugins;
       zed-editor = pkgs-unstable.zed-editor;
     })

@@ -56,10 +56,8 @@
     packages = with pkgs; [
       appimage-run
       ausweisapp
-      bitwarden-desktop
       bruno
       calibre
-      cameractrls-gtk4
       dbeaver-bin
       filezilla
       google-chrome
