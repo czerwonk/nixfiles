@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   users.groups.audit = {
@@ -6,111 +6,110 @@
     members = [ "root" ];
   };
 
-  # kernel 6.18+ restricts AUDIT_SET to the registered audit daemon PID only,
-  # so auditctl -R from a separate process (audit-rules-nixos.service) always
-  # fails with EOPNOTSUPP. instead, disable that service and have auditd load
-  # the rules itself via -f at startup.
-  security.audit.enable = false;
-  security.auditd.enable = lib.mkDefault true;
-
-  environment.systemPackages = [ pkgs.audit ];
-
-  environment.etc = {
-    "audit/auditd.conf".text = ''
-      log_file = /var/log/audit/audit.log
-      log_format = RAW
-      log_group = audit
-      priority_boost = 4
-      flush = INCREMENTAL_ASYNC
-      freq = 50
-      max_log_file = 100
-      max_log_file_action = ROTATE
-      num_logs = 20
-      space_left = 100
-      space_left_action = SYSLOG
-      admin_space_left = 50
-      admin_space_left_action = SUSPEND
-      disk_full_action = SUSPEND
-      disk_error_action = SUSPEND
-    '';
-
-    "audit/audit.rules".text = ''
-      -D
-      -b 8192
-      -f 1
-      -r 0
-      -i
-
-      # access modifications
-      -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
-      -a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=-1 -k perm_mod
-      -a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=-1 -k perm_mod
-
-      # deletions
-      -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=-1 -k delete
-
-      # failed file creation
-      -a always,exit -F arch=b64 -S mkdir,creat,link,symlink,mknod,mknodat,linkat,symlinkat -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_create
-      -a always,exit -F arch=b64 -S mkdir,link,symlink,mkdirat -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_create
-
-      # failed file access
-      -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_access
-      -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_access
-
-      # failed file modifications
-      -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_mod
-      -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_mod
-
-      # file integrity monitoring
-      -w /etc/sudoers -p wa -k file_integrity
-      -w /etc/passwd -p wa -k file_integrity
-      -w /etc/group -p wa -k file_integrity
-      -w /etc/shadow -k file_integrity
-      -w /etc/sysctl.conf -p wa -k file_integrity
-      -w /etc/sysctl.d -p wa -k file_integrity
-      -w /etc/login.defs -p wa -k file_integrity
-      -w /etc/hosts -p wa -k file_integrity
-      -w /etc/pam.d/ -p wa -k file_integrity
-      -w /etc/ssh/sshd_config -p wa -k file_integrity
-      -a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity
-      -w /etc/localtime -p wa -k file_integrity
-      -w /var/log/sudo-io -p wra -k file_integrity
-
-      # systemd
-      -w /run/current-system/sw/bin/systemctl -p x -k systemd
-      -w /etc/systemd/ -p wa -k systemd
-      -w /usr/lib/systemd -p wa -k systemd
-
-      # executions
-      -a always,exclude -F msgtype=CWD
-      -a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo
-      -a always,exit -F arch=b64 -S mount -S umount2 -F auid!=-1 -k mount
-      -a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles
-
-      # modules
-      -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/insmod -k modules
-      -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/modprobe -k modules
-      -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/rmmod -k modules
-      -a always,exit -F arch=b64 -S finit_module -S init_module -S delete_module -F auid!=-1 -k modules
-
-      # ptrace
-      -a always,exit -F arch=b64 -S ptrace -F a0=0x4 -k code_injection
-      -a always,exit -F arch=b64 -S ptrace -F a0=0x5 -k data_injection
-      -a always,exit -F arch=b64 -S ptrace -F a0=0x6 -k register_injection
-      -a always,exit -F arch=b64 -S ptrace -k tracing
-
-      # 32bit (all systems are 64bit)
-      -a always,exit -F arch=b32 -S all -k 32bit
-
-      -e 1
-    '';
+  security.auditd = {
+    enable = true;
+    settings = {
+      log_file = "/var/log/audit/audit.log";
+      log_format = "RAW";
+      log_group = "audit";
+      priority_boost = 4;
+      flush = "INCREMENTAL_ASYNC";
+      freq = 50;
+      max_log_file = 100;
+      max_log_file_action = "ROTATE";
+      num_logs = 20;
+      space_left = 100;
+      space_left_action = "SYSLOG";
+      admin_space_left = 50;
+      admin_space_left_action = "SUSPEND";
+      disk_full_action = "SUSPEND";
+      disk_error_action = "SUSPEND";
+      # kernel 6.18+ restricts AUDIT_ADD_RULE/DEL_RULE to the registered
+      # daemon PID. rules_dir makes auditd load rules from its own PID,
+      # bypassing that restriction. reload with: systemctl reload auditd
+      rules_dir = "/etc/audit/rules.d";
+    };
   };
 
-  # override auditd to load rules directly as the registered daemon,
-  # bypassing the kernel 6.18+ restriction that only the daemon PID can
-  # send AUDIT_SET. reload with: systemctl reload auditd
-  systemd.services.auditd.serviceConfig.ExecStart = lib.mkForce [
-    ""
-    "${pkgs.audit}/bin/auditd -l -s enable -f /etc/audit/audit.rules"
-  ];
+  # Set audit=1 and audit_backlog_limit kernel params so audit events are
+  # captured before auditd starts. The upstream audit-rules-nixos.service
+  # (auditctl -R as a separate process) is disabled because it fails on
+  # kernel 6.18+ — rules_dir above replaces it.
+  security.audit = {
+    enable = lib.mkForce true;
+    backlogLimit = 8192;
+  };
+
+  systemd.services.audit-rules-nixos.enable = false;
+
+  environment.etc."audit/rules.d/audit.rules".text = ''
+    -D
+    -b 8192
+    -f 1
+    -r 0
+    -i
+
+    # access modifications
+    -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
+    -a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=-1 -k perm_mod
+    -a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=-1 -k perm_mod
+
+    # deletions
+    -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=-1 -k delete
+
+    # failed file creation
+    -a always,exit -F arch=b64 -S mkdir,creat,link,symlink,mknod,mknodat,linkat,symlinkat -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_create
+    -a always,exit -F arch=b64 -S mkdir,link,symlink,mkdirat -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_create
+
+    # failed file access
+    -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_access
+    -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_access
+
+    # failed file modifications
+    -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_mod
+    -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_mod
+
+    # file integrity monitoring
+    -w /etc/sudoers -p wa -k file_integrity
+    -w /etc/passwd -p wa -k file_integrity
+    -w /etc/group -p wa -k file_integrity
+    -w /etc/shadow -k file_integrity
+    -w /etc/sysctl.conf -p wa -k file_integrity
+    -w /etc/sysctl.d -p wa -k file_integrity
+    -w /etc/login.defs -p wa -k file_integrity
+    -w /etc/hosts -p wa -k file_integrity
+    -w /etc/pam.d/ -p wa -k file_integrity
+    -w /etc/ssh/sshd_config -p wa -k file_integrity
+    -a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k file_integrity
+    -w /etc/localtime -p wa -k file_integrity
+    -w /var/log/sudo-io -p wra -k file_integrity
+
+    # systemd
+    -w /run/current-system/sw/bin/systemctl -p x -k systemd
+    -w /etc/systemd/ -p wa -k systemd
+    -w /usr/lib/systemd -p wa -k systemd
+
+    # executions
+    -a always,exclude -F msgtype=CWD
+    -a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo
+    -a always,exit -F arch=b64 -S mount -S umount2 -F auid!=-1 -k mount
+    -a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles
+
+    # modules
+    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/insmod -k modules
+    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/modprobe -k modules
+    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/rmmod -k modules
+    -a always,exit -F arch=b64 -S finit_module -S init_module -S delete_module -F auid!=-1 -k modules
+
+    # ptrace
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x4 -k code_injection
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x5 -k data_injection
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x6 -k register_injection
+    -a always,exit -F arch=b64 -S ptrace -k tracing
+
+    # 32bit (all systems are 64bit)
+    -a always,exit -F arch=b32 -S all -k 32bit
+
+    -e 1
+  '';
 }
