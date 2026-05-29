@@ -49,6 +49,7 @@
 
   environment.etc."audit/rules.d/audit.rules".text = ''
     -D
+    -i
 
     # access modifications
     -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
@@ -87,7 +88,6 @@
     # systemd
     -w /run/current-system/sw/bin/systemctl -p x -k systemd
     -w /etc/systemd/ -p wa -k systemd
-    -w /usr/lib/systemd -p wa -k systemd
 
     # executions
     -a always,exclude -F msgtype=CWD
