@@ -7,7 +7,7 @@
   };
 
   security.auditd = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       log_file = "/var/log/audit/audit.log";
       log_format = "RAW";
