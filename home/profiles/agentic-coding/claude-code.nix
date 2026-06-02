@@ -37,10 +37,10 @@ in
     ];
   };
 
-  home.file.".claude/commands/code-review.md".text = ''
+  home.file.".claude/commands/quality-review.md".text = ''
     ${slash-prompts.quality-review}
   '';
-  home.file.".claude/commands/code-review-report.md".text = ''
+  home.file.".claude/commands/quality-review-report.md".text = ''
     ${slash-prompts.quality-review}. Generate a markdown report summarizing the findings and recommendations and store it in REVIEW_REPORT.md. ${report-update-instructions}.
   '';
   home.file.".claude/commands/code-audit.md".text = ''
