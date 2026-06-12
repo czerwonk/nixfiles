@@ -16,6 +16,7 @@
       openssl
       p7zip
       perlPackages.JSONPP
+      rclone
       ripgrep
       screen
       sd
