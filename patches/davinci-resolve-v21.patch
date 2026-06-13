@@ -1,0 +1,24 @@
+diff --git a/pkgs/by-name/da/davinci-resolve/package.nix b/pkgs/by-name/da/davinci-resolve/package.nix
+index 5471328151331..8e77352833f77 100644
+--- a/pkgs/by-name/da/davinci-resolve/package.nix
++++ b/pkgs/by-name/da/davinci-resolve/package.nix
+@@ -56,7 +56,7 @@ let
+   davinci = (
+     stdenv.mkDerivation rec {
+       pname = "davinci-resolve${lib.optionalString studioVariant "-studio"}";
+-      version = "20.3.3";
++      version = "21.0";
+
+       nativeBuildInputs = [
+         appimageTools.appimage-exec
+@@ -78,9 +78,9 @@ let
+             outputHashAlgo = "sha256";
+             outputHash =
+               if studioVariant then
+-                "sha256-q5VGp0kkno//nYtT82QDZDJG92uumAtomUK4B55795g="
++                "sha256-v6GoAHiAJ7CGU0LGbAjbWUyjqvdi4Tu4q9A4OblHI3o="
+               else
+-                "sha256-2pfJz71fS/oEmK3n4cESKb9EDYCeDBhbzGLgFpb+OLI=";
++                "sha256-HfKrEjuQvZlzIpOrnlORZ1+bcJH/f4KvMHNtmMSvkfg=";
+
+             impureEnvVars = lib.fetchers.proxyImpureEnvVars;

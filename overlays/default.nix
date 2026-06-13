@@ -7,7 +7,13 @@
 }:
 
 let
-  pkgs-unstable = import inputs.nixpkgs-unstable {
+  nixpkgs-unstable-patched = pkgs.applyPatches {
+    name = "nixpkgs-unstable-patched";
+    src = inputs.nixpkgs-unstable;
+    patches = [ ../patches/davinci-resolve-v21.patch ];
+  };
+
+  pkgs-unstable = import nixpkgs-unstable-patched {
     inherit system;
     config = {
       allowUnfree = true;
