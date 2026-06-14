@@ -52,6 +52,7 @@
     };
   };
 
+  users.groups.plugdev = { };
   users.users.${username} = {
     packages = with pkgs; [
       appimage-run
@@ -71,7 +72,10 @@
       xsel
       yubioath-flutter
     ];
-    extraGroups = [ "wireshark" ];
+    extraGroups = [
+      "wireshark"
+      "plugdev"
+    ];
   };
 
   programs.xwayland.enable = true;
