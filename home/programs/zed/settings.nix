@@ -26,7 +26,7 @@
       scroll_beyond_last_line = "off";
       vertical_scroll_margin = 8;
       edit_predictions = {
-        provider = "copilot";
+        provider = "zed";
       };
       inlay_hints = {
         enabled = true;
