@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.matrix;
-  version = "v1.153.0";
+  version = "v1.155.0";
   backup = pkgs.writeShellScriptBin "matrix-db-backup" (builtins.readFile ./db-backup.sh);
 
 in
@@ -134,7 +134,7 @@ in
       };
 
       matrix-slack = {
-        image = "dock.mau.dev/mautrix/slack:v26.05";
+        image = "dock.mau.dev/mautrix/slack:v26.06";
         cmd = [ "/usr/bin/mautrix-slack" ];
         workdir = "/data";
 
