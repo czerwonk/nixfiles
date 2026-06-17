@@ -12,6 +12,5 @@
     exiftool
     ffmpeg
     libraw
-    rapidraw
   ];
 }
