@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.mastodon;
-  version = "4.5.11";
+  version = "4.6.0";
   backup = pkgs.writeShellScriptBin "mastodon-db-backup" (builtins.readFile ./db-backup.sh);
   cleanup = pkgs.writeShellScriptBin "mastodon-cleanup" (builtins.readFile ./cleanup.sh);
   env = {
@@ -17,7 +17,6 @@ let
     LOCAL_DOMAIN = "routing.rocks";
     WEB_DOMAIN = "social.routing.rocks";
     SINGLE_USER_MODE = "true";
-    SKIP_POST_DEPLOYMENT_MIGRATIONS = "true";
 
     DB_HOST = "mastodon-db";
     DB_PORT = "5432";
