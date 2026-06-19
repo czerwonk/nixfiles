@@ -46,6 +46,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.auto-move-windows
     gnomeExtensions.caffeine
+    gnomeExtensions.focused-window-d-bus
     gnomeExtensions.just-perfection
     gnomeExtensions.pop-shell
     papers

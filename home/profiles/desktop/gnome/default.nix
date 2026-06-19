@@ -19,13 +19,14 @@ with lib.gvariant;
         "dev.zed.Zed.desktop"
       ];
       enabled-extensions = [
+        "GPaste@gnome-shell-extensions.gnome.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
+        "focused-window-dbus@flexagoon.com"
         "just-perfection-desktop@just-perfection"
         "pop-shell@system76.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "GPaste@gnome-shell-extensions.gnome.com"
       ];
       had-bluetooth-devices-setup = true;
       remember-mount-password = false;

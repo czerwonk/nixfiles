@@ -1,12 +1,21 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    tuxbox
-  ];
+  environment.systemPackages = [ pkgs.tuxbox ];
+  services.udev.packages = [ pkgs.tuxbox ];
+  users.users.${username}.extraGroups = [ "input" ];
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="2dd3", MODE="0666", GROUP="plugdev"
-    SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="2dd3", MODE="0666"
-  '';
+  systemd.user.services.tuxbox = {
+    enable = true;
+    description = "TuxBox TourBox driver";
+    after = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.tuxbox}/bin/tuxbox";
+      Restart = "on-failure";
+      RestartSec = "5s";
+    };
+  };
 }
