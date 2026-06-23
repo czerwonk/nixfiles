@@ -6,7 +6,7 @@
       let
         packages = with pkgs; [
           fractal
-          librewolf
+          firefox
           teams-for-linux
           thunderbird
         ];

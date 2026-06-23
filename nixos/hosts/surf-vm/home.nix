@@ -3,7 +3,7 @@
 {
   imports = [
     ../../../home/profiles/core
-    ../../../home/profiles/desktop/librewolf.nix
+    ../../../home/profiles/desktop/firefox.nix
   ]
   ++ extraHomeModules;
 

@@ -131,10 +131,10 @@
       "adobe-digital-editions"
       "android-studio"
       "calibre"
+      "firefox"
       "ghostty"
       "google-chrome"
       "kobo"
-      "librewolf"
       "nextcloud"
       "postbox"
     ];

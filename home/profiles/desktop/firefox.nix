@@ -7,21 +7,22 @@
 }:
 
 let
-  profile = pkgs.writeText "librewolf.local" ''
+  profile = pkgs.writeText "firefox.local" ''
     noblacklist ''${DOWNLOADS}
     whitelist ''${DOWNLOADS}
     ignore nou2f
-    include librewolf.profile
+    include firefox.profile
   '';
 
 in
 {
-  programs.librewolf = {
+  programs.firefox = {
     enable = true;
+    configPath = ".config/mozilla/firefox";
     package = (
       wrapFirejailBinary {
         inherit pkgs lib;
-        package = pkgs.librewolf;
+        package = pkgs.firefox;
         profile = profile;
         extraArgs = [ "--dbus-user.talk=org.freedesktop.Notifications" ];
       }

@@ -13,10 +13,10 @@ with lib.gvariant;
       disable-user-extensions = false;
       disabled-extensions = "disabled";
       favorite-apps = [
-        "ghostty.desktop"
-        "librewolf.desktop"
-        "thunderbird.desktop"
         "dev.zed.Zed.desktop"
+        "firefox.desktop"
+        "ghostty.desktop"
+        "thunderbird.desktop"
       ];
       enabled-extensions = [
         "GPaste@gnome-shell-extensions.gnome.com"
@@ -132,7 +132,7 @@ with lib.gvariant;
     "org/gnome/shell/extensions/auto-move-windows" = {
       application-list = [
         "ghostty.desktop:1"
-        "librewolf.desktop:2"
+        "firefox.desktop:2"
         "dev.zed.Zed.desktop:3"
         "thunderbird.desktop:4"
         "Mattermost.desktop:5"

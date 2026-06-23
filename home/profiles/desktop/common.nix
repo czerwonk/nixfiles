@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./librewolf.nix
+    ./firefox.nix
     ./ycode.nix
   ];
 
