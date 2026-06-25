@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.unifi;
-  version = "10.3.58";
+  version = "9.5.21";
   mongoInitSh = pkgs.writeText "init-mongo.sh" ''
     #!/bin/bash
     if which mongosh > /dev/null 2>&1; then
