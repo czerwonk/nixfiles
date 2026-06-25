@@ -50,6 +50,11 @@ in
         description = "Database user password";
         type = types.str;
       };
+
+      databaseRootPassword = mkOption {
+        description = "Database root user password";
+        type = types.str;
+      };
     };
   };
 
