@@ -9,6 +9,7 @@
     ../../profiles/server
     ../../profiles/webserver
     ./home-assistant.nix
+    ./unifi.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -27,7 +28,6 @@
   systemd.network.enable = false;
 
   my.services.openssh-server.openFirewall = false;
-  my.services.unifi.enable = true;
   my.services.nordvpn.enable = true;
   my.services.monitoring.enable = true;
 }
