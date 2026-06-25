@@ -74,6 +74,7 @@ in
 
         autoStart = true;
         extraOptions = [
+          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=unifi"
         ];
 
@@ -107,7 +108,7 @@ in
       };
 
       unifi-db = {
-        image = "docker.io/mongo:7.0.11";
+        image = "docker.io/mongo:7.0.37";
 
         autoStart = true;
         extraOptions = [
