@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.unifi;
-  version = "9.5.21";
+  version = "10.4.57";
   mongoInitSh = pkgs.writeText "init-mongo.sh" ''
     #!/bin/bash
     if which mongosh > /dev/null 2>&1; then
@@ -98,7 +98,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=unifi"
         ];
 
