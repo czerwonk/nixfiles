@@ -137,7 +137,7 @@ in
 
         environment = {
           MONGO_INITDB_ROOT_USERNAME = "root";
-          MONGO_INITDB_ROOT_PASSWORD = "";
+          MONGO_INITDB_ROOT_PASSWORD = cfg.databaseRootPassword;
           MONGO_USER = "unifi";
           MONGO_PASS = cfg.databasePassword;
           MONGO_DBNAME = "unifi";
