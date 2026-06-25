@@ -111,8 +111,8 @@ in
           MONGO_PORT = "27017";
           MONGO_DBNAME = "unifi";
           MONGO_AUTHSOURCE = "admin";
-          MEM_LIMIT = "1024";
-          MEM_STARTUP = "1024";
+          MEM_LIMIT = "2048";
+          MEM_STARTUP = "2048";
         };
 
         ports = [
