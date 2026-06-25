@@ -10,9 +10,28 @@ with lib;
 let
   cfg = config.my.services.unifi;
   version = "10.4.57";
-  mongoInitJS = pkgs.writeText "init-mongo.js" ''
-    db.getSiblingDB("unifi").createUser({user: "unifi", pwd: "${cfg.databasePassword}", roles: [{role: "dbOwner", db: "unifi"}]});
-    db.getSiblingDB("unifi_stat").createUser({user: "unifi", pwd: "${cfg.databasePassword}", roles: [{role: "dbOwner", db: "unifi_stat"}]});
+  mongoInitSh = pkgs.writeText "init-mongo.sh" ''
+    #!/bin/bash
+    if which mongosh > /dev/null 2>&1; then
+      mongo_init_bin='mongosh'
+    else
+      mongo_init_bin='mongo'
+    fi
+    "$mongo_init_bin" <<EOF
+    use $MONGO_AUTHSOURCE
+    db.auth("$MONGO_INITDB_ROOT_USERNAME", "$MONGO_INITDB_ROOT_PASSWORD")
+    db.createUser({
+      user: "$MONGO_USER",
+      pwd: "$MONGO_PASS",
+      roles: [
+        { role: "clusterMonitor", db: "admin" },
+        { role: "dbOwner", db: "$MONGO_DBNAME" },
+        { role: "dbOwner", db: "unifi_stat" },
+        { role: "dbOwner", db: "unifi_audit" },
+        { role: "dbOwner", db: "unifi_restore" }
+      ]
+    })
+    EOF
   '';
 
 in
@@ -28,7 +47,12 @@ in
       };
 
       databasePassword = mkOption {
-        description = "Database password";
+        description = "Database user password";
+        type = types.str;
+      };
+
+      databaseRootPassword = mkOption {
+        description = "Database root user password";
         type = types.str;
       };
     };
@@ -87,6 +111,7 @@ in
           MONGO_HOST = "unifi-db";
           MONGO_PORT = "27017";
           MONGO_DBNAME = "unifi";
+          MONGO_AUTHSOURCE = "admin";
           MEM_LIMIT = "1024";
           MEM_STARTUP = "1024";
         };
@@ -110,6 +135,15 @@ in
       unifi-db = {
         image = "docker.io/mongo:7.0.37";
 
+        environment = {
+          MONGO_INITDB_ROOT_USERNAME = "root";
+          MONGO_INITDB_ROOT_PASSWORD = cfg.databaseRootPassword;
+          MONGO_USER = "unifi";
+          MONGO_PASS = cfg.databasePassword;
+          MONGO_DBNAME = "unifi";
+          MONGO_AUTHSOURCE = "admin";
+        };
+
         autoStart = true;
         extraOptions = [
           "--network=unifi"
@@ -117,7 +151,7 @@ in
 
         volumes = [
           "${cfg.dataDir}/db:/data/db"
-          "${mongoInitJS}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+          "${mongoInitSh}:/docker-entrypoint-initdb.d/init-mongo.sh:ro"
         ];
       };
     };
