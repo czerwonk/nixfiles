@@ -11,14 +11,10 @@ index 5471328151331..8e77352833f77 100644
 
        nativeBuildInputs = [
          appimageTools.appimage-exec
-@@ -78,9 +78,9 @@ let
+@@ -78,6 +78,6 @@ let
              outputHashAlgo = "sha256";
              outputHash =
                if studioVariant then
 -                "sha256-q5VGp0kkno//nYtT82QDZDJG92uumAtomUK4B55795g="
 +                "sha256-8JN3ptd8jcacxHihZHXuhdkyambUsnFIj+AruvpztKI="
                else
--                "sha256-2pfJz71fS/oEmK3n4cESKb9EDYCeDBhbzGLgFpb+OLI=";
-+                "";
-
-             impureEnvVars = lib.fetchers.proxyImpureEnvVars;
