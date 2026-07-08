@@ -15,7 +15,7 @@
         toggle_relative_line_numbers = true;
       };
       cursor_blink = false;
-      hide_mouse = "on_typing_and_movement";
+      hide_mouse = "on_typing_and_action";
       tab_size = 2;
       preferred_line_length = 120;
       show_whitespaces = "all";
@@ -35,7 +35,7 @@
         show_other_hints = true;
       };
       title_bar = {
-        show_branch_icon = true;
+        show_branch_status_icon = true;
       };
       toolbar = {
         breadcrumbs = false;
