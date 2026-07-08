@@ -87,6 +87,7 @@
               reveal_target = "center";
             }
           ];
+          "space f s" = "project_symbols::Toggle";
 
           "space w" = "pane::CloseActiveItem";
           "space r n" = "editor::Rename";
