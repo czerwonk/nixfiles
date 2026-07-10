@@ -14,7 +14,7 @@ let
   databaseName = "immich";
   databaseUsername = "postgres";
   environment = {
-    IMMICH_VERSION = "release";
+    IMMICH_VERSION = "v3";
     DB_HOSTNAME = "immich_postgres";
     DB_USERNAME = databaseUsername;
     DB_DATABASE_NAME = databaseName;
@@ -115,7 +115,7 @@ in
       };
 
       immich_redis = {
-        image = "docker.io/valkey/valkey:9@sha256:2bce660b767cb62c8c0ea020e94a230093be63dbd6af4f21b044960517a5842d";
+        image = "docker.io/valkey/valkey:9@sha256:4963247afc4cd33c7d3b2d2816b9f7f8eeebab148d29056c2ca4d7cbc966f2d9";
 
         autoStart = true;
         extraOptions = [
@@ -133,6 +133,7 @@ in
         autoStart = true;
         extraOptions = [
           "--network=immich"
+          "--shm_size=128mb"
         ];
 
         environment = {
