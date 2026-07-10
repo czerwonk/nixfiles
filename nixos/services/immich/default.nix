@@ -133,7 +133,7 @@ in
         autoStart = true;
         extraOptions = [
           "--network=immich"
-          "--shm_size=128mb"
+          "--shm-size=128mb"
         ];
 
         environment = {
