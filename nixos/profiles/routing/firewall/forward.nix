@@ -4,14 +4,6 @@
   networking.firewall.filterForward = false;
 
   networking.nftables.tables."nixos-fw".content = lib.mkAfter ''
-    chain notrack-transit {
-      type filter hook prerouting priority raw; policy accept;
-      ip6 daddr 2001:678:1e0::/48 fib daddr type local accept
-      ip6 saddr 2001:678:1e0::/48 fib saddr type local accept
-      ip6 saddr 2001:678:1e0::/48 notrack
-      ip6 daddr 2001:678:1e0::/48 notrack
-    }
-
     chain forward {
       type filter hook forward priority filter; policy drop;
       ct status dnat accept comment "allow port forward"
