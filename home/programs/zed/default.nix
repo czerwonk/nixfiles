@@ -4,7 +4,6 @@
   imports = [
     ./settings.nix
     ./keymaps.nix
-    ./tasks.nix
   ];
 
   programs.zed-editor = {

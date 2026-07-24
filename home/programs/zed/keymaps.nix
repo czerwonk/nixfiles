@@ -16,13 +16,7 @@
         context = "EmptyPane";
         bindings = {
           "space f f" = "file_finder::Toggle";
-          "space f g" = [
-            "task::Spawn"
-            {
-              task_name = "Find in Files";
-              reveal_target = "center";
-            }
-          ];
+          "space f g" = "text_finder::Toggle";
         };
       }
       {
@@ -67,13 +61,7 @@
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
 
-          "space f g" = [
-            "task::Spawn"
-            {
-              task_name = "Find in Files";
-              reveal_target = "center";
-            }
-          ];
+          "space f g" = "text_finder::Toggle";
           "space f f" = "file_finder::Toggle";
           "space f s" = "project_symbols::Toggle";
 
