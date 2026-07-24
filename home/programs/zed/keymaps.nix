@@ -15,13 +15,7 @@
       {
         context = "EmptyPane";
         bindings = {
-          "space f f" = [
-            "task::Spawn"
-            {
-              task_name = "File Finder";
-              reveal_target = "center";
-            }
-          ];
+          "space f f" = "file_finder::Toggle";
           "space f g" = [
             "task::Spawn"
             {
@@ -73,13 +67,6 @@
           "ctrl-space" = "editor::SelectLargerSyntaxNode";
           "ctrl-backspace" = "editor::SelectSmallerSyntaxNode";
 
-          "space f f" = [
-            "task::Spawn"
-            {
-              task_name = "File Finder";
-              reveal_target = "center";
-            }
-          ];
           "space f g" = [
             "task::Spawn"
             {
@@ -87,6 +74,7 @@
               reveal_target = "center";
             }
           ];
+          "space f f" = "file_finder::Toggle";
           "space f s" = "project_symbols::Toggle";
 
           "space w" = "pane::CloseActiveItem";
