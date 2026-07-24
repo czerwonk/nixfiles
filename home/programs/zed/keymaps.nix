@@ -17,6 +17,7 @@
         bindings = {
           "space f f" = "file_finder::Toggle";
           "space f g" = "text_finder::Toggle";
+          "space f s" = "project_symbols::Toggle";
         };
       }
       {
