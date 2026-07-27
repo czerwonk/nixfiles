@@ -11,12 +11,10 @@
     import private
 
     reverse_proxy 127.0.0.1:8443 {
+      header_up Host {host}
       transport http {
-        tls
         tls_insecure_skip_verify
       }
-      header_up Host {upstream_hostport}
-      header_up Origin https://127.0.0.1:8443
     }
   '';
 }
