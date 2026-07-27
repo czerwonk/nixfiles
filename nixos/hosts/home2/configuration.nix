@@ -9,8 +9,10 @@
     ../../profiles/server
     ../../profiles/webserver
     ./home-assistant.nix
-    ./unifi.nix
+    #./unifi.nix
   ];
+
+  nix.settings.trusted-users = [ "daniel" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
