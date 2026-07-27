@@ -62,8 +62,6 @@ in
         PermitEmptyPasswords = false;
         ChallengeResponseAuthentication = false;
         UsePAM = true;
-        GSSAPIAuthentication = false;
-        GSSAPICleanupCredentials = false;
 
         AllowAgentForwarding = false;
         AllowTcpForwarding = false;
