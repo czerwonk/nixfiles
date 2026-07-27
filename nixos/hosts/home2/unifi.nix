@@ -10,11 +10,13 @@
   services.caddy.virtualHosts."unifi.routing.rocks".extraConfig = ''
     import private
 
-    reverse_proxy * 127.0.0.1:8443 {
+    reverse_proxy 127.0.0.1:8443 {
       transport http {
         tls
         tls_insecure_skip_verify
       }
+      header_up Host {upstream_hostport}
+      header_up Origin https://127.0.0.1:8443
     }
   '';
 }
