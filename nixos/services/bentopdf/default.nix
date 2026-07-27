@@ -9,7 +9,7 @@ with lib;
 
 let
   cfg = config.my.services.bentopdf;
-  version = "v2.8.4";
+  version = "v2.8.7";
 
 in
 {
