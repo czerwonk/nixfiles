@@ -64,8 +64,6 @@ in
           HAKANAI_UPLOAD_SIZE_LIMIT = "100m";
           HAKANAI_ALLOW_ANONYMOUS = "true";
           HAKANAI_ANONYMOUS_UPLOAD_SIZE_LIMIT = "32k";
-          HAKANAI_IMPRESSUM_FILE = "/static/impressum.html";
-          HAKANAI_PRIVACY_FILE = "/static/privacy.html";
           HAKANAI_TRUSTED_IP_RANGES = "2001:678:1e0::/48";
           HAKANAI_TRUSTED_IP_HEADER = "cf-connecting-ip";
           HAKANAI_COUNTRY_HEADER = "cf-ipcountry";
