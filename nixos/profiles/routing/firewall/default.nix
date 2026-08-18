@@ -5,6 +5,7 @@
     ./forward.nix
     ./input.nix
     ./nat.nix
+    ./netavark-cleanup.nix
     ./options.nix
   ];
 
