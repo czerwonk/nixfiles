@@ -133,28 +133,6 @@ in
         ];
       };
 
-      matrix-slack = {
-        image = "dock.mau.dev/mautrix/slack:v26.06";
-        cmd = [ "/usr/bin/mautrix-slack" ];
-        workdir = "/data";
-
-        autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-          "--network=matrix"
-        ];
-        user = "1337:1337";
-
-        volumes = [
-          "matrix_slack_data:/data"
-        ];
-
-        dependsOn = [
-          "matrix-synapse"
-        ];
-      };
-    };
-
     systemd.timers = {
       matrix-db-backup = {
         timerConfig = {
