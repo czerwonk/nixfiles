@@ -132,6 +132,7 @@ in
           "127.0.0.1:8009:8008"
         ];
       };
+    };
 
     systemd.timers = {
       matrix-db-backup = {
@@ -230,7 +231,6 @@ in
       initialize = true;
       paths = [
         "/var/lib/containers/storage/volumes/matrix_homeserver_data/_data"
-        "/var/lib/containers/storage/volumes/matrix_slack_data/_data"
         "/data/backup/matrix"
       ];
       pruneOpts = [
