@@ -1,4 +1,10 @@
+{ pkgs, ... }:
+
 {
+  environment.systemPackages = with pkgs; [
+    exiftool
+  ];
+
   services.caddy.virtualHosts."danalog.pics".extraConfig = ''
     import common
     import cloudflare_only
