@@ -28,7 +28,8 @@
           };
         }
         inputs.impermanence.nixosModule
-      ] ++ extraModules;
+      ]
+      ++ extraModules;
       specialArgs = {
         inherit
           configName
@@ -67,7 +68,8 @@
           };
         }
         inputs.impermanence.nixosModule
-      ] ++ extraModules;
+      ]
+      ++ extraModules;
       specialArgs = {
         inherit
           configName
@@ -106,50 +108,13 @@
             wrapFirejailBinary = import ./firejail.nix;
           };
         }
-      ] ++ extraModules;
+      ]
+      ++ extraModules;
       specialArgs = {
         inherit inputs util;
         system = "x86_64-linux";
         username = "nixos";
         configName = "iso";
-      };
-    };
-
-  mkDarwinSystem =
-    {
-      configName,
-      username,
-      system,
-      extraModules,
-      extraHomeModules,
-    }:
-    let
-      util = import ./util.nix;
-    in
-    inputs.darwin.lib.darwinSystem {
-      inherit system;
-      modules = [
-        ../overlays
-        ../darwin/overlays
-        ../darwin/hosts/${configName}/configuration.nix
-        inputs.home-manager-darwin.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ../darwin/hosts/${configName}/home.nix;
-          home-manager.extraSpecialArgs = {
-            inherit username extraHomeModules util;
-          };
-        }
-      ] ++ extraModules;
-      specialArgs = {
-        inherit
-          configName
-          username
-          system
-          inputs
-          util
-          ;
       };
     };
 }
