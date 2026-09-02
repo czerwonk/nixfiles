@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   username,
   ...
 }:
@@ -66,6 +65,7 @@
       mattermost-desktop
       nextcloud-client
       remmina
+      rustdesk
       termius
       vlc
       wireshark
@@ -94,7 +94,4 @@
     autoStart = false;
     enableMitigation = false;
   };
-
-  services.teamviewer.enable = true;
-  systemd.services.teamviewerd.wantedBy = lib.mkForce [ ];
 }
