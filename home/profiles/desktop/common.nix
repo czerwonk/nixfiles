@@ -18,7 +18,6 @@
 
   programs.zsh.shellAliases = {
     bww = "BITWARDENCLI_APPDATA_DIR='/home/${username}/.config/Bitwarden CLI Work' ${lib.getExe pkgs.bitwarden-cli} $@";
-    docker = "${lib.getExe pkgs.podman}";
   };
 
   services.gpg-agent.enable = true;
