@@ -57,7 +57,6 @@
       appimage-run
       ausweisapp
       bruno
-      calibre
       dbeaver-bin
       filezilla
       google-chrome
