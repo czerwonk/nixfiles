@@ -43,6 +43,11 @@
       url = "github:czerwonk/hakanai?ref=fe54f8c73fc37ca79bebb7346663a4a0a08a2a0b";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    mauve-connect-check = {
+      url = "github:MauveSoftware/mauve-connect-check";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

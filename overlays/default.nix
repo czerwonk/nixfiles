@@ -23,6 +23,7 @@ in
       ansible-role = inputs.ansible-role.packages.${system}.ansible-role;
       dns-drain = inputs.dns-drain.packages.${system}.dns-drainctl;
       hakanai-cli = inputs.hakanai.packages.${system}.hakanai-cli;
+      mauve-connect-check = inputs.mauve-connect-check.${system}.mauve-connect-check;
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
     })
