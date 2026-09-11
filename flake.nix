@@ -48,9 +48,6 @@
   outputs =
     inputs:
     let
-      userLib = import ./lib/user.nix {
-        inherit inputs;
-      };
       systemLib = import ./lib/system.nix {
         inherit inputs;
       };
@@ -72,22 +69,6 @@
 
     in
     {
-      homeConfigurations = {
-        "mauve-linux" = userLib.mkLinuxHMUser {
-          username = inputs.private.mauve.username { };
-          extraModules = [
-            ./home/profiles/server
-            ./home/profiles/devops
-            inputs.private.home
-            inputs.private.mauve.home
-            {
-              mauve.overrides.git = true;
-              programs.neovim.withCoding = true;
-            }
-          ];
-        };
-      };
-
       nixosConfigurations = {
         kyoto = systemLib.mkNixOSSystem {
           configName = "kyoto";
