@@ -144,6 +144,26 @@
         "type": "github"
       }
     },
+    "mauve-connect-check": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789124288,
+        "narHash": "sha256-AQbv8W83JgmnYei4nzPc7qZF6NnXrnzmSBHW0/ds+H4=",
+        "owner": "MauveSoftware",
+        "repo": "mauve-connect-check",
+        "rev": "1f4bf75bacb9e52496192721e95c9228962da7c5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MauveSoftware",
+        "repo": "mauve-connect-check",
+        "type": "github"
+      }
+    },
     "net-reduce": {
       "inputs": {
         "nixpkgs": [
@@ -267,6 +287,7 @@
         "home-manager": "home-manager",
         "home-manager-unstable": "home-manager-unstable",
         "impermanence": "impermanence",
+        "mauve-connect-check": "mauve-connect-check",
         "net-reduce": "net-reduce",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
