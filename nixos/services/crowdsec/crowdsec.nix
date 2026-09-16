@@ -89,6 +89,10 @@ in
       wantedBy = mkIf (!cfg.autoStart) (lib.mkForce [ ]);
       serviceConfig = {
         ExecStartPre = lib.mkIf (cfg.enableMitigation) [ registerBouncer ];
+        # user.max_user_namespaces is set to 0 by the server hardening profile
+        # (security.allowUserNamespaces = false), which makes systemd fail to
+        # set up PrivateUsers with ENOSPC ("No space left on device").
+        PrivateUsers = lib.mkForce false;
       };
     };
 
