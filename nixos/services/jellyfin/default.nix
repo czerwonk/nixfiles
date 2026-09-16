@@ -29,13 +29,12 @@ in
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       jellyfin = {
-        image = "lscr.io/linuxserver/jellyfin:${version}";
+        image = "ghcr.io/jellyfin/jellyfin:${version}";
 
         autoStart = true;
+        user = "1000:1000";
 
         environment = {
-          PUID = "1000";
-          PGID = "1000";
           TZ = "Europe/Berlin";
           JELLYFIN_PublishedServerUrl = cfg.publishServerUrl;
         };
