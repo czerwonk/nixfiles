@@ -144,26 +144,6 @@
         "type": "github"
       }
     },
-    "mauve-connect-check": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789124288,
-        "narHash": "sha256-AQbv8W83JgmnYei4nzPc7qZF6NnXrnzmSBHW0/ds+H4=",
-        "owner": "MauveSoftware",
-        "repo": "mauve-connect-check",
-        "rev": "1f4bf75bacb9e52496192721e95c9228962da7c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MauveSoftware",
-        "repo": "mauve-connect-check",
-        "type": "github"
-      }
-    },
     "net-reduce": {
       "inputs": {
         "nixpkgs": [
@@ -189,11 +169,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1789417814,
-        "narHash": "sha256-xV9fcqtH6jJLVBF3ocqBBwZkPKEke+BujhEwT4Ye9Tc=",
+        "lastModified": 1789553316,
+        "narHash": "sha256-SCC0F9NKhe3zmxxjK2QVsYnuV6MxsL05x9Lj5+ozBCE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "d40fd26f323c898b0c195d41aa5efadd85f57832",
+        "rev": "9b881d7df9b32c307655ee071d61e6efcc99a32c",
         "type": "github"
       },
       "original": {
@@ -250,11 +230,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1789344334,
-        "narHash": "sha256-vdhpDJ3Lr24lkZ+fDCjmBRRtw9/vcSzkqGJOJyF5h2U=",
+        "lastModified": 1789459628,
+        "narHash": "sha256-JOaadoI/IC9qEvwlnjwAhwdcWkCDqEeOJ+cOtUH/8RQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c3eea5b2156db11c7eeeada3dc737711255b253e",
+        "rev": "b67c7a60c3732edd4b947a7df8af06215851a614",
         "type": "github"
       },
       "original": {
@@ -266,11 +246,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1789124834,
-        "narHash": "sha256-Y+d8mRbiy4C5ZcKCoXhcoMzxynQc9bGlrXXO1G+1Eww=",
+        "lastModified": 1789555691,
+        "narHash": "sha256-Qw7R9YMdRpOyVwWW11E+jpCcAUTo3C57Lw0C0VaUYrQ=",
         "ref": "refs/heads/main",
-        "rev": "431ffece655f95803c7286a5864b279a458da2fa",
-        "revCount": 477,
+        "rev": "3695462b938f76ee1cf759b95404666fb1c2e1a0",
+        "revCount": 478,
         "type": "git",
         "url": "ssh://git@code.routing.rocks/daniel/nixfiles.private"
       },
@@ -287,7 +267,6 @@
         "home-manager": "home-manager",
         "home-manager-unstable": "home-manager-unstable",
         "impermanence": "impermanence",
-        "mauve-connect-check": "mauve-connect-check",
         "net-reduce": "net-reduce",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
