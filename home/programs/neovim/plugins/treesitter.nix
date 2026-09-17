@@ -38,10 +38,7 @@
               terraform
               typescript
               toml
-              vim
-              vimdoc # replaces "vim" docs parser
               yaml
-              zig
             ]
           )
         );
