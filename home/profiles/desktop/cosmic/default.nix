@@ -130,20 +130,6 @@
       force = true;
       text = "(0, 8)";
     };
-    "cosmic/com.system76.CosmicTheme.Dark/v1/corner_radii" = {
-      enable = true;
-      force = true;
-      text = ''
-        (
-            radius_0: (0.0, 0.0, 0.0, 0.0),
-            radius_xs: (4.0, 4.0, 4.0, 4.0),
-            radius_s: (8.0, 8.0, 8.0, 8.0),
-            radius_m: (16.0, 16.0, 16.0, 16.0),
-            radius_l: (32.0, 32.0, 32.0, 32.0),
-            radius_xl: (160.0, 160.0, 160.0, 160.0),
-        )
-      '';
-    };
     "cosmic/com.system76.CosmicTheme.Light/v1/active_hint" = {
       enable = true;
       force = true;
@@ -153,20 +139,6 @@
       enable = true;
       force = true;
       text = "(0, 3)";
-    };
-    "cosmic/com.system76.CosmicTheme.Light/v1/corner_radii" = {
-      enable = true;
-      force = true;
-      text = ''
-        (
-            radius_0: (0.0, 0.0, 0.0, 0.0),
-            radius_xs: (2.0, 2.0, 2.0, 2.0),
-            radius_s: (8.0, 8.0, 8.0, 8.0),
-            radius_m: (8.0, 8.0, 8.0, 8.0),
-            radius_l: (8.0, 8.0, 8.0, 8.0),
-            radius_xl: (8.0, 8.0, 8.0, 8.0),
-        )
-      '';
     };
     "cosmic/com.system76.CosmicTk/v1/header_size" = {
       enable = true;
