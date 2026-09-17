@@ -178,6 +178,15 @@
       force = true;
       text = "Compact";
     };
+    "cosmic/com.system76.CosmicSettings.Shortcuts/v1/custom" = {
+      enable = true;
+      force = true;
+      text = ''
+        {
+            (modifiers: [Super, Shift], key: "s"): System(Screenshot),
+        }
+      '';
+    };
   };
 
   services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
