@@ -1,3 +1,5 @@
+{ username, ... }:
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -46,5 +48,22 @@
   services.fprintd.enable = true;
 
   powerManagement.cpuFreqGovernor = "ondemand";
+
   services.power-profiles-daemon.enable = true;
+
+  specialisation = {
+    cosmic = {
+      configuration = {
+        imports = [
+          ../../profiles/desktop/cosmic.nix
+        ];
+
+        home-manager.users.${username} = {
+          imports = [
+            ../../../home/profiles/desktop/cosmic
+          ];
+        };
+      };
+    };
+  };
 }
