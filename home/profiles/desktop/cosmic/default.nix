@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
 
 {
+  imports = [
+    ../common.nix
+  ];
+
   xdg.configFile = {
     "cosmic/com.system76.CosmicAppList/v1/favorites" = {
       enable = true;
@@ -175,4 +179,6 @@
       text = "Compact";
     };
   };
+
+  services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
 }
