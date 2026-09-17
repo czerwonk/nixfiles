@@ -31,6 +31,7 @@ in
       claude-code = pkgs-unstable.claude-code;
       davinci-resolve-studio = pkgs-unstable.davinci-resolve-studio;
       home-assistant = pkgs-unstable.home-assistant;
+      mattermost-desktop = pkgs-unstable.mattermost-desktop;
       neovim-unwrapped = pkgs-unstable.neovim-unwrapped;
       ollama-rocm = pkgs-unstable.ollama-rocm;
       rocmPackages = pkgs-unstable.rocmPackages;
