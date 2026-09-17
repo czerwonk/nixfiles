@@ -32,14 +32,14 @@
 
       keybind = [
         "alt+w=close_surface"
-        "alt+shift+l=new_split:right"
-        "alt+shift+k=new_split:up"
-        "alt+shift+j=new_split:down"
-        "alt+shift+h=new_split:left"
         "alt+l=goto_split:right"
         "alt+k=goto_split:top"
         "alt+j=goto_split:bottom"
         "alt+h=goto_split:left"
+        "alt+shift+l=new_split:right"
+        "alt+shift+k=new_split:up"
+        "alt+shift+j=new_split:down"
+        "alt+shift+h=new_split:left"
       ];
     };
   };
