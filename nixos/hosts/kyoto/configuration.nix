@@ -1,5 +1,3 @@
-{ username, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,7 +6,7 @@
     ../../profiles/amd-rocm
     ../../profiles/container
     ../../profiles/desktop
-    ../../profiles/desktop/gnome.nix
+    ../../profiles/desktop/cosmic.nix
     ../../profiles/pentest
     ../../profiles/virtualisation
     ../../profiles/android
@@ -50,20 +48,4 @@
   powerManagement.cpuFreqGovernor = "ondemand";
 
   services.power-profiles-daemon.enable = true;
-
-  specialisation = {
-    cosmic = {
-      configuration = {
-        imports = [
-          ../../profiles/desktop/cosmic.nix
-        ];
-
-        home-manager.users.${username} = {
-          imports = [
-            ../../../home/profiles/desktop/cosmic
-          ];
-        };
-      };
-    };
-  };
 }
