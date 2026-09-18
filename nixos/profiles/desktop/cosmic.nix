@@ -17,8 +17,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    cosmic-ext-applet-caffeine
-    cosmic-ext-applet-privacy-indicator
     gnome-calculator
   ];
 
