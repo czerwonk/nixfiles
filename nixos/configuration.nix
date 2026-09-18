@@ -9,7 +9,7 @@
     ./scripts
   ];
 
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems.btrfs = true;
   boot.kernelModules = [
     "8021q"
     "af_packet"

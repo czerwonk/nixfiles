@@ -182,19 +182,9 @@
             inputs.private.home
           ];
         };
-        iso-gnome = systemLib.mkISO {
-          edition = "gnome";
-          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix";
-          extraModules = [
-            inputs.private.nixosModule
-          ];
-          extraHomeModules = [
-            inputs.private.home
-          ];
-        };
         iso-cosmic = systemLib.mkISO {
           edition = "cosmic";
-          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix";
+          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-cosmic.nix";
           extraModules = [
             inputs.private.nixosModule
           ];

@@ -5,9 +5,9 @@
     ./sanoid.nix
   ];
 
-  boot.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems.zfs = lib.mkForce true;
 
-  boot.initrd.kernelModules = [ "zfs" ];
+  boot.initrd.kernelModules.zfs = lib.mkForce true;
 
   boot.zfs.package = lib.mkDefault pkgs.zfs_2_4;
   boot.zfs.forceImportRoot = lib.mkDefault true;
