@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   services.displayManager = {
@@ -15,4 +15,8 @@
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
+
+  environment.systemPackages = with pkgs; [
+    cosmic-ext-calculator
+  ];
 }
