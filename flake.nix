@@ -192,6 +192,16 @@
             inputs.private.home
           ];
         };
+        iso-cosmic = systemLib.mkISO {
+          edition = "cosmic";
+          baseModule = "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix";
+          extraModules = [
+            inputs.private.nixosModule
+          ];
+          extraHomeModules = [
+            inputs.private.home
+          ];
+        };
       };
 
       devShells.${system} = {
