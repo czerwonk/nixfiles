@@ -9,6 +9,7 @@
   imports = [
     ./firefox.nix
     ./ycode.nix
+    ./scripts.nix
   ];
 
   programs.ghostty.enable = true;
