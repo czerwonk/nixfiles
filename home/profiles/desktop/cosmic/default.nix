@@ -18,11 +18,6 @@
         ]
       '';
     };
-    "cosmic/com.system76.CosmicIdle/v1/screen_off_time" = {
-      enable = true;
-      force = true;
-      text = "Some(300000)";
-    };
     "cosmic/com.system76.CosmicComp/v1/active_hint" = {
       enable = true;
       force = true;
