@@ -17,6 +17,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    cosmic-ext-calculator
+    cosmic-ext-applet-caffeine
+    cosmic-ext-applet-privacy-indicator
   ];
+
+  services.system76-scheduler.enable = true;
 }
