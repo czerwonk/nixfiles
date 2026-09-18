@@ -3,8 +3,9 @@
 {
   imports = [
     ../../../home/linux.nix
-    ../../../home/profiles/desktop/gnome
+    ../../../home/profiles/desktop/cosmic
     ../../../home/profiles/desktop/workstation.nix
     ../../../home/profiles/devops
-  ] ++ extraHomeModules;
+  ]
+  ++ extraHomeModules;
 }

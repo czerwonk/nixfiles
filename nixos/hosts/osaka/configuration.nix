@@ -1,4 +1,4 @@
-{ config, username, ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
     ../../configuration.nix
     ../../profiles/container
     ../../profiles/desktop
-    ../../profiles/desktop/gnome.nix
+    ../../profiles/desktop/cosmic.nix
     ../../profiles/virtualisation
     ../../profiles/pentest
     ../../zfs/desktop.nix
@@ -52,35 +52,4 @@
   my.services.openssh-server.enable = true;
 
   services.logrotate.checkConfig = false;
-
-  specialisation = {
-    cosmic = {
-      configuration = {
-        imports = [
-          ../../profiles/desktop/cosmic.nix
-        ];
-
-        home-manager.users.${username} = {
-          imports = [
-            ../../../home/profiles/desktop/cosmic
-          ];
-        };
-      };
-    };
-    hyprland = {
-      configuration = {
-        imports = [
-          ../../profiles/desktop/hyprland.nix
-        ];
-
-        home-manager.users.${username} = {
-          imports = [
-            ../../../home/profiles/desktop/hyprland
-          ];
-
-          profiles.wayland.backlightDevice = "amdgpu_bl0";
-        };
-      };
-    };
-  };
 }
