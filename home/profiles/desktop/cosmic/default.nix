@@ -115,6 +115,51 @@
       force = true;
       text = "true";
     };
+    "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/accent" = {
+      enable = true;
+      force = true;
+      text = ''
+        Some((
+            red: 0.78431374,
+            green: 0.7529412,
+            blue: 0.5764706,
+        ))
+      '';
+    };
+    "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/bg_color" = {
+      enable = true;
+      force = true;
+      text = ''
+        Some((
+            red: 0.08627451,
+            green: 0.08627451,
+            blue: 0.11372549,
+            alpha: 1.0,
+        ))
+      '';
+    };
+    "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/neutral_tint" = {
+      enable = true;
+      force = true;
+      text = ''
+        Some((
+            red: 0.5254902,
+            green: 0.67058825,
+            blue: 0.6431373,
+        ))
+      '';
+    };
+    "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/text_tint" = {
+      enable = true;
+      force = true;
+      text = ''
+        Some((
+            red: 0.8627451,
+            green: 0.84313726,
+            blue: 0.7294118,
+        ))
+      '';
+    };
     "cosmic/com.system76.CosmicTheme.Dark/v1/active_hint" = {
       enable = true;
       force = true;
