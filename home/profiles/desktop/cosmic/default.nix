@@ -138,6 +138,18 @@
         ))
       '';
     };
+    "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/primary_container_bg" = {
+      enable = true;
+      force = true;
+      text = ''
+        Some((
+            red: 0.12156863,
+            green: 0.12156863,
+            blue: 0.15686275,
+            alpha: 1.0,
+        ))
+      '';
+    };
     "cosmic/com.system76.CosmicTheme.Dark.Builder/v1/neutral_tint" = {
       enable = true;
       force = true;
