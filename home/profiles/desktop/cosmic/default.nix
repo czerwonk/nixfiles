@@ -3,6 +3,7 @@
 {
   imports = [
     ../common.nix
+    ./default-applications.nix
   ];
 
   xdg.configFile = {
