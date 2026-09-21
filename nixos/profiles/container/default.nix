@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 
@@ -9,7 +10,7 @@
   virtualisation = {
     podman = {
       enable = true;
-      dockerCompat = false;
+      dockerCompat = lib.mkDefault true;
       defaultNetwork.settings.dns_enabled = true;
       extraPackages = with pkgs; [
         gvisor
