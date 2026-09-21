@@ -18,7 +18,6 @@
 
   environment.systemPackages = with pkgs; [
     gnome-calculator
-    gnome-calendar
   ];
 
   services.system76-scheduler.enable = true;
