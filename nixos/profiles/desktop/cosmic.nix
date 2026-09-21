@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   services.displayManager = {
@@ -15,10 +15,6 @@
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
-
-  environment.systemPackages = with pkgs; [
-    gnome-calculator
-  ];
 
   services.system76-scheduler.enable = true;
 }
