@@ -52,8 +52,8 @@ in
   home.file.".claude/commands/fix-build.md".text = ''
     ${slash-prompts.fix-build}
   '';
-  home.file.".claude/commands/version-update-rust.md".text = ''
-    ${slash-prompts.version-update-rust}
+  home.file.".claude/commands/version-update.md".text = ''
+    ${slash-prompts.version-update}
   '';
   home.file.".claude/commands/release-notes.md".text = ''
     ${slash-prompts.release-notes}

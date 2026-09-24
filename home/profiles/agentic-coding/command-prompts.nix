@@ -8,11 +8,13 @@
   fix-build = ''
     Diagnose build failure: parse error messages, identify root causes, provide working code fixes with step-by-step resolution.
   '';
-  version-update-rust = ''
-    Ask me for a version number referred as VERSION. Update the version in all cargo.toml files to VERSION in this workspace.
-    If a package.nix exists in the same directory and it does not import a workspace.nix, also update the version in the nix file and set the cargoHash to empty string.
-    If a workspace.nix exists in the project root, update the version in the workspace.nix file and set the cargoHash to empty string.
-    If a helm chart exists increase the version of the helm chart too and set the appVersion to VERSION.
+  version-update = ''
+    Use $ARGUMENTS as VERSION, or ask me for it. Note the current version as OLD_VERSION first.
+    Update this project's own version in every manifest present (Cargo.toml, package.json, pyproject.toml, etc.) and in version constants in source (e.g. `version` in main.go, `__version__`). Refresh lockfiles to match (e.g. `cargo metadata`, `npm version VERSION --no-git-tag-version`).
+    Nix: update `version` in workspace.nix if it exists in the root, otherwise in package.nix files next to manifests. Leave dependency hashes alone.
+    Helm: patch-bump the chart `version`, set `appVersion` to VERSION, and update the image tag in values.yaml if it pins OLD_VERSION.
+    Then grep for remaining occurrences of OLD_VERSION (skip lockfiles, vendor/, node_modules/, target/, CHANGELOG). Update the clear matches; ask me about ambiguous ones. Never change dependency versions. Don't commit or tag.
+    Finish with a short summary of changed files and old to new values.
   '';
   release-notes = ''
     Analyze all code changes since lastest tag. Build and output release notes in markdown code. Ensure the output is short and concise, focusing on the most important changes, exclude version bumps, unchanged features and do not repeat youself.
