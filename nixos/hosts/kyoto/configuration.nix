@@ -48,4 +48,9 @@
   powerManagement.cpuFreqGovernor = "ondemand";
 
   services.power-profiles-daemon.enable = true;
+
+  services.udev.extraRules = ''
+    # IQUNIX MG65 Mechanical Keyboard (WebHID / VIA)
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="320f", ATTRS{idProduct}=="5055", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
 }
