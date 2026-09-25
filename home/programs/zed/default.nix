@@ -42,6 +42,7 @@ let
 
     # allow podman
     read-write ~/.local/share/containers
+    whitelist ~/.docker
     env CONTAINER_HOST=unix:///run/user/1000/podman/podman.sock
 
     # allow shell and history
