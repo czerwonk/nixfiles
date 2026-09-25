@@ -43,6 +43,9 @@ in
     permissions.ask = [
       "Bash(podman:*)"
       "Bash(docker:*)"
+      "Bash(ssh:*)"
+      "Bash(rsync:*)"
+      "Bash(sftp:*)"
     ];
   };
   home.file.".claude/commands/quality-review.md".text = ''
