@@ -20,5 +20,9 @@
     adwaita-fonts
   ];
 
+  environment.systemPackages = with pkgs; [
+    simple-scan
+  ];
+
   services.system76-scheduler.enable = true;
 }
