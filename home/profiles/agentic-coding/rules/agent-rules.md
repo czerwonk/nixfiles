@@ -13,8 +13,6 @@
 - Clarify ambiguities before proceeding
 - Break complex topics into digestible parts
 - When you generate lists (for example TODOs or suggestions) use identifier to refere to in the conversation
-# Important local paths
-- **Screenshots**: ~/Pictures/Screenshots
 # Development Rules
 ## 1. Task Management
 - Break into small, completable units
