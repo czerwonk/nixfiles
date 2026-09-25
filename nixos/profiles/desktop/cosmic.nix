@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   services.displayManager = {
@@ -15,6 +15,10 @@
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
+
+  fonts.packages = with pkgs; [
+    adwaita-fonts
+  ];
 
   services.system76-scheduler.enable = true;
 }

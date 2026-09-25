@@ -22,6 +22,8 @@
 
   services.gpg-agent.enable = true;
 
+  fonts.fontconfig.enable = true;
+
   home = {
     packages = with pkgs; [
       bitwarden-cli
