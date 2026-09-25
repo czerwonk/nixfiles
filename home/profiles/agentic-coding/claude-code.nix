@@ -37,6 +37,14 @@ in
     ];
   };
 
+  home.file.".claude/settings.json".text = builtins.toJSON {
+    editorMode = "vim";
+    tui = "fullscreen";
+    permissions.ask = [
+      "Bash(podman:*)"
+      "Bash(docker:*)"
+    ];
+  };
   home.file.".claude/commands/quality-review.md".text = ''
     ${slash-prompts.quality-review}
   '';
