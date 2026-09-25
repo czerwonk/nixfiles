@@ -9,7 +9,6 @@
     ../../profiles/desktop/cosmic.nix
     ../../profiles/pentest
     ../../profiles/virtualisation
-    ../../profiles/android
     ../../tpm.nix
     ../../zfs/desktop.nix
   ];
