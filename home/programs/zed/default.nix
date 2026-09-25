@@ -52,6 +52,8 @@ let
     whitelist ~/.profile
     whitelist ~/.zsh_history
     read-write ~/.zsh_history
+    whitelist ~/.atuin
+    read-write ~/.atuin
 
     # allow rust/cargo
     whitelist ~/.cargo
