@@ -44,5 +44,6 @@ in
     })
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)
+    (import ./xdg-desktop-portal-cosmic.nix { inherit pkgs-unstable; })
   ];
 }
