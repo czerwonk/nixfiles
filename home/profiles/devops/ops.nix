@@ -11,7 +11,6 @@
       ansible-lint
       ansible-role
       dive
-      dns-drain
       google-cloud-sdk
       grype
       hyperfine

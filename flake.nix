@@ -29,11 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dns-drain = {
-      url = "github:czerwonk/dns-drain";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     net-reduce = {
       url = "github:czerwonk/net-reduce";
       inputs.nixpkgs.follows = "nixpkgs";
