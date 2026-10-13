@@ -20,26 +20,6 @@
         "type": "github"
       }
     },
-    "dns-drain": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791548875,
-        "narHash": "sha256-qm67+w3Lw/0IsI5You5BxNaplFzaKOD8DLFzbhdMYus=",
-        "owner": "czerwonk",
-        "repo": "dns-drain",
-        "rev": "764a881465245ff7c344c068ac575d50368045d8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "czerwonk",
-        "repo": "dns-drain",
-        "type": "github"
-      }
-    },
     "hakanai": {
       "inputs": {
         "nixpkgs": [
@@ -262,7 +242,6 @@
     "root": {
       "inputs": {
         "ansible-role": "ansible-role",
-        "dns-drain": "dns-drain",
         "hakanai": "hakanai",
         "home-manager": "home-manager",
         "home-manager-unstable": "home-manager-unstable",
