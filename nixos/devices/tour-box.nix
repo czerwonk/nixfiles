@@ -1,18 +1,27 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./uinput.nix
+  ];
+
   environment.systemPackages = [ pkgs.tuxbox ];
-  services.udev.packages = [ pkgs.tuxbox ];
-  users.users.${username}.extraGroups = [ "input" ];
+  services.udev.extraRules = ''
+    # TourBox NEO
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="cafe", ATTRS{idProduct}=="4001", \
+      MODE="0660", GROUP="plugdev", ENV{ID_MM_DEVICE_IGNORE}="1", \
+      SYMLINK+="tourbox", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}="tuxbox.service"
+  '';
 
   systemd.user.services.tuxbox = {
-    enable = true;
     description = "TuxBox TourBox driver";
-    after = [ "graphical-session.target" ];
+    bindsTo = [ "dev-tourbox.device" ];
+    after = [
+      "dev-tourbox.device"
+      "graphical-session.target"
+    ];
     partOf = [ "graphical-session.target" ];
-
     serviceConfig = {
-      Type = "simple";
       ExecStart = "${pkgs.tuxbox}/bin/tuxbox";
       Restart = "on-failure";
       RestartSec = "5s";
