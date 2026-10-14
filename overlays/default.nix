@@ -35,6 +35,7 @@ in
       ollama-rocm = pkgs-unstable.ollama-rocm;
       rocmPackages = pkgs-unstable.rocmPackages;
       termius = pkgs-unstable.termius;
+      tuxbox = pkgs-unstable.tuxbox;
       vimPlugins = pkgs-unstable.vimPlugins;
       zed-editor = pkgs-unstable.zed-editor;
     })
