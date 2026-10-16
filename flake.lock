@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "dns-drain": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792135958,
+        "narHash": "sha256-k/Ya4EwaUx8X3dEzIX9+ukKrqTwz06bSzmgsb8NgsR0=",
+        "owner": "czerwonk",
+        "repo": "dns-drain",
+        "rev": "5eb7a9f7ed7205b0e9696b02f45ce27ad04d26d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "czerwonk",
+        "repo": "dns-drain",
+        "type": "github"
+      }
+    },
     "hakanai": {
       "inputs": {
         "nixpkgs": [
@@ -27,16 +47,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1790242771,
-        "narHash": "sha256-u2wm00GQgdv5F1DinmXP1Zy/x62c10SbT5V3/4wEDz8=",
+        "lastModified": 1792137063,
+        "narHash": "sha256-qGE8wCCg+3PL3ZUJCVAtoUif9A1e1KMKKdQMB/AJMco=",
         "owner": "czerwonk",
         "repo": "hakanai",
-        "rev": "ab8e3c13c97c187f5ecd499b2cee525102a1f1d3",
+        "rev": "613a9b0d975a10d66a719def358aacaf25c1feb1",
         "type": "github"
       },
       "original": {
         "owner": "czerwonk",
-        "ref": "ab8e3c13c97c187f5ecd499b2cee525102a1f1d3",
+        "ref": "613a9b0d975a10d66a719def358aacaf25c1feb1",
         "repo": "hakanai",
         "type": "github"
       }
@@ -69,11 +89,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792000010,
-        "narHash": "sha256-4jtkwQlReQdXsKJJfB9yT7nIf0TlwgZOk2XtxjUgDS8=",
+        "lastModified": 1792098797,
+        "narHash": "sha256-u4DIIZgznEGzByxXrxWCXK19VcMtTBmi/M9gZ7Jk9bM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5a9d300bd619c03857521b50c8877a19dbad7078",
+        "rev": "640725978b99076e18e069f6e7d2959124584f8f",
         "type": "github"
       },
       "original": {
@@ -181,11 +201,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1792034174,
-        "narHash": "sha256-Wqty06OaHk9quzfq4m60/+aYeFIHuOvMXSlT6cqmk54=",
+        "lastModified": 1792121332,
+        "narHash": "sha256-7NohVb8h34kIg0JKyZSOi+r9TENL2rmQavySjdziYqc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2ebb5e07650b0d0cc7bcbe22f4fc4b561572b87f",
+        "rev": "3de7dd8c8ab6c249fc49985bfa53904d7ab696ba",
         "type": "github"
       },
       "original": {
@@ -210,11 +230,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1791883866,
-        "narHash": "sha256-yvkDdToRZ4IgPc9tSBzzCYJvTLf8n5eE3rgUkpCuD5A=",
+        "lastModified": 1792030654,
+        "narHash": "sha256-OaQwAtPMTjQiY2sT/2/62UbSPhzP/0aDnWzMm/NCiUw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a033e66ab94a6bedf2c3d58d93a36319d3cbbbaf",
+        "rev": "26f4107e47e3ad0ffd0db220469ba83b6f6d96e8",
         "type": "github"
       },
       "original": {
@@ -242,6 +262,7 @@
     "root": {
       "inputs": {
         "ansible-role": "ansible-role",
+        "dns-drain": "dns-drain",
         "hakanai": "hakanai",
         "home-manager": "home-manager",
         "home-manager-unstable": "home-manager-unstable",
