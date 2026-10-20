@@ -67,6 +67,10 @@ let
     read-write ~/go
     whitelist ~/.cache/go-build
     read-write ~/.cache/go-build
+
+    # allow npm
+    whitelist ~/npm
+    read-write ~/npm
   '';
   zed-firejailed = pkgs.symlinkJoin {
     name = "zed-firejailed-${pkgs.zed-editor.version}";
