@@ -11,6 +11,7 @@
       expect
       eza
       fd
+      glow
       hexyl
       jq
       openssl
