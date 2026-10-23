@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -136,7 +136,7 @@
             inputs.private.home
           ];
         };
-        osaka = systemLib.mkNixOSSystem {
+        osaka = systemLib.mkNixOSSystemUnstable {
           configName = "osaka";
           inherit system;
           username = inputs.private.username { };
