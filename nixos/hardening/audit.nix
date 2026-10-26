@@ -10,14 +10,14 @@
     enable = lib.mkDefault true;
     settings = {
       log_file = "/var/log/audit/audit.log";
-      log_format = "RAW";
+      log_format = "ENRICHED";
       log_group = "audit";
       priority_boost = 4;
       flush = "INCREMENTAL_ASYNC";
       freq = 50;
       max_log_file = 100;
       max_log_file_action = "ROTATE";
-      num_logs = 20;
+      num_logs = 30;
       space_left = 100;
       space_left_action = "SYSLOG";
       admin_space_left = 50;
