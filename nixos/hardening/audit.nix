@@ -111,7 +111,7 @@ let
       echo "usage: ak <key> [start]   e.g. ak file_integrity, ak sudo recent" >&2
       exit 1
     fi
-    exec ausearch -k "$1" --start "''${2:-today}" -i --format text
+    exec ausearch -k "$1" --start "''${2:-today}" --format text
   '';
 
   # aks [start]  - number of audit events per key (default start: today)
