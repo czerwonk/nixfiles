@@ -1,5 +1,90 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
+let
+  user = "-F auid>=1000 -F auid!=unset";
+  rules = pkgs.writeText "audit.rules" ''
+    -D
+    -i
+
+    # Drop CWD records (saves volume; relative paths in PATH records lose context)
+    -a always,exclude -F msgtype=CWD
+
+    # --- file integrity --------------------------------------------------------
+    # Many of these are symlinks into /etc/static on NixOS; watching them still
+    # detects the link being replaced (tampering). Real files: passwd, group,
+    # shadow, sudoers (mode 0440 -> copied, not linked).
+    -a never,exit -F arch=b64 -F dir=/var/log/sudo-io -F perm=w -F exe=${config.security.sudo.package}/bin/sudo
+    -w /etc/passwd -p wa -k file_integrity
+    -w /etc/group -p wa -k file_integrity
+    -w /etc/shadow -p wa -k file_integrity
+    -w /etc/sudoers -p wa -k file_integrity
+    -w /etc/sysctl.d -p wa -k file_integrity
+    -w /etc/login.defs -p wa -k file_integrity
+    -w /etc/hosts -p wa -k file_integrity
+    -w /etc/pam.d -p wa -k file_integrity
+    -w /etc/ssh/sshd_config -p wa -k file_integrity
+    -w /etc/localtime -p wa -k file_integrity
+    -w /var/log/sudo-io -p wra -k file_integrity
+
+    # NixOS generation switches (also catches per-user profile changes)
+    -w /nix/var/nix/profiles -p wa -k system_profile
+
+    # --- systemd ---------------------------------------------------------------
+    # Real store binary, not the /run/current-system symlink (which never fires).
+    -w ${config.systemd.package}/bin/systemctl -p x -k systemd
+    -w /etc/systemd -p wa -k systemd
+
+    # --- failed file creation --------------------------------------------------
+    -a always,exit -F arch=b64 -S creat,mkdir,mkdirat,link,linkat,symlink,symlinkat,mknod,mknodat -F exit=-EACCES ${user} -k failed_file_create
+    -a always,exit -F arch=b64 -S creat,mkdir,mkdirat,link,linkat,symlink,symlinkat,mknod,mknodat -F exit=-EPERM ${user} -k failed_file_create
+
+    # --- failed file access ----------------------------------------------------
+    -a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES ${user} -k failed_file_access
+    -a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM ${user} -k failed_file_access
+
+    # --- failed file modifications (incl. failed deletes / perm changes) ------
+    -a always,exit -F arch=b64 -S rename,renameat,renameat2,unlink,unlinkat,rmdir,truncate,ftruncate,chmod,fchmod,fchmodat,chown,fchown,fchownat,lchown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F exit=-EACCES ${user} -k failed_file_mod
+    -a always,exit -F arch=b64 -S rename,renameat,renameat2,unlink,unlinkat,rmdir,truncate,ftruncate,chmod,fchmod,fchmodat,chown,fchown,fchownat,lchown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F exit=-EPERM ${user} -k failed_file_mod
+    # fchmodat2 on separate lines: with -i an unknown syscall name drops the whole line
+    -a always,exit -F arch=b64 -S fchmodat2 -F exit=-EACCES ${user} -k failed_file_mod
+    -a always,exit -F arch=b64 -S fchmodat2 -F exit=-EPERM ${user} -k failed_file_mod
+
+    # --- access modifications --------------------------------------------------
+    -a always,exit -F arch=b64 -S chmod,fchmod,fchmodat ${user} -k perm_mod
+    -a always,exit -F arch=b64 -S fchmodat2 ${user} -k perm_mod
+    -a always,exit -F arch=b64 -S chown,fchown,fchownat,lchown ${user} -k perm_mod
+    -a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr ${user} -k perm_mod
+
+    # --- deletions / moves -----------------------------------------------------
+    -a always,exit -F arch=b64 -S unlink,unlinkat,rmdir,rename,renameat,renameat2 ${user} -k delete
+
+    # --- special files ---------------------------------------------------------
+    -a always,exit -F arch=b64 -S mknod,mknodat -k specialfiles
+
+    # --- mounts (classic + new mount API used by util-linux >= 2.39) ----------
+    -a always,exit -F arch=b64 -S mount,umount2,fsopen,fsmount,move_mount,open_tree,mount_setattr -F auid!=unset -k mount
+
+    # --- kernel modules (syscalls cover insmod/modprobe/rmmod, all kmod links) -
+    -a always,exit -F arch=b64 -S init_module,finit_module,delete_module -F auid!=unset -k modules
+
+    # --- executions as root by logged-in users (sudo, su, setuid binaries) ----
+    -a always,exit -F arch=b64 -S execve,execveat -F euid=0 ${user} -k sudo
+
+    # --- ptrace ----------------------------------------------------------------
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x4 -k code_injection
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x5 -k data_injection
+    -a always,exit -F arch=b64 -S ptrace -F a0=0x6 -k register_injection
+    -a always,exit -F arch=b64 -S ptrace -k tracing
+
+    # --- any 32-bit syscall (all systems are 64-bit) ---------------------------
+    -a always,exit -F arch=b32 -S all -k 32bit
+  '';
+in
 {
   users.groups.audit = {
     gid = 800;
@@ -40,74 +125,12 @@
   systemd.services.audit-rules-nixos.enable = false;
 
   systemd.services.auditd.serviceConfig = {
-    ExecStartPre = "${lib.getExe' pkgs.audit "auditctl"} -R /etc/audit/rules.d/audit.rules";
+    ExecStartPre = "${lib.getExe' pkgs.audit "auditctl"} -R ${rules}";
     ExecStart = lib.mkForce [
       ""
       "${lib.getExe' pkgs.audit "auditd"} -l -s nochange"
     ];
   };
 
-  environment.etc."audit/rules.d/audit.rules".text = ''
-    -D
-    -i
-
-    # access modifications
-    -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
-    -a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=-1 -k perm_mod
-    -a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=-1 -k perm_mod
-
-    # deletions
-    -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=-1 -k delete
-
-    # failed file creation
-    -a always,exit -F arch=b64 -S mkdir,creat,link,symlink,mknod,mknodat,linkat,symlinkat -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_create
-    -a always,exit -F arch=b64 -S mkdir,link,symlink,mkdirat -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_create
-
-    # failed file access
-    -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_access
-    -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_access
-
-    # failed file modifications
-    -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EACCES -F auid>=1000 -F auid!=-1 -k failed_file_mod
-    -a always,exit -F arch=b64 -S rename -S renameat -S truncate -S chmod -S setxattr -S lsetxattr -S removexattr -S lremovexattr -F exit=-EPERM -F auid>=1000 -F auid!=-1 -k failed_file_mod
-
-    # file integrity monitoring
-    -w /etc/sudoers -p wa -k file_integrity
-    -w /etc/passwd -p wa -k file_integrity
-    -w /etc/group -p wa -k file_integrity
-    -w /etc/shadow -k file_integrity
-    -w /etc/sysctl.conf -p wa -k file_integrity
-    -w /etc/sysctl.d -p wa -k file_integrity
-    -w /etc/login.defs -p wa -k file_integrity
-    -w /etc/hosts -p wa -k file_integrity
-    -w /etc/pam.d/ -p wa -k file_integrity
-    -w /etc/ssh/sshd_config -p wa -k file_integrity
-    -w /etc/localtime -p wa -k file_integrity
-    -w /var/log/sudo-io -p wra -k file_integrity
-
-    # systemd
-    -w /run/current-system/sw/bin/systemctl -p x -k systemd
-    -w /etc/systemd/ -p wa -k systemd
-
-    # executions
-    -a always,exclude -F msgtype=CWD
-    -a always,exit -F arch=b64 -S execve -F euid=0 -F auid>=1000 -F auid!=-1 -S execve -k sudo
-    -a always,exit -F arch=b64 -S mount -S umount2 -F auid!=-1 -k mount
-    -a always,exit -F arch=b64 -S mknod -S mknodat -k specialfiles
-
-    # modules
-    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/insmod -k modules
-    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/modprobe -k modules
-    -a always,exit -F perm=x -F auid!=-1 -F path=/run/current-system/sw/bin/rmmod -k modules
-    -a always,exit -F arch=b64 -S finit_module -S init_module -S delete_module -F auid!=-1 -k modules
-
-    # ptrace
-    -a always,exit -F arch=b64 -S ptrace -F a0=0x4 -k code_injection
-    -a always,exit -F arch=b64 -S ptrace -F a0=0x5 -k data_injection
-    -a always,exit -F arch=b64 -S ptrace -F a0=0x6 -k register_injection
-    -a always,exit -F arch=b64 -S ptrace -k tracing
-
-    # 32bit (all systems are 64bit)
-    -a always,exit -F arch=b32 -S all -k 32bit
-  '';
+  environment.etc."audit/rules.d/audit.rules".source = rules;
 }
