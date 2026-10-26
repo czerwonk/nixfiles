@@ -7,6 +7,12 @@
 
 let
   user = "-F auid>=1000 -F auid!=unset";
+
+  # sudo writes its own I/O logs constantly; drop those writes so the
+  # file_integrity watch below only reports reads and foreign writes.
+  # On NixOS the setuid wrapper execs the real store binary, so exe matches.
+  sudoIoExclude = lib.optionalString config.security.sudo.enable "-a never,exit -F arch=b64 -F dir=/var/log/sudo-io -F perm=w -F exe=${config.security.sudo.package}/bin/sudo";
+
   rules = pkgs.writeText "audit.rules" ''
     -D
     -i
@@ -14,11 +20,14 @@ let
     # Drop CWD records (saves volume; relative paths in PATH records lose context)
     -a always,exclude -F msgtype=CWD
 
+    ## NOTE: on the exit list the FIRST matching rule wins and sets the key.
+    ## Order: watches -> failures -> broad syscall rules -> catch-alls.
+
     # --- file integrity --------------------------------------------------------
     # Many of these are symlinks into /etc/static on NixOS; watching them still
     # detects the link being replaced (tampering). Real files: passwd, group,
     # shadow, sudoers (mode 0440 -> copied, not linked).
-    -a never,exit -F arch=b64 -F dir=/var/log/sudo-io -F perm=w -F exe=${config.security.sudo.package}/bin/sudo
+    ${sudoIoExclude}
     -w /etc/passwd -p wa -k file_integrity
     -w /etc/group -p wa -k file_integrity
     -w /etc/shadow -p wa -k file_integrity
@@ -84,6 +93,36 @@ let
     # --- any 32-bit syscall (all systems are 64-bit) ---------------------------
     -a always,exit -F arch=b32 -S all -k 32bit
   '';
+
+  mkHelper =
+    name: runtimeInputs: text:
+    pkgs.writeShellApplication {
+      inherit name runtimeInputs text;
+      bashOptions = [
+        "errexit"
+        "nounset"
+      ];
+    };
+
+  # ak <key> [start]  - audit events for one key, readable (default start: today)
+  # start: recent | today | yesterday | this-week | this-month | boot | "MM/DD/YYYY HH:MM:SS"
+  ak = mkHelper "ak" [ pkgs.audit ] ''
+    if [ $# -lt 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+      echo "usage: ak <key> [start]   e.g. ak file_integrity, ak sudo recent" >&2
+      exit 1
+    fi
+    exec ausearch -k "$1" --start "''${2:-today}" -i --format text
+  '';
+
+  # aks [start]  - number of audit events per key (default start: today)
+  aks = mkHelper "aks" [ pkgs.audit pkgs.coreutils ] ''
+    aureport --key --summary --start "''${1:-today}" -i | tail -n +6
+  '';
+
+  # akl  - audit keys currently loaded in the kernel, with rule count per key (needs root)
+  akl = mkHelper "akl" [ pkgs.audit pkgs.gnugrep pkgs.coreutils ] ''
+    auditctl -l | grep -oP -- '(-k |key=)\K\S+' | sort | uniq -c | sort -rn
+  '';
 in
 {
   users.groups.audit = {
@@ -133,4 +172,10 @@ in
   };
 
   environment.etc."audit/rules.d/audit.rules".source = rules;
+
+  environment.systemPackages = lib.mkIf config.security.auditd.enable [
+    ak
+    aks
+    akl
+  ];
 }
