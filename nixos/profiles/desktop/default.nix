@@ -56,6 +56,7 @@
     packages = with pkgs; [
       appimage-run
       ausweisapp
+      bitwarden-desktop
       bruno
       dbeaver-bin
       filezilla

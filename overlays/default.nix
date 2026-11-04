@@ -22,11 +22,11 @@ in
     (self: super: {
       ansible-role = inputs.ansible-role.packages.${system}.ansible-role;
       hakanai-cli = inputs.hakanai.packages.${system}.hakanai-cli;
-      mauve-connect-check = inputs.mauve-connect-check.${system}.mauve-connect-check;
       net-reduce = inputs.net-reduce.packages.${system}.net-reduce;
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
     })
     (self: super: {
+      bitwarden-desktop = pkgs-unstable.bitwarden-desktop;
       claude-code = pkgs-unstable.claude-code;
       davinci-resolve-studio = pkgs-unstable.davinci-resolve-studio;
       home-assistant = pkgs-unstable.home-assistant;
