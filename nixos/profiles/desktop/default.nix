@@ -61,7 +61,6 @@
       filezilla
       google-chrome
       libreoffice
-      mattermost-desktop
       nextcloud-client
       remmina
       rustdesk
