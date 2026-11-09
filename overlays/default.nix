@@ -26,7 +26,6 @@ in
       load-env-bw = import ../pkgs/load-env-bw { inherit pkgs lib; };
     })
     (self: super: {
-      bitwarden-desktop = pkgs-unstable.bitwarden-desktop;
       claude-code = pkgs-unstable.claude-code;
       davinci-resolve-studio = pkgs-unstable.davinci-resolve-studio;
       home-assistant = pkgs-unstable.home-assistant;
