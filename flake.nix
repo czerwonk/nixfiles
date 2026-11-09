@@ -20,6 +20,8 @@
 
     impermanence.url = "github:nix-community/impermanence?ref=7b1d382faf603b6d264f58627330f9faa5cba149";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.8.0";
+
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";

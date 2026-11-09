@@ -7,6 +7,7 @@
 {
   imports = [
     ./core.nix
+    ./flatpak.nix
     ./firejail-icons.nix
     ./impermanence.nix
     ./pam.nix
@@ -84,7 +85,6 @@
 
   programs.wireshark.enable = true;
 
-  services.flatpak.enable = true;
   services.pcscd.enable = true;
 
   my.services.crowdsec = {
