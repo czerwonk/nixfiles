@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./dotnet.nix
     ./go.nix
     ./python.nix
     ./ruby.nix
