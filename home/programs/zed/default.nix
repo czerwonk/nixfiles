@@ -68,6 +68,10 @@ let
     whitelist ~/.cache/go-build
     read-write ~/.cache/go-build
 
+    # allow dotnet
+    whitelist ~/.dotnet
+    read-write ~/.dotnet
+
     # allow npm
     whitelist ~/.npm
     read-write ~/.npm
