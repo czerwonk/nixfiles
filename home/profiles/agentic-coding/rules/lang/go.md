@@ -7,8 +7,9 @@
 ## Naming Conventions
 - Use camelCase for variables and functions
 - Use PascalCase for exported functions and types
-- Use ALL_CAPS for constants
 - Package names should be lowercase, single words when possible
+- Use MixedCaps for all identifiers, including constants: MaxRetries (exported), defaultTimeout (unexported); no ALL_CAPS or underscores
+- Keep initialisms in consistent case: userID, apiURL, HTTPClient
 
 ## Code Structure
 - Keep functions small and focused on a single responsibility
