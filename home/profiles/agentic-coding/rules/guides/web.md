@@ -1,6 +1,10 @@
-# Web UI Guide (HTML, templates, frontend JS)
+# Web UI Guide (HTML, templates, CSS, frontend JS)
 
 Goal: every web UI works with a strict Content-Security-Policy and has no injection points by default.
+
+## Markup
+- Semantic HTML5 elements, accessible forms (labels, alt texts, keyboard navigation)
+- Public sites additionally need SEO basics: descriptive `<title>`, meta description, Open Graph tags, canonical URLs - not needed for internal tools
 
 ## No Inline CSS or JS
 - No `<style>` or `<script>` blocks with content, no `style="..."` attributes
@@ -9,7 +13,7 @@ Goal: every web UI works with a strict Content-Security-Policy and has no inject
 - Pass server data to JS via `data-*` attributes, not via inline scripts
 
 ## No HTML Injection
-- **Never use `innerHTML`** or its equivalents (`outerHTML`, `insertAdjacentHTML`, `document.write`); build the DOM with `textContent`, `createElement`, `append` etc.
+- Never use `innerHTML` or its equivalents (`outerHTML`, `insertAdjacentHTML`, `document.write`); build the DOM with `textContent`, `createElement`, `append` etc.
 - Never bypass template auto-escaping (`|safe` in Askama/Jinja, `{!! !!}` in Blade, `template.HTML(...)` in Go, `v-html`, `dangerouslySetInnerHTML`) - unless the content is trusted, with a comment explaining why
 - No `eval`, `new Function`, or `setTimeout`/`setInterval` with string arguments
 - Only allow `http`/`https` schemes for user-supplied URLs in links and redirects
@@ -21,3 +25,7 @@ Goal: every web UI works with a strict Content-Security-Policy and has no inject
 - Send security headers: `Content-Security-Policy` with `default-src 'self'` (no `unsafe-inline`, no `unsafe-eval`), `frame-ancestors 'none'`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`
 - State-changing requests only via POST/PUT/DELETE, with CSRF protection
 - Cookies: `Secure`, `HttpOnly`, `SameSite=Lax` or stricter
+
+## Checklist
+1. `prettier --write` on changed files
+2. Check UI changes visually (screenshots at ~390px and ~1440px width) - if that's not possible, report the change as not visually verified

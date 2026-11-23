@@ -2,10 +2,19 @@ let
   review-scope = ''
     Scope: the whole codebase unless a diff, branch or path is given in "$ARGUMENTS". Never review an empty diff silently.
     List the directories/files you will cover before starting. Work through them one part at a time with at most 2 parallel agents.
+    Apply the language guides in `~/.claude/rules/` for the languages in scope.
+    Give each finding an identifier: severity letter + number (`C1` critical, `H1` high, `M3` medium, `L6` low).
+  '';
+  resolved-issue-format = ''
+    Resolved issues files: grouped by resolution date under section headers; each entry keeps the original identifier, finding description and resolution details, e.g.
+    `H1: [RESOLVED 2024-07-14 v1.2.3] SQL injection vulnerability in login endpoint`
   '';
   report-update-instructions = resolvedFile: ''
+    Before writing: read `${resolvedFile}` (if it exists) and don't report findings again that were already resolved - unless they were reintroduced, then say so.
     Write the findings to the report file after each part so partial results survive an interruption.
-    If the report already exists, update it (including new version information). Move resolved issues to `${resolvedFile}` and recalculate the grade.
+    The report header contains the scope, the version/commit reviewed and an overall grade (A, A-, B+, B, B-, C+, C, C-, D+, D, F) reflecting all active findings.
+    If the report already exists, update it (including new version information): move resolved issues out of the report into `${resolvedFile}` and recalculate the grade.
+    ${resolved-issue-format}
   '';
   quality-review = ''
     Assess code against language-specific best practices and idioms. Identify quality issues and provide prioritized improvements.
@@ -49,15 +58,22 @@ in
       1. Write a failing test that demonstrates it (skip only if the finding isn't testable, and say why)
       2. Implement the minimal fix
       3. Run the formatter, linters and tests from the language guide's checklist
-      4. Move the finding to the resolved issues file, recalculate the grade, and commit: `fix(<id>): <summary>`
+      4. Move the finding to the resolved issues file (`docs/RESOLVED_REVIEW_ISSUES.md` or `docs/RESOLVED_SECURITY_ISSUES.md`), recalculate the report's grade, and commit: `fix(<id>): <summary>`
+      ${resolved-issue-format}
       If a finding turns out to be wrong, correct the report and explain why instead of forcing a fix.
       Finish with a summary of the commits, test count before/after, and what was not verified.
     '';
   };
   fix-build = {
-    description = "Diagnose a build failure and fix its root cause";
+    description = "Reproduce a build failure, fix its root cause and verify the build passes";
     prompt = ''
-      Diagnose build failure: parse error messages, identify root causes, provide working code fixes with step-by-step resolution.
+      Fix the failing build. "$ARGUMENTS" may contain the error output, a CI job/pipeline or the build command; otherwise use the project's usual build (Makefile, CI config, language checklist).
+      1. Reproduce the failure locally and quote the first relevant error - if it can't be reproduced (e.g. CI-only, sandbox blocks it), say so and work from the given output
+      2. Identify the root cause; fix that, not the symptom (no disabling checks, `#[allow]`, `nolint`, skipped tests or pinned-back versions without asking)
+      3. If the failure is a bug in code (not config/toolchain), add a test that covers it
+      4. Re-run the build, linters and tests until they pass
+      5. Commit: `fix: <summary>`
+      Finish with the root cause in one or two sentences, the changes, and what was not verified (e.g. CI not re-run).
     '';
   };
   version-update = {
