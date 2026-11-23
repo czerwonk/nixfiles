@@ -1,13 +1,55 @@
 { pkgs, lib, ... }:
 
 let
+  # Hidden inside the sandbox although $HOME is readable. Registry logins (~/.docker/config.json,
+  # ~/.npmrc) and ~/.cargo/credentials.toml stay usable on purpose. The gpg/ssh agent and podman
+  # sockets stay reachable: git push/signing and (reviewed) podman calls need them.
+  hiddenHomeDirs = [
+    ".kube"
+    ".aws"
+    ".config/gcloud"
+    ".config/gh"
+    ".config/sops"
+    ".config/age"
+    ".gnupg/private-keys-v1.d"
+    ".password-store"
+    ".local/share/keyrings"
+    ".local/share/atuin"
+    ".atuin"
+  ];
+  hiddenHomeFiles = [
+    ".zsh_history"
+    ".bash_history"
+    ".netrc"
+    ".git-credentials"
+    ".pgpass"
+    ".my.cnf"
+  ];
+  # Secret Service (via the session bus) and the gnome-keyring/gcr ssh agents would hand out
+  # stored passwords and keys without reading any file.
+  hiddenRuntimeDirs = [
+    "keyring"
+    "gcr"
+  ];
+  hiddenRuntimeFiles = [ "bus" ];
+
   claude-code-bwrapped = pkgs.writeShellScriptBin "claude" ''
     # Bind the whole repository, not only the current directory, so .git stays writable
     # when claude is started in a subdirectory.
     workdir="$(${lib.getExe pkgs.git} rev-parse --show-toplevel 2>/dev/null || pwd)"
 
+    # bwrap fails on missing mount targets, so only hide paths that exist.
+    hide=()
+    hide_dir() { [ -d "$1" ] && hide+=(--tmpfs "$1"); }
+    hide_file() { [ -e "$1" ] && hide+=(--ro-bind /dev/null "$1"); }
+    ${lib.concatMapStrings (dir: "hide_dir \"$HOME/${dir}\"\n") hiddenHomeDirs}
+    ${lib.concatMapStrings (file: "hide_file \"$HOME/${file}\"\n") hiddenHomeFiles}
+    ${lib.concatMapStrings (dir: "hide_dir \"$XDG_RUNTIME_DIR/${dir}\"\n") hiddenRuntimeDirs}
+    ${lib.concatMapStrings (file: "hide_file \"$XDG_RUNTIME_DIR/${file}\"\n") hiddenRuntimeFiles}
+
     # Tool caches/state (go, cargo, podman, ansible) must be writable, the rest of $HOME stays
     # read-only. bin directories are deliberately not bound to prevent planting executables.
+    # Hidden paths come last so they override the binds above them.
     exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
@@ -27,6 +69,7 @@ let
                                   --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
                                   --proc /proc \
                                   --dev /dev \
+                                  "''${hide[@]}" \
       ${lib.getExe pkgs.claude-code} "$@"
   '';
 
@@ -141,8 +184,12 @@ in
     ".claude/settings.json".text = builtins.toJSON {
       editorMode = "vim";
       tui = "fullscreen";
+      # Every podman call is reviewed manually because the podman socket allows host mounts;
+      # the socket/remote variants are listed so they can't bypass that review.
       permissions.ask = [
         "Bash(podman:*)"
+        "Bash(podman-remote:*)"
+        "Bash(curl --unix-socket:*)"
         "Bash(docker:*)"
         "Bash(ssh:*)"
         "Bash(rsync:*)"

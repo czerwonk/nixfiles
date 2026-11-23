@@ -33,7 +33,7 @@ For changes touching the data model, persistence, caching, nullability or concur
 3. Run the formatter, linters and tests from the guide's checklist
 4. Update the README for user-facing changes (features, flags, configuration) and `docs/todo.md` if the project uses it
 5. Commit
-6. Report what was not verified (see section 10)
+6. Report what was not verified (see section 11)
 ## 6. Git
 - Commit after each completed task that modifies files, unless the task or skill says not to - also for small fixes
 - Format: `type: description` (feat/fix/docs/refactor/test/chore/ci), one logical change per commit
@@ -59,10 +59,17 @@ For changes touching the data model, persistence, caching, nullability or concur
 - Never build SQL queries or shell commands from input - use query parameters and argument arrays
 - Never log or commit secrets/tokens; compare tokens and other secrets in constant time
 - In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
-## 10. Verification Honesty
+## 10. Sandbox and Tools
+- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Only write inside the project, `/tmp` and tool caches - even where more is writable
+- Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
+- Containers: every call is reviewed by me before it runs, so:
+  - Only call `podman`/`docker` directly - never via the API socket (`curl --unix-socket`, `CONTAINER_HOST`, `--remote`), a script, a Makefile target or a subagent
+  - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
+  - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
+## 11. Verification Honesty
 - At the end of each task, list what was not verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, not pushed, image not built
 - If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
-## 11. Dependencies
+## 12. Dependencies
 - Avoid new external dependencies unless necessary; state the reason when adding one
 - New projects only, before the first commit: use the latest versions and the current patch release of the toolchain (Go, Rust, Node, ...) and update indirect dependencies too (`go get -u ./... && go mod tidy`, `cargo update`, `npm update`)
 - In existing projects, update dependencies only when asked
