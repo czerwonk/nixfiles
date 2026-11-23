@@ -49,6 +49,7 @@ For changes touching the data model, persistence, caching, nullability or concur
 - Keep it simple (KISS principle)
 - Avoid premature optimization
 - Prefer readable over clever code
+- Keep the README up to date with user-facing changes (features, flags, configuration)
 - **Create tests BEFORE implementing features and fixes** (TDD: failing test first, then the fix)
 - Whenever writing tests with more than one assertion make sure to give the dev context why the test failed. For example by using description strings if available.
 ## 7. Code Commenting Guidelines
@@ -71,8 +72,17 @@ When writing code, follow these commenting principles:
    - `// Retry 3 times to handle transient network failures`
    - `// This seemingly redundant check prevents a race condition when...`
 ## 8. Security
+- **Never read production credentials unless I explicitly ask for it in the current request** - not to debug, not to "check the config", not via a detour (`cat`, `grep`, `env`, `printenv`, a script, a subagent). This covers:
+  - Env files: `.env`, `.env.local`, `.env.prod`, `.env.production`, `.env.staging` and similar (templates like `.env.example`, `.env.sample`, `.env.dist` are fine)
+  - Config files containing credentials: `config.yml`/`config.yaml`/`config.json` of deployed environments, `secrets.*`, `credentials.*`, `appsettings.Production.json`, `application-prod.*`, `app/etc/env.php`, `wp-config.php`, `config/master.key`, `*.tfvars`, `*.tfstate`, Helm values of production releases
+  - Keys and certificates: `*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.jks`, `id_rsa*`, `id_ed25519*`, `*.kdbx`, age/sops keys, ansible vault password files
+  - Credential stores in `$HOME`: `~/.ssh`, `~/.gnupg`, `~/.aws`, `~/.kube`, `~/.docker/config.json`, `~/.netrc`, `~/.git-credentials`, `~/.pgpass`, `~/.my.cnf`, `~/.npmrc`, `~/.cargo/credentials.toml`, `~/.config/gh`, `~/.config/gcloud`
+  - Secret-revealing commands: `kubectl get secret -o yaml/json`, `sops -d`, `ansible-vault view/decrypt`, `vault read`, `terraform output` of sensitive values, dumping the environment
+- If a task seems to need such a file, say so and ask - work from templates, schemas or the code that reads the config instead
+- If you come across credentials anyway, don't repeat, log or store them (including memory) and tell me
 - Never build SQL queries or shell commands from input - use query parameters and argument arrays
 - Never log or commit secrets/tokens; compare tokens and other secrets in constant time
+- In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
 ## 9. Dependency Guidelines
 - Avoid introducing new external dependencies unless absolutely necessary
 - If a new dependency is required, please state the reason

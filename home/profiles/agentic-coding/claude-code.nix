@@ -55,6 +55,73 @@ let
   '';
 
   skills = import ./command-prompts.nix;
+
+  # Production credentials: "ask" instead of "deny", so reading stays possible when explicitly
+  # requested. Read rules only cover the Read tool, not shell commands - agent-rules.md covers those.
+  credentialFiles = [
+    "**/.env"
+    "**/.env.local"
+    "**/.env.*.local"
+    "**/.env.prod"
+    "**/.env.production"
+    "**/.env.staging"
+    "**/secrets.yml"
+    "**/secrets.yaml"
+    "**/secrets.json"
+    "**/secrets.toml"
+    "**/secrets.env"
+    "**/credentials.yml"
+    "**/credentials.yaml"
+    "**/credentials.json"
+    "**/credentials.toml"
+    "**/credentials.env"
+    "**/appsettings.Production.json"
+    "**/application-prod.*"
+    "**/app/etc/env.php"
+    "**/wp-config.php"
+    "**/config/master.key"
+    "**/*.tfvars"
+    "**/*.tfstate"
+    "**/*.tfstate.backup"
+    "**/*.pem"
+    "**/*.key"
+    "**/*.p12"
+    "**/*.pfx"
+    "**/*.jks"
+    "**/*.kdbx"
+    "**/id_rsa*"
+    "**/id_ed25519*"
+    "**/.vault_pass*"
+    "**/.vault-password*"
+    "~/.ssh/**"
+    "~/.gnupg/**"
+    "~/.aws/**"
+    "~/.kube/**"
+    "~/.docker/config.json"
+    "~/.netrc"
+    "~/.git-credentials"
+    "~/.pgpass"
+    "~/.my.cnf"
+    "~/.npmrc"
+    "~/.cargo/credentials.toml"
+    "~/.config/gh/**"
+    "~/.config/gcloud/**"
+    "~/.config/sops/**"
+  ];
+  secretCommands = [
+    "kubectl get secret:*"
+    "kubectl get secrets:*"
+    "sops -d:*"
+    "sops --decrypt:*"
+    "sops decrypt:*"
+    "ansible-vault view:*"
+    "ansible-vault decrypt:*"
+    "vault read:*"
+    "vault kv get:*"
+    "terraform output:*"
+    "printenv:*"
+    "env"
+  ];
 in
 {
   imports = [
@@ -80,7 +147,9 @@ in
         "Bash(ssh:*)"
         "Bash(rsync:*)"
         "Bash(sftp:*)"
-      ];
+      ]
+      ++ map (pattern: "Read(${pattern})") credentialFiles
+      ++ map (command: "Bash(${command})") secretCommands;
       hooks.PostToolUse = [
         {
           matcher = "Edit|MultiEdit|Write";
