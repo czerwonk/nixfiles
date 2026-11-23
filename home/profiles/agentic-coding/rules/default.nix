@@ -1,7 +1,6 @@
-{
-  configDir,
-  mainConfigFile,
-}:
+# The main rules (agent-rules.md) are deployed as managed CLAUDE.md by the NixOS profile
+# `agentic-coding`; this module only deploys the path-scoped guides.
+{ configDir }:
 { lib, ... }:
 
 let
@@ -71,10 +70,7 @@ let
   '';
 in
 {
-  home.file = {
-    "${configDir}/${mainConfigFile}".source = ./agent-rules.md;
-  }
-  // builtins.listToAttrs (
+  home.file = builtins.listToAttrs (
     map (guide: {
       name = "${configDir}/rules/${guide.name}";
       value.text = frontmatter guide.paths + "\n" + builtins.readFile (./guides + "/${guide.name}");

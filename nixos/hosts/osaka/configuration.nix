@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../configuration.nix
+    ../../profiles/agentic-coding
     ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/cosmic.nix

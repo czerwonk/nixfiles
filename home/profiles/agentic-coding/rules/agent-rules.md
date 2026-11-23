@@ -60,10 +60,14 @@ For changes touching the data model, persistence, caching, nullability or concur
 - Never log or commit secrets/tokens; compare tokens and other secrets in constant time
 - In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
 ## 10. Sandbox and Tools
-- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Only write inside the project, `/tmp` and tool caches - even where more is writable
+- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Writable: the project, `/tmp` (private to the sandbox - I can't see files there), `~/.claude` and tool caches (`~/.cache`, Go/Cargo/podman stores). Everything else is read-only or hidden by design
+- In the repository `.git/config` and `.git/hooks` are read-only: commit and plain `git push` work, but no `git config`, `git remote add/set-url`, `git push -u` or hooks - tell me if one is needed
+- **Don't try to write outside the sandbox context** - not to check whether it works, not via another path, tool or `sudo`. It fails every time and only costs time and tokens. If a task needs it, say so and stop
+- No remote access: `ssh`, `scp`, `sftp`, `rsync` are denied - if a task needs a remote host, tell me the command and I'll run it myself
 - Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
-- Containers: every call is reviewed by me before it runs, so:
-  - Only call `podman`/`docker` directly - never via the API socket (`curl --unix-socket`, `CONTAINER_HOST`, `--remote`), a script, a Makefile target or a subagent
+- Containers: **there is no Docker, only Podman** - use `podman` (`podman build`, `podman run`, `podman compose`), never `docker`/`docker-compose`; Dockerfiles work as they are
+- Every podman call is reviewed by me before it runs, so:
+  - Only call `podman` directly - never via the API socket (`curl --unix-socket`, `CONTAINER_HOST`, `--remote`), a script, a Makefile target or a subagent
   - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
   - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
 ## 11. Verification Honesty

@@ -2,18 +2,28 @@
 
 let
   # Hidden inside the sandbox although $HOME is readable. Registry logins (~/.docker/config.json,
-  # ~/.npmrc) and ~/.cargo/credentials.toml stay usable on purpose. The gpg/ssh agent and podman
-  # sockets stay reachable: git push/signing and (reviewed) podman calls need them.
+  # ~/.npmrc) and ~/.cargo/credentials.toml stay usable on purpose.
   hiddenHomeDirs = [
+    # credentials
     ".kube"
     ".aws"
     ".config/gcloud"
     ".config/gh"
     ".config/sops"
     ".config/age"
+    ".config/rclone"
     ".gnupg/private-keys-v1.d"
     ".password-store"
     ".local/share/keyrings"
+    # personal data: browser sessions, mail, synced files, shell history
+    ".mozilla"
+    ".librewolf"
+    ".config/google-chrome"
+    ".config/chromium"
+    ".config/BraveSoftware"
+    ".thunderbird"
+    "Nextcloud"
+    ".config/Nextcloud"
     ".local/share/atuin"
     ".atuin"
   ];
@@ -25,38 +35,48 @@ let
     ".pgpass"
     ".my.cnf"
   ];
-  # Secret Service (via the session bus) and the gnome-keyring/gcr ssh agents would hand out
-  # stored passwords and keys without reading any file.
-  hiddenRuntimeDirs = [
-    "keyring"
-    "gcr"
+  # Only these runtime sockets are reachable: the gpg/ssh agent for git push/signing and podman
+  # (every call is reviewed). Everything else in $XDG_RUNTIME_DIR would allow running commands
+  # outside the sandbox (systemd --user, tmux, nvim) or reading secrets (session bus, keyring).
+  runtimeDirs = [
+    "gnupg"
+    "podman"
+    "containers"
+    "libpod"
   ];
-  hiddenRuntimeFiles = [ "bus" ];
 
   claude-code-bwrapped = pkgs.writeShellScriptBin "claude" ''
     # Bind the whole repository, not only the current directory, so .git stays writable
     # when claude is started in a subdirectory.
     workdir="$(${lib.getExe pkgs.git} rev-parse --show-toplevel 2>/dev/null || pwd)"
 
-    # bwrap fails on missing mount targets, so only hide paths that exist.
-    hide=()
-    hide_dir() { [ -d "$1" ] && hide+=(--tmpfs "$1"); }
-    hide_file() { [ -e "$1" ] && hide+=(--ro-bind /dev/null "$1"); }
+    # bwrap fails on missing mount targets, so only add paths that exist.
+    extra=()
+    hide_dir() { [ -d "$1" ] && extra+=(--tmpfs "$1"); }
+    hide_file() { [ -e "$1" ] && extra+=(--ro-bind /dev/null "$1"); }
     ${lib.concatMapStrings (dir: "hide_dir \"$HOME/${dir}\"\n") hiddenHomeDirs}
     ${lib.concatMapStrings (file: "hide_file \"$HOME/${file}\"\n") hiddenHomeFiles}
-    ${lib.concatMapStrings (dir: "hide_dir \"$XDG_RUNTIME_DIR/${dir}\"\n") hiddenRuntimeDirs}
-    ${lib.concatMapStrings (file: "hide_file \"$XDG_RUNTIME_DIR/${file}\"\n") hiddenRuntimeFiles}
+
+    # Git runs hooks and config-defined commands (core.hooksPath, core.fsmonitor, core.sshCommand)
+    # outside the sandbox the next time I use git in this repo, so both stay read-only. The hooks
+    # directory is created first, otherwise it could be created inside the sandbox.
+    if [ -d "$workdir/.git" ]; then
+      mkdir -p "$workdir/.git/hooks"
+      extra+=(--ro-bind "$workdir/.git/hooks" "$workdir/.git/hooks")
+      [ -f "$workdir/.git/config" ] && extra+=(--ro-bind "$workdir/.git/config" "$workdir/.git/config")
+    fi
 
     # Tool caches/state (go, cargo, podman, ansible) must be writable, the rest of $HOME stays
     # read-only. bin directories are deliberately not bound to prevent planting executables.
-    # Hidden paths come last so they override the binds above them.
+    # /tmp and $XDG_RUNTIME_DIR are private (host sockets like X11 or systemd --user would allow
+    # escaping). Hidden and read-only paths come last so they override the binds above them.
     exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
                                   --ro-bind /etc /etc \
                                   --ro-bind /run/current-system/sw/bin /run/current-system/sw/bin \
                                   --ro-bind "$HOME" "$HOME" \
-                                  --bind /tmp /tmp \
+                                  --tmpfs /tmp \
                                   --bind "$HOME/.claude" "$HOME/.claude" \
                                   --bind "$HOME/.claude.json" "$HOME/.claude.json" \
                                   --bind-try "$HOME/.cache" "$HOME/.cache" \
@@ -66,112 +86,23 @@ let
                                   --bind-try "$HOME/.local/share/containers" "$HOME/.local/share/containers" \
                                   --bind-try "$HOME/.ansible" "$HOME/.ansible" \
                                   --bind "$workdir" "$workdir" \
-                                  --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
+                                  --tmpfs "$XDG_RUNTIME_DIR" \
+                                  ${
+                                    lib.concatMapStrings (
+                                      dir: "--bind-try \"$XDG_RUNTIME_DIR/${dir}\" \"$XDG_RUNTIME_DIR/${dir}\" "
+                                    ) runtimeDirs
+                                  }\
                                   --proc /proc \
                                   --dev /dev \
-                                  "''${hide[@]}" \
+                                  "''${extra[@]}" \
       ${lib.getExe pkgs.claude-code} "$@"
   '';
 
-  # Formats only the edited file (cheap enough to run after every edit); linters stay in the
-  # language guides' checklists. Formatters missing from PATH are skipped silently.
-  format-hook = pkgs.writeShellScript "claude-format-hook" ''
-    file="$(${lib.getExe pkgs.jq} -r '.tool_input.file_path // empty')"
-    [ -n "$file" ] && [ -f "$file" ] || exit 0
-
-    has() { command -v "$1" >/dev/null 2>&1; }
-
-    case "$file" in
-      *.go) has gofmt && gofmt -w "$file" ;;
-      *.rs)
-        manifest_dir="$(dirname "$file")"
-        while [ "$manifest_dir" != "/" ] && [ ! -f "$manifest_dir/Cargo.toml" ]; do
-          manifest_dir="$(dirname "$manifest_dir")"
-        done
-        [ -f "$manifest_dir/Cargo.toml" ] && has cargo && (cd "$manifest_dir" && cargo fmt -q)
-        ;;
-      *.js|*.ts|*.jsx|*.tsx|*.html|*.css|*.json) has prettierd && prettierd "$file" < "$file" > "$file.fmt" && mv "$file.fmt" "$file" ;;
-      *.nix) has nixfmt && nixfmt "$file" ;;
-    esac
-    rm -f "$file.fmt"
-    exit 0
-  '';
-
   skills = import ./command-prompts.nix;
-
-  # Production credentials: "ask" instead of "deny", so reading stays possible when explicitly
-  # requested. Read rules only cover the Read tool, not shell commands - agent-rules.md covers those.
-  credentialFiles = [
-    "**/.env"
-    "**/.env.local"
-    "**/.env.*.local"
-    "**/.env.prod"
-    "**/.env.production"
-    "**/.env.staging"
-    "**/secrets.yml"
-    "**/secrets.yaml"
-    "**/secrets.json"
-    "**/secrets.toml"
-    "**/secrets.env"
-    "**/credentials.yml"
-    "**/credentials.yaml"
-    "**/credentials.json"
-    "**/credentials.toml"
-    "**/credentials.env"
-    "**/appsettings.Production.json"
-    "**/application-prod.*"
-    "**/app/etc/env.php"
-    "**/wp-config.php"
-    "**/config/master.key"
-    "**/*.tfvars"
-    "**/*.tfstate"
-    "**/*.tfstate.backup"
-    "**/*.pem"
-    "**/*.key"
-    "**/*.p12"
-    "**/*.pfx"
-    "**/*.jks"
-    "**/*.kdbx"
-    "**/id_rsa*"
-    "**/id_ed25519*"
-    "**/.vault_pass*"
-    "**/.vault-password*"
-    "~/.ssh/**"
-    "~/.gnupg/**"
-    "~/.aws/**"
-    "~/.kube/**"
-    "~/.docker/config.json"
-    "~/.netrc"
-    "~/.git-credentials"
-    "~/.pgpass"
-    "~/.my.cnf"
-    "~/.npmrc"
-    "~/.cargo/credentials.toml"
-    "~/.config/gh/**"
-    "~/.config/gcloud/**"
-    "~/.config/sops/**"
-  ];
-  secretCommands = [
-    "kubectl get secret:*"
-    "kubectl get secrets:*"
-    "sops -d:*"
-    "sops --decrypt:*"
-    "sops decrypt:*"
-    "ansible-vault view:*"
-    "ansible-vault decrypt:*"
-    "vault read:*"
-    "vault kv get:*"
-    "terraform output:*"
-    "printenv:*"
-    "env"
-  ];
 in
 {
   imports = [
-    (import ./rules {
-      configDir = ".claude";
-      mainConfigFile = "CLAUDE.md";
-    })
+    (import ./rules { configDir = ".claude"; })
   ];
 
   home = {
@@ -180,34 +111,12 @@ in
     ];
   };
 
+  # Permissions and hooks live in /etc/claude-code/managed-settings.json (see managed-settings.nix),
+  # only UI preferences stay here: ~/.claude is writable for the agent.
   home.file = {
     ".claude/settings.json".text = builtins.toJSON {
       editorMode = "vim";
       tui = "fullscreen";
-      # Every podman call is reviewed manually because the podman socket allows host mounts;
-      # the socket/remote variants are listed so they can't bypass that review.
-      permissions.ask = [
-        "Bash(podman:*)"
-        "Bash(podman-remote:*)"
-        "Bash(curl --unix-socket:*)"
-        "Bash(docker:*)"
-        "Bash(ssh:*)"
-        "Bash(rsync:*)"
-        "Bash(sftp:*)"
-      ]
-      ++ map (pattern: "Read(${pattern})") credentialFiles
-      ++ map (command: "Bash(${command})") secretCommands;
-      hooks.PostToolUse = [
-        {
-          matcher = "Edit|MultiEdit|Write";
-          hooks = [
-            {
-              type = "command";
-              command = "${format-hook}";
-            }
-          ];
-        }
-      ];
     };
   }
   // lib.mapAttrs' (
