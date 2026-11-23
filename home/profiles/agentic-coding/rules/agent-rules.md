@@ -41,18 +41,21 @@ For changes touching the data model, persistence, caching, nullability or concur
 - Format: `type: description` (feat/fix/docs/refactor/test/chore/ci)
 - One logical change per commit
 - Never amend, squash or rewrite commits you didn't create in this session without asking
-- Before committing CI/CD or deployment changes, state whether pushing the branch deploys anything
-## 5. Scope Control
+## 5. CI/CD and Deployment
+- Check `.gitignore` for patterns like `*.yml` that would hide `.gitlab-ci.yml` or other CI files
+- Before committing CI/CD or deployment changes, state whether pushing the branch triggers a deployment or whether deploys are tag-based
+- Never push to a branch that deploys without asking
+## 6. Scope Control
 - Only implement explicit requests
 - Log additional ideas as separate tasks
-## 6. Code Quality
+## 7. Code Quality
 - Keep it simple (KISS principle)
 - Avoid premature optimization
 - Prefer readable over clever code
 - Keep the README up to date with user-facing changes (features, flags, configuration)
 - **Create tests BEFORE implementing features and fixes** (TDD: failing test first, then the fix)
 - Whenever writing tests with more than one assertion make sure to give the dev context why the test failed. For example by using description strings if available.
-## 7. Code Commenting Guidelines
+## 8. Code Commenting Guidelines
 When writing code, follow these commenting principles:
 1. **Avoid obvious comments** - Do not comment code that is self-explanatory
    - Bad: `// Increment counter` above `counter++`
@@ -71,7 +74,7 @@ When writing code, follow these commenting principles:
    - `// Using binary search here for O(log n) performance`
    - `// Retry 3 times to handle transient network failures`
    - `// This seemingly redundant check prevents a race condition when...`
-## 8. Security
+## 9. Security
 - **Never read production credentials unless I explicitly ask for it in the current request** - not to debug, not to "check the config", not via a detour (`cat`, `grep`, `env`, `printenv`, a script, a subagent). This covers:
   - Env files: `.env`, `.env.local`, `.env.prod`, `.env.production`, `.env.staging` and similar (templates like `.env.example`, `.env.sample`, `.env.dist` are fine)
   - Config files containing credentials: `config.yml`/`config.yaml`/`config.json` of deployed environments, `secrets.*`, `credentials.*`, `appsettings.Production.json`, `application-prod.*`, `app/etc/env.php`, `wp-config.php`, `config/master.key`, `*.tfvars`, `*.tfstate`, Helm values of production releases
@@ -83,14 +86,20 @@ When writing code, follow these commenting principles:
 - Never build SQL queries or shell commands from input - use query parameters and argument arrays
 - Never log or commit secrets/tokens; compare tokens and other secrets in constant time
 - In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
-## 9. Dependency Guidelines
+## 10. Dependencies
 - Avoid introducing new external dependencies unless absolutely necessary
 - If a new dependency is required, please state the reason
-## 10. Code Formatting
+- Use the latest versions and the current patch release of the toolchain (Go, Rust, Node, ...)
+- Update indirect dependencies too, e.g.:
+  - Go: `go get -u ./... && go mod tidy`
+  - Rust: `cargo update`
+  - Node: `npm update`
+- Do this before the first commit of a new project
+## 11. Code Formatting
 - **Always trim trailing whitespace** from all lines
 - Remove unnecessary blank lines at end of files
 - Maintain consistent indentation
-## 11. Workflow
+## 12. Workflow
 1. Pick task
 2. **Write tests first** (for features/fixes)
 3. Complete task
@@ -98,7 +107,7 @@ When writing code, follow these commenting principles:
 5. Update `docs/todo.md` (if the project uses it)
 6. **COMMIT CHANGES** (required - no exceptions)
 7. Report what was **not** verified (see below)
-## 12. Verification Honesty
+## 13. Verification Honesty
 - At the end of each task, list what was NOT verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, not pushed, image not built
 - If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
 # Report Rules

@@ -37,7 +37,7 @@ let
       path = ./lang/web.md;
     }
     {
-      language = "Containers, CI/CD and dependency updates";
+      language = "Containers (Dockerfiles, CI job images, Helm charts)";
       name = "containers.md";
       path = ./lang/containers.md;
     }
