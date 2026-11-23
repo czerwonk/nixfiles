@@ -1,39 +1,45 @@
 { pkgs, lib, ... }:
 
 let
-  # Hidden inside the sandbox although $HOME is readable. Registry logins (~/.docker/config.json,
-  # ~/.npmrc) and ~/.cargo/credentials.toml stay usable on purpose.
-  hiddenHomeDirs = [
-    # credentials
-    ".kube"
-    ".aws"
-    ".config/gcloud"
-    ".config/gh"
-    ".config/sops"
-    ".config/age"
-    ".config/rclone"
-    ".gnupg/private-keys-v1.d"
-    ".password-store"
-    ".local/share/keyrings"
-    # personal data: browser sessions, mail, synced files, shell history
-    ".mozilla"
-    ".librewolf"
-    ".config/google-chrome"
-    ".config/chromium"
-    ".config/BraveSoftware"
-    ".thunderbird"
-    "Nextcloud"
-    ".config/Nextcloud"
-    ".local/share/atuin"
-    ".atuin"
+  # $HOME is an empty tmpfs inside the sandbox and only these paths are mounted into it, so
+  # credentials of newly installed tools stay hidden without maintaining a deny list. Writes to
+  # other paths in $HOME succeed but are discarded when the session ends.
+  readOnlyHomePaths = [
+    # other repositories, for lookups
+    "Projects"
+    # shell config for Claude's shell snapshot (~/.profile stays hidden: not needed here)
+    ".zshrc"
+    ".zshenv"
+    # git identity, ssh signing and push (keys live on YubiKeys, reached via the agent socket)
+    ".config/git"
+    ".ssh/config"
+    ".ssh/known_hosts"
+    ".gnupg/gpg.conf"
+    ".gnupg/gpg-agent.conf"
+    ".gnupg/pubring.kbx"
+    ".gnupg/trustdb.gpg"
+    # tool config
+    ".config/nix"
+    ".config/containers"
+    ".config/go"
+    ".rustup"
+    # read-only, so no executables can be planted
+    ".cargo/bin"
+    "go/bin"
+    # registry logins stay usable on purpose
+    ".docker/config.json"
+    ".npmrc"
+    ".cargo/credentials.toml"
   ];
-  hiddenHomeFiles = [
-    ".zsh_history"
-    ".bash_history"
-    ".netrc"
-    ".git-credentials"
-    ".pgpass"
-    ".my.cnf"
+  # Tool caches/state (go, cargo, podman, ansible). ~/.claude and ~/.claude.json are bound
+  # separately because the sandbox must not start without them.
+  writableHomePaths = [
+    ".cache"
+    "go/pkg"
+    ".cargo/registry"
+    ".cargo/git"
+    ".local/share/containers"
+    ".ansible"
   ];
   # Only these runtime sockets are reachable: the gpg/ssh agent for git push/signing and podman
   # (every call is reviewed). Everything else in $XDG_RUNTIME_DIR would allow running commands
@@ -50,12 +56,7 @@ let
     # when claude is started in a subdirectory.
     workdir="$(${lib.getExe pkgs.git} rev-parse --show-toplevel 2>/dev/null || pwd)"
 
-    # bwrap fails on missing mount targets, so only add paths that exist.
     extra=()
-    hide_dir() { [ -d "$1" ] && extra+=(--tmpfs "$1"); }
-    hide_file() { [ -e "$1" ] && extra+=(--ro-bind /dev/null "$1"); }
-    ${lib.concatMapStrings (dir: "hide_dir \"$HOME/${dir}\"\n") hiddenHomeDirs}
-    ${lib.concatMapStrings (file: "hide_file \"$HOME/${file}\"\n") hiddenHomeFiles}
 
     # Git runs hooks and config-defined commands (core.hooksPath, core.fsmonitor, core.sshCommand)
     # outside the sandbox the next time I use git in this repo, so both stay read-only. The hooks
@@ -66,25 +67,24 @@ let
       [ -f "$workdir/.git/config" ] && extra+=(--ro-bind "$workdir/.git/config" "$workdir/.git/config")
     fi
 
-    # Tool caches/state (go, cargo, podman, ansible) must be writable, the rest of $HOME stays
-    # read-only. bin directories are deliberately not bound to prevent planting executables.
     # /tmp and $XDG_RUNTIME_DIR are private (host sockets like X11 or systemd --user would allow
-    # escaping). Hidden and read-only paths come last so they override the binds above them.
+    # escaping). Order matters: later binds override earlier ones, so the workdir (possibly inside
+    # ~/Projects) comes after the read-only paths and the git read-only paths come last.
     exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
                                   --ro-bind /etc /etc \
                                   --ro-bind /run/current-system/sw/bin /run/current-system/sw/bin \
-                                  --ro-bind "$HOME" "$HOME" \
+                                  --tmpfs "$HOME" \
                                   --tmpfs /tmp \
+                                  ${
+                                    lib.concatMapStrings (path: "--ro-bind-try \"$HOME/${path}\" \"$HOME/${path}\" ") readOnlyHomePaths
+                                  }\
                                   --bind "$HOME/.claude" "$HOME/.claude" \
                                   --bind "$HOME/.claude.json" "$HOME/.claude.json" \
-                                  --bind-try "$HOME/.cache" "$HOME/.cache" \
-                                  --bind-try "$HOME/go/pkg" "$HOME/go/pkg" \
-                                  --bind-try "$HOME/.cargo/registry" "$HOME/.cargo/registry" \
-                                  --bind-try "$HOME/.cargo/git" "$HOME/.cargo/git" \
-                                  --bind-try "$HOME/.local/share/containers" "$HOME/.local/share/containers" \
-                                  --bind-try "$HOME/.ansible" "$HOME/.ansible" \
+                                  ${
+                                    lib.concatMapStrings (path: "--bind-try \"$HOME/${path}\" \"$HOME/${path}\" ") writableHomePaths
+                                  }\
                                   --bind "$workdir" "$workdir" \
                                   --tmpfs "$XDG_RUNTIME_DIR" \
                                   ${
