@@ -1,8 +1,9 @@
 # JavaScript/TypeScript Guide
 
+Frontend code also follows the web UI guide (`web.md`).
+
 ## Conventions
 - Follow current best practices and the project's existing ESLint/TypeScript configuration
-- **Never use `innerHTML`** (security: XSS) - and none of its equivalents: `outerHTML`, `insertAdjacentHTML`, `document.write`; build the DOM with `textContent`, `createElement`, `append` etc.
 - TypeScript: strict mode, no `any` (use `unknown` or proper types)
 
 ## Checklist

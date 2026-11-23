@@ -70,14 +70,17 @@ When writing code, follow these commenting principles:
    - `// Using binary search here for O(log n) performance`
    - `// Retry 3 times to handle transient network failures`
    - `// This seemingly redundant check prevents a race condition when...`
-## 8. Dependency Guidelines
+## 8. Security
+- Never build SQL queries or shell commands from input - use query parameters and argument arrays
+- Never log or commit secrets/tokens; compare tokens and other secrets in constant time
+## 9. Dependency Guidelines
 - Avoid introducing new external dependencies unless absolutely necessary
 - If a new dependency is required, please state the reason
-## 9. Code Formatting
+## 10. Code Formatting
 - **Always trim trailing whitespace** from all lines
 - Remove unnecessary blank lines at end of files
 - Maintain consistent indentation
-## 10. Workflow
+## 11. Workflow
 1. Pick task
 2. **Write tests first** (for features/fixes)
 3. Complete task
@@ -85,7 +88,7 @@ When writing code, follow these commenting principles:
 5. Update `docs/todo.md` (if the project uses it)
 6. **COMMIT CHANGES** (required - no exceptions)
 7. Report what was **not** verified (see below)
-## 11. Verification Honesty
+## 12. Verification Honesty
 - At the end of each task, list what was NOT verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, not pushed, image not built
 - If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
 # Report Rules

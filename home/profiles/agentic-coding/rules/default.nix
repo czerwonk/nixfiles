@@ -32,6 +32,11 @@ let
       path = ./lang/html.md;
     }
     {
+      language = "Web UIs (HTML, server-side templates, frontend JS)";
+      name = "web.md";
+      path = ./lang/web.md;
+    }
+    {
       language = "Containers, CI/CD and dependency updates";
       name = "containers.md";
       path = ./lang/containers.md;

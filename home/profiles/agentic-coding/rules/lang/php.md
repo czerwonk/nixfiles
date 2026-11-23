@@ -3,7 +3,6 @@
 ## Conventions
 - PSR-12 coding style, PSR-4 autoloading
 - `declare(strict_types=1);` and type declarations for parameters, return types and properties
-- Prepared statements for all database queries
 
 ## Checklist
 1. `php-cs-fixer fix .`
