@@ -2,7 +2,13 @@
 
 let
   claude-code-bwrapped = pkgs.writeShellScriptBin "claude" ''
-    ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
+    # Bind the whole repository, not only the current directory, so .git stays writable
+    # when claude is started in a subdirectory.
+    workdir="$(${lib.getExe pkgs.git} rev-parse --show-toplevel 2>/dev/null || pwd)"
+
+    # Tool caches/state (go, cargo, podman, ansible) must be writable, the rest of $HOME stays
+    # read-only. bin directories are deliberately not bound to prevent planting executables.
+    exec ${lib.getExe pkgs.bubblewrap} --ro-bind /usr /usr \
                                   --ro-bind /nix /nix \
                                   --ro-bind /bin /bin \
                                   --ro-bind /etc /etc \
@@ -11,17 +17,44 @@ let
                                   --bind /tmp /tmp \
                                   --bind "$HOME/.claude" "$HOME/.claude" \
                                   --bind "$HOME/.claude.json" "$HOME/.claude.json" \
-                                  --bind "$(pwd)" "$(pwd)" \
+                                  --bind-try "$HOME/.cache" "$HOME/.cache" \
+                                  --bind-try "$HOME/go/pkg" "$HOME/go/pkg" \
+                                  --bind-try "$HOME/.cargo/registry" "$HOME/.cargo/registry" \
+                                  --bind-try "$HOME/.cargo/git" "$HOME/.cargo/git" \
+                                  --bind-try "$HOME/.local/share/containers" "$HOME/.local/share/containers" \
+                                  --bind-try "$HOME/.ansible" "$HOME/.ansible" \
+                                  --bind "$workdir" "$workdir" \
                                   --bind "$XDG_RUNTIME_DIR" "$XDG_RUNTIME_DIR" \
                                   --proc /proc \
                                   --dev /dev \
-      ${lib.getExe pkgs.claude-code} $@
-  '';
-  slash-prompts = import ./command-prompts.nix;
-  report-update-instructions = ''
-    If the file already exists analyze the existing report and update it (including new version information). Move resolved issues to a RESOLVED section and update ratings if necesary.
+      ${lib.getExe pkgs.claude-code} "$@"
   '';
 
+  # Formats only the edited file (cheap enough to run after every edit); linters stay in the
+  # language guides' checklists. Formatters missing from PATH are skipped silently.
+  format-hook = pkgs.writeShellScript "claude-format-hook" ''
+    file="$(${lib.getExe pkgs.jq} -r '.tool_input.file_path // empty')"
+    [ -n "$file" ] && [ -f "$file" ] || exit 0
+
+    has() { command -v "$1" >/dev/null 2>&1; }
+
+    case "$file" in
+      *.go) has gofmt && gofmt -w "$file" ;;
+      *.rs)
+        manifest_dir="$(dirname "$file")"
+        while [ "$manifest_dir" != "/" ] && [ ! -f "$manifest_dir/Cargo.toml" ]; do
+          manifest_dir="$(dirname "$manifest_dir")"
+        done
+        [ -f "$manifest_dir/Cargo.toml" ] && has cargo && (cd "$manifest_dir" && cargo fmt -q)
+        ;;
+      *.js|*.ts|*.jsx|*.tsx|*.html|*.css|*.json) has prettierd && prettierd "$file" < "$file" > "$file.fmt" && mv "$file.fmt" "$file" ;;
+      *.nix) has nixfmt && nixfmt "$file" ;;
+    esac
+    rm -f "$file.fmt"
+    exit 0
+  '';
+
+  skills = import ./command-prompts.nix;
 in
 {
   imports = [
@@ -37,36 +70,41 @@ in
     ];
   };
 
-  home.file.".claude/settings.json".text = builtins.toJSON {
-    editorMode = "vim";
-    tui = "fullscreen";
-    permissions.ask = [
-      "Bash(podman:*)"
-      "Bash(docker:*)"
-      "Bash(ssh:*)"
-      "Bash(rsync:*)"
-      "Bash(sftp:*)"
-    ];
-  };
-  home.file.".claude/commands/quality-review.md".text = ''
-    ${slash-prompts.quality-review}
-  '';
-  home.file.".claude/commands/quality-review-report.md".text = ''
-    ${slash-prompts.quality-review}. Generate a markdown report summarizing the findings and recommendations and store it in REVIEW_REPORT.md. ${report-update-instructions}.
-  '';
-  home.file.".claude/commands/code-audit.md".text = ''
-    ${slash-prompts.security-review}
-  '';
-  home.file.".claude/commands/code-audit-report.md".text = ''
-    ${slash-prompts.security-review}. Generate a markdown report summarizing the findings and recommendations and store it in SECURITY_REPORT.md. ${report-update-instructions}.
-  '';
-  home.file.".claude/commands/fix-build.md".text = ''
-    ${slash-prompts.fix-build}
-  '';
-  home.file.".claude/commands/version-update.md".text = ''
-    ${slash-prompts.version-update}
-  '';
-  home.file.".claude/commands/release-notes.md".text = ''
-    ${slash-prompts.release-notes}
-  '';
+  home.file = {
+    ".claude/settings.json".text = builtins.toJSON {
+      editorMode = "vim";
+      tui = "fullscreen";
+      permissions.ask = [
+        "Bash(podman:*)"
+        "Bash(docker:*)"
+        "Bash(ssh:*)"
+        "Bash(rsync:*)"
+        "Bash(sftp:*)"
+      ];
+      hooks.PostToolUse = [
+        {
+          matcher = "Edit|MultiEdit|Write";
+          hooks = [
+            {
+              type = "command";
+              command = "${format-hook}";
+            }
+          ];
+        }
+      ];
+    };
+  }
+  // lib.mapAttrs' (
+    name: skill:
+    lib.nameValuePair ".claude/skills/${name}/SKILL.md" {
+      text = ''
+        ---
+        name: ${name}
+        description: ${skill.description}
+        disable-model-invocation: true
+        ---
+        ${skill.prompt}
+      '';
+    }
+  ) skills;
 }

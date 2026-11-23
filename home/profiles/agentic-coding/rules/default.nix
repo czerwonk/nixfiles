@@ -31,15 +31,20 @@ let
       name = "html.md";
       path = ./lang/html.md;
     }
+    {
+      language = "Containers, CI/CD and dependency updates";
+      name = "containers.md";
+      path = ./lang/containers.md;
+    }
   ];
 
   languageRulesSection = ''
     ## Language-Specific Rules
     ${lib.concatMapStringsSep "\n" (
-      lang: "- **${lang.language}**: See `''~/${configDir}/lang/${lang.name}`"
+      lang: "- **${lang.language}**: See `~/${configDir}/lang/${lang.name}`"
     ) languageFiles}
 
-    When working in a specific language, read the relevant style guide first.
+    When working in a specific language or area, read the relevant guide first.
   '';
 in
 {
