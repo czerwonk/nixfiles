@@ -15,6 +15,7 @@ let
   git-worktree-clone = pkgs.writeScriptBin "git-worktree-clone" (
     builtins.readFile ./git-worktree-clone.sh
   );
+  git-pull-all = pkgs.writeShellScriptBin "git-pull-all" (builtins.readFile ./git-pull-all.sh);
   nvim-tmux = pkgs.writeShellScriptBin "nvim-tmux" ''
     if [[ -z $TMUX ]]; then
       ${cfg.neovimExe} "$@"
@@ -45,6 +46,7 @@ in
       packages = [
         git-worktree-it
         git-worktree-clone
+        git-pull-all
         nvim-tmux
       ];
       shellAliases = {
