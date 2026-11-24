@@ -65,9 +65,8 @@ For changes touching the data model, persistence, caching, nullability or concur
 - **Don't try to write outside the sandbox context** - not to check whether it works, not via another path, tool or `sudo`. It fails every time and only costs time and tokens. If a task needs it, say so and stop
 - No remote access: `ssh`, `scp`, `sftp`, `rsync` are denied - if a task needs a remote host, tell me the command and I'll run it myself
 - Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
-- Containers: **there is no Docker, only Podman** - use `podman` (`podman build`, `podman run`, `podman compose`), never `docker`/`docker-compose`; Dockerfiles work as they are
+- Containers: **there is no Docker, only Podman** - use `podman` (`podman build`, `podman run`, `podman compose`), `docker` is just an alias on the workstation; Dockerfiles work as they are
 - Every podman call is reviewed by me before it runs, so:
-  - Only call `podman` directly - never via the API socket (`curl --unix-socket`, `CONTAINER_HOST`, `--remote`), a script, a Makefile target or a subagent
   - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
   - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
 ## 11. Verification Honesty
