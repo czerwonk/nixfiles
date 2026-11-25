@@ -82,10 +82,6 @@ in
           set -g @tmux_power_theme '#C0A36E'
           run-shell ${pkgs.tmuxPlugins.power-theme}/share/tmux-plugins/power/tmux-power.tmux
         ''}
-
-        # after the theme, so it isn't overwritten
-        set -g window-status-bell-style 'fg=colour234,bg=#C0A36E,bold'
-        set -g window-status-activity-style 'fg=#C0A36E,underscore'
       '';
     };
 
