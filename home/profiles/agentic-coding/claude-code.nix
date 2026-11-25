@@ -23,6 +23,8 @@ let
     ".config/containers"
     ".config/go"
     ".rustup"
+    # openspec profile/delivery, so `openspec init/update` inside the sandbox matches the one outside
+    ".config/openspec"
     # read-only, so no executables can be planted
     ".cargo/bin"
     "go/bin"

@@ -1,42 +1,50 @@
 # General Rules
 ## 1. Conversation Mode
-- **Discussion mode**: when I start with "Let us discuss" or similar, only discuss approaches, pros/cons and architecture - don't change files
-- **Implementation mode**: implement only when I explicitly ask for it ("Can you implement the login feature?")
-- If the mode is unclear, ask: "Should I discuss the approach or implement the solution?"
+- **Discussion mode**: when I start with "Let us discuss" or similar, or run `/opsx:explore`, only discuss approaches, pros/cons and architecture - don't change files (OpenSpec artifacts only if I ask to capture the result)
+- **Proposal mode**: `/opsx:propose` or "write a proposal/spec" creates the OpenSpec change artifacts only - no code changes
+- **Implementation mode**: implement only when I explicitly ask for it ("Can you implement the login feature?") or run `/opsx:apply`
+- If the mode is unclear, ask: "Should I discuss the approach, write an OpenSpec proposal or implement the solution?"
 ## 2. General Behavior
 - Clarify ambiguities before proceeding
 - Break complex topics into digestible parts
 - Give items in generated lists (TODOs, suggestions, findings) identifiers like `H1`, `M3`, `L6` (high/medium/low priority + number) so we can refer to them
 - If I correct a design, don't claim the earlier version was agreed upon unless I said so explicitly - re-read what was actually agreed (e.g. "shared logic" is not "shared state")
 # Development Rules
-## 1. Task Management
-- Break work into small, completable units
-- Track tasks in `docs/todo.md` only if the project uses this workflow:
-  - If the file exists, use it
-  - If it doesn't exist, check project memory for a decision; if there is none, ask once whether this project should use `docs/todo.md` and store the answer in project memory
-- `docs/todo.md` contains: current/upcoming tasks with priority (`- [ ]`), completed tasks (`- [x]`), development decisions + rationale, recurring issues + solutions, technical debt, code audit reminders
+## 1. Spec-Driven Work (OpenSpec)
+- Projects with an `openspec/` directory use OpenSpec: `openspec/specs/` is the current source of truth, planned work lives in `openspec/changes/<change>/` (`proposal.md` why/what, `design.md` how + decisions, `specs/` delta specs, `tasks.md` checklist)
+- Use the `/opsx:*` commands and the `openspec` CLI (`openspec list`, `openspec status --change <name>`) - don't hand-roll the structure
+- Anything that adds or changes behavior gets a change; bug fixes and refactorings that keep specified behavior don't need one
+- Break work into small, completable units: each `tasks.md` item is one commit-sized step that includes its tests (written first) and leaves the build green; the last task group is "Wrap-up" (README for user-facing changes, full formatter/linter/test run)
+- In `design.md` for changes covered by section 4 (Design Before Code), add a "Data and State" section with that checklist
+- Record decisions and rationale in `design.md`, not only in chat
+- If implementation reveals a design issue or deviates from the spec, stop, update `design.md`/delta specs and tell me before continuing
+- Change `openspec/specs/` only via `/opsx:sync` or `/opsx:archive`, never directly; never edit `openspec/changes/archive/`; archive only when I ask
+- Projects without `openspec/`: for non-trivial features, suggest `openspec init --tools claude` once - don't track tasks in ad-hoc files like `docs/todo.md`
 ## 2. Scope Control
-- Only implement what was requested; log additional ideas as separate tasks
+- Only implement what was requested - with OpenSpec, the tasks of the selected change
+- Don't add follow-up ideas or technical debt to the current change: list them (with identifiers) and offer a separate change
 ## 3. Reuse Before Building
 - Before writing infrastructure code (telemetry, logging, DB pools, CI jobs, deployment config, helper scripts), look for an existing shared library, template, script or Makefile target in the repo and its dependencies, and use it
 - If I say "use the script/library/template", find the existing one - don't write a new one
 - Never invent image, registry, chart or deployment names - read them from the Makefile, chart, CI config or existing deployment, or ask
 ## 4. Design Before Code
-For changes touching the data model, persistence, caching, nullability or concurrency, first give a short plan and wait for my OK:
+For changes touching the data model, persistence, caching, nullability or concurrency, first give a short plan and wait for my OK. With OpenSpec the plan goes into the change's `design.md` and approving the proposal is the OK; design questions that only come up during apply need a new OK:
 - Stored values and invariants (e.g. NULL vs. a literal default, allowed value sets)
 - Other writers and callers of the affected data/code
 - What is shared and what stays separate (logic vs. state/cache)
 - Which existing code/libraries are reused
 ## 5. Workflow
+Per task - with OpenSpec per `tasks.md` item:
 1. Write a failing test first (features and fixes)
 2. Implement
 3. Run the formatter, linters and tests from the guide's checklist
-4. Update the README for user-facing changes (features, flags, configuration) and `docs/todo.md` if the project uses it
-5. Commit
+4. Update the README for user-facing changes (features, flags, configuration); with OpenSpec tick the task (`- [ ]` → `- [x]`)
+5. Commit code, tests and the ticked task together
 6. Report what was not verified (see section 11)
 ## 6. Git
-- Commit after each completed task that modifies files, unless the task or skill says not to - also for small fixes
+- Commit after each completed task that modifies files (with OpenSpec: each `tasks.md` item), unless the task or skill says not to - also for small fixes
 - Format: `type: description` (feat/fix/docs/refactor/test/chore/ci), one logical change per commit
+- Commit OpenSpec artifacts separately from code: `docs: propose <change>`, `docs: update <change> design`, `docs: archive <change>`
 - Never amend, squash or rewrite commits you didn't create in this session without asking
 ## 7. CI/CD and Deployment
 - Check `.gitignore` for patterns like `*.yml` that would hide `.gitlab-ci.yml` or other CI files
