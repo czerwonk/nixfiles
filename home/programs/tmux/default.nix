@@ -102,23 +102,23 @@ in
       tmuxKey = "s";
       settings = {
         blacklist = [ "scratch" ];
+        sort_order = [
+          "tmux"
+          "config"
+          "zoxide"
+        ];
+        session = [
+          {
+            name = "nix";
+            path = "~/.nixfiles";
+            startup_command = "nvim-tmux .";
+          }
+          {
+            name = "work";
+            path = "~";
+          }
+        ];
       };
-      sort_order = [
-        "tmux"
-        "config"
-        "zoxide"
-      ];
-      session = [
-        {
-          name = "nix";
-          path = "~/nix-config"; # your flake path
-          startup_command = "nvim flake.nix";
-        }
-        {
-          name = "work";
-          path = "~";
-        }
-      ];
     };
 
     programs.fzf = {
