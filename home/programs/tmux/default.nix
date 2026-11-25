@@ -38,7 +38,6 @@ in
       mouse = mkDefault false;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [
-        tmux-floax
         vim-tmux-navigator
       ];
       extraConfig = ''
@@ -65,13 +64,6 @@ in
         set -g monitor-activity off
         set -g visual-activity off
         set -g visual-silence off
-
-        set -g @floax-width '80%'
-        set -g @floax-height '80%'
-        set -g @floax-border-color 'magenta'
-        set -g @floax-text-color 'blue'
-        set -g @floax-bind 'p'
-        set -g @floax-change-path 'true'
 
         # m: mute/unmute bells for this window
         bind m {
