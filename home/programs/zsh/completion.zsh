@@ -17,6 +17,9 @@ zstyle ':completion:*'                    verbose true
 zstyle ':completion:*:*:-subscript-:*'    tag-order indexes parameters
 zstyle ':completion:*:*:zcompile:*'       ignored-patterns '(*~|*.zwc)'
 zstyle ':completion:*:-command-:*:'       verbose false
+# The case-insensitive matcher lets e.g. `kube` match $KUBECONFIG in command position,
+# so offer parameters only when no command matches.
+zstyle ':completion:*:-command-:*'        tag-order '! parameters' parameters
 zstyle ':completion:*:expand:*'           tag-order all-expansions
 zstyle ':completion:*:git-checkout:*'     sort false
 zstyle ':completion:*:history-words'      stop yes
