@@ -10,6 +10,7 @@
     ./neovim
     ./oh-my-posh
     ./ssh
+    ./television
     ./tmux
     ./zed
     ./zoxide
