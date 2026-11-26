@@ -10,7 +10,7 @@ in
   config = mkIf (cfg.enable && config.services.caddy.enable) {
     services.crowdsec.hub.collections = [ "crowdsecurity/caddy" ];
 
-    services.crowdsec.localConfig.acquisitions = [
+    services.crowdsec.settings.acquisitions = [
       {
         journalctl_filter = [
           "_SYSTEMD_UNIT=caddy.service"
