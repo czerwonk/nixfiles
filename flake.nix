@@ -20,6 +20,8 @@
 
     impermanence.url = "github:nix-community/impermanence?ref=7b1d382faf603b6d264f58627330f9faa5cba149";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.8.0";
+
     private.url = "git+ssh://git@code.routing.rocks/daniel/nixfiles.private";
 
     routing-rocks-policy.url = "github:czerwonk/routing-rocks-policy-role";
@@ -35,8 +37,8 @@
     };
 
     hakanai = {
-      url = "github:czerwonk/hakanai?ref=613a9b0d975a10d66a719def358aacaf25c1feb1";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:czerwonk/hakanai?ref=v3.1.1";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

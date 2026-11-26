@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../../configuration.nix
     ../../profiles/amd-rocm
+    ../../profiles/agentic-coding
     ../../profiles/container
     ../../profiles/server
     ../../profiles/virtualisation

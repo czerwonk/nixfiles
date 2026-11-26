@@ -1,60 +1,79 @@
-{
-  configDir,
-  mainConfigFile,
-}:
-{ config, lib, ... }:
+# The main rules (agent-rules.md) are deployed as managed CLAUDE.md by the NixOS profile
+# `agentic-coding`; this module only deploys the path-scoped guides.
+{ configDir }:
+{ lib, ... }:
 
 let
-  languageFiles = [
+  # Deployed as path-scoped rules: Claude Code loads a guide only when it works on files matching
+  # its `paths` globs, so the guides don't cost context in unrelated sessions.
+  guides = [
     {
-      language = "Go";
       name = "go.md";
-      path = ./lang/go.md;
+      paths = [
+        "**/*.go"
+        "**/go.mod"
+      ];
     }
     {
-      language = "Rust";
       name = "rust.md";
-      path = ./lang/rust.md;
+      paths = [
+        "**/*.rs"
+        "**/Cargo.toml"
+      ];
     }
     {
-      language = "TypeScript/JavaScript";
       name = "js.md";
-      path = ./lang/js.md;
+      paths = [
+        "**/*.{js,mjs,cjs,jsx,ts,tsx,vue,svelte}"
+        "**/package.json"
+      ];
     }
     {
-      language = "PHP";
       name = "php.md";
-      path = ./lang/php.md;
+      paths = [
+        "**/*.php"
+        "**/composer.json"
+      ];
     }
     {
-      language = "HTML";
-      name = "html.md";
-      path = ./lang/html.md;
+      name = "web.md";
+      paths = [
+        "**/*.{html,htm,css,scss,jsx,tsx,vue,svelte}"
+        "**/*.{tmpl,gohtml,jinja,jinja2,j2,twig,hbs,ejs}"
+        "**/*.blade.php"
+        "**/templates/**"
+        "**/static/**"
+        "**/public/**"
+      ];
+    }
+    {
+      name = "containers.md";
+      paths = [
+        "**/Dockerfile*"
+        "**/Containerfile*"
+        "**/*.dockerfile"
+        "**/.dockerignore"
+        "**/docker-compose*.{yml,yaml}"
+        "**/compose*.{yml,yaml}"
+        "**/.gitlab-ci.yml"
+        "**/.github/workflows/**"
+        "**/Chart.yaml"
+        "**/values*.yaml"
+      ];
     }
   ];
 
-  languageRulesSection = ''
-    ## Language-Specific Rules
-    ${lib.concatMapStringsSep "\n" (
-      lang: "- **${lang.language}**: See `''~/${configDir}/lang/${lang.name}`"
-    ) languageFiles}
-
-    When working in a specific language, read the relevant style guide first.
+  frontmatter = paths: ''
+    ---
+    paths:
+    ${lib.concatMapStrings (path: "  - \"${path}\"\n") paths}---
   '';
 in
 {
-  home.file =
-    {
-      "${configDir}/${mainConfigFile}".text = ''
-        ${builtins.readFile ./agent-rules.md}
-
-        ${languageRulesSection}
-      '';
-    }
-    // builtins.listToAttrs (
-      map (lang: {
-        name = "${configDir}/lang/${builtins.baseNameOf lang.name}";
-        value.text = builtins.readFile lang.path;
-      }) languageFiles
-    );
+  home.file = builtins.listToAttrs (
+    map (guide: {
+      name = "${configDir}/rules/${guide.name}";
+      value.text = frontmatter guide.paths + "\n" + builtins.readFile (./guides + "/${guide.name}");
+    }) guides
+  );
 }

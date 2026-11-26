@@ -10,7 +10,7 @@
       ansible
       ansible-lint
       ansible-role
-      dive
+      crane
       google-cloud-sdk
       grype
       hyperfine

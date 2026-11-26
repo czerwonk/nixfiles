@@ -24,7 +24,7 @@
     # office documents
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
     "application/vnd.oasis.opendocument.text" = "writer.desktop";
-    "application/pdf" = "com.system76.CosmicReader.desktop";
+    "application/pdf" = "org.gnome.Evince.desktop";
 
     # text
     "text/plain" = "com.system76.CosmicEdit.desktop";

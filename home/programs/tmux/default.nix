@@ -44,6 +44,7 @@ in
         set -g renumber-windows on
         set-option -g allow-rename off
         set-option -g automatic-rename off
+        set -g detach-on-destroy off
 
         bind C-l send-keys 'C-l'
         bind-key -n M-S-Left swap-window -d -t -1
@@ -57,17 +58,23 @@ in
         set-option -g pane-border-style 'fg=colour242,bg=colour234'
         set-option -g pane-active-border-style 'fg=colour242,bg=colour234'
 
-        set -g bell-action none
-        set -g monitor-activity on
+        set -g bell-action other
         set -g monitor-bell on
+        set -g visual-bell both
+        set -g monitor-activity off
         set -g visual-activity off
-        set -g visual-bell on
         set -g visual-silence off
 
+        # m: mute/unmute bells for this window
         bind m {
           set -w monitor-bell
+          display 'bell #{?#{monitor-bell},on,muted}'
+        }
+
+        # M: toggle activity tracking for this window (builds, tails)
+        bind M {
           set -w monitor-activity
-          display 'window mute #{?#{monitor-bell},off,on}'
+          display 'activity #{?#{monitor-activity},on,off}'
         }
 
         ${optionalString (cfg.theme.enable) ''
@@ -76,6 +83,30 @@ in
           run-shell ${pkgs.tmuxPlugins.power-theme}/share/tmux-plugins/power/tmux-power.tmux
         ''}
       '';
+    };
+
+    programs.sesh = {
+      enable = true;
+      tmuxKey = "s";
+      settings = {
+        blacklist = [ "scratch" ];
+        sort_order = [
+          "tmux"
+          "config"
+          "zoxide"
+        ];
+        session = [
+          {
+            name = "nix";
+            path = "~/.nixfiles";
+            startup_command = "nvim-tmux .";
+          }
+          {
+            name = "work";
+            path = "~";
+          }
+        ];
+      };
     };
 
     programs.fzf = {

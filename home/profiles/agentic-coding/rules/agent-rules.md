@@ -1,122 +1,86 @@
 # General Rules
 ## 1. Conversation Mode
-- **DISCUSSION MODE**: When conversation starts with "Let us discuss" or similar phrases - ONLY discuss solutions, do NOT implement
-- **IMPLEMENTATION MODE**: Only implement when explicitly asked to do so
-- **When in doubt**: Always ask before implementing anything
-### Examples:
-- ✅ "Let's discuss how to implement user authentication" → Discuss approaches, pros/cons, architecture
-- ✅ "Can you implement the login feature?" → Go ahead and implement  
-- ❌ "Let's discuss the login feature" → Don't implement, just discuss
-- ❓ Unclear request → Ask: "Should I discuss the approach or implement the solution?"
+- **Discussion mode**: when I start with "Let us discuss" or similar, or run `/opsx:explore`, only discuss approaches, pros/cons and architecture - don't change files (OpenSpec artifacts only if I ask to capture the result)
+- **Proposal mode**: `/opsx:propose` or "write a proposal/spec" creates the OpenSpec change artifacts only - no code changes
+- **Implementation mode**: implement only when I explicitly ask for it ("Can you implement the login feature?") or run `/opsx:apply`
+- If the mode is unclear, ask: "Should I discuss the approach, write an OpenSpec proposal or implement the solution?"
 ## 2. General Behavior
-- If unclear about mode, ask: "Should I discuss the approach or implement the solution?"
 - Clarify ambiguities before proceeding
 - Break complex topics into digestible parts
-- When you generate lists (for example TODOs or suggestions) use identifier to refere to in the conversation
+- Give items in generated lists (TODOs, suggestions, findings) identifiers like `H1`, `M3`, `L6` (high/medium/low priority + number) so we can refer to them
+- If I correct a design, don't claim the earlier version was agreed upon unless I said so explicitly - re-read what was actually agreed (e.g. "shared logic" is not "shared state")
 # Development Rules
-## 1. Task Management
-- Break into small, completable units
-- Track in `docs/todo.md`:
-  - [ ] Current/upcoming tasks (with priority: high/medium/low)
-  - [x] Completed tasks
-  - Development decisions + rationale
-  - Recurring issues + solutions
-  - Technical debt
-  - Code audit reminders
-## 2. Git Discipline
-- **ALWAYS commit after each task that modifies any file**
-- No exceptions - even small fixes require commits
-- Format: `type: description` (feat/fix/docs/refactor/test/chore)
-## 3. Scope Control
-- Only implement explicit requests
-- Clarify ambiguities
-- Log additional ideas as separate tasks
-## 4. Code Quality
-- Keep it simple (KISS principle)
-- Avoid premature optimization
-- Prefer readable over clever code
-- **Create tests BEFORE implementing features** (TDD approach)
-- Ask "Should I write tests for this?" if unclear
-- Whenever writing tests with more than one assertion make sure to give the dev context why the test failed. For example by using description strings if available.
-## 5. Code Commenting Guidelines
-When writing code, follow these commenting principles:
-1. **Avoid obvious comments** - Do not comment code that is self-explanatory
-   - Bad: `// Increment counter` above `counter++`
-   - Bad: `// Return the result` above `return result`
-2. **Comment only when necessary:**
-   - Complex algorithms or non-obvious logic
-   - Business rules or domain-specific requirements
-   - Workarounds or temporary fixes (with TODO/FIXME)
-   - Why something is done a certain way (not what)
-   - API documentation (JSDoc, RustDoc, etc.) for public interfaces
-3. **Prefer self-documenting code:**
-   - Use descriptive variable and function names
-   - Extract complex conditions into well-named variables
-   - Break down complex functions into smaller, well-named functions
-4. **Examples of valuable comments:**
-   - `// Using binary search here for O(log n) performance`
-   - `// Retry 3 times to handle transient network failures`
-   - `// This seemingly redundant check prevents a race condition when...`
-## 6. Dependency Guidelines
-- Avoid introducing new external dependencies unless absolutely necessary
-- If a new dependency is required, please state the reason
-## 7. Code Formatting
-- **Always trim trailing whitespace** from all lines
-- Remove unnecessary blank lines at end of files
-- Maintain consistent indentation
-## 8. Workflow
-1. Pick task
-2. **Write tests first** (for features/fixes)
-3. Complete task
-4. Update todo.md
-5. **COMMIT CHANGES** (required - no exceptions)
-# Report Rules
-## File Naming Standards
-- **Security audit reports**: Always named `SECURITY_REPORT.md`
-- **Code Review (Code Quality) reports**: Always named `REVIEW_REPORT.md`
-- **Resolved issues files**:
-  - Security: `docs/SECURITY_REPORT_RESOLVED.md`
-  - Review: `docs/REVIEW_REPORT_RESOLVED.md`
-## Report Creation Process
-1. **Before creating a new report**: Always read the corresponding resolved issues file to prevent reintroducing findings that have already been addressed
-2. **Check resolved issues**:
-   - For security reports: Review `docs/RESOLVED_SECURITY_ISSUES.md`
-   - For review reports: Review `docs/RESOLVED_REVIEW_ISSUES.md`
-3. **Cross-reference findings**: Ensure new findings are not duplicates of previously resolved issues
-## Identifiers
-For each item (e.g. recommendation) create an identifier to be used for further discussion:
-Examples of good identifiers:
-   - `H1`: top priority finding
-   - `M3`: third medium priority finding
-   - `L6`: sixth low priority finding
-## Overall Grade Calculation
-- **Security and code review reports MUST include an overall grade** (A, A-, B+, B, B-, C+, C, C-, D+, D, F)
-- Grade should reflect the cumulative security risk or code quality based on all findings
-- **ALWAYS recalculate and update the grade** when:
-  - Adding new findings
-  - Moving issues to resolved files
-  - Modifying existing findings
-  - Making any changes that affect the overall assessment
-## Resolved Issues Management
-- **Do NOT keep resolved issues in the main report**
-- **Move resolved issues to dedicated files**:
-  - Security issues → `docs/RESOLVED_SECURITY_ISSUES.md`
-  - Review issues → `docs/RESOLVED_REVIEW_ISSUES.md`
-- **When moving resolved issues**:
-  - Add the date and version when the issue was resolved
-  - Include the original identifier for tracking
-  - Example: `H1: [RESOLVED 2024-07-14 v1.2.3] SQL injection vulnerability in login endpoint`
-  - Maintain the original finding description and resolution details
-## Report Updates
-On each update (adding findings, marking issues resolved, etc.):
-1. Update the relevant finding/section
-2. **Move resolved issues to appropriate resolved file**
-3. **Recalculate the overall grade** (excluding resolved issues)
-4. Update the grade in the report header/summary
-5. This ensures the grade always reflects the current active state
-## Resolved Issues File Structure
-Both resolved files should maintain:
-- Clear section headers by resolution date
-- Original identifiers and descriptions
-- Resolution details and version information
-- Easy searchability for future reference
+## 1. Spec-Driven Work (OpenSpec)
+- Projects with an `openspec/` directory use OpenSpec: `openspec/specs/` is the current source of truth, planned work lives in `openspec/changes/<change>/` (`proposal.md` why/what, `design.md` how + decisions, `specs/` delta specs, `tasks.md` checklist)
+- Use the `/opsx:*` commands and the `openspec` CLI (`openspec list`, `openspec status --change <name>`) - don't hand-roll the structure
+- Anything that adds or changes behavior gets a change; bug fixes and refactorings that keep specified behavior don't need one
+- Break work into small, completable units: each `tasks.md` item is one commit-sized step that includes its tests (written first) and leaves the build green; the last task group is "Wrap-up" (README for user-facing changes, full formatter/linter/test run)
+- In `design.md` for changes covered by section 4 (Design Before Code), add a "Data and State" section with that checklist
+- Record decisions and rationale in `design.md`, not only in chat
+- If implementation reveals a design issue or deviates from the spec, stop, update `design.md`/delta specs and tell me before continuing
+- Change `openspec/specs/` only via `/opsx:sync` or `/opsx:archive`, never directly; never edit `openspec/changes/archive/`; archive only when I ask
+- Projects without `openspec/`: for non-trivial features, suggest `openspec init --tools claude` once - don't track tasks in ad-hoc files like `docs/todo.md`
+## 2. Scope Control
+- Only implement what was requested - with OpenSpec, the tasks of the selected change
+- Don't add follow-up ideas or technical debt to the current change: list them (with identifiers) and offer a separate change
+## 3. Reuse Before Building
+- Before writing infrastructure code (telemetry, logging, DB pools, CI jobs, deployment config, helper scripts), look for an existing shared library, template, script or Makefile target in the repo and its dependencies, and use it
+- If I say "use the script/library/template", find the existing one - don't write a new one
+- Never invent image, registry, chart or deployment names - read them from the Makefile, chart, CI config or existing deployment, or ask
+## 4. Design Before Code
+For changes touching the data model, persistence, caching, nullability or concurrency, first give a short plan and wait for my OK. With OpenSpec the plan goes into the change's `design.md` and approving the proposal is the OK; design questions that only come up during apply need a new OK:
+- Stored values and invariants (e.g. NULL vs. a literal default, allowed value sets)
+- Other writers and callers of the affected data/code
+- What is shared and what stays separate (logic vs. state/cache)
+- Which existing code/libraries are reused
+## 5. Workflow
+Per task - with OpenSpec per `tasks.md` item:
+1. Write a failing test first (features and fixes)
+2. Implement
+3. Run the formatter, linters and tests from the guide's checklist
+4. Update the README for user-facing changes (features, flags, configuration); with OpenSpec tick the task (`- [ ]` → `- [x]`)
+5. Commit code, tests and the ticked task together
+6. Report what was not verified (see section 11)
+## 6. Git
+- Commit after each completed task that modifies files (with OpenSpec: each `tasks.md` item), unless the task or skill says not to - also for small fixes
+- Format: `type: description` (feat/fix/docs/refactor/test/chore/ci), one logical change per commit
+- Commit OpenSpec artifacts separately from code: `docs: propose <change>`, `docs: update <change> design`, `docs: archive <change>`
+- Never amend, squash or rewrite commits you didn't create in this session without asking
+## 7. CI/CD and Deployment
+- Check `.gitignore` for patterns like `*.yml` that would hide `.gitlab-ci.yml` or other CI files
+- Before committing CI/CD or deployment changes, state whether pushing the branch triggers a deployment or whether deploys are tag-based
+- **Never push to a branch that deploys without asking**
+## 8. Code Quality
+- Keep it simple, avoid premature optimization, prefer readable over clever code
+- Tests with more than one assertion give context on failure (e.g. assertion messages / description strings)
+- Comments explain why, not what: non-obvious logic, business rules, workarounds (with TODO/FIXME), API docs for public interfaces. No comments that restate the code - prefer descriptive names and small functions instead
+- Trim trailing whitespace, no trailing blank lines at end of file, consistent indentation
+## 9. Security
+- **Never read production credentials unless I explicitly ask for it in the current request** - not to debug, not to "check the config", not via a detour (`cat`, `grep`, `env`, `printenv`, a script, a subagent). This covers:
+  - Env files: `.env`, `.env.local`, `.env.prod`, `.env.production`, `.env.staging` and similar (templates like `.env.example`, `.env.sample`, `.env.dist` are fine)
+  - Config files containing credentials: `config.yml`/`config.yaml`/`config.json` of deployed environments, `secrets.*`, `credentials.*`, `appsettings.Production.json`, `application-prod.*`, `app/etc/env.php`, `wp-config.php`, `config/master.key`, `*.tfvars`, `*.tfstate`, Helm values of production releases
+  - Keys and certificates: `*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.jks`, `id_rsa*`, `id_ed25519*`, `*.kdbx`, age/sops keys, ansible vault password files
+  - Credential stores in `$HOME`: `~/.ssh`, `~/.gnupg`, `~/.aws`, `~/.kube`, `~/.docker/config.json`, `~/.netrc`, `~/.git-credentials`, `~/.pgpass`, `~/.my.cnf`, `~/.npmrc`, `~/.cargo/credentials.toml`, `~/.config/gh`, `~/.config/gcloud`
+  - Secret-revealing commands: `kubectl get secret -o yaml/json`, `sops -d`, `ansible-vault view/decrypt`, `vault read`, `terraform output` of sensitive values, dumping the environment
+- If a task seems to need such a file, say so and ask - work from templates, schemas or the code that reads the config instead
+- If you come across credentials anyway, don't repeat, log or store them (including memory) and tell me
+- Never build SQL queries or shell commands from input - use query parameters and argument arrays
+- Never log or commit secrets/tokens; compare tokens and other secrets in constant time
+- In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
+## 10. Sandbox and Tools
+- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Writable: the project, `/tmp` (private to the sandbox - I can't see files there), `~/.claude` and tool caches (`~/.cache`, Go/Cargo/podman stores). Everything else is read-only or hidden by design
+- In the repository `.git/config` and `.git/hooks` are read-only: commit and plain `git push` work, but no `git config`, `git remote add/set-url`, `git push -u` or hooks - tell me if one is needed
+- **Don't try to write outside the sandbox context** - not to check whether it works, not via another path, tool or `sudo`. It fails every time and only costs time and tokens. If a task needs it, say so and stop
+- No remote access: `ssh`, `scp`, `sftp`, `rsync` are denied - if a task needs a remote host, tell me the command and I'll run it myself
+- Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
+- Containers: **there is no Docker, only Podman** - use `podman` (`podman build`, `podman run`, `podman compose`), `docker` is just an alias on the workstation; Dockerfiles work as they are
+- Every podman call is reviewed by me before it runs, so:
+  - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
+  - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
+## 11. Verification Honesty
+- At the end of each task, list what was not verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, not pushed, image not built
+- If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
+## 12. Dependencies
+- Avoid new external dependencies unless necessary; state the reason when adding one
+- New projects only, before the first commit: use the latest versions and the current patch release of the toolchain (Go, Rust, Node, ...) and update indirect dependencies too (`go get -u ./... && go mod tidy`, `cargo update`, `npm update`)
+- In existing projects, update dependencies only when asked

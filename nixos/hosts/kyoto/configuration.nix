@@ -4,6 +4,7 @@
     ./llm.nix
     ../../configuration.nix
     ../../profiles/amd-rocm
+    ../../profiles/agentic-coding
     ../../profiles/container
     ../../profiles/desktop
     ../../profiles/desktop/cosmic.nix
