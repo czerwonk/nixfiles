@@ -49,9 +49,6 @@ in
         image = "lscr.io/linuxserver/calibre-web:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
 
         environment = environment;
 
@@ -67,9 +64,6 @@ in
         image = "lscr.io/linuxserver/calibre-web:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
 
         environment = environment;
 
@@ -85,9 +79,6 @@ in
         image = "lscr.io/linuxserver/calibre-web:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
 
         environment = environment;
 

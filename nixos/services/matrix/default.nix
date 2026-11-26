@@ -65,7 +65,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";
@@ -113,7 +112,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=matrix"
         ];
         user = "991:991";

@@ -40,9 +40,6 @@ in
         image = "vaultwarden/server:${version}-alpine";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
         user = "1000:1000";
 
         environment = {

@@ -23,10 +23,6 @@ in
       kosync = {
         image = "koreader/kosync:latest";
 
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
-
         autoStart = true;
 
         environment = {

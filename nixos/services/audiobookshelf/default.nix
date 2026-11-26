@@ -37,9 +37,6 @@ in
         image = "ghcr.io/advplyr/audiobookshelf:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
         user = "1000";
 
         environment = {

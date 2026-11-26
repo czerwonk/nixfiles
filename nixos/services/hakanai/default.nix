@@ -52,7 +52,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=hakanai"
         ];
         user = "65532";

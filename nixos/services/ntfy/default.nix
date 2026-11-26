@@ -39,7 +39,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=${cfg.network}"
         ];
         user = "1000:1000";

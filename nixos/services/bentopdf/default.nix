@@ -31,9 +31,6 @@ in
         image = "ghcr.io/alam00000/bentopdf-simple:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
         user = "101:101";
 
         environment = {

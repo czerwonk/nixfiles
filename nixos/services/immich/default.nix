@@ -75,7 +75,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=immich"
         ];
         user = "1000";
@@ -100,7 +99,6 @@ in
 
         autoStart = true;
         extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
           "--network=immich"
         ];
         user = "1000";

@@ -12,9 +12,6 @@
       enable = true;
       dockerCompat = lib.mkDefault true;
       defaultNetwork.settings.dns_enabled = true;
-      extraPackages = with pkgs; [
-        gvisor
-      ];
     };
   };
 

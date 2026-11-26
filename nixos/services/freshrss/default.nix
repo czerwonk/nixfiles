@@ -25,9 +25,6 @@ in
         image = "lscr.io/linuxserver/freshrss:${version}";
 
         autoStart = true;
-        extraOptions = [
-          "--runtime=${pkgs.gvisor}/bin/runsc"
-        ];
 
         environment = {
           PUID = "1000";
