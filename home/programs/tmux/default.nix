@@ -9,6 +9,7 @@ with lib;
 
 let
   cfg = config.programs.tmux;
+  tv = config.programs.television;
 
 in
 {
@@ -83,6 +84,10 @@ in
           display 'activity #{?#{monitor-activity},on,off}'
         }
 
+        ${optionalString tv.enable ''
+          bind-key "${config.programs.sesh.tmuxKey}" display-popup -E -w 80% -h 70% -d '#{pane_current_path}' -T 'Sesh' tv sesh
+        ''}
+
         ${optionalString (cfg.theme.enable) ''
           set -g @tmux_power_time_format '%H:%M'
           set -g @tmux_power_theme '#C0A36E'
@@ -94,6 +99,9 @@ in
     programs.sesh = {
       enable = true;
       tmuxKey = "s";
+      # with television the picker is the tv sesh channel instead of fzf
+      enableTmuxIntegration = !tv.enable;
+      enableAlias = !tv.enable;
       settings = {
         blacklist = [ "scratch" ];
         sort_order = [
@@ -113,6 +121,14 @@ in
           }
         ];
       };
+    };
+
+    home.shellAliases = mkIf tv.enable {
+      s = "tv sesh";
+    };
+
+    xdg.configFile."television/cable/sesh.toml" = mkIf tv.enable {
+      source = "${tv.package}/share/cable/unix/sesh.toml";
     };
 
     programs.fzf = {
