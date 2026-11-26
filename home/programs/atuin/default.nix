@@ -25,7 +25,7 @@
       show_tabs = false;
       store_failed = false;
       style = "compact";
-      sync_address = "";
+      auto_sync = false;
       theme.name = "kanagawa";
       ui.columns = [
         "time"
