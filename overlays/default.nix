@@ -39,6 +39,7 @@ in
     (self: super: {
       ansible = super.ansible.override { windowsSupport = true; };
     })
+    (import ./bird-exporter.nix)
     (import ./gnome-extensions.nix)
     (import ./gnome-keyring.nix)
   ];
