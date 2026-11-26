@@ -18,7 +18,6 @@
     ./netdata
     ./nextcloud
     ./nordvpn
-    ./ntfy
     ./openssh-server
     ./ripe-atlas
     ./unifi

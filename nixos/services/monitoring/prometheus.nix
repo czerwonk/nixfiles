@@ -134,13 +134,13 @@ in
                 "matrix.routing.rocks/_matrix/client/versions"
                 "media.routing.rocks/web/index.html"
                 "nextcloud.routing.rocks/login"
-                "ntfy.routing.rocks"
                 "photos.routing.rocks"
                 "rss.routing.rocks"
                 "social.routing.rocks"
                 "unifi.routing.rocks/manage/account/login"
                 "vaultwarden.routing.rocks"
                 "hakanai.link"
+                "danalog.pics"
               ];
             }
           ];

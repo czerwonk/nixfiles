@@ -31,7 +31,6 @@ in
   my.services.matrix.enable = true;
   my.services.vaultwarden.enable = true;
   my.services.freshrss.enable = true;
-  my.services.ntfy.enable = true;
   my.services.hakanai.enable = true;
   my.services.crowdsec.metricsListenAddr = "[${loopback.address}]";
 
