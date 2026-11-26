@@ -58,6 +58,12 @@ in
         set-option -g pane-border-style 'fg=colour242,bg=colour234'
         set-option -g pane-active-border-style 'fg=colour242,bg=colour234'
 
+        # tmux 3.8 changed these defaults (underlined current window, themed
+        # popup background); restore the pre-3.8 look
+        set-option -g window-status-current-style default
+        set-option -g popup-style default
+        set-option -g popup-border-style default
+
         set -g bell-action other
         set -g monitor-bell on
         set -g visual-bell both
