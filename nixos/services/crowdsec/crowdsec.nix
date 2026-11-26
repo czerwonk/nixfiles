@@ -67,10 +67,9 @@ in
           }
         ];
         config = {
-          lapi = {
-            credentialsFile = "/var/lib/crowdsec/local_api_credentials.yaml";
-          };
           api = {
+            # keep the pre-rework location so existing machine credentials stay valid
+            client.credentials_path = "/var/lib/crowdsec/local_api_credentials.yaml";
             server = {
               enable = true;
               listen_uri = "127.0.0.1:8000";
