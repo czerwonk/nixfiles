@@ -16,10 +16,14 @@ in
           http_listen_port = 3200;
         };
 
-        ingester = {
-          trace_idle_period = "30s";
+        # Tempo 3.x replaced the ingester with the live-store; in monolithic
+        # mode it needs no Kafka. Paths default to /var/tempo, outside our state dir.
+        live_store = {
+          max_trace_idle = "30s";
           max_block_duration = "1m0s";
           max_block_bytes = 100000000;
+          wal.path = "${dataDir}/live-store/traces";
+          shutdown_marker_dir = "${dataDir}/live-store/shutdown-marker";
         };
 
         querier = {
@@ -38,8 +42,6 @@ in
 
           block = {
             bloom_filter_false_positive = 0.05;
-            v2_index_downsample_bytes = 524288;
-            v2_index_page_size_bytes = 128000;
           };
         };
 
@@ -60,6 +62,7 @@ in
       "d ${dataDir} 0755 tempo tempo -"
       "d ${dataDir}/traces 0755 tempo tempo -"
       "d ${dataDir}/wal 0755 tempo tempo -"
+      "d ${dataDir}/live-store 0755 tempo tempo -"
     ];
   };
 }
