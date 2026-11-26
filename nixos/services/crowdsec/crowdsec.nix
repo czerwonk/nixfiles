@@ -67,6 +67,9 @@ in
           }
         ];
         config = {
+          # the reworked module defaults to /var/lib/crowdsec/data; keep the
+          # pre-rework dir so the existing sqlite DB (machines, bouncers) is used
+          config_paths.data_dir = "/var/lib/crowdsec/state";
           api = {
             # keep the pre-rework location so existing machine credentials stay valid
             client.credentials_path = "/var/lib/crowdsec/local_api_credentials.yaml";
