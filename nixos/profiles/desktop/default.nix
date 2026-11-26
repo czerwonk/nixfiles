@@ -69,6 +69,7 @@
       vlc
       wireshark
       xsel
+      wl-clipboard
       yubioath-flutter
     ];
     extraGroups = [

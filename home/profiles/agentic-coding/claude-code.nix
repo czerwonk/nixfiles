@@ -69,6 +69,13 @@ let
       [ -f "$workdir/.git/config" ] && extra+=(--ro-bind "$workdir/.git/config" "$workdir/.git/config")
     fi
 
+    # The Wayland socket enables pasting images (Claude Code reads them via wl-paste). Accepted
+    # trade-off: clients can read the clipboard (data-control) and open windows, but unlike X11
+    # they can't log keys or inject input into other windows.
+    if [ -n "''${WAYLAND_DISPLAY:-}" ] && [ -S "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" ]; then
+      extra+=(--ro-bind "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY")
+    fi
+
     # /tmp and $XDG_RUNTIME_DIR are private (host sockets like X11 or systemd --user would allow
     # escaping). Order matters: later binds override earlier ones, so the workdir (possibly inside
     # ~/Projects) comes after the read-only paths and the git read-only paths come last.
