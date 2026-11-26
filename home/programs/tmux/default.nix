@@ -27,10 +27,10 @@ in
 
   config = {
     programs.tmux = {
-      enable = lib.mkDefault true;
-      shortcut = lib.mkDefault "a";
-      shell = lib.getExe pkgs.zsh;
-      terminal = "screen-256color";
+      enable = mkDefault true;
+      shortcut = mkDefault "a";
+      shell = getExe pkgs.zsh;
+      terminal = mkDefault "screen-256color";
       keyMode = "vi";
       escapeTime = 1;
       baseIndex = 1;
