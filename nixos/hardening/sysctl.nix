@@ -1,3 +1,5 @@
+{ lib, config, ... }:
+
 {
   boot.kernel.sysctl = {
     "fs.protected_hardlinks" = true;
@@ -15,6 +17,7 @@
     "kernel.sysrq" = false;
     "kernel.yama.ptrace_scope" = true;
     "kernel.unprivileged_bpf_disabled" = true;
+    "kernel.unprivileged_userns_clone" = lib.mkDefault config.virtualisation.containers.enable;
 
     "net.core.bpf_jit_harden" = 2;
 

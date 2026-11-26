@@ -49,7 +49,7 @@ in
   config = mkIf cfg.enable {
     services.crowdsec = {
       enable = true;
-      localConfig = {
+      settings = {
         acquisitions = [
           {
             source = "journalctl";
@@ -66,12 +66,10 @@ in
             labels.type = "auditd";
           }
         ];
-      };
-      settings = {
-        lapi = {
-          credentialsFile = "/var/lib/crowdsec/local_api_credentials.yaml";
-        };
-        general = {
+        config = {
+          lapi = {
+            credentialsFile = "/var/lib/crowdsec/local_api_credentials.yaml";
+          };
           api = {
             server = {
               enable = true;

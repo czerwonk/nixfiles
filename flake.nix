@@ -2,12 +2,12 @@
   description = "Daniel Brendgen-Czerwonk's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-26.11";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,7 +18,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    impermanence.url = "github:nix-community/impermanence?ref=7b1d382faf603b6d264f58627330f9faa5cba149";
+    impermanence.url = "github:nix-community/impermanence?ref=fa627f4c8b8e92f58f58a73d99ee4e1304e64eb2";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.8.0";
 
@@ -37,7 +37,7 @@
     };
 
     hakanai = {
-      url = "github:czerwonk/hakanai?ref=v3.1.1";
+      url = "github:czerwonk/hakanai?ref=v3.1.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -138,7 +138,7 @@
             inputs.private.home
           ];
         };
-        osaka = systemLib.mkNixOSSystemUnstable {
+        osaka = systemLib.mkNixOSSystem {
           configName = "osaka";
           inherit system;
           username = inputs.private.username { };

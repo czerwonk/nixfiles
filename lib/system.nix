@@ -69,6 +69,7 @@
           };
         }
         inputs.impermanence.nixosModule
+        inputs.nix-flatpak.nixosModules.nix-flatpak
       ]
       ++ extraModules;
       specialArgs = {

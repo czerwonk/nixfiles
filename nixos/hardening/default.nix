@@ -48,7 +48,6 @@
     }
   ];
 
-  security.unprivilegedUsernsClone = lib.mkDefault config.virtualisation.containers.enable;
   security.virtualisation.flushL1DataCache = "always";
 
   programs.firejail.enable = true;

@@ -29,7 +29,7 @@
   };
 
   security.chromiumSuidSandbox.enable = true;
-  security.unprivilegedUsernsClone = true;
+  boot.kernel.sysctl."kernel.unprivileged_userns_clone" = true;
 
   programs.firejail.wrappedBinaries = {
     fractal = {

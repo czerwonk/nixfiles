@@ -34,10 +34,10 @@
     "vm.max_map_count" = 1048576;
   };
 
-  services.journald.extraConfig = ''
-    SystemMaxUse=10000M
-    MaxFileSec=30day
-  '';
+  services.journald.settings.Journal = {
+    SystemMaxUse = "10000M";
+    MaxFileSec = "30day";
+  };
 
   users.users.${username} = {
     uid = 1000;
