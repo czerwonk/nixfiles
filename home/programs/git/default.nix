@@ -88,6 +88,7 @@
     };
     ignores = [
       "coverage.out"
+      ".worktrees/"
     ];
   };
 
@@ -103,5 +104,7 @@
   programs.worktrunk = {
     enable = lib.mkDefault config.programs.git.enable;
     enableZshIntegration = true;
+    # inside the repo so sandboxed agents can write to their worktrees
+    settings.worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}";
   };
 }

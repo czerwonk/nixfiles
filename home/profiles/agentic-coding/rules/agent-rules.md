@@ -34,22 +34,26 @@ For changes touching the data model, persistence, caching, nullability or concur
 - What is shared and what stays separate (logic vs. state/cache)
 - Which existing code/libraries are reused
 ## 5. Workflow
-Per task - with OpenSpec per `tasks.md` item:
-1. Write a failing test first (features and fixes)
+For every change, including one-off changes - with OpenSpec per `tasks.md` item:
+1. Write a failing test first (features and fixes); skip this for changes without testable behavior (docs, comments, config tweaks, rule files)
 2. Implement
 3. Run the formatter, linters and tests from the guide's checklist
 4. Update the README for user-facing changes (features, flags, configuration); with OpenSpec tick the task (`- [ ]` → `- [x]`)
-5. Commit code, tests and the ticked task together
+5. Defined tasks only (see section 6): commit code, tests and the ticked task together on the change branch
 6. Report what was not verified (see section 11)
 ## 6. Git
-- Commit after each completed task that modifies files (with OpenSpec: each `tasks.md` item), unless the task or skill says not to - also for small fixes
+- **Never run `git push`** - pushing is always done by me
+- Defined tasks - an OpenSpec change (`/opsx:apply`) or work I explicitly ask to be done on a branch:
+  - Work on a branch per change (`wt switch -c <change-name>`), never commit directly to the default branch
+  - Commit per task (with OpenSpec: each `tasks.md` item) on that branch as checkpoints; OpenSpec artifacts get their own checkpoint commits (`docs: propose <change>`, `docs: update <change> design`)
+  - When the change is complete (wrap-up green), show the branch commits and the proposed squash commit message, wait for my OK, then run `wt merge`
+  - The squash commit contains everything - code, tests, ticked `tasks.md` and OpenSpec artifacts - so reverting it undoes the whole change
+- One-off changes outside a defined task (small fixes, config tweaks, rule updates): don't commit - leave the changes in the working tree and summarize them for review
 - Format: `type: description` (feat/fix/docs/refactor/test/chore/ci), one logical change per commit
-- Commit OpenSpec artifacts separately from code: `docs: propose <change>`, `docs: update <change> design`, `docs: archive <change>`
 - Never amend, squash or rewrite commits you didn't create in this session without asking
 ## 7. CI/CD and Deployment
 - Check `.gitignore` for patterns like `*.yml` that would hide `.gitlab-ci.yml` or other CI files
 - Before committing CI/CD or deployment changes, state whether pushing the branch triggers a deployment or whether deploys are tag-based
-- **Never push to a branch that deploys without asking**
 ## 8. Code Quality
 - Keep it simple, avoid premature optimization, prefer readable over clever code
 - Tests with more than one assertion give context on failure (e.g. assertion messages / description strings)
@@ -69,7 +73,7 @@ Per task - with OpenSpec per `tasks.md` item:
 - In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
 ## 10. Sandbox and Tools
 - You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Writable: the project, `/tmp` (private to the sandbox - I can't see files there), `~/.claude` and tool caches (`~/.cache`, Go/Cargo/podman stores). Everything else is read-only or hidden by design
-- In the repository `.git/config` and `.git/hooks` are read-only: commit and plain `git push` work, but no `git config`, `git remote add/set-url`, `git push -u` or hooks - tell me if one is needed
+- In the repository `.git/config` and `.git/hooks` are read-only: commits work, but no `git config`, `git remote add/set-url` or hooks - tell me if one is needed
 - **Don't try to write outside the sandbox context** - not to check whether it works, not via another path, tool or `sudo`. It fails every time and only costs time and tokens. If a task needs it, say so and stop
 - No remote access: `ssh`, `scp`, `sftp`, `rsync` are denied - if a task needs a remote host, tell me the command and I'll run it myself
 - Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
@@ -78,7 +82,7 @@ Per task - with OpenSpec per `tasks.md` item:
   - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
   - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
 ## 11. Verification Honesty
-- At the end of each task, list what was not verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, not pushed, image not built
+- At the end of each task, list what was not verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, image not built, changes left uncommitted (one-off changes) or branch not yet merged
 - If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
 ## 12. Dependencies
 - Avoid new external dependencies unless necessary; state the reason when adding one
