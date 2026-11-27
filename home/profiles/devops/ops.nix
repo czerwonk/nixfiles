@@ -20,6 +20,7 @@
       mysql-shell
       net-reduce
       opentofu
+      sops
       syft
       termshark
       terrascan
