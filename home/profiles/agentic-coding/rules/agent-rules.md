@@ -72,18 +72,18 @@ For every change, including one-off changes - with OpenSpec per `tasks.md` item:
 - Never log or commit secrets/tokens; compare tokens and other secrets in constant time
 - In public repositories (e.g. github.com remotes, unless known to be private) never put internal hostnames, IPs, infrastructure details or customer data into code, docs, tests or commit messages
 ## 10. Sandbox and Tools
-- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Writable: the project, `/tmp` (private to the sandbox - I can't see files there), `~/.claude` and tool caches (`~/.cache`, Go/Cargo/podman stores). Everything else is read-only or hidden by design
+- You run in a sandbox (bubblewrap in the terminal, firejail in Zed). Writable: the project, `/tmp` (private to the sandbox - I can't see files there), `~/.claude` and tool caches (`~/.cache`, Go/Cargo stores). Everything else is read-only or hidden by design
 - In the repository `.git/config` and `.git/hooks` are read-only: commits work, but no `git config`, `git remote add/set-url` or hooks - tell me if one is needed
 - **Don't try to write outside the sandbox context** - not to check whether it works, not via another path, tool or `sudo`. It fails every time and only costs time and tokens. If a task needs it, say so and stop
 - No remote access: `ssh`, `scp`, `sftp`, `rsync` are denied - if a task needs a remote host, tell me the command and I'll run it myself
 - Missing tools: use `nix shell nixpkgs#<package> -c <command>` (or `nix run`); never install globally (`nix profile install`, `cargo install`, `go install`, `npm -g`, `pip install --user`, `curl | sh`)
-- Containers: **there is no Docker, only Podman** - use `podman` (`podman build`, `podman run`, `podman compose`), `docker` is just an alias on the workstation; Dockerfiles work as they are
+- Containers: **there is no Docker, only Podman** - `podman` talks to the host's rootless podman service (remote mode, `CONTAINER_HOST`), so images, containers and volumes live on the host; use `podman` (`podman build`, `podman run`, `podman compose`), `docker` is just an alias on the workstation; Dockerfiles work as they are
 - Every podman call is reviewed by me before it runs, so:
-  - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project or `/tmp`; **never mount anything outside the sandbox context** - no `$HOME` or paths in it outside the project, no `/`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
+  - Bind mounts (`-v`, `--volume`, `--mount`) only for paths inside the project; podman runs on the host (remote mode), so paths resolve there and the sandbox's private `/tmp` is not reachable; **never mount anything outside the project** - no `$HOME` or paths in it outside the project, no `/`, `/tmp`, `/etc`, `/run`, `/nix`, `/var`, no sockets (podman/docker socket, ssh/gpg agent)
   - No `--privileged`, `--cap-add`, `--device`, `--security-opt`, `--pid=host`, `--userns=host`, `--ipc=host`
 ## 11. Verification Honesty
 - At the end of each task, list what was not verified, e.g.: not checked in a browser, not run against a real database, no CI pipeline run, image not built, changes left uncommitted (one-off changes) or branch not yet merged
-- If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it
+- If the sandbox blocks git, a linter, podman or a network fetch, say so immediately and name the blocked path/command - don't retry or work around it. If the podman socket is missing, the host's `podman.socket` isn't running: ask me to start it
 ## 12. Dependencies
 - Avoid new external dependencies unless necessary; state the reason when adding one
 - New projects only, before the first commit: use the latest versions and the current patch release of the toolchain (Go, Rust, Node, ...) and update indirect dependencies too (`go get -u ./... && go mod tidy`, `cargo update`, `npm update`)

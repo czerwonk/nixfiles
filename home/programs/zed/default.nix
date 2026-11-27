@@ -20,7 +20,7 @@ let
     whitelist ''${RUNUSER}/pipewire-*
     whitelist ''${RUNUSER}/wayland-*
     whitelist ''${RUNUSER}/gnupg
-    whitelist ''${RUNUSER}/podman
+    whitelist ''${RUNUSER}/podman/podman.sock
     whitelist ''${RUNUSER}/keyring
 
     # The session bus allows starting commands outside the sandbox (systemd-run --user), so only
@@ -90,9 +90,7 @@ let
     whitelist ~/.ssh/config
     env SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
 
-    # allow podman
-    whitelist ~/.local/share/containers
-    read-write ~/.local/share/containers
+    # allow podman (remote mode against the host's rootless service, so no local storage)
     whitelist ~/.docker
     env CONTAINER_HOST=unix:///run/user/1000/podman/podman.sock
 

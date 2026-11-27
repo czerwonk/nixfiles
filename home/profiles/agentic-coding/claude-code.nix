@@ -33,22 +33,21 @@ let
     ".npmrc"
     ".cargo/credentials.toml"
   ];
-  # Tool caches/state (go, cargo, podman, ansible). ~/.claude and ~/.claude.json are bound
+  # Tool caches/state (go, cargo, ansible). ~/.claude and ~/.claude.json are bound
   # separately because the sandbox must not start without them.
   writableHomePaths = [
     ".cache"
     "go/pkg"
     ".cargo/registry"
     ".cargo/git"
-    ".local/share/containers"
     ".ansible"
   ];
-  # Only these runtime sockets are reachable: the gpg/ssh agent for git push/signing and podman
-  # (every call is reviewed). Everything else in $XDG_RUNTIME_DIR would allow running commands
-  # outside the sandbox (systemd --user, tmux, nvim) or reading secrets (session bus, keyring).
+  # Only these runtime dirs are reachable: the gpg/ssh agent for git push/signing and podman state.
+  # Everything else in $XDG_RUNTIME_DIR would allow running commands outside the sandbox
+  # (systemd --user, tmux, nvim) or reading secrets (session bus, keyring). The podman API socket
+  # is bound separately (see claude-code-bwrapped).
   runtimeDirs = [
     "gnupg"
-    "podman"
     "containers"
     "libpod"
   ];
@@ -67,6 +66,14 @@ let
       mkdir -p "$workdir/.git/hooks"
       extra+=(--ro-bind "$workdir/.git/hooks" "$workdir/.git/hooks")
       [ -f "$workdir/.git/config" ] && extra+=(--ro-bind "$workdir/.git/config" "$workdir/.git/config")
+    fi
+
+    # Rootless podman can't run inside bwrap (no /sys/fs/cgroup, single-ID user namespace,
+    # NoNewPrivs blocks newuidmap), so podman runs in remote mode against the host's rootless
+    # service. Only the API socket is bound; every podman call is reviewed (managed-settings.nix).
+    podman_socket="$XDG_RUNTIME_DIR/podman/podman.sock"
+    if [ -S "$podman_socket" ]; then
+      extra+=(--bind "$podman_socket" "$podman_socket" --setenv CONTAINER_HOST "unix://$podman_socket")
     fi
 
     # The Wayland socket enables pasting images (Claude Code reads them via wl-paste). Accepted
