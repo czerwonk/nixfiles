@@ -12,6 +12,7 @@
       ansible-lint
       ansible-role
       crane
+      gitleaks
       google-cloud-sdk
       grype
       hyperfine
