@@ -141,4 +141,6 @@ in
       '';
     }
   ) skills;
+
+  programs.worktrunk.claudeCodeIntegration.enable = true;
 }

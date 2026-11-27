@@ -9,12 +9,6 @@ with lib;
 
 let
   cfg = config.my.scripts;
-  git-worktree-it = pkgs.writeScriptBin "git-worktree-it" (
-    "PATH=$PATH:${lib.makeBinPath [ pkgs.perl ]}\n" + (builtins.readFile ./git-worktree-it.sh)
-  );
-  git-worktree-clone = pkgs.writeScriptBin "git-worktree-clone" (
-    builtins.readFile ./git-worktree-clone.sh
-  );
   git-pull-all = pkgs.writeShellScriptBin "git-pull-all" (builtins.readFile ./git-pull-all.sh);
   nvim-tmux = pkgs.writeShellScriptBin "nvim-tmux" ''
     if [[ -z $TMUX ]]; then
@@ -44,8 +38,6 @@ in
   config = {
     home = {
       packages = [
-        git-worktree-it
-        git-worktree-clone
         git-pull-all
         nvim-tmux
       ];

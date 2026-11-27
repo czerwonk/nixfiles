@@ -91,12 +91,17 @@
     ];
   };
 
-  programs.zsh.shellAliases = {
+  programs.zsh.shellAliases = lib.mkIf config.programs.git.enable {
     g = "${config.programs.git.package}/bin/git";
     gs = "${config.programs.git.package}/bin/git status";
     ga = "${config.programs.git.package}/bin/git add";
     gd = "${config.programs.git.package}/bin/git diff HEAD";
     gp = "${config.programs.git.package}/bin/git push";
     commit = "${config.programs.git.package}/bin/git commit -a -m";
+  };
+
+  programs.worktrunk = {
+    enable = lib.mkDefault config.programs.git.enable;
+    enableZshIntegration = true;
   };
 }
