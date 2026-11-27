@@ -27,4 +27,6 @@
       vegeta
     ];
   };
+
+  programs.secretspec.enable = true;
 }
