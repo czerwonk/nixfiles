@@ -7,6 +7,7 @@
 
   home = {
     packages = with pkgs; [
+      age
       ansible
       ansible-lint
       ansible-role
